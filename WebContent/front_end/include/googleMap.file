@@ -1,0 +1,42 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp7jp6Eg1dQZxn6Fi6h4V34jLnbipVfVU&callback=initMap&language=zh-TW"
+    async defer></script>
+<script>
+    function initMap() {
+    	var latlng = document.getElementById("gym_latlng").value;
+    	// map
+    	var mapOptions = {
+            	center: new google.maps.LatLng(latlng.split(",")[0],latlng.split(",")[1]),
+            	panControl: true, //要不要出現可以上下左右移動的面板
+            	zoomControl: true, //要不要出現可以放大縮小的面板
+            	mapTypeControl: true, //切換地圖檢視類型的面板
+            	scaleControl: true, //比例尺資訊
+            	streetViewControl: true,  //顯示街景服務的面板
+            	overviewMapControl: true, //總覽圖的面板，在右下有個開合的圖示
+            	zoom: 15 //縮放的大小，0-18，0最小，18最大
+        };
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+		
+     	// marker
+     	var image = '/BA102G4/style/images/mapicon.png';
+     	var beachMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(latlng.split(",")[0],latlng.split(",")[1]),
+            map: map,
+            icon: image, //圖示
+            title: '我在這裡!!!', //title
+            animation: google.maps.Animation.BOUNCE //動畫
+        });
+     	//跳動動畫
+        beachMarker.addListener('click', function() {
+        	map.setZoom(18);
+        	map.setCenter(beachMarker.getPosition());
+        });
+        
+        map.addListener('center_changed', function() {
+            // 3 seconds after the center of the map has changed, pan back to the
+            // marker.
+        	window.setTimeout(function() {
+        		map.panTo(beachMarker.getPosition());
+        	}, 5000);
+        });
+    }
+</script>

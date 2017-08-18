@@ -1,0 +1,340 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            	<img class="logo" src="<%= request.getContextPath() %>/style/images/logo.gif">
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="navbar_icon">
+                        <a href="<%= request.getContextPath()%>/front_end/index.jsp">首頁</a>
+                    </li>
+
+                    <li class="dropdown navbar_icon">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">服務介紹 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">關於我們</a>
+                            </li>
+                            <li>
+                                <a href="#">公告消息</a>
+                            </li>
+                            <li>
+                                <a href="#">健身知識</a>
+                            </li>
+                            <li>
+                                <a href="<%= request.getContextPath()%>/front_end/browse/find_coaches.jsp">找教練</a>
+                            </li>
+                            <li>
+                                <a href="<%= request.getContextPath()%>/front_end/browse/find_students.jsp">找學員</a>
+                            </li>
+                            <li>
+                                <a href="#">找場地</a>
+                            </li>
+                            <li>
+                                <a href="#">找課程</a>
+                            </li>
+                        </ul>
+                    </li>
+                            
+                    <li class="navbar_icon">
+                        <a href="<%= request.getContextPath()%>/forum/ForumCtrl">討論專區</a>
+                    </li>
+                    <li class="navbar_icon">
+                        <a href="#">直播專區</a>
+                    </li>
+                   
+                    <li class="dropdown navbar_icon">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">客服專區 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="navbar_icon">
+                                <a href="#">常見問題</a>
+                            </li>
+                            <li class="navbar_icon">
+                                <a href="#">聯絡我們</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 判斷角色 -->
+                    <input type="text" id="rankColor" value="${sessionScope.user.mem_rank }">
+     
+<!-- 身分為訪客時，顯示 -->                    
+<c:if test="${empty sessionScope.user.mem_rank }">
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+                	<li class="navbar_icon">
+                    	<a href="<%= request.getContextPath()%>/front_end/login/login.jsp">
+                    		<span class="glyphicon glyphicon-user"></span>
+                    	 	註冊
+                    	</a>
+                    </li>
+                    <li class="navbar_icon">
+                    	<a href="<%= request.getContextPath()%>/front_end/login/login.jsp">
+                    		<span class="glyphicon glyphicon-log-in"></span>
+                    	 	登入
+                    	</a>
+                    </li>
+                </ul>
+</c:if>
+
+<!-- 身分為健身者時，顯示 -->                    
+<c:if test="${sessionScope.user.mem_rank == '0'}">
+					<!-- 個人空間 -->
+					<li class="dropdown navbar_icon">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">個人空間 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp">基本資料</a>
+                            </li>
+                            <li>
+                                <a href="#">相簿</a>
+                            </li>
+                            <li>
+                                <a href="#">行事曆</a>
+                            </li>
+                            <li>
+                                <a href="#">我的收藏</a>
+                            </li>
+                            <li>
+                                <a href="#">訊息</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <!-- 課程管理 -->
+                    <li class="dropdown navbar_icon">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">課程管理 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">選課記錄查詢</a>
+                            </li>
+                            <li>
+                                <a href="#">請假申請</a>
+                            </li>
+                            <li>
+                                <a href="#">課程回饋</a>
+                            </li>
+                            <li>
+                                <a href="#">課程檢舉</a>
+                            </li>
+                            <li>
+                                <a href="#">評價教練</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+				
+				<!-- 登出 -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="navbar_icon">
+                    	<a href="#">
+                    		<img src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=0&mem_no=${studentsVO.stu_no}" style="width:20px;" />
+                    		${sessionScope.user.mem_nickname}&nbsp學員，你好
+                   		</a>
+                    </li>
+                    <li class="navbar_icon">
+                    	<form method="post" action="<%= request.getContextPath() %>/StudentsServlet" name="form_logout">
+                    		<input type="hidden" name="action" value="logout">
+                    		<a href='javascript:document.form_logout.submit();'>
+                    			<span class="glyphicon glyphicon-log-out"></span>	
+                    			登出
+                    		</a>
+                    	</form>
+                    </li>
+                </ul>
+</c:if>
+
+<!-- 身分為教練時，顯示 -->                    
+<c:if test="${sessionScope.user.mem_rank == '1'}"> 
+                    <!-- 個人空間 -->
+					<li class="dropdown navbar_icon">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">個人空間 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp">基本資料</a>
+                            </li>
+                            <li>
+                                <a href="#">相簿</a>
+                            </li>
+                            <li>
+                                <a href="#">行事曆</a>
+                            </li>
+                            <li>
+                                <a href="#">我的收藏</a>
+                            </li>
+                            <li>
+                                <a href="#">留言板</a>
+                            </li>
+                            <li>
+                                <a href="#">訊息</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <!-- 課程管理 -->
+                    <li class="dropdown navbar_icon">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">課程管理 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">課程上/下架</a>
+                            </li>
+                            <li>
+                                <a href="#">課程紀錄查詢</a>
+                            </li>
+                            <li>
+                                <a href="#">課程報表查詢</a>
+                            </li>
+                            <li>
+                                <a href="#">課程Q&A</a>
+                            </li>
+                            <li>
+                                <a href="#">開課通知</a>
+                            </li>
+                            <li>
+                                <a href="#">檢舉學員</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <!-- 直播管理 -->
+                    <li class="dropdown navbar_icon">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">直播管理 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">直播上/下架</a>
+                            </li>
+                            <li>
+                                <a href="#">直播管理</a>
+                            </li>
+                            <li>
+                                <a href="#">直播報表查詢</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <!-- 廣告申請 -->
+                    <li class="navbar_icon">
+                        <a href="#">廣告申請</a>
+                    </li>
+                    
+                    <!-- 場地租借 -->
+                    <li class="dropdown navbar_icon">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">場地租借 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">付訂金</a>
+                            </li>
+                            <li>
+                                <a href="#">付尾款</a>
+                            </li>
+                            <li>
+                                <a href="#">檢舉場地</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- 登出 -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="navbar_icon">
+                    	<a href="#">
+                    		<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachesVO.coa_no}" style="width:20px;" />
+                    		${sessionScope.user.mem_nickname}&nbsp教練，你好
+                    	</a>
+                    </li>
+                    <li class="navbar_icon">
+                    	<form method="post" action="<%= request.getContextPath() %>/CoachesServlet" name="form_logout">
+                    		<input type="hidden" name="action" value="logout">
+                    		<a href='javascript:document.form_logout.submit();'>
+                    			<span class="glyphicon glyphicon-log-out"></span>	
+                    			登出
+                    		</a>
+                    	</form>
+                    </li>
+                </ul>
+</c:if>
+
+<!-- 身分為健身房業者時，顯示 -->                    
+<c:if test="${sessionScope.user.mem_rank == '2'}"> 
+					<!-- 個人空間 -->
+					<li class="dropdown navbar_icon">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">個人空間 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp">基本資料</a>
+                            </li>
+                            <li>
+                                <a href="#">相簿</a>
+                            </li>
+                            <li>
+                                <a href="#">行事曆</a>
+                            </li>
+                            <li>
+                                <a href="#">留言板</a>
+                            </li>
+                            <li>
+                                <a href="#">訊息</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <!-- 廣告申請 -->
+                    <li class="navbar_icon">
+                        <a href="#">廣告申請</a>
+                    </li>
+                    
+                    <!-- 租借管理 -->
+                    <li class="dropdown navbar_icon">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">租借管理 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">申請者管理</a>
+                            </li>
+                            <li>
+                                <a href="<%= request.getContextPath() %>/front_end/rentManagement/placePublish.jsp">場地上/下架</a>
+                            </li>
+                            <li>
+                                <a href="#">租借紀錄查詢</a>
+                            </li>
+                            <li>
+                                <a href="#">租借報表查詢</a>
+                            </li>
+                            <li>
+                                <a href="#">檢舉教練</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+				
+				<!-- 登出 -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="navbar_icon">
+                    	<a href="#">
+                    		<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=2&mem_no=${gymsVO.gym_no}" style="width:25px;" />
+                    	 	${sessionScope.user.mem_nickname}&nbsp健身房業者，你好
+                    	</a>
+                    </li>
+                    <li class="navbar_icon">
+                    	<form method="post" action="<%= request.getContextPath() %>/GymsServlet" name="form_logout">
+                    		<input type="hidden" name="action" value="logout">
+                    		<a href='javascript:document.form_logout.submit();'>
+                    			<span class="glyphicon glyphicon-log-out"></span>	
+                    			登出
+                    		</a>
+                    	</form>
+                    </li>
+                </ul>
+                
+</c:if>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->

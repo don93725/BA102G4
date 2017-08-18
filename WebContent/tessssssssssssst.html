@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5拖曳多檔案上傳</title>
+    <script type="Text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+    <style>
+    #dropDIV{
+        text-align: center;
+        width: 600px;
+        height: 150px;       
+        margin: auto;
+        border: dashed 2px gray;
+        background-image:url("");
+    }
+
+    </style>
+    <script>
+    	window.onload = function(){
+    		document.getElementById("clickimg").addEventListener('change',updateHandler,false);
+    	}
+ 		function updateFile(){
+			$("#clickimg").click();
+ 		}
+        function dragoverHandler(evt) {
+            evt.preventDefault();
+            if($("#imgDIV > img").size() == 5){
+        		$("#dropDIV").css("background-color","firebrick");
+        	}else{
+        		$("#dropDIV").css("background-color","gray");
+        	}
+        }
+        function dropHandler(evt) {//evt 為 DragEvent 物件
+            evt.preventDefault();
+            $("#dropDIV").css("background-color","white");
+            var files = evt.dataTransfer.files;//由DataTransfer物件的files屬性取得檔案物件
+        
+            for (var i in files) {
+                if (files[i].type == 'image/jpeg' || 'image/png') {
+                    //將圖片在頁面預覽
+                    var fr = new FileReader();
+                    fr.onload = openfile;
+                    fr.readAsDataURL(files[i]);
+                }else{
+        			alert("只能傳圖片");
+        		}
+            }
+        }
+
+        function updateHandler(){
+        	if (this.files[0].type == 'image/jpeg' || 'image/png'){
+	        	var file = this.files[0];
+	        	var fr = new FileReader();
+	        	fr.onload = openfile;
+	            fr.readAsDataURL(file);
+        	}else{
+        		alert("只能傳圖片");
+        	}
+        }
+
+        function openfile(evt) {
+        	if($("#imgDIV > img").size() == 5){
+        		alert("最多只能新增五張圖片");
+        		return;
+        	}
+            var img = evt.target.result;
+            var imgx = document.createElement('img');
+            imgx.style.margin = "10px";
+            imgx.style.width = "100px";
+            imgx.style.height = "100px";
+            imgx.src = img;
+            imgx.className  = "aa";
+            document.getElementById('imgDIV').appendChild(imgx);
+        }   
+
+
+    </script>
+</head>
+<body>
+    <div id="dropDIV" ondragover="dragoverHandler(event)" ondrop="dropHandler(event)" onclick="updateFile()" >
+    拖曳圖片到此處上傳,最多五張
+    <div id="up_progress">
+    <div id="imgDIV" style="margin-bottom:30px;"></div>
+    </div>
+    </div>
+    <input type="file" id="clickimg" style="display: none;">
+</body>
+</html>

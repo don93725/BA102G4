@@ -1,0 +1,43 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!--navbar淡入-->
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("li.navbar_icon").fadeIn(1000);
+	});
+</script>
+
+<!--下拉式選單滑動 -->
+<script type="text/javascript">
+$(document).ready(function() {
+	$("li.navbar_icon").on('click', function () {
+		$.each($("li.navbar_icon"),function(){
+			$(this).children("ul.dropdown-menu")
+			.slideUp('fast');
+		});
+		$(this).children("ul.dropdown-menu")
+		.slideToggle('fast');
+	});
+});
+
+</script>
+
+<script>
+function init(){
+	<!-- 身分為健身者時，navbar顏色 -->
+	if(document.getElementById("rankColor").value == 0){  	
+		$("nav.navbar").css("background-color", "#87B87F");
+	}
+	<!-- 身分為教練時，navbar顏色 -->
+	if(document.getElementById("rankColor").value == 1){
+		$("nav.navbar").css("background-color", "#FFB752");
+	}
+	<!-- 身分為健身房業者時，navbar顏色 -->
+	if(document.getElementById("rankColor").value == 2){
+		$("nav.navbar").css("background-color", "#6FB3E0");
+	}
+	if(document.getElementById("rankColor").value == ''){
+		$("nav.navbar").css("background-color", "#303030");
+	}
+}
+	window.onload = init();
+</script>

@@ -1,0 +1,50 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- Bootstrap Core CSS -->
+    <link href="<%= request.getContextPath() %>/style/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS --><!--幻燈片-->
+    <link href="<%= request.getContextPath() %>/style/css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/font-awesome.min.css" />
+    <!-- page specific plugin styles -->
+    <!-- Custom Fonts -->
+    <link href="<%= request.getContextPath() %>/style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- jQuery --><!--訪客navbar動畫-1-->
+    <script src="<%= request.getContextPath() %>/style/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript --><!--訪客navbar動畫-2-->
+    <script src="<%= request.getContextPath() %>/style/js/bootstrap.min.js"></script>
+    <!-- ace settings handler --> 
+    <!--button樣式-->
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/ace.min.css" />
+    
+	<!-- 超強動畫 -->
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/sweetalert.css" />
+	<script src="<%= request.getContextPath() %>/style/assets/js/sweetalert.min.js"></script>
+    
+    <!-- colorbox -->
+    <script src="<%= request.getContextPath() %>/style/assets/js/jquery.colorbox.js"></script>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/colorbox.css" />
+    <!--按鈕產生對話框-->
+<script type="text/javascript">
+    jQuery(function($) {
+        $('[data-rel=tooltip]').tooltip();
+    });
+</script>
+
+<style>
+    body{
+        background-image: url("<%= request.getContextPath() %>/style/images/bg-img.png");
+        background-attachment: fixed;
+    }
+    nav.navbar{
+        background-color: #303030;
+    }
+    img.logo{
+    	height: 50px;
+    	padding-top:5px;
+    }
+    li.navbar_icon{
+    	display: none;
+    }
+</style>

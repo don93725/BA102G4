@@ -1,0 +1,58 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- 控制字數顯示 -->
+<script>
+$(function(){
+	var len = 15; // 超過以"..."取代
+    $(".into").each(function(){
+        if($(this).text().length>len){
+            $(this).attr("title",$(this).text());
+            var text=$(this).text().substring(0,len-1)+" ...";
+            $(this).text(text);
+        }
+    });
+});
+</script>
+<!-- 動畫 -->
+<script>
+	function tick(){
+	/* 身分為健身者時，loading為*/
+	if(document.getElementById("rankColor").value == 0){  	
+		var self = $(this).parents("#search_stu");
+		swal({
+			title: "查詢中",
+			text: "請稍後",
+			imageUrl: "/BA102G4/style/images/p2.gif",
+			timer: 1500,
+			showConfirmButton: false
+		},function (){
+			self.submit();
+		});
+	}
+	/* 身分為教練時，loading為 */
+	if(document.getElementById("rankColor").value == 1){
+		var self = $(this).parents("#search_stu");
+		swal({
+			title: "查詢中",
+			text: "請稍後",
+			imageUrl: "/BA102G4/style/images/p3.gif",
+			timer: 1500,
+			showConfirmButton: false
+		},function (){
+			self.submit();
+		});
+	}
+	/* 身分為健身房業者時，loading為 */
+	if(document.getElementById("rankColor").value == 2){
+		var self = $(this).parents("#search_stu");
+		swal({
+			title: "查詢中",
+			text: "請稍後",
+			imageUrl: "/BA102G4/style/images/p4.gif",
+			timer: 1500,
+			showConfirmButton: false
+		},function (){
+			self.submit();
+		});
+	}
+	}
+</script>

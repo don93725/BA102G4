@@ -1,0 +1,98 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- 限制字數 -->
+		<script type="text/javascript">
+			//限制字數
+			$(document).ready(function() {
+				$('textarea.limited').inputlimiter({
+					remText: '目前剩餘 %n 個字...',
+					limitText: '最多 : %n 字'
+				});
+			});
+		</script>
+		
+<!-- 顯示照片上傳，隱藏自拍 -->
+		<script type="text/javascript">
+			function fileUpdate() {
+				$('#picPanel1').toggle();
+				$('#picPanel2').hide();
+				$('#updatePic').attr("disabled", true);
+				$('#takePic').attr("disabled", false);
+				Webcam.reset();
+				document.getElementById('pre_take_buttons').style.display = '';
+			}
+		</script>
+		<!-- 設定web開啟及大小及拍照後的圖片大小，並設置到div"#my_camera"中 -->
+		<script language="JavaScript">
+		function openCam() {
+			$('#picPanel2').toggle();
+			$('#picPanel1').hide();
+			$('#takePic').attr("disabled", true);
+			$('#updatePic').attr("disabled", false);
+
+				Webcam.set({
+					width: 320,
+					height: 240,
+					crop_width: 198,
+		  		    crop_height: 198,	        
+					image_format: 'jpeg',
+					jpeg_quality: 90
+				});
+				Webcam.attach( '#my_camera' );
+		} 
+		</script>
+<!-- 快門聲、自拍按鈕出現與隱藏、拍照後的圖片 -->
+		<script language="JavaScript">
+			function preview_snapshot() {
+				//快門聲
+				var shutter = new Audio();
+				shutter.autoplay = false;
+				shutter.src = navigator.userAgent.match(/Firefox/) ? '/BA102G4/audio/shutter.ogg' : '/BA102G4/audio/shutter.mp3';
+				shutter.play();
+				
+				// 顯示拍照後的圖片
+				Webcam.snap( function(data_uri) {	
+					$("#head_img").show();
+					$('.cropped').html('');
+					$('.cropped').append('<img src="'+data_uri+'" align="absmiddle" style="width:64px;margin-top:4px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" ><p>註冊成功後，您的頭像會長這樣</p>');
+					//base64縮圖
+					$('#cropped').val(data_uri);
+					console.log(data_uri);
+				});
+			}
+		</script>
+<!-- 照片上傳裁切 -->
+		<script type="text/javascript">
+		$(document).ready(function() {
+			var options =
+			{
+				thumbBox: '.thumbBox',
+				spinner: '.spinner',
+				imgSrc: 'images/noPic.png'
+			}
+			var cropper = $('.imageBox').cropbox(options);
+		$('#upload-file').on('change', function(){
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			options.imgSrc = e.target.result;
+			cropper = $('.imageBox').cropbox(options);
+		}
+		reader.readAsDataURL(this.files[0]);
+	})
+	$('#btnCrop').on('click', function(){
+		var img = cropper.getDataURL();
+		$('.cropped').html('');
+		$('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:64px;margin-top:4px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" ><p>註冊成功後，您的頭像會長這樣</p>');
+		//base64縮圖
+		$('#cropped').val(img);
+		$("#head_img").show();
+		console.log(img);
+	})
+	//放大縮小
+	$('#btnZoomIn').on('click', function(){
+		cropper.zoomIn();
+	})
+	$('#btnZoomOut').on('click', function(){
+		cropper.zoomOut();
+	})
+});
+</script>
