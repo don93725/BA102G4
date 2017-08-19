@@ -63,7 +63,6 @@
 
 <div class="container" style="min-height: 100%;">
 	<div class="row">
-		<div class="col-xs-12 col-sm-12" >
 		  <div class="breadcrumbs" id="breadcrumbs">
             
             <div class="col-lg-12">
@@ -82,7 +81,6 @@
                 <li class="active">${articles.art_name }</li>
             </ul><!-- .breadcrumb -->
         </div>
-		</div>
 		<div class="col-xs-12 col-sm-12" >
 		<c:if test="${thisPage==1}">
 
@@ -95,7 +93,7 @@
 						  		<tr>	
 									<td rowspan='3' width='100' style='text-align: center' valign="top"><img width=80 src='${pageContext.request.contextPath}/util/OutputPic?mem_no=${articles.mem_no.mem_no}&mem_rank=${articles.mem_no.mem_rank}'><br>
 									<a href='${pageContext.request.contextPath}/forum/PersonalPageCtrl?mem_no=${articles.mem_no.mem_no}'>${articles.mem_no.mem_nickname}</a><br>
-									<c:if test="${articles.mem_no.mem_rank=='0'}">健身者</c:if><c:if test="${articles.mem_no.mem_rank=='1'}">教練</c:if><c:if test="${articles.mem_no.mem_rank=='2'}">健身房</c:if>
+									<c:if test="${articles.mem_no.mem_rank=='0'}">學員</c:if><c:if test="${articles.mem_no.mem_rank=='1'}">教練</c:if><c:if test="${articles.mem_no.mem_rank=='2'}">健身房</c:if>
 									<c:if test="${not empty user }">
 									<br>
 									<button class='btn btn-primary' onclick='sharePhoto.call(this,event,"${pageContext.request.contextPath}","${articles.forum_no}","${articles.art_type}","${articles.art_name}","${articles.art_no}","${articles.mem_no.mem_no}","${articles.mem_no.mem_rank}","${articles.mem_no.mem_nickname}","${articles.art_add_date}");'>分享</button>
@@ -125,7 +123,7 @@
 							<tbody>
 								<tr>	
 									<td rowspan='3' width='100' style='text-align: center' valign="top"><img width=80 src='${pageContext.request.contextPath}/util/OutputPic?mem_no=${comments.mem_no.mem_no}&mem_rank=${comments.mem_no.mem_rank}'><br><a href='${pageContext.request.contextPath}/forum/PersonalPageCtrl?mem_no=${comments.mem_no.mem_no}'>${comments.mem_no.mem_nickname}</a><br>
-								<c:if test="${comments.mem_no.mem_rank=='0'}">健身者</c:if><c:if test="${comments.mem_no.mem_rank=='1'}">教練</c:if><c:if test="${comments.mem_no.mem_rank=='2'}">健身房</c:if></td>
+								<c:if test="${comments.mem_no.mem_rank=='0'}">學員</c:if><c:if test="${comments.mem_no.mem_rank=='1'}">教練</c:if><c:if test="${comments.mem_no.mem_rank=='2'}">健身房</c:if></td>
 								
 								<td valign="top">${comments.art_cmt_ctx }</td>
 								</tr>

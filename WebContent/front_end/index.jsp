@@ -9,7 +9,7 @@
 
 <head>
     <title>健貨 - GymHome</title>
-		<%@include file="/front_end/include/basicScript.file" %>
+		<%@include file="/front_end/include/basicScript.file" %>		
 </head>
 
 <body>
@@ -242,25 +242,15 @@
         </div>
 </div><!-- page container3結束 -->
 </div><!-- 最新消息+健身知識 結束 -->
-<br>
 
 
 <!-- 討論區 -->
-<div class="full_width" style="background-color: #E34E50;width: 100%;">
+<div class="full_width" style="background-image: url('/BA102G4/style/images/ranking_img.jpg');background-attachment: fixed;">
 <!-- page container4 -->
 <div class="container">
 <p></p>
         <!-- 討論區 -->
-        <div class="row">
-            <div class="col-xs-12 col-md-12">
-                <center>
-                	<h2 class="page-header white_bg" style="color:white;">討論專區<small style="color:white;">Forum</small></h2>
-                </center>
-            </div>   
-            <div class="col-xs-12 col-md-12">
-            	aaaaaaa
-            </div><!--col-lg-12-->
-		</div>
+        <%@ include file="/front_end/include/forum.file" %>
 		<!-- /.row -->   
 <br>
 </div>
@@ -291,4 +281,5 @@ $(function(){
     });
 });
 </script>
+
 </html>

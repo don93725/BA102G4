@@ -2,11 +2,34 @@
 	<br>
 		<div class="container">	
             <div class="row">
+            
+            	<div class="col-xs-12 col-md-4"></div>
+            	
+                <div class="col-xs-12 col-md-4">
+                 	<center>
+                		<a href="http://www.facebook.com.tw" style="text-decoration: none;">
+                			<i class="middle icon-facebook-sign icon-4x blue" style="margin:5px;"></i>
+                		</a>
+                		<a href="http://www.twitter.com" style="text-decoration: none;">
+                			<i class="middle icon-twitter-sign icon-4x light-blue" style="margin:5px;"></i>
+                		</a>
+                		<a href="http://www.pinterest.com" style="text-decoration: none;">
+                			<i class="middle icon-pinterest-sign icon-4x red" style="margin:5px;"></i>
+                		</a>
+                		<a href="http://www.youtube.com" style="text-decoration: none;">
+                			<i class="middle icon-youtube-sign icon-4x red" style="margin:5px;"></i>
+                		</a>
+                	</center>
+                </div>
+                
+            	<div class="col-xs-12 col-md-4"></div>    
+
                 <div class="col-xs-12 col-md-12">
                     <center>
                     	<p>Copyright &copy; HelloWorld Web Site 2017</p>
                     </center>
                 </div>
+
             </div>
     	</div> 
     <br>

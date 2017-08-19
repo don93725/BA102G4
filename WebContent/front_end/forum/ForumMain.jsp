@@ -47,9 +47,8 @@
 			                     </li>
 			                <li class="active">討論版</li>
 			            </ul><!-- .breadcrumb -->
-			        </div>
+			        </div><br></div>
 				
-				</div>	
 				<div class="col-xs-12 col-sm-12">
 	
 	<c:if test="${not empty user }">

@@ -22,7 +22,6 @@
   </nav>
 <div class="container" style="min-height: 100%;">
 	<div class="row">
-		<div class="col-xs-12 col-sm-12">
 		  <div class="breadcrumbs" id="breadcrumbs">
             
             <div class="col-lg-12">
@@ -40,7 +39,6 @@
             </ul><!-- .breadcrumb -->
         </div>
 		
-		</div>
 		<div class="col-xs-12 col-sm-12">
 
 <div class="col-xs-12 col-sm-12">

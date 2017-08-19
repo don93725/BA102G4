@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -10,8 +10,6 @@
 		<meta content="Expires" content="-1">
 		<meta content="Catch-Control" content="no-cache">
 		<meta content="Pragma" content="no-cache">
-		<title>Title Page</title>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/front_end/comm/css/sweetalert.css">
 
 		<!--[if lt IE 9]>
@@ -28,15 +26,41 @@
 			}
 
 		</style>
-	</head>
+<title>健貨 - GymHome</title>
+<%@include file="/front_end/include/basicScript.file" %>
+</head>
+
+<body>
+	
+	<!-- 導覽列 -->
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<%@include file="/front_end/include/front_navbar.file" %>
+  </nav>
 
 	<body>		
-		<div class="container">
-			<div class="row">
+		<div class="container" style='min-height: 100%'>
+				   <div class="breadcrumbs" id="breadcrumbs">
+	            
+			            <div class="col-lg-12">
+			                <h1>相簿
+			                </h1>
+			            </div>
+			
+			            <ul class="breadcrumb">
+			                <li>
+			                    <i class="icon-home home-icon"></i>
+			                        <a href="/BA102G4/front_end/index.jsp">首頁</a></li>
+			                     </li>
+			                <li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
+			                <li class="active">相簿</li>
+			            </ul><!-- .breadcrumb -->
+			        </div>
+			        <br>
+			<%@include file="/front_end/include/fakeTab.file" %>
 			<div class="panel panel-default">
-
-				<div class ="panel-heading">
-				<div class="row">
+			<div class="row">
+				<c:if test="${(not empty user&&param.mem_no==user.mem_no) }">
+				<div class ="panel-heading" style='margin-bottom: 5px;'>
 				<div class="col-xs-12 col-sm-8">
 					<input type="button" class="btn btn-inverse btn-lg" id='allCheck' value="全選">
 					<input type="button" class="btn btn-inverse btn-lg" id='chooseAlbum' value="選取">
@@ -51,13 +75,13 @@
 				<button type="button" class="btn btn-default btn-lg" aria-label="Left Align" onclick="six();">
 				<span class="glyphicon glyphicon-th"></span>
 				</div>
-				</div>
 
 					
 		
 				
 				
 				</div>
+				</c:if>
 				
 				
 				<div class ="panel-body">
@@ -95,6 +119,7 @@
 			
 				
 			</div>
+		</div>
 		</div>
 		
 
@@ -144,7 +169,6 @@
 
 
 		
-		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src='${pageContext.request.contextPath}/front_end/comm/js/sweetalert.min.js'></script>	
 		<script type="text/javascript">
 				function four(){
@@ -158,6 +182,7 @@
 					$('.album img').css("height","150px");
 				}
 				$(function (){
+						
 						var flag = 1;
 						$('#chooseAlbum').click(function(){
 							
@@ -185,7 +210,7 @@
 							}
 							});
 
-					
+						$('#albumTab').addClass('active');
 
 				})
 				
@@ -337,6 +362,12 @@
 				}
 
 		</script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</body>
+  	<!-- Footer -->
+	<%@include file="/front_end/include/footer.file" %>
+
+	<!-- 最底層 -->
+	<%@include file="/front_end/include/floor.file" %>
+	
+</body>
+	<%@include file="/front_end/include/basicScript2.file" %>
 </html>

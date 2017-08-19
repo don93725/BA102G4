@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
         <!-- 身分為健身者時的 Content -->
         <div class="row">
         	<div class="col-sm-12">
@@ -8,24 +10,29 @@
 							<a data-toggle="tab" href="#home1">基本資料</a>
 						</li>
 
-						<li>
-							<a data-toggle="tab" href="#home2">相簿</a>
+						<li id='album'>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${user.mem_no}");'>相簿</a>
+							
 						</li>
-
 						<li>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}");'>個人動態</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}&friend=1");'>好友動態</a>
+						</li>
+						<li id='calender'>
 							<a data-toggle="tab" href="#home3">行事曆</a>
 						</li>
 						
-						<li>
+						<li id='follow'>
 							<a data-toggle="tab" href="#home4">我的收藏</a>
 						</li>
 						
-						<li>
+						<li id='comment'>
 							<a data-toggle="tab" href="#home5">留言板</a>
-						</li>
-						
-						<li>
-							<a data-toggle="tab" href="#home6">訊息</a>
+						</li>						
+						<li id='message'>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}");'>訊息</a>
 						</li>
 					</ul>
 					
@@ -516,9 +523,7 @@
 						<!-- a $home1結束 -->
 						
 						<!-- 對應a #home2 -->
-						<div id="home2" class="tab-pane">
-							<p>Raw denim you probably haven't heard of them jean shorts Austin.Raw denim you probably haven't heard of them jean shorts Austin.</p>
-							<p>Raw denim you probably haven't heard of them jean shorts Austin.Raw denim you probably haven't heard of them jean shorts Austin.</p>
+						<div id="home2" class="tab-pane">							
 						</div>
 						<!-- 對應a #home2結束 -->
 						
@@ -549,6 +554,18 @@
 							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
 						</div>
 						<!-- 對應a #home6結束 -->
+						<!-- 對應a #home7 -->
+						<div id="home7" class="tab-pane">
+							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
+							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
+						</div>
+						<!-- 對應a #home7結束 -->
+						<!-- 對應a #home8 -->
+						<div id="home8" class="tab-pane">
+							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
+							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
+						</div>
+						<!-- 對應a #home8結束 -->
 					</div><!-- tab-cotent結束 -->
 					
 				</div>
@@ -564,3 +581,6 @@
 		swal("修改失敗", "請修正以下錯誤\n" + error2 + "\n" + error1 + "\n" + error3 + "\n" + error4, "error");
 	</script>
 </c:if>
+<script>
+function goTo(path){location.href = path;}
+</script>

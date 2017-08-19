@@ -39,7 +39,7 @@
             <ul class="breadcrumb">
                 <li>
                     <i class="icon-home home-icon"></i>
-                        <a href="#">首頁</a>
+                        <a href="/BA102G4/front_end/index.jsp">首頁</a>
                      </li>
                 <li class="active">個人空間</li>
                 <li class="active">${requestScope.user.mem_nickname }的家</li>

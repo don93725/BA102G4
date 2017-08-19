@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -10,7 +10,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>健貨 - GYMHome</title>
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
@@ -239,21 +238,40 @@
 
 
 </style>
+<title>健貨 - GymHome</title>
+<%@include file="/front_end/include/basicScript.file" %>
 </head>
+
 <body ondragover="javascript: dragHandler(event);"
 	ondragleave="javascript: leave_image(event);">
+	
+	<!-- 導覽列 -->
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<%@include file="/front_end/include/front_navbar.file" %>
+  </nav>
 
 	<div class="container">
+			   <div class="breadcrumbs" id="breadcrumbs">
+            
+	            <div class="col-lg-12">
+	                <h1>${(empty param.friend)?"個人動態":"好友動態" }
+	                </h1>
+	            </div>
+	
+	            <ul class="breadcrumb">
+	                <li>
+	                    <i class="icon-home home-icon"></i>
+	                        <a href="/BA102G4/front_end/index.jsp">首頁</a></li>
+	                     </li>
+	                <li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
+	                <li class="active">${(empty param.friend)?"個人動態":"好友動態" }</li>
+	            </ul><!-- .breadcrumb -->
+	        </div>
+	        <br>
+		<%@include file="/front_end/include/fakeTab.file" %>
 		<div class="row">
-			<div class="col-xs-12 col-sm-2">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="panel-title">Panel title</h3>
-					</div>
-					<div class="panel-body">Panel content</div>
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-10" id="boardContainer">
+
+			<div class="col-xs-12 col-sm-12" id="boardContainer">
 				<c:if test="${!(empty param.friend && user.mem_no != param.mem_no)&& (not empty user)}">
 						<div class="panel panel-default opcityDiv" id='showBorder'
 					ondrop="javascript: drop_image(event);">
@@ -1540,10 +1558,13 @@
 		}
 
 	}
-		$(document)
-				.ready(
-						
-						function() {							
+		$(document).ready(function() {		
+							var fdKey = QueryString('friend');
+							if(fdKey!=null&&fdKey.trim().length!=0){
+								$('#FdBdTab').addClass('active');
+							}else{
+								$('#BdTab').addClass('active');				
+							}
 							$('#myCarousel').carousel({
 								interval : 5000
 							});
@@ -2367,6 +2388,12 @@
 			}
 		}
 		function reload(){
+			var fdKey = QueryString('friend');
+			if(fdKey!=null&&fdKey.trim().length!=0){
+				$('#FdBdTab').addClass('active');
+			}else{
+				$('#BdTab').addClass('active');				
+			}
 			$('#myCarousel').carousel({
 				interval : 5000
 			});
@@ -2453,5 +2480,12 @@
 		}
 		
 	</script>
+  	<!-- Footer -->
+	<%@include file="/front_end/include/footer.file" %>
+
+	<!-- 最底層 -->
+	<%@include file="/front_end/include/floor.file" %>
+	
 </body>
+	<%@include file="/front_end/include/basicScript2.file" %>
 </html>

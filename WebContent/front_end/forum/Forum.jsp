@@ -30,7 +30,6 @@
   </nav>
 	<div class="container" style='min-height: 100%;'>
 			<div class="row">
-				<div class="col-xs-12 col-sm-12">					
 					<div class="breadcrumbs" id="breadcrumbs">
 	            
 			            <div class="col-lg-12">
@@ -48,11 +47,12 @@
 			          </ul><!-- .breadcrumb -->
 	        		</div>
 					<br>
+				<div class="col-xs-12 col-sm-12">					
 					<c:if test="${! empty user }">
 						<a
 							href='${pageContext.request.contextPath}/forum/ArticlesActionCtrl?action=goCreatePage&forum_no=${param.forum_no }'><button class='btn btn-primary'>新增文章</button></a>
 					</c:if>
-					<c:if test="${(mem_no==user.mem_no&&!empty user.mem_no)||(mem_no==0&&user.mem_rank=='3') }">
+					<c:if test="${(mem_no==user.mem_no&&!empty user.mem_no)||(!empty user &&mem_no=='0'&&user.mem_rank==3) }">
 						<a id='trig' href="#" onclick="editForum('${pageContext.request.contextPath}','${param.forum_no }')"><button class='btn btn-primary'>編輯板塊</button></a>
 						<a class='inline' href="#inline_content" style='display:none;'></a>
 						<a href="${pageContext.request.contextPath}/forum/ArticlesReportActionCtrl?action=select&forum_no=${param.forum_no}"><button class='btn btn-primary'>管理檢舉</button></a>

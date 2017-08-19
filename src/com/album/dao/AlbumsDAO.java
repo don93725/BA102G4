@@ -113,7 +113,6 @@ public class AlbumsDAO extends BasicDAO implements DAOInterface<Albums> {
 				innerResult2 = true;
 				String sql = null;
 				for(String s: al_no){
-					System.out.println(s);
 					sql = "delete from albums where al_no=?";
 					Object[] param = {s};
 					String res = helper.executeUpdate(sql, param, null, con);
@@ -156,7 +155,6 @@ public class AlbumsDAO extends BasicDAO implements DAOInterface<Albums> {
 			sql = sql + " where " + where;
 		}
 		sql = sql + " order by " + order + ") where rn between " + firstPage + " and " + lastPage;
-		System.out.println(sql);
 		List<Albums> list = getVOBySQL(sql, null);
 		return list;
 	}

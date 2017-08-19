@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -13,7 +13,6 @@
 <meta content="Expires" content="-1">
 <meta content="Catch-Control" content="no-cache">
 <meta content="Pragma" content="no-cache">
-<title>Title Page</title>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/front_end/album/css/jquery.fancybox.css">
@@ -55,7 +54,8 @@ div.album img {
 div.addAlbum {
 	position:relative;
 	background-color: gray;
-	height: 340px;
+	height: 340px;	
+	width: 860px;
 	z-index: 0;
 	
 }
@@ -178,12 +178,40 @@ font-size:50px;
 }
 </style>
 
+<title>健貨 - GymHome</title>
+<%@include file="/front_end/include/basicScript.file" %>
 </head>
 
 <body>
-	<div class="container">
-			<div class="row">
+	
+	<!-- 導覽列 -->
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<%@include file="/front_end/include/front_navbar.file" %>
+  </nav>
+
+<body>
+	<div class="container" style='min-height: 100%'>
+				   <div class="breadcrumbs" id="breadcrumbs">            
+			            <div class="col-lg-12">
+			                <h1>相簿 <small>${album.al_name }</small></h1>
+			            </div>
+			
+			            <ul class="breadcrumb">
+			                <li>
+			                    <i class="icon-home home-icon"></i>
+			                        <a href="/BA102G4/front_end/index.jsp">首頁</a></li>
+			                     </li>
+			                <li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
+			                <li class="active"> <a href="<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${album.mem_no.mem_no }">相簿</a></li>
+			                <li class="active">${album.al_name }</li>
+			            </ul><!-- .breadcrumb -->
+			        </div>
+			        <br>
+			<%@include file="/front_end/include/fakeTab.file" %>
+			<div class="col-xs-12 col-sm-12">
+			<div class='row'>
 			<div class="panel panel-default">
+				<c:if test="${(not empty user&&param.mem_no==user.mem_no) }">
 				  <div class="panel-heading">
 				 	<div class="row">
 					<div class="col-xs-12 col-sm-8">
@@ -203,6 +231,7 @@ font-size:50px;
 				</div>
 				</div>
 				  </div>
+				  </c:if>
 				  	<div class="panel-body">				    
 				 
 				 
@@ -225,8 +254,8 @@ font-size:50px;
 					<div class="list-group-item text-center" style="padding-left: 0px ;height: 50px; ">								
 						<div><input type="checkbox" name="photo_no" value='${photo.photo_no }' hidden><span><c:out value="${photo.photo_desc}" /></span></div>						
 						<div style='display:none;'>
-							<div class='col-lg-8' style='padding-right: 0px;' >			
-								<input type='text' class='form-control' name='photo_desc' >
+							<div class='col-lg-8' style='padding-right: 0px;'>
+							<input type='text' class='form-control' name='photo_desc' >
 							</div >
 							<span class='input-group-btn' style='margin-left: 0px;' >
 								<input type='button' class='btn btn-group-btn' onclick='update_photo_desc.call(this,"${pageContext.request.contextPath}","${param.mem_no }","${photo.al_no }","${photo.photo_no }","${thisPage }");' value='確認'>
@@ -238,7 +267,7 @@ font-size:50px;
 				</div>	
 			</div>			
 			<div id='picCmt${photo.photo_no}' style='display:none;'>
-						<div class="panel panel-default" style='font-size: 20px;max-height:103%; height:103%;'>
+						<div class="panel panel-default" style="font-size: 20px; max-height: 103%; height: 103%;">
 							  <div class="panel-heading" >留言 <button id='realShareBtn' class='btn btn-primary btn-lg' onclick='sharePhoto("${pageContext.request.contextPath}","${album.al_no}","${album.mem_no.mem_no}","${album.mem_no.mem_rank}","${album.mem_no.mem_nickname}","<fmt:setLocale value="en_US" /><fmt:formatDate value="${photo.ul_Date}" pattern="yyyy-MM-dd HH:mm" />","${photo.photo_no}");'>拜託分享我嘛</button>  </div>
 							     <ul class="list-group pre-scrollable" style=' vertical-align:middle;max-height:88%; height:88%;'>
 								    <c:if test="${empty photo.comments }">
@@ -310,6 +339,9 @@ font-size:50px;
   				</div>
 					</div>
 
+				</div>
+				</div>
+				</div>
 				</div>
 				
 
@@ -979,6 +1011,7 @@ font-size:50px;
 				}
 	    }		
 	$(function (){	
+					$('#albumTab').addClass('active');
 										
 					$('#dropdownMenu2').click(function(){
 						$(this).parent().addClass('open');
@@ -1260,5 +1293,12 @@ font-size:50px;
 			
 			
 		</script>
+ 	<!-- Footer -->
+	<%@include file="/front_end/include/footer.file" %>
+
+	<!-- 最底層 -->
+	<%@include file="/front_end/include/floor.file" %>
+	
 </body>
+	<%@include file="/front_end/include/basicScript2.file" %>
 </html>

@@ -25,12 +25,13 @@
     <!-- colorbox -->
     <script src="<%= request.getContextPath() %>/style/assets/js/jquery.colorbox.js"></script>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/colorbox.css" />
+    
     <!--按鈕產生對話框-->
-<script type="text/javascript">
-    jQuery(function($) {
-        $('[data-rel=tooltip]').tooltip();
-    });
-</script>
+	<script type="text/javascript">
+    	jQuery(function($) {
+        	$('[data-rel=tooltip]').tooltip();
+    	});
+	</script>
 
 <style>
     body{

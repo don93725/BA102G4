@@ -9,9 +9,15 @@
 						</li>
 
 						<li>
-							<a data-toggle="tab" href="#home2">相簿</a>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${user.mem_no}");'>相簿</a>
 						</li>
 
+						<li>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}");'>個人動態</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}&friend=1");'>好友動態</a>
+						</li>
 						<li>
 							<a data-toggle="tab" href="#home3">行事曆</a>
 						</li>
@@ -25,7 +31,7 @@
 						</li>
 						
 						<li>
-							<a data-toggle="tab" href="#home6">訊息</a>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}");'>訊息</a>
 						</li>
 					</ul>
 					
@@ -562,3 +568,6 @@
 		swal("修改失敗", "請修正以下錯誤\n" + error2 + "\n" + error1 + "\n" + error3 + "\n" + error4, "error");
 	</script>
 </c:if>
+<script>
+function goTo(path){location.href = path;}
+</script>

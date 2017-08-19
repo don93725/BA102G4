@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -12,7 +12,6 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-		<title>Title Page</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 		<!--[if lt IE 9]>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -20,30 +19,30 @@
 		<![endif]-->
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/front_end/comm/css/sweetalert.css">
 
-		<style type="text/css">
-			.profilePic{
-				width: 80%;
-				height: auto;
-				margin: 10px;
-			}
-			.msgPic{
-				width: 80%;
-				height: auto;
-				margin: 10px;
-				margin-top: 0px; 
-			}
-			.msgTime{
-				color: lightgray;
-			}
-			.msgInput{
-				padding: 0px;
-			}
-			.msgPanel{
-				height: 30000px;
-			}
-			a:visited {
-				color: #ffffff;
-			}
+<style type="text/css">
+	.profilePic{
+		width: 80%;
+		height: auto;
+		margin: 10px;
+	}
+	.msgPic{
+		width: 80%;
+		height: auto;
+		margin: 10px;
+		margin-top: 0px; 
+	}
+	.msgTime{
+		color: lightgray;
+	}
+	.msgInput{
+		padding: 0px;
+	}
+	.msgPanel{
+		height: 3000px;
+	}
+	a:visited {
+		color: #ffffff;
+	}
 
 
 
@@ -57,7 +56,7 @@
 	display:none;
 	top:0;
 	margin: 0px auto;
-	z-index:10;
+	z-index:20;
 	
 	align:center;
 	-webkit-perspective: 1000;
@@ -90,7 +89,7 @@
 	height: 30%;
 	width: 30%;
 	bottom: 0%;
-	right: 5%;
+	right: 0%;
 	-webkit-transform: scale(-1, 1);
 	opacity: 1.0;
 }
@@ -132,39 +131,57 @@
 	font-weight: bold;
 	color: #FFFFFF;
 	width: 128px;
-	height: 24px;
+	height: 30px;
 	background-color: #808080;
 	border-style: solid;
 	border-color: #FFFFFF;
 	margin: 2px;
 }
 
-#logo {
-	display: block;
-	top: 4;
-	right: 4;
-	position: absolute;
-	float: right;
-	opacity: 0.5;
-}
+
 		</style>
-	</head>
-	<body>
+<title>健貨 - GymHome</title>
+<%@include file="/front_end/include/basicScript.file" %>
+</head>
+
+<body>
+	
+	<!-- 導覽列 -->
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<%@include file="/front_end/include/front_navbar.file" %>
+  </nav>
 		
-		<div class="container">
+		<div class="container" style='min-height: 100%;'>
 			<div class="row">
+				<div class="breadcrumbs" id="breadcrumbs">
+		            <div class="col-lg-12">
+		                <h1>${user.mem_nickname }的即時訊息
+		                </h1>
+		            </div>
+		
+		            <ul class="breadcrumb">
+		                <li>
+		                    <i class="icon-home home-icon"></i>
+		                        <a href="/BA102G4/front_end/index.jsp">首頁</a></li>
+		                     </li>
+		                <li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
+		                <li class="active">即時訊息</li>		                
+		            </ul><!-- .breadcrumb -->
+		        </div></br>
+		        <%@include file="/front_end/include/fakeTab.file" %>
 				<div class="col-xs-12 col-sm-3">
 					<div class="row">
 						<div class="panel panel-default">
+						
 					  <!-- Default panel contents -->					  		 
-					  		<ul class="nav nav-tabs" role="tablist">
-							    <li role="presentation" class="active"><a href="#message" aria-controls="message" role="tab" data-toggle="tab">最新訊息</a></li>
+					  		<ul class="nav nav-tabs" role="tablist" >
+							    <li role="presentation" class="active" ><a href="#message" aria-controls="message" role="tab" data-toggle="tab">最新訊息</a></li>
 							    <li role="presentation"><a href="#firendList" aria-controls="firendList" role="tab" data-toggle="tab">朋友列表</a></li>
 						  	</ul>
 						  
 					  <!-- List group -->
-					   <div class="tab-content">
-					    <div role="tabpanel" class="tab-pane active pre-scrollable msgPanel" id="message">
+					   <div class="tab-content pre-scrollable msgPanel">
+					    <div role="tabpanel" class="tab-pane active" id="message">
 					    	<ul class="list-group">
 					    		<c:forEach var="newMsg" items="${lastestMsg }">
 							    <li class="list-group-item hover" onclick='show("${pageContext.request.contextPath }","${(newMsg.post_no.mem_no==user.mem_no)? newMsg.rcv_no.mem_no :newMsg.post_no.mem_no}","${(newMsg.post_no.mem_no==user.mem_no)? newMsg.rcv_no.mem_nickname :newMsg.post_no.mem_nickname}");'>
@@ -197,7 +214,7 @@
 							    </c:forEach>							    
 							  </ul>
 					    </div>
-					    <div role="tabpanel" class="tab-pane pre-scrollable msgPanel" id="firendList">
+					    <div role="tabpanel" class="tab-pane" id="firendList">
 					    	<ul class="list-group">
 					    		<c:forEach var='friend' items='${friendList }'>
 							    <li class="list-group-item text-center fdList" onclick='show("${pageContext.request.contextPath }","${(user.mem_no!=friend.mem_no)? friend.mem_no:friend.fd_no }","${(user.mem_no!=friend.mem_no)? friend.mem_nickname:friend.fd_nickname }");'>${(user.mem_no!=friend.mem_no)? friend.mem_nickname:friend.fd_nickname }</li>
@@ -216,22 +233,21 @@
 					<div class="row">
 						<div class="panel panel-default">
 					  <!-- Default panel contents -->
-					  		<div class="panel-heading">
+					  		<div class="panel-heading" style='padding: 4px;'>
 					  			<div class="row">
 					  				<div class="col-xs-12 col-sm-10" id='msgName'>
 							  			
 							  		</div>
-							  		<div class="col-xs-12 col-sm-2">
-							  			<button class="btn btn-default btn-xs" id='moreMsg' onclick='showMore("${pageContext.request.contextPath }");'>載入更多</button>
+							  		<div class="col-xs-12 col-sm-2" style='padding: 0px;'>
+							  			<button class="btn btn-default btn-xs" id='moreMsg' onclick='showMore("${pageContext.request.contextPath }");' >載入更多</button>
 							  			<input type='hidden' id='thisPage'>
 							  		</div>
 					  			</div>	
 					  		</div>
 					  <!-- List group -->
-							  <div class="panel-body msgContent pre-scrollable msgPanel" id='msgContent'>
-							    <div class="col-xs-12 col-sm-12">
-								    <div class="row" id='msgContent'>
-								    	
+							  <div class="panel-body msgContent msgPanel pre-scrollable" id='msgContent'>
+							    <div class="col-xs-12 col-sm-12 ">
+								    <div class="row" id='msgContent '>
 								    </div>
 							    </div>
 							  </div>
@@ -246,7 +262,7 @@
 							    	<div class="col-xs-12 col-sm-1" style='margin-top:45px;'>
 								      <div class='row'>
 								      	<div class="input-group-btn">
-								        <button type="button" class="btn btn-default dropdown-toggle" style='height:37px;width: 50px;' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+								        <button type="button" onclick='trig.call(this);' class="btn btn-default dropdown-toggle" style='height:42px;width: 50px;' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
 								        <ul class="dropdown-menu">
 								          <li><a href="#" id='uplBtn'><span class="glyphicon glyphicon-folder-open"></span>&nbsp傳檔</a></li>
 								          <li><a href="#" onclick='phoneCall();'><span class="glyphicon glyphicon-facetime-video"></span>&nbsp視訊</a></li>
@@ -294,6 +310,14 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src='${pageContext.request.contextPath}/front_end/comm/js/sweetalert.min.js'></script>	
 		<script type="text/javascript">
+		function trig(){
+			if($(this).parent().hasClass('open')){
+				$(this).parent().removeClass('open');
+			}else{
+				$(this).parent().addClass('open');
+			}			
+				
+		}
 		function show(path,post_no,mem_nickname){
 			$('.msgInput').show();
 			$('#msgContent').empty();
@@ -302,8 +326,8 @@
 			$('#msgName').text(mem_nickname);
 			$('#moreMsg').removeClass('disabled').removeAttr('disabled');
 			$('#sendInput').empty();
-			refresh();
 			load(path,post_no);
+			refresh();
 		}
 		function refresh(){
 			$.ajax({
@@ -422,6 +446,7 @@
 		}
 	    var webCtx ;
 	    $(function(){
+	    	$('#msgTab').addClass('active');
 	    	var path = window.location.pathname;
 		    webCtx = path.substring(0, path.indexOf('/', 1));
 	    })
@@ -749,7 +774,6 @@
 			remoteVideo = document.getElementById("remoteVideo");
 			initiator = $('#initiator').val();
 			rcv = $('#rcv').val();
-			alert(initiator);
 			resetStatus();
 			getUserMedia();
 			
@@ -1141,6 +1165,12 @@
 			}
 		}
 	</script>
+  	<!-- Footer -->
+	<%@include file="/front_end/include/footer.file" %>
 
-	</body>
+	<!-- 最底層 -->
+	<%@include file="/front_end/include/floor.file" %>
+	
+</body>
+	<%@include file="/front_end/include/basicScript2.file" %>
 </html>

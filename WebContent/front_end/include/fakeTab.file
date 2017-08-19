@@ -1,0 +1,46 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<% String pageAction = String.valueOf(request.getAttribute("pageAction"));
+   pageContext.setAttribute("pageAction",pageAction);	%>
+   
+        <!-- 身分為健身者時的 Content -->
+        <div class="row">
+        	<div class="col-sm-12">
+				<div class="tabbable">
+					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
+						<li>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic");'>基本資料</a>
+						</li>
+
+						<li id='albumTab'>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${param.mem_no}");'>相簿</a>
+							
+						</li>
+						<li id='BdTab'>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${param.mem_no}");'>個人動態</a>
+						</li>
+						<li id='FdBdTab'>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${param.mem_no}&friend=1");'>好友動態</a>
+						</li>
+						<li id='calender'>
+							<a data-toggle="tab" href="#">行事曆</a>
+						</li>
+						
+						<li id='follow'>
+							<a data-toggle="tab" href="#">我的收藏</a>
+						</li>
+						
+						<li id='comment'>
+							<a data-toggle="tab" href="#home5">留言板</a>
+						</li>						
+						<li id='msgTab'>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}");'>訊息</a>
+						</li>
+					</ul>
+					</div>
+				</div>
+			</div>
+					
+<script>
+function goTo(path){location.href = path;}
+</script>
