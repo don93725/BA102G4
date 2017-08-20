@@ -6,11 +6,17 @@ import com.members.model.MembersVO;
 
 public class Board_cmt {
 	Integer cmt_likes;
-	String bd_cmt_no,cmt_type,org_no,bd_cmt_ctx;
+	String bd_cmt_no,cmt_type,org_no,bd_cmt_ctx,bd_cmt_reply;
 	Date bd_cmt_time;
 	MembersVO mem_no;
 	boolean ifClick;
 	
+	public String getBd_cmt_reply() {
+		return bd_cmt_reply;
+	}
+	public void setBd_cmt_reply(String bd_cmt_reply) {
+		this.bd_cmt_reply = bd_cmt_reply;
+	}
 	public boolean isIfClick() {
 		return ifClick;
 	}

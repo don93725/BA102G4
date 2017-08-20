@@ -17,16 +17,16 @@
 
 	<ul class="pagination">  
 	<c:if test="${thisPage>1 }">	
-		<li><a href="${pageContext.request.contextPath}/${queryStr}&thisPage=${thisPage-1}">&laquo;</a></li>
+		<li><a href="${pageContext.request.contextPath}/${queryStr}&thisPage=${thisPage-1}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}">&laquo;</a></li>
 	</c:if>
 	<c:forEach begin="${(thisPage-3<1)? '1':thisPage-3 }" end="${thisPage+3 }" varStatus="loop">
 	<c:if test="${loop.index<allPageCount+1 }">	
-	<li <c:if test="${loop.index==thisPage }">class='active'</c:if>><a href="${pageContext.request.contextPath}/${queryStr}&thisPage=${loop.index}">${loop.index}</a>
+	<li <c:if test="${loop.index==thisPage }">class='active'</c:if>><a href="${pageContext.request.contextPath}/${queryStr}&thisPage=${loop.index}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}">${loop.index}</a>
 	</c:if>
 	
 	</c:forEach>	
 <c:if test="${thisPage<allPageCount }">
-	<li><a href="${pageContext.request.contextPath}/${queryStr}&thisPage=${thisPage+1}">&raquo;</a></li>
+	<li><a href="${pageContext.request.contextPath}/${queryStr}&thisPage=${thisPage+1}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}">&raquo;</a></li>
 	</c:if>	
 		
 		

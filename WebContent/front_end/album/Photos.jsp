@@ -201,7 +201,12 @@ font-size:50px;
 			                    <i class="icon-home home-icon"></i>
 			                        <a href="/BA102G4/front_end/index.jsp">首頁</a></li>
 			                     </li>
-			                <li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
+			                       <c:if test='${empty param.mem_rank}'>
+	                	<li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
+	                     </c:if>
+	                     <c:if test='${not empty param.mem_rank}'>
+	                	<li class="active"> <a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=${param.mem_rank}&mem_no=${param.mem_no}&action=lookPersonal">個人空間 </a></li>
+	                     </c:if>
 			                <li class="active"> <a href="<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${album.mem_no.mem_no }">相簿</a></li>
 			                <li class="active">${album.al_name }</li>
 			            </ul><!-- .breadcrumb -->
@@ -211,7 +216,7 @@ font-size:50px;
 			<div class="col-xs-12 col-sm-12">
 			<div class='row'>
 			<div class="panel panel-default">
-				<c:if test="${(not empty user&&param.mem_no==user.mem_no) }">
+				<c:if test="${(not empty user&&param.mem_no==user.mem_no)&& album.al_board!=1 }">
 				  <div class="panel-heading">
 				 	<div class="row">
 					<div class="col-xs-12 col-sm-8">

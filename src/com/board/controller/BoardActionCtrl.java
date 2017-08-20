@@ -77,6 +77,17 @@ public class BoardActionCtrl extends HttpServlet {
 			}
 			return;
 		}
+		if("addLikes".equals(action)){
+			String bd_msg_no =req.getParameter("bd_msg_no");
+			Message_boardService message_boardService = new Message_boardService();
+			boolean result = message_boardService.setBd_likes(bd_msg_no, user.getMem_no());
+			System.out.println(bd_msg_no+" "+user.getMem_no());
+			if(!result){
+				
+				out.write("{\"fail\":\"fail\"}");
+			}
+			return;
+		}
 		 if (!mem_no.equals(user.getMem_no())||action==null) {
 		 //非會員想做其他操作
 		 String referer = (String) req.getSession().getAttribute("referer");
@@ -128,15 +139,6 @@ public class BoardActionCtrl extends HttpServlet {
 			}
 			return;
 			
-		}
-		if("addLikes".equals(action)){
-			String bd_msg_no =req.getParameter("bd_msg_no");
-			Message_boardService message_boardService = new Message_boardService();
-			boolean result = message_boardService.setBd_likes(bd_msg_no, user.getMem_no());
-			if(!result){
-				out.write("{\"fail\":\"fail\"}");
-			}
-			return;
 		}
 			
 	}

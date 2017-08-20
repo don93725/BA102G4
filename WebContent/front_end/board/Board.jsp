@@ -263,8 +263,13 @@
 	                    <i class="icon-home home-icon"></i>
 	                        <a href="/BA102G4/front_end/index.jsp">首頁</a></li>
 	                     </li>
-	                <li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
-	                <li class="active">${(empty param.friend)?"個人動態":"好友動態" }</li>
+	                     <c:if test='${empty param.mem_rank}'>
+	                	<li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
+	                     </c:if>
+	                     <c:if test='${not empty param.mem_rank}'>
+	                	<li class="active"> <a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=${param.mem_rank}&mem_no=${param.mem_no}&action=lookPersonal">個人空間 </a></li>
+	                     </c:if>
+	                	<li class="active">${(empty param.friend)?"個人動態":"好友動態" }</li>
 	            </ul><!-- .breadcrumb -->
 	        </div>
 	        <br>
@@ -785,7 +790,7 @@
   
 <!-- 分享 end -->
   
-     <a data-fancybox data-src="#hidden-content-a" href="javascript:;" id='shareBtn2' class="btn">Open demo</a>
+     <a data-fancybox data-src="#hidden-content-a" href="javascript:;" id='shareBtn2' class="btn" style='display:none;'>Open demo</a>
   <div style="display: none;" id="hidden-content-a">
 		<div class="modal-content" >
       <div class="modal-header">
@@ -1756,12 +1761,7 @@
 					success : function(msg) {
 	
 						if (msg.length == 0) {
-							// 							upload_progress.html(100 + '%') ; // 控制進度條的顯示數字，例如65%
-							// 		                	upload_progress.css("width",100 + '%') ; // 控制進度條的長度                        
-							// 		                	upload_progress.attr('aria-valuenow', 100) ;
-
-							// 			        		$('.progress').css('display','none');
-							// 			        		$('.progressCr').css('display','none');
+							
 							swal({
 							  title: "成功",
 							  text: "已成功刪除動態",

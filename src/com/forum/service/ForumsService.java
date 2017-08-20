@@ -71,6 +71,12 @@ public class ForumsService {
 		return list;
 		
 	}
+	public List<Forums> getForumRank(){		
+
+		List<Forums> list = dao.pageAndRank(1, 5, "forum_mviews desc", "(forum_stat=1 or forum_stat=3)");
+		return list;
+		
+	}
 	public boolean confirm(String forum_no,String forum_stat){
 		boolean result = false;
 		ForumsDAO forumDAO = new ForumsDAO();

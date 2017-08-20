@@ -13,6 +13,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.don.util.SQLHelper;
 import com.members.model.MembersVO;
 
 public class CoachesDAO implements CoachesDAO_interface{
@@ -83,7 +84,8 @@ public class CoachesDAO implements CoachesDAO_interface{
 						
 			//同時新增教練
 			addWithMem_no(con, coachesVO);
-						
+			String sql = "insert into albums values(albums_pk_seq.nextval,"+mem_no+",default,'動態相簿',default,0,1)";			
+			new SQLHelper().executeUpdate(sql, null,"mem_no",con);			
 			con.commit();
 			
 			//清空指令，重複利用

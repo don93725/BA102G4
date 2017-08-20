@@ -27,4 +27,7 @@ public class MembersService {
 	public MembersVO look_search_mem(String coa_no) {
 		return dao.look_search_mem(coa_no);
 	}
+	public  MembersVO getPersonalComments(String coa_no){
+		return ((MembersDAO)dao).getPersonalComments(coa_no);
+	}
 }

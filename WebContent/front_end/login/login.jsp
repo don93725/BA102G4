@@ -200,9 +200,8 @@
 				</div><!-- /.row -->
 			</div>
 		</div><!-- /.main-container -->
-
+		<script src="<%= request.getContextPath() %>/style/js/jquery.js"></script>
 		<%@include file="/front_end/include/registerJS.file" %>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<!-- ±±¨îµù¥U¿ï¶µ -->
 		<script type="text/javascript">
 			function show_box(id) {

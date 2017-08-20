@@ -1,10 +1,7 @@
-package com.board.service;
+package com.comments.model;
 
 import java.util.Date;
 
-import com.comments.model.Board_cmt;
-import com.comments.model.Board_cmtDAO;
-import com.comments.model.Cmt_likes_record;
 import com.members.model.MembersVO;
 
 public class Board_cmtService {
@@ -53,5 +50,13 @@ public class Board_cmtService {
 		cmt_likes_record.setCmt_type(cmt_type);
 		boolean result = dao.negativeBd_likes(bd_cmt_no,cmt_likes_record);
 		return result;
+	}
+	public boolean updateReply(String bd_cmt_no, String bd_cmt_reply ){
+		Board_cmtDAO dao = new Board_cmtDAO();
+		return dao.updateReply(bd_cmt_no, bd_cmt_reply);
+	}
+	public boolean deleteReply(String bd_cmt_no){
+		Board_cmtDAO dao = new Board_cmtDAO();
+		return dao.updateReply(bd_cmt_no, null);
 	}
 }

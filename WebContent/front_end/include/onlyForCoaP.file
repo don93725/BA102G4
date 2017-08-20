@@ -1,32 +1,28 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         <!-- 身分為教練時的 Content -->
         <div class="row">
         	<div class="col-sm-12">
 				<div class="tabbable">
 					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
 						<li class="active">
-							<a data-toggle="tab" href="#home1">基本資料</a>
+							<a data-toggle="tab" href="<%= request.getContextPath() %>/MembersServlet?mem_rank=${param.mem_rank}&mem_no=${param.mem_no}&action=lookPersonal">基本資料</a>
 						</li>
 
-						<li>
-							<a data-toggle="tab" href="#home2">相簿</a>
+						<li id='album'>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${param.mem_no}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}");'>相簿</a>
+							
 						</li>
-
 						<li>
-							<a data-toggle="tab" href="#home3">行事曆</a>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${param.mem_no}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}");'>個人動態</a>
 						</li>
-						
 						<li>
-							<a data-toggle="tab" href="#home4">我的收藏</a>
-						</li>
-						
-						<li>
-							<a data-toggle="tab" href="#home5">留言板</a>
+							<a data-toggle="tab" href='#' onclick='goTo("<%= request.getContextPath()%>/friends/FirendCtrl?mem_no=${param.mem_no}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}");'>好友列表</a>
 						</li>
 						
-						<li>
-							<a data-toggle="tab" href="#home6">訊息</a>
-						</li>
+						<li id='comment'>
+							<a data-toggle="tab" href='#' onclick='goTo("<%= request.getContextPath()%>/all/CommentsCtrl?mem_no=${user.mem_no}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}");'>留言板</a>
+						</li>						
 					</ul>
 					
 					
@@ -88,20 +84,30 @@
 
 										<div class="profile-contact-info">
 											<div class="profile-contact-links align-left">
-												<a class="btn btn-link" href="#">
-													<i class="icon-plus-sign bigger-120 green"></i>
-													加朋友
-												</a>
+												<c:if test='${not empty user&&(param.mem_no!=sessionScope.user.mem_no)}'>
+												<c:if test='${ifFriend}'>
+													<a class="btn btn-link" href="#" disabled onclick='return false;'>
+														<i class="icon-plus-sign bigger-120 green"></i>
+														已為朋友
+													</a>
+												</c:if>
+												<c:if test='${!ifFriend}'>
+													<a class="btn btn-link" href="#" onclick='addFriend.call(this,event,"${param.mem_no}","${pageContext.request.contextPath}");'>
+														<i class="icon-plus-sign bigger-120 green"></i>
+														加朋友
+													</a>
+												</c:if>
+												
 												
 												<p></p>
 												
-												<a class="btn btn-link" href="#">
+												<a class="btn btn-link" href="#" onclick='showMsgDialog.call(this);'>
 													<i class="icon-envelope bigger-120 pink"></i>
 													寄訊息
 												</a>
-
-												<p></p>
 												
+												<p></p>
+												</c:if>
 												<a class="btn btn-link" href="#">
 													<i class="icon-globe bigger-125 blue"></i>
 													個人網站
@@ -536,3 +542,118 @@
 				</div>
 			</div><!-- /span -->
 		</div><!-- /row -->
+		<div id='dialog'  style='display:none ;padding:60px;height:300px;width:350px;z-index:50;position:absolute;left:3%;background-image:url("${pageContext.request.contextPath}/front_end/comm/image/dialog.png" );background-repeat:no-repeat;'>
+			<textarea id='msgInput' cols=25 rows=4 style='resize:none; background-color:transparent;' onfocus='this.value=value;'></textarea><br><button class='btn btn-primary' onclick='sendMsg("${param.mem_no}");'>送出</button>
+		</div>
+		<script>
+	var webCtx;
+$(function(){
+	var path = window.location.pathname;
+	webCtx = path.substring(0, path.indexOf('/', 1));
+})
+function showMsgDialog(){
+	var position = $(this).offset();  
+	var x = position.left;  
+	var y = position.top;
+	if($('#dialog').css('display')=='none'){
+		$('#dialog').css("top",y-175+"px");
+		$('#dialog').css("display","block");
+		$('#msgInput').focus();
+	}else{
+		$('#dialog').css("display","none");
+	}  
+	
+	 
+}
+function sendMsg(mem_no){
+	var msg_ctx = $('#msgInput').val();
+	 $.ajax({
+            url: webCtx+"/message/MessageCtrl",
+            data: {
+            	action:"insert",
+            	"rcv_no":mem_no,
+            	"msg_ctx": msg_ctx
+            } ,
+            type:"POST",
+            dataType:'text',
+            success: function(msg){
+                if(msg.trim().length==0){
+                	$('#dialog').css("display","none");
+                	$('#msgInput').val('');
+                	swal({
+							  title: "成功",
+							  text: "已成功寄出訊息",
+							  timer: 1000,
+							  type: "success",
+							  showConfirmButton: false
+					});
+                }else{	
+					swal({
+					  title: "寄出失敗",
+					  text: "請稍後再試",
+					  timer: 1000,
+					  type: "error",
+					  showConfirmButton: false
+					});
+				}
+                
+            },
+			error:function(xhr, ajaxOptions, thrownError){ 
+	                swal({
+					  title: "寄出失敗",
+					  text: "請稍後再試",
+					  timer: 1000,
+					  type: "error",
+					  showConfirmButton: false
+					});
+             }
+   		  });
+}
+function goTo(path){location.href = path;}
+function addFriend(event,mem_no,path){
+	event.preventDefault();
+	var self = $(this);
+	 $.ajax({
+            url: path+"/friends/FirendCtrl",
+            data: {
+            	action:"insert",
+            	"mem_no":mem_no
+            } ,
+            type:"POST",
+            dataType:'text',
+            success: function(msg){
+                if(msg.trim().length==0){
+                	self.removeAttr('onclick');
+                	self.attr("disabled","");
+                	self.html('<i class="icon-plus-sign bigger-120 green"></i>已為好友');
+                	swal({
+							  title: "成功",
+							  text: "已成功添加好友",
+							  timer: 1000,
+							  type: "success",
+							  showConfirmButton: false
+					});
+                }else{	
+                	$.each(JSON.parse(msg),function(v,i){
+					swal({
+					  title: "錯誤",
+					  text: v+i,
+					  timer: 1000,
+					  type: "error",
+					  showConfirmButton: false
+					});
+				});
+                }
+            },
+			error:function(xhr, ajaxOptions, thrownError){ 
+	                swal({
+					  title: "添加錯誤",
+					  text: "請稍後再試",
+					  timer: 1000,
+					  type: "error",
+					  showConfirmButton: false
+					});
+             }
+     });
+}
+</script>

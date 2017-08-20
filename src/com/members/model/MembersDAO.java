@@ -13,6 +13,8 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import com.coaches.model.CoachesVO;
+import com.comments.model.Board_cmt;
+import com.comments.model.Board_cmtDAO;
 
 public class MembersDAO implements MembersDAO_interface{
 	
@@ -196,6 +198,60 @@ public class MembersDAO implements MembersDAO_interface{
 				membersVO.setMem_rank(rs.getString("mem_rank"));
 				membersVO.setMem_nickname(rs.getString("mem_nickname"));
 				membersVO.setMr_num(rs.getInt("mr_num"));
+			}
+						
+			return membersVO;
+		} catch (SQLException se) {
+			se.printStackTrace();
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+	}
+	public MembersVO getPersonalComments(String coa_no) {
+		MembersVO membersVO = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(LOOK_SEARCH_MEM);
+			
+			pstmt.setString(1, coa_no);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				membersVO = new MembersVO();
+				membersVO.setMem_no(rs.getString("mem_no"));
+				membersVO.setMem_acc(rs.getString("mem_acc"));
+				membersVO.setMem_rank(rs.getString("mem_rank"));
+				membersVO.setMem_nickname(rs.getString("mem_nickname"));
+				membersVO.setMr_num(rs.getInt("mr_num"));
+				List<Board_cmt> comments = new Board_cmtDAO().pageAndRank("2", rs.getString("mem_no"));
+				membersVO.setComments(comments);
 			}
 						
 			return membersVO;

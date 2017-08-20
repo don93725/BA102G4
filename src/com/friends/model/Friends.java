@@ -4,9 +4,21 @@ import java.util.Date;
 
 public class Friends {
 
-	String mem_no,mem_nickname,fd_no,fd_nickname;
+	String mem_no,mem_nickname,fd_no,fd_nickname,mem_rank,fd_rank;
 	Date fd_date;
 	
+	public String getMem_rank() {
+		return mem_rank;
+	}
+	public void setMem_rank(String mem_rank) {
+		this.mem_rank = mem_rank;
+	}
+	public String getFd_rank() {
+		return fd_rank;
+	}
+	public void setFd_rank(String fd_rank) {
+		this.fd_rank = fd_rank;
+	}
 	public String getMem_nickname() {
 		return mem_nickname;
 	}

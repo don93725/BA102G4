@@ -531,7 +531,7 @@
 									 <span
 											class="glyphicon glyphicon-thumbs-up">&nbsp讚</span>
 									</a></li>
-									<li role="presentation"><a href="#" onclick="return showCmmt.call(this,event,'${message_board.bd_msg_no }');">
+									<li role="presentation"><a href="#" onclick='return false;'>
 										<c:if test="${not empty message_board.comments }"> <span class="badage">${fn:length(message_board.comments)}</span></c:if>
 											<span class="glyphicon glyphicon-comment">&nbsp留言</span>
 									</a></li>
@@ -544,10 +544,10 @@
 							</div>
 						</div>
 
-						<ul id='commt${message_board.bd_msg_no }' class="list-group" style="display: none;">
+						<ul id='commt${message_board.bd_msg_no }' class="list-group">
 						<c:forEach var="comment" items="${message_board.comments }" varStatus="cmt">
 						
-						<li class="list-group-item comments key_${message_board.bd_msg_no}_<fmt:formatNumber type="number" value="${(cmt.index-cmt.index%5)/5 }" />" ${(cmt.count>5)? 'style="display:none"':'' }>
+						<li class="list-group-item">
 							<div class="row">
 								<div class="container">
 									<a href="#">
@@ -676,7 +676,7 @@
   
 <!-- 分享 end -->
   
-     <a data-fancybox data-src="#hidden-content-a" href="javascript:;" id='shareBtn2' class="btn">Open demo</a>
+     <a data-fancybox data-src="#hidden-content-a" href="javascript:;" id='shareBtn2' class="btn" style='display:none;'>Open demo</a>
   <div style="display: none;" id="hidden-content-a">
 		<div class="modal-content" >
       <div class="modal-header">
@@ -1449,10 +1449,13 @@
 		}
 
 	}
-		$(document)
-				.ready(
-						
-						function() {							
+		$(document).ready(function() {		
+							var fdKey = QueryString('friend');
+							if(fdKey!=null&&fdKey.trim().length!=0){
+								$('#FdBdTab').addClass('active');
+							}else{
+								$('#BdTab').addClass('active');				
+							}
 							$('#myCarousel').carousel({
 								interval : 5000
 							});
@@ -2276,6 +2279,12 @@
 			}
 		}
 		function reload(){
+			var fdKey = QueryString('friend');
+			if(fdKey!=null&&fdKey.trim().length!=0){
+				$('#FdBdTab').addClass('active');
+			}else{
+				$('#BdTab').addClass('active');				
+			}
 			$('#myCarousel').carousel({
 				interval : 5000
 			});

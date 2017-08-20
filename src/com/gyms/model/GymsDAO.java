@@ -1,15 +1,21 @@
 package com.gyms.model;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.don.util.SQLHelper;
 import com.members.model.MembersVO;
 
 public class GymsDAO implements GymsDAO_interface{
@@ -37,7 +43,10 @@ public class GymsDAO implements GymsDAO_interface{
 			"Select gym_pic from gyms where gym_no = ?";
 	private static final String UPDATE_GYM =
 			"Update gyms set gym_name = ?, gym_mail = ?, gym_into = ?, gym_add =?, gym_latlng = ? where gym_acc = ?";
-	
+	private static final String GET_ALL_GYM =
+			"Select * from gyms where gym_sta = 1 order by gym_no";
+	private static final String SEARCH_GYM =
+			"Select * from gyms ";
 	@Override
 	public void insert(MembersVO membersVO, GymsVO gymsVO) {
 		Connection con = null;
@@ -73,7 +82,8 @@ public class GymsDAO implements GymsDAO_interface{
 						
 			//同時新增教練
 			addWithMem_no(con, gymsVO);
-						
+			String sql = "insert into albums values(albums_pk_seq.nextval,"+mem_no+",default,'動態相簿',default,0,1)";			
+			new SQLHelper().executeUpdate(sql, null,"mem_no",con);			
 			con.commit();
 			
 			//清空指令，重複利用
@@ -297,5 +307,76 @@ public class GymsDAO implements GymsDAO_interface{
 				}
 			}
 		}
+	}
+	public List<GymsVO> getGymsbySQL(String sql,Object[] param){
+		SQLHelper helper = new SQLHelper();
+		List<Object[]> list = helper.executeQuery(sql, param);
+		List<GymsVO> temp = new ArrayList<GymsVO>();
+		for(int i = 0 ; i < list.size() ; i++){
+			Object[] obj = list.get(i);
+			GymsVO gym = new GymsVO();
+			if(obj[0]!=null){
+				gym.setGym_acc(String.valueOf(obj[0]));
+			}
+			if(obj[1]!=null){
+				gym.setGym_no(String.valueOf(obj[1]));
+			}
+			if(obj[2]!=null){
+				gym.setGym_psw(String.valueOf(obj[2]));
+			}
+			if(obj[3]!=null){
+				gym.setGym_sta(Integer.parseInt(String.valueOf(obj[3])));
+			}
+			if(obj[4]!=null){
+				gym.setGym_name(String.valueOf(obj[4]));
+			}
+			if(obj[5]!=null){
+				gym.setGym_mail(String.valueOf(obj[5]));
+			}
+			if(obj[6]!=null){
+				gym.setGym_add(String.valueOf(obj[6]));
+			}
+			if(obj[7]!=null){
+				gym.setGym_latlng(String.valueOf(obj[7]));
+			}
+			if(obj[8]!=null){
+				gym.setGym_into(String.valueOf(obj[8]));
+			}
+			if(obj[9]!=null){
+				Blob blob = (Blob)obj[9];
+				InputStream in;
+				try {
+					in = blob.getBinaryStream();
+					byte[] b = new byte[in.available()];
+					in.read(b);
+					gym.setGym_pic(b);
+					in.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			temp.add(gym);
+		}
+		return temp;
+	}
+	public List<GymsVO> getAll(){
+		return getGymsbySQL(GET_ALL_GYM,null);
+	}
+	public List<GymsVO> searchGyms(String search_Name, String search_Type){
+		String SQL = "";
+		if(search_Name.trim().length() == 0 && search_Type.trim().length() == 0 ) {
+			SQL = SEARCH_GYM + "order by gym_no";
+		}else if(search_Name.trim().length() != 0 && search_Type.trim().length() != 0) {
+			SQL = SEARCH_GYM + "where gym_name like '%" + search_Name +"%' and gym_into like '%" + search_Type + "%' order by gym_no";
+		}else if(search_Name.trim().length() == 0 && search_Type.trim().length() != 0) {
+			SQL = SEARCH_GYM + "where gym_into like '%" + search_Type + "%' order by gym_no";
+		}else if(search_Name.trim().length() != 0 && search_Type.trim().length() == 0) {
+			SQL = SEARCH_GYM + "where gym_name like '%" + search_Name + "%' order by gym_no";
+		}
+		return getGymsbySQL(SQL,null);
 	}
 }

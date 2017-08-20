@@ -49,6 +49,10 @@ public class Board_cmtDAO extends BasicDAO implements DAOInterface<Board_cmt> {
 				
 				board_cmt.setIfClick(true);
 			}
+			if (obj[10] != null) {
+				
+				board_cmt.setBd_cmt_reply(String.valueOf( obj[10]));;
+			}
 			tempList.add(board_cmt);
 		}
 		return tempList;
@@ -83,10 +87,16 @@ public class Board_cmtDAO extends BasicDAO implements DAOInterface<Board_cmt> {
 		boolean updateResult = new SQLHelper().executeUpdate(sql, param);
 		return updateResult;
 	}
+	public boolean updateReply(String bd_cmt_no, String bd_cmt_reply ) {
+		String sql = "update board_cmt set bd_cmt_reply=? where bd_cmt_no=?";
+		Object[] param = { bd_cmt_reply, bd_cmt_no };
+		boolean updateResult = new SQLHelper().executeUpdate(sql, param);
+		return updateResult;
+	}
 	// 建置新增
 
 	public boolean executeInsert(Board_cmt board_cmt) {
-		String sql = "insert into board_cmt values(board_cmt_pk_seq.nextval,?,?,?,?,default,default)";
+		String sql = "insert into board_cmt values(board_cmt_pk_seq.nextval,?,?,?,?,default,default,null)";
 		Object[] param = { board_cmt.getMem_no().getMem_no(), board_cmt.getCmt_type(), board_cmt.getOrg_no(),
 				board_cmt.getBd_cmt_ctx() };
 		boolean insertResult = new SQLHelper().executeUpdate(sql, param);
@@ -115,7 +125,7 @@ public class Board_cmtDAO extends BasicDAO implements DAOInterface<Board_cmt> {
 	}
 
 	public List<Board_cmt> pageAndRank(String cmt_type, String org_no) {
-		String sql = "select * from (select bd_cmt_no,mem_no,cmt_type,org_no,bd_cmt_ctx,cmt_likes,bd_cmt_time,mem_nickname,mem_rank,if_click from (select bd_cmt_no,a.mem_no,a.cmt_type,org_no,bd_cmt_ctx,cmt_likes,bd_cmt_time,mem_nickname,mem_rank,if_click from board_cmt a join members b on a.mem_no=b.mem_no left outer join cmt_likes_record c on a.bd_cmt_no=c.cmt_pk and a.cmt_type = c.cmt_type and a.mem_no = c.mem_no)";
+		String sql = "select * from (select bd_cmt_no,mem_no,cmt_type,org_no,bd_cmt_ctx,cmt_likes,bd_cmt_time,mem_nickname,mem_rank,if_click,bd_cmt_reply from (select bd_cmt_no,a.mem_no,a.cmt_type,org_no,bd_cmt_ctx,cmt_likes,bd_cmt_time,mem_nickname,mem_rank,if_click,bd_cmt_reply from board_cmt a join members b on a.mem_no=b.mem_no left outer join cmt_likes_record c on a.bd_cmt_no=c.cmt_pk and a.cmt_type = c.cmt_type and a.mem_no = c.mem_no)";
 
 		sql = sql + " where cmt_type="+cmt_type+" and org_no="+org_no;
 

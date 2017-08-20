@@ -51,7 +51,12 @@
 			                    <i class="icon-home home-icon"></i>
 			                        <a href="/BA102G4/front_end/index.jsp">首頁</a></li>
 			                     </li>
-			                <li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
+			                  <c:if test='${empty param.mem_rank}'>
+		                	<li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
+		                     </c:if>
+		                     <c:if test='${not empty param.mem_rank}'>
+		                	<li class="active"> <a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=${param.mem_rank}&mem_no=${param.mem_no}&action=lookPersonal">個人空間 </a></li>
+		                     </c:if>
 			                <li class="active">相簿</li>
 			            </ul><!-- .breadcrumb -->
 			        </div>
@@ -88,12 +93,13 @@
 				<c:forEach var="album" items="${albums }"> 
 						<div class="col-xs-12 col-sm-3 album">						
 						<div class="list-group">
-						<a href="${pageContext.request.contextPath}/album/PhotosShowCtrl?mem_no=${param.mem_no }&al_no=${album.al_no }" class="thumbnail">
+						<a href="${pageContext.request.contextPath}/album/PhotosShowCtrl?mem_no=${param.mem_no }&al_no=${album.al_no }${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}" class="thumbnail">
 						<div class="list-group-item">
 						<img style='height:250px ; width:100%' src="${pageContext.request.contextPath}/util/OutputPic?al_no=${album.al_no }&num=<c:out value="${photosNum[album.al_no] }" default="0"/>">
 						</div>
 						<div class="list-group-item list-group-item-danger text-center">
-						<input type="checkbox" name="al_no" value='${album.al_no }' hidden><span>${album.al_name }</span>
+						
+						<c:if test='${album.al_board!=1 }'><input type="checkbox" name="al_no" value='${album.al_no }' hidden></c:if><span>${album.al_name }</span>
 						<input type="checkbox" name="al_private" value='${album.al_prvt }' hidden>
 						</div>
 						<div class="list-group-item list-group-item-warning text-center">

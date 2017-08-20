@@ -12,8 +12,8 @@ import com.don.util.SQLHelper;
 public class FriendsDAO extends BasicDAO {
 	// 建置查詢
 	public boolean checkFriendShip(String mem_no, String fd_no){
-		String sql = "select * from friends where mem_no="+mem_no+" and fd_no="+fd_no;
-		List friends = getVOBySQL(sql, null);
+		String sql = "select * from friends where (mem_no="+mem_no+" and fd_no="+fd_no +") or (mem_no="+fd_no+" and fd_no="+mem_no +")";
+		List friends = new SQLHelper().executeQuery(sql, null);
 		if(friends.size()!=0){
 			return true;
 		}else{
@@ -41,6 +41,12 @@ public class FriendsDAO extends BasicDAO {
 			if (obj[4] != null) {
 				friends.setFd_nickname(String.valueOf(obj[4]));
 			}
+			if (obj[5] != null) {
+				friends.setMem_rank(String.valueOf(obj[5]));
+			}
+			if (obj[6] != null) {
+				friends.setFd_rank(String.valueOf(obj[6]));
+			}
 			tempList.add(friends);
 		}
 		return tempList;
@@ -55,17 +61,28 @@ public class FriendsDAO extends BasicDAO {
 	// 建置新增
 
 	public boolean executeInsert(Friends friends) {
-		String sql = "insert into friends values(?,?,?)";
-		Object[] param = { friends.getMem_no(), friends.getFd_no(), friends.getFd_date() };
+		String sql = "insert into friends values(?,?,default)";
+		Object[] param = { friends.getMem_no(), friends.getFd_no() };
 		boolean insertResult = new SQLHelper().executeUpdate(sql, param);
 		return insertResult;
 	}
 	// 建置刪除
 
 	public boolean executeDelete(String mem_no, String fd_no) {
-		String sql = "delete from friends where mem_no=" + mem_no + " and fd_no=" + fd_no;
+		String sql = "delete from friends where (mem_no=" + mem_no + " and fd_no=" + fd_no +") or (mem_no=" + fd_no + " and fd_no=" + mem_no +")";
 		boolean insertResult = new SQLHelper().executeUpdate(sql, null);
 		return insertResult;
+	}
+	// 建置分頁(彈性排序可設條件)
+	
+	public List<Friends> pageFriendList(int page, int pageSize, String user_no) {
+		int firstPage = (page - 1) * pageSize + 1;
+		int lastPage = page * pageSize;
+		String sql = "select a.mem_no,fd_no,fd_date,b.mem_nickname,c.mem_nickname,b.mem_rank,c.mem_rank from (select * from (select * from friends where fd_no="+user_no+" or mem_no="+user_no+
+				" order by fd_date) where rownum between "+firstPage+" and "+lastPage+") a join members b on a.mem_no=b.mem_no join members c on a.fd_no = c.mem_no ";
+		System.out.println(sql);
+		List<Friends> list = getVOBySQL(sql, null);
+		return list;
 	}
 	// 建置分頁(彈性排序可設條件)
 
@@ -81,7 +98,7 @@ public class FriendsDAO extends BasicDAO {
 		return list;
 	}
 	// 建置分頁(彈性排序不設條件)
-
+	
 	public List<Friends> pageAndRank(int page, int pageSize, String order) {
 		List<Friends> list = pageAndRank(page, pageSize, order);
 		return list;

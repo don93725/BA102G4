@@ -20,16 +20,12 @@
 						<li>
 							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}&friend=1");'>好友動態</a>
 						</li>
-						<li id='calender'>
-							<a data-toggle="tab" href="#home3">行事曆</a>
-						</li>
-						
-						<li id='follow'>
-							<a data-toggle="tab" href="#home4">我的收藏</a>
+						<li>
+							<a data-toggle="tab" href='#' onclick='goTo("<%= request.getContextPath()%>/friends/FirendCtrl?mem_no=${user.mem_no}");'>好友列表</a>
 						</li>
 						
 						<li id='comment'>
-							<a data-toggle="tab" href="#home5">留言板</a>
+							<a data-toggle="tab" href='#' onclick='goTo("<%= request.getContextPath()%>/all/CommentsCtrl?mem_no=${user.mem_no}");'>留言板</a>
 						</li>						
 						<li id='message'>
 							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}");'>訊息</a>
@@ -95,20 +91,6 @@
 
 										<div class="profile-contact-info">
 											<div class="profile-contact-links align-left">
-												<a class="btn btn-link" href="#">
-													<i class="icon-plus-sign bigger-120 green"></i>
-													加朋友
-												</a>
-												
-												<p></p>
-												
-												<a class="btn btn-link" href="#">
-													<i class="icon-envelope bigger-120 pink"></i>
-													寄訊息
-												</a>
-
-												<p></p>
-												
 												<a class="btn btn-link" href="#">
 													<i class="icon-globe bigger-125 blue"></i>
 													個人網站

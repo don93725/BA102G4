@@ -1,0 +1,398 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<ul class="list-group" style='margin-left:0px;'>
+<c:forEach var="comment" items="${personalCmts.comments }" varStatus="cmt">
+
+<li class="list-group-item comments key_<fmt:formatNumber type="number" value="${(cmt.index-cmt.index%5)/5 }" />" ${(cmt.count>5)? 'style="display:none"':'' }>
+	<div class="row">
+		<div class="container">
+			<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=${comment.mem_no.mem_rank}&mem_no=${comment.mem_no.mem_no}&action=lookPersonal">
+				<div class="col-xs-12 col-sm-2">
+					<img src="${pageContext.request.contextPath}/util/OutputPic?mem_no=${comment.mem_no.mem_no}&mem_rank=${comment.mem_no.mem_rank}"
+						class="img-circle cmt_mem_pic" title="${comment.mem_no.mem_nickname }" style='z-index: 10;'>
+
+				</div>
+			</a>
+			<div class="col-xs-12 col-sm-7 cmt" >
+			<div class='row'>
+			<div class="col-xs-12 col-sm-12" >
+				<span class='a' style='padding:30px; padding-right: 0px;'>${comment.bd_cmt_ctx }</span>
+				<input type='text' class='b' value='${comment.bd_cmt_ctx }' style='display:none;' onfocus='this.value = this.value;'/>
+				<span class='c' ><a href="#" style='margin-left: 3px' onclick='addCmtLikes.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }");'><span class='cmtLikes'>${(comment.ifClick)?'收回讚':'讚'}</span><span style='margin-left: 5px;'>${(comment.cmt_likes>0)? comment.cmt_likes:''  }</span></a></span>
+			</div>
+			<c:if test='${not empty comment.bd_cmt_reply || comment.mem_no.mem_no==user.mem_no}'>			
+			<div class="col-xs-12 col-sm-12 col-sm-offset-1 rply" >
+				<div class="alert alert-warning" role="alert">
+				<c:if test='${not empty comment.bd_cmt_reply}'>
+				<div class="col-xs-12 col-sm-12" >
+				<div class="col-xs-12 col-sm-8" >版主回覆：</div>
+				<div class="col-xs-12 col-sm-4" >
+				<c:if test='${comment.mem_no.mem_no==user.mem_no}'>
+				<button class="btn btn-info btn-xs" type="button" onclick='editReply.call(this);'><span class='glyphicon glyphicon-pencil'></span></button>
+				<button class="btn btn-danger btn-xs" type="button" onclick='delReply.call(this,"${comment.bd_cmt_no }");'><span class='glyphicon glyphicon-remove'></span></button>
+				</c:if>
+				</div>
+				</div>
+				<p></p>
+				<div class='reply' style='margin-left:62px;'>
+				${comment.bd_cmt_reply}
+				</div>
+				</c:if>
+				<div class="input-group replyContainer" ${(not empty comment.bd_cmt_reply)? "style='display:none'":""}>      
+			      <input type="text" class="form-control replyInput" placeholder="你想回覆什麼呢？" >
+			     <div class="input-group-btn" >
+			        <button class="btn btn-default " style='height:34px;padding:auto;' type="button" onclick='sendReply.call(this,"${comment.bd_cmt_no }");'>送出</button>
+			      </div>
+			    </div><!-- /input-group -->			
+				</div>
+			</div>
+			</c:if>			
+			</div>
+
+			</div>
+			<div class="col-xs-12 col-sm-3 cmt">
+			<c:if test='${comment.mem_no.mem_no==user.mem_no}'>
+			<a href='#' class='btn btn-lg btn-info' onclick='editCmmt.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }","${user.mem_no}");' style='color:black'>
+				<span class='glyphicon glyphicon-pencil'></span></a>
+				&nbsp&nbsp&nbsp&nbsp&nbsp
+			<a href='#' class='btn btn-lg btn-danger' onclick='delCmmt.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }","${comment.mem_no.mem_no}");' style='color:black'>
+				<span class='glyphicon glyphicon-remove'></span></a>
+			</c:if>
+			</div>
+		</div>
+	</div>	
+	</li>
+	</c:forEach>
+	<c:if test="${not empty personalCmts.comments&& fn:length(personalCmts.comments)>5}">			
+	<li class="list-group-item"><a href="#"
+		onclick="showMore.call(this,event,'${fn:length(personalCmts.comments)}');">顯示更多</a>
+		<input type='hidden' value=1>
+		</li>
+	</c:if>
+	<li class="list-group-item">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="留些什麼吧">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button" onclick='sendComments.call(this,"${pageContext.request.contextPath}","${user.mem_no }","${personalCmts.mem_no}");'>送出</button>
+			</span>
+		</div>
+	</li>
+</ul>
+<script>
+var webCtx;
+$(function(){
+	var path = window.location.pathname;
+	webCtx = path.substring(0, path.indexOf('/', 1));
+})
+function sendReply(bd_cmt_no){
+	var self = $(this);
+	var textR = $(this).parent().prev().val();
+	$.ajax({
+			type : "POST",
+			url : webCtx + "/all/CommentsCtrl",
+			dataType : 'text',
+			data: {
+				cmt_type:"2",
+				"bd_cmt_no":bd_cmt_no,
+				"bd_cmt_reply": textR,
+				action:"updateReply"
+			},
+			success : function(msg) {
+				if (msg.length == 0) {					
+					swal({
+							  title: "成功",
+							  text: "已成功回覆留言",
+							  timer: 1000,
+							  type: "success",
+							  showConfirmButton: false
+					},function(){
+						location.reload();
+						});
+					
+				} else {						
+					swal({
+					  title: "發生錯誤",
+					  text: "請再嘗試看看",
+					  timer: 1000,
+					  type: "error",
+					  showConfirmButton: false
+					});									
+				}
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+				swal({
+					  title: "發生錯誤",
+					  text: "請再嘗試看看",
+					  timer: 1000,
+					  type: "error",
+					  showConfirmButton: false
+				});
+			}
+
+		});
+}
+function editReply(){
+	var replyTxt = $(this).parents('.alert').find('.reply').text().trim();
+	$(this).parents('.alert').find('.reply').hide();
+	$(this).parents('.alert').find('.replyInput').val(replyTxt);
+	$(this).parents('.alert').find('.replyContainer').show();
+	
+	
+}
+function delReply(bd_cmt_no){
+		$.ajax({
+			type : "POST",
+			url : webCtx + "/all/CommentsCtrl",
+			dataType : 'text',
+			data: {
+				cmt_type:"2",
+				"bd_cmt_no":bd_cmt_no,
+				action:"deleteReply"
+			},
+			success : function(msg) {
+				if (msg.length == 0) {					
+					swal({
+							  title: "成功",
+							  text: "已成功刪除留言",
+							  timer: 1000,
+							  type: "success",
+							  showConfirmButton: false
+					},function(){
+						location.reload();
+						});
+					
+				} else {						
+					swal({
+					  title: "發生錯誤",
+					  text: "請再嘗試看看",
+					  timer: 1000,
+					  type: "error",
+					  showConfirmButton: false
+					});									
+				}
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+				swal({
+					  title: "發生錯誤",
+					  text: "請再嘗試看看",
+					  timer: 1000,
+					  type: "error",
+					  showConfirmButton: false
+				});
+			}
+
+		});
+}
+function addCmtLikes(event,path,bd_cmt_no,mem_no){
+		event.preventDefault();
+		var span = $(this).find('.cmtLikes');
+		var action ;
+		if(span.text()=='讚'){
+			action = 'addCmtLikes';
+		}else{
+			action = 'negativeCmtLikes';
+			
+		}
+		$.ajax({
+			type : "POST",
+			url : path + "/all/CommentsCtrl?action="+action+"&mem_no="+mem_no,
+			dataType : 'text',
+			data: "cmt_type=2&bd_cmt_no="+bd_cmt_no,
+			success : function(msg) {
+				if (msg.length == 0) {
+					var num = parseInt(span.next().text(),10);
+					if(num==undefined||num==null||span.next().text().length==0){
+						num=0;
+					}
+					
+					if(span.text()=='讚'){
+						span.text('收回讚');
+						span.next().text(num+1);
+					}else{
+						span.text('讚');	
+						if(num-1>0){
+							span.next().text(num-1);
+							
+						}else{
+							span.next().text('');
+						}
+					}
+					
+				} else {						
+					
+					
+					
+				}
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+				swal({
+					  title: "發生錯誤",
+					  text: "請再嘗試看看",
+					  timer: 1000,
+					  type: "error",
+					  showConfirmButton: false
+				});
+			}
+
+		});
+		
+	}
+	function delCmmt(event,path,bd_cmt_no,mem_no){
+		event.preventDefault();
+		var _self = $(this).parents('.comments');
+		var _CommtNum = $(this).parents('.list-group').prev().find('.badage');
+		swal({
+			  title: "確定要刪除此筆留言?",
+			  text: "此舉有點獨裁，你要確定你仍想這樣做哦。",
+			  type: "warning",
+			  showCancelButton: true,
+			  confirmButtonColor: "#DD6B55",
+			  cancelButtonText: "算了",
+			  confirmButtonText: "是的",
+			  closeOnConfirm: false
+			},
+		function(){
+			$.ajax({
+				type : "POST",
+				url : path + "/all/CommentsCtrl?action=delete&mem_no="+mem_no,
+				dataType : 'text',
+				data: "cmt_type=2&bd_cmt_no="+bd_cmt_no,
+				success : function(msg) {
+					if (msg.length == 0) {
+						_self.remove();
+						var num = parseInt(_CommtNum.text(),10);
+						if(num-1!=0){
+							_CommtNum.text(num-1);							
+						}else{
+							_CommtNum.text('');
+						}
+						swal({
+							  title: "成功",
+							  text: "你這獨裁者，已成功刪除留言。",
+							  timer: 1000,
+							  type: "success",
+							  showConfirmButton: false
+						});
+					} else {						
+						swal({
+							  title: "刪除失敗",
+							  text: "請在嘗試看看。",
+							  timer: 1000,
+							  type: "error",
+							  showConfirmButton: false
+						});
+						
+						
+					}
+				},
+				error : function(xhr, ajaxOptions, thrownError) {
+					swal({
+						  title: "發生錯誤",
+						  text: "請再嘗試看看",
+						  timer: 1000,
+						  type: "error",
+						  showConfirmButton: false
+					});
+				}
+
+			});
+		});
+	}
+	function editCmmt(event,path,bd_cmt_no,mem_no){
+		event.preventDefault();
+		var val = $(this).parent().prev().children().text();
+		var clazz = $(this).children().attr('class');
+		var content = $(this).parent().prev();
+		if(clazz=='glyphicon glyphicon-pencil'){
+			$(this).children().removeClass();
+			$(this).children().addClass('glyphicon glyphicon-ok');
+			$(this).children().css("color","green");
+			content.find('.a').css("display", "none");
+			content.find('.b').css("display", "");
+			content.find('.b').focus();
+			
+		}else{
+			if(submitEditCmt(path,mem_no,bd_cmt_no,content.find('.b').val())){
+				$(this).children().removeClass();
+				$(this).children().addClass('glyphicon glyphicon-pencil');
+				$(this).children().css("color","black");
+				content.find('.a').css("display", "");
+				content.find('.b').css("display","none");
+				content.find('.a').text(content.find('.b').val());				
+			}
+		}
+	}
+	function submitEditCmt(path,mem_no,bd_cmt_no,val){
+		var res = $.ajax({
+			type : "POST",
+			url : path + "/all/CommentsCtrl?action=update&mem_no="+mem_no,
+			dataType : 'text',
+			data: "bd_cmt_no="+bd_cmt_no+"&bd_cmt_ctx="+val,
+			success : function(msg) {
+				if (msg.length == 0) {
+					return true;
+				} else {								
+					return false;					
+				}
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+				swal({
+					  title: "發生錯誤",
+					  text: "請再嘗試看看",
+					  timer: 1000,
+					  type: "error",
+					  showConfirmButton: false
+				});
+				return false;
+			}
+
+		});
+		return res;
+	}
+	function showMore(event,size){
+		event.preventDefault();
+		var cmt = $(this).parent().parent().children(".comments");
+		var count = parseInt( $(this).next().val(),10);
+		if(count+1>(size-size%5)/5){
+			$(this).hide();
+		}
+			$(".key_"+count).css('display','block');
+			
+			$(this).next().val(count+1);
+		
+	}
+	function sendComments(path, mem_no, owner){
+		var val = $(this).parent().prev().val();	
+		$.ajax({
+			type : "POST",
+			url : path + "/all/CommentsCtrl?action=insert&mem_no="+mem_no,
+			dataType : 'text',
+			data: "cmt_type=2&org_no="+owner+"&bd_cmt_ctx="+val,
+			success : function(msg) {
+				if (msg.length == 0) {
+					location.reload();
+				} else {						
+					
+					
+					
+				}
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+				swal({
+					  title: "發生錯誤",
+					  text: "請再嘗試看看",
+					  timer: 1000,
+					  type: "error",
+					  showConfirmButton: false
+				});
+			}
+
+		});
+	}
+	function share(e){
+		e.preventDefault();
+		document.location.reload();
+	}
+</script>

@@ -5,6 +5,8 @@ import java.util.Base64;
 import java.util.Base64.Encoder;
 import java.util.Date;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -23,6 +25,8 @@ import com.gyms.model.GymsService;
 import com.gyms.model.GymsVO;
 import com.members.model.MembersService;
 import com.members.model.MembersVO;
+import com.students.model.StudentsService;
+import com.students.model.StudentsVO;
 import com.tools.Tools;
 
 @WebServlet("/GymsServlet")
@@ -32,7 +36,6 @@ public class GymsServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String action = req.getParameter("action");
-		
 		if(action == null) {
 			System.out.println("action == null");
 			String url = "/front_end/index.jsp";
@@ -363,6 +366,63 @@ public class GymsServlet extends HttpServlet {
 					System.out.println(errorMsgs.get("Exception"));
 					String url = "/front_end/editPage/personal.jsp";
 					RequestDispatcher failureView = req.getRequestDispatcher(url);
+					failureView.forward(req, res);
+					return;
+				}
+			}
+			if ("search_gym".equals(action)) {
+				List<String> errorMsgs = new LinkedList<String>();
+				req.setAttribute("errorMsgs", errorMsgs);
+				try {
+					/***************************1.接收請求參數 - 輸入格式的錯誤處理**********************/
+					String search_Name = req.getParameter("search_Name");
+					System.out.println("search_Name= " + search_Name);
+					if (search_Name == null || (search_Name.trim()).length() == 0) {
+						search_Name = "";
+					}
+					String search_Type = req.getParameter("search_Type");
+//					System.out.println("search_Type= " + search_Type);
+					if(search_Type==null){
+						search_Type = "";
+					}
+//					if("0".equals(search_Type)) {
+//						search_Type = " ";
+//					}else if("A".equals(search_Type)) {
+//						search_Type = "瑜珈";
+//					}else if("B".equals(search_Type)) {
+//						search_Type = "飛輪有氧";
+//					}else if("C".equals(search_Type)) {
+//						search_Type = "舞動有氧";
+//					}else if("D".equals(search_Type)) {
+//						search_Type = "拳擊有氧";
+//					}else if("E".equals(search_Type)) {
+//						search_Type = "基礎重訓";		
+//					}else if("F".equals(search_Type)) {
+//						search_Type = "進階重訓";					
+//					}else if("G".equals(search_Type)) {
+//						search_Type = "皮拉提斯";				
+//					}else if("H".equals(search_Type)) {
+//						search_Type = "TRX肌力雕塑";	
+//					}else if("O".equals(search_Type)) {
+//						search_Type = "其他";				
+//					}
+//					System.out.println("Final search_Type= " + search_Type);
+					GymsService gymsSV = new GymsService();
+					
+					List<GymsVO> searchResult = gymsSV.searchGyms(search_Name, search_Type);
+					if (searchResult.size() == 0) {
+						errorMsgs.add("查無資料");
+					}
+
+					req.setAttribute("searchResult", searchResult);
+					String url = "/front_end/browse/find_gyms.jsp";
+					RequestDispatcher successView = req.getRequestDispatcher(url);
+					successView.forward(req, res);
+					return;
+				} catch (Exception e) {
+					errorMsgs.add("無法取得資料:" + e.getMessage());
+					RequestDispatcher failureView = req
+							.getRequestDispatcher("");
 					failureView.forward(req, res);
 					return;
 				}

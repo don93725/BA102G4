@@ -1,6 +1,9 @@
 package com.members.model;
 
 import java.io.Serializable;
+import java.util.List;
+
+import com.comments.model.Board_cmt;
 
 public class MembersVO implements Serializable{
 
@@ -9,9 +12,17 @@ public class MembersVO implements Serializable{
 	private String mem_rank;
 	private String mem_nickname;
 	private Integer mr_num;
-	
+	private List<Board_cmt> comments;
 	public MembersVO(){
 		
+	}
+	
+	public List<Board_cmt> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Board_cmt> comments) {
+		this.comments = comments;
 	}
 
 	public String getMem_no() {

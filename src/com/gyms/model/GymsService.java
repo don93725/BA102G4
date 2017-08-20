@@ -1,8 +1,11 @@
 package com.gyms.model;
 
+import java.util.List;
+
 import javax.servlet.http.Part;
 
 import com.members.model.MembersVO;
+import com.students.model.StudentsVO;
 import com.tools.Tools;
 
 public class GymsService {
@@ -43,5 +46,11 @@ public class GymsService {
 
 		dao.update(gymsVO);
 		return gymsVO;
+	}
+	public List<GymsVO> getAll() {
+		return ((GymsDAO)dao).getAll();
+	}
+	public List<GymsVO> searchGyms(String search_Name,String search_Type) {
+		return ((GymsDAO)dao).searchGyms(search_Name, search_Type);
 	}
 }
