@@ -57,7 +57,8 @@
 										<!-- 送過去的網頁是用PART處理，所以這裡FORM記得用enctype='multipart/form-data' -->
 									<FORM METHOD="post"	ACTION="<%=request.getContextPath()%>/mgr/MgrCtrl"
 										enctype='multipart/form-data'>
-										<input type="submit" value="修改" class="btn btn-inverse"> 
+<!-- 										<input type="submit" value="修改" class="btn btn-inverse">  -->
+										<button type="submit" class="btn btn-app btn-primary  btn-xs "><i class="icon-edit "></i>修改</button>
 										<input type="hidden" name="mem_no" value="${managerVO.mem_no}"> 
 										<input type="hidden" name="mgr_no" value="${managerVO.mgr_no}">
 										<input type="hidden" name="action" value="getOne_For_Update">

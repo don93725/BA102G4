@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="main-container" id="main-container">
 	<script type="text/javascript">
 		try{ace.settings.check('main-container' , 'fixed')}catch(e){}
@@ -57,7 +57,7 @@
 
 		<li>
 			<a href="#" class="dropdown-toggle">
-				<i class="icon-desktop"></i>
+				<i class="icon-group"></i>
 				<span class="menu-text"> 員工帳號管理 </span>
 
 				<b class="arrow icon-angle-down"></b>
@@ -67,6 +67,7 @@
 					<li>
 						<a href="<%=request.getContextPath()%>/back_end/mgr/addMgr.jsp">
 						<i class="icon-double-angle-right"></i>
+						<i class="icon-plus"></i>
 							新增員工
 						</a>
 					</li>
@@ -74,68 +75,15 @@
 					<li>
 						<a href="<%=request.getContextPath()%>/back_end/mgr/select_page.jsp">
 							<i class="icon-double-angle-right"></i>
+							<i class="icon-eye-open"></i>
+							
 								員工總覽
 						</a>
 					</li>
 
-					<li>
-						<a href="#">
-							<i class="icon-eye-open"></i>
-								
-						</a>
-					</li>
-
-					<li>
-						<a href="#">
-							<i class="icon-double-angle-right"></i>
-								管理
-						</a>
-					</li>
-
-					<li>
-						<a href="#">
-							<i class="icon-double-angle-right"></i>
-								管理
-						</a>
-					</li>
-
-					<li>
-						<a href="#" class="dropdown-toggle">
-							<i class="icon-double-angle-right"></i>
-								管理
-							<b class="arrow icon-angle-down"></b>
-						</a>
-
 						<ul class="submenu">
 						<li>
-							<a href="#">
-								<i class="icon-leaf"></i>
-								管理
-							</a>
-						</li>
-
-						<li>
-							<a href="#" class="dropdown-toggle">
-								<i class="icon-pencil"></i>
-								管理
-								<b class="arrow icon-angle-down"></b>
-							</a>
-
 						<ul class="submenu">
-						<li>
-							<a href="#">
-								<i class="icon-plus"></i>
-									管理
-							</a>
-						</li>
-
-						<li>
-							<a href="#">
-								<i class="icon-eye-open"></i>
-									管理
-							</a>
-						</li>
-						
 						</ul>
 						</li>
 						</ul>
@@ -145,7 +93,7 @@
 							
 							<li>
 							<a href="#" class="dropdown-toggle">
-								<i class="icon-desktop"></i>
+								<i class="icon-globe"></i>
 								<span class="menu-text"> 審核管理 </span>
 
 								<b class="arrow icon-angle-down"></b>
@@ -155,14 +103,16 @@
 								<li>
 									<a href="<%=request.getContextPath()%>/back_end/adapply/setCheckAD.jsp">
 										<i class="icon-double-angle-right"></i>
+										<i class="icon-credit-card"></i>
 										廣告審核
 									</a>
 								</li>
 
 								<li>
-									<a href="#">
+									<a href="<%=request.getContextPath()%>/forum/ForumsManagerCtrl">
 										<i class="icon-double-angle-right"></i>
-										管理
+										<i class="icon-book"></i>
+										開版審核
 									</a>
 								</li>
 
@@ -231,7 +181,7 @@
 						</li>
 						<li>
 							<a href="#" class="dropdown-toggle">
-								<i class="icon-desktop"></i>
+								<i class="icon-legal"></i>
 								<span class="menu-text"> 檢舉管理 </span>
 
 								<b class="arrow icon-angle-down"></b>
@@ -240,7 +190,8 @@
 							<ul class="submenu">
 								<li>
 									<a href="<%=request.getContextPath()%>/back_end/memrep/setCheckMemRep.jsp">
-										<i class="icon-double-angle-right"></i>
+										<i class="icon-double-angle-right"></i> 
+										<i class="icon-bolt"></i>
 										會員檢舉
 									</a>
 								</li>
@@ -248,6 +199,7 @@
 								<li>
 									<a href="<%=request.getContextPath()%>/back_end/courserep/listAllCourseRep.jsp">
 										<i class="icon-double-angle-right"></i>
+										<i class="icon-fighter-jet"></i>
 										課程檢舉
 									</a>
 								</li>
@@ -255,6 +207,7 @@
 								<li>
 									<a href="<%=request.getContextPath()%>/back_end/placerep/CheckPlaceRep.jsp">
 										<i class="icon-double-angle-right"></i>
+										<i class="icon-certificate"></i>
 										場地檢舉
 									</a>
 								</li>
