@@ -74,7 +74,7 @@
 				</div>
 		
 		<c:if test="${user.mem_rank==1}">
-			<jsp:useBean id="adapplyCourseSvc" scope="page" class="com.Course.model.CourseService" />
+			<jsp:useBean id="adapplyCourseSvc" scope="page" class="com.course.model.CourseService" />
 			<div class="form-group">
 				<label  class="col-xs-12 col-sm-3 control-label">
 					¿ï¾Ü¼s§i¥Zµn:
