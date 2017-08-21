@@ -10,6 +10,7 @@ public class PlaceVO implements java.io.Serializable {
 	private String p_add;
 	private String p_latlng;
 	private Integer p_cap;
+	
 	public String getP_no() {
 		return p_no;
 	}

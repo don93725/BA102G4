@@ -33,33 +33,33 @@ public class PlaceService {
 	public void delete(String p_no) {
 		dao.delete(p_no);
 	}
-//	public PlaceVO updatePlace(String p_no, String g_acc, String p_name,
-//			Integer status) {
-//
-//		PlaceVO placeVO = new PlaceVO();
-//
-//		placeVO.setP_no(p_no);
-//		
-//		placeVO.setG_acc(g_acc);
-//		placeVO.setP_name(p_name);
-//		placeVO.setStatus(status);
-//		dao.update(placeVO);
-//
-//		return placeVO;
-//	}
-//
-//	public void deletePlace(String p_no) {
-//		
-//		dao.delete(p_no);
-//	}
-//
-//	public PlaceVO getOnePlace(String p_no) {
-//		return dao.findByPrimaryKey(p_no);
-//	}
-//
-//	public List<PlaceVO> getAll() {
-//		return dao.getAll();
-//	}
+	public PlaceVO updatePlace(String p_no, String g_acc, String p_name,
+			Integer status) {
+
+		PlaceVO placeVO = new PlaceVO();
+
+		placeVO.setP_no(p_no);
+		
+		placeVO.setG_acc(g_acc);
+		placeVO.setP_name(p_name);
+		placeVO.setP_status(status);
+		dao.update(placeVO);
+
+		return placeVO;
+	}
+
+	public void deletePlace(String p_no) {
+		
+		dao.delete(p_no);
+	}
+
+	public PlaceVO getOnePlace(String p_no) {
+		return dao.findByPrimaryKey(p_no);
+	}
+
+	public List<PlaceVO> getAll() {
+		return dao.getAll();
+	}
 	
 	
 	

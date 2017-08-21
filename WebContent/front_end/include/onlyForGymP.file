@@ -568,7 +568,7 @@
 			</div><!-- /span -->
 		</div><!-- /row -->
 		<div id='dialog'  style='display:none ;padding:60px;height:300px;width:350px;z-index:50;position:absolute;left:3%;background-image:url("${pageContext.request.contextPath}/front_end/comm/image/dialog.png" );background-repeat:no-repeat;'>
-			<textarea id='msgInput' cols=25 rows=4 style='resize:none; background-color:transparent;' onfocus='this.value=value;'></textarea><br><button class='btn btn-primary' onclick='sendMsg("${param.mem_no}");'>送出</button>
+			<textarea placeholder='想跟${user.mem_nickname}說些什麼嗎？' id='msgInput' cols=25 rows=4 style='resize:none; background-color:transparent;' onfocus='this.value=value;'></textarea><br><button class='btn btn-primary' onclick='sendMsg("${param.mem_no}");'>送出</button>
 		</div>
 		<script>
 	var webCtx;

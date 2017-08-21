@@ -79,7 +79,7 @@ public class MembersServlet extends HttpServlet {
 				else if("3".equals(rank)) {
 					System.out.println("(MembersServlet)rank in 3");
 					req.setAttribute("user", nowLogin_VO);
-					String url = "/ManagerServlet";
+					String url = "/mgr/MgrCtrl";
 					RequestDispatcher failView = req.getRequestDispatcher(url);
 					failView.forward(req, res);
 					return;

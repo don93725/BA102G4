@@ -1,0 +1,356 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<div class="main-container" id="main-container">
+	<script type="text/javascript">
+		try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+	</script>
+
+	<div class="main-container-inner">
+		<a class="menu-toggler" id="menu-toggler" href="#">
+			<span class="menu-text"></span>
+		</a>
+	
+<!-- sidebar開始! -->
+	<div class="sidebar fixed" id="sidebar">
+		<script type="text/javascript">
+			try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+		</script>
+
+	<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+		<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+			<button class="btn btn-success">
+				<i class="icon-signal"></i>
+			</button>
+
+			<button class="btn btn-info">
+				<i class="icon-pencil"></i>
+			</button>
+
+			<button class="btn btn-warning">
+				<i class="icon-group"></i>
+			</button>
+
+			<button class="btn btn-danger">
+				<i class="icon-cogs"></i>
+			</button>
+		</div>
+
+		<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+			<span class="btn btn-success"></span>
+
+			<span class="btn btn-info"></span>
+
+			<span class="btn btn-warning"></span>
+
+			<span class="btn btn-danger"></span>
+		</div>
+	</div>
+<!-- #sidebar-shortcuts -->
+
+	<ul class="nav nav-list">
+		<li class="active">
+			<a href="<%=request.getContextPath()%>/back_end/index.jsp">
+				<i class="icon-dashboard"></i>
+				<span class="menu-text"> 首頁 </span>
+			</a>
+		</li>
+
+		<li>
+			<a href="#" class="dropdown-toggle">
+				<i class="icon-desktop"></i>
+				<span class="menu-text"> 員工帳號管理 </span>
+
+				<b class="arrow icon-angle-down"></b>
+			</a>
+
+				<ul class="submenu">
+					<li>
+						<a href="<%=request.getContextPath()%>/back_end/mgr/addMgr.jsp">
+						<i class="icon-double-angle-right"></i>
+							新增員工
+						</a>
+					</li>
+
+					<li>
+						<a href="<%=request.getContextPath()%>/back_end/mgr/select_page.jsp">
+							<i class="icon-double-angle-right"></i>
+								員工總覽
+						</a>
+					</li>
+
+					<li>
+						<a href="#">
+							<i class="icon-eye-open"></i>
+								
+						</a>
+					</li>
+
+					<li>
+						<a href="#">
+							<i class="icon-double-angle-right"></i>
+								管理
+						</a>
+					</li>
+
+					<li>
+						<a href="#">
+							<i class="icon-double-angle-right"></i>
+								管理
+						</a>
+					</li>
+
+					<li>
+						<a href="#" class="dropdown-toggle">
+							<i class="icon-double-angle-right"></i>
+								管理
+							<b class="arrow icon-angle-down"></b>
+						</a>
+
+						<ul class="submenu">
+						<li>
+							<a href="#">
+								<i class="icon-leaf"></i>
+								管理
+							</a>
+						</li>
+
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-pencil"></i>
+								管理
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+						<ul class="submenu">
+						<li>
+							<a href="#">
+								<i class="icon-plus"></i>
+									管理
+							</a>
+						</li>
+
+						<li>
+							<a href="#">
+								<i class="icon-eye-open"></i>
+									管理
+							</a>
+						</li>
+						
+						</ul>
+						</li>
+						</ul>
+						</li>
+						</ul>
+						</li>
+							
+							<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> 審核管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li>
+									<a href="<%=request.getContextPath()%>/back_end/adapply/setCheckAD.jsp">
+										<i class="icon-double-angle-right"></i>
+										廣告審核
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-double-angle-right"></i>
+										管理
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-double-angle-right"></i>
+										管理
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-double-angle-right"></i>
+										管理
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-double-angle-right"></i>
+										管理
+									</a>
+								</li>
+
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+										管理
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="#">
+												<i class="icon-leaf"></i>
+												管理
+											</a>
+										</li>
+
+										<li>
+											<a href="#" class="dropdown-toggle">
+												<i class="icon-pencil"></i>
+												管理
+												<b class="arrow icon-angle-down"></b>
+											</a>
+
+											<ul class="submenu">
+												<li>
+													<a href="#">
+														<i class="icon-plus"></i>
+														管理
+													</a>
+												</li>
+
+												<li>
+													<a href="#">
+														<i class="icon-eye-open"></i>
+														管理
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> 檢舉管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li>
+									<a href="<%=request.getContextPath()%>/back_end/memrep/setCheckMemRep.jsp">
+										<i class="icon-double-angle-right"></i>
+										會員檢舉
+									</a>
+								</li>
+
+								<li>
+									<a href="<%=request.getContextPath()%>/back_end/courserep/listAllCourseRep.jsp">
+										<i class="icon-double-angle-right"></i>
+										課程檢舉
+									</a>
+								</li>
+
+								<li>
+									<a href="<%=request.getContextPath()%>/back_end/placerep/CheckPlaceRep.jsp">
+										<i class="icon-double-angle-right"></i>
+										場地檢舉
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-double-angle-right"></i>
+										管理
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-double-angle-right"></i>
+										管理
+									</a>
+								</li>
+
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+										管理
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="#">
+												<i class="icon-leaf"></i>
+												管理
+											</a>
+										</li>
+
+										<li>
+											<a href="#" class="dropdown-toggle">
+												<i class="icon-pencil"></i>
+												管理
+												<b class="arrow icon-angle-down"></b>
+											</a>
+
+											<ul class="submenu">
+												<li>
+													<a href="#">
+														<i class="icon-plus"></i>
+														管理
+													</a>
+												</li>
+
+												<li>
+													<a href="#">
+														<i class="icon-eye-open"></i>
+														管理
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						
+
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+					</script>
+				</div>
+<!-- sidebar結束! -->
+	<div class="main-content">
+<!-- 麵包shit開始! -->			
+		<div class="breadcrumbs" id="breadcrumbs">
+			<script type="text/javascript">
+				try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+			</script>
+
+			<ul class="breadcrumb">
+				<li>
+				<i class="icon-home home-icon"></i>
+					<a href="#">首頁</a>
+				</li>
+				
+				<li class="active">控制台</li>
+					</ul>
+					
+<!-- .breadcrumb -->
+
+				<div class="nav-search" id="nav-search">
+					<form class="form-search">
+						<span class="input-icon">
+							<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+								<i class="icon-search nav-search-icon"></i>
+						</span>
+					</form>
+				</div>
+<!-- #nav-search -->
+			</div>

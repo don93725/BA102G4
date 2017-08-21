@@ -30,4 +30,10 @@ public class MembersService {
 	public  MembersVO getPersonalComments(String coa_no){
 		return ((MembersDAO)dao).getPersonalComments(coa_no);
 	}
+	public MembersVO getOneMem(String mem_no){
+		return ((MembersDAO)dao).findByPrimaryKey(mem_no);
+	}
+	public MembersVO getMemAcc(String mem_acc){
+		return ((MembersDAO)dao).GetOneMem(mem_acc);
+	}
 }

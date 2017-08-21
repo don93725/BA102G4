@@ -1,0 +1,28 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- head -->
+
+	<!-- basic styles -->
+		<link href="<%=request.getContextPath() %>/style/assets/css/bootstrap.min.css" rel="stylesheet" />
+	 	<link rel="stylesheet" href="<%=request.getContextPath() %>/style/assets/css/font-awesome.min.css" />
+		
+<!-- fonts -->
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+
+		
+	<!-- page specific plugin styles -->
+	
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/jquery-ui-1.10.3.custom.min.css" />
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/chosen.css" />
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/datepicker.css" />
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/bootstrap-timepicker.css" />
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/daterangepicker.css" />
+		<link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/colorpicker.css" />
+	
+		
+	<!-- ace styles -->
+		<link rel="stylesheet" href="<%=request.getContextPath() %>/style/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="<%=request.getContextPath() %>/style/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="<%=request.getContextPath() %>/style/assets/css/ace-skins.min.css" />
+	 	
+	<!-- ace settings handler -->
+		<script src="<%=request.getContextPath() %>/style/assets/js/ace-extra.min.js"></script>

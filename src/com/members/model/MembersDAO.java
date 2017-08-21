@@ -27,14 +27,16 @@ public class MembersDAO implements MembersDAO_interface{
 			e.printStackTrace();
 		}
 	}
-			
+	private static final String GET_ONE_MEM = 
+			"SELECT MEM_NO,MEM_ACC,MEM_RANK,MEM_NICKNAME,mr_num FROM MEMBERS where MEM_NO = ?";		
 	private static final String LOGIN_MEM = "Select * from members where mem_acc = ?";
 	private static final String INSERT_CK = "Select mem_acc from members where mem_acc = ?";
 	private static final String UPDATE_MEM = 
 			"Update members set mem_nickname = ? where mem_acc = ?";
 	private static final String LOOK_SEARCH_MEM =
 			"Select * from members where mem_no = ?";
-	
+	private static final String GET_ONE_MEM_ACC = 
+			"SELECT MEM_NO,MEM_ACC,MEM_RANK,MEM_NICKNAME,mr_num FROM MEMBERS where MEM_ACC = ?";
 	@Override
 	public MembersVO select(String mem_acc) {
 		MembersVO membersVO = null;
@@ -230,6 +232,61 @@ public class MembersDAO implements MembersDAO_interface{
 			}
 		}
 	}
+public MembersVO findByPrimaryKey(String mem_no) {
+		
+		MembersVO membersVO = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_ONE_MEM);
+
+			pstmt.setString(1, mem_no);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				// membersVo 也稱為 Domain objects
+				membersVO = new MembersVO();
+				membersVO.setMem_no(rs.getString("mem_no"));
+				membersVO.setMem_acc(rs.getString("mem_acc"));
+				membersVO.setMem_rank(rs.getString("mem_rank"));
+				membersVO.setMem_nickname(rs.getString("mem_nickname"));
+				membersVO.setMr_num(rs.getInt("mr_num"));
+				
+			}
+
+		}catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return membersVO;
+	}
 	public MembersVO getPersonalComments(String coa_no) {
 		MembersVO membersVO = null;
 		Connection con = null;
@@ -283,5 +340,59 @@ public class MembersDAO implements MembersDAO_interface{
 				}
 			}
 		}
+	}
+	public MembersVO GetOneMem(String mem_acc) {
+		MembersVO membersVO = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_ONE_MEM_ACC);
+
+			pstmt.setString(1, mem_acc);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				// membersVo 也稱為 Domain objects
+				membersVO = new MembersVO();
+				membersVO.setMem_no(rs.getString("mem_no"));
+				membersVO.setMem_acc(rs.getString("mem_acc"));
+				membersVO.setMem_rank(rs.getString("mem_rank"));
+				membersVO.setMem_nickname(rs.getString("mem_nickname"));
+				membersVO.setMr_num(rs.getInt("mr_num"));
+				
+			}
+
+		}catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return membersVO;
 	}
 }
