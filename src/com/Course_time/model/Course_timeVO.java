@@ -1,9 +1,12 @@
 package com.Course_time.model;
 
 import com.Course.model.CourseVO;
+import com.coaches.model.CoachesVO;
+import com.comments.model.Board_cmt;
 import com.place.model.PlaceVO;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Course_timeVO {
 	String ct_no;
@@ -20,8 +23,26 @@ public class Course_timeVO {
 	CourseVO courseVO;
 	Integer count;
 	PlaceVO placeVO;
-
+	CoachesVO coachesVO;
+	List<Board_cmt> comments;
+	Integer cmtNum;
 	public Course_timeVO() {
+	}
+	
+	public Integer getCmtNum() {
+		return cmtNum;
+	}
+
+	public void setCmtNum(Integer cmtNum) {
+		this.cmtNum = cmtNum;
+	}
+
+	public List<Board_cmt> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Board_cmt> comments) {
+		this.comments = comments;
 	}
 
 	public Course_timeVO(String ct_no, String crs_no, String p_no, Date crs_date, Date deadline, Integer crs_time,
@@ -147,6 +168,14 @@ public class Course_timeVO {
 
 	public void setCount(Integer count) {
 		this.count = count;
+	}
+
+	public CoachesVO getCoachesVO() {
+		return coachesVO;
+	}
+
+	public void setCoachesVO(CoachesVO coachesVO) {
+		this.coachesVO = coachesVO;
 	}
 	
 	

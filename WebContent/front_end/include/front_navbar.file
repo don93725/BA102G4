@@ -122,20 +122,18 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">課程管理 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">選課記錄查詢</a>
+                                <a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=courseList">選課列表 </a>
                             </li>
                             <li>
-                                <a href="#">請假申請</a>
+                                <a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=courseOpen">開課列表</a>
                             </li>
                             <li>
-                                <a href="#">課程回饋</a>
+                                <a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=courseRecord">課程紀錄</a>
                             </li>
                             <li>
-                                <a href="#">課程檢舉</a>
+                                <a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=calendar">行事曆</a>
                             </li>
-                            <li>
-                                <a href="#">評價教練</a>
-                            </li>
+
                         </ul>
                     </li>
                 </ul>
@@ -192,23 +190,17 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">課程管理 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">課程上/下架</a>
+                                <a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=courseList">課程管理</a>
                             </li>
                             <li>
-                                <a href="#">課程紀錄查詢</a>
+                                <a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=courseRecord">課程紀錄</a>
                             </li>
                             <li>
-                                <a href="#">課程報表查詢</a>
-                            </li>
+                                <a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=courseReport">課程報表紀錄</a>
+                            </li>  
                             <li>
-                                <a href="#">課程Q&A</a>
-                            </li>
-                            <li>
-                                <a href="#">開課通知</a>
-                            </li>
-                            <li>
-                                <a href="#">檢舉學員</a>
-                            </li>
+                                <a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=calendar">行事曆</a>
+                            </li>  
                         </ul>
                     </li>
                     
