@@ -43,7 +43,7 @@
 			            <ul class="breadcrumb">
 			                <li>
 			                    <i class="icon-home home-icon"></i>
-			                        <a href="/BA102G4/front_end/index.jsp">首頁</a></li>
+			                        <a href="<%= request.getContextPath()%>/front_end/index.jsp">首頁</a></li>
 			                     </li>
 			                <li class="active">討論版</li>
 			            </ul><!-- .breadcrumb -->

@@ -199,7 +199,7 @@ font-size:50px;
 			            <ul class="breadcrumb">
 			                <li>
 			                    <i class="icon-home home-icon"></i>
-			                        <a href="/BA102G4/front_end/index.jsp">首頁</a></li>
+			                        <a href="<%= request.getContextPath()%>/front_end/index.jsp">首頁</a></li>
 			                     </li>
 			                       <c:if test='${empty param.mem_rank}'>
 	                	<li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
@@ -1257,8 +1257,7 @@ font-size:50px;
 							if(file){
 								reader.readAsDataURL(file);
 							}
-							
-
+						
 							});
 				}
 

@@ -40,7 +40,7 @@
 	           			<ul class="breadcrumb">
 			              	<li>
 				                  <i class="icon-home home-icon"></i>
-				                      <a href="/BA102G4/front_end/index.jsp">首頁</a>
+				                      <a href="<%= request.getContextPath()%>/front_end/index.jsp">首頁</a>
 				                   </li>
 				              <li class="active"><a  href="${pageContext.request.contextPath}/forum/ForumCtrl">討論大廳</a></li>
 				              <li class="active">${forum_name }</li>

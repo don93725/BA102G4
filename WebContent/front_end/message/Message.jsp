@@ -162,7 +162,7 @@
 		            <ul class="breadcrumb">
 		                <li>
 		                    <i class="icon-home home-icon"></i>
-		                        <a href="/BA102G4/front_end/index.jsp">首頁</a></li>
+		                        <a href="<%= request.getContextPath()%>/front_end/index.jsp">首頁</a></li>
 		                     </li>
 		                <li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
 		                <li class="active">即時訊息</li>		                
@@ -618,7 +618,7 @@
 		        		  } else {
 		        			  var message = {"type":"stopCall","rcv_no" : obj.rcv_no};
 		        				webSocket.send(JSON.stringify(message));		        		       
-		        		        
+		        				swal.close();
 		        		        
 		        		  }
 		        		});
@@ -701,12 +701,15 @@
 			if(pc!=null)
 			pc.close();
 			pc = null;
+			if(localVideo!=undefined)
 			localVideo.style.opacity = 0;
 			localVideo.src = "";
 			miniVideo.src = "";
 			remoteVideo.src = ""
+			if(localStream!=undefined)
 			var track = localStream.getTracks()[0];
 			track.stop();
+			if(remoteStream!=undefined)
 			track = remoteStream.getTracks()[0];
 			track.stop();
 			localStream = null;
