@@ -108,6 +108,6 @@
 						<!-- /col-sm-12 -->
 					</div>
 					<!-- /row -->
-
+	</div>
 </body>
 </html>

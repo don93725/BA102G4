@@ -9,8 +9,8 @@
 <head>
 <%@include file="/back_end/include/fileInput/fileInput_head.file" %>
 <%@include file="/back_end/include/basic_ace_script.file" %>
-<script src="<%=request.getContextPath() %>/style/dist/sweetalert.min.js"></script>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/style/dist/sweetalert.css">
+<script src="<%=request.getContextPath()%>/style/assets/js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/style/assets/css/sweetalert.css">
 <title>Insert title here</title>
 <style>
 .kv-avatar .krajee-default.file-preview-frame,.kv-avatar .krajee-default.file-preview-frame:hover {
@@ -77,7 +77,7 @@
 			
 		<div class="col-xs-12 col-sm-9">
             <div class="kv-avatar center-block text-center" style="width:200px">
-                <input id="avatar-2" name="mgr_pic" type="file" class="file-loading" required>
+                <input id="avatar-2" name="mgr_pic" type="file" class="file-loading">
             </div>
        	</div>
 	</div>

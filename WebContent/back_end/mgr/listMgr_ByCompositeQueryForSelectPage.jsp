@@ -68,7 +68,10 @@
 	<%@ include file="pages/page2_ByCompositeQuery.file"%>
 							</tbody>
 					</table>
-
+</div>
+</div>
+</div>
+</div>
 
 	</body>
 </html>

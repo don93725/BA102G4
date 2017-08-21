@@ -47,46 +47,62 @@
 			</ul>
 		</font>
 	</c:if>
-	<table border='1'>
-		<tr> 
-			<th>課程編號</th>
-			<th>課程名稱</th>
-			<th>檢舉者帳號</th>
-			<th>檢舉者暱稱</th>
-			<th>檢舉原因</th>
-			<th>狀態</th>
-			<th>核准</th>
-			<th>駁回</th>
-		</tr>
-		<%@ include file="page1.file"%>
-		<c:forEach var="courseReportVO" items="${list}"
-			begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
-			<tr align="center" valign="middle">
-				<td>${courseReportVO.ct_no}</td>
-				<td>${courseRepCourseSvc.getCourse(courseReportVO.ct_no).crs_name}</td>
-				<td>${courseReportVO.stu_acc}</td>
-				<td>${courseRepMemSvc.getMemAcc(courseReportVO.stu_acc).mem_nickname}</td>
-				<td>${courseReportVO.report_ct}</td>
-				<td>${courseReportVO.report_sta==1?'未處理':''}</td>
+	<div class="row">
+		<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+			<div class="table-responsive">
+				<table id="sample-table-1" class="table table-striped">
+						<thead class="aaa">
+							<tr>
+								<th class="center">課程編號</th>
+								<th class="center">課程名稱</th>
+								<th class="center">檢舉者帳號</th>
+								<th class="center">檢舉者暱稱</th>
+								<th class="center">檢舉原因</th>
+								<th class="center">狀態</th>
+								<th class="center">核准</th>
+								<th class="center">駁回</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<%@ include file="page1.file"%>
+							<c:forEach var="courseReportVO" items="${list}"
+								begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
+								<tr>
+									<td class="center">${courseReportVO.ct_no}</td>
+									<td class="center">${courseRepCourseSvc.getCourse(courseReportVO.ct_no).crs_name}</td>
+									<td class="center">${courseReportVO.stu_acc}</td>
+									<td class="center">${courseRepMemSvc.getMemAcc(courseReportVO.stu_acc).mem_nickname}</td>
+									<td class="center">${courseReportVO.report_ct}</td>
+									<td class="center">${courseReportVO.report_sta==1?'未處理':''}</td>
 
 
-				<td>
-					<form method="post" action="<%=request.getContextPath()%>/courserep/CourseRepCtrl" >
-						<input type="submit" value="核准"> 
-						<input type="hidden" name="ct_no" value="${courseReportVO.ct_no}"> 
-						<input type="hidden" name="action" value="Report">
-					</form>
-				</td>
+									<td class="center">
+										<form method="post" action="<%=request.getContextPath()%>/courserep/CourseRepCtrl">
+											<input type="submit" value="核准"> <input type="hidden"
+												name="ct_no" value="${courseReportVO.ct_no}"> <input
+												type="hidden" name="action" value="Report">
+										</form>
+									</td>
 
-				<td><form method="post" action="<%=request.getContextPath()%>/courserep/CourseRepCtrl">
-						<input type="submit" value="駁回"> 
-						<input type="hidden" name="ct_no" value="${courseReportVO.ct_no}"> 
-						<input type="hidden" name="action" value="NO_Report">
-					</form></td>
-			</tr>
-		</c:forEach>
-	</table>
-	<%@ include file="page2.file"%>
+									<td class="center">
+										<form method="post" action="<%=request.getContextPath()%>/courserep/CourseRepCtrl">
+											<input type="submit" value="駁回"> <input type="hidden"
+												name="ct_no" value="${courseReportVO.ct_no}"> <input
+												type="hidden" name="action" value="NO_Report">
+										</form>
+									</td>
+								</tr>
+								</c:forEach>
+								<%@ include file="page2.file"%>
+					</tbody>
+				</table>
+			</div>
+				<!-- /.table-responsive -->
+		</div>
+			<!-- /col-sm-12 -->
+	</div>
+		<!-- /row -->
 <%@include file="/back_end/include/ace_setting_footer.file"%>
 </body>
 </html>
