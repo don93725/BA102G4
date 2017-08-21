@@ -7,7 +7,7 @@
 	AD_ApplyService ADSvc = new AD_ApplyService();
 	List<AD_ApplyVO> list = ADSvc.getAll();
 	pageContext.setAttribute("list", list);
-%>
+%> 
 <!DOCTYPE html >
 <html>
 <head>

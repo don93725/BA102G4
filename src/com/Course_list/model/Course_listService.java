@@ -45,7 +45,7 @@ public class Course_listService {
 	  
 	  public List<Course_listVO> getAll(String stu_acc){
 	    return this.dao.getAll(stu_acc);
-	  }
+	  } 
 	  
 	  public void payCourse_list(String ct_no,String stu_acc){
 		    this.dao.pay(ct_no,stu_acc);
