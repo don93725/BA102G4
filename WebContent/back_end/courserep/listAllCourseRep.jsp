@@ -15,7 +15,7 @@
 	pageContext.setAttribute("list", list);
 %>
 <jsp:useBean id="courseRepMemSvc" scope="page" class="com.members.model.MembersService"/>
-<jsp:useBean id="courseRepCourseSvc" scope="page" class="com.Course.model.CourseService"/>
+<jsp:useBean id="courseRepCourseSvc" scope="page" class="com.course.model.CourseService"/>
 <%-- <jsp:useBean id="courseRepCourseTimeSvc" scope="page" class="com.Course_time.model.Course_timeService"/> --%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

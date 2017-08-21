@@ -92,5 +92,9 @@ public class Course_listService {
 			dao.updateCRNum(course_listVO);
 			return course_listVO;
 		}
+		public List<Course_listVO> getReportSta(Integer report_sta) {
+			
+			return dao.getReportSta(report_sta);
+		}
 
 }
