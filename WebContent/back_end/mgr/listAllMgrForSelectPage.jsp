@@ -89,7 +89,7 @@
 											
 											<td class="center">
 											<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/mgr/MgrCtrl" enctype='multipart/form-data'>
-			    								<input type="submit" value="н╫зя" class="btn btn-inverse">
+			    								<button type="submit" class="btn btn-app btn-primary  btn-xs "><i class="icon-edit "></i>н╫зя</button>
 			     								<input type="hidden" name="mem_no" value="${managerVO.mem_no}">
 			   								  	<input type="hidden" name="mgr_no" value="${managerVO.mgr_no}">
 			   									<input type="hidden" name="action"	value="getOne_For_Update">
@@ -108,6 +108,6 @@
 						<!-- /col-sm-12 -->
 					</div>
 					<!-- /row -->
-
+	</div>
 </body>
 </html>

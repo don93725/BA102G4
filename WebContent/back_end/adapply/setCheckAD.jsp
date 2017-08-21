@@ -38,6 +38,7 @@
 				</ul>
 			</font>
 		</c:if>
+		
 		<div class="row">
 			<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 				<div class="table-responsive">
@@ -91,7 +92,8 @@
 											<input type="submit" value="»é¦^"> <input type="hidden"
 												name="ad_no" value="${ad_ApplyVO.ad_no}"> <input
 												type="hidden" name="action" value="NO_AD">
-										</form></td>
+										</form>
+									</td>
 								</tr>
 							</c:forEach>
 							<%@ include file="page2.file"%>
@@ -103,7 +105,8 @@
 			<!-- /col-sm-12 -->
 		</div>
 		<!-- /row -->
-
+	</div>
+	
 		<%@include file="/back_end/include/ace_setting_footer.file"%>
 </body>
 </html>

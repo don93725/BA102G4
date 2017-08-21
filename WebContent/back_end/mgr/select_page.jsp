@@ -70,10 +70,9 @@
 								</div>
 								
 								<div class="col-md-2">
-									<input type="submit" class="btn btn-info  btn-group-lg"
-							value="¬d¸ß">
-									<input type="hidden" name="action"
-							value="listMgr_ByCompositeQuery">
+								
+									<button type="submit" class="btn btn-sm btn-info"><i class="icon-search nav-search-icon"></i>¬d¸ß</button>
+									<input type="hidden" name="action" value="listMgr_ByCompositeQuery">
 								</div>
 								
 							</div>

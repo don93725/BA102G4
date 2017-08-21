@@ -13,12 +13,12 @@ import com.members.model.MembersVO;
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/adapply/Login")
+@WebServlet("/adapply/Login") 
 public class ADApply_Login extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		HttpSession session = req.getSession();
 		MembersVO members = new MembersVO();
-		
+		  
 		members.setMem_no("7");
 		members.setMem_acc("COA1");
 		members.setMem_nickname("COA1_C1");

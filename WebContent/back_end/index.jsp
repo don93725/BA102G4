@@ -14,8 +14,8 @@
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				Form Elements <small> <i class="icon-double-angle-right"></i>
-					Common form elements and layouts
+				­º­¶ <small> <i class="icon-double-angle-right"></i>
+					
 				</small>
 			</h1>
 		</div>
@@ -24,7 +24,7 @@
 					
 						
 						
-						
+	</div>				
 	<%@include file="/back_end/include/ace_setting_footer.file"%>
 </body>
 </html>
