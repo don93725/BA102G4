@@ -1,8 +1,8 @@
-package com.Course.model;
+package com.course.model;
 
 import java.util.List;
 
-import com.Course_picture.model.Course_pictureVO;
+import com.course_picture.model.Course_pictureVO;
 
 public class CourseVO {
 	private String crs_no;

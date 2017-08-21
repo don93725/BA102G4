@@ -1,8 +1,8 @@
-package com.Course_time.model;
+package com.course_time.model;
 
-import com.Course.model.CourseVO;
 import com.coaches.model.CoachesVO;
 import com.comments.model.Board_cmt;
+import com.course.model.CourseVO;
 import com.place.model.PlaceVO;
 
 import java.sql.Date;

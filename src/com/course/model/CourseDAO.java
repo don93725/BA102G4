@@ -1,4 +1,4 @@
-package com.Course.model;
+package com.course.model;
 
 import java.sql.Clob;
 import java.sql.Connection;
@@ -14,9 +14,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.Course_picture.model.Course_pictureDAO;
-import com.Course_picture.model.Course_pictureService;
-import com.Course_picture.model.Course_pictureVO;
+import com.course_picture.model.Course_pictureDAO;
+import com.course_picture.model.Course_pictureService;
+import com.course_picture.model.Course_pictureVO;
 import com.place_time.model.Place_timeVO;
 
 public class CourseDAO implements CourseDAO_interface {

@@ -2,13 +2,13 @@
 package com.CCM.controller;
 
 import com.members.model.*;
-import com.Course.model.CourseService;
-import com.Course.model.CourseVO;
-import com.Course_list.model.Course_listService;
-import com.Course_list.model.Course_listVO;
-import com.Course_picture.model.Course_pictureService;
-import com.Course_time.model.Course_timeService;
-import com.Course_time.model.Course_timeVO;
+import com.course.model.CourseService;
+import com.course.model.CourseVO;
+import com.course_list.model.Course_listService;
+import com.course_list.model.Course_listVO;
+import com.course_picture.model.Course_pictureService;
+import com.course_time.model.Course_timeService;
+import com.course_time.model.Course_timeVO;
 import com.place_time.model.*;
 import java.io.IOException;
 import java.io.PrintWriter;

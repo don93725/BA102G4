@@ -1,4 +1,4 @@
-package com.Course.model;
+package com.course.model;
 
 import java.util.List;
 

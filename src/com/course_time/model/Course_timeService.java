@@ -1,9 +1,9 @@
-package com.Course_time.model;
+package com.course_time.model;
 
 import java.sql.Date;
 import java.util.List;
 
-import com.Course.model.CourseVO;
+import com.course.model.CourseVO;
 
 public class Course_timeService{
   private Course_timeDAO_interface dao;

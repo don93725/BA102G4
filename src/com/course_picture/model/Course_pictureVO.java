@@ -1,4 +1,4 @@
-package com.Course_picture.model;
+package com.course_picture.model;
 
 public class Course_pictureVO {
 	String crs_pic_no,crs_no,crs_base;

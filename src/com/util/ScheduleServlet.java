@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.Course_time.model.*;
-import com.Course_list.model.*;
+import com.course_list.model.*;
+import com.course_time.model.*;
 
 @WebServlet("/ScheduleServlet")
 public class ScheduleServlet extends HttpServlet {

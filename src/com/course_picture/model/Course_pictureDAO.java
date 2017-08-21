@@ -1,4 +1,4 @@
-package com.Course_picture.model;
+package com.course_picture.model;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.Course.model.CourseVO;
+import com.course.model.CourseVO;
 
 public class Course_pictureDAO implements Course_pictureDAO_interface{
 	

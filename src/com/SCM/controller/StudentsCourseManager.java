@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.members.model.*;
-import com.Course_list.model.Course_listService;
-import com.Course_list.model.Course_listVO;
-import com.Course_time.model.Course_timeService;
-import com.Course_time.model.Course_timeVO;
+import com.course_list.model.Course_listService;
+import com.course_list.model.Course_listVO;
+import com.course_time.model.Course_timeService;
+import com.course_time.model.Course_timeVO;
 
 @WebServlet("/SCM/StudentsCourseManager.do")
 public class StudentsCourseManager extends HttpServlet {

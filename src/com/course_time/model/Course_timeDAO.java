@@ -1,4 +1,4 @@
-package com.Course_time.model;
+package com.course_time.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,12 +12,12 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.Course.model.CourseVO;
-import com.Course_list.model.Course_listDAO;
-import com.Course_picture.model.Course_pictureService;
 import com.coaches.model.CoachesVO;
 import com.comments.model.Board_cmt;
 import com.comments.model.Board_cmtDAO;
+import com.course.model.CourseVO;
+import com.course_list.model.Course_listDAO;
+import com.course_picture.model.Course_pictureService;
 import com.place.model.PlaceVO;
 
 public class Course_timeDAO implements Course_timeDAO_interface {

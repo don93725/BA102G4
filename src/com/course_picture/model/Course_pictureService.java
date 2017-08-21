@@ -1,4 +1,4 @@
-package com.Course_picture.model;
+package com.course_picture.model;
 
 import java.util.List;
 

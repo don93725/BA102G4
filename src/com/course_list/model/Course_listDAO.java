@@ -1,4 +1,4 @@
-package com.Course_list.model;
+package com.course_list.model;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -13,9 +13,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.Course.model.CourseVO;
-import com.Course_time.model.Course_timeVO;
 import com.coaches.model.CoachesVO;
+import com.course.model.CourseVO;
+import com.course_time.model.Course_timeVO;
 import com.place.model.PlaceVO;
 import com.students.model.StudentsVO;
 

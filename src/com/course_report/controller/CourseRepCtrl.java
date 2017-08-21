@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-import com.Course_list.model.Course_listService;
-import com.Course_list.model.Course_listVO;
 import com.authority.model.AuthorityService;
+import com.course_list.model.Course_listService;
+import com.course_list.model.Course_listVO;
 import com.manager.model.ManagerVO;
 
 @WebServlet("/courserep/CourseRepCtrl")
