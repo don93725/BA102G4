@@ -20,7 +20,7 @@ public class Course_listService {
 		course_listVO.setStu_acc(stu_acc);
 		course_listVO.setCl_date(cl_date);
 		course_listVO.setCrs_time(crs_time);
-	
+		
 	    this.dao.insert(course_listVO);
 	    return course_listVO;
 	  }
