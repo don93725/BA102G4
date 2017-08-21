@@ -9,7 +9,7 @@ public class Course_timeService{
   private Course_timeDAO_interface dao;
   
   public Course_timeService() {
-    this.dao = new Course_timeDAO();
+    dao = new Course_timeDAO();
   }
   
   public Course_timeVO addCourse_time(String crs_no, String p_no, Date crs_date, Date deadline, Integer crs_time, String price, String limit, String class_num, int status, CourseVO courseVO){
@@ -24,7 +24,7 @@ public class Course_timeService{
     course_timeVO.setClass_num(class_num);
     course_timeVO.setStatus(status);
     course_timeVO.setCourseVO(courseVO);
-    this.dao.insert(course_timeVO);
+    dao.insert(course_timeVO);
     
     return course_timeVO;
   }
@@ -37,28 +37,49 @@ public class Course_timeService{
     course_timeVO.setDeadline(deadline);
     course_timeVO.setCrs_time(crs_time);
     course_timeVO.setPrice(price);
-    this.dao.update(course_timeVO);
+    dao.update(course_timeVO);
     
     return course_timeVO;
   }
   
   public void deleteCourse_time(String ct_no){
-    this.dao.delete(ct_no);
+    dao.delete(ct_no);
   }
   
   public Course_timeVO getOneCourse_time(String crs_no){
-    return this.dao.findByPK(crs_no);
+    return dao.findByPK(crs_no);
   }
   
   public List<Course_timeVO> getAll(String c_acc){
-    return this.dao.getAll(c_acc);
+    return dao.getAll(c_acc);
   }
   
   public List<Course_timeVO> getAllOpen(String c_acc){
-	    return this.dao.getAllOpen(c_acc);
+	    return dao.getAllOpen(c_acc);
   }
   
   public List<Course_timeVO> getAllRecord(String c_acc){
-	    return this.dao.getAllRecord(c_acc);
+	    return dao.getAllRecord(c_acc);
   }
+  
+  public List<Course_timeVO> getAllCrsList(){
+	    return dao.getAllCrsList();
+  }
+  
+  public List<Course_timeVO> getAllCrsListSelect(String select){
+	    return dao.getAllCrsListSelect(select);
+  }
+  
+  public List<Course_timeVO> getAllByCrs_no(String crs_no){
+	    return dao.getAllByCrs_no(crs_no);
+  }
+  
+  public List<Course_timeVO> getAllBeforeList(){
+	    return dao.getAllBeforeList();
+  }
+  
+  public void open(String ct_no){
+	    dao.open(ct_no);
+  }
+
 }

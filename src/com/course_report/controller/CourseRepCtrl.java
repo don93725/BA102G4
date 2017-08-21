@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import com.Course_list.model.Course_listService;
 import com.Course_list.model.Course_listVO;
-import com.Course_list.model.course_listService;
 import com.authority.model.AuthorityService;
 import com.manager.model.ManagerVO;
 
@@ -44,7 +44,7 @@ public class CourseRepCtrl extends HttpServlet {
 			try {
 				String ct_no = req.getParameter("ct_no");
 				System.out.println(ct_no);
-				course_listService CRSvc = new course_listService();
+				Course_listService CRSvc = new Course_listService();
 				
 				CRSvc.updateReportSta(ct_no);
 				CRSvc.updateCRNum(ct_no);
@@ -69,7 +69,7 @@ public class CourseRepCtrl extends HttpServlet {
 				String ct_no = req.getParameter("ct_no");
 				System.out.println(ct_no);
 				
-				course_listService CRSvc = new course_listService();
+				Course_listService CRSvc = new Course_listService();
 				CRSvc.updateReportSta(ct_no);
 				
 				String url = "/back_end/courserep/listAllCourseRep.jsp";

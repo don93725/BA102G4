@@ -2,8 +2,7 @@ package com.Course.model;
 
 import java.util.List;
 
-public class CourseService
-{
+public class CourseService{
   private CourseDAO_interface dao;
   
   public CourseService()
@@ -11,14 +10,14 @@ public class CourseService
     this.dao = new CourseDAO();
   }
   
-  public CourseVO addCourse(String c_acc, String crs_name, String details, String category)
+  public CourseVO addCourse(String c_acc, String crs_name, String details, String category, List<String> crs_base)
   {
     CourseVO couresVO = new CourseVO();
     couresVO.setC_acc(c_acc);
     couresVO.setCrs_name(crs_name);
     couresVO.setDetails(details);
     couresVO.setCategory(category);
-    this.dao.insert(couresVO);
+    this.dao.insert(couresVO,crs_base);
     
     return couresVO;
   }
@@ -49,11 +48,4 @@ public class CourseService
   {
     return this.dao.getAll(c_acc);
   }
-  
-  
-  //77777777777
-  public CourseVO getCourse(String ct_no){
-	  return this.dao.fingByCourse(ct_no);
-  }
-
 }

@@ -2,12 +2,39 @@ package com.Course_list.model;
 
 import java.sql.Date;
 
-public class Course_listVO implements java.io.Serializable {
-	private Integer crs_time, stu_pay_sta,report_sta,n_sta;
-	private String ct_no,stu_acc,report_ct,feedback,evaluation_cao,evaluation_crs,reason;
-	private Date cl_date,stu_pay_date;
+import com.Course.model.CourseVO;
+import com.Course_time.model.Course_timeVO;
+import com.coaches.model.CoachesVO;
+import com.place.model.PlaceVO;
+import com.students.model.StudentsVO;
+
+public class Course_listVO {
+	Integer crs_time, stu_pay_sta,report_sta,n_sta,count;
+	String ct_no,stu_acc,report_ct,feedback,evaluation_cao,evaluation_crs,reason,crs_timeShow;
+	Date cl_date,stu_pay_date;
+	Course_timeVO course_timeVO;
+	CourseVO courseVO;
+	CoachesVO coachesVO;
+	PlaceVO placeVO;
+	StudentsVO studentsVO;
 	
+	public  Course_listVO(){};
 	
+	public  Course_listVO(String ct_no,String stu_acc,Date cl_date,Integer crs_time,Integer stu_pay_sta,Date stu_pay_date,Integer report_sta,String report_ct,String feedback,String evaluation_cao,String evaluation_crs,Integer n_sta,String reason){
+		this.crs_time = crs_time;
+		this.stu_pay_sta = stu_pay_sta;
+		this.report_sta = report_sta;
+		this.n_sta = n_sta;
+		this.ct_no = ct_no;
+		this.stu_acc = stu_acc;
+		this.report_ct = report_ct;
+		this.feedback = feedback;
+		this.evaluation_cao = evaluation_cao;
+		this.evaluation_crs = evaluation_crs;
+		this.reason = reason;
+		this.cl_date = cl_date;
+		this.stu_pay_date = stu_pay_date;
+	}
 
 	public Integer getCrs_time() {
 		return crs_time;
@@ -111,11 +138,63 @@ public class Course_listVO implements java.io.Serializable {
 
 	public void setStu_pay_date(Date stu_pay_date) {
 		this.stu_pay_date = stu_pay_date;
-	};
-	
-	
-	
-	
+	}
+
+	public Course_timeVO getCourse_timeVO() {
+		return course_timeVO;
+	}
+
+	public void setCourse_timeVO(Course_timeVO course_timeVO) {
+		this.course_timeVO = course_timeVO;
+	}
+
+	public CourseVO getCourseVO() {
+		return courseVO;
+	}
+
+	public void setCourseVO(CourseVO courseVO) {
+		this.courseVO = courseVO;
+	}
+
+	public CoachesVO getCoachesVO() {
+		return coachesVO;
+	}
+
+	public void setCoachesVO(CoachesVO coachesVO) {
+		this.coachesVO = coachesVO;
+	}
+
+	public PlaceVO getPlaceVO() {
+		return placeVO;
+	}
+
+	public void setPlaceVO(PlaceVO placeVO) {
+		this.placeVO = placeVO;
+	}
+
+	public StudentsVO getStudentsVO() {
+		return studentsVO;
+	}
+
+	public void setStudentsVO(StudentsVO studentsVO) {
+		this.studentsVO = studentsVO;
+	}
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
+	public String getCrs_timeShow() {
+		return crs_timeShow;
+	}
+
+	public void setCrs_timeShow(String crs_timeShow) {
+		this.crs_timeShow = crs_timeShow;
+	}
 	
 
 }

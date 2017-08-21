@@ -1,5 +1,9 @@
 package com.Course.model;
 
+import java.util.List;
+
+import com.Course_picture.model.Course_pictureVO;
+
 public class CourseVO {
 	private String crs_no;
 	private String c_acc;
@@ -8,6 +12,9 @@ public class CourseVO {
 	private String category;
 	private String categoryChange;
 	private Integer status;
+	private List<Course_pictureVO> picList;
+	
+
 	public CourseVO() {
 	}
 
@@ -75,5 +82,14 @@ public class CourseVO {
 	public void setCategoryChange(String categoryChange) {
 		this.categoryChange = categoryChange;
 	}
+
+	public List<Course_pictureVO> getPicList() {
+		return picList;
+	}
+	
+	public void setPicList(List<Course_pictureVO> picList) {
+		this.picList = picList;
+	}
+	
 
 }
