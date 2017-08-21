@@ -45,7 +45,7 @@ public class ForumsManagerCtrl extends HttpServlet {
 			req.setAttribute("allPageCount", allPageCount);
 			req.setAttribute("queryStr", "forum/ForumsManagerCtrl");
 			req.setAttribute("thisPage", thisPage);
-			req.getRequestDispatcher("/back_end/forum/liadaadffreqwfrewfrwfrwerew.jsp").forward(req, res);
+			req.getRequestDispatcher("/back_end/forum/改掉我啊操你媽的ew.jsp").forward(req, res);
 			//導向哪頁面還沒寫
 		}
 	
