@@ -13,7 +13,7 @@ import com.members.model.MembersVO;
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/adapply/Login")
+@WebServlet("/adapply/Login") 
 public class ADApply_Login extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		HttpSession session = req.getSession();
