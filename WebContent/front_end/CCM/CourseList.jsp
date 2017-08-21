@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="Big5"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
-<%@ page import="com.Course.model.*"%>
+<%@ page import="com.course.model.*"%>
 <%@ page import="com.members.model.*"%>
-<%@ page import="com.Course_picture.model.*"%>
+<%@ page import="com.course_picture.model.*"%>
 <%
 	CourseService courseSVC = new CourseService();
 	ArrayList<CourseVO> crslist = (ArrayList) courseSVC.getAll(((MembersVO) session.getAttribute("user")).getMem_acc());

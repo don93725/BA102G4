@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
-<%@ page import="com.Course_time.model.*"%>
+<%@ page import="com.course_time.model.*"%>
 <%@ page import="com.place_time.model.*"%>
 <%@ page import="com.members.model.*"%>
 <%

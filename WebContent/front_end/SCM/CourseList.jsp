@@ -1,10 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
-<%@ page import="com.Course.model.*"%>
+<%@ page import="com.course.model.*"%>
 <%@ page import="com.members.model.*"%>
-<%@ page import="com.Course_list.model.*"%>
-<%@ page import="com.Course_picture.model.*"%>
+<%@ page import="com.course_list.model.*"%>
+<%@ page import="com.course_picture.model.*"%>
 <%
 	Course_listService course_listSVC = new Course_listService();
 	ArrayList<Course_listVO> crslist = (ArrayList) course_listSVC.getAll(((MembersVO) session.getAttribute("user")).getMem_acc());

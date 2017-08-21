@@ -3,14 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.*"%>
-<%@ page import="com.Course_list.model.*"%>
-<%@ page import="com.Course_time.model.*"%>
-<%@ page import="com.Course.model.*"%>
+<%@ page import="com.course_list.model.*"%>
+<%@ page import="com.course_time.model.*"%>
+<%@ page import="com.course.model.*"%>
 
 	
 
 <%
-	course_listService courseRepSvc = new course_listService();
+	Course_listService courseRepSvc = new Course_listService();
 	List<Course_listVO> list = courseRepSvc.getReportSta(1);
 	pageContext.setAttribute("list", list);
 %>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.Course_time.model.*" %>
-<%@ page import="com.Course_list.model.*" %>
+<%@ page import="com.course_time.model.*" %>
+<%@ page import="com.course_list.model.*" %>
 <%@ page import="com.members.model.*" %>
 <%@ page import="com.coaches.model.*" %>
 <%@ page import="com.students.model.*" %>
