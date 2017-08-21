@@ -31,7 +31,7 @@
 		<div class="page-header">
 			<h1>
 				檢舉管理 <small> <i class="icon-double-angle-right"></i>
-					課程檢舉審核_未處理 - ListAllCourseRep.jsp
+					課程檢舉審核_以處理 - okCourseRep.jsp
 				</small>
 			</h1>
 		</div>

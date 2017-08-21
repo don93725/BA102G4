@@ -45,8 +45,8 @@
 								<td class="center">${forum.forum_note}</td>
 								<td class="center">${forum.forum_stat }</td>
 								<td class="center">
-									<a href='${pageContext.request.contextPath}//forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=1&thisPage=${thisPage }'><button>通過</button></a>
-									<a href='${pageContext.request.contextPath}//forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=2&thisPage=${thisPage }'><button>不通過</button></a>
+									<a href='${pageContext.request.contextPath}/forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=1&thisPage=${thisPage }'><button>通過</button></a>
+									<a href='${pageContext.request.contextPath}/forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=2&thisPage=${thisPage }'><button>不通過</button></a>
 								</td>
 
 							</tr>
