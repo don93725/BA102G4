@@ -310,7 +310,11 @@
                                 <a href="#">申請者管理</a>
                             </li>
                             <li>
-                                <a href="<%= request.getContextPath() %>/front_end/rentManagement/placePublish.jsp">場地上/下架</a>
+                                <a data-toggle="tab" href="#" onclick="dropdown(1)">上/下架管理</a>
+									<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
+										<input type="submit" class="btn btn-default" id="dropdown1" role="button" value="場地列表">
+										<input type="hidden" name="action" value="placeList">
+									</form>
                             </li>
                             <li>
                                 <a href="#">租借紀錄查詢</a>

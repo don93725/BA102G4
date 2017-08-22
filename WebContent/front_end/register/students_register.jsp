@@ -184,7 +184,7 @@
 													<label class="block">
 														<input type="checkbox"
 														required
-														class="ace" id="coa_term"/>
+														class="ace" id="stu_term"/>
 														<span class="lbl">
 															我接受
 															<a href="#">使用者條款</a>
