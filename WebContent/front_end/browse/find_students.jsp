@@ -132,7 +132,7 @@
 				</div>	
 					<div class="item-container">
 						<div class="item-caption black">
-							<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=0&stu_no=${studentsVO.stu_no}&action=lookPersonal" target="_blank">
+							<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=0&mem_no=${studentsVO.stu_no}&action=lookPersonal" target="_blank">
 								<div class="item-caption-inner">
 									<div class="item-caption-inner1">
 										<span class="into">${studentsVO.stu_into }</span>
@@ -162,7 +162,7 @@
 				</div>	
 					<div class="item-container">
 						<div class="item-caption black">
-							<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=0&stu_no=${studentsVO.stu_no}&action=lookPersonal" target="_blank">
+							<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=0&mem_no=${studentsVO.stu_no}&action=lookPersonal" target="_blank">
 								<div class="item-caption-inner">
 									<div class="item-caption-inner1">
 										<span class="into">${studentsVO.stu_into }</span>

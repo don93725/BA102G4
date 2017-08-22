@@ -70,7 +70,9 @@
 							<div class="col-xs-12 col-sm-3" >
 							<p></p>
 							<p></p>
+							<c:if test="${param.mem_no==user.mem_no }">
 							<button class='btn btn-danger btn-lg' onclick='delFriend("${mem_no}","${pageContext.request.contextPath }")'>刪除好友</button>
+							</c:if>
 							<p></p>
 							<p></p>
 							</div>

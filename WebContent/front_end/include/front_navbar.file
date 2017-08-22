@@ -115,21 +115,27 @@
 					<li class="dropdown navbar_icon">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">個人空間 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">基本資料</a>
-                            </li>
-                            <li>
-                                <a href="<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${user.mem_no}">相簿</a>
-                            </li>
-                            <li>
-                                <a href="<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}">個人動態</a>
-                            </li>
-                            <li>
+                             <li>
+                                 <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">基本資料</a>
+                             </li>
+                             <li>
+                                 <a href="<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${user.mem_no}">相簿</a>
+                             </li>
+                             <li>
+                                 <a href="<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}">個人動態</a>
+                              </li>
+                              <li>
                                 <a href="<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}&friend=1">好友動態</a>
-                            </li>
-                            <li>
-                                <a href="<%= request.getContextPath()%>/friends/FirendCtrl?mem_no=${user.mem_no}">好友列表</a>
-                            </li>
+                              </li>
+                              <li>
+                                 <a href="<%= request.getContextPath()%>/friends/FirendCtrl?mem_no=${user.mem_no}">好友列表</a>
+                              </li>
+                              <li>
+                                 <a href="<%= request.getContextPath()%>/all/CommentsCtrl?mem_no=${user.mem_no}">留言板</a>
+                              </li>
+                              <li>
+                                 <a href="<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}">訊息</a>
+                              </li>
                         </ul>
                     </li>
                     
@@ -177,24 +183,27 @@
 					<li class="dropdown navbar_icon">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">個人空間 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp">基本資料</a>
-                            </li>
-                            <li>
-                                <a href="#">相簿</a>
-                            </li>
-                            <li>
-                                <a href="#">行事曆</a>
-                            </li>
-                            <li>
-                                <a href="#">我的收藏</a>
-                            </li>
-                            <li>
-                                <a href="#">留言板</a>
-                            </li>
-                            <li>
-                                <a href="#">訊息</a>
-                            </li>
+                               <li>
+                                 <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">基本資料</a>
+                             </li>
+                             <li>
+                                 <a href="<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${user.mem_no}">相簿</a>
+                             </li>
+                             <li>
+                                 <a href="<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}">個人動態</a>
+                              </li>
+                              <li>
+                                <a href="<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}&friend=1">好友動態</a>
+                              </li>
+                              <li>
+                                 <a href="<%= request.getContextPath()%>/friends/FirendCtrl?mem_no=${user.mem_no}">好友列表</a>
+                              </li>
+                              <li>
+                                 <a href="<%= request.getContextPath()%>/all/CommentsCtrl?mem_no=${user.mem_no}">留言板</a>
+                              </li>
+                              <li>
+                                 <a href="<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}">訊息</a>
+                              </li>
                         </ul>
                     </li>
                     
@@ -279,21 +288,27 @@
 					<li class="dropdown navbar_icon">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">個人空間 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp">基本資料</a>
-                            </li>
-                            <li>
-                                <a href="#">相簿</a>
-                            </li>
-                            <li>
-                                <a href="#">行事曆</a>
-                            </li>
-                            <li>
-                                <a href="#">留言板</a>
-                            </li>
-                            <li>
-                                <a href="#">訊息</a>
-                            </li>
+                              <li>
+                                 <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">基本資料</a>
+                             </li>
+                             <li>
+                                 <a href="<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${user.mem_no}">相簿</a>
+                             </li>
+                             <li>
+                                 <a href="<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}">個人動態</a>
+                              </li>
+                              <li>
+                                <a href="<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}&friend=1">好友動態</a>
+                              </li>
+                              <li>
+                                 <a href="<%= request.getContextPath()%>/friends/FirendCtrl?mem_no=${user.mem_no}">好友列表</a>
+                              </li>
+                              <li>
+                                 <a href="<%= request.getContextPath()%>/all/CommentsCtrl?mem_no=${user.mem_no}">留言板</a>
+                              </li>
+                              <li>
+                                 <a href="<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}">訊息</a>
+                              </li>
                         </ul>
                     </li>
                     
