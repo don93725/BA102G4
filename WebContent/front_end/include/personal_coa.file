@@ -8,27 +8,6 @@
 							<a data-toggle="tab" href="#home1">基本資料</a>
 						</li>
 
-						<li>
-							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${user.mem_no}");'>相簿</a>
-						</li>
-
-						<li>
-							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}");'>個人動態</a>
-						</li>
-						<li>
-							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}&friend=1");'>好友動態</a>
-						</li>		
-						<li>
-							<a data-toggle="tab" href='#' onclick='goTo("<%= request.getContextPath()%>/friends/FirendCtrl?mem_no=${user.mem_no}");'>好友列表</a>
-						</li>
-						
-						<li>
-							<a data-toggle="tab" href='#' onclick='goTo("<%= request.getContextPath()%>/all/CommentsCtrl?mem_no=${user.mem_no}");'>留言板</a>
-						</li>
-						
-						<li>
-							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}");'>訊息</a>
-						</li>
 					</ul>
 					
 					
@@ -90,6 +69,20 @@
 
 										<div class="profile-contact-info">
 											<div class="profile-contact-links align-left">
+												<a class="btn btn-link" href="#">
+													<i class="icon-plus-sign bigger-120 green"></i>
+													加朋友
+												</a>
+												
+												<p></p>
+												
+												<a class="btn btn-link" href="#">
+													<i class="icon-envelope bigger-120 pink"></i>
+													寄訊息
+												</a>
+
+												<p></p>
+												
 												<a class="btn btn-link" href="#">
 													<i class="icon-globe bigger-125 blue"></i>
 													個人網站
@@ -171,14 +164,12 @@
 
 											<div class="space-12"></div>
 
-										<form action="<%= request.getContextPath() %>/MembersServlet" method="post" id="form_coa">
 											<div class="profile-user-info profile-user-info-striped">
 												<div class="profile-info-row">
 													<div class="profile-info-name"> 暱稱 </div>
 													<div class="profile-info-value">
-														<input type="text" pattern="^[(\u4e00-\u9fa5)(a-zA-Z0-9)]{1,15}$" class="canEdit" id="username" name="mem_nickname" size="80" value="${user.mem_nickname }"  required minlength="1" maxlength="15" disabled="disabled">
-														<p style="color:red;">${errorMsgs.mem_nickname }</p>
-														<input type="hidden" id="error2" value="${errorMsgs.mem_nickname }">
+														<input type="text" pattern="^[(\u4e00-\u9fa5)(a-zA-Z0-9)]{1,15}$" class="canEdit" id="mem_nickname" name="mem_nickname" size="80" value="${user.mem_nickname }"  required minlength="1" maxlength="15" disabled="disabled">
+														<div id="alert_mem_nickname" style="display:none;color:red;"></div>
 													</div>
 												</div>
 												
@@ -186,8 +177,7 @@
 													<div class="profile-info-name"> 姓名 </div>
 													<div class="profile-info-value">
 														<input type="text" pattern="^[(\u4e00-\u9fa5)(a-zA-Z)]{2,6}$" class="canEdit" id="coa_name" name="coa_name" size="80" value="${coach.coa_name }" disabled="disabled" required minlength="2" maxlength="6">
-														<p style="color:red;">${errorMsgs.coa_name }</p>
-														<input type="hidden" id="error1" value="${errorMsgs.coa_name }">
+														<div id="alert_coa_name" style="display:none;color:red;"></div>
 													</div>
 												</div>
 												
@@ -207,281 +197,27 @@
 													<div class="profile-info-name"> 電子郵件 </div>
 													<div class="profile-info-value">
 														<input type="text" pattern="^[_a-z0-9-]+([.][_a-z0-9-]+)*@[a-z0-9-]+([.][a-z0-9-]+)*$" class="canEdit" id="coa_mail" name="coa_mail" size="80" value="${coach.coa_mail }"  required maxlength="50" disabled="disabled">
-														<p style="color:red;">${errorMsgs.coa_mail }</p>
-														<input type="hidden" id="error3" value="${errorMsgs.coa_mail }">
+														<div id="alert_coa_mail" style="display:none;color:red;"></div>
 													</div>
 												</div>
 
 												<div class="profile-info-row">
 													<div class="profile-info-name"> 關於我 </div>
 													<div class="profile-info-value">
-														<textarea id="coa_about" class="canEdit limited" name="coa_into" cols="80" rows="10" required  minlength="1" maxlength="500" disabled="disabled" style="resize:none">${coach.coa_into }</textarea>
-														<p style="color:red;">${errorMsgs.coa_into }</p>
-														<input type="hidden" id="error4" value="${errorMsgs.coa_into }">
+														<textarea class="canEdit limited" id="coa_into" name="coa_into" cols="80" rows="10" required  minlength="1" maxlength="500" disabled="disabled" style="resize:none">${coach.coa_into }</textarea>
+														<div id="alert_coa_into" style="display:none;color:red;"></div>
 													</div>
 												</div>
 											</div>
 											<div>
 												<center>
 													<input type="button" value="我要修改資料" class="btn btn-primary btn-md clickMe" id="coa_editData">											
-													<input type="button" value="確認修改資料" class="btn btn-default btm-md" id="coa_modiData" disabled="true" onclick="tick.call(this);">
-													<input type="hidden" name="action" value="update">
+													<input type="button" value="確認修改資料" class="btn btn-default btm-md" id="coa_modiData" disabled="true" onclick="tick()">
 												</center>
 											</div>
-										</form>
+
 
 											<div class="space-20"></div>
-
-											<div class="widget-box transparent">
-												<div class="widget-header widget-header-small">
-													<h4 class="blue smaller">
-														<i class="icon-rss orange"></i>
-														動態
-													</h4>
-
-												<div class="widget-toolbar action-buttons">
-													<a href="#" data-action="reload">
-														<i class="icon-refresh blue"></i>
-													</a>
-													&nbsp;
-													<a href="#" class="pink">
-														<i class="icon-trash"></i>
-													</a>
-												</div>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main padding-8">
-													<div id="profile-feed-1" class="profile-feed">
-														<div class="profile-activity clearfix">
-															<div>
-																<img class="pull-left" alt="Alex Doe's avatar" src="" />
-																<a class="user" href="#"> Alex Doe </a>
-																changed his profile photo.
-																<a href="#">Take a look</a>
-
-																<div class="time">
-																	<i class="icon-time bigger-110"></i>
-																	an hour ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue">
-																	<i class="icon-pencil bigger-125"></i>
-																</a>
-
-																<a href="#" class="red">
-																	<i class="icon-remove bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<img class="pull-left" alt="Susan Smith's avatar" src="" />
-																<a class="user" href="#"> Susan Smith </a>
-																is now friends with Alex Doe.
-																<div class="time">
-																	<i class="icon-time bigger-110"></i>
-																	2 hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue">
-																	<i class="icon-pencil bigger-125"></i>
-																</a>
-																<a href="#" class="red">
-																	<i class="icon-remove bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<i class="pull-left thumbicon icon-ok btn-success no-hover"></i>
-																<a class="user" href="#"> Alex Doe </a>
-																joined
-																<a href="#">Country Music</a>
-																group.
-																<div class="time">
-																	<i class="icon-time bigger-110"></i>
-																	5 hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue">
-																	<i class="icon-pencil bigger-125"></i>
-																</a>
-
-																<a href="#" class="red">
-																	<i class="icon-remove bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<i class="pull-left thumbicon icon-picture btn-info no-hover"></i>
-																<a class="user" href="#"> Alex Doe </a>
-																uploaded a new photo.
-																<a href="#">Take a look</a>
-
-																<div class="time">
-																	<i class="icon-time bigger-110"></i>
-																	5 hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue">
-																	<i class="icon-pencil bigger-125"></i>
-																</a>
-
-																<a href="#" class="red">
-																	<i class="icon-remove bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<img class="pull-left" alt="David Palms's avatar" src="" />
-																<a class="user" href="#"> David Palms </a>
-																	left a comment on Alex's wall.
-																<div class="time">
-																	<i class="icon-time bigger-110"></i>
-																	8 hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue">
-																	<i class="icon-pencil bigger-125"></i>
-																</a>
-																<a href="#" class="red">
-																	<i class="icon-remove bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<i class="pull-left thumbicon icon-edit btn-pink no-hover"></i>
-																<a class="user" href="#"> Alex Doe </a>
-																published a new blog post.
-																<a href="#">Read now</a>
-
-																<div class="time">
-																	<i class="icon-time bigger-110"></i>
-																	11 hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue">
-																	<i class="icon-pencil bigger-125"></i>
-																</a>
-
-																<a href="#" class="red">
-																	<i class="icon-remove bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<img class="pull-left" alt="Alex Doe's avatar" src="" />
-																<a class="user" href="#"> Alex Doe </a>
-																upgraded his skills.
-																<div class="time">
-																	<i class="icon-time bigger-110"></i>
-																	12 hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue">
-																	<i class="icon-pencil bigger-125"></i>
-																</a>
-
-																<a href="#" class="red">
-																	<i class="icon-remove bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<i class="pull-left thumbicon icon-key btn-info no-hover"></i>
-																<a class="user" href="#"> Alex Doe </a>
-
-																logged in.
-																<div class="time">
-																	<i class="icon-time bigger-110"></i>
-																	12 hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue">
-																	<i class="icon-pencil bigger-125"></i>
-																</a>
-
-																<a href="#" class="red">
-																	<i class="icon-remove bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<i class="pull-left thumbicon icon-off btn-inverse no-hover"></i>
-																<a class="user" href="#"> Alex Doe </a>
-
-																logged out.
-																<div class="time">
-																	<i class="icon-time bigger-110"></i>
-																	16 hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue">
-																	<i class="icon-pencil bigger-125"></i>
-																</a>
-
-																<a href="#" class="red">
-																	<i class="icon-remove bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<i class="pull-left thumbicon icon-key btn-info no-hover"></i>
-																<a class="user" href="#"> Alex Doe </a>
-																logged in.
-																<div class="time">
-																	<i class="icon-time bigger-110"></i>
-																	16 hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue">
-																	<i class="icon-pencil bigger-125"></i>
-																</a>
-
-																<a href="#" class="red">
-																	<i class="icon-remove bigger-125"></i>
-																</a>
-															</div>
-														</div>
-													</div>
-												</div>
 											</div>
 										</div>
 
@@ -501,55 +237,9 @@
 						</div>
 						<!-- a $home1結束 -->
 						
-						<!-- 對應a #home2 -->
-						<div id="home2" class="tab-pane">
-							<p>Raw denim you probably haven't heard of them jean shorts Austin.Raw denim you probably haven't heard of them jean shorts Austin.</p>
-							<p>Raw denim you probably haven't heard of them jean shorts Austin.Raw denim you probably haven't heard of them jean shorts Austin.</p>
-						</div>
-						<!-- 對應a #home2結束 -->
 						
-						<!-- 對應a #home3 -->
-						<div id="home3" class="tab-pane">
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-						</div>
-						<!-- 對應a #home3結束 -->
-						
-						<!-- 對應a #home4 -->
-						<div id="home4" class="tab-pane">
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-						</div>
-						<!-- 對應a #home4結束 -->
-						
-						<!-- 對應a #home5 -->
-						<div id="home5" class="tab-pane">
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-						</div>
-						<!-- 對應a #home5結束 -->
-						
-						<!-- 對應a #home6 -->
-						<div id="home6" class="tab-pane">
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-						</div>
-						<!-- 對應a #home6結束 -->
 					</div><!-- tab-cotent結束 -->
 					
 				</div>
 			</div><!-- /span -->
 		</div><!-- /row -->
-		
-<c:if test="${not empty errorMsgs && user.mem_rank == '1'}">
-	<script>
-		var error1 = document.getElementById("error1").value;
-		var error2 = document.getElementById("error2").value;
-		var error3 = document.getElementById("error3").value;
-		var error4 = document.getElementById("error4").value;
-		swal("修改失敗", "請修正以下錯誤\n" + error2 + "\n" + error1 + "\n" + error3 + "\n" + error4, "error");
-	</script>
-</c:if>
-<script>
-function goTo(path){location.href = path;}
-</script>

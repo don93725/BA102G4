@@ -1,12 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!-- 討論區專用style -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="com.forum.service.*" %>
-<%@ page import="com.forum.domain.*" %>
-<%@ page import="java.util.*" %>
-<% ForumsService forumsService = new ForumsService();
-	List<Forums> forumRank = forumsService.getForumRank();
-	request.setAttribute("forumRank",forumRank);%>
 <style type="text/css">
 	.f_item{
 		margin:10px;
@@ -26,65 +19,70 @@
                 </center>
             </div>
             <div class="col-xs-12 col-md-12" style="padding:0px;">
-            	<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forumRank[1].forum_no}" style="color:black;">
+            	<a href="" style="color:black;">
             		<div style="display:inline-block;position:absolute;top:0;left:15%;z-index:1;">
             			<img src="http://pnga.mypng.cn/1915/gps_19.png" style="width:50px;opacity:1;">
             		</div>
             		<div class="col-md-4 f_item" style="background-color:#ebae18;opacity:0.8;font-size:40px;padding-top:40px;">            			
-            			<center>${forumRank[1].forum_name}<br>
+            			<center>
+            				生活<br>
             				<p style="font-size:25px;">進入看板<i class="icon-arrow-right"></i></p>
             			</center>
             		</div>	
             	</a>
             	
-            	<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forumRank[3].forum_no}" style="color:black;">
+            	<a href="" style="color:black;">
             		<div style="display:inline-block;position:absolute;top:0;left:42%;z-index:1;">
             			<img src="http://pnga.mypng.cn/1915/gps_19.png" style="width:50px;opacity:1;">
             		</div>
             		<div class="col-md-2 f_item" style="background-color:#fdfeff;opacity:0.8;font-size:40px;padding-top:40px;">
-            			<center>${forumRank[3].forum_name}<br>
+            			<center>
+            				健身<br>
             				<p style="font-size:25px;">進入看板<i class="icon-arrow-right"></i></p>
             			</center>
             		</div>	
             	</a>
             	
-            	<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forumRank[2].forum_no}" style="color:black;">
+            	<a href="" style="color:black;">
             		<div style="display:inline-block;position:absolute;top:0;left:68%;z-index:1;">
             			<img src="http://pnga.mypng.cn/1915/gps_19.png" style="width:50px;opacity:1;">
             		</div>
             		<div class="col-md-4 f_item" style="background-color:#a6c220;opacity:0.8;font-size:40px;padding-top:40px;">
-            			<center>${forumRank[2].forum_name}<br>
+            			<center>
+            				三個字A<br>
             				<p style="font-size:25px;">進入看板<i class="icon-arrow-right"></i></p>
             			</center>
             		</div>
             	</a>
             	
-            		<div class="col-md-1" style="background-color:#f48512;opacity:1;font-size:40px;padding-top:40px;margin:10px;height:200px;"></div>  	
-            		<div class="col-md-1" style="background-color:#fdfeff;opacity:1;font-size:40px;padding-top:40px;margin:10px;height:200px;"></div>
+            		<div class="col-md-1 f_item" style="background-color:#f48512;opacity:1;font-size:40px;padding-top:40px;margin:10px;height:200px;"></div>  	
+            		<div class="col-md-1 f_item" style="background-color:#fdfeff;opacity:1;font-size:40px;padding-top:40px;margin:10px;height:200px;"></div>
 
-            	<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forumRank[4].forum_no}" style="color:black;">
+            	<a href="" style="color:black;">
             		<div style="display:inline-block;position:absolute;top:50%;left:17%;z-index:1;">
             			<img src="http://pnga.mypng.cn/1915/gps_19.png" style="width:50px;opacity:1;">
             		</div>
             		<div class="col-md-2 f_item" style="background-color:#7f6fc7;opacity:0.8;font-size:40px;padding-top:40px;">
-            			<center>${forumRank[4].forum_name}<br>
+            			<center>
+            				兩字<br>
             				<p style="font-size:25px;">進入看板<i class="icon-arrow-right"></i></p>
             			</center>
             		</div>
             	</a>
             	
-            	<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forumRank[0].forum_no}" style="color:black;">
+            	<a href="" style="color:black;">
             		<div style="display:inline-block;position:absolute;top:50%;left:52%;z-index:1;">
             			<img src="http://pnga.mypng.cn/1915/gps_19.png" style="width:50px;opacity:1;">
             		</div>
             		<div class="col-md-6 f_item" style="background-color:yellow;opacity:0.8;font-size:40px;padding-top:40px;">
-            			<center>${forumRank[0].forum_name}<br>
+            			<center>
+            				三個字B<br>
             				<p style="font-size:25px;">進入看板<i class="icon-arrow-right"></i></p>
             			</center>
             		</div>
             	</a>
             	
-            	<a href="/BA102G4/forum/ForumCtrl" style="color:black;">
+            	<a href="" style="color:black;">
             		<div class="pushpin" style="display:inline-block;position:absolute;top:50%;left:87%;z-index:1;">
             			<img src="http://pnga.mypng.cn/1915/gps_19.png" style="width:50px;opacity:1;">
             		</div>

@@ -5,9 +5,6 @@
 
 		<!-- page specific plugin styles -->
 
-		<!-- fonts -->
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
-
 		<!-- ace styles -->
 		<link rel="stylesheet" href="<%= request.getContextPath()%>/style/assets/css/ace.min.css" />
 		<link rel="stylesheet" href="<%= request.getContextPath()%>/style/assets/css/ace-rtl.min.css" />
@@ -15,9 +12,6 @@
 		<!-- 引入 Webcam.js -->
 		<script src="<%= request.getContextPath()%>/style/webcam/webcam.min.js"></script>											
 		
-		<!-- basic scripts -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
 		<!--[if !IE]> -->
 		<script >
 			window.jQuery || document.write("<script src='<%= request.getContextPath()%>/style/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");

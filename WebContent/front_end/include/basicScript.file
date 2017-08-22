@@ -1,10 +1,10 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>  
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- icon -->
+<link rel="shortcut icon" href="<%= request.getContextPath() %>/style/images/icon.ico" />
 <!-- Bootstrap Core CSS -->
     <link href="<%= request.getContextPath() %>/style/css/bootstrap.css" rel="stylesheet">
-
     <!-- Custom CSS --><!--幻燈片-->
     <link href="<%= request.getContextPath() %>/style/css/modern-business.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/font-awesome.min.css" />
     <!-- page specific plugin styles -->
@@ -16,22 +16,22 @@
     <script src="<%= request.getContextPath() %>/style/js/bootstrap.min.js"></script>
     <!-- ace settings handler --> 
     <!--button樣式-->
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/ace.min.css" />
-    
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/ace.min.css" />  
 	<!-- 超強動畫 -->
 	<link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/sweetalert.css" />
-	<script src="<%= request.getContextPath() %>/style/assets/js/sweetalert.min.js"></script>
-    
+	<script src="<%= request.getContextPath() %>/style/assets/js/sweetalert.min.js"></script>  
     <!-- colorbox -->
     <script src="<%= request.getContextPath() %>/style/assets/js/jquery.colorbox.js"></script>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/colorbox.css" />
+    <!-- 動畫效果 --->
+    <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/style/assets/css/animate.css">
     
-    <!--按鈕產生對話框-->
-	<script type="text/javascript">
-    	jQuery(function($) {
-        	$('[data-rel=tooltip]').tooltip();
-    	});
-	</script>
+<!--按鈕產生對話框-->
+<script type="text/javascript">
+	jQuery(function($) {
+		$('[data-rel=tooltip]').tooltip();
+	});
+</script>
 
 <style>
     body{
@@ -48,4 +48,36 @@
     li.navbar_icon{
     	display: none;
     }
+
+	/* 回頂端 */
+   	#gotoTop {
+    	position:fixed;
+    	right:20px;
+   		bottom:20px;
+    	cursor:pointer;
+    	width:50px;
+    	height:50px;
+    	background-color:#3498db;
+    	text-indent:-9999px;
+    	display:none;
+    	-webkit-border-radius:60px;
+    	-moz-border-radius:60px;
+    	border-radius:60px
+	}
+	#gotoTop span {
+    	position:absolute;
+   		top:50%;
+   		left:50%;
+    	margin-left:-8px;
+    	margin-top:-12px;
+    	height:0;
+    	width:0;
+    	border:8px solid transparent;
+    	border-bottom-color:#ffffff;
+	}
+	#gotoTop:hover {
+    	background-color:#e74c3c;
+    	opacity:1;filter:"alpha(opacity=100)";
+    	-ms-filter:"alpha(opacity=100)";
+	}
 </style>
