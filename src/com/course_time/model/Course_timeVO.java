@@ -2,10 +2,12 @@ package com.course_time.model;
 
 import com.course_picture.model.Course_pictureVO;
 import com.gyms.model.GymsVO;
+import com.members.model.MembersVO;
 import com.coaches.model.CoachesVO;
 import com.comments.model.Board_cmt;
 import com.course.model.CourseVO;
 import com.place.model.PlaceVO;
+import com.students.model.StudentsVO;
 
 import java.sql.Date;
 import java.util.List;
@@ -30,6 +32,8 @@ public class Course_timeVO {
 	Integer cmtNum;
 	Course_pictureVO course_pictureVO;
 	GymsVO gymsVO;
+	StudentsVO studentsVO;
+	MembersVO membersVO;
 	
 	public GymsVO getGymsVO() {
 		return gymsVO;
@@ -198,6 +202,24 @@ public class Course_timeVO {
 	public void setCoachesVO(CoachesVO coachesVO) {
 		this.coachesVO = coachesVO;
 	}
+
+	public StudentsVO getStudentsVO() {
+		return studentsVO;
+	}
+
+	public void setStudentsVO(StudentsVO studentsVO) {
+		this.studentsVO = studentsVO;
+	}
+
+	public MembersVO getMembersVO() {
+		return membersVO;
+	}
+
+	public void setMembersVO(MembersVO membersVO) {
+		this.membersVO = membersVO;
+	}
+
+
 	
 	
 
