@@ -92,6 +92,7 @@ public class StudentsCourseManager extends HttpServlet {
 		}else if("courseList".equals(action)){
 			
 			req.setAttribute("active", "1");
+			req.setAttribute("which", "選課列表");
 			req.setAttribute("page", "/front_end/SCM/CourseList.jsp");
 			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/SCM/index.jsp");
 			courseList.forward(req, res);
@@ -99,6 +100,7 @@ public class StudentsCourseManager extends HttpServlet {
 		}else if("courseOpen".equals(action)){
 			
 			req.setAttribute("active", "2");
+			req.setAttribute("which", "開課列表");
 			req.setAttribute("page", "/front_end/SCM/CourseOpen.jsp");
 			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/SCM/index.jsp");
 			courseList.forward(req, res);
@@ -106,6 +108,7 @@ public class StudentsCourseManager extends HttpServlet {
 		}else if("courseRecord".equals(action)){
 			
 			req.setAttribute("active", "3");
+			req.setAttribute("which", "課程紀錄");
 			req.setAttribute("page", "/front_end/SCM/CourseRecord.jsp");
 			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/SCM/index.jsp");
 			courseList.forward(req, res);
@@ -113,6 +116,7 @@ public class StudentsCourseManager extends HttpServlet {
 		}else if("calendar".equals(action)){
 			
 			req.setAttribute("active", "4");
+			req.setAttribute("which", "行事曆");
 			req.setAttribute("page", "/front_end/SCM/Calendar.jsp");
 			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/SCM/index.jsp");
 			courseList.forward(req, res);

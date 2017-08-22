@@ -36,6 +36,7 @@ public class Course_timeDAO implements Course_timeDAO_interface {
 	private static final String GET_ALL_CRSLIST_SELECT_STMT = "SELECT * FROM course_time ct join course c ON ct.crs_no = c.crs_no left outer join place p ON ct.p_no = p.p_no join coaches coa ON c.c_acc = coa.coa_acc where ct.status = 1";
 	private static final String GET_ONE_STMT = "SELECT * FROM course_time ct join course c ON ct.crs_no = c.crs_no left outer join place p ON ct.p_no = p.p_no join coaches coa ON c.c_acc = coa.coa_acc where ct.ct_no = ? order by ct.crs_date";
 	private static final String DELETE = "DELETE FROM course_time  where ct_no = ?";
+	private static final String DELETE_CALENDAR = "delete from COURSE_TIME where crs_date = ? AND crs_time = ? AND crs_no in (select crs_no from course where c_acc = ?)";
 	private static final String UPDATE = "UPDATE course_time  set p_no=?, crs_date=?, deadline=?, crs_time=?, price=? where ct_no = ?";
 	private static final String GET_ALL_BY_CRSNO_STMT = "SELECT * FROM course_time ct join course c ON ct.crs_no = c.crs_no left outer join place p ON ct.p_no = p.p_no join coaches coa ON c.c_acc = coa.coa_acc where ct.status = 1 AND ct.crs_no = ? order by ct.crs_date";
 	private static final String GET_ALL_BEFORELIST_STMT = "SELECT * FROM course_time ct join course c ON ct.crs_no = c.crs_no left outer join place p ON ct.p_no = p.p_no join coaches coa ON c.c_acc = coa.coa_acc where ct.status = 1 AND ct.deadline < sysdate";
@@ -1080,6 +1081,45 @@ public class Course_timeDAO implements Course_timeDAO_interface {
 			}
 		}
 		return result;
+	}
+
+	@Override
+	public void deleteCalendar(String crs_date, Integer crs_time, String c_acc) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(DELETE_CALENDAR);
+			pstmt.setDate(1, java.sql.Date.valueOf(crs_date));
+			pstmt.setInt(2, crs_time);
+			pstmt.setString(3, c_acc);
+
+			pstmt.executeUpdate();
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+
+		
 	}
 
 

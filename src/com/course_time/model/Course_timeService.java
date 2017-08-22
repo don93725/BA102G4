@@ -91,5 +91,9 @@ public class Course_timeService{
 	  
 	  return dao.getItem(category, crs_date, p_name);
   }
+  
+  public void deleteCalendar(String crs_date, Integer crs_time, String c_acc){
+	    dao.deleteCalendar(crs_date,crs_time,c_acc);
+  }
 
 }
