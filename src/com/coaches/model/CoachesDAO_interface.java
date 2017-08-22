@@ -11,4 +11,7 @@ public interface CoachesDAO_interface {
 	public List<CoachesVO> getAll();
 	public List<CoachesVO> searchCoa(String search_Name, String search_Type);
 	public CoachesVO look_search_mem(MembersVO membersVO);
+	public List<CoachesVO> getAllBySta(Integer coa_sta);
+	public void setSta(Integer coa_sta,String coa_acc);
+	
 }

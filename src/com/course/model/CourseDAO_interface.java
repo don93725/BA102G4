@@ -13,4 +13,6 @@ public  interface CourseDAO_interface
   public  CourseVO findByPK(String crs_no);
   
   public  List<CourseVO> getAll(String c_acc);
+  
+  public CourseVO fingByCourse(String ct_no);
 }

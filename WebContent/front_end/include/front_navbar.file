@@ -1,4 +1,26 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	application.setAttribute("A","瑜珈");
+	application.setAttribute("B","飛輪有氧");
+	application.setAttribute("C","舞動有氧");
+	application.setAttribute("D","拳擊有氧");
+	application.setAttribute("E","基礎重訓");
+	application.setAttribute("F","進階重訓");
+	application.setAttribute("G","皮拉提斯");
+	application.setAttribute("H","TRX肌力雕塑");
+	application.setAttribute("O","其他");
+	application.setAttribute("1","08:00-09:30");
+	application.setAttribute("2","10:00-11:30");
+	application.setAttribute("3","13:00-14:30");
+	application.setAttribute("4","15:00-16:30");
+	application.setAttribute("5","18:00-19:30");
+	application.setAttribute("6","20:00-21:30");
+%>
+
+
+
+
+
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -8,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-            	<img class="logo" src="<%= request.getContextPath() %>/style/images/logo.gif">
+            	<a href="<%= request.getContextPath()%>/front_end/index.jsp"><img class="logo" src="<%= request.getContextPath() %>/style/images/logo.gif"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -36,10 +58,13 @@
                                 <a href="<%= request.getContextPath()%>/front_end/browse/find_students.jsp">找學員</a>
                             </li>
                             <li>
+                                <a href="<%= request.getContextPath()%>/front_end/browse/find_gyms.jsp">找健身房</a>
+                            </li>
+                            <li>
                                 <a href="#">找場地</a>
                             </li>
                             <li>
-                                <a href="#">找課程</a>
+                                <a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=crsDetailList">找課程</a>
                             </li>
                         </ul>
                     </li>
@@ -63,8 +88,8 @@
                         </ul>
                     </li>
                     <!-- 判斷角色 -->
-                    <input type="hidden" id="rankColor" value="${sessionScope.user.mem_rank }">
-     				
+                    <input type="text" id="rankColor" value="${sessionScope.user.mem_rank }">
+     
 <!-- 身分為訪客時，顯示 -->                    
 <c:if test="${empty sessionScope.user.mem_rank }">
 				</ul>
@@ -91,19 +116,19 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">個人空間 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp">基本資料</a>
+                                <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">基本資料</a>
                             </li>
                             <li>
-                                <a href="#">相簿</a>
+                                <a href="<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${user.mem_no}">相簿</a>
                             </li>
                             <li>
-                                <a href="#">行事曆</a>
+                                <a href="<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}">個人動態</a>
                             </li>
                             <li>
-                                <a href="#">我的收藏</a>
+                                <a href="<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}&friend=1">好友動態</a>
                             </li>
                             <li>
-                                <a href="#">訊息</a>
+                                <a href="<%= request.getContextPath()%>/friends/FirendCtrl?mem_no=${user.mem_no}">好友列表</a>
                             </li>
                         </ul>
                     </li>
@@ -113,20 +138,18 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">課程專區 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">選課記錄查詢</a>
+                                <a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=courseList">選課列表 </a>
                             </li>
                             <li>
-                                <a href="#">請假申請</a>
+                                <a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=courseOpen">開課列表</a>
                             </li>
                             <li>
-                                <a href="#">課程回饋</a>
+                                <a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=courseRecord">課程紀錄</a>
                             </li>
                             <li>
-                                <a href="#">課程檢舉</a>
+                                <a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=calendar">行事曆</a>
                             </li>
-                            <li>
-                                <a href="#">評價教練</a>
-                            </li>
+
                         </ul>
                     </li>
                 </ul>
@@ -180,23 +203,17 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">課程專區 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">課程上/下架</a>
+                                <a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=courseList">課程管理</a>
                             </li>
                             <li>
-                                <a href="#">課程紀錄查詢</a>
+                                <a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=courseRecord">課程紀錄</a>
                             </li>
                             <li>
-                                <a href="#">課程報表查詢</a>
-                            </li>
+                                <a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=courseReport">課程報表紀錄</a>
+                            </li>  
                             <li>
-                                <a href="#">課程Q&A</a>
-                            </li>
-                            <li>
-                                <a href="#">開課通知</a>
-                            </li>
-                            <li>
-                                <a href="#">檢舉學員</a>
-                            </li>
+                                <a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=calendar">行事曆</a>
+                            </li>  
                         </ul>
                     </li>
                     
@@ -293,11 +310,7 @@
                                 <a href="#">申請者管理</a>
                             </li>
                             <li>
-                                <a data-toggle="tab" href="#" onclick="dropdown(1)">上/下架管理</a>
-									<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-										<input type="submit" class="btn btn-default" id="dropdown1" role="button" value="場地列表">
-										<input type="hidden" name="action" value="placeList">
-									</form>
+                                <a href="<%= request.getContextPath() %>/front_end/rentManagement/placePublish.jsp">場地上/下架</a>
                             </li>
                             <li>
                                 <a href="#">租借紀錄查詢</a>

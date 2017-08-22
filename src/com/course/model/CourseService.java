@@ -2,6 +2,7 @@ package com.course.model;
 
 import java.util.List;
 
+
 public class CourseService{
   private CourseDAO_interface dao;
   
@@ -47,5 +48,9 @@ public class CourseService{
   public List<CourseVO> getAll(String c_acc)
   {
     return this.dao.getAll(c_acc);
+  }
+  
+  public CourseVO getCourse(String ct_no){
+	  return this.dao.fingByCourse(ct_no);
   }
 }

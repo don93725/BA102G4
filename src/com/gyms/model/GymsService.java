@@ -53,4 +53,11 @@ public class GymsService {
 	public List<GymsVO> searchGyms(String search_Name,String search_Type) {
 		return ((GymsDAO)dao).searchGyms(search_Name, search_Type);
 	}
+	public List<GymsVO> getAllBySta(Integer gym_sta) {
+		return dao.getAllBySta(gym_sta);
+	}
+	public void updateGymApply(Integer gym_sta,String gym_acc){
+		 dao.setSta(gym_sta, gym_acc);
+	}
+	
 }

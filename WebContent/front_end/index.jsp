@@ -43,7 +43,7 @@
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <center><a href="<%= request.getContextPath() %>/front_end/browse/find_coaches.jsp"><span class="btn btn-success btn-lg aa">立刻預定教練&nbsp<i class="icon-arrow-right"></i></span></a></center>
+                        <center><a href="find_coaches.jsp"><span class="btn btn-success btn-lg tooltip-success" data-rel="tooltip" data-placement="bottom" title="訊息">立刻預定教練</span></a></center>
                     </div>
                 </div>
             </div>
@@ -242,6 +242,7 @@
         </div>
 </div><!-- page container3結束 -->
 </div><!-- 最新消息+健身知識 結束 -->
+
 
 <!-- 討論區 -->
 <div class="full_width" style="background-image: url('/BA102G4/style/images/ranking_img.jpg');background-attachment: fixed;">
