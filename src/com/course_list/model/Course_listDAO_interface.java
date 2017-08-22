@@ -47,4 +47,6 @@ public interface Course_listDAO_interface {
 
 	List<Course_listVO> getFinished(String stu_acc);
 
+	List<Course_listVO> getCoachReserve(String coa_acc);
+
 }

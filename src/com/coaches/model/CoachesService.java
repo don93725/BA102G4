@@ -67,6 +67,24 @@ public class CoachesService {
 		 dao.setSta(coa_sta, coa_acc);
 	}
 	
+	public boolean addAndroidCoaches(String mem_acc, String mem_nickname, String coa_psw, String coa_name, Integer coa_sex, String coa_id, String coa_mail, String coa_into){
+		MembersVO membersVO = new MembersVO();
+		CoachesVO coachesVO = new CoachesVO();
+		Tools tools = new Tools();
+		membersVO.setMem_acc(mem_acc);
+		membersVO.setMem_nickname(mem_nickname);
+		
+		coachesVO.setCoa_psw(coa_psw);
+		coachesVO.setCoa_name(coa_name);
+		coachesVO.setCoa_sex(coa_sex);
+		coachesVO.setCoa_id(coa_id);
+		coachesVO.setCoa_mail(coa_mail);
+		coachesVO.setCoa_into(coa_into);
+		
+		
+		dao.insert(membersVO, coachesVO);
 	
+		return true;
+	}
 }
 
