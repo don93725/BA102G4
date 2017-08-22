@@ -7,9 +7,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
-777777777777777777777777777777777777777
 <head>
-    <title>健貨 - GymHome</title>
+    <title></title>
 		<%@include file="/front_end/include/basicScript.file" %>		
 </head>
  
@@ -66,7 +65,7 @@
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <center><a href="find_courses.jsp"><span class="btn btn-info btn-lg tooltip-info" data-rel="tooltip" data-placement="bottom" title="訊息"><i class="icon-hand-o-up"></i>立刻預定課程</span></a></center>
+                        <center><a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=crsDetailList"><span class="btn btn-info btn-lg tooltip-info" data-rel="tooltip" data-placement="bottom" title="訊息"><i class="icon-hand-o-up"></i>立刻預定課程</span></a></center>
                     </div>
                 </div>
             </div>

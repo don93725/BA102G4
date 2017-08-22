@@ -141,7 +141,7 @@
                     
                     <!-- 課程管理 -->
                     <li class="dropdown navbar_icon">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">課程管理 <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">課程專區 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=courseList">選課列表 </a>
@@ -209,7 +209,7 @@
                     
                     <!-- 課程管理 -->
                     <li class="dropdown navbar_icon">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">課程管理 <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">課程專區 <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=courseList">課程管理</a>

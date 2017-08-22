@@ -115,7 +115,7 @@
 				</div>
 			</div>
 			<form style="display: none;">
-				<input type="file" id="clickimg"> <input type="reset"
+				<input type="file" multiple id="clickimg"> <input type="reset"
 					id="resetFileImg">
 			</form>
 		</div>
@@ -188,8 +188,8 @@
 
 			<ul class="breadcrumb">
 				<li><i class="icon-home home-icon"></i> <a href="#">首頁</a></li>
-				<li class="active">會員專區</li>
-				<li class="active">課程管理</li>
+				<li class="active">課程專區</li>
+				<li class="active">${which}</li>
 				<form action="<%=request.getContextPath()%>/CCM/CourseManager.do" method="post">
 					<input type="submit" value="查課程">
 					<input type="hidden" name="action" value="crsDetailList">
@@ -209,60 +209,36 @@
 
 						<!-- 課程管理 -->
 						<li class="dropdown" id="manager"><a data-toggle="dropdown"
-							class="dropdown-toggle" id="manager1" href="#"><i class="green glyphicon glyphicon-pencil"></i>
-							 課程管理 &nbsp;<i
+							class="dropdown-toggle" href="#"><i
+								class="green glyphicon glyphicon-pencil" style="font-size: 16px"></i>
+								<font style='font-size: 16px; font-weight: bold;'>  課程管理  </font>&nbsp;<i
 								class="icon-caret-down bigger-110 width-auto"></i>
 						</a> <!-- 課程管理細項 -->
 							<ul class="dropdown-menu dropdown-info">
-								<li><a data-toggle="tab" href="" onclick="dropdown(1)">課程列表<span
-										class="badge badge-danger">4</span></a>
-									<form method="post"
-										action="<%=request.getContextPath()%>/CCM/CourseManager.do"
-										style="display: none">
-										<input type="submit" id="dropdown1" role="button"
-											value="課程的管理"> <input type="hidden" name="action"
-											value="courseList">
-									</form></li>
-								<li><a data-toggle="tab" href="" onclick="dropdown(2)">上架中</a>
-									<form method="post"
-										action="<%=request.getContextPath()%>/CCM/CourseManager.do"
-										style="display: none">
-										<input type="submit" class="btn btn-default" id="dropdown2"
-											role="button" value="上架中課程"> <input type="hidden"
-											name="action" value="coursePublishList">
-									</form></li>
-								<li><a data-toggle="tab" href="" onclick="dropdown(3)">已開課</a></li>
+								<li>
+									<a  href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=courseList" id="dropdown1">課程列表</a>
+								</li>
+								<li>
+									<a  href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=coursePublishList" id="dropdown2">上架中</a>
+								</li>
+								<li><a  href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=courseOpenList" id="dropdown3">已開課</a></li>
 							</ul>
-							<form method="post"
-								action="<%=request.getContextPath()%>/CCM/CourseManager.do"
-								style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown3"
-									role="button" value="開課中課程"> <input type="hidden"
-									name="action" value="courseOpenList">
-							</form></li>
+						</li>
 
 						<!-- 課程紀錄 -->
-						<li class="" id="record"><a data-toggle="tab" id="record1" href=""
-							onclick="dropdown(4)"> <i class="green icon-home bigger-110"></i>課程紀錄
-						</a>
-							<form method="post"
-								action="<%=request.getContextPath()%>/CCM/CourseManager.do"
-								style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown4"
-									role="button" value="課程紀錄"> <input type="hidden"
-									name="action" value="courseRecord">
-							</form></li>
+						<li class="" id="record">
+							<a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=courseRecord" id="dropdown4"> <i class="green  glyphicon glyphicon-home" style="font-size: 16px"></i><font style='font-size: 16px; font-weight: bold;'>課程紀錄</font></a>
+						</li>
 
 						<!-- 課程課程報表紀錄 -->
-						<li id="report"><a data-toggle="tab" id="report1" href="#profile"
-							onclick="dropdown(5)"><i class="green glyphicon glyphicon-book"></i> 課程報表紀錄 </a>
-							<form method="post"
-								action="<%=request.getContextPath()%>/CCM/CourseManager.do"
-								style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown5"
-									role="button" value="課程報表紀錄"> <input type="hidden"
-									name="action" value="courseReport">
-							</form></li>
+						<li id="report">
+							<a  href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=courseReport" id="dropdown5"><i class="green glyphicon glyphicon-book" style="font-size: 16px"> </i><font style='font-size: 16px; font-weight: bold;'> 課程報表紀錄</font> </a>
+						</li>
+						<li id="showCalendar">
+							<a  href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=calendar" id="dropdown6"><i
+								class="green glyphicon glyphicon-calendar"
+								style="font-size: 16px"></i> 行事曆 </a>
+						</li>
 					</ul>
 
 
@@ -457,6 +433,8 @@
 			$("#record").addClass("active");
 		}else if(num == '3'){
 			$("#report").addClass("active");
+	    }else if(num == '4'){
+			$("#showCalendar").addClass("active");
 	    }else{
 			$("#manager").addClass("active");
 		}
@@ -544,7 +522,7 @@
 							if(msg.trim() == 'success'){
 								$(".inline").colorbox.close();
 								swal("新增成功!", "Your course has been added.", "success");
-								setTimeout(function(){ dropdown(1); }, 1000);
+								setTimeout(function(){ location.reload(); }, 1000);
 							}else{
 								sweetAlert(msg + "!","","error");
 							}
@@ -612,7 +590,7 @@
 								  timer: 1000,
 								  showConfirmButton: false
 								});
- 	 	 					setTimeout(function(){ dropdown(1); }, 1000);
+ 	 	 					setTimeout(function(){ location.reload(); }, 1000);
 						},
 
 						error : function(xhr, ajaxOptions, thrownError) {
@@ -622,7 +600,7 @@
 				  	swal("新增成功!", "Your course has been added.", "success");
 				  } else {
 				    swal("取消新增", "You stop this action", "error");
-					setTimeout(function(){ dropdown(1); }, 1000);
+					setTimeout(function(){ location.reload(); }, 1000);
 				  }
 			});
 		
@@ -693,7 +671,7 @@
 		 			});		
 				  } else {
 				    swal("取消刪除", "You have stoped this action", "error");
-					setTimeout(function(){ dropdown(1); }, 1000);
+					setTimeout(function(){ location.reload(); }, 1000);
 				  }
 			});
 		
@@ -913,7 +891,7 @@
 		 	 			}); 
 	 				  } else {
 	 				    swal("取消修改", "Your content is safe :)", "error");
-　						setTimeout(function(){ dropdown(1); }, 1000);
+　						setTimeout(function(){ location.reload(); }, 1000);
 	 				  }
 	 			});
 　			
@@ -930,9 +908,9 @@
 　			var ctselect = "#changeCrs_time" + count + " option[value=" + cts + "]";
 　			var pselect = $(hprow).html();
 　			var select = "#place" + count + " option[value='" + pselect + "']";
-　			var cd = $(cdtrow).html().substring(0,$(cdtrow).html().indexOf('-',10));
+　			var cd = $(cdtrow).html().substring(0,$(cdtrow).html().indexOf('<'));
 　			$(dlrow).html('<input type="text" id="changeDeadline' + count + '" value="' + $(dlrow).html() + '">');
-　			$(cdtrow).html('<input type="text" id="changeCrs_date' + count + '" value="' + cd + '"> <select name="crs_time" id="changeCrs_time' + count + '"><option value="1">早上-1</option><option value="2">早上-2</option><option value="3">下午-1</option><option value="4">下午-2</option><option value="5">晚上-1</option><option value="6">晚上-2</option> </select>');
+　			$(cdtrow).html('<input type="text" id="changeCrs_date' + count + '" value="' + cd + '"> <select name="crs_time" id="changeCrs_time' + count + '"><option value="1">08:00-09:30</option><option value="2">10:00-11:30</option><option value="3">13:00-14:30</option><option value="4">15:00-16:30</option><option value="5">18:00-19:30</option><option value="6">20:00-21:30</option> </select>');
 　			$(cprow).html('<input type="text" id="changePrice' + count + '" value="' + $(cprow).html() + '">');
 　			$(pnrow).html($(pl).html().replace('class','id'));
 　			$(ctselect).attr('selected','selected');
@@ -983,7 +961,7 @@
 
  	 	 				success : function(msg) {
  	 	 					swal("修改成功!", "Your content has been changed.", "success");
- 	 	 					setTimeout(function(){ swal.close(); }, 1500);
+ 	 	 					setTimeout(function(){ location.reload(); }, 1000);
  	 	 				},
 
  	 	 				error : function(xhr, ajaxOptions, thrownError) {
@@ -992,7 +970,7 @@
  	 	 			});
  				  } else {
  					swal("取消修改", "Your content is safe :)", "error");
-　					setTimeout(function(){ dropdown(2); }, 1000);
+　					setTimeout(function(){ location.reload(); }, 1000);
  				  }
  				});
 

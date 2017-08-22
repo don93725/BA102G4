@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.members.model.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,42 +45,40 @@
 				<div class="col-sm-3">
 					<div class="widget-box transparent">
 						<div class="widget-header">
-							<h4>Draggable events</h4>
+							<h4>時段:</h4>
 						</div>
 
 						<div class="widget-body">
 							<div class="widget-main no-padding">
 								<div id="external-events">
-									<div class="external-event label-grey" data-class="label-grey">
-										<i class="icon-move"></i> My Event 1
-									</div>
+
 
 									<div class="external-event label-success"
 										data-class="label-success">
-										<i class="icon-move"></i> My Event 2
+										<i class="icon-move"></i> 08:00-09:30
 									</div>
 
 									<div class="external-event label-danger"
 										data-class="label-danger">
-										<i class="icon-move"></i> My Event 3
+										<i class="icon-move"></i> 10:00-11:30
 									</div>
 
 									<div class="external-event label-purple"
 										data-class="label-purple">
-										<i class="icon-move"></i> My Event 4
+										<i class="icon-move"></i> 13:00-14:30
 									</div>
 
 									<div class="external-event label-yellow"
 										data-class="label-yellow">
-										<i class="icon-move"></i> My Event 5
+										<i class="icon-move"></i> 15:00-16:30
 									</div>
 
 									<div class="external-event label-pink" data-class="label-pink">
-										<i class="icon-move"></i> My Event 6
+										<i class="icon-move"></i> 18:00-19:30
 									</div>
 
 									<div class="external-event label-info" data-class="label-info">
-										<i class="icon-move"></i> My Event 7
+										<i class="icon-move"></i> 20:00-21:30
 									</div>
 
 								</div>
@@ -94,11 +93,6 @@
 			window.jQuery || document.write("<script src='<%= request.getContextPath() %>/style/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
 		</script>
 
-<script type="text/javascript">
-			if("ontouchend" in document) document.write("<script src='<%= request.getContextPath() %>
-	/style/assets/js/jquery.mobile.custom.min.js'>"
-						+ "<"+"/script>");
-</script>
 
 <script
 	src="<%=request.getContextPath()%>/style/assets/js/typeahead-bs2.min.js"></script>
@@ -164,122 +158,69 @@
 								center : 'title',
 								right : 'month,agendaWeek,agendaDay'
 							},
-							events : [ {
-								title : 'All Day Event',
-								start : new Date(y, m, 1),
-								className : 'label-important'
-							}, {
-								title : 'Long Event',
-								start : new Date(y, m, d - 5),
-								end : new Date(y, m, d - 2),
-								className : 'label-success'
-							}, {
-								title : 'Some Event',
-								start : new Date(y, m, d - 3, 16, 0),
-								allDay : false
-							} ],
-							editable : true,
-							droppable : true, // this allows things to be dropped onto the calendar !!!
-							drop : function(date, allDay) { // this function is called when something is dropped
-
-								// retrieve the dropped element's stored Event Object
-								var originalEventObject = $(this).data(
-										'eventObject');
-								var $extraEventClass = $(this).attr(
-										'data-class');
-
-								// we need to copy it, so that multiple events don't have a reference to the same object
-								var copiedEventObject = $.extend({},
-										originalEventObject);
-
-								// assign it the date that was reported
-								copiedEventObject.start = date;
-								copiedEventObject.allDay = allDay;
-								if ($extraEventClass)
-									copiedEventObject['className'] = [ $extraEventClass ];
-
-								// render the event on the calendar
-								// the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-								$('#calendar').fullCalendar('renderEvent',
-										copiedEventObject, true);
-
-								// is the "remove after drop" checkbox checked?
-								if ($('#drop-remove').is(':checked')) {
-									// if so, remove the element from the "Draggable Events" list
-									$(this).remove();
-								}
-
-							},
-							selectable : true,
-							selectHelper : true,
-							select : function(start, end, allDay) {
-
-								bootbox.prompt("New Event Title:", function(
-										title) {
-									if (title !== null) {
-										calendar.fullCalendar('renderEvent', {
-											title : title,
-											start : start,
-											end : end,
-											allDay : allDay
-										}, true // make the event "stick"
-										);
-									}
-								});
-
-								calendar.fullCalendar('unselect');
-
-							},
 							eventClick : function(calEvent, jsEvent, view) {
+								if(('' + (calEvent.start.getMonth() + 1)).length == 1){
+									var month = "0" + (calEvent.start.getMonth() + 1);
+								}else{
+									var month = (calEvent.start.getMonth() + 1);
+								}
+								
+								var crs_date = calEvent.start.getFullYear() + "-" + month + "-" + calEvent.start.getDate();
+								if(calEvent.className[0] == 'label-success'){
+									var crs_time = 1;
+								}else if(calEvent.className[0] == 'label-danger'){
+									var crs_time = 2;
+								}else if(calEvent.className[0] == 'label-purple'){
+									var crs_time = 3;
+								}else if(calEvent.className[0] == 'label-yellow'){
+									var crs_time = 4;
+								}else if(calEvent.className[0] == 'label-pink'){
+									var crs_time = 5;
+								}else{
+									var crs_time = 6;
+								}
+								console.log(cl_date);
+								console.log(crs_time);
 
-								var form = $("<form class='form-inline'><label>Change event name &nbsp;</label></form>");
-								form
-										.append("<input class='middle' autocomplete=off type=text value='" + calEvent.title + "' /> ");
-								form
-										.append("<button type='submit' class='btn btn-sm btn-success'><i class='icon-ok'></i> Save</button>");
+								swal({
+									  title: "是否要退選課程?",
+									  text: "You will not be able to recover this!",
+									  type: "warning",
+									  showCancelButton: true,
+									  confirmButtonColor: "#DD6B55",
+									  cancelButtonText: "不了!",
+									  confirmButtonText: "確認退選!",
+									  closeOnConfirm: false,
+									  closeOnCancel: false
+									},
+									
+									function(isConfirm){
+									  if (isConfirm) {
+											$.ajax({
+								　				url : '<%=request.getContextPath()%>/CCM/CourseManager.do',
+								 				data : {
+								 					crs_date : crs_date,	
+								 					crs_time : crs_time,
+								 					c_acc : '<%= ((MembersVO) session.getAttribute("user")).getMem_acc() %>',
+								 					action : 'deleteCalendarCourse'
+								 				},
+								 				type : "POST",
+								 				dataType : 'text',
 
-								var div = bootbox
-										.dialog({
-											message : form,
+								 				success : function(msg) {
+								 					swal("退選成功!", "Your are already retire the course.", "success");
+								 					setTimeout(function(){ dropdown(6); }, 1200);
+								 				},
 
-											buttons : {
-												"delete" : {
-													"label" : "<i class='icon-trash'></i> Delete Event",
-													"className" : "btn-sm btn-danger",
-													"callback" : function() {
-														calendar
-																.fullCalendar(
-																		'removeEvents',
-																		function(
-																				ev) {
-																			return (ev._id == calEvent._id);
-																		})
-													}
-												},
-												"close" : {
-													"label" : "<i class='icon-remove'></i> Close",
-													"className" : "btn-sm"
-												}
-											}
-
-										});
-
-								form.on('submit', function() {
-									calEvent.title = form.find(
-											"input[type=text]").val();
-									calendar.fullCalendar('updateEvent',
-											calEvent);
-									div.modal("hide");
-									return false;
-								});
-
-								//console.log(calEvent.id);
-								//console.log(jsEvent);
-								//console.log(view);
-
-								// change the border color just for fun
-								//$(this).css('border-color', 'red');
-
+								 				error : function(xhr, ajaxOptions, thrownError) {
+								 					sweetAlert("Oops...", "請檢查網路狀態!", "error");
+								 				}
+								 			});
+									  } else {
+										swal("取消退選", "Your content is safe :)", "error");
+										setTimeout(function(){ swal.close(); }, 1200);
+									  }
+									});
 							}
 
 						});
