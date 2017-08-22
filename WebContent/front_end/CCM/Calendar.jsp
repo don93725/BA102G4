@@ -1,6 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="com.members.model.*"%>
+<%@ page import="java.util.*"%>
+<%@ page import="com.course_time.model.*"%>
+
+<%
+	Course_timeService course_timeSvc = new Course_timeService();
+	ArrayList<Course_timeVO> cpList = (ArrayList) course_timeSvc.getAll(((MembersVO) session.getAttribute("user")).getMem_acc());
+	ArrayList<Course_timeVO> copList = (ArrayList) course_timeSvc.getAllOpen(((MembersVO) session.getAttribute("user")).getMem_acc());
+	for (int i = 0; i < cpList.size(); i++) {
+		((Course_timeVO) cpList.get(i)).setCrs_timeShow((String) getServletContext()
+				.getAttribute(String.valueOf(((Course_timeVO) cpList.get(i)).getCrs_time())));
+		((Course_timeVO) cpList.get(i)).getCourseVO().setCategoryChange((String) getServletContext()
+				.getAttribute(((Course_timeVO) cpList.get(i)).getCourseVO().getCategory()));
+	}
+	for (int i = 0; i < copList.size(); i++) {
+		((Course_timeVO) copList.get(i)).setCrs_timeShow((String) getServletContext()
+				.getAttribute(String.valueOf(((Course_timeVO) copList.get(i)).getCrs_time())));
+		((Course_timeVO) copList.get(i)).getCourseVO().setCategoryChange((String) getServletContext()
+				.getAttribute(((Course_timeVO) copList.get(i)).getCourseVO().getCategory()));
+	}
+	pageContext.setAttribute("cpList", cpList);
+	pageContext.setAttribute("copList", copList);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,27 +31,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="<%= request.getContextPath() %>/style/assets/css/fullcalendar.css" />
-<link href="<%= request.getContextPath() %>/style/css/bootstrap.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="<%= request.getContextPath() %>/style/assets/css/font-awesome.min.css" />
-<!-- page specific plugin styles -->
-<!-- Custom Fonts -->
-<link
-	href="<%= request.getContextPath() %>/style/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<!-- jQuery -->
-<!--訪客navbar動畫-1-->
-<script src="<%= request.getContextPath() %>/style/js/jquery.js"></script>
-
-<!-- Script to Activate the Carousel -->
-<!-- Bootstrap Core JavaScript -->
-<!--訪客navbar動畫-2-->
-<script src="<%= request.getContextPath() %>/style/js/bootstrap.min.js"></script>
-<!-- ace settings handler -->
-<!--button樣式-->
-<link rel="stylesheet"
-	href="<%= request.getContextPath() %>/style/assets/css/ace.min.css" />
 </head>
 <body>
 	<div class="row">
@@ -87,145 +89,62 @@
 					</div>
 				</div>
 			</div>
+			<span style="display:none;">
+				<c:forEach var="course_time" items="${cpList}">
+					<c:choose>
+							<c:when test="${course_time.crs_time == 1}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (上架)','${course_time.crs_date}','label-success',8)">
+							</c:when>
+							<c:when test="${course_time.crs_time == 2}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (上架)','${course_time.crs_date}','label-danger',10)">
+							</c:when>
+							<c:when test="${course_time.crs_time == 3}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (上架)','${course_time.crs_date}','label-purple',13)">
+							</c:when>
+							<c:when test="${course_time.crs_time == 4}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (上架)','${course_time.crs_date}','label-yellow',15)">
+							</c:when>
+							<c:when test="${course_time.crs_time == 5}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (上架)','${course_time.crs_date}','label-pink',18)">
+							</c:when>
+							<c:otherwise>
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (上架)','${course_time.crs_date}','label-info',20)">
+							</c:otherwise>
+						</c:choose>
+				</c:forEach>
+				<c:forEach var="course_time" items="${copList}">
+					<c:choose>
+							<c:when test="${course_time.crs_time == 1}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.crs_date}','label-success',8)">
+							</c:when>
+							<c:when test="${course_time.crs_time == 2}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.crs_date}','label-danger',10)">
+							</c:when>
+							<c:when test="${course_time.crs_time == 3}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.crs_date}','label-purple',13)">
+							</c:when>
+							<c:when test="${course_time.crs_time == 4}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.crs_date}','label-yellow',15)">
+							</c:when>
+							<c:when test="${course_time.crs_time == 5}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.crs_date}','label-pink',18)">
+							</c:when>
+							<c:otherwise>
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.crs_date}','label-info',20)">
+							</c:otherwise>
+						</c:choose>
+				</c:forEach>
+			</span>
 </body>
 </html>
-<script type="text/javascript">
-			window.jQuery || document.write("<script src='<%= request.getContextPath() %>/style/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
-		</script>
 
-
-<script
-	src="<%=request.getContextPath()%>/style/assets/js/typeahead-bs2.min.js"></script>
-
-<!-- page specific plugin scripts -->
-
-<script
-	src="<%=request.getContextPath()%>/style/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
-<script
-	src="<%=request.getContextPath()%>/style/assets/js/jquery.ui.touch-punch.min.js"></script>
 <script
 	src="<%=request.getContextPath()%>/style/assets/js/fullcalendar.min.js"></script>
-<script
-	src="<%=request.getContextPath()%>/style/assets/js/bootbox.min.js"></script>
 
-<!-- ace scripts -->
-
-<script
-	src="<%=request.getContextPath()%>/style/assets/js/ace-elements.min.js"></script>
 <script>
-	jQuery(function($) {
 
-		$('#external-events div.external-event').each(function() {
 
-			// create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-			// it doesn't need to have a start or end
-			var eventObject = {
-				title : $.trim($(this).text())
-			// use the element's text as the event title
-			};
 
-			// store the Event Object in the DOM element so we can get to it later
-			$(this).data('eventObject', eventObject);
-
-			// make the event draggable using jQuery UI
-			$(this).draggable({
-				zIndex : 999,
-				revert : true, // will cause the event to go back to its
-				revertDuration : 0
-			//  original position after the drag
-			});
-
-		});
-
-		/* initialize the calendar
-		 -----------------------------------------------------------------*/
-
-		var date = new Date();
-		var d = date.getDate();
-		var m = date.getMonth();
-		var y = date.getFullYear();
-
-		var calendar = $('#calendar')
-				.fullCalendar(
-						{
-							buttonText : {
-								prev : '<i class="icon-chevron-left"></i>',
-								next : '<i class="icon-chevron-right"></i>'
-							},
-
-							header : {
-								left : 'prev,next today',
-								center : 'title',
-								right : 'month,agendaWeek,agendaDay'
-							},
-							eventClick : function(calEvent, jsEvent, view) {
-								if(('' + (calEvent.start.getMonth() + 1)).length == 1){
-									var month = "0" + (calEvent.start.getMonth() + 1);
-								}else{
-									var month = (calEvent.start.getMonth() + 1);
-								}
-								
-								var crs_date = calEvent.start.getFullYear() + "-" + month + "-" + calEvent.start.getDate();
-								if(calEvent.className[0] == 'label-success'){
-									var crs_time = 1;
-								}else if(calEvent.className[0] == 'label-danger'){
-									var crs_time = 2;
-								}else if(calEvent.className[0] == 'label-purple'){
-									var crs_time = 3;
-								}else if(calEvent.className[0] == 'label-yellow'){
-									var crs_time = 4;
-								}else if(calEvent.className[0] == 'label-pink'){
-									var crs_time = 5;
-								}else{
-									var crs_time = 6;
-								}
-								console.log(cl_date);
-								console.log(crs_time);
-
-								swal({
-									  title: "是否要退選課程?",
-									  text: "You will not be able to recover this!",
-									  type: "warning",
-									  showCancelButton: true,
-									  confirmButtonColor: "#DD6B55",
-									  cancelButtonText: "不了!",
-									  confirmButtonText: "確認退選!",
-									  closeOnConfirm: false,
-									  closeOnCancel: false
-									},
-									
-									function(isConfirm){
-									  if (isConfirm) {
-											$.ajax({
-								　				url : '<%=request.getContextPath()%>/CCM/CourseManager.do',
-								 				data : {
-								 					crs_date : crs_date,	
-								 					crs_time : crs_time,
-								 					c_acc : '<%= ((MembersVO) session.getAttribute("user")).getMem_acc() %>',
-								 					action : 'deleteCalendarCourse'
-								 				},
-								 				type : "POST",
-								 				dataType : 'text',
-
-								 				success : function(msg) {
-								 					swal("退選成功!", "Your are already retire the course.", "success");
-								 					setTimeout(function(){ dropdown(6); }, 1200);
-								 				},
-
-								 				error : function(xhr, ajaxOptions, thrownError) {
-								 					sweetAlert("Oops...", "請檢查網路狀態!", "error");
-								 				}
-								 			});
-									  } else {
-										swal("取消退選", "Your content is safe :)", "error");
-										setTimeout(function(){ swal.close(); }, 1200);
-									  }
-									});
-							}
-
-						});
-
-	})
 </script>
 <style>
 .fc-header-title > h2{

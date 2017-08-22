@@ -9,6 +9,8 @@ public abstract interface Course_timeDAO_interface {
 	public  void update(Course_timeVO course_timeVO);
 
 	public  void delete(String ct_no);
+	
+	public  void deleteCalendar(String crs_date,Integer crs_time,String c_acc);
 
 	public  Course_timeVO findByPK(String ct_no);
 
