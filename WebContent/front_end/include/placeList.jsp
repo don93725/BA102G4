@@ -39,30 +39,33 @@
 								<th></th>
 								<th></th>
 								<th></th>
-								
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="placeVO" items="${placeList}">
-								<tr>
+								<tr><input type="text" value="${placeVO.p_no}">
 									<td class="center"><span class="">${placeVO.p_name}</span></td>	
 									<td><span class="">${placeVO.p_cap}</span></td>
 									<td><span class="">${placeVO.p_add}</span></td>
 									<td><span class="">${placeVO.p_into}</span></td>
 									<td>
 									<a class='inline' href="#update_content">
-										<button class="btn btn-primary btn-sm" id="" onclick="show('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${palceVO.p_no}')">
+										<button class="btn btn-primary btn-sm" id="" onclick="show('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')">
 											<i class="icon-edit"></i>
 											編輯場地
 										</button>
 									</a>
 									</td>
-									<td><button class="btn btn-info btn-sm" id="" onclick="">
-										<i class=""></i>
-										新增圖片
+									<td>
+									<a class='inline' href="#insertPic_content">
+										<button class="btn btn-info btn-sm" id="" onclick="">
+											<i class=""></i>
+											新增圖片
 										</button>
+									</a>
 									</td>
-									<td><button class="btn btn-danger btn-sm" onclick="deletePlace(${placeVO.p_no}, ${placeVO.p_status})">
+									<td><button class="btn btn-danger btn-sm" onclick="deletePlace('${placeVO.p_no}', '${placeVO.p_status}')">
 										<i class="icon-ban-circle"></i>
 										刪除
 										</button>
@@ -93,7 +96,6 @@
 									</c:if>
 									
 								</tr>
-							<input type="text" value="${palceVO.p_no}">
 							</c:forEach>
 						</tbody>
 					</table>

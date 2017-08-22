@@ -42,7 +42,7 @@ public class Course_timeDAO implements Course_timeDAO_interface {
 	private static final String UPDATE = "UPDATE course_time  set p_no=?, crs_date=?, deadline=?, crs_time=?, price=? where ct_no = ?";
 	private static final String GET_ALL_BY_CRSNO_STMT = "SELECT * FROM course_time ct join course c ON ct.crs_no = c.crs_no left outer join place p ON ct.p_no = p.p_no join coaches coa ON c.c_acc = coa.coa_acc where ct.status = 1 AND ct.crs_no = ? order by ct.crs_date";
 	private static final String GET_ALL_BEFORELIST_STMT = "SELECT * FROM course_time ct join course c ON ct.crs_no = c.crs_no left outer join place p ON ct.p_no = p.p_no join coaches coa ON c.c_acc = coa.coa_acc where ct.status = 1 AND ct.deadline < sysdate";
-	private static final String GET_ALL_STU = "SELECT * FROM course_time ct join course c ON ct.crs_no = c.crs_no left outer join place p ON ct.p_no = p.p_no join course_list cl ON ct.ct_no = cl.ct_no join students stu ON stu.stu_acc = cl.stu_acc join members m ON m.MEM_NO = stu.stu_no where c.c_acc = ?";
+	private static final String GET_ALL_STU = "SELECT * FROM course_time ct join course c ON ct.crs_no = c.crs_no left outer join place p ON ct.p_no = p.p_no join course_list cl ON ct.ct_no = cl.ct_no join students stu ON stu.stu_acc = cl.stu_acc join members m ON m.MEM_NO = stu.stu_no where c.c_acc = ? AND ct.ct_no = ?";
 	
 	static {
 		try {
@@ -363,6 +363,7 @@ public class Course_timeDAO implements Course_timeDAO_interface {
 				course_timeVO.setClass_num(rs.getString("class_num"));
 				course_timeVO.setStatus(rs.getInt("status"));
 				courseVO.setCrs_name(rs.getString("crs_name"));
+				courseVO.setC_acc(rs.getString("c_acc"));
 				courseVO.setCategory(rs.getString("category"));
 				placeVO.setP_name((rs.getString("p_name")==null)?"無":rs.getString("p_name"));
 				placeVO.setP_no(rs.getString("p_no"));
@@ -1127,7 +1128,7 @@ public class Course_timeDAO implements Course_timeDAO_interface {
 	}
 
 	@Override
-	public List<Course_timeVO> getStuByCt(String c_acc) {
+	public List<Course_timeVO> getStuByCt(String c_acc,String ct_no) {
 		List<Course_timeVO> list = new ArrayList<Course_timeVO>();
 		Course_timeVO course_timeVO = null;
 		StudentsVO studentsVO = null;
@@ -1142,9 +1143,11 @@ public class Course_timeDAO implements Course_timeDAO_interface {
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(GET_ALL_STU);
 			pstmt.setString(1, c_acc);
+			pstmt.setString(2, ct_no);
 			rs = pstmt.executeQuery();
-
+			System.out.println("AAA");
 			while (rs.next()) {
+				System.out.println("BBB");
 				course_timeVO = new Course_timeVO();
 				studentsVO = new StudentsVO();
 				membersVO = new MembersVO();
@@ -1154,6 +1157,7 @@ public class Course_timeDAO implements Course_timeDAO_interface {
 				membersVO.setMem_no(rs.getString("mem_no"));
 				membersVO.setMem_rank(rs.getString("mem_rank"));
 				course_timeVO.setStudentsVO(studentsVO);
+				course_timeVO.setMembersVO(membersVO);
 				list.add(course_timeVO); // Store the row in the list
 			}
 

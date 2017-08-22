@@ -34,5 +34,5 @@ public abstract interface Course_timeDAO_interface {
 
 	List<Course_timeVO> getItem(String category, String crs_date, String p_name);
 	
-	public  List<Course_timeVO> getStuByCt(String c_acc);
+	public  List<Course_timeVO> getStuByCt(String c_acc,String ct_no);
 }

@@ -20,6 +20,7 @@
 	pageContext.setAttribute("cpList", cpList);
 %>
 <%!int count = 0;%>
+<jsp:useBean id="course_timeSVC" scope="page" class="com.course_time.model.Course_timeService" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -71,15 +72,16 @@
 										value="觀看詳情">
 									</td>
 								</tr>
+								<c:forEach var="stubyct" items="${course_timeSVC.getStuByCt(course_timeVO.courseVO.c_acc,course_timeVO.ct_no)}">
 								<tr>
-									<td class="center selectStu<%=count%>" style="display:none;" colspan="2">照片</td>
-									<td class="selectStu<%=count%>" style="display:none;">姓名(帳號)</td>
-									<td class="selectStu<%=count%>" style="display:none;" colspan="2">Email</td>
-									<td class="selectStu<%=count%>" style="display:none;" colspan="2"><input type="button" class="btn btn-warning"
-										id="" onclick=""
-										value="查看">
+									<td class="center selectStu<%=count%>" style="display:none;" colspan="2"><img src="<%= request.getContextPath() %>/XiangZhiPic?mem_no=${stubyct.membersVO.mem_no}&mem_rank=${stubyct.membersVO.mem_rank}" width="100" height="100"></td>
+									<td class="selectStu<%=count%>" style="display:none;">${stubyct.membersVO.mem_nickname}</td>
+									<td class="selectStu<%=count%>" style="display:none;" colspan="2">${stubyct.studentsVO.stu_mail}</td>
+									<td class="selectStu<%=count%>" style="display:none;" colspan="2">
+									<a href="<%= request.getContextPath()%>/MembersServlet?mem_no=${stubyct.membersVO.mem_no}&mem_rank=${stubyct.membersVO.mem_rank}&action=lookPersonal"><input type="button" class="btn btn-warning" value="查看"></a>
 									</td>
 								</tr>
+								</c:forEach>
 								<%
 									count++;
 								%>

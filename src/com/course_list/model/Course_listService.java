@@ -94,14 +94,23 @@ public class Course_listService {
 			dao.updateCRNum(course_listVO);
 			return course_listVO;
 		}
-		public List<Course_listVO> getReportSta(Integer report_sta) {
+		  public List<Course_listVO> getReportSta(Integer report_sta) {
 			
 			return dao.getReportSta(report_sta);
 		}
 		  public List<Course_listVO> getReserve_List(String stu_acc){
 			    return this.dao.getReserve(stu_acc);
 			  }
+		 
+		  public List<Course_listVO> getCoachReserve_List(String coa_acc){
+			    return this.dao.getReserve(coa_acc);
+			  }
 
+		  
+		  
+		  
+		
+		  
 		  public List<Course_listVO> getReady_List(String stu_acc){
 			    return this.dao.getReady(stu_acc);
 			  }
