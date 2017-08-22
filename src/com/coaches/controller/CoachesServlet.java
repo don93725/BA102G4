@@ -434,6 +434,8 @@ public class CoachesServlet extends HttpServlet {
 					return;
 				}
 			}
+			
+			
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

@@ -37,6 +37,8 @@ public class DBGifReader extends HttpServlet {
 		String ad_no = req.getParameter("ad_no");
 		String mgr_no = req.getParameter("mgr_no");
 		String pr_no = req.getParameter("pr_no");
+		String gym_acc = req.getParameter("gym_acc");
+		String coa_acc = req.getParameter("coa_acc");
 		
 //		if(userMgr.getMgr_no()!=null){
 //			from = "manager";
@@ -62,6 +64,20 @@ public class DBGifReader extends HttpServlet {
 			getphoto = "pr_pt";
 			this.sqlTool(from, wherePk, pr_no, getphoto, req, res, out);
 		}
+		if(gym_acc!=null){
+			from = "gyms";
+			wherePk = "gym_acc";
+			getphoto = "gym_pic";
+			this.sqlTool(from, wherePk, gym_acc, getphoto, req, res, out);
+		}
+		if(coa_acc!=null){
+			from = "coaches";
+			wherePk = "coa_acc";
+			getphoto = "coa_pic";
+			this.sqlTool(from, wherePk, coa_acc, getphoto, req, res, out);
+		}
+		
+		
 		
 		
 	}

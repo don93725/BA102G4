@@ -59,5 +59,14 @@ public class CoachesService {
 	public CoachesVO look_search_mem(MembersVO membersVO) {
 		return dao.look_search_mem(membersVO);
 	}
+	
+	public List<CoachesVO> getAllBySta(Integer coa_sta) {
+		return dao.getAllBySta(coa_sta);
+	}
+	public void updateCoaApply(Integer coa_sta,String coa_acc){
+		 dao.setSta(coa_sta, coa_acc);
+	}
+	
+	
 }
 
