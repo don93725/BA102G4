@@ -2,7 +2,9 @@ package com.course_time.model;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
+import com.course_time.model.Course_timeVO;
 import com.course.model.CourseVO;
 
 public class Course_timeService{
@@ -80,6 +82,14 @@ public class Course_timeService{
   
   public void open(String ct_no){
 	    dao.open(ct_no);
+  }
+  public  List<Course_timeVO> getClass(Map<String,String[]>map){
+	  return dao.getClass(map);
+  }
+
+  public  List<Course_timeVO> getItem(String category , String crs_date , String p_name){
+	  
+	  return dao.getItem(category, crs_date, p_name);
   }
 
 }

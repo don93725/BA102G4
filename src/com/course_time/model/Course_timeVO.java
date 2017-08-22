@@ -1,5 +1,7 @@
 package com.course_time.model;
 
+import com.course_picture.model.Course_pictureVO;
+import com.gyms.model.GymsVO;
 import com.coaches.model.CoachesVO;
 import com.comments.model.Board_cmt;
 import com.course.model.CourseVO;
@@ -26,6 +28,25 @@ public class Course_timeVO {
 	CoachesVO coachesVO;
 	List<Board_cmt> comments;
 	Integer cmtNum;
+	Course_pictureVO course_pictureVO;
+	GymsVO gymsVO;
+	
+	public GymsVO getGymsVO() {
+		return gymsVO;
+	}
+
+	public void setGymsVO(GymsVO gymsVO) {
+		this.gymsVO = gymsVO;
+	}
+
+	public Course_pictureVO getCourse_pictureVO() {
+		return course_pictureVO;
+	}
+
+	public void setCourse_pictureVO(Course_pictureVO course_pictureVO) {
+		this.course_pictureVO = course_pictureVO;
+	}
+
 	public Course_timeVO() {
 	}
 	

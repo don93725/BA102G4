@@ -6,16 +6,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.course_picture.model.Course_pictureVO;
+import com.course_time.model.Course_timeVO;
+import com.gyms.model.GymsVO;
+import com.course_list.model.Course_listVO;
 import com.coaches.model.CoachesVO;
 import com.comments.model.Board_cmt;
 import com.comments.model.Board_cmtDAO;
 import com.course.model.CourseVO;
+import com.course.query.CourseQuery;
 import com.course_list.model.Course_listDAO;
 import com.course_picture.model.Course_pictureService;
 import com.place.model.PlaceVO;
@@ -805,5 +811,276 @@ public class Course_timeDAO implements Course_timeDAO_interface {
 
 		
 	}
+	@Override
+	public List<Course_timeVO> getClass(Map<String, String[]> map) {
+		// TODO Auto-generated method stub
+		
+		List<Course_timeVO> list = new ArrayList<Course_timeVO>();
+		Course_timeVO course_timeVO = null;
+		CourseVO courseVO = null;
+		PlaceVO placeVO = null;
+		CoachesVO coachesVO = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Course_listDAO course_listDAO = new Course_listDAO();
+		Course_pictureVO course_pictureVO = new Course_pictureVO();
+		try {
+									
+						
+			con = ds.getConnection();
+			String finalSQL = "SELECT * FROM course_time ct join course c ON ct.crs_no = c.crs_no left outer join course_picture cp ON ct.crs_no = cp.crs_no join coaches coa on c.c_acc=coa.coa_acc left outer join place p  ON ct.p_no = p.p_no "
+		          + CourseQuery.get_WhereCondition(map)
+		          +"AND ct.status = 1"
+		          +" "
+		          + "order by ct_no";
+			pstmt = con.prepareStatement(finalSQL);
+			System.out.println("finalSQL(by DAO) = "+finalSQL);
+			rs = pstmt.executeQuery();
+			
+			
+			while (rs.next()) {
+				course_timeVO = new Course_timeVO();
+				courseVO = new CourseVO();
+				coachesVO = new CoachesVO();
+				placeVO = new PlaceVO();
+				course_timeVO.setCt_no(rs.getString("ct_no"));
+				course_timeVO.setCrs_no(rs.getString("crs_no"));
+				course_timeVO.setP_no(rs.getString("p_no"));
+				course_timeVO.setCrs_date(rs.getDate("crs_date"));
+				course_timeVO.setDeadline(rs.getDate("deadline"));
+				course_timeVO.setCrs_time(rs.getInt("crs_time"));
+				course_timeVO.setPrice(rs.getString("price"));
+				course_timeVO.setLimit(rs.getString("limit"));
+				course_timeVO.setClass_num(rs.getString("class_num"));
+				course_timeVO.setStatus(rs.getInt("status"));
+				
+				System.out.println(rs.getString("crs_name")+ rs.getString("coa_name")+rs.getInt("status"));
+				courseVO.setCrs_name(rs.getString("crs_name"));
+				courseVO.setCategory(rs.getString("category"));
+				coachesVO.setCoa_name(rs.getString("coa_name"));
+				placeVO.setP_name((rs.getString("p_name")==null)?"null":rs.getString("p_name"));
+				placeVO.setP_no(rs.getString("p_no"));
+				course_pictureVO.setCrs_base(rs.getString("crs_base"));
+				course_timeVO.setCourseVO(courseVO);
+				course_timeVO.setCoachesVO(coachesVO);
+				course_timeVO.setPlaceVO(placeVO);
+				course_timeVO.setCourse_pictureVO(course_pictureVO);
+				course_timeVO.setCount(course_listDAO.count(rs.getString("ct_no")));
+				list.add(course_timeVO); // Store the row in the list
+		
+				
+			}
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+			
+		}
+	
+	
+		return list;
+	
+	}
+	@Override
+	public List<Course_timeVO> getItem(String category, String crs_date, String p_name) {
+		// TODO Auto-generated method stub
+		
+		List<Course_timeVO> list = new ArrayList<Course_timeVO>();
+		Course_timeVO course_timeVO = null;
+		CourseVO courseVO = null;
+		PlaceVO placeVO = null;
+		CoachesVO coachesVO = null;
+		GymsVO gymsVO = null;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Course_listDAO course_listDAO = new Course_listDAO();
+						
+		
+		try {
+
+			con = ds.getConnection();
+			
+			String finalSQL = "SELECT * FROM COURSE_TIME CT JOIN COURSE C ON CT.CRS_NO = C.CRS_NO JOIN COACHES COA ON C.C_ACC=COA.COA_ACC LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE "
+			          +" "
+			          + "TO_CHAR(CRS_DATE,'yyyy-mm-dd')="+"'"+crs_date+"'"
+			          +" "
+			          +"AND C.CATEGORY="+"'"+category+"'"
+			          +" "
+			          +"AND P.P_NAME="+"'"+p_name+"'"
+			          +" "
+			          +"AND CT.STATUS = 1";
+			      
+			          
+				
+			System.out.println(finalSQL);
+			
+			
+			pstmt = con.prepareStatement(finalSQL);
+			
+			//pstmt.setString(4,coa_name);
+			
+			
+			rs = pstmt.executeQuery();
+			
+			System.out.print(pstmt + " " + rs);
+			
+			while (rs.next()) {
+				
+				course_timeVO = new Course_timeVO();
+				courseVO = new CourseVO();
+				coachesVO=new CoachesVO();
+				placeVO = new PlaceVO();
+				gymsVO = new GymsVO();
+				
+				
+				course_timeVO.setCt_no(rs.getString("ct_no"));
+				course_timeVO.setCrs_no(rs.getString("crs_no"));
+				course_timeVO.setP_no(rs.getString("p_no"));
+				course_timeVO.setCrs_date(rs.getDate("crs_date"));
+				course_timeVO.setDeadline(rs.getDate("deadline"));
+				course_timeVO.setCrs_time(rs.getInt("crs_time"));
+				course_timeVO.setPrice(rs.getString("price"));
+				course_timeVO.setLimit(rs.getString("limit"));
+				course_timeVO.setClass_num(rs.getString("class_num"));
+				course_timeVO.setStatus(rs.getInt("status"));
+				
+				System.out.println(rs.getString("crs_name")+ rs.getString("coa_name")+rs.getInt("status"));
+				courseVO.setCrs_name(rs.getString("crs_name"));
+				courseVO.setCategory(rs.getString("category"));
+				coachesVO.setCoa_name(rs.getString("coa_name"));
+				placeVO.setP_name((rs.getString("p_name")==null)?"�L":rs.getString("p_name"));
+				placeVO.setP_no(rs.getString("p_no"));
+				
+				gymsVO.setGym_latlng(rs.getString("gym_latlng"));
+				
+				course_timeVO.setCourseVO(courseVO);
+				course_timeVO.setCoachesVO(coachesVO);
+				course_timeVO.setPlaceVO(placeVO);
+				course_timeVO.setGymsVO(gymsVO);
+				
+				course_timeVO.setCount(course_listDAO.count(rs.getString("ct_no")));
+				
+				
+				
+				list.add(course_timeVO); // Store the row in the list
+			
+				
+			
+			
+			}
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		return list;
+	
+	}
+	
+
+	public boolean findSignUp(String ct_no, String stu_acc) {
+		Course_listVO course_listVO = null;
+		boolean result = true;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement("select * from course_list where ct_no = ? AND stu_acc = ?");
+			pstmt.setString(1, ct_no);
+			pstmt.setString(2, stu_acc);
+			rs = pstmt.executeQuery();
+			
+			result = rs.next();
+				
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return result;
+	}
+
 
 }

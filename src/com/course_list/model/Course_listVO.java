@@ -2,9 +2,11 @@ package com.course_list.model;
 
 import java.sql.Date;
 
+import com.course_picture.model.Course_pictureVO;
 import com.coaches.model.CoachesVO;
 import com.course.model.CourseVO;
 import com.course_time.model.Course_timeVO;
+import com.gyms.model.GymsVO;
 import com.place.model.PlaceVO;
 import com.students.model.StudentsVO;
 
@@ -17,9 +19,27 @@ public class Course_listVO {
 	CoachesVO coachesVO;
 	PlaceVO placeVO;
 	StudentsVO studentsVO;
-	
+
+	GymsVO gymsVO;
+	Course_pictureVO course_pictureVO;
 	public  Course_listVO(){};
 	
+	public GymsVO getGymsVO() {
+		return gymsVO;
+	}
+
+	public void setGymsVO(GymsVO gymsVO) {
+		this.gymsVO = gymsVO;
+	}
+
+	public Course_pictureVO getCourse_pictureVO() {
+		return course_pictureVO;
+	}
+
+	public void setCourse_pictureVO(Course_pictureVO course_pictureVO) {
+		this.course_pictureVO = course_pictureVO;
+	}
+
 	public  Course_listVO(String ct_no,String stu_acc,Date cl_date,Integer crs_time,Integer stu_pay_sta,Date stu_pay_date,Integer report_sta,String report_ct,String feedback,String evaluation_cao,String evaluation_crs,Integer n_sta,String reason){
 		this.crs_time = crs_time;
 		this.stu_pay_sta = stu_pay_sta;

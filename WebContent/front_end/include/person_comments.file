@@ -22,14 +22,14 @@
 				<input type='text' class='b' value='${comment.bd_cmt_ctx }' style='display:none;' onfocus='this.value = this.value;'/>
 				<span class='c' ><a href="#" style='margin-left: 3px' onclick='addCmtLikes.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }");'><span class='cmtLikes'>${(comment.ifClick)?'收回讚':'讚'}</span><span style='margin-left: 5px;'>${(comment.cmt_likes>0)? comment.cmt_likes:''  }</span></a></span>
 			</div>
-			<c:if test='${not empty comment.bd_cmt_reply || comment.mem_no.mem_no==user.mem_no}'>			
+			<c:if test='${not empty comment.bd_cmt_reply || personalCmts.mem_no==user.mem_no}'>			
 			<div class="col-xs-12 col-sm-12 col-sm-offset-1 rply" >
 				<div class="alert alert-warning" role="alert">
 				<c:if test='${not empty comment.bd_cmt_reply}'>
 				<div class="col-xs-12 col-sm-12" >
 				<div class="col-xs-12 col-sm-8" >版主回覆：</div>
 				<div class="col-xs-12 col-sm-4" >
-				<c:if test='${comment.mem_no.mem_no==user.mem_no}'>
+				<c:if test='${personalCmts.mem_no==user.mem_no}'>
 				<button class="btn btn-info btn-xs" type="button" onclick='editReply.call(this);'><span class='glyphicon glyphicon-pencil'></span></button>
 				<button class="btn btn-danger btn-xs" type="button" onclick='delReply.call(this,"${comment.bd_cmt_no }");'><span class='glyphicon glyphicon-remove'></span></button>
 				</c:if>
@@ -40,19 +40,21 @@
 				${comment.bd_cmt_reply}
 				</div>
 				</c:if>
+				<c:if test='${personalCmts.mem_no==user.mem_no}'>
 				<div class="input-group replyContainer" ${(not empty comment.bd_cmt_reply)? "style='display:none'":""}>      
 			      <input type="text" class="form-control replyInput" placeholder="你想回覆什麼呢？" >
 			     <div class="input-group-btn" >
 			        <button class="btn btn-default " style='height:34px;padding:auto;' type="button" onclick='sendReply.call(this,"${comment.bd_cmt_no }");'>送出</button>
 			      </div>
-			    </div><!-- /input-group -->			
+			    </div><!-- /input-group -->	
+			    </c:if>		
 				</div>
 			</div>
 			</c:if>			
 			</div>
 
 			</div>
-			<div class="col-xs-12 col-sm-3 cmt">
+			<div class="col-xs-12 col-sm-2 col-sm-offset-1 cmt">
 			<c:if test='${comment.mem_no.mem_no==user.mem_no}'>
 			<a href='#' class='btn btn-lg btn-info' onclick='editCmmt.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }","${user.mem_no}");' style='color:black'>
 				<span class='glyphicon glyphicon-pencil'></span></a>
@@ -85,6 +87,7 @@ var webCtx;
 $(function(){
 	var path = window.location.pathname;
 	webCtx = path.substring(0, path.indexOf('/', 1));
+	$('#comment').addClass('active');
 })
 function sendReply(bd_cmt_no){
 	var self = $(this);
