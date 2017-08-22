@@ -360,7 +360,9 @@
 					</div>
 				</div>
 				</c:if>
-
+				<c:if test="${empty message_board ||  fn:length(message_board ) }">
+					<li class="list-group-item text-center">目前尚未加入好友</li>
+				</c:if>
 				<c:forEach var="message_board" items="${message_board}" varStatus="number">
 					<div class="panel panel-default panel<fmt:formatNumber type="number" value="${number.count/8 }" maxFractionDigits="0" var="num" />${num}">
 						<div class="panel-heading">

@@ -15,7 +15,6 @@
 
 </head>
 
-
 <body>
 
     <!-- 導覽列 -->
@@ -46,18 +45,19 @@
         </div>
         <br>
 
+<!-- 改變大頭貼燈箱 -->
+	<%@include file="/front_end/include/changeHeadPic.file" %>
+<!-- 改變大頭貼燈箱結束 -->
 
 <!-- 身分為健身者時，顯示 -->                    
 <c:if test="${user.mem_rank == '0'}">  
 		<%@include file="/front_end/include/personal_stu.file" %>
 </c:if><!-- 身分為健身者時的 Content結束 -->
 
-
 <!-- 身分為教練時，顯示 -->                    
 <c:if test="${user.mem_rank == '1'}">  
         <%@include file="/front_end/include/personal_coa.file" %>
 </c:if><!-- 身分為教練時的 Content結束 -->
-
 
 <!-- 身分為健身房業者時，顯示 -->                    
 <c:if test="${user.mem_rank == '2'}">
@@ -123,49 +123,7 @@
         });
     }
 </script>
-</c:if>
-<!-- 動畫 -->
-<script>
-	function tick(){
-	/* 身分為健身者時，loading為 */
-	if(document.getElementById("rankColor").value == 0){  	
-		var self = $(this).parents("#form_stu");
-		swal({
-			title: "修改中",
-			text: "請稍後",
-			imageUrl: "/BA102G4/style/images/p2.gif",
-			timer: 2500,
-			showConfirmButton: false
-		},function (){
-			self.submit();
-		});
-	}
-	/* 身分為教練時，loading為 */
-	if(document.getElementById("rankColor").value == 1){
-		var self = $(this).parents("#form_coa");
-		swal({
-			title: "修改中",
-			text: "請稍後",
-			imageUrl: "/BA102G4/style/images/p3.gif",
-			timer: 2500,
-			showConfirmButton: false
-		},function (){
-			self.submit();
-		});
-	}
-	/* 身分為健身房業者時，loading為 */
-	if(document.getElementById("rankColor").value == 2){
-		var self = $(this).parents("#form_gym");
-		swal({
-			title: "修改中",
-			text: "請稍後",
-			imageUrl: "/BA102G4/style/images/p4.gif",
-			timer: 2500,
-			showConfirmButton: false
-		},function (){
-			self.submit();
-		});
-	}
-	}
-</script>
+	</c:if>
+	<!-- 基本資料修改 -->
+	<%@include file="/front_end/include/changeBasicData.file" %>
 </html>

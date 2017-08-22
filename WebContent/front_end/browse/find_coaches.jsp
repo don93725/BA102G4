@@ -6,12 +6,11 @@
 <%@ page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<c:if test="${empty searchResult}">
 <%  	CoachesService coachesSV = new CoachesService();
 		List<CoachesVO> list = coachesSV.getAll();
 		pageContext.setAttribute("list",list);
 %>
-</c:if>
+
 <c:if test="${not empty searchResult}">
 <%		List<CoachesVO> searchResult = (List<CoachesVO>)request.getAttribute("searchResult");
 %>
@@ -37,7 +36,6 @@
 	}
 	div.img_title{
 		text-align: center;
-		background-color: #FFFFBB;
 	}
 	div.item-container{
 		border-radius:100px;
@@ -124,46 +122,12 @@
 </c:if>
 
 <c:if test="${empty searchResult && empty errorMsgs}">
-		<div class="row">
+		<div class="row" style="margin-bottom:20px;margin-top:20px;">
 <c:forEach var="coachesVO" items="${list}">
-			<div class="col-md-2 col-sm-4">
+			 <div class="col-md-2 col-sm-4 animated bounceIn">
 				<div class="img_title">
 					<center>
-						教練
-						<h3 style="margin-top:5px;">
-						${coachesVO.coa_name }
-						</h3>
-					</center>
-				</div>	
-					<div class="item-container">
-						<div class="item-caption black">
-							<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=1&coa_no=${coachesVO.coa_no}&action=lookPersonal" target="_blank">
-								<div class="item-caption-inner">
-									<div class="item-caption-inner1">
-										<span class="into">${coachesVO.coa_into }</span>
-											<P></P>
-										<span>深入了解我&nbsp<i class="icon-arrow-right icon-on-right"></i></span>
-									</div>
-								</div>
-							</a>
-						</div>
-							<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachesVO.coa_no}" style="margin-top:4px;border-radius:100px;box-shadow:0px 0px 12px #7E7E7E;" />
-					</div>
-			</div>
-</c:forEach>
-		</div>	
-</c:if>
-
-<c:if test="${not empty searchResult && empty errorMsgs}">
-		<div class="row">
-<c:forEach var="coachesVO" items="${searchResult}">
-            <div class="col-md-2 col-sm-4">
-				<div class="img_title">
-					<center>
-						教練
-						<h3 style="margin-top:5px;">
-						${coachesVO.coa_name }
-						</h3>
+						<h3>教練</h3>
 					</center>
 				</div>	
 					<div class="item-container">
@@ -180,6 +144,46 @@
 						</div>
 							<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachesVO.coa_no}" style="margin-top:4px;border-radius:100px;box-shadow:0px 0px 12px #7E7E7E;" />
 					</div>
+				<div class="img_title">
+					<center>
+						<h3 style="margin-top:5px;">
+						${coachesVO.coa_name }
+						</h3>
+					</center>
+				</div>
+			</div>
+</c:forEach>
+		</div>	
+</c:if>
+
+<c:if test="${not empty searchResult && empty errorMsgs}">
+		<div class="row" style="margin-bottom:20px;margin-top:20px;">
+<c:forEach var="coachesVO" items="${searchResult}">
+            <div class="col-md-2 col-sm-4 animated bounceIn">
+				<div class="img_title" style="display:inline;">
+					<center>
+						<h3>教練</h3>
+					</center>
+				</div>	
+					<div class="item-container">
+						<div class="item-caption black">
+							<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=1&mem_no=${coachesVO.coa_no}&action=lookPersonal" target="_blank">
+								<div class="item-caption-inner">
+									<div class="item-caption-inner1">
+										<span class="into">${coachesVO.coa_into }</span>
+											<P></P>
+										<span>深入了解我&nbsp<i class="icon-arrow-right icon-on-right"></i></span>
+									</div>
+								</div>
+							</a>
+						</div>
+							<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachesVO.coa_no}" style="margin-top:4px;border-radius:100px;box-shadow:0px 0px 12px #7E7E7E;" />
+					</div>
+				<div class="img_title" style="background-color:#FFB752;">
+					<center>
+							<h2>${coachesVO.coa_name }</h2>
+					</center>
+				</div>
 			</div>
 </c:forEach>
 		</div>

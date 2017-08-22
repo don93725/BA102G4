@@ -166,6 +166,7 @@ public class MessageDAO extends BasicDAO implements DAOInterface<Message> {
 				"left outer join(select max(send_time) max2,rcv_no rcv2,post_no post2 from message where  rcv_no="+user_no+" or post_no="+user_no+
 				" group by rcv_no,post_no) b on rcv1=post2 and post1=rcv2) group by post_no,rcv_no,sdate)) order by send_time desc";
 		List<Message> list = getVOBySQLForNew(sql, null,user_no);
+		
 		return list;
 	}
 //	public List<Message> getLastest(String user_no) {

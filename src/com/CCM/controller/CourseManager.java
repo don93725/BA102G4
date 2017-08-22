@@ -261,6 +261,15 @@ public class CourseManager extends HttpServlet {
 			RequestDispatcher coursePublishList = req.getRequestDispatcher("/front_end/CCM/index.jsp");
 			coursePublishList.forward(req, res);
 			return;
+		}else if("deleteCalendarCourse".equals(action)){
+			String c_acc = req.getParameter("c_acc");
+			String crs_date = req.getParameter("crs_date");
+			Integer crs_time = Integer.valueOf(req.getParameter("crs_time"));
+			
+			Course_timeService course_timeSVC = new Course_timeService();
+			course_timeSVC.deleteCalendar(crs_date,crs_time,c_acc);
+
+			return;
 		}
 	}
 

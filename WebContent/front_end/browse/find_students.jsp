@@ -121,7 +121,7 @@
 <c:if test="${empty searchResult && empty errorMsgs}">
 		<div class="row">
 <c:forEach var="studentsVO" items="${list}">
-            <div class="col-md-2 col-sm-4">
+            <div class="col-md-2 col-sm-4 animated bounceIn">
 				<div class="img_title">
 						<center>
 							學員
@@ -152,7 +152,7 @@
 <c:if test="${not empty searchResult && empty errorMsgs}">
 		<div class="row">
 <c:forEach var="studentsVO" items="${searchResult}">
-            <div class="col-md-2 col-sm-4">
+            <div class="col-md-2 col-sm-4 animated bounceIn">
 				<div class="img_title">
 					<center>
 						學員

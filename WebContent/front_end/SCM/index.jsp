@@ -135,13 +135,8 @@ function report(ct_no,stu_acc){
 
 			<ul class="breadcrumb">
 				<li><i class="icon-home home-icon"></i> <a href="#">首頁</a></li>
-				<li class="active">會員專區</li>
-				<li class="active">課程管理</li>
-				<form action="<%=request.getContextPath()%>/CCM/CourseManager.do"
-					method="post">
-					<input type="submit" value="查課程"> <input type="hidden"
-						name="action" value="crsDetailList">
-				</form>
+				<li class="active">課程專區</li>
+				<li class="active">${which}</li>
 			</ul>
 			<!-- .breadcrumb -->
 		</div>
@@ -156,58 +151,30 @@ function report(ct_no,stu_acc){
 					<ul class="nav nav-tabs" id="myTab">
 
 						<!-- 課程管理 -->
-						<li class="dropdown" id="manager"><a data-toggle="dropdown"
-							class="dropdown-toggle" href="#" onclick="dropdown(1)"><i
+						<li  id="manager">
+							<a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=courseList" id="dropdown1"><i
 								class="green glyphicon glyphicon-pencil" style="font-size: 16px"></i>
-								<font style='font-size: 16px; font-weight: bold;'> 選課列表 </font>
-						</a>
-						<form method="post"
-								action="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do"
-								style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown1"
-									role="button" value="選課列表 "> <input type="hidden"
-									name="action" value="courseList">
-							</form></li>
+								<font style='font-size: 16px; font-weight: bold;'> 選課列表 </font></a>
+						</li>
 
 						<!-- 課程紀錄 -->
-						<li class="" id="record"><a data-toggle="tab" href=""
-							onclick="dropdown(4)"> <i
+						<li class="" id="record"><a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=courseOpen" id="dropdown2"> <i
 								class="green  glyphicon glyphicon-home" style="font-size: 16px"></i>
 								<font style='font-size: 16px; font-weight: bold;'>開課列表</font>
 						</a>
-							<form method="post"
-								action="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do"
-								style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown4"
-									role="button" value="開課列表"> <input type="hidden"
-									name="action" value="courseOpen">
-							</form></li>
+						</li>
 
 						<!-- 課程課程報表紀錄 -->
-						<li id="report"><a data-toggle="tab" href="#profile"
-							onclick="dropdown(5)"><i
+						<li id="report"><a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=courseRecord"><i
 								class="green glyphicon glyphicon-book" style="font-size: 16px"></i>
 								<font style='font-size: 16px; font-weight: bold;'> 課程紀錄</font> </a>
-							<form method="post"
-								action="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do"
-								style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown5"
-									role="button" value="課程紀錄"> <input type="hidden"
-									name="action" value="courseRecord">
-							</form></li>
+							</li>
 
-						<li id="showCalendar"><a data-toggle="tab" href=""
-							onclick="dropdown(6)"><i
+						<li id="showCalendar"><a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=calendar"><i
 								class="green glyphicon glyphicon-calendar"
 								style="font-size: 16px"></i> <font
 								style='font-size: 16px; font-weight: bold;'> 行事曆</font> </a>
-							<form method="post"
-								action="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do"
-								style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown6"
-									role="button" value="課程紀錄"> <input type="hidden"
-									name="action" value="calendar">
-							</form></li>
+						</li>
 					</ul>
 
 
@@ -255,7 +222,7 @@ function report(ct_no,stu_acc){
 
 <script type="text/javascript">
 document.onkeydown = function(){
-	        var keycode = event.which || event.keyCode;
+	        var keycode  = event.which || event.keyCode;
 	        if(keycode == 37){
 	            $("#goleft").click();
 	        }else if (keycode == 39){
@@ -421,7 +388,7 @@ function deleteCourse(ct_no,stu_acc){
 		function(isConfirm){
 		  if (isConfirm) {
 			 $.ajax({
-　				url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
+				url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
  				data : {
  					ct_no : ct_no,	
  					stu_acc : stu_acc,
@@ -432,7 +399,7 @@ function deleteCourse(ct_no,stu_acc){
 
  				success : function(msg) {
  					swal("退選成功!", "Your are already retire the course.", "success");
- 					setTimeout(function(){ dropdown(1); }, 1200);
+ 					setTimeout(function(){ location.reload(); }, 1200);
  				},
 
  				error : function(xhr, ajaxOptions, thrownError) {
@@ -440,8 +407,7 @@ function deleteCourse(ct_no,stu_acc){
  				}
  			});
 		  } else {
-			swal("取消退選", "Your content is safe :)", "error");
-			setTimeout(function(){ swal.close(); }, 1200);
+				swal.close();
 		  }
 		});
 	}
@@ -548,7 +514,7 @@ function addCalendar(title, start, className, minTime) {
 										function(isConfirm){
 										  if (isConfirm) {
 												$.ajax({
-									　				url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
+													url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
 									 				data : {
 									 					cl_date : cl_date,	
 									 					crs_time : crs_time,
@@ -560,7 +526,7 @@ function addCalendar(title, start, className, minTime) {
 
 									 				success : function(msg) {
 									 					swal("退選成功!", "Your are already retire the course.", "success");
-									 					setTimeout(function(){ dropdown(6); }, 1200);
+									 					setTimeout(function(){ location.reload(); }, 1200);
 									 				},
 
 									 				error : function(xhr, ajaxOptions, thrownError) {
@@ -568,8 +534,7 @@ function addCalendar(title, start, className, minTime) {
 									 				}
 									 			});
 										  } else {
-											swal("取消退選", "Your content is safe :)", "error");
-											setTimeout(function(){ swal.close(); }, 1200);
+											swal.close();
 										  }
 										});
 							

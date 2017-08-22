@@ -9,6 +9,8 @@ public abstract interface Course_timeDAO_interface {
 	public  void update(Course_timeVO course_timeVO);
 
 	public  void delete(String ct_no);
+	
+	public  void deleteCalendar(String crs_date,Integer crs_time,String c_acc);
 
 	public  Course_timeVO findByPK(String ct_no);
 
@@ -31,4 +33,6 @@ public abstract interface Course_timeDAO_interface {
 	List<Course_timeVO> getClass(Map<String, String[]> map);
 
 	List<Course_timeVO> getItem(String category, String crs_date, String p_name);
+	
+	public  List<Course_timeVO> getStuByCt(String c_acc);
 }

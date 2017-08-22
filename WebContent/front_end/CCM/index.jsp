@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
 <%@ page import="com.course.model.*"%>
+<%@ page import="com.members.model.*"%>
 <%@ include file="default.file"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -190,10 +191,6 @@
 				<li><i class="icon-home home-icon"></i> <a href="#">首頁</a></li>
 				<li class="active">課程專區</li>
 				<li class="active">${which}</li>
-				<form action="<%=request.getContextPath()%>/CCM/CourseManager.do" method="post">
-					<input type="submit" value="查課程">
-					<input type="hidden" name="action" value="crsDetailList">
-				</form>
 			</ul>
 			<!-- .breadcrumb -->
 		</div>
@@ -231,13 +228,10 @@
 						</li>
 
 						<!-- 課程課程報表紀錄 -->
-						<li id="report">
-							<a  href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=courseReport" id="dropdown5"><i class="green glyphicon glyphicon-book" style="font-size: 16px"> </i><font style='font-size: 16px; font-weight: bold;'> 課程報表紀錄</font> </a>
-						</li>
 						<li id="showCalendar">
 							<a  href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=calendar" id="dropdown6"><i
 								class="green glyphicon glyphicon-calendar"
-								style="font-size: 16px"></i> 行事曆 </a>
+								style="font-size: 16px"></i> <font style='font-size: 16px; font-weight: bold;'><font style='font-size: 16px; font-weight: bold;'>行事曆 </font></a>
 						</li>
 					</ul>
 
@@ -282,12 +276,7 @@
 
 
 </html>
-<script type="text/javascript"
-	src="<%=request.getContextPath()%>/front_end/CCM/dist/sweetalert-dev.js"></script>
-<script type="text/javascript"
-	src="<%=request.getContextPath()%>/front_end/CCM/dist/sweetalert.min.js"></script>
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/front_end/CCM/dist/sweetalert.css" />
+
 <script type="text/javascript">
 	$("#cancel").click(cancel);
 	$("#send").click(send);
@@ -309,6 +298,7 @@
 	}
 	window.onload =  function () {
 		$("#changeActive").trigger('click');
+		$(".calendarbtn").click();
 		document.getElementById("clickimg").addEventListener('change',updateHandler,false);
 		document.getElementById("clickimgChange").addEventListener('change',updateChangeHandler,false);
 	}
@@ -894,8 +884,8 @@
 　						setTimeout(function(){ location.reload(); }, 1000);
 	 				  }
 	 			});
-　			
-　			$(crsrow).html($("#changeCrs_name").val());
+	 			
+			$(crsrow).html($("#changeCrs_name").val());
 　			$(drow).html($("#changeDetails").val());
 　			$(crow).html($(cids).text());
 　			for(var i=0;i<document.getElementsByClassName(cpic).length;i++){
@@ -996,16 +986,134 @@
 		$.datepicker.setDefaults({ dateFormat: 'yy-mm-dd' }); 
 	}
 
-	
+	function addCalendar(title, start, className, minTime) {
+		var y = new Date(start);
+		$('#calendar').fullCalendar(
+				'renderEvent',
+				{
+					title : title,
+					start : new Date(y.getFullYear(), y.getMonth(),
+							y.getDate(), minTime),
+					className : className,
+					defaultEventMinutes : 90,
+					allDay : false
+				}, true // make the event "stick"
+		);
+		$(".fc-event-time").append("m  ");
+	}
+
+
+	jQuery(function($) {
+
+		$('#external-events div.external-event').each(function() {
+
+			// create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+			// it doesn't need to have a start or end
+			var eventObject = {
+				title : $.trim($(this).text())
+			// use the element's text as the event title
+			};
+
+			// store the Event Object in the DOM element so we can get to it later
+			$(this).data('eventObject', eventObject);
+
+			// make the event draggable using jQuery UI
+
+		});
+
+		/* initialize the calendar
+		 -----------------------------------------------------------------*/
+
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+
+		var calendar = $('#calendar')
+				.fullCalendar(
+						{
+							buttonText : {
+								prev : '<i class="icon-chevron-left"></i>',
+								next : '<i class="icon-chevron-right"></i>'
+							},
+
+							header : {
+								left : 'prev,next today',
+								center : 'title',
+								right : 'month,agendaWeek,agendaDay'
+							},
+							eventClick : function(calEvent, jsEvent, view) {
+								if(calEvent.title.match('上架') != null){
+									
+								if(('' + (calEvent.start.getMonth() + 1)).length == 1){
+									var month = "0" + (calEvent.start.getMonth() + 1);
+								}else{
+									var month = (calEvent.start.getMonth() + 1);
+								}
+								
+								var crs_date = calEvent.start.getFullYear() + "-" + month + "-" + calEvent.start.getDate();
+								if(calEvent.className[0] == 'label-success'){
+									var crs_time = 1;
+								}else if(calEvent.className[0] == 'label-danger'){
+									var crs_time = 2;
+								}else if(calEvent.className[0] == 'label-purple'){
+									var crs_time = 3;
+								}else if(calEvent.className[0] == 'label-yellow'){
+									var crs_time = 4;
+								}else if(calEvent.className[0] == 'label-pink'){
+									var crs_time = 5;
+								}else{
+									var crs_time = 6;
+								}
+								console.log(crs_date);
+								console.log(crs_time);
+
+								swal({
+									  title: "是否要取消時段?",
+									  text: "You will not be able to recover this!",
+									  type: "warning",
+									  showCancelButton: true,
+									  confirmButtonColor: "#DD6B55",
+									  cancelButtonText: "不了!",
+									  confirmButtonText: "確認!",
+									  closeOnConfirm: false,
+									  closeOnCancel: false
+									},
+									
+									function(isConfirm){
+									  if (isConfirm) {
+											$.ajax({
+												url : '<%=request.getContextPath()%>/CCM/CourseManager.do',
+								 				data : {
+								 					crs_date : crs_date,	
+								 					crs_time : crs_time,
+								 					c_acc : '<%= ((MembersVO) session.getAttribute("user")).getMem_acc() %>',
+								 					action : 'deleteCalendarCourse'
+								 				},
+								 				type : "POST",
+								 				dataType : 'text',
+
+								 				success : function(msg) {
+								 					swal("取消成功!", "Your are already retire the course.", "success");
+								 					setTimeout(function(){ dropdown(6); }, 1200);
+								 				},
+
+								 				error : function(xhr, ajaxOptions, thrownError) {
+								 					sweetAlert("Oops...", "請檢查網路狀態!", "error");
+								 				}
+								 			});
+									  } else {
+										swal.close();
+									  }
+									});
+								}
+							}
+
+						});
+
+	})
 	
 </script>
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script type="text/javascript"
-	src="<%=request.getContextPath()%>/front_end/CCM/JS/jquery.colorbox.js"></script>
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/front_end/CCM/CSS/colorbox.css" />
 <style type="text/css">
 #cboxContent, #cboxLoadedContent {
 	border: 0.5px;

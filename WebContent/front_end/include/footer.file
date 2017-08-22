@@ -1,8 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 	<br>
+		<!-- 回頂端 -->
+		<a href="javascript:void(0);" id="gotoTop" title="回頂端" style="display: none;">Top<span></span></a>
+		
+		<!-- footer -->
 		<div class="container">	
             <div class="row">
-            
             	<div class="col-xs-12 col-md-4"></div>
             	
                 <div class="col-xs-12 col-md-4">
@@ -27,9 +30,16 @@
                 <div class="col-xs-12 col-md-12">
                     <center>
                     	<p>Copyright &copy; HelloWorld Web Site 2017</p>
-                    </center>
+                    </center>                    
                 </div>
 
             </div>
     	</div> 
     <br>
+    
+    <!-- 最底部 -->
+    <div class="container" style="width:100%;height:50px;background-color:#303030;">	
+    	<div class="row">
+                
+    	</div>
+    </div> 

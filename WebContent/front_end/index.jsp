@@ -3,16 +3,15 @@
 <%@ page import="com.coaches.model.*" %>
 <%@ page import="com.students.model.*" %>
 <%@ page import="com.gyms.model.*" %>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
 
 <head>
     <title>健貨 - GymHome</title>
-		<%@include file="/front_end/include/basicScript.file" %>		
+		<%@include file="/front_end/include/basicScript.file" %>	
 </head>
- 
+
 <body>
 	
 	<!-- 導覽列 -->
@@ -259,28 +258,11 @@
 </div>
 <!-- 討論區結束 -->
 
-	<!-- Footer -->
+	<!-- 回頂端、Footer、最底部 -->
 	<%@include file="/front_end/include/footer.file" %>
-
-	<!-- 最底層 -->
-	<%@include file="/front_end/include/floor.file" %>
 	
 </body>
+	<!--navbar淡入、下拉式選單滑動、navbar變色、物件淡出效果、回到最頂端、控制字數顯示 -->
 	<%@include file="/front_end/include/basicScript2.file" %>
-	
-
-<!-- 控制字數顯示 -->
-<script>
-$(function(){
-	var len = 24; // 超過50個字以"..."取代
-    $(".title").each(function(){
-        if($(this).text().length>len){
-            $(this).attr("title",$(this).text());
-            var text=$(this).text().substring(0,len-1)+" ...";
-            $(this).text(text);
-        }
-    });
-});
-</script>
-
 </html>
+<div id="backTop"></div>

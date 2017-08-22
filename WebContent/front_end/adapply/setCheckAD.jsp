@@ -4,11 +4,7 @@
 <%@ page import="java.util.*"%>
 <%@ page import="com.adapply.model.*"%>
 <jsp:useBean id="ADapplyMemSvc" scope="page" class="com.members.model.MembersService"/>
-<%
-	AD_ApplyService ADSvc = new AD_ApplyService();
-	Set<AD_ApplyVO> list = ADSvc.getStat(0);
-	pageContext.setAttribute("list", list);
-%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
 <head>
@@ -60,9 +56,8 @@
 							</tr>
 						</thead>
 						<tbody>
-							<%@ include file="page1.file"%>
-							<c:forEach var="ad_ApplyVO" items="${list}"
-								begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
+							
+							<c:forEach var="ad_ApplyVO" items="${list}">
 								<tr align="center" valign="middle">
 <%-- 									<td class="center">AD-NO.${ad_ApplyVO.ad_no}</td> --%>
 <%-- 									<td class="center">${ad_ApplyVO.mem_no}</td> --%>
@@ -97,7 +92,7 @@
 									</td>
 								</tr>
 							</c:forEach>
-							<%@ include file="page2.file"%>
+							
 						</tbody>
 					</table>
 				</div>

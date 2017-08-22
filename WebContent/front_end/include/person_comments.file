@@ -3,7 +3,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <ul class="list-group" style='margin-left:0px;'>
-<c:forEach var="comment" items="${personalCmts.comments }" varStatus="cmt">
+<c:if test="${empty personalCmts.comments}">
+					<li class="list-group-item text-center">目前尚未有留言</li>
+				</c:if>
+<c:forEach var="comment" items="${personalCmts.comments}" varStatus="cmt">
 
 <li class="list-group-item comments key_<fmt:formatNumber type="number" value="${(cmt.index-cmt.index%5)/5 }" />" ${(cmt.count>5)? 'style="display:none"':'' }>
 	<div class="row">

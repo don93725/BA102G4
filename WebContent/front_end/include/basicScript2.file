@@ -20,24 +20,103 @@ $(document).ready(function() {
 });
 
 </script>
-
+<!-- 變色 -->
 <script>
 function init(){
+	var rank = document.getElementById("rankColor").value.trim();
+	if(rank == "" || rank == null || rank == undefined){
+		$("nav.navbar").css("background-color", "#303030");
+		$("#gotoTop").hover(function(){
+			$(this).css("background-color", "#303030");
+		},function(){
+			$(this).css("background-color", "#3498db");
+		});
+		return;
+	}
 	<!-- 身分為健身者時，navbar顏色 -->
-	if(document.getElementById("rankColor").value == 0){  	
+	if(rank == 0){  	
 		$("nav.navbar").css("background-color", "#87B87F");
+		$("#gotoTop").hover(function(){
+			$(this).css("background-color", "#87B87F");
+		},function(){
+			$(this).css("background-color", "#3498db");
+		});
+		return;
 	}
 	<!-- 身分為教練時，navbar顏色 -->
-	if(document.getElementById("rankColor").value == 1){
+	if(rank == 1){
 		$("nav.navbar").css("background-color", "#FFB752");
+		$("#gotoTop").hover(function(){
+			$(this).css("background-color", "#FFB752");
+		},function(){
+			$(this).css("background-color", "#3498db");
+		});
+		return;
 	}
 	<!-- 身分為健身房業者時，navbar顏色 -->
-	if(document.getElementById("rankColor").value == 2){
+	if(rank == 2){
 		$("nav.navbar").css("background-color", "#6FB3E0");
-	}
-	if(document.getElementById("rankColor").value == ''){
-		$("nav.navbar").css("background-color", "#303030");
+		$("#gotoTop").hover(function(){
+			$(this).css("background-color", "#6FB3E0");
+		},function(){
+			$(this).css("background-color", "#3498db");
+		});
+		return;
 	}
 }
-	window.onload = init();
+window.onload = init();
+</script>
+
+<!-- 各個物件淡出效果 -->
+<!-- 首頁 -->
+<script>
+	$(document).ready(
+		function(){
+		$('span.aa').hover(function(){
+			$(this).addClass("animated pulse");
+			},function(){
+				$(this).removeClass("animated pulse");
+		});
+    	
+    	$(window).scroll(function(){
+        	if ($(this).scrollTop() > 160) { 
+ 				$('.wrap-col').addClass("animated zoomIn");
+			}
+			if ($(this).scrollTop() > 830) { 
+ 				$('div.f_item').addClass("animated zoomIn");
+			}
+		});
+		
+	});
+</script>
+
+<!-- 回到最頂端 -->
+<script>
+	$(document).ready(function(){ 
+    	$(window).scroll(function(){ 
+       		if ($(this).scrollTop() > 100) { 
+     	    	$('#gotoTop').fadeIn()
+       		} else { 
+            	$('#gotoTop').fadeOut(); 
+        	} 
+    	}); 
+    $('#gotoTop').click(function(){ 
+        $("html, body").animate({ scrollTop: 0 },1000); 
+        	return false; 
+    	}); 
+	});
+</script>
+
+<!-- 控制字數顯示 -->
+<script>
+$(function(){
+	var len = 24; // 超過50個字以"..."取代
+    $(".title").each(function(){
+        if($(this).text().length>len){
+            $(this).attr("title",$(this).text());
+            var text=$(this).text().substring(0,len-1)+" ...";
+            $(this).text(text);
+        }
+    });
+});
 </script>
