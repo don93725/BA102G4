@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.friends.model.FriendsService;
 import com.google.gson.Gson;
 import com.members.model.MembersService;
 import com.members.model.MembersVO;
@@ -215,19 +216,18 @@ public class MembersServlet extends HttpServlet {
 				Map<String,String> errorMsgs = new LinkedHashMap<String,String>();
 				req.setAttribute("errorMsgs", errorMsgs);
 				try {
-					String coa_no = req.getParameter("coa_no");
-					String stu_no = req.getParameter("stu_no");
-					String gym_no = req.getParameter("gym_no");
+					String mem_no = req.getParameter("mem_no");
 					String mem_rank = req.getParameter("mem_rank");
 					MembersVO membersVO = new MembersVO();
-					
+					FriendsService friendsService = new FriendsService();
+					MembersVO user = ((MembersVO)req.getSession().getAttribute("user"));
+					if(user!=null){
+						boolean ifFriend = friendsService.checkFriendShip(mem_no,user.getMem_no());
+						req.setAttribute("ifFriend", ifFriend);
+					}
 					MembersService membersSV = new MembersService();
-					if(coa_no != null){
-						membersVO = membersSV.look_search_mem(coa_no);
-					}else if(stu_no != null) {
-						membersVO = membersSV.look_search_mem(stu_no);
-					}else if(gym_no != null) {
-						membersVO = membersSV.look_search_mem(gym_no);
+					if(mem_no != null){
+						membersVO = membersSV.look_search_mem(mem_no);
 					}
 					
 					//身分為健身者
