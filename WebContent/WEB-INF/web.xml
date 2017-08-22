@@ -42,157 +42,121 @@
     <dispatcher>ERROR</dispatcher>
     <dispatcher>ASYNC</dispatcher>
   </filter-mapping>
-  		<filter>
-		<filter-name>loginFilter_Mgr</filter-name>
-		<filter-class>com.filters.LoginFilter_Mgr</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>loginFilter_Mgr</filter-name>
-		<url-pattern>/back_end/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
-		<dispatcher>INCLUDE</dispatcher>
-		<dispatcher>ERROR</dispatcher>
-		<dispatcher>ASYNC</dispatcher>
-	</filter-mapping>
-
-	<filter>
-		<filter-name>AutM</filter-name>
-		<filter-class>com.filters.AutM</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>AutM</filter-name>
-		<url-pattern>/back_end/mgr/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
-		<dispatcher>INCLUDE</dispatcher>
-		<dispatcher>ERROR</dispatcher>
-		<dispatcher>ASYNC</dispatcher>
-	</filter-mapping>
-
-<!-- 	<filter> -->
-<!-- 		<filter-name>AutPI</filter-name> -->
-<!-- 		<filter-class>com.filters.AutPI</filter-class> -->
-<!-- 	</filter> -->
-<!-- 	<filter-mapping> -->
-<!-- 		<filter-name>AutPI</filter-name> -->
-<!-- 		<url-pattern></url-pattern> -->
-<!-- 		<dispatcher>REQUEST</dispatcher> -->
-<!-- 		<dispatcher>FORWARD</dispatcher> -->
-<!-- 		<dispatcher>INCLUDE</dispatcher> -->
-<!-- 		<dispatcher>ERROR</dispatcher> -->
-<!-- 		<dispatcher>ASYNC</dispatcher> -->
-<!-- 	</filter-mapping> -->
-
-<!-- 	<filter> -->
-<!-- 		<filter-name>AutCC</filter-name> -->
-<!-- 		<filter-class>com.filters.AutCC</filter-class> -->
-<!-- 	</filter> -->
-<!-- 	<filter-mapping> -->
-<!-- 		<filter-name>AutCC</filter-name> -->
-<!-- 		<url-pattern></url-pattern> -->
-<!-- 		<dispatcher>REQUEST</dispatcher> -->
-<!-- 		<dispatcher>FORWARD</dispatcher> -->
-<!-- 		<dispatcher>INCLUDE</dispatcher> -->
-<!-- 		<dispatcher>ERROR</dispatcher> -->
-<!-- 		<dispatcher>ASYNC</dispatcher> -->
-<!-- 	</filter-mapping> -->
-
-<!-- 	<filter> -->
-<!-- 		<filter-name>AutCG</filter-name> -->
-<!-- 		<filter-class>com.filters.AutCG</filter-class> -->
-<!-- 	</filter> -->
-<!-- 	<filter-mapping> -->
-<!-- 		<filter-name>AutCG</filter-name> -->
-<!-- 		<url-pattern></url-pattern> -->
-<!-- 		<dispatcher>REQUEST</dispatcher> -->
-<!-- 		<dispatcher>FORWARD</dispatcher> -->
-<!-- 		<dispatcher>INCLUDE</dispatcher> -->
-<!-- 		<dispatcher>ERROR</dispatcher> -->
-<!-- 		<dispatcher>ASYNC</dispatcher> -->
-<!-- 	</filter-mapping> -->
-
-	<filter>
-		<filter-name>AutCA</filter-name>
-		<filter-class>com.filters.AutCA</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>AutCA</filter-name>
-		<url-pattern>/back_end/adapply/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
-		<dispatcher>INCLUDE</dispatcher>
-		<dispatcher>ERROR</dispatcher>
-		<dispatcher>ASYNC</dispatcher>
-	</filter-mapping>
-
-	<filter>
-		<filter-name>AutCF</filter-name>
-		<filter-class>com.filters.AutCF</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>AutCF</filter-name>
-		<url-pattern></url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
-		<dispatcher>INCLUDE</dispatcher>
-		<dispatcher>ERROR</dispatcher>
-		<dispatcher>ASYNC</dispatcher>
-	</filter-mapping>
-
-	<filter>
-		<filter-name>AutRM</filter-name>
-		<filter-class>com.filters.AutRM</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>AutRM</filter-name>
-		<url-pattern>/back_end/memrep/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
-		<dispatcher>INCLUDE</dispatcher>
-		<dispatcher>ERROR</dispatcher>
-		<dispatcher>ASYNC</dispatcher>
-	</filter-mapping>
-
-	<filter>
-		<filter-name>AutRC</filter-name>
-		<filter-class>com.filters.AutRC</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>AutRC</filter-name>
-		<url-pattern>/back_end/courserep/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
-		<dispatcher>INCLUDE</dispatcher>
-		<dispatcher>ERROR</dispatcher>
-		<dispatcher>ASYNC</dispatcher>
-	</filter-mapping>
-
-<!-- 	<filter> -->
-<!-- 		<filter-name>AutRA</filter-name> -->
-<!-- 		<filter-class>com.filters.AutRA</filter-class> -->
-<!-- 	</filter> -->
-<!-- 	<filter-mapping> -->
-<!-- 		<filter-name>AutRA</filter-name> -->
-<!-- 		<url-pattern></url-pattern> -->
-<!-- 		<dispatcher>REQUEST</dispatcher> -->
-<!-- 		<dispatcher>FORWARD</dispatcher> -->
-<!-- 		<dispatcher>INCLUDE</dispatcher> -->
-<!-- 		<dispatcher>ERROR</dispatcher> -->
-<!-- 		<dispatcher>ASYNC</dispatcher> -->
-<!-- 	</filter-mapping> -->
-
-	<filter>
-		<filter-name>AutRP</filter-name>
-		<filter-class>com.filters.AutRP</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>AutRP</filter-name>
-		<url-pattern>/back_end/placerep/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
-		<dispatcher>INCLUDE</dispatcher>
-		<dispatcher>ERROR</dispatcher>
-		<dispatcher>ASYNC</dispatcher>
-	</filter-mapping>
+  <filter>
+    <filter-name>loginFilter_Mgr</filter-name>
+    <filter-class>com.filters.LoginFilter_Mgr</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>loginFilter_Mgr</filter-name>
+    <url-pattern>/back_end/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+    <dispatcher>ASYNC</dispatcher>
+  </filter-mapping>
+  <filter>
+    <filter-name>AutM</filter-name>
+    <filter-class>com.filters.AutM</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AutM</filter-name>
+    <url-pattern>/back_end/mgr/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+    <dispatcher>ASYNC</dispatcher>
+  </filter-mapping>
+  <filter>
+    <filter-name>AutCA</filter-name>
+    <filter-class>com.filters.AutCA</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AutCA</filter-name>
+    <url-pattern>/back_end/adapply/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+    <dispatcher>ASYNC</dispatcher>
+  </filter-mapping>
+  <filter>
+    <filter-name>AutCF</filter-name>
+    <filter-class>com.filters.AutCF</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AutCF</filter-name>
+    <url-pattern>/back_end/forum/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+    <dispatcher>ASYNC</dispatcher>
+  </filter-mapping>
+  <filter>
+    <filter-name>AutRM</filter-name>
+    <filter-class>com.filters.AutRM</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AutRM</filter-name>
+    <url-pattern>/back_end/memrep/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+    <dispatcher>ASYNC</dispatcher>
+  </filter-mapping>
+  <filter>
+    <filter-name>AutRC</filter-name>
+    <filter-class>com.filters.AutRC</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AutRC</filter-name>
+    <url-pattern>/back_end/courserep/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+    <dispatcher>ASYNC</dispatcher>
+  </filter-mapping>
+  <filter>
+    <filter-name>AutRP</filter-name>
+    <filter-class>com.filters.AutRP</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AutRP</filter-name>
+    <url-pattern>/back_end/placerep/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+    <dispatcher>ASYNC</dispatcher>
+  </filter-mapping>
+  <filter>
+    <filter-name>AutCC</filter-name>
+    <filter-class>com.filters.AutCC</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AutCC</filter-name>
+    <url-pattern>/back_end/coa_gym_apply/coa_apply.jsp</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+    <dispatcher>ASYNC</dispatcher>
+  </filter-mapping>
+    <filter>
+    <filter-name>AutCG</filter-name>
+    <filter-class>com.filters.AutCG</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AutCG</filter-name>
+    <url-pattern>/back_end/coa_gym_apply/gym_apply.jsp</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>INCLUDE</dispatcher>
+    <dispatcher>ERROR</dispatcher>
+    <dispatcher>ASYNC</dispatcher>
+  </filter-mapping>
 </web-app>

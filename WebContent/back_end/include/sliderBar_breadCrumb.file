@@ -117,16 +117,18 @@
 								</li>
 
 								<li>
-									<a href="#">
+									<a href="<%=request.getContextPath()%>/back_end/coa_gym_apply/gym_apply.jsp">
 										<i class="icon-double-angle-right"></i>
-										管理
+										<i class="icon-home"></i>
+										健身房審核
 									</a>
 								</li>
 
 								<li>
-									<a href="#">
+									<a href="<%=request.getContextPath()%>/back_end/coa_gym_apply/coa_apply.jsp">
 										<i class="icon-double-angle-right"></i>
-										管理
+										<i class="icon-cogs"></i>
+										教練審核
 									</a>
 								</li>
 

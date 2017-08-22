@@ -43,10 +43,15 @@ public class CoachesDAO implements CoachesDAO_interface{
 			"Select coa_pic from coaches where coa_no = ?";
 	private static final String GET_ALL_COA =
 			"Select * from coaches where coa_sta = 1 order by coa_no";
+	private static final String GET_STAT =
+			"Select * from coaches where coa_sta=?";
 	private static final String SEARCH_COA =
 			"Select * from coaches ";
 	private static final String LOOK_SEARCH_MEM =
 			"Select * from coaches where coa_acc = ?　and coa_no = ?";
+	private static final String UPDATE_STAT =
+			"Update coaches set coa_sta=? where coa_acc = ?";
+	
 	
 	@Override
 	public void insert(MembersVO membersVO, CoachesVO coachesVO) {
@@ -472,5 +477,102 @@ public class CoachesDAO implements CoachesDAO_interface{
 			}
 		}
 	}
+
+	@Override
+	public List<CoachesVO> getAllBySta(Integer coa_sta) {
+		List<CoachesVO> list = new ArrayList<CoachesVO>();
+		CoachesVO coachesVO = null;
+	
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+	
+		try {
+	
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_STAT);
+			pstmt.setInt(1, coa_sta);
+			rs = pstmt.executeQuery();
+	
+			while (rs.next()) {
+				coachesVO = new CoachesVO();
+				coachesVO.setCoa_acc(rs.getString("coa_acc"));
+				coachesVO.setCoa_no(rs.getString("coa_no"));
+				coachesVO.setCoa_psw(rs.getString("coa_psw"));
+				coachesVO.setCoa_sta(rs.getInt("coa_sta"));
+				coachesVO.setCoa_name(rs.getString("coa_name"));
+				coachesVO.setCoa_sex(rs.getInt("coa_sex"));
+				coachesVO.setCoa_id(rs.getString("coa_id"));
+				coachesVO.setCoa_mail(rs.getString("coa_mail"));
+				coachesVO.setCoa_into(rs.getString("coa_into"));
+				coachesVO.setCoa_pic(rs.getBytes("coa_pic"));
+				coachesVO.setCoa_pft(rs.getInt("coa_pft"));
+				list.add(coachesVO);
+			}
+	
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return list;
+	}
+
+	@Override
+	public void setSta(Integer coa_sta ,String coa_acc) {
+		 Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(UPDATE_STAT);
+			pstmt.setInt(1, coa_sta);
+			pstmt.setString(2, coa_acc);
+			
+			pstmt.executeUpdate();
+		
+		}catch(SQLException se) {
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+		} finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if(con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+	}
+	
 }
 

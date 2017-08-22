@@ -40,6 +40,7 @@ public class CourseManager extends HttpServlet {
 		
 		if ("courseList".equals(action)) {
 			req.setAttribute("active", "1");
+			req.setAttribute("which", "課程管理(課程列表)");
 			req.setAttribute("page", "/front_end/CCM/CourseList.jsp");
 			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/CCM/index.jsp");
 			courseList.forward(req, res);
@@ -60,6 +61,7 @@ public class CourseManager extends HttpServlet {
 			req.setAttribute("details", details);
 			req.setAttribute("category", category);
 			req.setAttribute("active", "1");
+			req.setAttribute("which", "課程上架");
 			req.setAttribute("page", "/front_end/CCM/CoursePublish.jsp");
 			RequestDispatcher coursePublishList = req.getRequestDispatcher("/front_end/CCM/index.jsp");
 			coursePublishList.forward(req, res);
@@ -123,6 +125,7 @@ public class CourseManager extends HttpServlet {
 			return;
 		} else if ("coursePublishList".equals(action)) {
 			req.setAttribute("active", "1");
+			req.setAttribute("which", "課程管理(上架中課程)");
 			req.setAttribute("page", "/front_end/CCM/CoursePublishList.jsp");
 			RequestDispatcher coursePublishList = req.getRequestDispatcher("/front_end/CCM/index.jsp");
 			coursePublishList.forward(req, res);
@@ -175,6 +178,7 @@ public class CourseManager extends HttpServlet {
 			return;
 		}else if ("courseOpenList".equals(action)) {
 			req.setAttribute("active", "1");
+			req.setAttribute("which", "課程管理(開課中課程)");
 			req.setAttribute("page", "/front_end/CCM/CourseOpenList.jsp");
 			RequestDispatcher coursePublishList = req.getRequestDispatcher("/front_end/CCM/index.jsp");
 			coursePublishList.forward(req, res);
@@ -182,12 +186,14 @@ public class CourseManager extends HttpServlet {
 		}else if ("courseRecord".equals(action)) {
 			req.setAttribute("page", "/front_end/CCM/CourseRecord.jsp");
 			req.setAttribute("active", "2");
+			req.setAttribute("which", "課程紀錄");
 			RequestDispatcher coursePublishList = req.getRequestDispatcher("/front_end/CCM/index.jsp");
 			coursePublishList.forward(req, res);
 			return;
 		}else if ("courseReport".equals(action)) {
 			req.setAttribute("page", "/front_end/CCM/CourseReport.jsp");
 			req.setAttribute("active", "3");
+			req.setAttribute("which", "課程報表紀錄");
 			RequestDispatcher coursePublishList = req.getRequestDispatcher("/front_end/CCM/index.jsp");
 			coursePublishList.forward(req, res);
 			return;
@@ -246,6 +252,13 @@ public class CourseManager extends HttpServlet {
 			}
 			req.setAttribute("crsList",crsList);
 			RequestDispatcher coursePublishList = req.getRequestDispatcher("/front_end/CourseDetails/CrsList.jsp");
+			coursePublishList.forward(req, res);
+			return;
+		}else if ("calendar".equals(action)) {
+			req.setAttribute("page", "/front_end/CCM/Calendar.jsp");
+			req.setAttribute("active", "4");
+			req.setAttribute("which", "行事曆");
+			RequestDispatcher coursePublishList = req.getRequestDispatcher("/front_end/CCM/index.jsp");
 			coursePublishList.forward(req, res);
 			return;
 		}

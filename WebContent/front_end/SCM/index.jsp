@@ -482,12 +482,6 @@ function addCalendar(title, start, className, minTime) {
 			$(this).data('eventObject', eventObject);
 
 			// make the event draggable using jQuery UI
-			$(this).draggable({
-				zIndex : 999,
-				revert : true, // will cause the event to go back to its
-				revertDuration : 0
-			//  original position after the drag
-			});
 
 		});
 
@@ -516,7 +510,6 @@ function addCalendar(title, start, className, minTime) {
 							eventClick : function(calEvent, jsEvent, view) {
 								if(calEvent.title.match('加退選') != null){
 									
-									
 									if(('' + (calEvent.start.getMonth() + 1)).length == 1){
 										var month = "0" + (calEvent.start.getMonth() + 1);
 									}else{
@@ -524,12 +517,18 @@ function addCalendar(title, start, className, minTime) {
 									}
 									
 									var cl_date = calEvent.start.getFullYear() + "-" + month + "-" + calEvent.start.getDate();
-									if(calEvent.title.substring(calEvent.title.indexOf(" ")+1,calEvent.title.indexOf("-")) == '早上'){
-										var crs_time = parseInt(calEvent.title.substring(calEvent.title.indexOf("-")+1,calEvent.title.lastIndexOf(" ")));
-									}else if(calEvent.title.substring(calEvent.title.indexOf(" ")+1,calEvent.title.indexOf("-")) == '下午'){
-										var crs_time = 2 + parseInt(calEvent.title.substring(calEvent.title.indexOf("-")+1,calEvent.title.lastIndexOf(" ")));
+									if(calEvent.className[0] == 'label-success'){
+										var crs_time = 1;
+									}else if(calEvent.className[0] == 'label-danger'){
+										var crs_time = 2;
+									}else if(calEvent.className[0] == 'label-purple'){
+										var crs_time = 3;
+									}else if(calEvent.className[0] == 'label-yellow'){
+										var crs_time = 4;
+									}else if(calEvent.className[0] == 'label-pink'){
+										var crs_time = 5;
 									}else{
-										var crs_time = 4 + parseInt(calEvent.title.substring(calEvent.title.indexOf("-")+1,calEvent.title.lastIndexOf(" ")));
+										var crs_time = 6;
 									}
 									console.log(cl_date);
 									console.log(crs_time);

@@ -58,54 +58,103 @@
 			<!-- PAGE CONTENT BEGINS -->
 
 			<div class="row">
-				<div class="col-sm-12">
+		<div class="col-xs-12">
+			<!-- PAGE CONTENT BEGINS -->
+
+			<div class="row">
+				<div class="col-sm-9">
 					<div class="space"></div>
 
-					<div id="calendar" onchange="calendarChange()"></div>
+					<div id="calendar"></div>
+				</div>
+
+				<div class="col-sm-3">
+					<div class="widget-box transparent">
+						<div class="widget-header">
+							<h4>時段:</h4>
+						</div>
+
+						<div class="widget-body">
+							<div class="widget-main no-padding">
+								<div id="external-events">
+
+
+									<div class="external-event label-success"
+										data-class="label-success">
+										<i class="icon-move"></i> 08:00-09:30
+									</div>
+
+									<div class="external-event label-danger"
+										data-class="label-danger">
+										<i class="icon-move"></i> 10:00-11:30
+									</div>
+
+									<div class="external-event label-purple"
+										data-class="label-purple">
+										<i class="icon-move"></i> 13:00-14:30
+									</div>
+
+									<div class="external-event label-yellow"
+										data-class="label-yellow">
+										<i class="icon-move"></i> 15:00-16:30
+									</div>
+
+									<div class="external-event label-pink" data-class="label-pink">
+										<i class="icon-move"></i> 18:00-19:30
+									</div>
+
+									<div class="external-event label-info" data-class="label-info">
+										<i class="icon-move"></i> 20:00-21:30
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<span style="display:none;">
 				<c:forEach var="course_time" items="${crslist}">
 					<c:choose>
 							<c:when test="${course_time.crs_time == 1}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow} (加退選)','${course_time.cl_date}','label-success',8)">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (加退選)','${course_time.cl_date}','label-success',8)">
 							</c:when>
 							<c:when test="${course_time.crs_time == 2}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow} (加退選)','${course_time.cl_date}','label-success',10)">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (加退選)','${course_time.cl_date}','label-danger',10)">
 							</c:when>
 							<c:when test="${course_time.crs_time == 3}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow} (加退選)','${course_time.cl_date}','label-info',14)">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (加退選)','${course_time.cl_date}','label-purple',13)">
 							</c:when>
 							<c:when test="${course_time.crs_time == 4}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow} (加退選)','${course_time.cl_date}','label-info',16)">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (加退選)','${course_time.cl_date}','label-yellow',15)">
 							</c:when>
 							<c:when test="${course_time.crs_time == 5}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow} (加退選)','${course_time.cl_date}','label-danger',19)">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (加退選)','${course_time.cl_date}','label-pink',18)">
 							</c:when>
 							<c:otherwise>
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow} (加退選)','${course_time.cl_date}','label-danger',21)">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (加退選)','${course_time.cl_date}','label-info',20)">
 							</c:otherwise>
 						</c:choose>
 				</c:forEach>
 				<c:forEach var="course_time" items="${crslistOpen}">
 					<c:choose>
 							<c:when test="${course_time.crs_time == 1}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow} (開課)','${course_time.cl_date}','label-success',8)">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.cl_date}','label-success',8)">
 							</c:when>
 							<c:when test="${course_time.crs_time == 2}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow} (開課)','${course_time.cl_date}','label-success',10)">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.cl_date}','label-danger',10)">
 							</c:when>
 							<c:when test="${course_time.crs_time == 3}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow} (開課)','${course_time.cl_date}','label-info',14)">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.cl_date}','label-purple',13)">
 							</c:when>
 							<c:when test="${course_time.crs_time == 4}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow} (開課)','${course_time.cl_date}','label-info',16)">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.cl_date}','label-yellow',15)">
 							</c:when>
 							<c:when test="${course_time.crs_time == 5}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow} (開課)','${course_time.cl_date}','label-danger',19)">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.cl_date}','label-pink',18)">
 							</c:when>
 							<c:otherwise>
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow} (開課)','${course_time.cl_date}','label-danger',21)">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.cl_date}','label-info',20)">
 							</c:otherwise>
 						</c:choose>
 				</c:forEach>
