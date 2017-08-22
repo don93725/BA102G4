@@ -222,7 +222,7 @@ function report(ct_no,stu_acc){
 
 <script type="text/javascript">
 document.onkeydown = function(){
-	        var keycode  event.which || event.keyCode;
+	        var keycode  = event.which || event.keyCode;
 	        if(keycode == 37){
 	            $("#goleft").click();
 	        }else if (keycode == 39){

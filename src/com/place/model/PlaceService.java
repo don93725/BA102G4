@@ -52,12 +52,12 @@ public class PlaceService {
 	}
 
 
-//
-//
+
+
 //	public List<PlaceVO> getAll() {
 //		return dao.getAll();
 //	}
-	
-	
+//	
+//	
 	
 }
