@@ -222,7 +222,7 @@ function report(ct_no,stu_acc){
 
 <script type="text/javascript">
 document.onkeydown = function(){
-	        var keycode = event.which || event.keyCode;
+	        var keycode  = event.which || event.keyCode;
 	        if(keycode == 37){
 	            $("#goleft").click();
 	        }else if (keycode == 39){
@@ -388,7 +388,7 @@ function deleteCourse(ct_no,stu_acc){
 		function(isConfirm){
 		  if (isConfirm) {
 			 $.ajax({
-　				url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
+				url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
  				data : {
  					ct_no : ct_no,	
  					stu_acc : stu_acc,
@@ -514,7 +514,7 @@ function addCalendar(title, start, className, minTime) {
 										function(isConfirm){
 										  if (isConfirm) {
 												$.ajax({
-									　				url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
+													url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
 									 				data : {
 									 					cl_date : cl_date,	
 									 					crs_time : crs_time,

@@ -16,6 +16,7 @@ import javax.sql.DataSource;
 import com.course_picture.model.Course_pictureVO;
 import com.course_time.model.Course_timeVO;
 import com.gyms.model.GymsVO;
+import com.members.model.MembersVO;
 import com.course_list.model.Course_listVO;
 import com.coaches.model.CoachesVO;
 import com.comments.model.Board_cmt;
@@ -25,6 +26,7 @@ import com.course.query.CourseQuery;
 import com.course_list.model.Course_listDAO;
 import com.course_picture.model.Course_pictureService;
 import com.place.model.PlaceVO;
+import com.students.model.StudentsVO;
 
 public class Course_timeDAO implements Course_timeDAO_interface {
 	private static DataSource ds = null;
@@ -40,6 +42,8 @@ public class Course_timeDAO implements Course_timeDAO_interface {
 	private static final String UPDATE = "UPDATE course_time  set p_no=?, crs_date=?, deadline=?, crs_time=?, price=? where ct_no = ?";
 	private static final String GET_ALL_BY_CRSNO_STMT = "SELECT * FROM course_time ct join course c ON ct.crs_no = c.crs_no left outer join place p ON ct.p_no = p.p_no join coaches coa ON c.c_acc = coa.coa_acc where ct.status = 1 AND ct.crs_no = ? order by ct.crs_date";
 	private static final String GET_ALL_BEFORELIST_STMT = "SELECT * FROM course_time ct join course c ON ct.crs_no = c.crs_no left outer join place p ON ct.p_no = p.p_no join coaches coa ON c.c_acc = coa.coa_acc where ct.status = 1 AND ct.deadline < sysdate";
+	private static final String GET_ALL_STU = "SELECT * FROM course_time ct join course c ON ct.crs_no = c.crs_no left outer join place p ON ct.p_no = p.p_no join course_list cl ON ct.ct_no = cl.ct_no join students stu ON stu.stu_acc = cl.stu_acc join members m ON m.MEM_NO = stu.stu_no where c.c_acc = ?";
+	
 	static {
 		try {
 			Context ctx = new InitialContext();
@@ -1120,6 +1124,67 @@ public class Course_timeDAO implements Course_timeDAO_interface {
 		}
 
 		
+	}
+
+	@Override
+	public List<Course_timeVO> getStuByCt(String c_acc) {
+		List<Course_timeVO> list = new ArrayList<Course_timeVO>();
+		Course_timeVO course_timeVO = null;
+		StudentsVO studentsVO = null;
+		MembersVO membersVO = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Course_listDAO course_listDAO = new Course_listDAO();
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_ALL_STU);
+			pstmt.setString(1, c_acc);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				course_timeVO = new Course_timeVO();
+				studentsVO = new StudentsVO();
+				membersVO = new MembersVO();
+				studentsVO.setStu_name(rs.getString("stu_name"));
+				studentsVO.setStu_mail(rs.getString("stu_mail"));
+				membersVO.setMem_nickname(rs.getString("mem_nickname"));
+				membersVO.setMem_no(rs.getString("mem_no"));
+				membersVO.setMem_rank(rs.getString("mem_rank"));
+				course_timeVO.setStudentsVO(studentsVO);
+				list.add(course_timeVO); // Store the row in the list
+			}
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return list;
 	}
 
 
