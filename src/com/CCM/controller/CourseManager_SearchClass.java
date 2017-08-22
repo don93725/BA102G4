@@ -67,7 +67,7 @@ public class CourseManager_SearchClass extends HttpServlet{
 		final Base64.Encoder encoder = Base64.getEncoder();
 		
 		
-		FileInputStream fis1 = new java.io.FileInputStream(new File("C:/Users/cuser/Dropbox/BA1020817/BA102G40817/WebContent/front_end/CCM/picture/images1.jpg"));
+		FileInputStream fis1 = new java.io.FileInputStream(new File("C:/Users/cuser/Dropbox/BA1020822/BA102G4/WebContent/front_end/forum/images/tomcat.gif"));
 		ByteArrayOutputStream baos1 = new ByteArrayOutputStream();
 		byte[] buffer = new byte[8192];
 		int i;
@@ -84,7 +84,7 @@ public class CourseManager_SearchClass extends HttpServlet{
 		
 		
 		
-		FileInputStream fis = new java.io.FileInputStream(new File("C:/Users/cuser/Dropbox/BA1020817/BA102G40817/WebContent/front_end/CCM/picture/images1.jpg"));
+		FileInputStream fis = new java.io.FileInputStream(new File("C:/Users/cuser/Dropbox/BA1020822/BA102G4/WebContent/front_end/forum/images/tomcat.gif"));
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		byte[] buffer1 = new byte[8192];
 		int y;

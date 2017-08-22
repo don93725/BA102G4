@@ -269,7 +269,7 @@ public class StudentsSignupServlet extends HttpServlet{
 		
 		if(insertMembers = true){
 		
-			msgs.put("msgs", "true");
+			msgs.put("msgs", "註冊成功");
 		
 				
 			writeText(response, gson.toJson(msgs));
