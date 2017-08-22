@@ -58,4 +58,26 @@ public class StudentsService {
 	public StudentsVO look_search_mem(MembersVO membersVO) {
 		return dao.look_search_mem(membersVO);
 	}
+	//把使用者輸入的資料放到VO
+	public boolean addAndroidStudents(String mem_acc, String mem_nickname, String stu_psw, String stu_name, Integer stu_sex, String stu_id, String stu_mail, String stu_into){
+		MembersVO membersVO = new MembersVO();
+		StudentsVO studentsVO = new StudentsVO();
+		Tools tools = new Tools();
+		membersVO.setMem_acc(mem_acc);
+		membersVO.setMem_nickname(mem_nickname);
+		
+		studentsVO.setStu_psw(stu_psw);
+		studentsVO.setStu_name(stu_name);
+		studentsVO.setStu_sex(stu_sex);
+		studentsVO.setStu_id(stu_id);
+		studentsVO.setStu_mail(stu_mail);
+		studentsVO.setStu_into(stu_into);
+		
+		
+		dao.insert(membersVO, studentsVO);
+		
+		return true;
+	}
+
+
 }

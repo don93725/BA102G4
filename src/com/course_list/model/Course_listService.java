@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.course_list.model.Course_listVO;
+
 
 public class Course_listService {
 	 private Course_listDAO_interface dao;
@@ -96,5 +98,16 @@ public class Course_listService {
 			
 			return dao.getReportSta(report_sta);
 		}
+		  public List<Course_listVO> getReserve_List(String stu_acc){
+			    return this.dao.getReserve(stu_acc);
+			  }
+
+		  public List<Course_listVO> getReady_List(String stu_acc){
+			    return this.dao.getReady(stu_acc);
+			  }
+		  public List<Course_listVO> getFinished(String stu_acc){
+			    return this.dao.getFinished(stu_acc);
+		  }
+		  
 
 }

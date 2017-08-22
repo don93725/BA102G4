@@ -57,5 +57,6 @@
 </body>
 	<%@include file="/front_end/include/basicScript2.file" %>
 	<script type="text/javascript">
+		
 	</script>
 </html>

@@ -41,4 +41,10 @@ public interface Course_listDAO_interface {
 
 	void updateRepSta(Course_listVO course_listVO);
 
+	List<Course_listVO> getReserve(String stu_acc);
+
+	List<Course_listVO> getReady(String stu_acc);
+
+	List<Course_listVO> getFinished(String stu_acc);
+
 }

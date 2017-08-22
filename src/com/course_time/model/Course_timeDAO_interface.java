@@ -1,6 +1,7 @@
 package com.course_time.model;
 
 import java.util.List;
+import java.util.Map;
 
 public abstract interface Course_timeDAO_interface {
 	public  void insert(Course_timeVO course_timeVO);
@@ -26,4 +27,8 @@ public abstract interface Course_timeDAO_interface {
 	public  List<Course_timeVO> getAllBeforeList();
 	
 	public  void open(String ct_no);
+
+	List<Course_timeVO> getClass(Map<String, String[]> map);
+
+	List<Course_timeVO> getItem(String category, String crs_date, String p_name);
 }
