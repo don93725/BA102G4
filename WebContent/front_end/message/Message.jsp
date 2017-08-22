@@ -198,7 +198,7 @@
 									    		<div class="col-xs-12 col-sm-9">${newMsg.msg_ctx }</div>
 									    		<div class="col-xs-12 col-sm-2">
 									    		<c:if test="${newMsg.nr>0 }">
-									    		<span class="badge" style='background-color: red;'>${newMsg.nr }</span>
+									    		<span class="badge" id='newMgrNum' style='background-color: red !important;'>${newMsg.nr }</span>
 									    		</c:if></div>
 									    		</div>
 									    </div>
@@ -326,6 +326,14 @@
 			$('#msgName').text(mem_nickname);
 			$('#moreMsg').removeClass('disabled').removeAttr('disabled');
 			$('#sendInput').empty();
+			var negNum = parseInt($('#newMgrNum').text(),10);
+			var oriNrNum = parseInt($('#nrNum').text(),10);
+			if(oriNrNum-negNum>0){
+				$('#nrNum').text(oriNrNum-negNum);				
+			}else{
+				$('#nrNum').hide();
+			}
+			
 			load(path,post_no);
 			refresh();
 		}

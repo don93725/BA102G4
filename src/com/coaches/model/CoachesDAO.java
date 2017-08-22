@@ -51,7 +51,10 @@ public class CoachesDAO implements CoachesDAO_interface{
 			"Select * from coaches where coa_acc = ?　and coa_no = ?";
 	private static final String UPDATE_STAT =
 			"Update coaches set coa_sta=? where coa_acc = ?";
-	
+	private static final String EVALUTION_RANK =
+			"select * from coaches a join course b on a.coa_acc = b.c_acc "
+			+ "join course_time c on b.crs_no = c.crs_no "
+			+ "join (select * from (select avg(evaluation_cao),ct_no form course_list group by ct_no,evaluation_cao order by evaluation_cao desc) where rownum <4 ) d on c.ct_no=d.ct_no";
 	
 	@Override
 	public void insert(MembersVO membersVO, CoachesVO coachesVO) {
@@ -572,6 +575,15 @@ public class CoachesDAO implements CoachesDAO_interface{
 			}
 		}
 		
+	}
+	public List<CoachesVO> getRankList(){
+		SQLHelper helper = new SQLHelper();
+		List<Object[]> list = helper.executeQuery(EVALUTION_RANK, null);
+		List<CoachesVO> tempList = new ArrayList<CoachesVO>();
+		for(int i = 0 ; i < list.size() ; i++){
+			
+		}
+		return tempList;
 	}
 	
 }

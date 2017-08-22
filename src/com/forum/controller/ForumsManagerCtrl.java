@@ -43,7 +43,7 @@ public class ForumsManagerCtrl extends HttpServlet {
 			List<Forums> forums = forumsSevice.getApplyForums(thisPage, pageSize);
 			req.setAttribute("forums", forums);			
 			req.setAttribute("allPageCount", allPageCount);
-			req.setAttribute("queryStr", "forum/ForumsManagerCtrl");
+			req.setAttribute("queryStr", "forum/ForumsManagerCtrl?");
 			req.setAttribute("thisPage", thisPage);
 			req.getRequestDispatcher("/back_end/forum/forumsReport.jsp").forward(req, res);
 			//導向哪頁面還沒寫
