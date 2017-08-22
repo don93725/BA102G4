@@ -4,6 +4,7 @@
 	
 	<head>
 		<title>健貨 - GymHome</title>
+		<%@include file="/front_end/include/basicScript.file" %>	
 		<%@include file="/front_end/include/loginStyle.file" %>
 	</head>
 
@@ -123,23 +124,18 @@
 												輸入您的電子郵件並點擊信內連結
 											</p>
 
-											<form>
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Email" />
+															<input type="email" id="mail" name="mail" class="form-control" placeholder="Email" />
 															<i class="icon-envelope"></i>
 														</span>
 													</label>
 
 													<div class="clearfix">
-														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
-															<i class="icon-lightbulb"></i>
-															送出
-														</button>
+														<input type="button" class="width-35 pull-right btn btn-sm btn-danger" value="送出" onclick="forgetPSW()">
 													</div>
 												</fieldset>
-											</form>
 										</div><!-- /widget-main -->
 
 										<div class="toolbar center">
@@ -200,14 +196,57 @@
 				</div><!-- /.row -->
 			</div>
 		</div><!-- /.main-container -->
-		<script src="<%= request.getContextPath() %>/style/js/jquery.js"></script>
+
 		<%@include file="/front_end/include/registerJS.file" %>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<!-- 控制註冊選項 -->
 		<script type="text/javascript">
 			function show_box(id) {
 			 $(".widget-box.visible").removeClass('visible');
 			 $('#'+id).addClass('visible');
 			}
+		</script>
+		<!-- 忘記密碼 -->
+		<script>
+		function forgetPSW(){
+			swal({
+				title : "寄信中",
+				imageUrl: "/BA102G4/style/images/p2.gif",
+				timer: 1500,
+	  			showConfirmButton: false
+				},function(){
+					$.ajax({
+						url : '/BA102G4/MembersServlet',
+						data : {
+							mail : $('#mail').val(),
+							action : 'forgetPSW'
+						},
+						type : "POST",
+						dataType : 'text',
+
+						success : function(msg) {
+						console.log(msg)
+							if(msg.length == 0) {
+								swal({
+									title : "寄信成功",
+									text : "請去收信",
+									type : "success",
+									showConfirmButton : true
+								});
+							}else {
+								swal({
+									title : "寄信失敗",
+									text : "",
+									type : "error"
+									showConfirmButton : true
+								});
+							}						
+						},
+						error : function(xhr, ajaxOptions, thrownError) {
+						}
+					});
+			});
+		}
 		</script>
 	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>

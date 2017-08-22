@@ -1,0 +1,155 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<script>
+function tick(){
+/* 身分為健身者時，loading為 */
+	if(document.getElementById("rankColor").value == 0){  	
+		swal({
+			title : "更新中",
+			imageUrl: "/BA102G4/style/images/p2.gif",
+			timer: 1500,
+  			showConfirmButton: false
+			},function(){
+				$.ajax({
+					url : webCtx + '/MembersServlet',
+					data : {
+						stu_name : $('#stu_name').val(),
+						stu_mail : $('#stu_mail').val(),
+						stu_into : $('#stu_into').val(),
+						mem_nickname : $('#mem_nickname').val(),
+						action : 'update'
+					},
+					type : "POST",
+					dataType : 'text',
+
+					success : function(msg) {
+					console.log(msg)
+						if(msg.length == 0) {
+							swal({
+								title : "更新成功",
+								text : "資料已更新成功",
+								type : "success",
+								showConfirmButton : false
+							});
+								setTimeout("location.reload()",1000);
+						}else {
+							swal({
+								title : "失敗",
+								text : "內容不正確",
+								type : "error"
+							});
+								$.each(JSON.parse(msg), function(key, value){
+									$('#alert_' + key).css('display','');
+									$('#alert_' + key).html(value);
+								})
+						}						
+					},
+					error : function(xhr, ajaxOptions, thrownError) {						
+						swal("失敗", "404或500", "error");
+					}
+				});
+		});
+	}
+	
+
+/* 身分為教練時，loading為 */
+	if(document.getElementById("rankColor").value == 1){
+		swal({
+			title : "更新中",
+			imageUrl: "/BA102G4/style/images/p3.gif",
+			timer: 1500,
+  			showConfirmButton: false
+			},function(){
+				$.ajax({
+					url : webCtx + '/MembersServlet',
+					data : {
+						coa_name : $('#coa_name').val(),
+						coa_mail : $('#coa_mail').val(),
+						coa_into : $('#coa_into').val(),
+						mem_nickname : $('#mem_nickname').val(),
+						action : 'update'
+					},
+					type : "POST",
+					dataType : 'text',
+
+					success : function(msg) {
+					console.log(msg)
+						if(msg.length == 0) {
+							swal({
+								title : "更新成功",
+								text : "資料已更新成功",
+								type : "success",
+								showConfirmButton : false
+							});
+								setTimeout("location.reload()",1000);
+						}else {
+							swal({
+								title : "失敗",
+								text : "內容不正確",
+								type : "error"
+							});
+								$.each(JSON.parse(msg), function(key, value){
+									$('#alert_' + key).css('display','');
+									$('#alert_' + key).html(value);
+								})
+						}						
+					},
+					error : function(xhr, ajaxOptions, thrownError) {						
+						swal("失敗", "404或500", "error");
+					}
+				});
+		});
+	}
+
+
+/* 身分為健身房業者時，loading為 */
+	if(document.getElementById("rankColor").value == 2){
+		swal({
+			title : "更新中",
+			imageUrl: "/BA102G4/style/images/p4.gif",
+			timer: 1500,
+  			showConfirmButton: false
+			},function(){
+				$.ajax({
+					url : webCtx + '/MembersServlet',
+					data : {
+						gym_name : $('#gym_name').val(),
+						gym_mail : $('#gym_mail').val(),
+						gym_into : $('#gym_into').val(),
+						gym_add : $('#gym_add').val(),
+						mem_nickname : $('#mem_nickname').val(),
+						action : 'update'
+					},
+					type : "POST",
+					dataType : 'text',
+
+					success : function(msg) {
+					console.log(msg)
+						if(msg.length == 0) {
+							swal({
+								title : "更新成功",
+								text : "資料已更新成功",
+								type : "success",
+								showConfirmButton : false
+							});
+								setTimeout("location.reload()",1000);
+						}else {
+							swal({
+								title : "失敗",
+								text : "內容不正確",
+								type : "error"
+							});
+								$.each(JSON.parse(msg), function(key, value){
+									$('#alert_' + key).css('display','');
+									$('#alert_' + key).html(value);
+								})
+						}						
+					},
+					error : function(xhr, ajaxOptions, thrownError) {						
+						swal("失敗", "404或500", "error");
+					}
+				});
+		});
+	}
+}
+</script>

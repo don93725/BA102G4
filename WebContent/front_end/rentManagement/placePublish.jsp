@@ -35,89 +35,15 @@ $(document).ready(function(){
 	<div class="container">
 
 	<!-- 新增場地視窗 -->
-	<div style='display:none'>
-		<div id='inline_content' style='padding:0px; background:#fff;'>
-			<h1>新增場地</h1>
-			<ul id="error">
-				<c:forEach var="message" items="${errorMsgs}">
-					<li>${errorMsgs}</li>
-				</c:forEach>
-			</ul>
-			<input type="button" value="神奇小按鈕" onclick="magicPlace();">
-			<form method="post" action="<%=request.getContextPath()%>/PlaceServlet">
-				場地名稱:<br>
-				<input type="text" pattern="^[(\u4e00-\u9fa5)(a-zA-Z)]{1,18}$" title="只能是中、英文字母 ,且長度必需在1到18之間" name="p_name" id="p_name" size="85" minlength="1" maxlength="18" required><br>
-				可容納人數：<br>
-				<input type="text" pattern="^([1-9][0-9]){1,2}$" title="只能輸入1-99" name="p_cap" id="p_cap" minlength="1" maxlength="2" required><br>
-				場地地址：<br>
-				<input type="text" name="p_add" id="p_add" pattern="^[(\u4e00-\u9fa5)(a-zA-Z)(0-9)(-)]{1,50}$" title="只能是大小寫英數字，且長度必需在1到50之間" size="85" minlength="1" maxlength="50" required>
-				<input type="hidden" id="gym_add" value="${gym.gym_add}">
-				<input type="button" value="地址同健身房位置" onclick="addAddr();"><br>
-				場地介紹:<br>
-				<textarea name="p_into" id="p_into" title="" rows="5" cols="85" class="text" resize="none"
-					id="" minlength="1" maxlength="500" required></textarea><br>
-				<input type="button" class="btn btn-primary" value="新增" onclick="send();">
-				<input type="reset" class="btn btn-default" name="" value="重新填寫" id="cancel">
-				<input type="hidden" name="action" value="insert">
-			</form>
-		</div>
-	</div>
-	<!-- 本頁面專屬js -->
-	<script>
-		function addAddr(){
-			document.getElementById("p_add").value = document.getElementById("gym_add").value;
-		}
-		
-		function magicPlace() {
-			document.getElementById("p_name").value = "格鬥八角鐵籠";
-			document.getElementById("p_cap").value = "10";
-			document.getElementById("p_add").value = "台北市大安區敦化南路一段232巷6號B1";
-			document.getElementById("p_into").value = "可做為MMA之訓練場地，並提供賽事之舉辦與租借。";
-		}
+	<%@include file="/front_end/include/insertPlace.file" %>	
+	<!-- 新增場地視窗結束 -->
+	<!-- 修改場地視窗 -->
+	<%@include file="/front_end/include/updatePlace.file" %>	
+	<!-- 修改場地視窗結束 -->
+	<!-- 上架場地視窗 -->
+	<%@include file="/front_end/include/publishPlace.file" %>	
+	<!-- 上架場地視窗結束 -->
 
-		function send() {		
-			swal({
-				title: "確定新增?",
-				type: "info",
-				showCancelButton: true,
-				confirmButtonColor: "#F8BB86",
-				cancelButtonText: "取消",
-				confirmButtonText: "確定",
-				closeOnConfirm: false
-			},function(response){
-				if(response){
-					$.ajax({
-						url : webCtx + '/PlaceServlet',
-						data : {
-							p_name : $("#p_name").val(),
-							p_cap : $("#p_cap").val(),
-							p_add : $("#p_add").val(),
-							p_into : $("#p_into").val(),
-							action : 'insert'
-						},
-						type : "POST",
-						dataType : 'text',
-
-						success : function(msg) {
-							swal("新增成功!", "資料已新增成功", "success");
-							$(".inline").colorbox.close();
-							setTimeout("location.reload()",1000);
-						},
-
-						error : function(xhr, ajaxOptions, thrownError) {						
-							swal("失敗", "請修正以下錯誤", "error");
-						}
-					});
-				}
-			});
-		}
-	</script>		
-		
-		
-		
-		
-		
-		
 		<!-- Page Heading/Breadcrumbs -->
 		<div class="breadcrumbs" id="breadcrumbs">
 			<div class="col-lg-12">
@@ -143,7 +69,11 @@ $(document).ready(function(){
 					<!-- tab那一欄 -->
 					<ul class="nav nav-tabs" id="myTab">
 						<!-- 申請者管理 -->
-						<li id = ""><a data-toggle="tab" href="#profile" onclick=""> 申請者管理 </a>
+						<li id = ""><a data-toggle="tab" href="#profile" onclick="dropdown(8);"> 申請者管理 </a>
+							<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
+								<input type="submit" class="btn btn-default" id="dropdown8" role="button" value="申請者管理">
+								<input type="hidden" name="action" value="">
+							</form>
 						</li>
 						
 						<!-- 上/下架管理 -->
@@ -159,36 +89,63 @@ $(document).ready(function(){
 									</form>
 								</li>
 								
-								<li><a data-toggle="tab" href="" onclick="">上架中</a>
+								<li><a data-toggle="tab" href="" onclick="dropdown(2)">已下架</a>
+									<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
+										<input type="submit" class="btn btn-default" id="dropdown2" role="button" value="已下架">
+										<input type="hidden" name="action" value="placeList">
+										<input type="hidden" name="placeList_status" value="0">
+									</form>
 								</li>
-								<li><a data-toggle="tab" href="" onclick="">下架中</a></li>
+								<li><a data-toggle="tab" href="" onclick="dropdown(3)">已上架</a>
+									<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
+										<input type="submit" class="btn btn-default" id="dropdown3" role="button" value="已上架">
+										<input type="hidden" name="action" value="placeList">
+										<input type="hidden" name="placeList_status" value="1">
+									</form>
 								</li>
-								<li><a data-toggle="tab" href="" onclick="">正在使用中</a></li>
+								</li>
+								<li><a data-toggle="tab" href="" onclick="dropdown(4)">使用中</a>
+									<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
+										<input type="submit" class="btn btn-default" id="dropdown4" role="button" value="正在使用中">
+										<input type="hidden" name="action" value="placeList">
+										<input type="hidden" name="placeList_status" value="2">
+									</form>
+								</li>
 							</ul>
 						</li>
 
 						<!-- 租借紀錄查詢 -->
-						<li class="" id = ""><a data-toggle="tab" href="" onclick=""> <i
+						<li class="" id = ""><a data-toggle="tab" href="" onclick="dropdown(5)"> <i
 								class="green icon-home bigger-110"></i>租借紀錄查詢</a>
+							<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
+								<input type="submit" class="btn btn-default" id="dropdown5" role="button" value="租借紀錄查詢">
+								<input type="hidden" name="action" value="">
+							</form>
 						</li>
 
 						<!-- 租借報表查詢 -->
-						<li id = ""><a data-toggle="tab" href="#profile" onclick=""> 租借報表查詢 </a>
+						<li id = ""><a data-toggle="tab" href="#profile" onclick="dropdown(6)"> 租借報表查詢 </a>
+							<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
+								<input type="submit" class="btn btn-default" id="dropdown6" role="button" value="租借報表查詢">
+								<input type="hidden" name="action" value="">
+							</form>
 						</li>
 						
 						<!-- 檢舉教練 -->
-						<li id = ""><a data-toggle="tab" href="#profile" onclick=""> 檢舉教練 </a>
+						<li id = ""><a data-toggle="tab" href="#profile" onclick="dropdown(7)"> 檢舉教練 </a>
+							<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
+								<input type="submit" class="btn btn-default" id="dropdown7" role="button" value="檢舉教練">
+								<input type="hidden" name="action" value="">
+							</form>
 						</li>
 					</ul>
 
 
 					<!-- 內容全在這裡 -->
 					<div class="tab-content page" style="background-color:white;">
-						<div class="col-md-12"><a class='inline' href="#inline_content"><button class="btn btn-primary">新增場地</button></a></div>
-						<jsp:include page="/front_end/rentManagement/include/placeList.jsp"/>
+						<jsp:include page="${page}" />
 					</div>
-				</div>
-				<!-- 內容全在這裡 結束 -->
+					<!-- 內容全在這裡 結束 -->
 
 
 			</div>
@@ -207,10 +164,4 @@ $(document).ready(function(){
 	
 </body>
 	<%@include file="/front_end/include/basicScript2.file" %>
-	<script>
-		function dropdown(num) {
-			var btn = "#dropdown" + num;
-			$(btn).click();
-		}
-	</script>
 </html>

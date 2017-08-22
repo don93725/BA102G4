@@ -236,8 +236,7 @@
 			}
 		</script>
 		<%@include file="/front_end/include/registerJS.file" %>
-
-	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+		<%@include file="/front_end/include/picture.file" %>
 </body>
 </html>
 							
