@@ -67,20 +67,7 @@
 										<div class="space-6"></div>
 
 										<div class="profile-contact-info">
-											<div class="profile-contact-links align-left">
-												<a class="btn btn-link" href="#">
-													<i class="icon-plus-sign bigger-120 green"></i>
-													加朋友
-												</a>
-												
-												<p></p>
-												
-												<a class="btn btn-link" href="#">
-													<i class="icon-envelope bigger-120 pink"></i>
-													寄訊息
-												</a>
-
-												<p></p>
+											<div class="profile-contact-links align-left">												
 												
 												<a class="btn btn-link" href="#">
 													<i class="icon-globe bigger-125 blue"></i>

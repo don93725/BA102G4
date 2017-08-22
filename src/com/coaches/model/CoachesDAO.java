@@ -368,13 +368,13 @@ public class CoachesDAO implements CoachesDAO_interface{
 		String SQL = null;
 		try {
 			if(search_Name.trim().length() == 0 && search_Type.trim().length() == 0 ) {
-				SQL = SEARCH_COA + "order by coa_no";
+				SQL = SEARCH_COA + " where coa_sta = 1 order by coa_no";
 			}else if(search_Name.trim().length() != 0 && search_Type.trim().length() != 0) {
-				SQL = SEARCH_COA + "where coa_name like '%" + search_Name +"%' and coa_into like '%" + search_Type + "%' order by coa_no";
+				SQL = SEARCH_COA + "where coa_name like '%" + search_Name +"%' and coa_into like '%" + search_Type + "%' and coa_sta = 1 order by coa_no";
 			}else if(search_Name.trim().length() == 0 && search_Type.trim().length() != 0) {
-				SQL = SEARCH_COA + "where coa_into like '%" + search_Type + "%' order by coa_no";
+				SQL = SEARCH_COA + "where coa_into like '%" + search_Type + "%' and coa_sta = 1 order by coa_no";
 			}else if(search_Name.trim().length() != 0 && search_Type.trim().length() == 0) {
-				SQL = SEARCH_COA + "where coa_name like '%" + search_Name + "%' order by coa_no";
+				SQL = SEARCH_COA + "where coa_name like '%" + search_Name + "%' and coa_sta = 1 order by coa_no";
 			}
 			System.out.println("(CDAO)1= " + search_Name);
 			System.out.println("(CDAO)2= " + search_Type);
@@ -427,7 +427,7 @@ public class CoachesDAO implements CoachesDAO_interface{
 			pstmt = con.prepareStatement(LOOK_SEARCH_MEM);
 			pstmt.setString(1, membersVO.getMem_acc());
 			pstmt.setString(2, membersVO.getMem_no());
-
+			System.out.println( membersVO.getMem_acc()+" "+membersVO.getMem_no());
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {

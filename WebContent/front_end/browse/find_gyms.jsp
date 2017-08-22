@@ -24,7 +24,6 @@
     <title>°·³f - GymHome</title>
     <%@include file="/front_end/include/basicScript.file" %>
 	<!-- ­­¨î¦r¼Æ±±¨î -->
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	
 <style>
 	div.item-caption{
@@ -137,7 +136,7 @@
 				</div>	
 					<div class="item-container">
 						<div class="item-caption black">
-							<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=2&coa_no=${gymsVO.gym_no}&action=lookPersonal" target="_blank">
+							<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=2&mem_no=${gymsVO.gym_no}&action=lookPersonal" target="_blank">
 								<div class="item-caption-inner">
 									<div class="item-caption-inner1">
 										<span class="into">${gymsVO.gym_into }</span>
