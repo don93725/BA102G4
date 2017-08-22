@@ -1,5 +1,7 @@
 package com.place.model;
 
+import java.sql.Date;
+
 public class PlaceVO implements java.io.Serializable {
 
 	private String p_no;
@@ -10,7 +12,7 @@ public class PlaceVO implements java.io.Serializable {
 	private String p_add;
 	private String p_latlng;
 	private Integer p_cap;
-	
+	private Date p_date;
 	public String getP_no() {
 		return p_no;
 	}
@@ -59,5 +61,10 @@ public class PlaceVO implements java.io.Serializable {
 	public void setP_cap(Integer p_cap) {
 		this.p_cap = p_cap;
 	}
-	
+	public Date getP_date() {
+		return p_date;
+	}
+	public void setP_date(Date p_date) {
+		this.p_date = p_date;
+	}	
 }

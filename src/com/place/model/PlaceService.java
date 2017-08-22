@@ -1,5 +1,6 @@
 package com.place.model;
-
+import java.util.List;
+import java.sql.Date;
 import java.util.List;
 
 import com.members.model.MembersVO;
@@ -26,40 +27,36 @@ public class PlaceService {
 		dao.insert(placeVO);
 	}
 	
-	public List<PlaceVO> placeList(String placeList_acc) {
-		return dao.getPlaceList(placeList_acc);
+	public List<PlaceVO> placeList(String placeList_acc, String placeList_status) {
+		return dao.getPlaceList(placeList_acc , placeList_status);
 	}
 
 	public void delete(String p_no) {
 		dao.delete(p_no);
 	}
-	public PlaceVO updatePlace(String p_no, String g_acc, String p_name,
-			Integer status) {
-
-		PlaceVO placeVO = new PlaceVO();
-
-		placeVO.setP_no(p_no);
-		
-		placeVO.setG_acc(g_acc);
-		placeVO.setP_name(p_name);
-		placeVO.setP_status(status);
-		dao.update(placeVO);
-
-		return placeVO;
-	}
-
-	public void deletePlace(String p_no) {
-		
-		dao.delete(p_no);
-	}
 
 	public PlaceVO getOnePlace(String p_no) {
-		return dao.findByPrimaryKey(p_no);
+	return dao.findByPrimaryKey(p_no);
 	}
 
-	public List<PlaceVO> getAll() {
-		return dao.getAll();
+	public void updatePlace(String p_name, String p_into, String p_add, String p_latlng, Integer p_cap, String p_no) {
+		PlaceVO placeVO = new PlaceVO();
+
+		placeVO.setP_name(p_name);
+		placeVO.setP_into(p_into);
+		placeVO.setP_add(p_add);
+		placeVO.setP_latlng(p_latlng);
+		placeVO.setP_cap(p_cap);
+		placeVO.setP_no(p_no);
+		dao.update(placeVO);
 	}
+
+
+//
+//
+//	public List<PlaceVO> getAll() {
+//		return dao.getAll();
+//	}
 	
 	
 	

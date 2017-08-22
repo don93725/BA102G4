@@ -375,13 +375,13 @@ public class GymsDAO implements GymsDAO_interface{
 	public List<GymsVO> searchGyms(String search_Name, String search_Type){
 		String SQL = "";
 		if(search_Name.trim().length() == 0 && search_Type.trim().length() == 0 ) {
-			SQL = SEARCH_GYM + "order by gym_no";
+			SQL = SEARCH_GYM + " where gym_sta=1 order by gym_no";
 		}else if(search_Name.trim().length() != 0 && search_Type.trim().length() != 0) {
-			SQL = SEARCH_GYM + "where gym_name like '%" + search_Name +"%' and gym_into like '%" + search_Type + "%' order by gym_no";
+			SQL = SEARCH_GYM + "where gym_name like '%" + search_Name +"%' and gym_into like '%" + search_Type + "%' and gym_sta=1 order by gym_no";
 		}else if(search_Name.trim().length() == 0 && search_Type.trim().length() != 0) {
-			SQL = SEARCH_GYM + "where gym_into like '%" + search_Type + "%' order by gym_no";
+			SQL = SEARCH_GYM + "where gym_into like '%" + search_Type + "%' gym_sta=1 order by gym_no";
 		}else if(search_Name.trim().length() != 0 && search_Type.trim().length() == 0) {
-			SQL = SEARCH_GYM + "where gym_name like '%" + search_Name + "%' order by gym_no";
+			SQL = SEARCH_GYM + "where gym_name like '%" + search_Name + "%' gym_sta=1 order by gym_no";
 		}
 		return getGymsbySQL(SQL,null);
 	}

@@ -1,6 +1,7 @@
 package com.members.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -12,9 +13,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.friends.model.FriendsService;
+import com.google.gson.Gson;
 import com.members.model.MembersService;
 import com.members.model.MembersVO;
+import com.tools.Tools;
 
 @WebServlet("/MembersServlet")
 public class MembersServlet extends HttpServlet {
@@ -23,6 +25,7 @@ public class MembersServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String action = req.getParameter("action");
 		System.out.println("(M)action is " + action);
+		PrintWriter out = res.getWriter();
 		
 			if(action == null) {
 				System.out.println("action == null");
@@ -30,6 +33,38 @@ public class MembersServlet extends HttpServlet {
 				RequestDispatcher failureView = req.getRequestDispatcher(url);
 				failureView.forward(req, res);
 				return;
+			}
+			
+			// 來自index.jsp的logout請求
+			if ("logout".equals(action)) {
+				HttpSession session = req.getSession();
+				session.invalidate();
+				res.sendRedirect(req.getContextPath()+"/front_end/index.jsp");
+				return;
+			}
+			
+			if("forgetPSW".equals(action)) {
+				Map<String,String> errorMsgs = new LinkedHashMap<String,String>();
+				req.setAttribute("errorMsgs", errorMsgs);
+				try{
+					Tools tools = new Tools();
+					String mail = req.getParameter("mail");
+					if(mail == null || mail.trim().length() == 0) {
+						errorMsgs.put("mail", "錯誤");
+					}
+					String nickname = "會員";
+					if(!errorMsgs.isEmpty()) {
+						System.out.println("寄信失敗");
+						Gson gSon = new Gson();
+						out.print(gSon.toJson(errorMsgs));
+						return;
+					}
+					tools.sendMail(mail, nickname);
+					System.out.println("send mail ~ ~");
+					return;
+				}catch(Exception e){
+					//I don't want to do anything
+				}	
 			}
 		
 			//來自login.jsp的請求
@@ -112,16 +147,14 @@ public class MembersServlet extends HttpServlet {
 					String mem_nickname = req.getParameter("mem_nickname");
 					String mem_nicknameReg = "^[(\u4e00-\u9fa5)(a-zA-Z0-9)]{1,15}$";
 					if(mem_nickname == null || mem_nickname.trim().length() == 0){
-						errorMsgs.put("mem_nickname","會員暱稱: 請勿空白");
+						errorMsgs.put("mem_nickname","請勿空白");
 					} else if(!(mem_nickname.matches(mem_nicknameReg))){
-						errorMsgs.put("mem_nickname","會員暱稱: 只能是中、英文、數字，且長度必需在1到15之間");
+						errorMsgs.put("mem_nickname","只能是中、英文、數字，且長度必需在1到15之間");
 					}
 					// 資料有誤就返回form表單
 					if(!errorMsgs.isEmpty()) {
-						System.out.println("I got the errorMsgs");
-						String url = "/front_end/editPage/personal.jsp";
-						RequestDispatcher failureView = req.getRequestDispatcher(url);
-						failureView.forward(req, res);
+						Gson gSon = new Gson();
+						out.print(gSon.toJson(errorMsgs));
 						return;
 					}
 					//開始修改暱稱
@@ -182,19 +215,19 @@ public class MembersServlet extends HttpServlet {
 				Map<String,String> errorMsgs = new LinkedHashMap<String,String>();
 				req.setAttribute("errorMsgs", errorMsgs);
 				try {
-					
-					String mem_no = req.getParameter("mem_no");
+					String coa_no = req.getParameter("coa_no");
+					String stu_no = req.getParameter("stu_no");
+					String gym_no = req.getParameter("gym_no");
 					String mem_rank = req.getParameter("mem_rank");
 					MembersVO membersVO = new MembersVO();
-					FriendsService friendsService = new FriendsService();
-					MembersVO user = ((MembersVO)req.getSession().getAttribute("user"));
-					if(user!=null){
-						boolean ifFriend = friendsService.checkFriendShip(mem_no,user.getMem_no());
-						req.setAttribute("ifFriend", ifFriend);
-					}
+					
 					MembersService membersSV = new MembersService();
-					if(mem_no != null){
-						membersVO = membersSV.look_search_mem(mem_no);
+					if(coa_no != null){
+						membersVO = membersSV.look_search_mem(coa_no);
+					}else if(stu_no != null) {
+						membersVO = membersSV.look_search_mem(stu_no);
+					}else if(gym_no != null) {
+						membersVO = membersSV.look_search_mem(gym_no);
 					}
 					
 					//身分為健身者
