@@ -61,7 +61,7 @@ public class PlaceServlet extends HttpServlet {
 				if(!(p_name.matches(p_nameReg))) {
 					errorMsgs.put("p_name","只能是中、英文字母 ,且長度必需在1到18之間");
 				}
-				
+				System.out.println("p_name= " + p_name);			
 				String cap = req.getParameter("p_cap");
 				String p_capReg = "^([1-9][0-9]*){1,2}$";
 				if (cap == null || cap.trim().length() == 0 || "".equals(cap)) {
@@ -70,7 +70,7 @@ public class PlaceServlet extends HttpServlet {
 				if(!(cap.matches(p_capReg))) {
 					errorMsgs.put("p_cap","只能是1-99");
 	            }
-				
+				System.out.println("cap= " + cap);		
 				String p_add = req.getParameter("p_add");
 				String p_addReg = "^[(\u4e00-\u9fa5)(a-zA-Z)(0-9)(-)]{1,50}$";
 				if(p_add == null || p_add.trim().length() == 0) {
@@ -85,14 +85,13 @@ public class PlaceServlet extends HttpServlet {
 				if(p_latlng == null) {
 					errorMsgs.put("p_add", "地址轉換失敗");
 				}
-
 				String p_into = req.getParameter("p_into");
 				if(p_into == null || p_into.trim().length() == 0) {
 					errorMsgs.put("p_into", "請勿空白");
 				}else if(p_into.length() > 500) {
 					errorMsgs.put("p_into", "只能是1-500個字元");
 				}
-				
+				System.out.println("p_into= " + p_into);
 				// 資料有誤就返回form表單
 				if(!errorMsgs.isEmpty()) {
 					System.out.println("errorMsgs != 空的");
@@ -131,15 +130,16 @@ public class PlaceServlet extends HttpServlet {
 					List<PlaceVO> placeList = placeSV.placeList(placeList_acc, placeList_status);
 
 					req.setAttribute("placeList", placeList);
-					req.setAttribute("page","/front_end/rentManagement/include/placeList.jsp");
+					req.setAttribute("page","/front_end/include/placeList.jsp");
 					String url = "/front_end/rentManagement/placePublish.jsp";
 					RequestDispatcher successView = req.getRequestDispatcher(url);
 					successView.forward(req, res);
 					return;
 				} catch (Exception e) {
+					e.printStackTrace();
 					errorMsgs.put("無法取得資料:" , e.getMessage());
-					String url = req.getContextPath() + "/";
-					RequestDispatcher failureView = req.getRequestDispatcher("");
+					String url = "/front_end/index.jsp";
+					RequestDispatcher failureView = req.getRequestDispatcher(url);
 					failureView.forward(req, res);
 					return;
 				}

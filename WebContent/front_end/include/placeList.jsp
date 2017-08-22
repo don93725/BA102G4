@@ -93,7 +93,7 @@
 									</c:if>
 									
 								</tr>
-							<input type="text" value="${palceVO.p_no}">
+							<input type="text" value="${placeVO.p_no}">
 							</c:forEach>
 						</tbody>
 					</table>
