@@ -19,7 +19,7 @@ import com.members.model.MembersVO;
 
 /**
  * Servlet implementation class AlbumActionCtrl
- */
+ */ 
 @WebServlet("/album/AlbumsActionCtrl")
 public class AlbumsActionCtrl extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

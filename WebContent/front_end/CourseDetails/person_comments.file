@@ -22,7 +22,7 @@
 				<input type='text' class='b' value='${comment.bd_cmt_ctx }' style='display:none;' onfocus='this.value = this.value;'/>
 				<span class='c' ><a href="#" style='margin-left: 3px' onclick='addCmtLikes.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }");'><span class='cmtLikes'>${(comment.ifClick)?'收回讚':'讚'}</span><span style='margin-left: 5px;'>${(comment.cmt_likes>0)? comment.cmt_likes:''  }</span></a></span>
 			</div>
-			<c:if test='${not empty comment.bd_cmt_reply}'>			
+			<c:if test='${not empty comment.bd_cmt_reply || course_timeVO.coachesVO.coa_no==user.mem_no}'>			
 			<div class="col-xs-12 col-sm-11 col-sm-offset-1 rply" >
 				<div class="alert alert-warning" role="alert">
 				<c:if test='${not empty comment.bd_cmt_reply}'>
