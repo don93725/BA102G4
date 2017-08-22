@@ -87,7 +87,7 @@
 				<div class="col-xs-12 col-sm-12">
 					<div class="item">
 						<h3>課程詳情:</h3>
-						&emsp;&emsp;&emsp;&emsp;<font size="3px" style="font-weight:bold;">${course_timeVO.courseVO.details}</font></p>
+						&emsp;&emsp;&emsp;&emsp;<font size="3px" style="font-weight:bold;">${course_timeVO.courseVO.details}</font></p><br>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-12">
@@ -96,9 +96,9 @@
 						&emsp;<font style="font-size:16px;font-weight:bold;">${course_timeVO.deadline}</font>
 						&emsp;&emsp;&emsp;<font style="font-size:22px;">上課日期:</font>
 						&emsp;<font style="font-size:16px;font-weight:bold;">${course_timeVO.crs_date} ${course_timeVO.crs_timeShow}</font>
-						&emsp;&emsp;<font style="font-size:22px;">價錢:</font>
+						<br><br><font style="font-size:22px;">價錢:</font>
 						&emsp;<font color="#D60000" style="font-size:30px;font-weight:bold;">$${course_timeVO.price}</font><br>
-		
+						<span style="visibility:hidden;"> 66</span>
 					</div>
 				</div>
 			</div>
