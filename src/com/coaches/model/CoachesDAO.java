@@ -375,7 +375,7 @@ public class CoachesDAO implements CoachesDAO_interface{
 				SQL = SEARCH_COA + "where coa_into like '%" + search_Type + "%' and coa_sta = 1 order by coa_no";
 			}else if(search_Name.trim().length() != 0 && search_Type.trim().length() == 0) {
 				SQL = SEARCH_COA + "where coa_name like '%" + search_Name + "%' and coa_sta = 1 order by coa_no";
-			}
+			} 
 			System.out.println("(CDAO)1= " + search_Name);
 			System.out.println("(CDAO)2= " + search_Type);
 			con = ds.getConnection();
