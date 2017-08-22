@@ -35,14 +35,14 @@
 						<thead class="aaa">
 							<tr>
 								<th class="center">課程名稱</th>
-								<th>類別</th>
-								<th>報名截止日期</th>
-								<th>開課日期-時段</th>
-								<th>價錢</th>
-								<th>場地</th>
-								<th>人數</th>
-								<th>修改</th>
-								<th>下架</th>
+								<th class="center">類別</th>
+								<th class="center">報名截止日期</th>
+								<th class="center">開課時間</th>
+								<th class="center">價錢</th>
+								<th class="center">場地</th>
+								<th class="center">人數</th>
+								<th class="center">修改</th>
+								<th class="center">下架</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -61,21 +61,21 @@
 									</select>
 									</span>
 									<td class="center"><span class="changeCrs_name<%=countp%>">${course_timeVO.courseVO.crs_name}</span></td>
-									<td><span class="changeCategory<%=countp%>">${course_timeVO.courseVO.categoryChange}</span></td>
-									<td><span class="changeDeadline<%=countp%>">${course_timeVO.deadline}</span></td>
-									<td><span class="changeCrs_date_time<%=countp%>">${course_timeVO.crs_date}-${course_timeVO.crs_timeShow}</span></td>
-									<td><span class="changePrice<%=countp%>">${course_timeVO.price}</span></td>
-									<td><span class="changeP_name<%=countp%>">${course_timeVO.placeVO.p_name}</span></td>
+									<td class="center"><span class="changeCategory<%=countp%>">${course_timeVO.courseVO.categoryChange}</span></td>
+									<td class="center"><span class="changeDeadline<%=countp%>">${course_timeVO.deadline}</span></td>
+									<td class="center"><span class="changeCrs_date_time<%=countp%>">${course_timeVO.crs_date}<br>${course_timeVO.crs_timeShow}</span></td>
+									<td class="center"><span class="changePrice<%=countp%>">${course_timeVO.price}</span></td>
+									<td class="center"><span class="changeP_name<%=countp%>">${course_timeVO.placeVO.p_name}</span></td>
 									<!-- 故意擺兩個 -->
-									<td><a class="accordion-toggle" data-toggle="collapse"
+									<td class="center"><a class="accordion-toggle" data-toggle="collapse"
 										data-parent="#accordion" href="#collapse<%=countp%>">${course_timeVO.count}/${course_timeVO.limit}</a></td>
-									<td><input type="button" class="btn btn-primary"
+									<td class="center"><input type="button" class="btn btn-primary"
 										id="update<%=countp%>" onclick="changeDisabled(3,<%=countp%>)"
 										value="我要修改">
 										<button class="btn btn-warning" id="updateCommit<%=countp%>"
 											onclick="changeDisabled(4,<%=countp%>)"
 											style="display: none;">確認修改</button></td>
-									<td>
+									<td class="center">
 									<input type="submit" class="btn btn-warning" onclick="deleteCrstime()" value="下架">
 									<FORM METHOD="post"
 											ACTION="<%=request.getContextPath()%>/CCM/CourseManager.do" style="display: none;">

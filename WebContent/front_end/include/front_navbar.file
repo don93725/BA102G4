@@ -1,4 +1,26 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	application.setAttribute("A","瑜珈");
+	application.setAttribute("B","飛輪有氧");
+	application.setAttribute("C","舞動有氧");
+	application.setAttribute("D","拳擊有氧");
+	application.setAttribute("E","基礎重訓");
+	application.setAttribute("F","進階重訓");
+	application.setAttribute("G","皮拉提斯");
+	application.setAttribute("H","TRX肌力雕塑");
+	application.setAttribute("O","其他");
+	application.setAttribute("1","08:00-09:30");
+	application.setAttribute("2","10:00-11:30");
+	application.setAttribute("3","13:00-14:30");
+	application.setAttribute("4","15:00-16:30");
+	application.setAttribute("5","18:00-19:30");
+	application.setAttribute("6","20:00-21:30");
+%>
+
+
+
+
+
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -42,7 +64,7 @@
                                 <a href="#">找場地</a>
                             </li>
                             <li>
-                                <a href="#">找課程</a>
+                                <a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=crsDetailList">找課程</a>
                             </li>
                         </ul>
                     </li>
