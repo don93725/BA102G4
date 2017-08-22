@@ -1,0 +1,163 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<style>
+    #result{
+        text-align: center;
+        width: 600px;
+        height: 200px;       
+        margin: auto;
+        border: dashed 2px gray;
+        background-image:url("");
+    }
+</style>
+
+<script>  
+var result=document.getElementById("result");  
+var file=document.getElementById("file");  
+  
+function readAsDataURL(){  
+
+    var file = document.getElementById("file").files;
+    var result=document.getElementById("result");  
+
+    for(i = 0; i< file.length; i ++) {
+        var reader    = new FileReader();    
+        reader.readAsDataURL(file[i]);  
+        reader.onload=function(e){  
+            result.innerHTML = result.innerHTML + '<img src="' + this.result +'" alt="" />';  
+        }
+
+    }
+    
+} 
+<!-- 幫隱藏file註冊內容改變事件 -->
+window.onload = function(){
+	document.getElementById("file").addEventListener('change',handleFileSelect,false);
+}
+<!-- 幫隱藏file註冊div點擊事件 -->
+function updateFile(){
+	$("#file").click();
+}
+<!-- 拖曳 -->
+function dragoverHandler(e) {
+    e.preventDefault();
+    if($("#result > img").size() > 5){
+		$("#result").css("background-color","firebrick");
+		alert("照片最多5張");
+		return;
+	}else{
+		$("#result").css("background-color","gray");
+	}
+}
+<!-- 放置並顯示 -->
+function dropHandler(e) {
+    e.preventDefault();
+    $("#result").css("background-color","white");
+    var files = e.dataTransfer.files;
+	
+    if($("#result > img").size() < 5){
+    	for(i = 0; i< files.length; i ++) {
+            if (files[i].type == 'image/jpeg' || 'image/png') {
+                var reader = new FileReader();  
+                reader.onload = showPic;
+                reader.readAsDataURL(files[i]);
+            }else{
+    			alert("只能傳圖片");
+    			return;
+    		}
+        }
+    }else{
+    	alert("照片最多5張");
+    	return;
+    }
+}
+<!-- input file專用 -->
+function handleFileSelect(e) {
+	var files = e.target.files;
+	if($("#result > img").size() < 5){
+		for(i = 0; i< files.length; i ++) {
+	        if (files[i].type == 'image/jpeg' || 'image/png') {
+	            var reader = new FileReader(); 
+	            reader.onload = showPic;
+	            reader.readAsDataURL(files[i]);
+	        }else{
+				alert("只能傳圖片");
+				return;
+			}
+	    }
+	}else{
+		alert("照片最多5張");
+		return;
+	}
+}
+<!-- 拖曳and點擊 共用圖片處理功能 -->
+function showPic(e){
+	var base64 = e.target.result;
+	var img = document.createElement('img');   
+		img.style.margin = "10px";
+		img.style.width = "15%";
+        img.src = base64;
+        img.className  = "aaaa";
+        document.getElementById('result').appendChild(img);
+}
+
+function sendC() {
+	var data = new FormData();
+	$.each($('.aaaa'),function(){
+		data.append("pic",$(this).attr('src'));
+		alert($(this).attr('src'));
+	});
+	$.ajax({
+		url : webCtx + '/PlaceServlet?action=insertPic',
+		data : data,
+		type : "POST",
+		dataType : 'text',
+		processData : false,
+		contentType : false,
+		
+		success : function(msg) {
+		console.log(msg)
+			if(msg.length == 0) {
+				swal({
+					title : "更新成功",
+					text : "圖片已更新成功",
+					type : "success",
+					showConfirmButton : false
+				});
+					setTimeout("location.reload()",1000);
+				}else {
+					swal({
+						title : "失敗",
+						text : "內容不正確",
+						type : "error"
+					});
+					$.each(JSON.parse(msg), function(key, value){
+						$('#alert_' + key).css('display','');
+						$('#alert_' + key).html(value);
+					})
+				}						
+		},
+		error : function(xhr, ajaxOptions, thrownError) {						
+			swal("失敗", "404或500", "error");
+		}
+	});
+}
+</script>
+
+	<div style='display:none'>
+		<div id='insertPic_content' style='padding:0px; background:#fff;'>
+			<h1>新增圖片</h1>
+			<form>
+				
+				<input type="file" id="file" multiple="multiple" style="display: none;"/>  
+				<div id="result" name="result" ondragover="dragoverHandler(event)" ondrop="dropHandler(event)" onclick="updateFile()">
+					<div>點擊或拖曳圖片到這裡!</div>
+				</div>
+				<div id="base64Code" name="base64Code"></div>
+				<br>
+				<input type="hidden" id="ppp_no">
+				<input type="button" class="btn btn-primary" value="新增" onclick="sendC();">
+				<input type="reset" class="btn btn-default" name="" value="重新填寫" id="cancel">
+			
+			</form>
+		</div>
+	</div>
