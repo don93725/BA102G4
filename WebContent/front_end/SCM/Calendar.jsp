@@ -32,33 +32,11 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="<%= request.getContextPath() %>/style/assets/css/fullcalendar.css" />
-<link href="<%= request.getContextPath() %>/style/css/bootstrap.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="<%= request.getContextPath() %>/style/assets/css/font-awesome.min.css" />
-<!-- page specific plugin styles -->
-<!-- Custom Fonts -->
-<link
-	href="<%= request.getContextPath() %>/style/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-<!-- jQuery -->
-<!--訪客navbar動畫-1-->
-<script src="<%= request.getContextPath() %>/style/js/jquery.js"></script>
 
-<!-- Script to Activate the Carousel -->
-<!-- Bootstrap Core JavaScript -->
-<!--訪客navbar動畫-2-->
-<script src="<%= request.getContextPath() %>/style/js/bootstrap.min.js"></script>
-<!-- ace settings handler -->
-<!--button樣式-->
-<link rel="stylesheet"
-	href="<%= request.getContextPath() %>/style/assets/css/ace.min.css" />
 </head>
 <body>
 			<!-- PAGE CONTENT BEGINS -->
 
-			<div class="row">
-		<div class="col-xs-12">
 			<!-- PAGE CONTENT BEGINS -->
 
 			<div class="row">

@@ -514,7 +514,7 @@ function addCalendar(title, start, className, minTime) {
 										function(isConfirm){
 										  if (isConfirm) {
 												$.ajax({
-									　				url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
+													url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
 									 				data : {
 									 					cl_date : cl_date,	
 									 					crs_time : crs_time,
