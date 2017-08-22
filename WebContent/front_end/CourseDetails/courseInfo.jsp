@@ -133,6 +133,13 @@
 					</p>
 				</div>
 				<c:choose>
+					<c:when test="${user.mem_rank == 1}">
+						<div class="col-xs-12 col-sm-4" style="cursor: not-allowed;">
+							<p style="margin-top:1em;">
+							<font style="font-size:30px;" color="gray">教練,您好</font>
+							</p>
+						</div>
+					</c:when>
 					<c:when test="${course_timeVO.count == course_timeVO.limit}">
 						<div class="col-xs-12 col-sm-4" style="cursor: not-allowed;">
 							<p style="margin-top:1em;">
@@ -172,7 +179,7 @@
 				
 					<ul class="nav nav-tabs" id="myTab">
 						<li class="active" style="width:14em;">
-							<a data-toggle="tab" href="#calendar">
+							<a data-toggle="tab" href="#xxx">
 								<i class="green icon-home bigger-110" style="font-size:20px;"></i>
 								<font style="font-size:20px;">課程行事曆</font>
 							</a>
@@ -195,8 +202,58 @@
 					</ul>
 
 					<div class="tab-content" >	
-						<div id="calendar" class="tab-pane active">
-						</div>		
+						<div class="row tab-pane active" id="xxx">
+				<div class="col-sm-9">
+					<div class="space"></div>
+
+					<div id="calendar"></div>
+				</div>
+
+				<div class="col-sm-3">
+					<div class="widget-box transparent">
+						<div class="widget-header">
+							<h4>時段:</h4>
+						</div>
+
+						<div class="widget-body">
+							<div class="widget-main no-padding">
+								<div id="external-events">
+
+
+									<div class="external-event label-success"
+										data-class="label-success">
+										<i class="glyphicon glyphicon-search"></i> 08:00-09:30
+									</div>
+
+									<div class="external-event label-danger"
+										data-class="label-danger">
+										<i class="glyphicon glyphicon-search"></i> 10:00-11:30
+									</div>
+
+									<div class="external-event label-purple"
+										data-class="label-purple">
+										<i class="glyphicon glyphicon-search"></i> 13:00-14:30
+									</div>
+
+									<div class="external-event label-yellow"
+										data-class="label-yellow">
+										<i class="glyphicon glyphicon-search"></i> 15:00-16:30
+									</div>
+
+									<div class="external-event label-pink" data-class="label-pink">
+										<i class="glyphicon glyphicon-search"></i> 18:00-19:30
+									</div>
+
+									<div class="external-event label-info" data-class="label-info">
+										<i class="glyphicon glyphicon-search"></i> 20:00-21:30
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 						<p></p>
 						<div id="profile" class="tab-pane">
 							<%@include file="/front_end/CourseDetails/person_comments.file" %>
@@ -225,22 +282,22 @@
 		<c:forEach var="course_time" items="${calendarList}">
 			<c:choose>
 					<c:when test="${course_time.crs_time == 1}">
-						<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow}','${course_time.crs_date}','label-success',8)">
+						<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name}','${course_time.crs_date}','label-success',8)">
 					</c:when>
 					<c:when test="${course_time.crs_time == 2}">
-						<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow}','${course_time.crs_date}','label-success',10)">
+						<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name}','${course_time.crs_date}','label-danger',10)">
 					</c:when>
 					<c:when test="${course_time.crs_time == 3}">
-						<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow}','${course_time.crs_date}','label-info',14)">
+						<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name}','${course_time.crs_date}','label-purple',14)">
 					</c:when>
 					<c:when test="${course_time.crs_time == 4}">
-						<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow}','${course_time.crs_date}','label-info',16)">
+						<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name}','${course_time.crs_date}','label-yellow',16)">
 					</c:when>
 					<c:when test="${course_time.crs_time == 5}">
-						<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow}','${course_time.crs_date}','label-danger',19)">
+						<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name}','${course_time.crs_date}','label-pink',19)">
 					</c:when>
 					<c:otherwise>
-						<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} ${course_time.crs_timeShow}','${course_time.crs_date}','label-danger',21)">
+						<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name}','${course_time.crs_date}','label-info',21)">
 					</c:otherwise>
 				</c:choose>
 			

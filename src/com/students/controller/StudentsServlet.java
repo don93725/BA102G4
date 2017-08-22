@@ -417,7 +417,7 @@ public class StudentsServlet extends HttpServlet {
 				
 				StudentsService studentsSV = new StudentsService();
 				StudentsVO studentsVO = studentsSV.look_search_mem(membersVO);
-				
+				System.out.println(studentsVO.getStu_acc());
 				req.setAttribute("student", studentsVO);
 				String url = "/front_end/search/lookPersonal.jsp";
 				RequestDispatcher successView = req.getRequestDispatcher(url);

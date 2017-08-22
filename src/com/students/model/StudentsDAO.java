@@ -361,13 +361,13 @@ public class StudentsDAO implements StudentsDAO_interface{
 		String SQL = null;
 		try {
 			if(search_Name.trim().length() == 0 && search_Type.trim().length() == 0 ) {
-				SQL = SEARCH_STU + " where stu_sta = 1 order by stu_no";
+				SQL = SEARCH_STU + " order by stu_no";
 			}else if(search_Name.trim().length() != 0 && search_Type.trim().length() != 0) {
-				SQL = SEARCH_STU + "where stu_name like '%" + search_Name +"%' and stu_into like '%" + search_Type + "%' and stu_sta = 1 order by stu_no";
+				SQL = SEARCH_STU + "where stu_name like '%" + search_Name +"%' and stu_into like '%" + search_Type + "%' order by stu_no";
 			}else if(search_Name.trim().length() == 0 && search_Type.trim().length() != 0) {
-				SQL = SEARCH_STU + "where stu_into like '%" + search_Type + "%' and stu_sta = 1 order by stu_no";
+				SQL = SEARCH_STU + "where stu_into like '%" + search_Type + "%' order by stu_no";
 			}else if(search_Name.trim().length() != 0 && search_Type.trim().length() == 0) {
-				SQL = SEARCH_STU + "where stu_name like '%" + search_Name + "%' and stu_sta = 1 order by stu_no";
+				SQL = SEARCH_STU + "where stu_name like '%" + search_Name + "%' order by stu_no";
 			}
 			System.out.println("(SDAO)1= " + search_Name);
 			System.out.println("(SDAO)2= " + search_Type);
