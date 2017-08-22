@@ -77,7 +77,6 @@
 			<jsp:useBean id="adapplyCourseSvc" scope="page" class="com.course.model.CourseService" />
 			<div class="form-group">
 				<label  class="col-xs-12 col-sm-3 control-label">
-					選擇廣告刊登:
 				</label>
 				<div class="col-xs-12 col-sm-9">
 					<select  name="ad_url" class="form-control">
@@ -93,11 +92,11 @@
 			<jsp:useBean id="adapplyPlaceSvc" scope="page" class="com.place.model.PlaceService" />
 			<div class="form-group">
 				<label for="ad_url" class="col-xs-12 col-sm-3 control-label">
-					選擇廣告刊登:
+					~~選擇廣告刊登: ${adapplyPlaceSvc.placeList(user.mem_acc,"1")}~~
 				</label>
 				<div class="col-xs-12 col-sm-9">
 					<select  name="ad_url" class="form-control">
-						<c:forEach var="placeVO" items="${adapplyPlaceSvc.getAll(user.mem_acc)}">
+						<c:forEach var="placeVO" items="${adapplyPlaceSvc.placeList(user.mem_acc,'1')}">
 							<option value="${placeVO.p_no}">${placeVO.p_no}--${placeVO.p_name}</option>
 						</c:forEach>
 					</select>
