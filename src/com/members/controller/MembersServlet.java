@@ -188,10 +188,10 @@ public class MembersServlet extends HttpServlet {
 					MembersVO membersVO = new MembersVO();
 					FriendsService friendsService = new FriendsService();
 					MembersVO user = ((MembersVO)req.getSession().getAttribute("user"));
-					
-					boolean ifFriend = friendsService.checkFriendShip(mem_no,user.getMem_no());
-					req.setAttribute("ifFriend", ifFriend);
-					System.out.println("ifFriend="+ifFriend);
+					if(user!=null){
+						boolean ifFriend = friendsService.checkFriendShip(mem_no,user.getMem_no());
+						req.setAttribute("ifFriend", ifFriend);
+					}
 					MembersService membersSV = new MembersService();
 					if(mem_no != null){
 						membersVO = membersSV.look_search_mem(mem_no);

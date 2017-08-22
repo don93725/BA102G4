@@ -13,9 +13,13 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.course_list.model.Course_listDAO;
+import com.course_list.model.Course_listVO;
+import com.course_picture.model.Course_pictureVO;
 import com.coaches.model.CoachesVO;
 import com.course.model.CourseVO;
 import com.course_time.model.Course_timeVO;
+import com.gyms.model.GymsVO;
 import com.place.model.PlaceVO;
 import com.students.model.StudentsVO;
 
@@ -946,5 +950,482 @@ public class Course_listDAO implements Course_listDAO_interface{
 			}
 		}			
 		
+	}
+	@Override
+	public List<Course_listVO> getReserve(String stu_acc) {
+		// TODO Auto-generated method stub
+		
+	
+		List<Course_listVO> list = new ArrayList<Course_listVO>();
+		Course_timeVO course_timeVO = null;
+		CourseVO courseVO = null;
+		PlaceVO placeVO = null;
+		CoachesVO coachesVO = null;
+		GymsVO gymsVO = null;
+		Course_listVO course_listVO = null;
+		Course_pictureVO course_pictureVO = null;
+		Course_listDAO course_listDAO = null ;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		course_listDAO = new Course_listDAO();				
+		
+		try {
+
+			con = ds.getConnection();
+			
+		
+			
+			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN STUDENTS STU ON cl.stu_acc = stu.stu_acc join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE CL.STU_ACC ="
+			           +"'"+stu_acc+"'"
+			          ;
+			      
+			          
+				
+			System.out.println(finalSQL);
+			
+			
+			pstmt = con.prepareStatement(finalSQL);
+			
+			//pstmt.setString(4,coa_name);
+			
+			
+			rs = pstmt.executeQuery();
+			
+			System.out.print(pstmt + " " + rs);
+			
+			while (rs.next()) {
+				
+				course_listVO = new Course_listVO();
+				course_timeVO = new Course_timeVO();
+				courseVO = new CourseVO();
+				coachesVO=new CoachesVO();
+				placeVO = new PlaceVO();
+				gymsVO = new GymsVO();
+				course_pictureVO = new Course_pictureVO();
+				
+				
+				
+				
+				course_listVO.setCt_no(rs.getString("ct_no"));
+				course_listVO.setStu_acc(rs.getString("stu_acc"));
+				course_listVO.setCl_date(rs.getDate("cl_date"));
+				course_listVO.setCrs_time(rs.getInt("crs_time"));
+				course_listVO.setStu_pay_sta(rs.getInt("stu_pay_sta"));
+				course_listVO.setStu_pay_date(rs.getDate("stu_pay_date"));
+				course_listVO.setReport_sta(rs.getInt("report_sta"));
+				course_listVO.setReport_ct(rs.getString("report_ct"));
+				course_listVO.setFeedback(rs.getString("feedback"));
+				course_listVO.setEvaluation_cao(rs.getString("evaluation_cao"));
+				course_listVO.setEvaluation_crs(rs.getString("evaluation_crs"));
+				course_listVO.setN_sta(rs.getInt("n_sta"));
+				course_listVO.setReason(rs.getString("reason"));
+				
+				System.out.println("AAAA");
+				
+				
+				courseVO.setCrs_name(rs.getString("crs_name"));
+				
+				System.out.println("A");
+				courseVO.setCategory(rs.getString("category"));
+				//coachesVO.setCoa_name(rs.getString("coa_name"));
+				placeVO.setP_name((rs.getString("p_name")==null)?"null":rs.getString("p_name"));
+				
+				System.out.println("B");
+				placeVO.setP_no(rs.getString("p_no"));
+				course_timeVO.setDeadline(rs.getDate("deadline"));
+				course_timeVO.setPrice(rs.getString("price"));
+				course_timeVO.setLimit(rs.getString("limit"));
+				System.out.println("C");
+				course_pictureVO.setCrs_base(rs.getString("crs_base"));
+				System.out.println("D");
+				gymsVO.setGym_latlng(rs.getString("gym_latlng"));
+				gymsVO.setGym_add(rs.getString("gym_add"));
+				System.out.println("E");
+				course_timeVO.setCount(course_listDAO.count(rs.getString("ct_no")));
+				System.out.println("G");
+				course_listVO.setCourseVO(courseVO);
+				course_listVO.setPlaceVO(placeVO);
+				course_listVO.setGymsVO(gymsVO);
+				course_listVO.setCourse_timeVO(course_timeVO);
+				course_listVO.setCourse_pictureVO(course_pictureVO);
+				
+				
+				
+				
+				
+				list.add(course_listVO); // Store the row in the list
+			
+				
+			
+			
+			}
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		return list;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+
+
+	@Override
+	public List<Course_listVO> getReady(String stu_acc) {
+		// TODO Auto-generated method stub
+		
+	
+		List<Course_listVO> list = new ArrayList<Course_listVO>();
+		Course_timeVO course_timeVO = null;
+		CourseVO courseVO = null;
+		PlaceVO placeVO = null;
+		CoachesVO coachesVO = null;
+		GymsVO gymsVO = null;
+		Course_listVO course_listVO = null;
+		Course_pictureVO course_pictureVO = null;
+		Course_listDAO course_listDAO = null ;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		course_listDAO = new Course_listDAO();				
+		
+		try {
+
+			con = ds.getConnection();
+			
+		
+			
+			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN STUDENTS STU ON cl.stu_acc = stu.stu_acc join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no join coaches coa on CRS.c_acc=coa.coa_acc JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE CT.status = 2 AND CL.STU_ACC ="
+			           +"'"+stu_acc+"'"
+			          ;
+			      
+			          
+				
+			System.out.println(finalSQL);
+			
+			
+			pstmt = con.prepareStatement(finalSQL);
+			
+			//pstmt.setString(4,coa_name);
+			
+			
+			rs = pstmt.executeQuery();
+			
+			System.out.print(pstmt + " " + rs);
+			
+			while (rs.next()) {
+				
+				course_listVO = new Course_listVO();
+				course_timeVO = new Course_timeVO();
+				courseVO = new CourseVO();
+				coachesVO=new CoachesVO();
+				placeVO = new PlaceVO();
+				gymsVO = new GymsVO();
+				course_pictureVO = new Course_pictureVO();
+				
+				
+				
+				
+				course_listVO.setCt_no(rs.getString("ct_no"));
+				course_listVO.setStu_acc(rs.getString("stu_acc"));
+				course_listVO.setCl_date(rs.getDate("cl_date"));
+				course_listVO.setCrs_time(rs.getInt("crs_time"));
+				course_listVO.setStu_pay_sta(rs.getInt("stu_pay_sta"));
+				course_listVO.setStu_pay_date(rs.getDate("stu_pay_date"));
+				course_listVO.setReport_sta(rs.getInt("report_sta"));
+				course_listVO.setReport_ct(rs.getString("report_ct"));
+				course_listVO.setFeedback(rs.getString("feedback"));
+				course_listVO.setEvaluation_cao(rs.getString("evaluation_cao"));
+				course_listVO.setEvaluation_crs(rs.getString("evaluation_crs"));
+				course_listVO.setN_sta(rs.getInt("n_sta"));
+				course_listVO.setReason(rs.getString("reason"));
+				
+				System.out.println("AAAA");
+				
+				coachesVO.setCoa_name(rs.getString("coa_name"));
+				courseVO.setCrs_name(rs.getString("crs_name"));
+				
+				System.out.println("A");
+				courseVO.setCategory(rs.getString("category"));
+				//coachesVO.setCoa_name(rs.getString("coa_name"));
+				placeVO.setP_name((rs.getString("p_name")==null)?"null":rs.getString("p_name"));
+				
+				System.out.println("B");
+				placeVO.setP_no(rs.getString("p_no"));
+				course_timeVO.setDeadline(rs.getDate("deadline"));
+				course_timeVO.setPrice(rs.getString("price"));
+				course_timeVO.setLimit(rs.getString("limit"));
+				System.out.println("C");
+				course_pictureVO.setCrs_base(rs.getString("crs_base"));
+				System.out.println("D");
+				gymsVO.setGym_latlng(rs.getString("gym_latlng"));
+				gymsVO.setGym_add(rs.getString("gym_add"));
+				System.out.println("E");
+				course_timeVO.setCount(course_listDAO.count(rs.getString("ct_no")));
+				System.out.println("G");
+				
+				course_listVO.setCoachesVO(coachesVO);
+				course_listVO.setCourseVO(courseVO);
+				course_listVO.setPlaceVO(placeVO);
+				course_listVO.setGymsVO(gymsVO);
+				course_listVO.setCourse_timeVO(course_timeVO);
+				course_listVO.setCourse_pictureVO(course_pictureVO);
+				
+				
+				
+				
+				
+				list.add(course_listVO); // Store the row in the list
+			
+				
+			
+			
+			}
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		return list;
+	
+	
+	
+	
+	
+	
+	
+	}
+
+
+	@Override
+	public List<Course_listVO> getFinished(String stu_acc) {
+		// TODO Auto-generated method stub
+		
+	
+		List<Course_listVO> list = new ArrayList<Course_listVO>();
+		Course_timeVO course_timeVO = null;
+		CourseVO courseVO = null;
+		PlaceVO placeVO = null;
+		CoachesVO coachesVO = null;
+		GymsVO gymsVO = null;
+		Course_listVO course_listVO = null;
+		Course_pictureVO course_pictureVO = null;
+		Course_listDAO course_listDAO = null ;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		course_listDAO = new Course_listDAO();				
+		
+		try {
+
+			con = ds.getConnection();
+			
+		
+			
+			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN STUDENTS STU ON cl.stu_acc = stu.stu_acc join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no join coaches coa on CRS.c_acc=coa.coa_acc JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE CT.status = 2 AND CL.n_sta=1  AND CL.STU_ACC ="
+			           +"'"+stu_acc+"'"
+			          ;
+			      
+			          
+				
+			System.out.println(finalSQL);
+			
+			
+			pstmt = con.prepareStatement(finalSQL);
+			
+			//pstmt.setString(4,coa_name);
+			
+			
+			rs = pstmt.executeQuery();
+			
+			System.out.print(pstmt + " " + rs);
+			
+			while (rs.next()) {
+				
+				course_listVO = new Course_listVO();
+				course_timeVO = new Course_timeVO();
+				courseVO = new CourseVO();
+				coachesVO=new CoachesVO();
+				placeVO = new PlaceVO();
+				gymsVO = new GymsVO();
+				course_pictureVO = new Course_pictureVO();
+				
+				
+				
+				
+				course_listVO.setCt_no(rs.getString("ct_no"));
+				course_listVO.setStu_acc(rs.getString("stu_acc"));
+				course_listVO.setCl_date(rs.getDate("cl_date"));
+				course_listVO.setCrs_time(rs.getInt("crs_time"));
+				course_listVO.setStu_pay_sta(rs.getInt("stu_pay_sta"));
+				course_listVO.setStu_pay_date(rs.getDate("stu_pay_date"));
+				course_listVO.setReport_sta(rs.getInt("report_sta"));
+				course_listVO.setReport_ct(rs.getString("report_ct"));
+				course_listVO.setFeedback(rs.getString("feedback"));
+				course_listVO.setEvaluation_cao(rs.getString("evaluation_cao"));
+				course_listVO.setEvaluation_crs(rs.getString("evaluation_crs"));
+				course_listVO.setN_sta(rs.getInt("n_sta"));
+				course_listVO.setReason(rs.getString("reason"));
+				
+				System.out.println("AAAA");
+				
+				coachesVO.setCoa_name(rs.getString("coa_name"));
+				courseVO.setCrs_name(rs.getString("crs_name"));
+				
+				System.out.println("A");
+				courseVO.setCategory(rs.getString("category"));
+				//coachesVO.setCoa_name(rs.getString("coa_name"));
+				placeVO.setP_name((rs.getString("p_name")==null)?"null":rs.getString("p_name"));
+				
+				System.out.println("B");
+				placeVO.setP_no(rs.getString("p_no"));
+				course_timeVO.setDeadline(rs.getDate("deadline"));
+				course_timeVO.setPrice(rs.getString("price"));
+				course_timeVO.setLimit(rs.getString("limit"));
+				System.out.println("C");
+				course_pictureVO.setCrs_base(rs.getString("crs_base"));
+				System.out.println("D");
+				gymsVO.setGym_latlng(rs.getString("gym_latlng"));
+				gymsVO.setGym_add(rs.getString("gym_add"));
+				System.out.println("E");
+				course_timeVO.setCount(course_listDAO.count(rs.getString("ct_no")));
+				System.out.println("G");
+				
+				course_listVO.setCoachesVO(coachesVO);
+				course_listVO.setCourseVO(courseVO);
+				course_listVO.setPlaceVO(placeVO);
+				course_listVO.setGymsVO(gymsVO);
+				course_listVO.setCourse_timeVO(course_timeVO);
+				course_listVO.setCourse_pictureVO(course_pictureVO);
+				
+				
+				
+				
+				
+				list.add(course_listVO); // Store the row in the list
+			
+				
+			
+			
+			}
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		return list;
+	
+	
+	
+	
+	
+	
 	}
 }
