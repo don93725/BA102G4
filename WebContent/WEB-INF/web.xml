@@ -146,7 +146,7 @@
     <dispatcher>ERROR</dispatcher>
     <dispatcher>ASYNC</dispatcher>
   </filter-mapping>
-    <filter>
+  <filter>
     <filter-name>AutCG</filter-name>
     <filter-class>com.filters.AutCG</filter-class>
   </filter>

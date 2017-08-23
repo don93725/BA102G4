@@ -296,31 +296,6 @@ public class StudentsServlet extends HttpServlet {
 					errorMsgs.put("stu_into", "會員自我介紹: 格式錯誤");
 				}
 				
-//				//驗證大頭貼
-//				String cropped_pic = req.getParameter("cropped_pic");
-//				//base64轉byte[]
-//				Base64.Decoder decoder = Base64.getDecoder();
-//				byte[] coa_pic_byte = null;
-//				
-//				if(cropped_pic == null || "".equals(cropped_pic)) {
-//					errorMsgs.put("coa_pic", "會員大頭貼: 請鎖定圖片");
-//				}else {
-//					coa_pic_byte = decoder.decode(cropped_pic.split(",")[1]);
-//					//圖片大小(kb...)
-//					int pic_length = coa_pic_byte.length;
-//					String pic_type = cropped_pic.substring(5, 10);
-////					Part coa_pic = req.getPart("upload-file");
-////					String fileType = coa_pic.getContentType();
-//					if(pic_length > (5*1024*1024)) {
-//						errorMsgs.put("coa_pic", "會員大頭貼: 檔案過大");
-//					} else if(!("image".equals(pic_type))) {
-//						errorMsgs.put("coa_pic", "會員大頭貼: 僅允許圖片格式");
-//					}
-//				}
-				
-//				System.out.println("PartSize=" + coa_pic.getSize());
-//				System.out.println("I got the parameter from form");
-				
 				// 資料有誤就返回form表單
 				if(!errorMsgs.isEmpty()) {
 					System.out.println("I got the errorMsgs");
