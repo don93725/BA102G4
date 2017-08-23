@@ -74,7 +74,7 @@
 								</tr>
 								<c:forEach var="stubyct" items="${course_timeSVC.getStuByCt(course_timeVO.courseVO.c_acc,course_timeVO.ct_no)}">
 								<tr>
-									<td class="center selectStu<%=count%>" style="display:none;" colspan="2"><img src="<%= request.getContextPath() %>/XiangZhiPic?mem_no=${stubyct.membersVO.mem_no}&mem_rank=${stubyct.membersVO.mem_rank}" width="100" height="100"></td>
+									<td class="center selectStu<%=count%>" style="display:none;" colspan="2"><img src="<%= request.getContextPath() %>/XiangZhiPic?mem_no=${stubyct.membersVO.mem_no}&mem_rank=${stubyct.membersVO.mem_rank}" width="50" height="50"></td>
 									<td class="selectStu<%=count%>" style="display:none;">${stubyct.membersVO.mem_nickname}</td>
 									<td class="selectStu<%=count%>" style="display:none;" colspan="2">${stubyct.studentsVO.stu_mail}</td>
 									<td class="selectStu<%=count%>" style="display:none;" colspan="2">

@@ -1145,9 +1145,7 @@ public class Course_timeDAO implements Course_timeDAO_interface {
 			pstmt.setString(1, c_acc);
 			pstmt.setString(2, ct_no);
 			rs = pstmt.executeQuery();
-			System.out.println("AAA");
 			while (rs.next()) {
-				System.out.println("BBB");
 				course_timeVO = new Course_timeVO();
 				studentsVO = new StudentsVO();
 				membersVO = new MembersVO();
