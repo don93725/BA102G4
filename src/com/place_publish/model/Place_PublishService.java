@@ -16,4 +16,8 @@ public class Place_PublishService {
 		ppVO.setPau_price(pau_price);
 		dao.insert(ppVO);
 	}
+
+	public void unPublish(String p_no) {
+		dao.unPublish(p_no);
+	}
 }

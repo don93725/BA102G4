@@ -76,8 +76,7 @@
 									})
 							}						
 						},
-						error : function(xhr, ajaxOptions, thrownError) {
-						console.log(xhr + ajaxOptions + thrownError);					
+						error : function(xhr, ajaxOptions, thrownError) {				
 							swal("失敗", "404或500", "error");
 						}
 					});
