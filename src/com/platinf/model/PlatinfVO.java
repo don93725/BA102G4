@@ -11,8 +11,15 @@ public class PlatinfVO implements java.io.Serializable{
 	private String cs_email;
 	private String pr_policy;
 	private byte[] pin_photo;
+	private String upd_date2;
 	
 	
+	public String getUpd_date2() {
+		return upd_date2;
+	}
+	public void setUpd_date2(String upd_date2) {
+		this.upd_date2 = upd_date2;
+	}
 	public String getPin_no() {
 		return pin_no;
 	}

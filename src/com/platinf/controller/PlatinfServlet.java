@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
 import com.platinf.model.*;
-@WebServlet("/back_end/platinf/platinf.do")
+@WebServlet("/back_end/editAbout/platinf.do")
 @MultipartConfig(maxRequestSize=1024*1024*1024,maxFileSize=1024*1024*1024)
 public class PlatinfServlet extends HttpServlet {
 
@@ -124,7 +124,6 @@ public class PlatinfServlet extends HttpServlet {
 		
 		
 		if ("update".equals(action)) { // 來自update_platinf_input.jsp的請求
-			
 			List<String> errorMsgs = new LinkedList<String>();
 			// Store this set in the request scope, in case we need to
 			// send the ErrorPage view.
@@ -136,7 +135,7 @@ public class PlatinfServlet extends HttpServlet {
 				String com_address = req.getParameter("com_address").trim();
 				String cp_no = req.getParameter("cp_no").trim();
 				String cs_email = req.getParameter("cs_email").trim();				
-				String pr_policy = req.getParameter("pr_policy").trim();				
+				String pr_policy = req.getParameter("pr_policy").trim();	
 				Part part = req.getPart("pin_photo");
 				byte[] pin_photo = null;
 				if(part.getSize()!=0){
@@ -162,7 +161,7 @@ public class PlatinfServlet extends HttpServlet {
 				if (!errorMsgs.isEmpty()) {
 					req.setAttribute("platinfVO", platinfVO); // 含有輸入格式錯誤的platinfVO物件,也存入req
 					RequestDispatcher failureView = req
-							.getRequestDispatcher("/back_end/platinf/update_platinf_input.jsp");
+							.getRequestDispatcher("/back_end/editAbout/about.jsp");
 					failureView.forward(req, res);
 					return; //程式中斷
 				}
@@ -173,15 +172,16 @@ public class PlatinfServlet extends HttpServlet {
 				
 				/***************************3.修改完成,準備轉交(Send the Success view)*************/
 				req.setAttribute("platinfVO", platinfVO); // 資料庫update成功後,正確的的platinfVO物件,存入req
-				String url = "/back_end/platinf/listAllPlatinf.jsp";
+				String url = "/back_end/editAbout/about.jsp";
 				RequestDispatcher successView = req.getRequestDispatcher(url); // 修改成功後,轉交listOnePlatinf.jsp
 				successView.forward(req, res);
 
 				/***************************其他可能的錯誤處理*************************************/
 			} catch (Exception e) {
+				e.printStackTrace();
 				errorMsgs.add("修改資料失敗:"+e.getMessage());
 				RequestDispatcher failureView = req
-						.getRequestDispatcher("/back_end/platinf/update_platinf_input.jsp");
+						.getRequestDispatcher("/back_end/editAbout/about.jsp");
 				failureView.forward(req, res);
 			}
 		}

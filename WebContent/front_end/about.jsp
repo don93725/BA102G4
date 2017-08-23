@@ -5,9 +5,14 @@
 <%@ page import="com.gyms.model.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="com.manager.model.*" %>
+<%@ page import="com.platinf.model.*" %>
 <% ManagerService managerSV = new ManagerService();
    List<ManagerVO> mgrList = managerSV.getAll(); 
-   pageContext.setAttribute("mgrList",mgrList);%>
+   pageContext.setAttribute("mgrList",mgrList);
+   PlatinfService platinfSV = new PlatinfService();
+   PlatinfVO plain = platinfSV.getOnePlatinf("1");
+   pageContext.setAttribute("plain",plain);
+   %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
@@ -44,7 +49,7 @@
             <ul class="breadcrumb">
                 <li>
                     <i class="icon-home home-icon"></i>
-                        <a href="#">首頁</a>
+                        <a href="${pageContext.request.contextPath }/front_end/index.jsp">首頁</a>
                      </li>
                 <li class="active">服務介紹</li>
                 <li class="active">關於我們</li>
@@ -55,13 +60,26 @@
         <!-- Intro Content -->
         <div class="row">
             <div class="col-md-6">
-                <img class="img-responsive" src="http://media.viralcham.com/wp-content/uploads/2015/09/gymfactory111.jpg" alt="">
+                <img class="img-responsive" src="${pageContext.request.contextPath }/util/OutputPic?pin_no=1" alt="">
             </div>
             <div class="col-md-6">
-                <h2>關於健貨 750*450</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
+            	<div class='row'>
+            	<div class="col-md-12">
+            	<div class="col-md-7">
+            	<h2>健貨 - GymHome</h2>
+            	</div>
+            	<div class="col-md-5">
+            	<p></p>
+            	<p><small>更新時間 ： ${plain.upd_date2}</small></p>
+            	</div>
+            	</div>
+            	<div class="col-md-12">
+            	<h4>電話： ${plain.cp_no}</h4><p></p>
+            	<h4>地址： ${plain.com_address}</h4><p></p><p></p>
+            	<h4>信箱： ${plain.cs_email}</h4><p></p><p></p>
+            	<h4>介紹： ${plain.pr_policy}</h4><p></p><p></p>
+            	</div>
+            	</div>
             </div>
         </div>
         <!-- /.row -->

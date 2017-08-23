@@ -2,6 +2,7 @@ package com.platinf.model;
 
 import java.util.*;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -230,6 +231,8 @@ public class PlatinfDAO implements PlatinfDAO_interface {
 				platinfVO.setCs_email(rs.getString("cs_email"));
 				platinfVO.setPr_policy(rs.getString("pr_policy"));
 				platinfVO.setUpd_date(rs.getDate("upd_date"));
+				SimpleDateFormat sdfm = new SimpleDateFormat("yyyy-MM-dd HH:mm:SS");
+				platinfVO.setUpd_date2(rs.getObject("upd_date").toString());
 				platinfVO.setPin_photo(rs.getBytes("pin_photo"));
 			}
 
@@ -287,7 +290,7 @@ public class PlatinfDAO implements PlatinfDAO_interface {
 				platinfVO.setCp_no(rs.getString("cp_no"));
 				platinfVO.setCs_email(rs.getString("cs_email"));
 				platinfVO.setPr_policy(rs.getString("pr_policy"));
-				platinfVO.setUpd_date(rs.getDate("upd_date"));
+				platinfVO.setUpd_date(rs.getDate("upd_date"));				
 				platinfVO.setPin_photo(rs.getBytes("pin_photo"));
 				list.add(platinfVO); // Store the row in the list
 			}
