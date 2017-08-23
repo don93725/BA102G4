@@ -18,7 +18,7 @@
 <html lang="zh-cn-en">
 
 <head>
-    <title>這是標題</title>
+    <title>健貨 - GymHome</title>
 	<%@include file="include/basicScript.file" %>
 </head>
 
@@ -107,12 +107,12 @@
         <!-- /.row -->
 		</div>
         <hr>
+    </div>
+    <!-- /.container -->
 
         <!-- Footer -->
         <%@include file="include/footer.file" %>
 
-    </div>
-    <!-- /.container -->
 
 
 

@@ -64,8 +64,8 @@ public class StudentsDAO implements StudentsDAO_interface{
 			pstmt.setString(1, membersVO.getMem_acc());
 			pstmt.setString(2, membersVO.getMem_nickname());
 					
-			System.out.println("Insert into members(mem_no, mem_acc, mem_rank, mem_nickname)"
-					+ "Values(mem_no_seq.NEXTVAL," + membersVO.getMem_acc() +", '1', " + membersVO.getMem_nickname() + ", default)");
+			System.out.println(INSERT_MEM
+					+ " Values(mem_no_seq.NEXTVAL," + membersVO.getMem_acc() +", '0', " + membersVO.getMem_nickname() + ", default)");
 			pstmt.executeUpdate();
 			
 			//取得自增主鍵
@@ -85,8 +85,9 @@ public class StudentsDAO implements StudentsDAO_interface{
 			//同時新增學健身者
 			addWithMem_no(con, studentsVO);
 			String sql = "insert into albums values(albums_pk_seq.nextval,"+mem_no+",default,'動態相簿',default,0,1)";			
-			new SQLHelper().executeUpdate(sql, null,"mem_no",con);
 			con.commit();
+//			new SQLHelper().executeUpdate(sql, null,"mem_no",con);
+//			con.commit();
 			
 			//清空指令，重複利用
 			pstmt.clearParameters();
@@ -133,7 +134,8 @@ public class StudentsDAO implements StudentsDAO_interface{
 			pstmt.setString(7, studentsVO.getStu_mail());
 			pstmt.setString(8, studentsVO.getStu_into());
 			pstmt.setBytes(9, studentsVO.getStu_pic());
-						
+			System.out.println(INSERT_STU + studentsVO.getStu_acc() + studentsVO.getStu_no() + studentsVO.getStu_psw() + studentsVO.getStu_name()
+			+ studentsVO.getStu_sex() + studentsVO.getStu_id() + studentsVO.getStu_mail() + studentsVO.getStu_into() + studentsVO.getStu_pic());			
 			pstmt.executeUpdate();
 					
 		} catch (SQLException se) {

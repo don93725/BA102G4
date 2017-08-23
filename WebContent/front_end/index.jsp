@@ -232,7 +232,7 @@
             		<ul style="list-style:none; margin-left: 15px;">
 					<c:forEach var="annew" items="${annewList }">
 						<li style="margin-left: 0px; display: flex;">
-							<a href="#">
+							<a href="${pageContext.request.contextPath }/AnnewShowCtrl?ann_no=${annew.ann_no }">
 								<span class="label label-lg label-primary arrowed-in">
 									公告
 								</span>
@@ -248,7 +248,7 @@
 						</c:forEach>
 						
 						<li style="margin-left: 0px; display: flex;">
-							<a href="#">
+							<a href="<%= request.getContextPath()%>/AnnewShowCtrl">
 								<span>
 									看更多&nbsp<i class="icon-arrow-right"></i>
 								</span>						
