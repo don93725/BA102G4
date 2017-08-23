@@ -61,7 +61,7 @@ public class StudentsServlet extends HttpServlet {
 				} else if(!(stu_name.matches(stu_nameReg))) {
 					errorMsgs.put("stu_name","會員姓名: 只能是中、英文字母 ,且長度必需在2到6之間");
 				}
-			
+				System.out.println("stu name= " + stu_name);
 				//驗證暱稱
 				String mem_nickname = req.getParameter("mem_nickname");
 				String mem_nicknameReg = "^[(\u4e00-\u9fa5)(a-zA-Z0-9)]{1,15}$";
@@ -70,7 +70,7 @@ public class StudentsServlet extends HttpServlet {
 				} else if(!(mem_nickname.matches(mem_nicknameReg))){
 					errorMsgs.put("mem_nickname","會員暱稱: 只能是中、英文、數字，且長度必需在1到15之間");
 				}
-
+				System.out.println("nick_name= " + mem_nickname);
 				//驗證帳號
 				String mem_acc = req.getParameter("mem_acc");
 				String mem_accReg = "^[(a-zA-Z0-9_)]{6,20}$";
@@ -83,7 +83,7 @@ public class StudentsServlet extends HttpServlet {
 				}else if(!(mem_acc.matches(mem_accReg))) {
 					errorMsgs.put("mem_acc","會員帳號: 只能是大小寫英數字(含_)，且長度必需在6到20之間");
 				}
-			
+				System.out.println("memacc= " + mem_acc);
 				//驗證密碼
 				String stu_psw = req.getParameter("stu_psw");
 				String stu_pswReg = "^[(a-zA-Z0-9_)]{6,20}$";
@@ -92,7 +92,7 @@ public class StudentsServlet extends HttpServlet {
 				}else if(!(stu_psw.matches(stu_pswReg))) {
 					errorMsgs.put("stu_psw","會員密碼: 只能是大小寫英數字(含_)，且長度必需在6到20之間");
 				}
-
+				System.out.println("mem_pse= " + stu_psw);
 				//驗證確認密碼
 				String stu_psw_ck = req.getParameter("stu_psw_ck");
 				String stu_psw_ckReg = "^[(a-zA-Z0-9_)]{6,20}$";
@@ -112,7 +112,7 @@ public class StudentsServlet extends HttpServlet {
 				} catch (NumberFormatException e) {
 					errorMsgs.put("stu_psw", "會員性別: 請勿空白");
 				}	
-			
+				System.out.println("stu_sex= " + stu_sex);
 				//驗證身分證號
 				Tools tools = new Tools();
 				String stu_id = String.valueOf(req.getParameter("stu_id"));
@@ -122,7 +122,7 @@ public class StudentsServlet extends HttpServlet {
 				}else if(!(stu_id.matches(stu_idReg)) || !(tools.checkId(stu_id, stu_sex))) {
 					errorMsgs.put("stu_id", "會員身分證號: 格式錯誤");
 				}
-			
+				System.out.println("stu_id= " + stu_id);
 				//驗證信箱
 				String stu_mail = req.getParameter("stu_mail");
 				String stu_mailReg = "^[_A-Za-z0-9-]+([.][_A-Za-z0-9-]+)*@[a-z0-9-]+([.][a-z0-9-]+)*$";
@@ -131,7 +131,7 @@ public class StudentsServlet extends HttpServlet {
 				}else if(!(stu_mail.matches(stu_mailReg)) || stu_mail.length() > 50) {
 					errorMsgs.put("stu_mail", "會員信箱: 格式錯誤");
 				}
-
+				System.out.println("stu_mail= " + stu_mail);
 				//驗證自我介紹
 				String stu_into = req.getParameter("stu_into");
 				if(stu_into == null || stu_into.trim().length() == 0) {
@@ -139,7 +139,7 @@ public class StudentsServlet extends HttpServlet {
 				}else if(stu_into.length() > 500) {
 					errorMsgs.put("stu_into", "會員自我介紹: 格式錯誤");
 				}
-			
+				System.out.println("stu_into= " + stu_into);
 				//驗證大頭貼
 				String cropped_pic = req.getParameter("cropped_pic");
 				//base64轉byte[]

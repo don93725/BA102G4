@@ -55,7 +55,7 @@
                                 <a href="<%= request.getContextPath()%>/front_end/about.jsp">關於我們</a>
                             </li>
                             <li>
-                                <a href="#">公告消息</a>
+                                <a href="<%= request.getContextPath()%>/AnnewShowCtrl">公告消息</a>
                             </li>
                             <li>
                                 <a href="#">健身知識</a>
