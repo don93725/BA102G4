@@ -51,7 +51,9 @@ public class PlaceService {
 		dao.update(placeVO);
 	}
 
-
+	public void insertPPic(List list, String ppp_no){
+		dao.insertPic(list, ppp_no);
+	}
 
 
 //	public List<PlaceVO> getAll() {
