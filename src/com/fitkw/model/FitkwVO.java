@@ -9,8 +9,15 @@ public class FitkwVO implements java.io.Serializable{
 	private String fik_title;
 	private String fik_ctx;
 	private byte[] fik_photo;
+	String upd_date2;
 	
 	
+	public String getUpd_date2() {
+		return upd_date2;
+	}
+	public void setUpd_date2(String upd_date2) {
+		this.upd_date2 = upd_date2;
+	}
 	public String getFik_no() {
 		return fik_no;
 	}

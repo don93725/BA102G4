@@ -155,7 +155,15 @@
 		<div  style="color:red">${errorMsgs.f_no}</div>
 		</div>
 	</div>	
-	
+	<br>
+	<div class="form-group">
+		<label for="mgr_int" class="col-xs-12 col-sm-3 control-label">
+			¦Û§Ú¤¶²Ð
+		</label>
+		<div class="col-xs-12 col-sm-9">
+			<textarea id='mgr_int' name="mgr_int" class="form-control" style='resize:none;' rows=4></textarea>
+		</div>
+	</div>
 	<br>
 	<div class="form-group">
 		<div class="col-xs-12 col-sm-3"></div>

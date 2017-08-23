@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 public class DBGifReader extends HttpServlet {
 
 	private static final String GET_ONE_MGR = 
-			"select * from manager where mgr_no = ?";
+			"select mgr_pic from manager where mgr_no = ?";
 	
 	
 	Connection con = null;
@@ -25,6 +25,7 @@ public class DBGifReader extends HttpServlet {
 		res.setContentType("image/gif");
 		ServletOutputStream out = res.getOutputStream();
 		String mgr_no = req.getParameter("mgr_no");
+		byte[] bytes = null;
 		try {
 			
 			PreparedStatement pstmt = null;
@@ -36,20 +37,32 @@ public class DBGifReader extends HttpServlet {
 			ResultSet rs= pstmt.executeQuery();
 		
 			if (rs.next()) {
-				BufferedInputStream in = new BufferedInputStream(rs.getBinaryStream("mgr_pic"));
-				byte[] buf = new byte[4 * 1024]; // 4K buffer
-				int len;
-				while ((len = in.read(buf)) != -1) {
-					out.write(buf, 0, len);
+				bytes = rs.getBytes("mgr_pic");
+				System.out.println(bytes);
+				if(bytes!=null){
+					out.write(bytes);					
+				}else{
+					InputStream in = getServletContext().getResourceAsStream("/style/images/noPic.png");
+					bytes = new byte[in.available()];
+					in.read(bytes);
+					out.write(bytes);
+					in.close();					
 				}
-				in.close();
 			} else {
-				res.sendError(HttpServletResponse.SC_NOT_FOUND);
+				InputStream in = getServletContext().getResourceAsStream("/style/images/noPic.png");
+				bytes = new byte[in.available()];
+				in.read(bytes);
+				out.write(bytes);
+				in.close();
 			}
 			rs.close();
 			pstmt.close();
 		} catch (Exception e) {
-			System.out.println(e);
+			InputStream in = getServletContext().getResourceAsStream("/style/images/noPic.png");
+			bytes = new byte[in.available()];
+			in.read(bytes);
+			out.write(bytes);
+			in.close();
 		}
 	}
 
