@@ -130,38 +130,6 @@
 								</div>
 							</div>
 
-							<div class="widget-body">
-								<div class="widget-main">
-									<div id="piechart-placeholder"></div>
-
-									<div class="hr hr8 hr-double"></div>
-
-									<div class="clearfix">
-										<div class="grid3">
-											<span class="grey"> <i
-												class="icon-facebook-sign icon-2x blue"></i> &nbsp; likes
-											</span>
-											<h4 class="bigger pull-right">1,255</h4>
-										</div>
-
-										<div class="grid3">
-											<span class="grey"> <i
-												class="icon-twitter-sign icon-2x purple"></i> &nbsp; tweets
-											</span>
-											<h4 class="bigger pull-right">1</h4>
-										</div>
-
-										<div class="grid3">
-											<span class="grey"> <i
-												class="icon-pinterest-sign icon-2x red"></i> &nbsp; pins
-											</span>
-											<h4 class="bigger pull-right">1,050</h4>
-										</div>
-									</div>
-								</div>
-								<!-- /widget-main -->
-							</div>
-							<!-- /widget-body -->
 						</div>
 						<!-- /widget-box -->
 					</div>
