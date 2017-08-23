@@ -10,6 +10,7 @@ public interface PlaceDAO_interface {
 	public void delete(String p_no);
     public PlaceVO findByPrimaryKey(String p_no);	
     public void update(PlaceVO placeVo);
+    public void insertPic(List list, String ppp_no);
 //	    public List<PlaceVO> getAll();
 	
 }

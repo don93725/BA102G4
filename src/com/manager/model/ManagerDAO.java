@@ -31,22 +31,22 @@ public class ManagerDAO implements ManagerDAO_interface {
 		}
 	}
 	private static final String INSERT_MEM = "INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,?,?,?,DEFAULT)";
-	private static final String INSERT_MGR = "INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),?,?,?,?,?,?,?,?)";
+	private static final String INSERT_MGR = "INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),?,?,?,?,?,?,?,?,?)";
 //	private static final String GET_MEM_NO_SEQ = "mem_no_seq.NEXTVAL from dual";
 	
-	private static final String GET_ALL_MGR = "SELECT  MGR_NO,MEM_NO,MGR_ID,MGR_PWD,MGR_JOB,MGR_NAME,MGR_EMAIL,MGR_STATUS,MGR_PIC FROM MANAGER order by MGR_NO";
-	private static final String GET_ONE_MGR = "SELECT MGR_NO,MEM_NO,MGR_ID,MGR_PWD,MGR_JOB,MGR_NAME,MGR_EMAIL,MGR_STATUS,MGR_PIC FROM MANAGER WHERE MGR_NO=?";
-	private static final String GET_ONE_MGR2 = "SELECT MGR_NO,a.MEM_NO,MGR_ID,MGR_PWD,MGR_JOB,MGR_NAME,MGR_EMAIL,MGR_STATUS,MGR_PIC,mem_nickname FROM MANAGER a join ( select mem_no,mem_nickname from members) b  on a.mem_no=b.mem_no WHERE MGR_NO=?";
+	private static final String GET_ALL_MGR = "SELECT  MGR_NO,MEM_NO,MGR_ID,MGR_PWD,MGR_JOB,MGR_NAME,MGR_EMAIL,MGR_STATUS,MGR_PIC,MGR_INT FROM MANAGER order by MGR_NO";
+	private static final String GET_ONE_MGR = "SELECT MGR_NO,MEM_NO,MGR_ID,MGR_PWD,MGR_JOB,MGR_NAME,MGR_EMAIL,MGR_STATUS,MGR_PIC,MGR_INT FROM MANAGER WHERE MGR_NO=?";
+	private static final String GET_ONE_MGR2 = "SELECT MGR_NO,a.MEM_NO,MGR_ID,MGR_PWD,MGR_JOB,MGR_NAME,MGR_EMAIL,MGR_STATUS,MGR_PIC,mem_nickname,MGR_INT FROM MANAGER a join ( select mem_no,mem_nickname from members) b  on a.mem_no=b.mem_no WHERE MGR_NO=?";
 
 	
-	private static final String GET_MGR_GOB = "SELECT  MGR_NO,MEM_NO,MGR_ID,MGR_PWD,MGR_JOB,MGR_NAME,MGR_EMAIL,MGR_STATUS,MGR_PIC FROM MANAGER WHERE MGR_JOB=? order by MGR_NO";	
+	private static final String GET_MGR_GOB = "SELECT  MGR_NO,MEM_NO,MGR_ID,MGR_PWD,MGR_JOB,MGR_NAME,MGR_EMAIL,MGR_STATUS,MGR_PIC,MGR_INT FROM MANAGER WHERE MGR_JOB=? order by MGR_NO";	
 	private static final String GET_MGR_STATUS = "SELECT MGR_NO,MEM_NO,MGR_ID,MGR_PWD,MGR_JOB,MGR_NAME,MGR_EMAIL,MGR_STATUS,MGR_PIC FROM MANAGER WHERE MGR_STATUS=? order by MGR_NO";	
 	
 	private static final String DELETE_MGR = "DELETE FROM MANAGER where MGR_NO = ?";
 	private static final String DELETE_MEM = "DELETE FROM MEMBERS WHERE MEM_NO = ( SELECT MEM_NO FROM MANAGER WHERE MGR_NO = ? )";
 
-	private static final String UPDATE_MGR = "UPDATE MANAGER set MGR_PWD=?, MGR_JOB=? ,MGR_NAME=? ,MGR_EMAIL=?,MGR_STATUS=?,MGR_PIC=? where MGR_NO = ?";
-	private static final String UPDATE_MGR2 = "UPDATE MANAGER set  MGR_PWD=?, MGR_JOB=? ,MGR_NAME=? ,MGR_EMAIL=?,MGR_STATUS=? where MGR_NO = ?";
+	private static final String UPDATE_MGR = "UPDATE MANAGER set MGR_PWD=?, MGR_JOB=? ,MGR_NAME=? ,MGR_EMAIL=?,MGR_STATUS=?,MGR_PIC=?,MGR_INT=? where MGR_NO = ?";
+	private static final String UPDATE_MGR2 = "UPDATE MANAGER set  MGR_PWD=?, MGR_JOB=? ,MGR_NAME=? ,MGR_EMAIL=?,MGR_STATUS=?,MGR_INT=? where MGR_NO = ?";
 	private static final String UPDATE_MEM = "UPDATE MEMBERS SET MEM_NICKNAME=?   where MEM_NO=(SELECT MEM_NO FROM MANAGER WHERE MGR_NO =?)";
 	
 	private static final String LOGIN_MGR = "Select * from manager where mgr_id = ? and mgr_pwd = ?";
@@ -91,7 +91,7 @@ public class ManagerDAO implements ManagerDAO_interface {
 			pstmt.setString(6, managerVO.getMgr_email());
 			pstmt.setInt(7, managerVO.getMgr_status());
 			pstmt.setBytes(8, managerVO.getMgr_pic());
-			
+			pstmt.setString(9, managerVO.getMgr_int());
 			
 			
 			pstmt.executeUpdate();
@@ -166,12 +166,15 @@ public class ManagerDAO implements ManagerDAO_interface {
 			if(managerVO.getMgr_pic()!=null){
 			
 				pstmt.setBytes(6, managerVO.getMgr_pic());
-				pstmt.setString(7, managerVO.getMgr_no());
+				pstmt.setString(7, managerVO.getMgr_int());
+				pstmt.setString(8, managerVO.getMgr_no());
 				
 			}else{
 				
-				pstmt.setString(6, managerVO.getMgr_no());
+				pstmt.setString(6, managerVO.getMgr_int());
+				pstmt.setString(7, managerVO.getMgr_no());
 			}
+			
 			pstmt.executeUpdate();
 
 			con.commit();
@@ -289,6 +292,7 @@ public class ManagerDAO implements ManagerDAO_interface {
 				managerVO.setMgr_email(rs.getString("mgr_email"));
 				managerVO.setMgr_status(rs.getInt("mgr_status"));
 				managerVO.setMgr_pic(rs.getBytes("mgr_pic"));
+				managerVO.setMgr_int(rs.getString("mgr_int"));
 
 			}
 
@@ -348,6 +352,7 @@ public class ManagerDAO implements ManagerDAO_interface {
 				managerVO.setMgr_email(rs.getString("mgr_email"));
 				managerVO.setMgr_status(rs.getInt("mgr_status"));
 				managerVO.setMgr_pic(rs.getBytes("mgr_pic"));
+				managerVO.setMgr_int(rs.getString("mgr_int"));
 				list.add(managerVO); // Store the row in the list
 			}
 		} catch (SQLException e) {
@@ -405,6 +410,7 @@ public class ManagerDAO implements ManagerDAO_interface {
 				managerVO.setMgr_email(rs.getString("mgr_email"));
 				managerVO.setMgr_status(rs.getInt("mgr_status"));
 				managerVO.setMgr_pic(rs.getBytes("mgr_pic"));
+				managerVO.setMgr_int(rs.getString("mgr_int"));
 				set.add(managerVO); // Store the row in the vector
 			}
 	
@@ -465,6 +471,7 @@ public class ManagerDAO implements ManagerDAO_interface {
 				managerVO.setMgr_email(rs.getString("mgr_email"));
 				managerVO.setMgr_status(rs.getInt("mgr_status"));
 				managerVO.setMgr_pic(rs.getBytes("mgr_pic"));
+				managerVO.setMgr_int(rs.getString("mgr_int"));
 				set.add(managerVO); // Store the row in the vector
 			}
 	
@@ -575,6 +582,7 @@ public class ManagerDAO implements ManagerDAO_interface {
 				managerVO.setMgr_email(rs.getString("mgr_email"));
 				managerVO.setMgr_status(rs.getInt("mgr_status"));
 				managerVO.setMgr_pic(rs.getBytes("mgr_pic"));
+				managerVO.setMgr_int(rs.getString("mgr_int"));
 
 			}
 
@@ -638,6 +646,7 @@ public class ManagerDAO implements ManagerDAO_interface {
 				managerVO.setMgr_email(rs.getString("mgr_email"));
 				managerVO.setMgr_status(rs.getInt("mgr_status"));
 				managerVO.setMgr_pic(rs.getBytes("mgr_pic"));
+				managerVO.setMgr_int(rs.getString("mgr_int"));
 				list.add(managerVO); // Store the row in the List
 			}
 	

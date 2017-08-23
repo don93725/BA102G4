@@ -14,7 +14,7 @@ public class ManagerService {
 		dao = new ManagerDAO();
 	}
 
-	public ManagerVO addMgr(String mem_nickname,String mgr_id,String mgr_pwd,Integer mgr_job,String mgr_name,String mgr_email,Integer mgr_status,byte[] mgr_pic){
+	public ManagerVO addMgr(String mem_nickname,String mgr_id,String mgr_pwd,Integer mgr_job,String mgr_name,String mgr_email,Integer mgr_status,byte[] mgr_pic,String mgr_int){
 		
 		MembersVO membersVO = new MembersVO();
 		ManagerVO managerVO = new ManagerVO();
@@ -29,13 +29,14 @@ public class ManagerService {
 		managerVO.setMgr_email(mgr_email);
 		managerVO.setMgr_status(mgr_status);
 		managerVO.setMgr_pic(mgr_pic);
+		managerVO.setMgr_int(mgr_int);
 		dao.insert(managerVO, membersVO);
 		
 		
 		//???????????? no return membersVO
 		return managerVO;
 	}
-	public ManagerVO updateMgr(String mem_nickname,String mgr_no,String mgr_id,String mgr_pwd,Integer mgr_job,String mgr_name,String mgr_email,Integer mgr_status,byte[] mgr_pic){
+	public ManagerVO updateMgr(String mem_nickname,String mgr_no,String mgr_id,String mgr_pwd,Integer mgr_job,String mgr_name,String mgr_email,Integer mgr_status,byte[] mgr_pic,String mgr_int){
 		ManagerVO managerVO = new ManagerVO();
 		MembersVO membersVO = new MembersVO();
 		
@@ -48,6 +49,8 @@ public class ManagerService {
 		managerVO.setMgr_email(mgr_email);
 		managerVO.setMgr_status(mgr_status);
 		managerVO.setMgr_pic(mgr_pic);
+		managerVO.setMgr_int(mgr_int);
+
 		dao.update(managerVO,membersVO);
 		return managerVO; 
 	}

@@ -175,7 +175,13 @@ public class MgrCtrl extends HttpServlet {
 				} else if(!mgr_email.trim().matches(mgr_emailReg)) { //以下練習正則(規)表示式(regular-expression)
 					errorMsgs.put("mgr_email","信箱: 只能是英文字母、數字和_ , 且長度必需在2到20之間");
 	            }
-				
+				String mgr_int = req.getParameter("mgr_int");
+				String mgr_intReg = "^[(\u4e00-\u9fa5)(a-zA-Z0-9_,)]{1,50}$";
+				if (mgr_int == null || mgr_int.trim().length() == 0) {
+					errorMsgs.put("mgr_int","自我介紹: 請勿空白");
+				} else if(!mgr_name.trim().matches(mgr_nameReg)) { //以下練習正則(規)表示式(regular-expression)
+					errorMsgs.put("mgr_int","自我介紹: 只能是中、英文字母、數字和_ , 且長度必需在1到50之間");
+	            }
 				int mgr_job = 0;
 				int mgr_status = 0;
 				byte[] mgr_pic = null;
@@ -228,7 +234,7 @@ public class MgrCtrl extends HttpServlet {
 				managerVO.setMgr_email(mgr_email);
 				managerVO.setMgr_job(mgr_job);
 				managerVO.setMgr_pic(mgr_pic);
-
+				managerVO.setMgr_int(mgr_int);	
 				if (!errorMsgs.isEmpty()) {
 //					req.setAttribute("managerVO", managerVO);
 //					req.setAttribute("membersVO", membersVO);
@@ -239,7 +245,7 @@ public class MgrCtrl extends HttpServlet {
 				
 				ManagerService mgrSvc = new ManagerService();
 				managerVO = mgrSvc.addMgr(mem_nickname, mgr_id, mgr_pwd, mgr_job, mgr_name, mgr_email, mgr_status,
-						mgr_pic);
+						mgr_pic,mgr_int);
 
 				AuthorityService autSvc = new AuthorityService();
 				managerVO = autSvc.getMgrNO(mgr_id);
@@ -312,6 +318,7 @@ System.out.println("~~~~~~~~~~~~~");
 				String mgr_pwd = req.getParameter("mgr_pwd").trim();
 				System.out.println("mgr_pwd  "+mgr_pwd  );
 				String mgr_email = req.getParameter("mgr_email").trim();
+				String mgr_int = req.getParameter("mgr_int").trim();
 				System.out.println("mgr_email  "+mgr_email  );
 				String[] f_no = req.getParameterValues("f_no");
 				System.out.println("f_no  "+f_no   );
@@ -361,6 +368,7 @@ System.out.println("~~~~~~~~~~~~~");
 				managerVO.setMgr_pic(mgr_pic);
 				managerVO.setMgr_job(mgr_job);
 				managerVO.setMgr_status(mgr_status);
+				managerVO.setMgr_int(mgr_int);
 
 				// authorityVO.setMgr_no(mgr_no);
 				// for(int i=0 ;i<f_no.length;i++){
@@ -385,7 +393,7 @@ System.out.println("~~~~~~~~~~~~~");
 
 				ManagerService mgrSvc = new ManagerService();
 				managerVO = mgrSvc.updateMgr(mem_nickname, mgr_no, mgr_id, mgr_pwd, mgr_job, mgr_name, mgr_email,
-						mgr_status, mgr_pic);
+						mgr_status, mgr_pic,mgr_int);
 				
 				if("update".equals(action)){
 					
