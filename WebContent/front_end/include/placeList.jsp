@@ -44,11 +44,15 @@
 						</thead>
 						<tbody>
 							<c:forEach var="placeVO" items="${placeList}">
-								<tr><input type="text" value="${placeVO.p_no}">
+								<tr><input type="hidden" value="${placeVO.p_no}">
 									<td class="center"><span class="">${placeVO.p_name}</span></td>	
 									<td><span class="">${placeVO.p_cap}</span></td>
 									<td><span class="">${placeVO.p_add}</span></td>
 									<td><span class="">${placeVO.p_into}</span></td>
+									<input type="hidden" class="p_status" value="${placeVO.p_status}">
+									
+									<!-- 下架的場地 -->
+									<c:if test="${placeVO.p_status == '0'}">
 									<td>
 									<a class='inline' href="#update_content">
 										<button class="btn btn-primary btn-sm" id="" onclick="show('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')">
@@ -59,41 +63,74 @@
 									</td>
 									<td>
 									<a class='inline' href="#insertPic_content">
-										<button class="btn btn-info btn-sm" id="" onclick="">
-											<i class=""></i>
-											新增圖片
-										</button>
+										<input type="button" class="btn btn-info btn-sm" id="" onclick="showPicWindow('${placeVO.p_no}')" value="新增圖片">							
 									</a>
 									</td>
 									<td><button class="btn btn-danger btn-sm" onclick="deletePlace('${placeVO.p_no}', '${placeVO.p_status}')">
-										<i class="icon-ban-circle"></i>
 										刪除
 										</button>
 									</td>
-									<input type="hidden" class="p_status" value="${placeVO.p_status}">
-									<c:if test="${placeVO.p_status == '0'}">
 									<td>
 										<button class="btn btn-grey btn-sm">
 										<i class="icon-arrow-up"></i>我要上架
 										</button>
 									</td>
 									</c:if>
+									<!-- 下架的場地 結束 -->
 									
+									<!-- 上架中的場地 -->
 									<c:if test="${placeVO.p_status == '1'}">
+									<td>
+									<a class='inline' href="#update_content">
+										<button class="btn btn-primary btn-sm" id="" onclick="show('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')" disabled="disabled">
+											<i class="icon-edit"></i>
+											編輯場地
+										</button>
+									</a>
+									</td>
+									<td>
+									<a class='inline' href="#insertPic_content">
+										<input type="button" class="btn btn-info btn-sm" id="" onclick="showPicWindow('${placeVO.p_no}')" value="新增圖片" disabled="disabled">							
+									</a>
+									</td>
+									<td><button class="btn btn-danger btn-sm" onclick="deletePlace('${placeVO.p_no}', '${placeVO.p_status}')" disabled="disabled">
+										刪除
+										</button>
+									</td>
 									<td>
 										<button class="btn btn-grey btn-sm">
 										<i class="icon-arrow-down"></i>我要下架
 										</button>
 									</td>
 									</c:if>
+									<!-- 上架中的場地 結束 -->
 									
+									<!-- 使用中的場地 -->
 									<c:if test="${placeVO.p_status == '2'}">
+									<td>
+									<a class='inline' href="#update_content">
+										<button class="btn btn-primary btn-sm" id="" onclick="show('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')" disabled="disabled">
+											<i class="icon-edit"></i>
+											編輯場地
+										</button>
+									</a>
+									</td>
+									<td>
+									<a class='inline' href="#insertPic_content">
+										<input type="button" class="btn btn-info btn-sm" id="" onclick="showPicWindow('${placeVO.p_no}')" value="新增圖片" disabled="disabled">							
+									</a>
+									</td>
+									<td><button class="btn btn-danger btn-sm" onclick="deletePlace('${placeVO.p_no}', '${placeVO.p_status}')" disabled="disabled">
+										刪除
+										</button>
+									</td>
 									<td>
 										<button class="btn btn-light btn-sm" disabled="disabled" style="width:93.08px;">
 										<i class="icon-hand-paper-o"></i>使用中
 										</button>
 									</td>
 									</c:if>
+									<!-- 使用中的場地  結束-->
 									
 								</tr>
 							</c:forEach>
