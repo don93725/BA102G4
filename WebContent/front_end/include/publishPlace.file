@@ -31,11 +31,11 @@
 				</div><br>
 				請填寫以下資訊：<br>
 				訂金:<br>
-				<input type="text" id="" name=""><br>
+				<input type="text" id="pbu_price" name="pbu_price"><br>
 				尾款:<br>
-				<input type="text" id="" name=""><br>
+				<input type="text" id="pau_price" name="pau_price"><br>
 				<br>
-				<input type="button" class="btn btn-primary" value="修改" onclick="">
+				<input type="button" class="btn btn-primary" value="修改" onclick="sendW()">
 				<input type="reset" class="btn btn-default" name="" value="重新填寫" id="">
 				</form>
 		</div>
@@ -45,15 +45,8 @@
 		function addAddr(){
 			document.getElementById("p_add").value = document.getElementById("gym_add").value;
 		}
-		
-		function magicPlace() {
-			document.getElementById("p_name").value = "格鬥八角鐵籠";
-			document.getElementById("p_cap").value = "10";
-			document.getElementById("p_add").value = "台北市大安區敦化南路一段232巷6號B1";
-			document.getElementById("p_into").value = "可做為MMA之訓練場地，並提供賽事之舉辦與租借。";
-		}
 
-		function send() {
+		function sendW() {
 			swal({
 				title: "確定新增?",
 				type: "info",
@@ -65,14 +58,14 @@
 			},function(response){
 				if(response){
 					$.ajax({
-						url : webCtx + '/PlaceServlet',
+						url : webCtx + '/Place_PublishServlet',
 						data : {
-							p_name : $("#p_name").val(),
-							p_cap : $("#p_cap").val(),
-							p_add : $("#p_add").val(),
-							p_into : $("#p_into").val(),
-							action : 'publish'
+							pppp_no : $("#pppp_no").val(),
+							pbu_price : $("#pbu_price").val(),
+							pau_price : $("#pau_price").val(),
+							action : 'insert'
 						},
+						
 						type : "POST",
 						dataType : 'text',
 
