@@ -157,6 +157,7 @@ $(document).ready(function(){
 		</div>
 		<!-- /row -->
 </div>
+</div>
 	
 			
 	<!-- Footer -->

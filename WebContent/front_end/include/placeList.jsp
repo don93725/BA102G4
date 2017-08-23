@@ -42,7 +42,7 @@
 						</thead>
 						<tbody>
 							<c:forEach var="placeVO" items="${placeList}">
-								<tr><input type="hidden" value="${placeVO.p_no}">
+								<tr><input type="text" value="${placeVO.p_no}">
 									<td class="center"><span class="">${placeVO.p_name}</span></td>	
 									<td><span class="">${placeVO.p_cap}</span></td>
 									<td><span class="">${placeVO.p_add}</span></td>
@@ -77,9 +77,9 @@
 										</div>	
 									</td>
 									<td>
-										<button class="btn btn-info btn-sm">
-										<i class="icon-arrow-up"></i>我要上架
-										</button>
+										<a class='inline' href="#publish_content" onclick="showPublish('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')">
+											<input type="button" class="btn btn-info btn-sm" value="我要上架">
+										</a>
 									</td>
 									</c:if>
 									<!-- 下架的場地 結束 -->
@@ -111,9 +111,7 @@
 										</div>	
 									</td>
 									<td>
-										<button class="btn btn-primary btn-sm">
-										<i class="icon-arrow-down"></i>我要下架
-										</button>
+										<input type="button" class="btn btn-primary btn-sm" value="我要下架" onclick="unPublish()">
 									</td>
 									</c:if>
 									<!-- 上架中的場地 結束 -->
@@ -145,9 +143,7 @@
 										</div>	
 									</td>
 									<td>
-										<button class="btn btn-light btn-sm" disabled="disabled" style="width:93.08px;">
-										<i class="icon-hand-paper-o"></i>使用中
-										</button>
+										<input type="button" class="btn btn-light btn-sm" disabled="disabled" value="使用中">
 									</td>
 									</c:if>
 									<!-- 使用中的場地  結束-->
@@ -219,6 +215,14 @@
 				title : "錯誤",
 				text : "已上架或使用中的場地無法使用此功能",
 				type : "error",
+				showConfirmButton : true,
+				timer : 2000});
+		}
+		function unPublish(){
+			swal({
+				title : "場地下架",
+				text : "下架後的場地無法被看見",
+				type : "info",
 				showConfirmButton : true,
 				timer : 2000});
 		}
