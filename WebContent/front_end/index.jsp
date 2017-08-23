@@ -3,11 +3,18 @@
 <%@ page import="com.coaches.model.*" %>
 <%@ page import="com.students.model.*" %>
 <%@ page import="com.gyms.model.*" %>
+<%@ page import="com.don.util.*" %>
+<%@ page import="com.annew.model.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%  CoachesService coachesSV = new CoachesService();
 	List<CoachesVO> coachRank = coachesSV.getRankList();
-	pageContext.setAttribute("coachRank", coachRank);%>
+	pageContext.setAttribute("coachRank", coachRank);
+	IndexFiller idxFill = new IndexFiller();
+	List<AnnewVO> annewList = idxFill.getNewAnnew();
+	pageContext.setAttribute("annewList", annewList);
+	
+	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
 
@@ -220,22 +227,22 @@
             	  	</div>
             	  	<p></p>
             		<ul style="list-style:none; margin-left: 15px;">
-<% for(int i = 0 ; i < 5 ; i ++){ %>
+					<c:forEach var="annew" items="${annewList }">
 						<li style="margin-left: 0px; display: flex;">
 							<a href="#">
 								<span class="label label-lg label-primary arrowed-in">
 									公告
 								</span>
 								<span>
-									2017/08/13
+									${annew.ann_date2 }
 								</span>
 								<span class="title">
-									內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+									${annew.ann_ctx }
 								</span>
 							</a>
 						</li>
 						<p></p>
-<% } %>
+						</c:forEach>
 						
 						<li style="margin-left: 0px; display: flex;">
 							<a href="#">
