@@ -4,6 +4,10 @@
 <%@ page import="com.students.model.*" %>
 <%@ page import="com.gyms.model.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%  CoachesService coachesSV = new CoachesService();
+	List<CoachesVO> coachRank = coachesSV.getRankList();
+	pageContext.setAttribute("coachRank", coachRank);%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
 
@@ -92,16 +96,31 @@
 								<h2>本周第一名教練</h2>
 							</div>
 						<div class="item-caption yellow">
-							<a href="#">
+							<c:if test="${not empty coachRank && fn:length(coachRank)>0 }">
+								<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=1&mem_no=${coachRank[0].coa_no}&action=lookPersonal">
+							</c:if>
+         					<c:if test="${not empty coachRank && fn:length(coachRank)<1 }">
+								<a href="#">
+							</c:if>
 								<div class="item-caption-inner">
 									<div class="item-caption-inner1">
-										<h4>內文標題</h4></br>
-										<span>內文</span>
+										<c:if test="${not empty coachRank && fn:length(coachRank)>0 }">
+											<h4>${coachRank[0].coa_name }</h4></br>
+											<span>${coachRank[0].coa_into }</span>
+										</c:if>
+            							<c:if test="${not empty coachRank && fn:length(coachRank)<1 }">
+											<h4>目前從缺</h4></br>										
+										</c:if>
 									</div>
 								</div>
 							</a>
 						</div>
+							<c:if test="${not empty coachRank && fn:length(coachRank)>0 }">
+								<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachRank[0].coa_no}" alt=""/>
+							</c:if>
+         				<c:if test="${not empty coachRank && fn:length(coachRank)<1 }">
 							<img  src="http://down.epchina.com/portal/201509/08/154457pee2rumj27f145bu.jpg" alt=""/>
+						</c:if>
 					</div>
 				</div>
 			</div>
@@ -114,16 +133,31 @@
 								<h2>本周第二名教練</h2>
 							</div>
 						<div class="item-caption yellow">
-							<a href="#">
+							<c:if test="${not empty coachRank && fn:length(coachRank)>1 }">
+								<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=1&mem_no=${coachRank[1].coa_no}&action=lookPersonal">
+							</c:if>
+         					<c:if test="${not empty coachRank && fn:length(coachRank)<2 }">
+								<a href="#">
+							</c:if>
 								<div class="item-caption-inner">
 									<div class="item-caption-inner1">
-										<h4>內文標題</h4></br>
-										<span>內文</span>
-									</div>
+									<c:if test="${not empty coachRank && fn:length(coachRank)>1 }">
+											<h4>${coachRank[1].coa_name }</h4></br>
+											<span>${coachRank[1].coa_into }</span>
+										</c:if>
+            							<c:if test="${not empty coachRank && fn:length(coachRank)<2 }">
+											<h4>目前從缺</h4></br>										
+										</c:if>
+										</div>
 								</div>
 							</a>
 						</div>
-							<img  src="http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl=http://mmbiz.qpic.cn/mmbiz_jpg/1Q9gBZyvRPcwo08VUwMtqibnAPq9nYjb53k4Ubv6rQLuHlFKKnibxHmOeFe1hxMxu8iaDw6tO7HKzhvx4HctuibwVg/0" alt=""/>
+						<c:if test="${not empty coachRank && fn:length(coachRank)>1 }">
+								<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachRank[1].coa_no}" alt=""/>
+							</c:if>
+         					<c:if test="${not empty coachRank && fn:length(coachRank)<2 }">
+												<img  src="http://down.epchina.com/portal/201509/08/154457pee2rumj27f145bu.jpg" alt=""/>
+						</c:if>
 					</div>
 				</div>
 			</div>
@@ -136,16 +170,32 @@
 								<h2>本周第三名教練</h2>
 							</div>
 						<div class="item-caption yellow">
-							<a href="#">
+							<c:if test="${not empty coachRank && fn:length(coachRank)>2 }">
+								<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=1&mem_no=${coachRank[2].coa_no}&action=lookPersonal">
+							</c:if>
+         					<c:if test="${not empty coachRank && fn:length(coachRank)<3 }">
+								<a href="#">
+							</c:if>
 								<div class="item-caption-inner">
 									<div class="item-caption-inner1">
-										<h4>內文標題</h4></br>
-										<span>內文</span>
+            							<c:if test="${not empty coachRank && fn:length(coachRank)>2 }">
+											<h4>${coachRank[2].coa_name }</h4></br>
+											<span>${coachRank[2].coa_into }</span>
+										</c:if>
+            							<c:if test="${not empty coachRank && fn:length(coachRank)<3 }">
+											<h4>目前從缺</h4></br>										
+										</c:if>
 									</div>
 								</div>
 							</a>
 						</div>
-							<img  src="http://shihuo.hupucdn.com/ucditor/20170204/781x502_3fe937fb4e879d52234ec297868d0a21.jpeg?imageMogr2/format/jpg%7CimageView2/2/w/700/interlace/1" alt=""/>
+							
+							<c:if test="${not empty coachRank && fn:length(coachRank)>2 }">
+								<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachRank[2].coa_no}" alt=""/>
+							</c:if>
+         					<c:if test="${not empty coachRank && fn:length(coachRank)<3 }">
+								<img  src="http://down.epchina.com/portal/201509/08/154457pee2rumj27f145bu.jpg" alt=""/>
+							</c:if>
 					</div>
 				</div>
 			</div>

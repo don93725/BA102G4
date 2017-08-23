@@ -10,4 +10,5 @@ public interface GymsDAO_interface {
 	public void update(GymsVO gymsVO);
 	public List<GymsVO> getAllBySta(Integer gym_sta);
 	public void setSta(Integer gym_sta ,String gym_acc);
+	public GymsVO look_search_mem(MembersVO membersVO);
 } 

@@ -18,6 +18,7 @@ import javax.sql.DataSource;
 import com.coaches.model.CoachesVO;
 import com.don.util.SQLHelper;
 import com.members.model.MembersVO;
+import com.students.model.StudentsVO;
 
 public class GymsDAO implements GymsDAO_interface{
 	
@@ -52,6 +53,8 @@ public class GymsDAO implements GymsDAO_interface{
 			"Select * from gyms WHERE GYM_STA=?";
 	private static final String UPDATE_STAT =
 			"Update GYMS set GYM_sta=? where GYM_acc = ?";
+	private static final String LOOK_SEARCH_MEM =
+			"Select * from gyms where gym_acc = ?　and gym_no = ?";
 
 	@Override
 	public void insert(MembersVO membersVO, GymsVO gymsVO) {
@@ -480,4 +483,65 @@ public class GymsDAO implements GymsDAO_interface{
 			}
 			
 		}
+	public GymsVO look_search_mem(MembersVO membersVO) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		GymsVO gymsVO = null;
+		try {
+			con = ds.getConnection();
+			
+			pstmt = con.prepareStatement(LOOK_SEARCH_MEM);
+			pstmt.setString(1, membersVO.getMem_acc());
+			pstmt.setString(2, membersVO.getMem_no());
+
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				gymsVO = new GymsVO();
+				gymsVO.setGym_acc(rs.getString("gym_acc"));
+				gymsVO.setGym_no(rs.getString("gym_no"));
+				gymsVO.setGym_psw(rs.getString("gym_psw"));
+				gymsVO.setGym_sta(rs.getInt("gym_sta"));
+				gymsVO.setGym_name(rs.getString("gym_name"));
+				gymsVO.setGym_mail(rs.getString("gym_mail"));
+				gymsVO.setGym_add(rs.getString("gym_add"));
+				gymsVO.setGym_latlng(rs.getString("gym_latlng"));
+				gymsVO.setGym_into(rs.getString("gym_into"));
+				gymsVO.setGym_pic(rs.getBytes("gym_pic"));
+
+				return gymsVO;
+			}else {
+				return null;
+			}
+
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+	}
+
 }

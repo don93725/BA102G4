@@ -1,5 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="com.message.model.*" %>
+<%@ page import="com.members.model.*" %>
+<%	int nrNum = 0;
+	MembersVO user = (MembersVO)(session.getAttribute("user"));
+	if(user!=null){	
+		MessageService messageService = new MessageService();	
+		nrNum = messageService.getNRNum(user.getMem_no());
+	}
+	pageContext.setAttribute("nrNum",nrNum);
 	application.setAttribute("A","瑜珈");
 	application.setAttribute("B","飛輪有氧");
 	application.setAttribute("C","舞動有氧");
@@ -72,9 +81,7 @@
                     <li class="navbar_icon">
                         <a href="/BA102G4/forum/ForumCtrl">討論專區</a>
                     </li>
-                    <li class="navbar_icon">
-                        <a href="#">直播專區</a>
-                    </li>
+                    
                    
                     <li class="dropdown navbar_icon">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">客服專區 <b class="caret"></b></a>
@@ -163,7 +170,9 @@
 				<!-- 登出 -->
                 <ul class="nav navbar-nav navbar-right">
                     <li class="navbar_icon">
-                    	<a href="#">
+                    	<c:if test='${nrNum==0}'><a href="#"></c:if>
+                    	<c:if test='${nrNum!=0}'><a href="<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}"><span id='nrNum' class='badge' style='background-color:red !important;'>${nrNum}</span></c:if>                	
+                    		
                     		<img src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=0&mem_no=${studentsVO.stu_no}" style="width:20px;" />
                     		${sessionScope.user.mem_nickname}&nbsp學員，你好
                    		</a>
@@ -226,25 +235,11 @@
                         </ul>
                     </li>
                     
-                    <!-- 直播管理 -->
-                    <li class="dropdown navbar_icon">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">直播管理 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">直播上/下架</a>
-                            </li>
-                            <li>
-                                <a href="#">直播管理</a>
-                            </li>
-                            <li>
-                                <a href="#">直播報表查詢</a>
-                            </li>
-                        </ul>
-                    </li>
+
                     
                     <!-- 廣告申請 -->
                     <li class="navbar_icon">
-                        <a href="#">廣告申請</a>
+                        <a href="<%=request.getContextPath()%>/adapply/AD_ApplyCtrl?action=addAD">廣告申請</a>
                     </li>
                     
                     <!-- 場地租借 -->
@@ -267,7 +262,8 @@
                 <!-- 登出 -->
                 <ul class="nav navbar-nav navbar-right">
                     <li class="navbar_icon">
-                    	<a href="#">
+                    <c:if test='${nrNum==0}'><a href="#"></c:if>
+                    	<c:if test='${nrNum!=0}'><a href="<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}"><span id='nrNum' class='badge' style='background-color:red !important;'>${nrNum}</span></c:if>   
                     		<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachesVO.coa_no}" style="width:20px;" />
                     		${sessionScope.user.mem_nickname}&nbsp教練，你好
                     	</a>
@@ -346,9 +342,14 @@
 				
 				<!-- 登出 -->
                 <ul class="nav navbar-nav navbar-right">
+                	
                     <li class="navbar_icon">
-                    	<a href="#">
+                    	
+                    	
+                    		<c:if test='${nrNum==0}'><a href="#"></c:if>
+                    	<c:if test='${nrNum!=0}'><a href="<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}"><span id='nrNum' class='badge' style='background-color:red !important;'>${nrNum}</span></c:if>   
                     		<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=2&mem_no=${gymsVO.gym_no}" style="width:25px;" />
+                    		
                     	 	${sessionScope.user.mem_nickname}&nbsp健身房業者，你好
                     	</a>
                     </li>

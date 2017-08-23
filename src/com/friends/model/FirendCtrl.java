@@ -24,10 +24,7 @@ public class FirendCtrl extends HttpServlet {
 		String mem_no = req.getParameter("mem_no");
 		MembersVO user = (MembersVO) req.getSession().getAttribute("user");
 
-		if (user==null) {
-			//非會員想做
-			return;		
-		}
+
 		if(action==null){		
 			FriendsService friendsService = new FriendsService();
 			int thisPage = (req.getParameter("thisPage")==null)? 1:Integer.parseInt(req.getParameter("thisPage"));
@@ -36,7 +33,8 @@ public class FirendCtrl extends HttpServlet {
 			int allPageCount = friendsService.getFriendNum(mem_no);
 			req.setAttribute("friendPageList", friendPageList);
 			req.setAttribute("thisPage", thisPage);
-			req.setAttribute("friendsService", friendsService);
+			req.setAttribute("allPageCount", allPageCount);
+			System.out.println(thisPage + " "+allPageCount);
 			req.setAttribute("queryStr", "/friends/FirendCtrl?mem_no="+mem_no);
 			req.getRequestDispatcher("/front_end/friends/Friends.jsp").forward(req, res);
 			return;

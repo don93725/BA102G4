@@ -146,7 +146,7 @@
 								</div>
 							</a>
 						</div>
-							<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${gymsVO.gym_no}" style="margin-top:4px;border-radius:100px;box-shadow:0px 0px 12px #7E7E7E;" />
+							<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=2&mem_no=${gymsVO.gym_no}" style="margin-top:4px;border-radius:100px;box-shadow:0px 0px 12px #7E7E7E;" />
 					</div>
 			</div>
 </c:forEach>

@@ -14,7 +14,17 @@ public class CoachesVO implements Serializable{
 	private String coa_into;
 	private byte[] coa_pic;
 	private Integer coa_pft;
+	private Double score;
 	
+	
+	public Double getScore() {
+		return score;
+	}
+
+	public void setScore(Double score) {
+		this.score = score;
+	}
+
 	public CoachesVO(){
 		
 	}

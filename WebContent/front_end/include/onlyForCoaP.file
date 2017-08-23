@@ -84,7 +84,7 @@
 
 										<div class="profile-contact-info">
 											<div class="profile-contact-links align-left">
-												<c:if test='${not empty user&&(param.mem_no!=sessionScope.user.mem_no)}'>
+												<c:if test='${not empty sessionScope.user&&(param.mem_no!=sessionScope.user.mem_no)}'>
 												<c:if test='${ifFriend}'>
 													<a class="btn btn-link" href="#" disabled onclick='return false;'>
 														<i class="icon-plus-sign bigger-120 green"></i>
