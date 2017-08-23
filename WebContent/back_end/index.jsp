@@ -14,15 +14,14 @@
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				­º­¶ <small> <i class="icon-double-angle-right"></i>
+				TEST <small> <i class="icon-double-angle-right"></i>
 					
 				</small>
 			</h1>
 		</div>
 		<!-- /.page-header -->
 						
-					
-						
+		
 						
 	</div>				
 	<%@include file="/back_end/include/ace_setting_footer.file"%>

@@ -3,6 +3,11 @@
 <%@ page import="com.coaches.model.*" %>
 <%@ page import="com.students.model.*" %>
 <%@ page import="com.gyms.model.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="com.manager.model.*" %>
+<% ManagerService managerSV = new ManagerService();
+   List<ManagerVO> mgrList = managerSV.getAll(); 
+   pageContext.setAttribute("mgrList",mgrList);%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
@@ -66,142 +71,23 @@
             <div class="col-lg-12">
                 <h2 class="page-header">我們的團隊</h2>
             </div>
+            <c:forEach var="mgr" items="${mgrList }">
             <div class="col-md-4 text-center">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="http://media.viralcham.com/wp-content/uploads/2015/04/%E3%80%90%E5%A5%B3%E5%AD%A9%E5%BF%85%E7%9C%8B%E3%80%91%E9%80%995%E7%A8%AE%E8%B7%A1%E8%B1%A1%E9%A1%AF%E7%A4%BA%EF%BC%8C%E5%A5%B3%E5%AD%A9%E5%A6%B3%E6%87%89%E8%A9%B2%E6%94%B9%E6%94%B9%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8C%96%E5%A6%9D%E6%AD%A5%E9%A9%9F%E4%BA%86.jpg" alt="">
+                    <img class="img-responsive" src="${pageContext.request.contextPath }/mgr/DBGifReader?mgr_no=${mgr.mgr_no}" alt="">
                     <div class="caption">
-                        <h3>吳東祐<br>
-                            <small>總裁</small>
+                        <h3>${mgr.mgr_name }<br>
+                            <small>${(mgr.mgr_job==0)? "管理員":"系統管理員" }</small>
                         </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                        </ul>
+                        <p>${mgr.mgr_int }</p>
+                        
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="https://jessicahk-prod-resources.s3-ap-southeast-1.amazonaws.com/files/styles/article_original_image/public/white4.jpg?itok=Gh9rMdOP" alt="">
-                    <div class="caption">
-                        <h3>李宗霖<br>
-                            <small>執行長</small>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="https://s.yimg.com/ny/api/res/1.2/K3unQw9XD9lNNbVlyPeK1g--/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9NzUwO2g9NDUw/http://media.zenfs.com/zh-Hant-Hk/homerun/jessica_995/5025660c84701466277e8706ae7fbad1" alt="">
-                    <div class="caption">
-                        <h3>許翔智<br>
-                            <small>打掃阿伯</small>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="http://i1.go2yd.com/image.php?url=0GnHr6HYtA" alt="">
-                    <div class="caption">
-                        <h3>許詠棨<br>
-                            <small>總經理</small>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="https://tc.sinaimg.cn/maxwidth.800/tc.service.weibo.com/www_adquan_com/2b5bda4204a04ecac9be134d6e9cdac6.jpg" alt="">
-                    <div class="caption">
-                        <h3>曾朔帆<br>
-                            <small>創意總監</small>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="http://odezhda-stilnaya.ru/kartinki/6/bryunetka_kareglazyy_lico_vzglyad_krasivaya_1920x1200.jpg" alt="">
-                    <div class="caption">
-                        <h3>李俊毅<br>
-                            <small>經理</small>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="http://www.thefastfashion.com/wp-content/uploads/2016/12/mangluoinet-hinh-nen-girl-xinh-dep-39.jpg" alt="">
-                    <div class="caption">
-                        <h3>高士勛<br>
-                            <small>副董</small>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
         </div>
         <!-- /.row -->
-
+		</div>
         <hr>
 
         <!-- Footer -->

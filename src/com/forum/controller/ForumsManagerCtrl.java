@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.forum.domain.Forums;
 import com.forum.service.ForumsService;
 import com.members.model.MembersVO;
+import com.message.model.MessageService;
 
 /**
  * Servlet implementation class ForumsManagerCtrl
@@ -33,8 +34,15 @@ public class ForumsManagerCtrl extends HttpServlet {
 			if ("confirm".equals(action)) {					
 				String forum_no = req.getParameter("forum_no");
 				String forum_stat = req.getParameter("forum_stat");
+				String rcv_no = req.getParameter("rcv_no");
 				System.out.println(forum_no+" "+forum_stat);
 				boolean result = forumsSevice.confirm(forum_no, forum_stat);
+				
+				if(rcv_no != null && result != false){
+					MessageService messageSvc = new MessageService();
+					System.out.println("rcv_no" + rcv_no);
+					messageSvc.add(rcv_no,"0", "審核通過 , 恭喜開版");
+				}
 			}			
 			int thisPage = req.getParameter("thisPage") == null ? 1 : Integer.parseInt(req.getParameter("thisPage"));
 			int pageSize = 5;

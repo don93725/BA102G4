@@ -5,6 +5,7 @@
 <%@ page import="com.gyms.model.*" %>
 <%@ page import="com.don.util.*" %>
 <%@ page import="com.annew.model.*" %>
+<%@ page import="com.fitkw.model.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%  CoachesService coachesSV = new CoachesService();
@@ -13,6 +14,8 @@
 	IndexFiller idxFill = new IndexFiller();
 	List<AnnewVO> annewList = idxFill.getNewAnnew();
 	pageContext.setAttribute("annewList", annewList);
+	List<FitkwVO> fitkwList = idxFill.getNewFitkw();
+	pageContext.setAttribute("fitkwList", fitkwList);
 	
 	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -237,7 +240,7 @@
 									${annew.ann_date2 }
 								</span>
 								<span class="title">
-									${annew.ann_ctx }
+									${annew.ann_title }
 								</span>
 							</a>
 						</li>
@@ -264,22 +267,22 @@
             	  	</div>
             	  	<p></p>
             		<ul style="list-style:none;margin-left:15px;">
-<% for(int i = 0 ; i < 5 ; i ++){ %>
+					<c:forEach var='fitkw' items="${fitkwList}">
 						<li style="margin-left: 0px; display: flex;">
 							<a>
 								<span class="label label-lg label-pink arrowed-right">
-									類型
+									${fitkw.fik_type }
 								</span>
 								<span>
-									2017/12/31
+									${fitkw.upd_date2 }
 								</span>
 								<span class="title">
-									內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+									${fitkw.fik_title }
 								</span>
 							</a>
 						</li>
 						<p></p>
-<% } %>
+						</c:forEach>
 						<li style="margin-left: 0px; display: flex;">
 							<a>
 								<span>
