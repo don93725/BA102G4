@@ -164,7 +164,7 @@ public class AD_ApplyCtrl extends HttpServlet {
 				ad_ApplyVO = adSvc.addAD(mem_no, pay_date, ad_name, ad_url, ad_ondate, ad_offdate, ad_ctx, ad_pt);
 				
 				/***************************3.新增完成,準備轉交(Send the Success view)***********/
-				String url = "/front_end/adapply/setCheckAD.jsp";
+				String url = "/front_end/index.jsp";
 				RequestDispatcher successView = req.getRequestDispatcher(url); // 新增成功後轉交listAllEmp.jsp
 				successView.forward(req, res);				
 				
@@ -188,6 +188,7 @@ public class AD_ApplyCtrl extends HttpServlet {
 			try {
 				String ad_no = req.getParameter("ad_no");
 				String rcv_no = req.getParameter("rcv_no");
+				System.out.println("rcv_no:   "+rcv_no);
 				message.add(rcv_no,"0", "感謝付費~您的廣告申請已核准!!!");
 				AD_ApplyService ADSvc = new AD_ApplyService();
 				ADSvc.updateADStat(new Integer(1), ad_no);
@@ -206,8 +207,11 @@ public class AD_ApplyCtrl extends HttpServlet {
 		if("NO_AD".equals(action)){
 			List<String> errorMsgs = new LinkedList<String>();
 			req.setAttribute("errorMsgs", errorMsgs);
+			MessageService message = new MessageService();
 			try {
 				String ad_no = req.getParameter("ad_no");
+				String rcv_no = req.getParameter("rcv_no");
+				message.add(rcv_no,"0", "抱歉~您的廣告被退回請新申請!!!");
 				AD_ApplyService ADSvc = new AD_ApplyService();
 				ADSvc.updateADStat(1, ad_no);
 				String url = "/back_end/adapply/setCheckAD.jsp";

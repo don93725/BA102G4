@@ -239,7 +239,7 @@
                     
                     <!-- 廣告申請 -->
                     <li class="navbar_icon">
-                        <a href="#">廣告申請</a>
+                        <a href="<%=request.getContextPath()%>/adapply/AD_ApplyCtrl?action=addAD">廣告申請</a>
                     </li>
                     
                     <!-- 場地租借 -->
