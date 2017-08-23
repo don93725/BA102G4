@@ -85,11 +85,10 @@
 															style="width: 100px; height: 100px;"></td>
 									<td class="center">${placeReportVO.pr_stat==0?'¥¼¼f®Ö':'¤w¼f®Ö'}</td>
 									<td class="center">
-										<form method="post"
-											action="<%=request.getContextPath()%>/placerep/PlaceRepCtrl">
+										<form method="post" action="<%=request.getContextPath()%>/placerep/PlaceRepCtrl">
 											<input type="submit" value="®Ö­ã"> <input type="hidden"
-												name="pr_no" value="${placeReportVO.pr_no}"> <input
-												type="hidden" name="p_no" value="${placeReportVO.p_no}">
+													name="pr_no" value="${placeReportVO.pr_no}"> 
+											<input type="hidden" name="p_no" value="${placeReportVO.p_no}">
 											<input type="hidden" name="action" value="Report">
 										</form>
 									</td>

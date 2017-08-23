@@ -79,9 +79,9 @@
 
 									<td class="center">
 										<form method="post" action="<%=request.getContextPath()%>/courserep/CourseRepCtrl">
-											<input type="submit" value="о╓ну"> <input type="hidden"
-												name="ct_no" value="${courseReportVO.ct_no}"> <input
-												type="hidden" name="action" value="Report">
+											<input type="submit" value="о╓ну"> 
+											<input type="hidden" name="ct_no" value="${courseReportVO.ct_no}"> 
+											<input type="hidden" name="action" value="Report">
 										</form>
 									</td>
 

@@ -190,6 +190,7 @@
 							</a>
 
 							<ul class="submenu">
+						<!--	
 								<li>
 									<a href="<%=request.getContextPath()%>/back_end/memrep/setCheckMemRep.jsp">
 										<i class="icon-double-angle-right"></i> 
@@ -197,7 +198,7 @@
 										會員檢舉
 									</a>
 								</li>
-
+										---->
 								<li>
 									<a href="<%=request.getContextPath()%>/back_end/courserep/listAllCourseRep.jsp">
 										<i class="icon-double-angle-right"></i>

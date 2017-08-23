@@ -83,16 +83,17 @@
 											action="<%=request.getContextPath()%>/adapply/AD_ApplyCtrl">
 											<input type="submit" value="®Ö­ã"> 
 											<input type="hidden" name="ad_no" value="${ad_ApplyVO.ad_no}"> 
-											<input type="hidden" name="rcv_no" value="${user.mem_no}"> 
+											<input type="hidden" name="rcv_no" value="${ad_ApplyVO.mem_no}"> 
 											<input type="hidden" name="action" value="OK_AD">
 										</form>
 									</td>
 
 									<td class="center"><form method="post"
 											action="<%=request.getContextPath()%>/adapply/AD_ApplyCtrl">
-											<input type="submit" value="»é¦^"> <input type="hidden"
-												name="ad_no" value="${ad_ApplyVO.ad_no}"> <input
-												type="hidden" name="action" value="NO_AD">
+											<input type="submit" value="»é¦^"> 
+											<input type="hidden" name="ad_no" value="${ad_ApplyVO.ad_no}">
+											<input type="hidden" name="rcv_no" value="${ad_ApplyVO.mem_no}">  
+											<input type="hidden" name="action" value="NO_AD">
 										</form>
 									</td>
 								</tr>

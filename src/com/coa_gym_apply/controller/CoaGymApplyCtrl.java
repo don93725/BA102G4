@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.coaches.model.CoachesService;
 import com.gyms.model.GymsService;
 import com.membersreport.model.MembersReportService;
+import com.message.model.MessageService;
 
 
 @WebServlet("/CoaGymApplyCtrl")
@@ -26,7 +27,7 @@ public class CoaGymApplyCtrl extends HttpServlet {
 		res.setContentType("text/html; charset=Big5");
 		
 		String action = req.getParameter("action");
-		
+		MessageService message = new MessageService();
 		
 		
 		
@@ -39,6 +40,8 @@ public class CoaGymApplyCtrl extends HttpServlet {
 				String coa_no = req.getParameter("coa_no");
 				CoachesService coaSvc = new CoachesService();
 				coaSvc.updateCoaApply(1, coa_acc);
+				message.add(coa_no, "0", "帳號 申請成功!!恭喜成為健貨教練的一員!!");
+				System.out.println("教練審核成功");
 				String url = "/back_end/coa_gym_apply/coa_apply.jsp";
 				RequestDispatcher successView = req.getRequestDispatcher(url);
 				successView.forward(req, res);
@@ -84,6 +87,8 @@ public class CoaGymApplyCtrl extends HttpServlet {
 				String gym_no = req.getParameter("gym_no");
 				GymsService gymSvc = new GymsService();
 				gymSvc.updateGymApply(1, gym_acc);
+				message.add(gym_no, "0", "帳號 申請成功!!恭喜成為健貨健身房的一員!!");
+				System.out.println("健身房審核成功");
 				String url = "/back_end/coa_gym_apply/gym_apply.jsp";
 				RequestDispatcher successView = req.getRequestDispatcher(url);
 				successView.forward(req, res);

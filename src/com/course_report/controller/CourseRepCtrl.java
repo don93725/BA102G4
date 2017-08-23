@@ -16,9 +16,13 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import com.authority.model.AuthorityService;
+import com.course.model.CourseService;
 import com.course_list.model.Course_listService;
 import com.course_list.model.Course_listVO;
+import com.course_time.model.Course_timeService;
 import com.manager.model.ManagerVO;
+import com.members.model.MembersService;
+import com.message.model.MessageService;
 
 @WebServlet("/courserep/CourseRepCtrl")
 public class CourseRepCtrl extends HttpServlet {
@@ -40,7 +44,7 @@ public class CourseRepCtrl extends HttpServlet {
 		if("Report".equals(action)){
 			List<String>errorMsgs = new LinkedList<String>();
 			req.setAttribute("errorMsgs", errorMsgs);
-			
+			MessageService messageSvc = new MessageService();
 			try {
 				String ct_no = req.getParameter("ct_no");
 				System.out.println(ct_no);
@@ -48,6 +52,15 @@ public class CourseRepCtrl extends HttpServlet {
 				
 				CRSvc.updateReportSta(ct_no);
 				CRSvc.updateCRNum(ct_no);
+				
+				///檢舉訊息通知
+				CourseService courseSvc = new CourseService();
+				String c_acc = courseSvc.getCourse(ct_no).getC_acc();
+				System.out.println("c_acc:   "+c_acc);
+				MembersService memSvc = new MembersService();
+				String c_no = memSvc.getMemAcc(c_acc).getMem_no();
+				messageSvc.add(c_no, "0", "您開的課程被檢舉 ,請在近期內改善...");
+				
 				String url = "/back_end/courserep/listAllCourseRep.jsp";
 				RequestDispatcher successView = req.getRequestDispatcher(url);
 				successView.forward(req, res);

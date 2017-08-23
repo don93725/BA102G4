@@ -92,11 +92,10 @@
 			<jsp:useBean id="adapplyPlaceSvc" scope="page" class="com.place.model.PlaceService" />
 			<div class="form-group">
 				<label for="ad_url" class="col-xs-12 col-sm-3 control-label">
-					~~¿ï¾Ü¼s§i¥Zµn: ${adapplyPlaceSvc.placeList(user.mem_acc,"1")}~~
 				</label>
 				<div class="col-xs-12 col-sm-9">
 					<select  name="ad_url" class="form-control">
-						<c:forEach var="placeVO" items="${adapplyPlaceSvc.placeList(user.mem_acc,'1')}">
+						<c:forEach var="placeVO" items="${adapplyPlaceSvc.placeList(user.mem_acc,1)}">
 							<option value="${placeVO.p_no}">${placeVO.p_no}--${placeVO.p_name}</option>
 						</c:forEach>
 					</select>
