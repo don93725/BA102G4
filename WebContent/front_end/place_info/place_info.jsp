@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.place_pic.model.*"%>
+<%@ page import="com.place.model.*"%>
+<%@ page import="java.util.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	PlaceVO pp = ((PlaceVO)request.getAttribute("placeVO"));
+	Place_PicService sv = new Place_PicService();
+	List list = sv.getAllPPic(pp.getP_no());
+	pageContext.setAttribute("piclist", list);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
 <head>
@@ -14,11 +23,20 @@
  		webCtx = path.substring(0, path.indexOf('/', 1));
 	})
 </script>
+<!-- 燈箱 -->
+<script>
+$(document).ready(function(){
+	$(".inline").colorbox({inline:true, width:"40%"});
+});
+</script>
 <body>
-<%
-
-%>
-
+<!-- 我要預定視窗 -->
+<%@include file="/front_end/include/orderPlace.file" %>
+<!-- 新增場地視窗結束 -->
+<!-- googleMap -->
+<%@include file="/front_end/include/googleMap2.file" %>
+<!-- googleMap結束 -->
+	
 	<!-- 導覽列 -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<%@include file="/front_end/include/front_navbar.file" %>
@@ -31,7 +49,7 @@
 		<div class="breadcrumbs" id="breadcrumbs">
 			<div class="col-lg-12">
 				<h1>
-					XXX場地詳情 <small>XXX場地詳情</small>
+					場地詳情 <small>場地詳情</small>
 				</h1>
 			</div>
 
@@ -39,124 +57,140 @@
 				<li><i class="icon-home home-icon"></i> <a href="#">首頁</a></li>
 				<li class="active">服務介紹</li>
 				<li class="active">找場地</li>
-				<li class="active">XXX場地詳情</li>
+				<li class="active">場地詳情</li>
 			</ul>
 			<!-- .breadcrumb -->
 		</div>
-		<br>
-		
+
 		<!-- 場地詳情 -->
-		<div class="row">
-			<!-- 大圖 -->
-			<div class="col-lg-12" style="width:100%;height:300px;background-color:red;">
-				aaa
+		<!-- Page Content -->
+    <div class="container">
+    	<div class="row">
+    		<div class="col-lg-12">
+    			<h2>${placeVO.p_name}</h2>
+    		</div>
+    		
+			<div class="col-xs-12 col-lg-7" style="position:relative;">
+				<div class="item">
+					<img id="show-image" src="${placeVO.place_picVO.p_base} " style="width:100%;">
+				</div>
 			</div>
-			<!-- 小圖 -->
-			<div class="col-lg-12" style="width:100%;height:100px;background-color:yellow;">
-				aaa
+			<div class="col-lg-1 abgne-block-20120106">
+				<c:forEach var="pic" items="${piclist}">
+					<a href="${pic}"><img src="${pic}" style="width:80%;display:block;margin-bottom:1em;"></a>
+				</c:forEach>
 			</div>
-			<!-- 資訊 -->
-			<div class="col-lg-12" style="width:100%;height:100px;background-color:green;">
-				
-			</div>
-			<!-- 我要訂 -->
-			<div class="col-lg-12" style="width:100%;height:100px;background-color:deeppink;">
-				
-			</div>
-		</div>
+			<!-- 顯示縮圖 -->
+			<script>
+			$(function(){
+				// 用來顯示大圖片用
+				var $showImage = $('#show-image');
+			 
+				// 當滑鼠移到 .abgne-block-20120106 中的某一個超連結時
+				$('.abgne-block-20120106 a').mouseover(function(){
+					// 把 #show-image 的 src 改成被移到的超連結的位置
+					$showImage.attr('src', $(this).attr('href'));
+				}).click(function(){
+					// 如果超連結被點擊時, 取消連結動作
+					return false;
+				});
+			});
+			</script>
 			
-		<!-- Content Row -->
-		<div class="row">
-			<div class="col-lg-12">	
-    
-			<div class="tabbable">
-					<!-- tab那一欄 -->
-					<ul class="nav nav-tabs" id="myTab">
-						<!-- 申請者管理 -->
-						<li id = ""><a data-toggle="tab" href="#profile" onclick="dropdown(8);"> 申請者管理 </a>
-							<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown8" role="button" value="申請者管理">
-								<input type="hidden" name="action" value="">
-							</form>
-						</li>
-						
-						<!-- 上/下架管理 -->
-						<li class="dropdown" id = ""><a data-toggle="dropdown"
-							class="dropdown-toggle" href="#"> 上/下架管理 &nbsp;<i
-								class="icon-caret-down bigger-110 width-auto"></i></a> <!-- 課程管理細項 -->
-							<ul class="dropdown-menu dropdown-info">
-								<li>
-								<a data-toggle="tab" href="#" onclick="dropdown(1)">場地列表<span class="badge badge-danger">4</span></a>
-									<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-										<input type="submit" class="btn btn-default" id="dropdown1" role="button" value="場地列表">
-										<input type="hidden" name="action" value="placeList">
-									</form>
-								</li>
-								
-								<li><a data-toggle="tab" href="" onclick="dropdown(2)">已下架</a>
-									<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-										<input type="submit" class="btn btn-default" id="dropdown2" role="button" value="已下架">
-										<input type="hidden" name="action" value="placeList">
-										<input type="hidden" name="placeList_status" value="0">
-									</form>
-								</li>
-								<li><a data-toggle="tab" href="" onclick="dropdown(3)">已上架</a>
-									<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-										<input type="submit" class="btn btn-default" id="dropdown3" role="button" value="已上架">
-										<input type="hidden" name="action" value="placeList">
-										<input type="hidden" name="placeList_status" value="1">
-									</form>
-								</li>
-								</li>
-								<li><a data-toggle="tab" href="" onclick="dropdown(4)">使用中</a>
-									<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-										<input type="submit" class="btn btn-default" id="dropdown4" role="button" value="正在使用中">
-										<input type="hidden" name="action" value="placeList">
-										<input type="hidden" name="placeList_status" value="2">
-									</form>
-								</li>
-							</ul>
-						</li>
-
-						<!-- 租借紀錄查詢 -->
-						<li class="" id = ""><a data-toggle="tab" href="" onclick="dropdown(5)"> <i
-								class="green icon-home bigger-110"></i>租借紀錄查詢</a>
-							<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown5" role="button" value="租借紀錄查詢">
-								<input type="hidden" name="action" value="">
-							</form>
-						</li>
-
-						<!-- 租借報表查詢 -->
-						<li id = ""><a data-toggle="tab" href="#profile" onclick="dropdown(6)"> 租借報表查詢 </a>
-							<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown6" role="button" value="租借報表查詢">
-								<input type="hidden" name="action" value="">
-							</form>
-						</li>
-						
-						<!-- 檢舉教練 -->
-						<li id = ""><a data-toggle="tab" href="#profile" onclick="dropdown(7)"> 檢舉教練 </a>
-							<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown7" role="button" value="檢舉教練">
-								<input type="hidden" name="action" value="">
-							</form>
-						</li>
-					</ul>
-
-
-					<!-- 內容全在這裡 -->
-					<div class="tab-content page" style="background-color:white;">
-						<jsp:include page="${page}" />
+			<div class="col-xs-12 col-lg-4" style="height:300px;font-size:18px;background-color:white;">
+				<div class="item">
+					<div>
+						<p style="color:red;">訂金：&nbsp$${placeVO.place_publishVO.pbu_price}</p>
 					</div>
-					<!-- 內容全在這裡 結束 -->
-
-
+					<div>
+						<p style="color:red;">尾款：&nbsp$${placeVO.place_publishVO.pau_price}</p>
+					</div>
+					<div>
+						<p>場館名稱：&nbsp${placeVO.p_name}</p>
+					</div>
+					<div>
+						<p>場館介紹：&nbsp${placeVO.p_into}</p>
+					</div>
+					<div>
+						<p>場館地址：&nbsp${placeVO.p_add}
+						<a class='inline' href="#map_content" onclick="initMap('${placeVO.p_latlng}')" value="新增圖片">
+    						<i class="icon-map"></i> 查看位置
+    					</a>
+						
+						
+					</div>
+				</div>
 			</div>
-			<!-- col-lg-12 -->
-			<div class="vspace-xs-6"></div>
 		</div>
-		<!-- /row -->
+		
+		
+		<div class="row">		
+			<center>
+			<div class="col-xs-12 col-sm-12" style="background-color:white;margin-top:3em;border:2px #ccc solid;border-radius:6px;padding: 0px;">
+				<div class="col-xs-12 col-sm-4">
+					<p style="border-right:2px #ccc solid;margin-top:1em;">
+					<span style="position:relative;right:1em;">
+						<i class="glyphicon glyphicon-star-empty" style="font-size:16px;"></i>
+						<font color="orange" style="font-size:16px;font-weight:bold;">
+							<c:out value="${eva.crsAvg == 0?null:eva.crsAvg}" default="尚無評價"  />
+						</font><br>
+						<font style="font-size:18px;">場地評價</font>
+					</span>						
+					</p>
+				</div>
+				
+				<div class="col-xs-12 col-sm-4">
+					<p style="border-right:2px #ccc solid;margin-top:1em;">
+					<span style="position:relative;right:1em;">
+						<i class="glyphicon glyphicon-user" style="font-size:16px;"></i><br>
+						<font style="font-size:18px;">可容納&nbsp${placeVO.p_cap}&nbsp人</font>
+					</span>
+					</p>
+				</div>
+				<c:choose>
+					<c:when test="">
+						<div class="col-xs-12 col-sm-4" style="cursor: not-allowed;">
+							<p style="margin-top:1em;">
+							<font style="font-size:30px;" color="gray">馬上租借</font>
+							</p>
+						</div>
+					</c:when>
+					<c:when test="">
+						<div class="col-xs-12 col-sm-4" style="cursor: not-allowed;">
+							<p style="margin-top:1em;">
+							<font style="font-size:30px;" color="gray">人數已滿</font>
+							</p>
+						</div>
+					</c:when>
+					<c:when test="">
+						<div class="col-xs-12 col-sm-4" style="cursor: not-allowed;">
+							<p style="margin-top:1em;">
+							<font style="font-size:30px;" color="gray">已報名</font>
+							</p>
+						</div>
+					</c:when>
+					<c:when test="">
+						<div class="col-xs-12 col-sm-4" style="cursor: not-allowed;">
+							<p style="margin-top:1em;">
+							<font style="font-size:30px;" color="gray">請先登入</font>
+							</p>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="col-xs-12 col-sm-4" id="signUp" style="cursor: pointer;">
+							<a class='inline' href="#order_content">
+								<p style="margin-top:1em;">
+								<font style="font-size:30px;" id="signUpFont">馬上租借</font>
+								</p>
+							</a>
+						</div>	
+					</c:otherwise>
+				</c:choose>
+			</div>
+			</center>
+		</div>
+		
+		
 </div>
 </div>
 	

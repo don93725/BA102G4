@@ -95,7 +95,7 @@
                         </ul>
                     </li>
                     <!-- 判斷角色 -->
-                    <input type="text" id="rankColor" value="${sessionScope.user.mem_rank }">
+                    <input type="hidden" id="rankColor" value="${sessionScope.user.mem_rank }">
      
 <!-- 身分為訪客時，顯示 -->                    
 <c:if test="${empty sessionScope.user.mem_rank }">

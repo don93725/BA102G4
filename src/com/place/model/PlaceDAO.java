@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.place_pic.model.Place_PicService;
 import com.place_pic.model.Place_PicVO;
 import com.place_publish.model.Place_PublishVO;
 import com.place_time.model.Place_timeVO;
@@ -500,6 +501,7 @@ public class PlaceDAO implements PlaceDAO_interface {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List list = null;
+		Place_PicService sv = new Place_PicService();
 
 		try {
 			con = ds.getConnection();
@@ -509,7 +511,7 @@ public class PlaceDAO implements PlaceDAO_interface {
 
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				placeVO = new PlaceVO();			
+				placeVO = new PlaceVO();		
 				placeVO.setP_no(rs.getString("p_no"));
 				placeVO.setG_acc(rs.getString("g_acc"));
 				placeVO.setP_name(rs.getString("p_name"));
@@ -525,9 +527,8 @@ public class PlaceDAO implements PlaceDAO_interface {
 				place_picVO = new Place_PicVO();
 				place_picVO.setP_pic_no(rs.getString("p_pic_no"));
 				place_picVO.setP_base(rs.getString("p_base"));
-				
-				placeVO.setPlace_picVO(place_picVO);
 				placeVO.setPlace_publishVO(place_publishVO);
+				placeVO.setPlace_picVO(place_picVO);
 			}
 		} catch (SQLException se) {
 			throw new RuntimeException("A database error occured. " + se.getMessage());

@@ -38,6 +38,7 @@
 								<th>場地介紹</th>
 								<th></th>
 								<th></th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -81,6 +82,8 @@
 											<input type="button" class="btn btn-info btn-sm" value="我要上架">
 										</a>
 									</td>
+									<td>
+									</td>
 									</c:if>
 									<!-- 下架的場地 結束 -->
 									
@@ -108,15 +111,17 @@
     												</a>
     											</li>
   											</ul>
-  											<form action="<%= request.getContextPath() %>/PlaceInfoServlet" method="POST">
-    											<input type="submit" value="場地詳情">
-    											<input type="hidden" name="p_no" value="${placeVO.p_no}">
-    											<input type="hidden" name="action" value="lookPlaceInfoByP">
-    										</form>
 										</div>	
 									</td>
 									<td>
 										<input type="button" class="btn btn-primary btn-sm" value="我要下架" onclick="unPublish(${placeVO.p_no})">
+									</td>
+									<td>
+										<form action="<%= request.getContextPath() %>/PlaceInfoServlet" method="POST">
+    										<input type="submit" class="btn btn-warning btn-sm" value="場地詳情">
+    										<input type="hidden" name="p_no" value="${placeVO.p_no}">
+    										<input type="hidden" name="action" value="lookPlaceInfoByP">
+    									</form>
 									</td>
 									</c:if>
 									<!-- 上架中的場地 結束 -->
@@ -149,6 +154,8 @@
 									</td>
 									<td>
 										<input type="button" class="btn btn-light btn-sm" disabled="disabled" value="使用中">
+									</td>
+									<td>
 									</td>
 									</c:if>
 									<!-- 使用中的場地  結束-->
