@@ -94,6 +94,9 @@ public class Place_PublishServlet extends HttpServlet {
 				return;
 			}
 		}
+		if("orderPlace".equals(action)) {
+			
+		}
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

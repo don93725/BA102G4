@@ -23,12 +23,6 @@
  		webCtx = path.substring(0, path.indexOf('/', 1));
 	})
 </script>
-<!-- 燈箱 -->
-<script>
-$(document).ready(function(){
-	$(".inline").colorbox({inline:true, width:"40%"});
-});
-</script>
 <body>
 <!-- 我要預定視窗 -->
 <%@include file="/front_end/include/orderPlace.file" %>
@@ -68,6 +62,7 @@ $(document).ready(function(){
     	<div class="row">
     		<div class="col-lg-12">
     			<h2>${placeVO.p_name}</h2>
+    			<h2>${placeVO.place_publishVO.pt_no}</h2>
     		</div>
     		
 			<div class="col-xs-12 col-lg-7" style="position:relative;">
@@ -178,7 +173,7 @@ $(document).ready(function(){
 					</c:when>
 					<c:otherwise>
 						<div class="col-xs-12 col-sm-4" id="signUp" style="cursor: pointer;">
-							<a class='inline' href="#order_content">
+							<a class='inline' href="#order_content" onclick="hello()">
 								<p style="margin-top:1em;">
 								<font style="font-size:30px;" id="signUpFont">馬上租借</font>
 								</p>

@@ -1,51 +1,66 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
- 
-	<div style='display:none'>
+<!-- 網頁路徑 -->
+<script>
+	var webCtx ;
+	$(function(){
+ 		var path = window.location.pathname;
+ 		webCtx = path.substring(0, path.indexOf('/', 1));
+	})
+</script>
+
+	<div style='display:none;'>
 		<div id='order_content' style='padding:0px; background:#fff;'>
 			<h1>預定場地</h1>
 			<form>
 				教練帳號:<br><div id="" style="display:none;color:red;"></div>
-				<input type="text" name="" id=""><br>
-				租借日期：<br><div id="alertA_p_cap" style="display:none;color:red;"></div>
-				<input id="thedate" type="text" /><br>
-				租借時段：<br><div id="alertA_p_add" style="display:none;color:red;"></div>
-				<select>
-					<option>08:00-09:30</option>
-					<option>10:00-11:30</option>
-					<option>13:00-14:30</option>
-					<option>15:00-16:30</option>
-					<option>18:00-19:30</option>
-					<option>20:00-21:30</option>
+				<input type="text" id="mem_acc"><br>
+				租借日期：<br><div id="" style="display:none;color:red;"></div>
+				<input id="datepicker" type="text"/><br>
+				租借時段：<br><div id="" style="display:none;color:red;"></div>
+				<select id="rp_time">
+					<option value="1">08:00-09:30</option>
+					<option value="2">10:00-11:30</option>
+					<option value="3">13:00-14:30</option>
+					<option value="4">15:00-16:30</option>
+					<option value="5">18:00-19:30</option>
+					<option value="6">20:00-21:30</option>
 				</select>
 				<br>
-				訂購價錢:<br><div id="alertA_p_into" style="display:none;color:red;"></div>
-				<span style="color:red;">${placeVO.place_publishVO.pbu_price}</span><br>
+				訂金:<br><div id="" style="display:none;color:red;"></div>
+				<span id="pbu_price" style="color:red;">${placeVO.place_publishVO.pbu_price}</span><br>
 				<br>
-				尾款價錢:<br><div id="alertA_p_into" style="display:none;color:red;"></div>
-				<span style="color:red;">${placeVO.place_publishVO.pau_price}</span><br>
-				<input type="button" class="btn btn-primary" value="新增" onclick="sendA();">
+				尾款:<br><div id="" style="display:none;color:red;"></div>
+				<span id="pau_price" style="color:red;">${placeVO.place_publishVO.pau_price}</span><br>
+				<input type="button" class="btn btn-primary" value="送出" onclick="sendO();">
 				<input type="reset" class="btn btn-default" name="" value="重新填寫" id="cancel">
 				<br>
 			</form>
 		</div>
 	</div>
 	
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
 	<!-- 本頁面專屬js -->
 	<script>
-		function fuckMe(){
-			$("#p_add1_value").val($("#gym_add1").val());
-		}
-		
-		function fuckYou() {
-			$("#p_name1_value").val("格鬥八角鐵籠");
-			$("#p_cap1_value").val("10");
-			$("#p_add1_value").val("台北市大安區敦化南路一段232巷6號B1");
-			$("#p_into1_value").val("可做為MMA之訓練場地，並提供賽事之舉辦與租借。");
-		}
+	
+	function hello() {
+		$('.inline').colorbox({
+			inline: true,
+			width: "50%",
+		});
+		var start = '#datepicker';
+			  $(start).datepicker({
+			    dateFormat: 'yy-mm-dd',
+			    minDate : +1
+			  });
+	}
 
-		function sendA() {
+		function sendO() {
 			swal({
-				title: "確定新增?",
+				title: "確定送出?",
 				type: "info",
 				showCancelButton: true,
 				confirmButtonColor: "#F8BB86",
@@ -55,13 +70,13 @@
 			},function(response){
 				if(response){
 					$.ajax({
-						url : webCtx + '/PlaceServlet',
+						url : webCtx + '/Place_PublishServlet',
 						data : {
 							p_name : $("#p_name1_value").val(),
 							p_cap : $("#p_cap1_value").val(),
 							p_add : $("#p_add1_value").val(),
 							p_into : $("#p_into1_value").val(),
-							action : 'insert'
+							action : 'orderPlace'
 						},
 						type : "POST",
 						dataType : 'text',
@@ -96,3 +111,7 @@
 			});
 		}
 	</script>
+
+<!-- colorbox -->
+<script src="<%= request.getContextPath() %>/style/assets/js/jquery.colorbox.js"></script>
+<link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/colorbox.css" />
