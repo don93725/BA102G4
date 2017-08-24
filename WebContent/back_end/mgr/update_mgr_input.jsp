@@ -142,6 +142,8 @@
 									class="form-control" value="${managerVO.mgr_email}" />
 							</div>
 						</div>
+						
+						
 
 						<div class="form-group">
 							<label for="mgr_job" class="col-xs-12 col-sm-3 control-label">

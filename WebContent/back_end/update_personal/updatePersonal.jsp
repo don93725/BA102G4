@@ -147,6 +147,15 @@
 			 	value="${userMgr.mgr_email}"  disabled="disabled"/>
 		</div>
 	</div>
+	
+	<div class="form-group">
+		<label for="mgr_int"  class="col-xs-12 col-sm-3 control-label">
+			¦Û§Ú¤¶²Ð
+		</label>
+		<div class="col-xs-12 col-sm-9">
+			<textarea id='mgr_int' disabled="disabled" name="mgr_int" class="form-control editCK" style='resize:none;' rows=4>${userMgr.mgr_int }</textarea>
+		</div>
+	</div>
 				
 	<div class="form-group">
 		<label for="mgr_job" class="col-xs-12 col-sm-3 control-label">
