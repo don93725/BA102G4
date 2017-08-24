@@ -301,9 +301,8 @@ public class StudentsServlet extends HttpServlet {
 				// 資料有誤就返回form表單
 				if(!errorMsgs.isEmpty()) {
 					System.out.println("I got the errorMsgs");
-					String url = "/front_end/editPage/personal.jsp";
-					RequestDispatcher failureView = req.getRequestDispatcher(url);
-					failureView.forward(req, res);
+					out.print(errorMsgs);
+
 					return;
 				}				
 				//2.開始修改資料
