@@ -11,7 +11,7 @@
 <%@include file="/back_end/include/basic_ace_script.file" %>
 <script src="<%=request.getContextPath()%>/style/assets/js/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/style/assets/css/sweetalert.css">
-<title>Insert title here</title>
+<title>健貨後台管理系統</title>
 <style>
 .kv-avatar .krajee-default.file-preview-frame,.kv-avatar .krajee-default.file-preview-frame:hover {
     margin: 0;
@@ -31,7 +31,7 @@
 }
 </style>
 
-<title>個人資料</title>
+<title>健貨後台管理系統</title>
 
 </head>
 <body>
@@ -145,6 +145,15 @@
 		<div class="col-xs-12 col-sm-9">
 			<input type="email" name="mgr_email" id="mgr_email" class="form-control editCK"
 			 	value="${userMgr.mgr_email}"  disabled="disabled"/>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="mgr_int"  class="col-xs-12 col-sm-3 control-label">
+			自我介紹
+		</label>
+		<div class="col-xs-12 col-sm-9">
+			<textarea id='mgr_int' disabled="disabled" name="mgr_int" class="form-control editCK" style='resize:none;' rows=4>${userMgr.mgr_int }</textarea>
 		</div>
 	</div>
 				

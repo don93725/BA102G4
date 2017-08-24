@@ -12,6 +12,7 @@ public class ManagerVO implements java.io.Serializable{
 	private String mgr_email;
 	private Integer mgr_status;
 	private byte[] mgr_pic;
+	private String mgr_int;
 //	private MembersVO mem_no;
 	
 	
@@ -19,6 +20,12 @@ public class ManagerVO implements java.io.Serializable{
 	
 	public String getMgr_no() {
 		return mgr_no;
+	}
+	public String getMgr_int() {
+		return mgr_int;
+	}
+	public void setMgr_int(String mgr_int) {
+		this.mgr_int = mgr_int;
 	}
 	public void setMgr_no(String mgr_no) {
 		this.mgr_no = mgr_no;

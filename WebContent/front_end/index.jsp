@@ -3,11 +3,21 @@
 <%@ page import="com.coaches.model.*" %>
 <%@ page import="com.students.model.*" %>
 <%@ page import="com.gyms.model.*" %>
+<%@ page import="com.don.util.*" %>
+<%@ page import="com.annew.model.*" %>
+<%@ page import="com.fitkw.model.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%  CoachesService coachesSV = new CoachesService();
 	List<CoachesVO> coachRank = coachesSV.getRankList();
-	pageContext.setAttribute("coachRank", coachRank);%>
+	pageContext.setAttribute("coachRank", coachRank);
+	IndexFiller idxFill = new IndexFiller();
+	List<AnnewVO> annewList = idxFill.getNewAnnew();
+	pageContext.setAttribute("annewList", annewList);
+	List<FitkwVO> fitkwList = idxFill.getNewFitkw();
+	pageContext.setAttribute("fitkwList", fitkwList);
+	
+	%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
 
@@ -220,25 +230,25 @@
             	  	</div>
             	  	<p></p>
             		<ul style="list-style:none; margin-left: 15px;">
-<% for(int i = 0 ; i < 5 ; i ++){ %>
+					<c:forEach var="annew" items="${annewList }">
 						<li style="margin-left: 0px; display: flex;">
-							<a href="#">
+							<a href="${pageContext.request.contextPath }/AnnewShowCtrl?ann_no=${annew.ann_no }">
 								<span class="label label-lg label-primary arrowed-in">
 									公告
 								</span>
 								<span>
-									2017/08/13
+									${annew.ann_date2 }
 								</span>
 								<span class="title">
-									內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+									${annew.ann_title }
 								</span>
 							</a>
 						</li>
 						<p></p>
-<% } %>
+						</c:forEach>
 						
 						<li style="margin-left: 0px; display: flex;">
-							<a href="#">
+							<a href="<%= request.getContextPath()%>/AnnewShowCtrl">
 								<span>
 									看更多&nbsp<i class="icon-arrow-right"></i>
 								</span>						
@@ -257,22 +267,22 @@
             	  	</div>
             	  	<p></p>
             		<ul style="list-style:none;margin-left:15px;">
-<% for(int i = 0 ; i < 5 ; i ++){ %>
+					<c:forEach var='fitkw' items="${fitkwList}">
 						<li style="margin-left: 0px; display: flex;">
 							<a>
 								<span class="label label-lg label-pink arrowed-right">
-									類型
+									${fitkw.fik_type }
 								</span>
 								<span>
-									2017/12/31
+									${fitkw.upd_date2 }
 								</span>
 								<span class="title">
-									內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容
+									${fitkw.fik_title }
 								</span>
 							</a>
 						</li>
 						<p></p>
-<% } %>
+						</c:forEach>
 						<li style="margin-left: 0px; display: flex;">
 							<a>
 								<span>

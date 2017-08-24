@@ -21,7 +21,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
 <head>
-<title>listAllCourseRep</title>
+<title>健貨後台管理系統</title>
 <%@include file="/back_end/include/basic_ace_script.file" %>
 </head>
 <body>

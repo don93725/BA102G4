@@ -9,7 +9,7 @@
 <head>
 	<%@include file="/back_end/include/fileInput/fileInput_head.file" %>
 	<%@include file="/back_end/include/basic_ace_script.file" %>
-<title>Insert title here</title>
+<title>健貨後台管理系統</title>
 
 <!-- the fileinput plugin initialization -->
 <style>
@@ -155,7 +155,15 @@
 		<div  style="color:red">${errorMsgs.f_no}</div>
 		</div>
 	</div>	
-	
+	<br>
+	<div class="form-group">
+		<label for="mgr_int" class="col-xs-12 col-sm-3 control-label">
+			自我介紹
+		</label>
+		<div class="col-xs-12 col-sm-9">
+			<textarea id='mgr_int' name="mgr_int" class="form-control" style='resize:none;' rows=4></textarea>
+		</div>
+	</div>
 	<br>
 	<div class="form-group">
 		<div class="col-xs-12 col-sm-3"></div>

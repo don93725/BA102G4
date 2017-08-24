@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>ListAllPlaceRep</title>
+<title>健貨後台管理系統</title>
 </head>
 <body>
 <h3>會員檢舉審核_總覽 - ListAllPlaceRep.jsp</h3>

@@ -13,7 +13,7 @@
 				<input type="button" value="地址同健身房位置" onclick="fuckMeMe();"><br>
 				場地介紹:<br><div id="alertQ_p_into" style="display:none;color:red;"></div>
 				<textarea name="pp_into" id="pp_into" title="" rows="5" cols="85" class="text" resize="none"
-					id="" minlength="1" maxlength="500" required></textarea><br>
+					minlength="1" maxlength="500" required></textarea><br>
 				<br>
 				<input type="hidden" id="pp_no">
 				<input type="button" class="btn btn-primary" value="修改" onclick="sendQ();">
@@ -76,8 +76,7 @@
 									})
 							}						
 						},
-						error : function(xhr, ajaxOptions, thrownError) {
-						console.log(xhr + ajaxOptions + thrownError);					
+						error : function(xhr, ajaxOptions, thrownError) {				
 							swal("失敗", "404或500", "error");
 						}
 					});

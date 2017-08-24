@@ -38,42 +38,48 @@
 								<th>場地介紹</th>
 								<th></th>
 								<th></th>
-								<th></th>
-								<th></th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="placeVO" items="${placeList}">
-								<tr><input type="hidden" value="${placeVO.p_no}">
+								<tr><input type="text" value="${placeVO.p_no}">
 									<td class="center"><span class="">${placeVO.p_name}</span></td>	
 									<td><span class="">${placeVO.p_cap}</span></td>
 									<td><span class="">${placeVO.p_add}</span></td>
 									<td><span class="">${placeVO.p_into}</span></td>
 									<input type="hidden" class="p_status" value="${placeVO.p_status}">
 									
+									
 									<!-- 下架的場地 -->
 									<c:if test="${placeVO.p_status == '0'}">
 									<td>
-									<a class='inline' href="#update_content">
-										<button class="btn btn-primary btn-sm" id="" onclick="show('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')">
-											<i class="icon-edit"></i>
-											編輯場地
-										</button>
-									</a>
+										<div class="btn-group"> 
+  											<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    											編輯 <span class="caret"></span>
+  											</button>
+  											<ul class="dropdown-menu" style="min-width:50px;">
+    											<li>
+   													<a class='inline' href="#update_content" onclick="show('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')">
+   														<i class="icon-edit"></i> 更新場地	
+    												</a>
+    											</li>
+    											<li>
+    												<a class='inline' href="#insertPic_content" onclick="showPicWindow('${placeVO.p_no}')" value="新增圖片">
+    													<i class="icon-edit"></i> 新增圖片
+    												</a>
+    											</li>
+    											<li>
+    												<a href="#" onclick="deletePlace('${placeVO.p_no}', '${placeVO.p_status}')">
+    													<i class="icon-edit"></i> 刪除場地
+    												</a>
+    											</li>
+  											</ul>
+										</div>	
 									</td>
 									<td>
-									<a class='inline' href="#insertPic_content">
-										<input type="button" class="btn btn-info btn-sm" id="" onclick="showPicWindow('${placeVO.p_no}')" value="新增圖片">							
-									</a>
-									</td>
-									<td><button class="btn btn-danger btn-sm" onclick="deletePlace('${placeVO.p_no}', '${placeVO.p_status}')">
-										刪除
-										</button>
-									</td>
-									<td>
-										<button class="btn btn-grey btn-sm">
-										<i class="icon-arrow-up"></i>我要上架
-										</button>
+										<a class='inline' href="#publish_content" onclick="showPublish('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')">
+											<input type="button" class="btn btn-info btn-sm" value="我要上架">
+										</a>
 									</td>
 									</c:if>
 									<!-- 下架的場地 結束 -->
@@ -81,26 +87,31 @@
 									<!-- 上架中的場地 -->
 									<c:if test="${placeVO.p_status == '1'}">
 									<td>
-									<a class='inline' href="#update_content">
-										<button class="btn btn-primary btn-sm" id="" onclick="show('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')" disabled="disabled">
-											<i class="icon-edit"></i>
-											編輯場地
-										</button>
-									</a>
+										<div class="btn-group"> 
+  											<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled="disabled">
+    											編輯 <span class="caret"></span>
+  											</button>
+  											<ul class="dropdown-menu" style="min-width:50px;">
+    											<li>
+   													<a href="#" onclick="useOrUp();">
+   														<i class="icon-edit"></i> 更新場地	
+    												</a>
+    											</li>
+    											<li>
+    												<a href="#" onclick="useOrUp();">
+    													<i class="icon-edit"></i> 新增圖片
+    												</a>
+    											</li>
+    											<li>
+    												<a href="#" onclick="useOrUp();">
+    													<i class="icon-edit"></i> 刪除場地
+    												</a>
+    											</li>
+  											</ul>
+										</div>	
 									</td>
 									<td>
-									<a class='inline' href="#insertPic_content">
-										<input type="button" class="btn btn-info btn-sm" id="" onclick="showPicWindow('${placeVO.p_no}')" value="新增圖片" disabled="disabled">							
-									</a>
-									</td>
-									<td><button class="btn btn-danger btn-sm" onclick="deletePlace('${placeVO.p_no}', '${placeVO.p_status}')" disabled="disabled">
-										刪除
-										</button>
-									</td>
-									<td>
-										<button class="btn btn-grey btn-sm">
-										<i class="icon-arrow-down"></i>我要下架
-										</button>
+										<input type="button" class="btn btn-primary btn-sm" value="我要下架" onclick="unPublish(${placeVO.p_no})">
 									</td>
 									</c:if>
 									<!-- 上架中的場地 結束 -->
@@ -108,26 +119,31 @@
 									<!-- 使用中的場地 -->
 									<c:if test="${placeVO.p_status == '2'}">
 									<td>
-									<a class='inline' href="#update_content">
-										<button class="btn btn-primary btn-sm" id="" onclick="show('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')" disabled="disabled">
-											<i class="icon-edit"></i>
-											編輯場地
-										</button>
-									</a>
+										<div class="btn-group"> 
+  											<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled="disabled">
+    											編輯 <span class="caret"></span>
+  											</button>
+  											<ul class="dropdown-menu" style="min-width:50px;">
+    											<li>
+   													<a href="#" onclick="useOrUp();">
+   														<i class="icon-edit"></i> 更新場地	
+    												</a>
+    											</li>
+    											<li>
+    												<a href="#" onclick="useOrUp();">
+    													<i class="icon-edit"></i> 新增圖片
+    												</a>
+    											</li>
+    											<li>
+    												<a href="#" onclick="useOrUp();">
+    													<i class="icon-edit"></i> 刪除場地
+    												</a>
+    											</li>
+  											</ul>
+										</div>	
 									</td>
 									<td>
-									<a class='inline' href="#insertPic_content">
-										<input type="button" class="btn btn-info btn-sm" id="" onclick="showPicWindow('${placeVO.p_no}')" value="新增圖片" disabled="disabled">							
-									</a>
-									</td>
-									<td><button class="btn btn-danger btn-sm" onclick="deletePlace('${placeVO.p_no}', '${placeVO.p_status}')" disabled="disabled">
-										刪除
-										</button>
-									</td>
-									<td>
-										<button class="btn btn-light btn-sm" disabled="disabled" style="width:93.08px;">
-										<i class="icon-hand-paper-o"></i>使用中
-										</button>
+										<input type="button" class="btn btn-light btn-sm" disabled="disabled" value="使用中">
 									</td>
 									</c:if>
 									<!-- 使用中的場地  結束-->
@@ -146,7 +162,7 @@
 	<!-- 課程管理 全部 結束 -->
 </body>
 
-	<!-- 刪除效果 -->
+	<!-- 刪除效果、使用中、已上架按鈕控制 -->
 	<script>
 		function deletePlace(no, p_status) {
 			swal({
@@ -192,6 +208,54 @@
 					});
 				}
 			});
+		}
+		
+		function useOrUp(){
+			swal({
+				title : "錯誤",
+				text : "已上架或使用中的場地無法使用此功能",
+				type : "error",
+				showConfirmButton : true,
+				timer : 2000});
+		}
+		function unPublish(no){
+			swal({
+				title : "場地下架",
+				text : "下架後的場地無法被看見",
+				type: "info",
+				showCancelButton: true,
+				confirmButtonColor: "#F8BB86",
+				cancelButtonText: "取消",
+				confirmButtonText: "確定",
+				closeOnConfirm: true
+			},function(response){
+				if(response){
+					$.ajax({
+						url : webCtx + '/Place_PublishServlet',
+						data : {
+							p_no : no,
+							action : 'unPublish'
+						},
+						
+						type : "POST",
+						dataType : 'text',
+
+						success : function(msg) {
+							swal("下架成功", "場地已下架", "success");
+							$(".inline").colorbox.close();
+							setTimeout("location.reload()",1000);
+						},
+
+						error : function(xhr, ajaxOptions, thrownError) {						
+							swal("失敗", "HelloWorld", "error");
+						}
+					});
+				}
+			});
+		
+		
+		
+		
 		}
 	</script>
 
