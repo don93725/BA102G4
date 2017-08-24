@@ -108,6 +108,11 @@
     												</a>
     											</li>
   											</ul>
+  											<form action="<%= request.getContextPath() %>/PlaceInfoServlet" method="POST">
+    											<input type="submit" value="場地詳情">
+    											<input type="hidden" name="p_no" value="${placeVO.p_no}">
+    											<input type="hidden" name="action" value="lookPlaceInfoByP">
+    										</form>
 										</div>	
 									</td>
 									<td>

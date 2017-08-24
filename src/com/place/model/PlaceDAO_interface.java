@@ -12,6 +12,6 @@ public interface PlaceDAO_interface {
     public PlaceVO getOnePlacePt_no(String pt_no);	
     public void update(PlaceVO placeVo);
     public void insertPic(List list, String ppp_no);
-//	    public List<PlaceVO> getAll();
-	
+//    public PlaceVO getPlaceInfo(String pt_no);
+    public PlaceVO getPlaceInfoByP_no(String p_no);
 }
