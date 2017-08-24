@@ -7,9 +7,6 @@
     <link href="<%= request.getContextPath() %>/style/css/modern-business.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/font-awesome.min.css" />
-    <!-- page specific plugin styles -->
-    <!-- Custom Fonts -->
-    <link href="<%= request.getContextPath() %>/style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- jQuery --><!--訪客navbar動畫-1-->
     <script src="<%= request.getContextPath() %>/style/js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript --><!--訪客navbar動畫-2-->
@@ -25,13 +22,6 @@
     <link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/colorbox.css" />
     <!-- 動畫效果 --->
     <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/style/assets/css/animate.css">
-    
-<!--按鈕產生對話框-->
-<script type="text/javascript">
-	jQuery(function($) {
-		$('[data-rel=tooltip]').tooltip();
-	});
-</script>
 
 <style>
     body{

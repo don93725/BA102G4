@@ -40,6 +40,7 @@ public class Course_listDAO implements Course_listDAO_interface{
 	private static final String GET_REPORT_STA = "SELECT * FROM COURSE_LIST WHERE REPORT_STA=?";
 	private static final String UPDATE_MEM_CR_NUM="UPDATE MEMBERS SET MR_NUM=MR_NUM+1 WHERE MEM_acc=(select c_acc FROM COURSE WHERE CRS_NO=(SELECT CRS_NO FROM COURSE_TIME WHERE CT_NO=(SELECT CT_NO FROM COURSE_LIST WHERE CT_NO=?)))";
 	private static final String UPDATE_REP_STA = "UPDATE course_list  set REPORT_STA=2 where ct_no=?";
+	private static final String UPDATE_N_STA = "UPDATE course_list set N_STA=1 where ct_no=? AND STU_ACC=?";
 
 	
 	static {
@@ -951,6 +952,56 @@ public class Course_listDAO implements Course_listDAO_interface{
 		}			
 		
 	}
+	
+	@Override
+	public void updateNSta(Course_listVO course_listVO) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(UPDATE_N_STA);
+			pstmt.setString(1, course_listVO.getCt_no());
+			pstmt.setString(2, course_listVO.getStu_acc());
+			pstmt.executeUpdate();
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}			
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public List<Course_listVO> getReserve(String stu_acc) {
 		// TODO Auto-generated method stub
@@ -978,7 +1029,7 @@ public class Course_listDAO implements Course_listDAO_interface{
 			
 		
 			
-			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN STUDENTS STU ON cl.stu_acc = stu.stu_acc join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE CL.STU_ACC ="
+			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN STUDENTS STU ON cl.stu_acc = stu.stu_acc left join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE CL.STU_ACC ="
 			           +"'"+stu_acc+"'"
 			          ;
 			      
@@ -1139,9 +1190,11 @@ public class Course_listDAO implements Course_listDAO_interface{
 			
 		
 			
-			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN STUDENTS STU ON cl.stu_acc = stu.stu_acc join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE CL.STU_ACC ="
+			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN COACHES COA ON CRS.C_ACC = COA.COA_ACC left join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE COA.COA_ACC ="
 			           +"'"+coa_acc+"'"
-			          ;
+			           +""+"CRS.STATUS=1"
+			           +""+"CT.STATUS=1"
+			           ;
 			      
 			          
 				
@@ -1299,7 +1352,7 @@ public class Course_listDAO implements Course_listDAO_interface{
 			
 		
 			
-			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN STUDENTS STU ON cl.stu_acc = stu.stu_acc join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no join coaches coa on CRS.c_acc=coa.coa_acc JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE CT.status = 2 AND CL.STU_ACC ="
+			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN STUDENTS STU ON cl.stu_acc = stu.stu_acc left join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no join coaches coa on CRS.c_acc=coa.coa_acc JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE CT.status = 1 AND CL.STU_ACC ="
 			           +"'"+stu_acc+"'"
 			          ;
 			      
@@ -1429,7 +1482,163 @@ public class Course_listDAO implements Course_listDAO_interface{
 	
 	
 	}
+	@Override
+	public List<Course_listVO> getCoachReady(String coa_acc) {
+		// TODO Auto-generated method stub
+		
+	
+		List<Course_listVO> list = new ArrayList<Course_listVO>();
+		Course_timeVO course_timeVO = null;
+		CourseVO courseVO = null;
+		PlaceVO placeVO = null;
+		CoachesVO coachesVO = null;
+		GymsVO gymsVO = null;
+		Course_listVO course_listVO = null;
+		Course_pictureVO course_pictureVO = null;
+		Course_listDAO course_listDAO = null ;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		course_listDAO = new Course_listDAO();				
+		
+		try {
 
+			con = ds.getConnection();
+			
+		
+			
+			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN STUDENTS STU ON cl.stu_acc = stu.stu_acc left join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no join coaches coa on CRS.c_acc=coa.coa_acc JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE CT.status = 1 AND COA.COA_ACC ="
+			           +"'"+coa_acc+"'"
+			          ;
+			      
+			          
+				
+			System.out.println(finalSQL);
+			
+			
+			pstmt = con.prepareStatement(finalSQL);
+			
+			//pstmt.setString(4,coa_name);
+			
+			
+			rs = pstmt.executeQuery();
+			
+			System.out.print(pstmt + " " + rs);
+			
+			while (rs.next()) {
+				
+				course_listVO = new Course_listVO();
+				course_timeVO = new Course_timeVO();
+				courseVO = new CourseVO();
+				coachesVO=new CoachesVO();
+				placeVO = new PlaceVO();
+				gymsVO = new GymsVO();
+				course_pictureVO = new Course_pictureVO();
+				
+				
+				
+				
+				course_listVO.setCt_no(rs.getString("ct_no"));
+				course_listVO.setStu_acc(rs.getString("stu_acc"));
+				course_listVO.setCl_date(rs.getDate("cl_date"));
+				course_listVO.setCrs_time(rs.getInt("crs_time"));
+				course_listVO.setStu_pay_sta(rs.getInt("stu_pay_sta"));
+				course_listVO.setStu_pay_date(rs.getDate("stu_pay_date"));
+				course_listVO.setReport_sta(rs.getInt("report_sta"));
+				course_listVO.setReport_ct(rs.getString("report_ct"));
+				course_listVO.setFeedback(rs.getString("feedback"));
+				course_listVO.setEvaluation_cao(rs.getString("evaluation_cao"));
+				course_listVO.setEvaluation_crs(rs.getString("evaluation_crs"));
+				course_listVO.setN_sta(rs.getInt("n_sta"));
+				course_listVO.setReason(rs.getString("reason"));
+				
+				System.out.println("AAAA");
+				
+				coachesVO.setCoa_name(rs.getString("coa_name"));
+				courseVO.setCrs_name(rs.getString("crs_name"));
+				
+				System.out.println("A");
+				courseVO.setCategory(rs.getString("category"));
+				//coachesVO.setCoa_name(rs.getString("coa_name"));
+				placeVO.setP_name((rs.getString("p_name")==null)?"null":rs.getString("p_name"));
+				
+				System.out.println("B");
+				placeVO.setP_no(rs.getString("p_no"));
+				course_timeVO.setDeadline(rs.getDate("deadline"));
+				course_timeVO.setPrice(rs.getString("price"));
+				course_timeVO.setLimit(rs.getString("limit"));
+				System.out.println("C");
+				course_pictureVO.setCrs_base(rs.getString("crs_base"));
+				System.out.println("D");
+				gymsVO.setGym_latlng(rs.getString("gym_latlng"));
+				gymsVO.setGym_add(rs.getString("gym_add"));
+				System.out.println("E");
+				course_timeVO.setCount(course_listDAO.count(rs.getString("ct_no")));
+				System.out.println("G");
+				
+				course_listVO.setCoachesVO(coachesVO);
+				course_listVO.setCourseVO(courseVO);
+				course_listVO.setPlaceVO(placeVO);
+				course_listVO.setGymsVO(gymsVO);
+				course_listVO.setCourse_timeVO(course_timeVO);
+				course_listVO.setCourse_pictureVO(course_pictureVO);
+				
+				
+				
+				
+				
+				list.add(course_listVO); // Store the row in the list
+			
+				
+			
+			
+			}
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		return list;
+	
+	
+	
+	
+	
+	
+	
+	}
 
 	@Override
 	public List<Course_listVO> getFinished(String stu_acc) {
@@ -1458,7 +1667,7 @@ public class Course_listDAO implements Course_listDAO_interface{
 			
 		
 			
-			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN STUDENTS STU ON cl.stu_acc = stu.stu_acc join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no join coaches coa on CRS.c_acc=coa.coa_acc JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE CT.status = 2 AND CL.n_sta=1  AND CL.STU_ACC ="
+			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN STUDENTS STU ON cl.stu_acc = stu.stu_acc  left join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no join coaches coa on CRS.c_acc=coa.coa_acc JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE CT.status = 2 AND CL.n_sta=1  AND CL.STU_ACC ="
 			           +"'"+stu_acc+"'"
 			          ;
 			      

@@ -1,6 +1,7 @@
 package com.students.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Base64;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -19,15 +20,13 @@ import javax.servlet.http.Part;
 
 import com.coaches.model.CoachesService;
 import com.coaches.model.CoachesVO;
+import com.google.gson.Gson;
 import com.members.model.MembersService;
 import com.members.model.MembersVO;
 import com.students.model.StudentsService;
 import com.students.model.StudentsVO;
 import com.tools.Tools;
 
-/**
- * Servlet implementation class StudentsServlet
- */
 @WebServlet("/StudentsServlet")
 @MultipartConfig(maxFileSize=5*1024*1024)
 public class StudentsServlet extends HttpServlet {
@@ -35,6 +34,8 @@ public class StudentsServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String action = req.getParameter("action");
+		PrintWriter out = res.getWriter();
+		System.out.println("(S)action= " + action);
 		
 		if(action == null) {
 			System.out.println("action == null");
@@ -165,6 +166,7 @@ public class StudentsServlet extends HttpServlet {
 				// 資料有誤就返回form表單
 				if(!errorMsgs.isEmpty()) {
 					System.out.println("I got the errorMsgs");
+					System.out.println();
 					String url = "/front_end/register/students_register.jsp";
 					RequestDispatcher failureView = req.getRequestDispatcher(url);
 					failureView.forward(req, res);
@@ -405,6 +407,59 @@ public class StudentsServlet extends HttpServlet {
 				System.out.println(errorMsgs.get("Exception"));
 				String url = req.getContextPath() + "/front_end/browse/find_students.jsp";
 				res.sendRedirect(url);
+				return;
+			}
+		}
+		
+		if ("update_forPic".equals(action)) {
+			Map<String,String> errorMsgs = new LinkedHashMap<String,String>();
+			req.setAttribute("errorMsgs", errorMsgs);
+			try {
+				//1.接收請求參數 - 輸入格式的錯誤處理
+				String stu_no = req.getParameter("stu_no");
+				//驗證大頭貼
+				String cropped_pic = req.getParameter("cropped_pic");
+				//base64轉byte[]
+				Base64.Decoder decoder = Base64.getDecoder();
+				byte[] coa_pic_byte = null;
+						
+				if(cropped_pic == null || "".equals(cropped_pic)) {
+					errorMsgs.put("stu_pic", "請鎖定圖片");
+				}
+		
+				// 資料有誤就返回form表單
+				if(!errorMsgs.isEmpty()) {
+					System.out.println("I got the errorMsgs");
+					System.out.println("errors= " + errorMsgs);
+					Gson gSon = new Gson();
+					out.print(gSon.toJson(errorMsgs));
+					return;
+				}
+				
+				coa_pic_byte = decoder.decode(cropped_pic.split(",")[1]);
+				//圖片大小(kb...)
+				int pic_length = coa_pic_byte.length;
+				String pic_type = cropped_pic.substring(5, 10);
+				if(pic_length > (5*1024*1024)) {
+					errorMsgs.put("stu_pic", "檔案過大");
+				} else if(!("image".equals(pic_type))) {
+					errorMsgs.put("stu_pic", "僅允許圖片格式");
+				}
+				//2.開始修改資料
+				StudentsService studentsSV = new StudentsService();
+				studentsSV.update_forPic(stu_no, coa_pic_byte);
+				System.out.println("update your big head is complete");
+				return;
+						
+			//其他可能的錯誤處理
+			} catch(Exception e) {
+				out.print("\"例外\" : \"有例外\"");
+				e.printStackTrace();
+				errorMsgs.put("Exception",e.getMessage());
+				System.out.println(errorMsgs.get("Exception"));
+				String url = "/front_end/editPage/personal.jsp";
+				RequestDispatcher failureView = req.getRequestDispatcher(url);
+				failureView.forward(req, res);
 				return;
 			}
 		}

@@ -31,7 +31,7 @@ public class StudentsDAO implements StudentsDAO_interface{
 	
 	private static final String INSERT_MEM =
 			"Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)"
-			+ "Values(mem_no_seq.NEXTVAL, ?, '0', ?, default)";	
+			+ " Values(mem_no_seq.NEXTVAL, ?, '0', ?, default)";	
 	private static final String INSERT_STU =
 			"Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)"
 			+ "values(?, ?, ?, default, ?, ?, ?, ?, ?, ? , default)";
@@ -47,6 +47,8 @@ public class StudentsDAO implements StudentsDAO_interface{
 			"Select * from students ";
 	private static final String LOOK_SEARCH_MEM =
 			"Select * from students where stu_acc = ?　and stu_no = ?";
+	private static final String UPDATE_FORPIC =
+			"Update students set stu_pic = ? where stu_no = ?";
 	
 	@Override
 	public void insert(MembersVO membersVO, StudentsVO studentsVO) {
@@ -75,13 +77,8 @@ public class StudentsDAO implements StudentsDAO_interface{
 							
 				studentsVO.setStu_acc(membersVO.getMem_acc());
 				studentsVO.setStu_no(mem_no);			
-				System.out.println("(CoachesDAO)coa_acc= " + studentsVO.getStu_acc());
-				} else {
-					System.out.println("(CoachesDAO)沒有rs");
 				}
-				rs.close();
-						
-						
+
 			//同時新增學健身者
 			addWithMem_no(con, studentsVO);
 			String sql = "insert into albums values(albums_pk_seq.nextval,"+mem_no+",default,'動態相簿',default,0,1)";			
@@ -94,6 +91,7 @@ public class StudentsDAO implements StudentsDAO_interface{
 			con.setAutoCommit(true);
 			
 		} catch(SQLException se) {
+			se.printStackTrace();
 			try {
 				se.printStackTrace();
 				con.rollback();
@@ -139,7 +137,7 @@ public class StudentsDAO implements StudentsDAO_interface{
 			pstmt.executeUpdate();
 					
 		} catch (SQLException se) {
-			se.getStackTrace();
+			se.printStackTrace();
 			try{
 				con.rollback();
 			} catch (Exception e) {
@@ -472,5 +470,44 @@ public class StudentsDAO implements StudentsDAO_interface{
 			}
 		}
 	}
-
+	
+	public void update_forPic(String stu_no, byte[] coa_pic_byte) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			con = ds.getConnection();
+			con.setAutoCommit(false);
+			
+			pstmt = con.prepareStatement(UPDATE_FORPIC);
+			pstmt.setBytes(1, coa_pic_byte);
+			pstmt.setString(2, stu_no);
+			
+			pstmt.executeUpdate();
+			System.out.println("CCC");
+			con.commit();
+			con.setAutoCommit(true);
+		}catch(SQLException se) {
+			try {
+				se.printStackTrace();
+				con.rollback();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} 
+		} finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if(con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 }

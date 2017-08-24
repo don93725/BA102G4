@@ -37,6 +37,14 @@ public class Course_listService {
 	    this.dao.delete(ct_no,stu_acc);
 	  }
 	
+	  public boolean deleteAdCourse_list(String ct_no,String stu_acc){
+		    this.dao.delete(ct_no,stu_acc);
+		 
+		    return true;
+	  }
+		
+	  
+	  
 	  public void deleteCalendar(String cl_date,Integer crs_time,String stu_acc){
 		  this.dao.deleteCalendar(cl_date,crs_time,stu_acc);
 	  }
@@ -77,10 +85,23 @@ public class Course_listService {
 		    this.dao.report(report_ct,ct_no,stu_acc);
 	  }
 	  
+	  public boolean reportAd(String report_ct,String ct_no,String stu_acc){
+		    this.dao.report(report_ct,ct_no,stu_acc);
+		
+		    return true;
+	  }
+	  
+	  
 	  public void evaluation(String evaluation_coa,String evaluation_crs,String feedback,String ct_no,String stu_acc){
 		    this.dao.evaluation(evaluation_coa,evaluation_crs,feedback,ct_no,stu_acc);
 	  }
-		public Course_listVO updateReportSta(String ct_no) {
+	  public boolean evaluationAd(String evaluation_coa,String evaluation_crs,String feedback,String ct_no,String stu_acc){
+		    this.dao.evaluation(evaluation_coa,evaluation_crs,feedback,ct_no,stu_acc);
+	 
+		    return true;
+	  }
+	  
+	  public Course_listVO updateReportSta(String ct_no) {
 			Course_listVO course_listVO = new Course_listVO();
 			course_listVO.setCt_no(ct_no);
 			dao.updateRepSta(course_listVO);
@@ -106,9 +127,23 @@ public class Course_listService {
 			    return this.dao.getReserve(coa_acc);
 			  }
 
+
+		  public boolean updateNSta(String ct_no,String stu_acc) {
+				Course_listVO course_listVO = new Course_listVO();
+				course_listVO.setCt_no(ct_no);
+				course_listVO.setStu_acc(ct_no);
+				
+				dao.updateNSta(course_listVO);
+				return true;}
+
 		  public List<Course_listVO> getReady_List(String stu_acc){
 			    return this.dao.getReady(stu_acc);
 			  }
+		  public List<Course_listVO> getCoachReady_List(String coa_acc){
+			    return this.dao.getCoachReady(coa_acc);
+			  }
+		  
+		  
 		  public List<Course_listVO> getFinished(String stu_acc){
 			    return this.dao.getFinished(stu_acc);
 		  }
