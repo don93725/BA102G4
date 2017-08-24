@@ -21,11 +21,11 @@
 						</li>
 						</c:if>
 						<li id='friend'>
-							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/friends/FirendCtrl?mem_no=${param.mem_no}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}");'>好友列表</a>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/friends/FirendCtrl?mem_no=${user.mem_no}");'>好友列表</a>
 						</li>			
 						
 						<li id='comment'>
-							<a data-toggle="tab" href='#' onclick='goTo("<%= request.getContextPath()%>/all/CommentsCtrl?mem_no=${param.mem_no}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}");'>留言板</a>
+							<a data-toggle="tab" href='#' onclick='goTo("<%= request.getContextPath()%>/all/CommentsCtrl?mem_no=${user.mem_no}");'>留言板</a>
 						</li>						
 						<c:if test='${empty param.mem_rank}'>
 						<li id='msgTab'>
