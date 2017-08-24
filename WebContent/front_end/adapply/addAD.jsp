@@ -5,7 +5,6 @@
 <%@ page import="java.util.*"%>
 
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,14 +73,16 @@
 				</div>
 		
 		<c:if test="${user.mem_rank==1}">
-			<jsp:useBean id="adapplyCourseSvc" scope="page" class="com.course.model.CourseService" />
+			<jsp:useBean id="adapplyCTSvc" scope="page" class="com.course_time.model.Course_timeService" />
+			<jsp:useBean id="adCSvc" scope="page" class="com.course.model.CourseService" />
 			<div class="form-group">
 				<label  class="col-xs-12 col-sm-3 control-label">
 				</label>
 				<div class="col-xs-12 col-sm-9">
 					<select  name="ad_url" class="form-control">
-						<c:forEach var="courseVO" items="${adapplyCourseSvc.getAll(user.mem_acc)}">
-							<option value="${courseVO.crs_no}">${courseVO.crs_no}--${courseVO.crs_name}</option>
+						<c:forEach var="course_timeVO" items="${adapplyCTSvc.getAll(user.mem_acc)}">
+							<option value="crs_no=${course_timeVO.crs_no}&ct_no=${course_timeVO.ct_no}">
+							${course_timeVO.crs_no}--${adCSvc.getCourse(course_timeVO.ct_no).crs_name}</option>
 						</c:forEach>
 					</select>
 				</div>

@@ -15,6 +15,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.course_time.model.Course_timeVO;
+
 public class AD_ApplyJNDIDAO implements AD_ApplyDAO_interface {
 	private static DataSource ds = null;
 	static {
@@ -377,6 +379,12 @@ public class AD_ApplyJNDIDAO implements AD_ApplyDAO_interface {
 			}
 		}
 		return list;
+	}
+
+	@Override
+	public Course_timeVO getCourseTimeByCT_NO(String crs_no) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

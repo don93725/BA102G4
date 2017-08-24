@@ -10,6 +10,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import com.course_time.model.Course_timeVO;
+
 
 
 
@@ -485,6 +487,12 @@ public class AD_ApplyJDBCDAO implements AD_ApplyDAO_interface {
 			System.out.println(aAD.getAd_pt());
 			System.out.println();
 		}
+	}
+
+	@Override
+	public Course_timeVO getCourseTimeByCT_NO(String crs_no) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
