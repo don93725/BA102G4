@@ -5,6 +5,7 @@ import java.sql.Date;
 public class PlaceReportVO implements java.io.Serializable {
 
 	private String pr_no;
+	private String pt_no;
 	private String p_no;
 	private String mem_no;
 	private String pr_ctx;
@@ -60,6 +61,12 @@ public class PlaceReportVO implements java.io.Serializable {
 	}
 	public void setPr_pt(byte[] pr_pt) {
 		this.pr_pt = pr_pt;
+	}
+	public String getPt_no() {
+		return pt_no;
+	}
+	public void setPt_no(String pt_no) {
+		this.pt_no = pt_no;
 	}
 	
 }

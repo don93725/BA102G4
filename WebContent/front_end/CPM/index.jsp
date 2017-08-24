@@ -38,7 +38,7 @@ function leave(ct_no,stu_acc){
 		    return false
 		  }
 		  $.ajax({
-				url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
+				url : '<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do',
  				data : {
  					ct_no : ct_no,	
  					stu_acc : stu_acc,
@@ -50,7 +50,7 @@ function leave(ct_no,stu_acc){
 
  				success : function(msg) {
  					swal("請假成功!", "請假原因:" + inputValue , "success");
- 					setTimeout(function(){ location.reload(); }, 1500);
+ 					setTimeout(function(){ loaction.reload(); }, 1500);
  				},
 
  				error : function(xhr, ajaxOptions, thrownError) {
@@ -60,9 +60,9 @@ function leave(ct_no,stu_acc){
 		});
 }
 
-function report(ct_no,stu_acc){
+function report(pt_no,p_no){
 	swal({
-		  title: "檢舉課程!",
+		  title: "檢舉場地!",
 		  text: "檢舉原因:",
 		  type: "input",
 		  showCancelButton: true,
@@ -79,19 +79,19 @@ function report(ct_no,stu_acc){
 		    return false
 		  }
 		  $.ajax({
-				url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
+				url : '<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do',
  				data : {
- 					ct_no : ct_no,	
- 					stu_acc : stu_acc,
- 					report_ct : inputValue,
- 					action : 'reportCourse'
+ 					pt_no : pt_no,	
+ 					p_no : p_no,
+ 					pr_ctx : inputValue,
+ 					action : 'reportPlace'
  				},
  				type : "POST",
  				dataType : 'text',
 
  				success : function(msg) {
  					swal("檢舉成功!", "檢舉原因:" + inputValue , "success");
- 					setTimeout(function(){ location.reload(); }, 1500);
+ 					setTimeout(function(){ loaction.reload(); }, 1500);
  				},
 
  				error : function(xhr, ajaxOptions, thrownError) {
@@ -129,13 +129,13 @@ function report(ct_no,stu_acc){
 
 			<div class="col-lg-12">
 				<h1>
-					課程管理 <small>CoursesManagement</small>
+					場地管理 <small>PlacesManagement</small>
 				</h1>
 			</div>
 
 			<ul class="breadcrumb">
 				<li><i class="icon-home home-icon"></i> <a href="#">首頁</a></li>
-				<li class="active">課程專區</li>
+				<li class="active">場地管理</li>
 				<li class="active">${which}</li>
 			</ul>
 			<!-- .breadcrumb -->
@@ -152,25 +152,18 @@ function report(ct_no,stu_acc){
 
 						<!-- 課程管理 -->
 						<li  id="manager">
-							<a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=courseList" id="dropdown1"><i
+							<a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=placeList" id="dropdown1"><i
 								class="green glyphicon glyphicon-pencil" style="font-size: 16px"></i>
-								<font style='font-size: 16px; font-weight: bold;'> 選課列表 </font></a>
-						</li>
-
-						<!-- 課程紀錄 -->
-						<li class="" id="record"><a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=courseOpen" id="dropdown2"> <i
-								class="green  glyphicon glyphicon-home" style="font-size: 16px"></i>
-								<font style='font-size: 16px; font-weight: bold;'>開課列表</font>
-						</a>
+								<font style='font-size: 16px; font-weight: bold;'> 場地列表 </font></a>
 						</li>
 
 						<!-- 課程課程報表紀錄 -->
-						<li id="report"><a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=courseRecord"><i
+						<li id="report"><a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=placeRecord"><i
 								class="green glyphicon glyphicon-book" style="font-size: 16px"></i>
-								<font style='font-size: 16px; font-weight: bold;'> 課程紀錄</font> </a>
+								<font style='font-size: 16px; font-weight: bold;'> 場地使用紀錄</font> </a>
 							</li>
 
-						<li id="showCalendar"><a href="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do?action=calendar"><i
+						<li id="showCalendar"><a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=calendar"><i
 								class="green glyphicon glyphicon-calendar"
 								style="font-size: 16px"></i> <font
 								style='font-size: 16px; font-weight: bold;'> 行事曆</font> </a>
@@ -264,11 +257,11 @@ function mouseXY(){
 	}
 }
 
-function showBlock(ct_no){
+function showBlock(pt_no){
 	$.ajax({
-			url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
+			url : '<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do',
 			data : {
-				ct_no : ct_no,	
+				pt_no : pt_no,	
 				action : 'showBlock'
 			},
 			type : "POST",
@@ -288,7 +281,7 @@ function showBlock(ct_no){
 
 function showLeaveBlock(ct_no,stu_acc){
 	$.ajax({
-			url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
+			url : '<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do',
 			data : {
 				ct_no : ct_no,	
 				stu_acc : stu_acc,
@@ -310,10 +303,9 @@ function showLeaveBlock(ct_no,stu_acc){
 
 function showReportBlock(ct_no,stu_acc){
 	$.ajax({
-			url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
+			url : '<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do',
 			data : {
-				ct_no : ct_no,	
-				stu_acc : stu_acc,
+				pr_no : pr_no,	
 				action : 'showReportBlock'
 			},
 			type : "POST",
@@ -343,6 +335,11 @@ function payment(c){
 	$(pay).click();
 }
 
+function eva(c){
+	var eva = "#evaluation" + c;
+	$(eva).click();
+}
+
 function payStatus(c){
 	var payStatus = "#payStatus" + c;
 	var pay = ".pay" + c;
@@ -370,17 +367,17 @@ function dropdown(num) {
 	$(btn).click();
 }
 
-function deleteCourse(ct_no,stu_acc){
+function deletePlace(pt_no){
 	
 
 	swal({
-		  title: "是否要退選課程?",
+		  title: "是否要取消預約?",
 		  text: "You will not be able to recover this!",
 		  type: "warning",
 		  showCancelButton: true,
 		  confirmButtonColor: "#DD6B55",
 		  cancelButtonText: "不了!",
-		  confirmButtonText: "確認退選!",
+		  confirmButtonText: "確認!",
 		  closeOnConfirm: false,
 		  closeOnCancel: false
 		},
@@ -388,17 +385,16 @@ function deleteCourse(ct_no,stu_acc){
 		function(isConfirm){
 		  if (isConfirm) {
 			 $.ajax({
-				url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
+				url : '<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do',
  				data : {
- 					ct_no : ct_no,	
- 					stu_acc : stu_acc,
- 					action : 'deleteCourse'
+ 					pt_no : pt_no,	
+ 					action : 'deletePlace'
  				},
  				type : "POST",
  				dataType : 'text',
 
  				success : function(msg) {
- 					swal("退選成功!", "Your are already retire the course.", "success");
+ 					swal("取消成功!", "Your are already retire the course.", "success");
  					setTimeout(function(){ location.reload(); }, 1200);
  				},
 
@@ -514,7 +510,7 @@ function addCalendar(title, start, className, minTime) {
 										function(isConfirm){
 										  if (isConfirm) {
 												$.ajax({
-													url : '<%=request.getContextPath()%>/SCM/StudentsCourseManager.do',
+													url : '<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do',
 									 				data : {
 									 					cl_date : cl_date,	
 									 					crs_time : crs_time,

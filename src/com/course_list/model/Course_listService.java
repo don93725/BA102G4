@@ -106,17 +106,16 @@ public class Course_listService {
 			    return this.dao.getReserve(coa_acc);
 			  }
 
-		  
-		  
-		  
-		
-		  
 		  public List<Course_listVO> getReady_List(String stu_acc){
 			    return this.dao.getReady(stu_acc);
 			  }
 		  public List<Course_listVO> getFinished(String stu_acc){
 			    return this.dao.getFinished(stu_acc);
 		  }
+		  
+		  public Course_listVO getEva(String ct_no) {
+			return dao.getEva(ct_no);
+		 }
 		  
 
 }

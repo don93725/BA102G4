@@ -11,6 +11,10 @@ public interface Place_timeDAO_interface {
     public void delete(String pt_no);
     public Place_timeVO findByPrimaryKey(String pt_no);
     public List<Place_timeVO> getAll(String opc_acc);
+    public List<Place_timeVO> getAllCoa(String c_acc);
+    public List<Place_timeVO> getAllUsed(String c_acc);
+    public void payPlace_time(String pt_no);
+    public void report(String pt_no);
 
 
 }
