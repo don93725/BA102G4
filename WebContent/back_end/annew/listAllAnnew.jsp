@@ -93,6 +93,19 @@
 
 
 
+<<<<<<< HEAD
+=======
+		
+</body>
+<script type="text/javascript">
+window.onload = init;
+function init(){
+	Preview.file_change();
+}
+function upload(){
+	$('#file').trigger('click');
+}
+>>>>>>> refs/remotes/origin/master
 
 
 <%@include file="/back_end/include/ace_setting_footer.file"%>
