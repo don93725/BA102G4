@@ -34,7 +34,9 @@ public class Place_timeDAO implements Place_timeDAO_interface {
 			
 	private static final String INSERT_STMT = "INSERT INTO PLACE_TIME (PT_NO,P_NO,OPC_ACC,RP_DATE,RP_TIME,OP_DATE,PBU_PRICE,PAU_PRICE,PBU_DATE) VALUES (PLACE_TIME_sq.Nextval,?,?,?,?,?,?,?,?)";
 
-	private static final String GET_ALL_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no where pt.opc_acc = ?";
+	private static final String GET_ALL_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where pt.opc_acc = ? AND rp_date > sysdate";
+	private static final String GET_ALL_LIST_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where rp_date > sysdate";
+	private static final String GET_ALL_LIST_SELECT_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where rp_date > sysdate";
 	private static final String GET_ALL_COA_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where pt.opc_acc = ? AND rp_date > sysdate";
 	private static final String GET_ALL_USED_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where pt.opc_acc = ? AND rp_date < sysdate";
 	private static final String GET_ONE_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where pt.pt_no = ?";
@@ -221,6 +223,7 @@ public class Place_timeDAO implements Place_timeDAO_interface {
 				gymsVO.setGym_name(rs.getString("gym_name"));
 				gymsVO.setGym_mail(rs.getString("gym_mail"));
 				gymsVO.setGym_into(rs.getString("gym_into"));
+				
 				
 				place_timeVO.setPlaceVO(placeVO);
 				place_timeVO.setGymsVO(gymsVO);
@@ -662,6 +665,162 @@ public class Place_timeDAO implements Place_timeDAO_interface {
 		}
 
 		
+	}
+
+	@Override
+	public List<Place_timeVO> getAllList() {
+		List<Place_timeVO> list = new ArrayList<Place_timeVO>();
+		Place_timeVO place_timeVO = null;
+		PlaceVO placeVO = null;
+		GymsVO gymsVO = null;
+		PlaceReportVO placeReportVO = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_ALL_LIST_STMT);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				place_timeVO = new Place_timeVO();
+				placeVO = new PlaceVO();
+				gymsVO = new GymsVO();
+				place_timeVO.setPt_no(rs.getString("PT_NO"));
+				place_timeVO.setP_no(rs.getString("P_NO"));
+				place_timeVO.setOpc_acc(rs.getString("OPC_ACC"));
+				place_timeVO.setRp_date(rs.getDate("RP_DATE"));
+				place_timeVO.setRp_time(rs.getInt("RP_TIME"));
+				place_timeVO.setOp_date(rs.getDate("OP_DATE"));
+				place_timeVO.setPbu_price(rs.getString("PBU_PRICE"));
+				place_timeVO.setPau_price(rs.getString("PAU_PRICE"));
+				place_timeVO.setPbu_date(rs.getDate("PBU_DATE"));
+				place_timeVO.setPau_date(rs.getDate("PAU_DATE"));
+				place_timeVO.setReport(rs.getInt("report"));
+				place_timeVO.setEva(rs.getInt("eva"));
+				place_timeVO.setEva_ct(rs.getString("eva_ct"));
+				placeVO.setP_no(rs.getString("p_no"));
+				placeVO.setP_name(rs.getString("p_name"));
+				placeVO.setP_into(rs.getString("p_into"));
+				placeVO.setP_add(rs.getString("p_add"));
+				placeVO.setP_latlng(rs.getString("p_latlng"));
+				placeVO.setP_cap(rs.getInt("p_cap"));
+				gymsVO.setGym_name(rs.getString("gym_name"));
+				gymsVO.setGym_mail(rs.getString("gym_mail"));
+				
+				place_timeVO.setPlaceVO(placeVO);
+				place_timeVO.setGymsVO(gymsVO);
+				list.add(place_timeVO); // Store the row in the list
+			}
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return list;
+	}
+
+	@Override
+	public List<Place_timeVO> getAllListSelect(String select) {
+		List<Place_timeVO> list = new ArrayList<Place_timeVO>();
+		Place_timeVO place_timeVO = null;
+		PlaceVO placeVO = null;
+		GymsVO gymsVO = null;
+		PlaceReportVO placeReportVO = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_ALL_LIST_SELECT_STMT + select);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				place_timeVO = new Place_timeVO();
+				placeVO = new PlaceVO();
+				gymsVO = new GymsVO();
+				place_timeVO.setPt_no(rs.getString("PT_NO"));
+				place_timeVO.setP_no(rs.getString("P_NO"));
+				place_timeVO.setOpc_acc(rs.getString("OPC_ACC"));
+				place_timeVO.setRp_date(rs.getDate("RP_DATE"));
+				place_timeVO.setRp_time(rs.getInt("RP_TIME"));
+				place_timeVO.setOp_date(rs.getDate("OP_DATE"));
+				place_timeVO.setPbu_price(rs.getString("PBU_PRICE"));
+				place_timeVO.setPau_price(rs.getString("PAU_PRICE"));
+				place_timeVO.setPbu_date(rs.getDate("PBU_DATE"));
+				place_timeVO.setPau_date(rs.getDate("PAU_DATE"));
+				place_timeVO.setReport(rs.getInt("report"));
+				place_timeVO.setEva(rs.getInt("eva"));
+				place_timeVO.setEva_ct(rs.getString("eva_ct"));
+				placeVO.setP_no(rs.getString("p_no"));
+				placeVO.setP_name(rs.getString("p_name"));
+				placeVO.setP_into(rs.getString("p_into"));
+				placeVO.setP_add(rs.getString("p_add"));
+				placeVO.setP_latlng(rs.getString("p_latlng"));
+				placeVO.setP_cap(rs.getInt("p_cap"));
+				gymsVO.setGym_name(rs.getString("gym_name"));
+				gymsVO.setGym_mail(rs.getString("gym_mail"));
+				
+				place_timeVO.setPlaceVO(placeVO);
+				place_timeVO.setGymsVO(gymsVO);
+				list.add(place_timeVO); // Store the row in the list
+			}
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return list;
 	}
 
 

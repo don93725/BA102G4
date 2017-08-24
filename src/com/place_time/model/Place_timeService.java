@@ -77,6 +77,13 @@ public class Place_timeService {
 	public List<Place_timeVO> getAll(String opc_acc) {
 		return dao.getAll(opc_acc);
 	}
+	
+	public List<Place_timeVO> getAllList() {
+		return dao.getAllList();
+	}
+	public List<Place_timeVO> getAllListSelect(String select) {
+		return dao.getAllListSelect(select);
+	}
 
 	public List<Place_timeVO> getAllCoa(String c_acc) {
 		return dao.getAllCoa(c_acc);
