@@ -68,7 +68,7 @@
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <center><a href="find_pleaces.jsp"><span class="btn btn-warning btn-lg tooltip-warning" data-rel="tooltip" data-placement="bottom" title="訊息">立刻預定場地</span></a></center>
+                        <center><a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=placeDetailList"><span class="btn btn-warning btn-lg tooltip-warning" data-rel="tooltip" data-placement="bottom" title="訊息">立刻預定場地</span></a></center>
                     </div>
                 </div>
             </div>

@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 
+
 <head>
 
 <!--<meta charset="utf-8">
@@ -33,8 +34,8 @@
             </script>
             
             <div class="col-lg-12">
-                <h1>找課程
-                    <small>Courses</small>
+                <h1>找場地
+                    <small>Places</small>
                 </h1>
             </div>
 
@@ -44,7 +45,7 @@
                         <a href="<%=request.getContextPath()%>/front_end/CCM/index.jsp">首頁</a>
                      </li>
                 <li class="active">服務介紹</li>
-                <li class="active">找課程</li>
+                <li class="active">找場地</li>
             </ul><!-- .breadcrumb -->
         </div>
         <br>
@@ -52,36 +53,30 @@
 
             <div class="col-lg-12">
                 <div class="row">
-				<form action="<%=request.getContextPath()%>/CCM/CourseManager.do" method="post">
+				<form action="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do" method="post">
                     <div class="col-lg-2">
-                            <input type="text" name="coa_name" id="coa_name" placeholder="輸入教練名稱">
+                            <input type="text" name="p_name" id="p_name" placeholder="輸入名稱">
                     </div>
 
                     <div class="col-lg-2">
-                            <input type="text" name="crs_name" id="crs_name" placeholder="輸入課程名稱">
+                            <input type="text" name="p_add" id="p_add" placeholder="輸入地址">
                     </div>
 
                     <div class="col-lg-2">
-                            <select class="form-control" name="category" id="category">
-                                <option value="null">選擇種類</option>
-                                <option name="" value="A">瑜珈</option>
-								<option name="" value="B">飛輪有氧</option>
-								<option name="" value="C">舞動有氧</option>
-								<option name="" value="D">拳擊有氧</option>
-								<option name="" value="E">基礎重訓</option>
-								<option name="" value="F">進階重訓</option>
-								<option name="" value="G">皮拉提斯</option>
-								<option name="" value="H">TRX肌力雕塑</option>
-								<option name="" value="O">其他</option>
+                            <select class="form-control" name="p_cap" id="p_cap">
+                                <option value="null">選擇人數</option>
+                                <option name="" value="0-20">0-20</option>
+								<option name="" value="20-40">20-40</option>
+								<option name="" value="40-100">40-100</option>
                             </select>
                     </div>
 		
 					<div class="col-lg-2">
-                            <input type="text" name="crs_date" id="crs_date" placeholder="課程日期">
+                            <input type="text" name="rp_date" id="rp_date" placeholder="場地日期">
                     </div>
                     
                     <div class="col-lg-2">
-                            <select class="form-control" name="crs_time" id="crs_time">
+                            <select class="form-control" name="rp_time" id="rp_time">
                                 <option value="null">選擇時段</option>
                                 <option value="1">08:00-09:30</option>
                                 <option value="2">10:00-11:30</option>
@@ -100,7 +95,7 @@
                     <div class="col-lg-1">
                     	<input type="button" class="btn btn-warning" id="readAll"  value="查全部">
                         <input type="reset" class="btn btn-default" id="sendSelectReset" value="重置" style="display:none";>
-                        <input type="hidden" name="action" value="crsSelectList">
+                        <input type="hidden" name="action" value="placeSelectList">
                     </div>
 				</form>
                 </div>
@@ -116,28 +111,24 @@
                             <table id="sample-table-1" class="table table-striped">
                                 <thead class="aaa">
                                     <tr>
-                                        <th class="center">類別</th>
-                                        <th>教練</th>
+                                        <th class="center">容納人數</th>
                                         <th>場館</th>
-                                        <th>課程名稱</th>
+                                        <th>地址</th>
                                         <th>時段</th>
-                                        <th>人數</th>
-                                        <th>價格</th>
+                                        <th>訂金/尾款</th>
                                         <th>預定按鈕</th>
                                      </tr>
                                 </thead>
 
                                 <tbody>
-									<c:forEach var="course_timeVO" items="${crsList}">
+									<c:forEach var="place_timeVO" items="${plist}">
 	                                    <tr style="font-weight:bold;">
-	                                        <td class="center"><span class="label label-xs label-warning arrowed-in">${course_timeVO.courseVO.categoryChange}</span></td>
-	                                        <td>${course_timeVO.coachesVO.coa_name}</td>
-	                                        <td><a href="#">${course_timeVO.placeVO.p_name}</a></td>
-	                                        <td>${course_timeVO.courseVO.crs_name}</td>
-	                                        <td>${course_timeVO.crs_date}<br>${course_timeVO.crs_timeShow}</td>
-	                                        <td>${course_timeVO.count}/${course_timeVO.limit}</td>
-	                                        <td>$${course_timeVO.price}</td>
-	                                        <td><a href="<%=request.getContextPath()%>/front_end/CourseDetails/courseInfo.jsp?ct_no=${course_timeVO.ct_no}&crs_no=${course_timeVO.crs_no}"><button class="btn btn-inverse" style="border-radius:6px;">報名/觀看詳情</button></a></td>
+	                                        <td class="center"><span class="label label-xs label-warning arrowed-in">${place_timeVO.placeVO.p_cap}人</span></td>
+	                                        <td>${place_timeVO.placeVO.p_name}</a></td>
+	                                        <td>${place_timeVO.placeVO.p_add}</a></td>
+	                                        <td>${place_timeVO.rp_date}<br>${place_timeVO.rp_timeShow}</td>
+	                                        <td>$${place_timeVO.pbu_price} / $${place_timeVO.pau_price}</td>
+	                                        <td><a href="<%=request.getContextPath()%>/front_end/CourseDetails/courseInfo.jsp?ct_no=${place_timeVO.pt_no}&crs_no=${place_timeVO.placeVO.p_no}"><button class="btn btn-inverse" style="border-radius:6px;">報名/觀看詳情</button></a></td>
 	                                    </tr>
 									</c:forEach>
                                  </tbody>
@@ -179,15 +170,13 @@ window.onload = function(){
 }
 
 $(function(){
-    $('#crs_date').datepicker({
+    $('#rp_date').datepicker({
                 dateFormat: 'yy-mm-dd'
     });
 });
 
 function sendSelect(){
-	console.log("coaname:"+$("#coa_name").val());
-	console.log("crs_name:"+$("#crs_name").val());
-	if($("#coa_name").val() == '' && $("#crs_name").val() == '' && $("select[name='category']").val() == 'null' && $("#crs_date").val() == '' && $("select[name='crs_time']").val() == 'null'){
+	if($("#p_name").val() == '' && $("#p_add").val() == '' && $("select[name='p_cap']").val() == 'null' && $("#rp_date").val() == '' && $("select[name='rp_time']").val() == 'null'){
 		swal("未選擇條件", "Please choose at least one condition!", "error");
 	}else{
 		$("#sendSelect").click();
@@ -200,6 +189,11 @@ function readAll(){
 
 
 </script>
+<style type="text/css">
+.btn {
+	border-radius:6px;
+}
+</style>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/front_end/CCM/dist/sweetalert-dev.js"></script>
 <script type="text/javascript"
@@ -211,9 +205,3 @@ function readAll(){
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-
-<style type="text/css">
-.btn {
-	border-radius:6px;
-}
-</style>
