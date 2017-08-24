@@ -9,7 +9,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -221,6 +223,120 @@ private final static String CONTENT_TYPE = "text/html; charset=UTF-8";
 			System.out.println(courseList);
 			
 		}	
+		
+		
+		if (action.equals("report")) {
+			
+			String report_ct = jsonObject.get("report_ct").getAsString();
+			String ct_no = jsonObject.get("ct_no").getAsString();
+			String stu_acc = jsonObject.get("stu_acc").getAsString();
+			
+			
+			
+			
+			System.out.println( report_ct +""+ ct_no +""+stu_acc);
+			
+			Map<String,String>msgs = new LinkedHashMap<String,String>()	;											
+						
+			boolean msg ;
+			
+			msg = course_listSvc.reportAd(report_ct, ct_no, stu_acc) ;
+			
+			if(msg == true){
+				
+				msgs.put("true","true");
+				
+				
+				writeText(rp, gson.toJson(msgs));
+				
+				System.out.println(msgs);
+			}else{
+				
+				
+				System.out.println("false");
+			}
+			
+			
+			
+			
+			
+		}	
+		
+		
+		if (action.equals("evaluation")) {
+			
+			String evaluation_coa = jsonObject.get("evaluation_coa").getAsString();
+			String evaluation_crs = jsonObject.get("evaluation_crs").getAsString();
+			String feedback = jsonObject.get("feedback").getAsString();
+			String ct_no = jsonObject.get("ct_no").getAsString();
+			String stu_acc = jsonObject.get("stu_acc").getAsString();
+			
+			
+			
+			System.out.println( evaluation_coa +""+ evaluation_crs +""+feedback+""+ct_no+""+stu_acc);
+			
+			Map<String,String>msgs = new LinkedHashMap<String,String>()	;											
+						
+			boolean msg ;
+			
+			msg = course_listSvc.evaluationAd(evaluation_coa, evaluation_crs, feedback, ct_no, stu_acc); ;
+			
+			if(msg == true){
+				
+				msgs.put("true","true");
+				
+				
+				writeText(rp, gson.toJson(msgs));
+				
+				System.out.println(msgs);
+			}else{
+				
+				
+				System.out.println("false");
+			}
+			
+			
+			
+			
+			
+		}	
+		
+		if (action.equals("deleteReserve")) {
+			
+			Course_listService course_listSvc1 = new Course_listService();
+			
+			String ct_no = jsonObject.get("ct_no").getAsString();
+			String stu_acc = jsonObject.get("stu_acc").getAsString();
+			
+			
+			
+			
+			System.out.println( ct_no +""+ stu_acc );
+			
+			Map<String,String>msgs = new LinkedHashMap<String,String>()	;											
+						
+			boolean msg ;
+			
+			msg = course_listSvc1.deleteAdCourse_list(ct_no,stu_acc) ;
+			
+			if(msg == true){
+				
+				msgs.put("true","true");
+				
+				
+				writeText(rp, gson.toJson(msgs));
+				
+				System.out.println(msgs);
+			}else{
+				
+				
+				System.out.println("false");
+			}
+	
+		}
+		
+		
+		
 		
 		
 		
