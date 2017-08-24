@@ -82,61 +82,61 @@ start with 1
 nomaxvalue
 nocycle;
 
-INSERT INTO MEMBERS VALUES('0','mgr000','3','���f-GYMHOME',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr001','3','�i7',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr002','3','�i6',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr003','3','�޲z��1',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr004','3','�޲z��2',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'STU1','0','�ǭ�_S1',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'STU2','0','�ǭ�_S2',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'COA1','1','�нm_C1',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'COA2','1','�нm_C2',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'GYM1','2','������_G1',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'GYM2','2','������_G2',DEFAULT);
+INSERT INTO MEMBERS VALUES('0','mgr000','3','健貨-GYMHOME',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr001','3','勇7',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr002','3','勇6',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr003','3','管理員1',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr004','3','管理員2',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'STU1','0','學員_S1',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'STU2','0','學員_S2',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'COA1','1','教練_C1',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'COA2','1','教練_C2',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'GYM1','2','健身房_G1',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'GYM2','2','健身房_G2',DEFAULT);
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'stu001', '0', '��K��', default);
+Values(mem_no_seq.NEXTVAL, 'stu001', '0', '醜八怪', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'stu002', '0', '�ݯ}���Фp���F', default);
+Values(mem_no_seq.NEXTVAL, 'stu002', '0', '看破紅塵小精靈', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'stu003', '0', '�����Ͻk', default);
+Values(mem_no_seq.NEXTVAL, 'stu003', '0', '笑傲糨糊', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'coa001', '1', '������lG', default);
+Values(mem_no_seq.NEXTVAL, 'coa001', '1', '當紅炸子G', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'coa002', '1', '����', default);
+Values(mem_no_seq.NEXTVAL, 'coa002', '1', '米蟲', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'coa003', '1', '�����Ǧh�֥d�C', default);
+Values(mem_no_seq.NEXTVAL, 'coa003', '1', '李奧納多皮卡丘', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'coa004', '1', '�V�eŤ���ɧJ', default);
+Values(mem_no_seq.NEXTVAL, 'coa004', '1', '越前聾馬賽克', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym001', '2', '�d�}��', default);
+Values(mem_no_seq.NEXTVAL, 'gym001', '2', '吳良心', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym002', '2', '�ִ�', default);
+Values(mem_no_seq.NEXTVAL, 'gym002', '2', '擁智', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym003', '2', '���Ыȴ�', default);
+Values(mem_no_seq.NEXTVAL, 'gym003', '2', '紅塵客棧', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym004', '2', '�B��', default);
+Values(mem_no_seq.NEXTVAL, 'gym004', '2', '冰滑', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'stu004', '0', '�޵ޤj����', default);
+Values(mem_no_seq.NEXTVAL, 'stu004', '0', '萌萌大眼睛', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'coa005', '1', '�нm', default);
+Values(mem_no_seq.NEXTVAL, 'coa005', '1', '教練', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym005', '2', '�԰�L����|�]', default);
+Values(mem_no_seq.NEXTVAL, 'gym005', '2', '戰國無雙體育館', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym006', '2', '�ڬ�', default);
+Values(mem_no_seq.NEXTVAL, 'gym006', '2', '我狠', default);
 
 CREATE TABLE MANAGER(
 MGR_NO VARCHAR2(20),
@@ -158,10 +158,10 @@ INCREMENT BY 1
 START WITH 1;
 
 
-INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),1,'mgr001','123',1,'��','dimcjo6u4@gamil.com',0,null,'�ڬO�����ߪ��H�A�Q���D���h���ܡA�w��{�Ѯ@�I');
-INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),2,'mgr002','123',1,'�Ѥ�','dimcjo6u4+1@gamil.com',1,null,'�ڬO�Ѥ��A�ڦ�b�j����C');
-INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),3,'mgr003','123',0,'�p��','dimcjo6u4+2@gamil.com',0,null,'�ڬO�p���A��ı�o�j���Ѥ��n���b�d�ڦѱC�C');
-INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),4,'mgr004','123',0,'�p�T','dimcjo6u4+3@gamil.com',1,null,'�ڬO�p�T�A�ڸ�j���Ѥ����@�L..');
+INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),1,'mgr001','123',1,'棨','dimcjo6u4@gamil.com',0,null,'我是個噁心的人，想知道有多噁嗎，歡迎認識哦！');
+INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),2,'mgr002','123',1,'老王','dimcjo6u4+1@gamil.com',1,null,'我是老王，我住在隔壁喔。');
+INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),3,'mgr003','123',0,'小明','dimcjo6u4+2@gamil.com',0,null,'我是小明，我覺得隔壁老王好像在搞我老婆。');
+INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),4,'mgr004','123',0,'小三','dimcjo6u4+3@gamil.com',1,null,'我是小三，我跟隔壁老王有一腿..');
 
 Create table coaches
 (coa_acc varchar2(20) not null constraint coa_acc_pk primary key,
@@ -179,23 +179,23 @@ coa_pft number(10) default 0);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('coa001', '14', 'coa001', default, '�P�ȳ�', 2, 'T223456781', 'ka123451@yahoo.com.tw', '�M���G��������B��������B��¦���V�C�Q�����ܡG���\�O�k�H�̭�l���Z���A�]�O�k�H�ߤ@�L�k��ܪ��̼F�`���Z���C', null , default);
+values('coa001', '14', 'coa001', default, '周紙魚', 2, 'T223456781', 'ka123451@yahoo.com.tw', '專長：飛輪有氧、拳擊有氧、基礎重訓。想說的話：眼淚是女人最原始的武器，也是男人唯一無法抵抗的最厲害的武器。', null , default);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('coa002', '15', 'coa002', default, '�����z', 1, 'T123456782', 'y123452@yahoo.com.tw', '�M���G"TRX�٤O�J��B�֩Դ����B��������C�Q�����ܡG�C�ӤH���O�t���A�y�W�b�t�B�ءA�߸̳��O�t�W�A�ӥ��ʥ��O���}�C�ڭ̭W�W�b�o�@�W�t���A���N�O���F���@�ӡA������ۤv���H�C', null , default);
+values('coa002', '15', 'coa002', default, '粥指弱', 1, 'T123456782', 'y123452@yahoo.com.tw', '專長："TRX肌力雕塑、皮拉提斯、飛輪有氧。想說的話：每個人都是演員，臉上在演浮誇，心裡都是孤獨，而本性全是善良。我們苦苦在這世上演戲，其實就是為了等一個，能看懂自己的人。', null , default);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('coa003', '16', 'coa003', default, 'ż���~', 1, 'G123456783', 'h123453@yahoo.com.tw', '�M���G��¦���V�B�i�����V�BTRX�٤O�J��C�Q�����ܡG�R�A�q�ӴN�O��d�j���઺�ơA�����Q����A�������ˮ`�A��\���o�R�H�C', null , default);
+values('coa003', '16', 'coa003', default, '髒蕪繼', 1, 'G123456783', 'h123453@yahoo.com.tw', '專長：基礎重訓、進階重訓、TRX肌力雕塑。想說的話：愛，從來就是件千迴百轉的事，不曾被離棄，不曾受傷害，怎么懂得愛人。', null , default);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('coa004', '17', 'coa004', default, '���¬v', 2, 'W223456784', 'q123454@yahoo.com.tw', '�M���G��¦���V�B�i�����V�B��L�C�Q�����ܡG�R���O�̬��n���ڡA���R�ۨC�ӤH���H�͡C�L�קA�O�C�~�٬O�Ѧ~�A�L�קA�O�����٬O�W�������n���}�ۤv���R���ڡC���ߤ����Ӷ��ŷx�ͩR�A�A�N�|�û��~���C', null , default);
+values('coa004', '17', 'coa004', default, '李朝洋', 2, 'W223456784', 'q123454@yahoo.com.tw', '專長：基礎重訓、進階重訓、其他。想說的話：愛情是最美好的夢，壯麗著每個人的人生。無論你是青年還是老年，無論你是離異還是獨身都不要打破自己的愛情夢。讓心中的太陽溫暖生命，你就會永遠年輕。', null , default);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('coa005', '23', 'coa005', default, '���إ�', 1, 'W123436713', 'q123413@yahoo.com.tw', '�M���G�R�ʦ���B"TRX�٤O�J��C�Q�����ܡG�O�]���I��ӿ��R�A�O�]�����R�ӱI��@�͡C', null , default);
+values('coa005', '23', 'coa005', default, '王建民', 1, 'W123436713', 'q123413@yahoo.com.tw', '專長：舞動有氧、"TRX肌力雕塑。想說的話：別因為寂寞而錯愛，別因為錯愛而寂寞一生。', null , default);
 
 
 Create table students
@@ -214,16 +214,16 @@ stu_sto number(10) default 0);
 
 
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('stu001', '11', 'stu001', default, '���s�s', 2, 'F223456781', 'a123451@yahoo.com.tw', '�P���쪺���ءG���ɡB��������B�R�ʦ���B��������C�p�G�A�Q�Q�O�H�R�A�A���������Ϧۤv�ȱo�R�A���O�@�ѡA�@�ӬP���A�ӬO�û��C', null, default);
+values('stu001', '11', 'stu001', default, '李孟龍', 2, 'F223456781', 'a123451@yahoo.com.tw', '感興趣的項目：瑜珈、飛輪有氧、舞動有氧、拳擊有氧。如果你想被別人愛，你首先必須使自己值得愛，不是一天，一個星期，而是永遠。', null, default);
 
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('stu002', '12', 'stu002', default, '���E�t', 1, 'D123456782', 's123452@yahoo.com.tw', '�P���쪺���ءGTRX�٤O�J��B�R�ʦ���B�֩Դ����C�ͬ����u���ܥ��Z�A����H������o��ҭn�������A���o�������A�u�O�b�o������ܤ��A�֦��A�ۤv�̬öQ���F��C', null, default);
+values('stu002', '12', 'stu002', default, '王浩宇', 1, 'D123456782', 's123452@yahoo.com.tw', '感興趣的項目：TRX肌力雕塑、舞動有氧、皮拉提斯。生活其實真的很平凡，任何人都不能得到所要的全部，有得必有失，只是在得失的選擇中，擁有你自己最珍貴的東西。', null, default);
 
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('stu003', '13', 'stu003', default, '���ѴI', 2, 'A223456783', 'w123453@yahoo.com.tw', '�P���쪺���ءG�֩Դ����B���ɡB�i�����V�B��������C�`�O����M�r�}�ۧO�H�����֡A�@�^�Y�A�o�o�{�ۤv���Q����M�r�}�ۡC�n�ñ��M�P���ۤv�u���֦������֡C���n���A�����֡A�u�O�b�O�H���̡C', null, default);
+values('stu003', '13', 'stu003', default, '李天富', 2, 'A223456783', 'w123453@yahoo.com.tw', '感興趣的項目：皮拉提斯、瑜珈、進階重訓、飛輪有氧。總是仰望和羨慕著別人的幸福，一回頭，卻發現自己正被仰望和羨慕著。要珍惜和感知自己真正擁有的幸福。不要讓你的幸福，只是在別人眼裡。', null, default);
 
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('stu004', '22', 'stu004', default, '���i��', 1, 'A123456712', 'w123412@yahoo.com.tw', '�P���쪺���ءGTRX�٤O�J��B�R�ʦ���C���n�]���I��h�ʷR�A�ɶ��O���]���A�Ѫ���[�A�p�G�A�O�Ӧh�����H�A�Y�Ϥ��R���A��ɭԤ]�|���ͷP���A��̫�A��\��H', null, default);
+values('stu004', '22', 'stu004', default, '飯可親', 1, 'A123456712', 'w123412@yahoo.com.tw', '感興趣的項目：TRX肌力雕塑、舞動有氧。不要因為寂寞去戀愛，時間是個魔鬼，天長日久，如果你是個多情的人，即使不愛對方，到時候也會產生感情，到最後你怎么辦？', null, default);
 
 
 Create table gyms
@@ -240,53 +240,53 @@ gym_pic blob);
 
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('gym001', '18', 'gym001', default, '�S�O������-���t', 'n123456788@yahoo.com.tw', '��饫���c���s�����@�q168��', '24.9486715,121.224426', '���B�O�R�����X�ӡA���O�p�G�����B�A�R���N���L�������a�C', null);
+values('gym001', '18', 'gym001', default, '沒力健身房-桃園廠', 'n123456788@yahoo.com.tw', '桃園市中壢區龍岡路一段168號', '24.9486715,121.224426', '結婚是愛情的墳墓，但是如果不結婚，愛情就死無葬身之地。', null);
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('gym002', '19', 'gym002', default, '�ְּ�����-���t', 'i123456789@yahoo.com.tw', '��饫�K�w�ϩ�����23��', '24.9606286,121.29899069999999', '�@�������i��b�P�@�ʾ�W���d�Ӥ[�A�_�h��o����o�𳣬O�@�حt��A�����`�Q�h�ݥt�@���ѪšA�Ӿ�]���@�C�ѭ���P�˪������C', null);
+values('gym002', '19', 'gym002', default, '快樂健身房-桃園廠', 'i123456789@yahoo.com.tw', '桃園市八德區忠孝街23號', '24.9606286,121.29899069999999', '一隻鳥不可能在同一棵樹上停留太久，否則對這鳥對這樹都是一種負擔，鳥兒總想去看另一片天空，而樹也不願每天面對同樣的風景。', null);
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('gym003', '20', 'gym003', default, '�d�˰�����(�s�_�t)', 'r123456780@yahoo.com.tw', '�s�_���O�������Q���G�q143��', '25.0279619,121.47475099999997', '�Y���o������,�]�n�n�n�a���n�A��,�]�n�b�߸̦s�۷P��,�P�¥L���F�A�@���O�СC', null);
+values('gym003', '20', 'gym003', default, '悲傷健身房(新北廠)', 'r123456780@yahoo.com.tw', '新北市板橋區雙十路二段143號', '25.0279619,121.47475099999997', '若不得不分離,也要好好地說聲再見,也要在心裡存著感謝,感謝他給了你一分記憶。', null);
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('gym004', '21', 'gym004', default, '�n�n������-�x���t', 'x123456788@yahoo.com.tw', '�x�����j���Ϥ��M���T�q1090���x�W 2F', '24.9486715,121.224426', '�R�L�N�ߦb����A���n�q�h�L�h�A�]���������w�g�L�h�A�{�b�O�s���}�l�A�N�L�h�����v�d�b�{�b�u�|���A���{�b�]�����L�h�C', null);
+values('gym004', '21', 'gym004', default, '爽爽健身房-台中廠', 'x123456788@yahoo.com.tw', '台中市大雅區中清路三段1090號台灣 2F', '24.9486715,121.224426', '愛過就拋在身後，不要緬懷過去，因為它畢竟已經過去，現在是新的開始，將過去的陰影留在現在只會讓你的現在也成為過去。', null);
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('gym005', '24', 'gym005', default, '�S�߰�����(�����t)', 'x425456738@yahoo.com.tw', '����������ϳշR�T��102��', '22.673214,120.30494299999998', '�@�q���Q�������R���A�ݭn�����O�ˤߡA�ӬO�ɶ��A�@�q�i�H�Ψӿ�Ѫ��ɶ��C�@���Q�`�`�ˤF���ߡA�ݭn�����O�P���A�ӬO���աC', null);
+values('gym005', '24', 'gym005', default, '沒心健身房(高雄廠)', 'x425456738@yahoo.com.tw', '高雄市左營區博愛三路102號', '22.673214,120.30494299999998', '一段不被接受的愛情，需要的不是傷心，而是時間，一段可以用來遺忘的時間。一顆被深深傷了的心，需要的不是同情，而是明白。', null);
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('gym006', '25', 'gym006', default, '�H�t������-�����t', 'x425456738@yahoo.com.tw', '����������ϳշR�G��600-1��', '22.6683231,120.30371409999998', '�|�o�_��o�U���s�|���A�|�o�_�񤣤U���s�t���C�i���A�j�h�ƤH���R���A���O�t�����C', null);
+values('gym006', '25', 'gym006', default, '隨緣健身房-高雄廠', 'x425456738@yahoo.com.tw', '高雄市左營區博愛二路600-1號', '22.6683231,120.30371409999998', '舉得起放得下的叫舉重，舉得起放不下的叫負重。可惜，大多數人的愛情，都是負重的。', null);
 
 
---��7�����
+--永7假資料
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('STU1', '5', 'stu123', default, '�|�p�p', 2, 'F223456781', 'a123451@yahoo.com.tw', '�ѲP��B�L�گ�,�^���@���{��y�C', null, default);
+values('STU1', '5', 'stu123', default, '魯小小', 2, 'F223456781', 'a123451@yahoo.com.tw', '天涯何處無芳草,回眸一笑閃到腰。', null, default);
 
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('STU2', '6', 'stu123', default, '���|�D', 1, 'D123456782', 's123452@yahoo.com.tw', '��c���R���T�d,�K�S�i��¸��w�C', null, default);
+values('STU2', '6', 'stu123', default, '王魯蛇', 1, 'D123456782', 's123452@yahoo.com.tw', '後宮佳麗有三千,鐵杵磨成繡花針。', null, default);
 
 
----�s�WCoaches��ƥ�
+---新增Coaches資料用
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('COA1', '7', 'coa123', default, '�|�ܲ`', 2, 'T223456781', 'ka123451@yahoo.com.tw', '�L�ߴ��h,�h��ġC', null , default);
+values('COA1', '7', 'coa123', default, '魯至深', 2, 'T223456781', 'ka123451@yahoo.com.tw', '無心插柳,柳橙汁。', null , default);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('COA2', '8', 'coa123', default, '�|���u', 1, 'T123456782', 'y123452@yahoo.com.tw', '�|��`�B,�]�k�v�C', null , default);
+values('COA2', '8', 'coa123', default, '魯智吟', 1, 'T123456782', 'y123452@yahoo.com.tw', '魯到深處,魔法師。', null , default);
 
 
---�s�WGyms��ƥ�
+--新增Gyms資料用
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('GYM1', '9', 'gym123', default, 'QQ������-���t', 'n123456788@yahoo.com.tw', '��饫���c���s�����@�q168��', '24.9486715,121.224426', '�@�ӫK��Y����,���N�A�Y�ĤG�ӧa�C', null);
+values('GYM1', '9', 'gym123', default, 'QQ健身房-桃園廠', 'n123456788@yahoo.com.tw', '桃園市中壢區龍岡路一段168號', '24.9486715,121.224426', '一個便當吃不飽,那就再吃第二個吧。', null);
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add,gym_latlng, gym_into, gym_pic)
-values('GYM2', '10', 'gym123', default, '�樭ʨ�k������-���t', 'i123456789@yahoo.com.tw', '��饫�K�w�ϩ�����23��', '24.9606286,121.29899069999999', '�b�D�w�A�C���Q��,�N���@�����L�h�C', null);
+values('GYM2', '10', 'gym123', default, '單身囧男健身房-桃園廠', 'i123456789@yahoo.com.tw', '桃園市八德區忠孝街23號', '24.9606286,121.29899069999999', '在非洲，每六十秒,就有一分鐘過去。', null);
 
 
---���a
+--場地
 
 Create sequence p_no_seq
 increment by 1
@@ -306,20 +306,20 @@ p_cap number(10),
 p_date date default sysdate);
 
 Insert into place(p_no, g_acc , p_name, p_into, p_status, p_add, p_latlng, p_cap, p_date)
-Values(p_no_seq.NEXTVAL, 'gym001', '�����Ы�', '�ܴΪ����a', default, '��饫���c���s�����@�q168��', '24.9486715,121.224426', 20, default);
+Values(p_no_seq.NEXTVAL, 'gym001', '飛輪教室', '很棒的場地', default, '桃園市中壢區龍岡路一段168號', '24.9486715,121.224426', 20, default);
 
 Insert into place(p_no, g_acc , p_name, p_into, p_status, p_add, p_latlng, p_cap, p_date)
-Values(p_no_seq.NEXTVAL, 'gym001', '�}�a�Ы�', '��Ϊ����a', default, '�x�_���j�w��ù���ָ��G�q9��', '25.0251243,121.52405720000002', 40, default);
+Values(p_no_seq.NEXTVAL, 'gym001', '破壞教室', '更棒的場地', default, '台北市大安區羅斯福路二段9號', '25.0251243,121.52405720000002', 40, default);
 
----Place �����
+---Place 假資料
 
-INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM1','GYMHOME���c�굦�|��','�ܴΪ�����',default, '��饫���c�Ϥ�����1��', '24.9486715,121.224426', 20, default);
-INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM2','GYMHOME���N�N��','�ܭ������a',default, '��饫���c�Ϥ�����2��', '24.9486715,121.224426', 20, default);
-INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM1','GYMHOME�f�l�A�ȩ�','�ܶ٪����a',default, '��饫���c�Ϥ�����3��', '24.9486715,121.224426', 20, default);
-INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM2','GYMHOME�����w�֩�','���R��������',default, '��饫���c�Ϥ�����4��', '24.9486715,121.224426', 20, default);
----�Ы�PLACE_time
+INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM1','GYMHOME中壢資策會店','很棒的環境',default, '桃園市中壢區中央路1號', '24.9486715,121.224426', 20, default);
+INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM2','GYMHOME桃園燒烤店','很香的場地',default, '桃園市中壢區中央路2號', '24.9486715,121.224426', 20, default);
+INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM1','GYMHOME妹子服務店','很嗨的場地',default, '桃園市中壢區中央路3號', '24.9486715,121.224426', 20, default);
+INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM2','GYMHOME有氧歡樂店','氧氣充足的環境',default, '桃園市中壢區中央路4號', '24.9486715,121.224426', 20, default);
+---創建PLACE_time
 ----Lin SQL
------OPC_ACC �������ɱнm�b��
+-----OPC_ACC 對應租借教練帳號
 ---------------------------------------------------------------------------------
 CREATE TABLE PLACE_time (
  PT_NO              VARCHAR2(15) NOT NULL,
@@ -345,7 +345,7 @@ NOCYCLE
 NOCACHE;
 
 ----------------------------------------------------------------------------------------------------------------------
-----���a�ɬq����ƴ���
+----場地時段假資料測試
 
 INSERT INTO PLACE_time (PT_NO,P_NO,OPC_ACC,RP_DATE,RP_TIME,OP_DATE,PBU_PRICE,PAU_PRICE,PBU_DATE,report,eva,eva_ct)
                    VALUES (PLACE_time_sq.Nextval,'1','COA1',TO_DATE('2017-10-18','YYYY-MM-DD'),1,TO_DATE('2017-08-18','YYYY-MM-DD'),5000,10000,TO_DATE('2017-08-19','YYYY-MM-DD'),0,0,null);
@@ -356,8 +356,8 @@ INSERT INTO PLACE_time (PT_NO,P_NO,OPC_ACC,RP_DATE,RP_TIME,OP_DATE,PBU_PRICE,PAU
 
 commit;
 --------------------------------------------------------------------------
----���a���|����
--------????????REF_CTX �ݭ�????
+---場地檢舉紀錄
+-------????????REF_CTX 待修????
 ---------------------------------------
 
 CREATE TABLE PLACE_REPORT
@@ -386,7 +386,7 @@ INSERT INTO PLACE_REPORT VALUES(PLACE_REPORT_PK_SEQ.NEXTVAL,'2','7','WHAT THE',s
 INSERT INTO PLACE_REPORT VALUES(PLACE_REPORT_PK_SEQ.NEXTVAL,'1','8','WTF',sysdate,default,'test6',null);
 
 
---���a�Ϥ�
+--場地圖片
 
 
 create table place_picture
@@ -405,7 +405,7 @@ nocache;
 
 
 
---�n�ͦC��
+--好友列表
 
 create table friends (
 mem_no varchar2(10) ,
@@ -420,7 +420,7 @@ insert into friends values(11,13,sysdate);
 insert into friends values(11,14,sysdate);
 
 
---�O��
+--板塊
 
 create table forums (
 forum_no varchar2(15) ,
@@ -441,19 +441,19 @@ start with 1
 nocycle
 nocache;
 
-insert into forums values(forums_pk_seq.nextval,null,'���i��','�M����@�Ǥ��i��',null,3,default,default,default);
-insert into forums values(forums_pk_seq.nextval,null,'�K����','���K�U���Ӳ�@�U�K���a',null,3,default,default,default);
-insert into forums values(forums_pk_seq.nextval,null,'���D��','���ѦU�찷���̸߰ݪ��a��',null,3,default,default,default);
-insert into forums values(forums_pk_seq.nextval,null,'�s����','������̷s�������N�|�b��',null,3,default,default,default);
-insert into forums values(forums_pk_seq.nextval,null,'�P�P��','�M�������Z�n����P�P��T',null,3,default,default,default);
-insert into forums values(forums_pk_seq.nextval,null,'��ͪ�','�������l�٥i����L�B�ʳ�',null,3,default,default,default);
-insert into forums values(forums_pk_seq.nextval,'11','���ݰ�����','�ϩ��b���ݤ@�볣�ݤ���b�B��','����ť���̪�ܬ��A���а_��',default,default,default,default);
-insert into forums values(forums_pk_seq.nextval,'12','���z������','���z�H���S�O�j���A�����@���A�֤@�_�ӦP��','�o�����j���z',default,default,default,default);
-insert into forums values(forums_pk_seq.nextval,'13','���_�Ӵ��_��','�B�ʦP�n�i�Ӵ��γ�~~','�Pı�����֤F�@�Ӵ��ΰ�',default,default,default,default);
-insert into forums values(forums_pk_seq.nextval,'14','���Q����','���Ҥ��Q����������','�ݨ찷���N��77�A�ڴN�O���Q�ʪ��Φv��',default,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'公告版','專門放一些公告類',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'八卦版','不免俗的來聊一下八卦吧',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'問題版','提供各位健身者詢問的地方',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'新知版','有任何最新消息都將會在此',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'促銷版','專門給予刊登任何促銷資訊',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'交友版','健身之餘還可約其他運動喔',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,'11','雲端健身房','彷彿在雲端一般都看不到在運動','雲端聽說最近很紅，先創起來',default,default,default,default);
+insert into forums values(forums_pk_seq.nextval,'12','爪哇健身房','爪哇人都特別強壯，健身一絕，快一起來同樂','發揚光大爪哇',default,default,default,default);
+insert into forums values(forums_pk_seq.nextval,'13','健起來揪起來','運動同好進來揪團喔~~','感覺此版少了一個揪團區',default,default,default,default);
+insert into forums values(forums_pk_seq.nextval,'14','不想健身','提倡不想健身的風氣','看到健身就生77，我就是不想動的肥宅阿',default,default,default,default);
 
 
---�峹����
+--文章類型
 
 
 create table art_types (
@@ -469,31 +469,31 @@ create sequence art_types_seq
 increment by 10
 start with 10;
 
-insert into art_types values(art_types_seq.nextval,'1','�@�뤽�i',default);
-insert into art_types values(art_types_seq.nextval,'1','�t�Τ��i',default);
-insert into art_types values(art_types_seq.nextval,'1','���q�i',default);
-insert into art_types values(art_types_seq.nextval,'2','�T�֨�',default);
-insert into art_types values(art_types_seq.nextval,'2','�߰ݨ�',default);
-insert into art_types values(art_types_seq.nextval,'2','�o�o��',default);
-insert into art_types values(art_types_seq.nextval,'3','�������D',default);
-insert into art_types values(art_types_seq.nextval,'3','�������D',default);
-insert into art_types values(art_types_seq.nextval,'3','�k�߰��D',default);
-insert into art_types values(art_types_seq.nextval,'3','�߲z���D',default);
-insert into art_types values(art_types_seq.nextval,'4','�@��s��',default);
-insert into art_types values(art_types_seq.nextval,'4','��޷s��',default);
-insert into art_types values(art_types_seq.nextval,'4','���|�s��',default);
-insert into art_types values(art_types_seq.nextval,'4','�T�ַs��',default);
-insert into art_types values(art_types_seq.nextval,'5','�s�~�W��',default);
-insert into art_types values(art_types_seq.nextval,'5','�P�P����',default);
-insert into art_types values(art_types_seq.nextval,'5','�M�ܬ���',default);
-insert into art_types values(art_types_seq.nextval,'5','�p�X���',default);
-insert into art_types values(art_types_seq.nextval,'5','�p�X���',default);
-insert into art_types values(art_types_seq.nextval,'6','�����P',default);
-insert into art_types values(art_types_seq.nextval,'6','���ۺq',default);
-insert into art_types values(art_types_seq.nextval,'6','���ۿ�',default);
-insert into art_types values(art_types_seq.nextval,'6','�ۧڤ���',default);
+insert into art_types values(art_types_seq.nextval,'1','一般公告',default);
+insert into art_types values(art_types_seq.nextval,'1','系統公告',default);
+insert into art_types values(art_types_seq.nextval,'1','緊急通告',default);
+insert into art_types values(art_types_seq.nextval,'2','娛樂卦',default);
+insert into art_types values(art_types_seq.nextval,'2','詢問卦',default);
+insert into art_types values(art_types_seq.nextval,'2','發廢卦',default);
+insert into art_types values(art_types_seq.nextval,'3','健身問題',default);
+insert into art_types values(art_types_seq.nextval,'3','網站問題',default);
+insert into art_types values(art_types_seq.nextval,'3','法律問題',default);
+insert into art_types values(art_types_seq.nextval,'3','心理問題',default);
+insert into art_types values(art_types_seq.nextval,'4','一般新知',default);
+insert into art_types values(art_types_seq.nextval,'4','科技新知',default);
+insert into art_types values(art_types_seq.nextval,'4','社會新知',default);
+insert into art_types values(art_types_seq.nextval,'4','娛樂新知',default);
+insert into art_types values(art_types_seq.nextval,'5','新品上市',default);
+insert into art_types values(art_types_seq.nextval,'5','促銷活動',default);
+insert into art_types values(art_types_seq.nextval,'5','清倉活動',default);
+insert into art_types values(art_types_seq.nextval,'5','聯合拍賣',default);
+insert into art_types values(art_types_seq.nextval,'5','聯合拍賣',default);
+insert into art_types values(art_types_seq.nextval,'6','約打牌',default);
+insert into art_types values(art_types_seq.nextval,'6','約唱歌',default);
+insert into art_types values(art_types_seq.nextval,'6','約相親',default);
+insert into art_types values(art_types_seq.nextval,'6','自我介紹',default);
 
---�峹
+--文章
 
 create table articles (
 art_no varchar2(15) ,
@@ -515,7 +515,7 @@ start with 1
 nocycle
 nocache;
 
---�峹�ۤ�
+--文章相片
 
 create table article_photos (
 art_pt_no varchar2(20) ,
@@ -531,7 +531,7 @@ start with 1
 nocycle
 nocache;
 
---�峹�d��
+--文章留言
 create table article_comments (
 art_cmt_no varchar2(20) ,
 art_no varchar2(15) ,
@@ -551,7 +551,7 @@ nocache;
 
 
 
---�峹���|
+--文章檢舉
 
 create table article_report (
 art_rpt_no varchar2(15) ,
@@ -572,7 +572,7 @@ nocycle
 nocache;
 
 
---��ï
+--相簿
 
 create table albums (
 al_no varchar2(15) ,
@@ -591,14 +591,14 @@ start with 1
 nocycle
 nocache;
 
-insert into albums values(albums_pk_seq.nextval,'11',default,'�B��',default,default,1);
-insert into albums values(albums_pk_seq.nextval,'11',default,'�Y��',default,default,default);
-insert into albums values(albums_pk_seq.nextval,'11',default,'�n�F',default,1,default);
-insert into albums values(albums_pk_seq.nextval,'11',default,'�ų�',default,default,default);
-insert into albums values(albums_pk_seq.nextval,'11',default,'�Ӥ@�o',default,default,default);
-insert into albums values(albums_pk_seq.nextval,'11',default,'�g�g�g',default,default,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'運動',default,default,1);
+insert into albums values(albums_pk_seq.nextval,'11',default,'吃飯',default,default,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'好東',default,1,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'酷喔',default,default,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'來一發',default,default,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'讚讚讚',default,default,default);
 
---�ۤ�
+--相片
 
 
 create table photos (
@@ -618,7 +618,7 @@ start with 1
 nocycle
 nocache;
 
---�ʺA����
+--動態消息
 
 create table message_board (
 bd_msg_no varchar2(15) ,
@@ -640,10 +640,10 @@ increment by 1
 start with 1
 nocycle
 nocache;
-insert into message_board values(message_board_pk_seq.nextval,11,0,default,'�گu���n�ӥi�O�ڤ�����O�H��',null,2,sysdate,null,null,null);
-insert into message_board values(message_board_pk_seq.nextval,12,0,default,'���Ȥ����D�Yԣ�C...�ͬ��n��',null,0,sysdate,null,null,null);
-insert into message_board values(message_board_pk_seq.nextval,12,0,default,'�b�]�b�gJAVA ���H���̤@�_�İ���?',null,1,sysdate,null,null,null);
---�ʺA���Ӥ���Ӫ�
+insert into message_board values(message_board_pk_seq.nextval,11,0,default,'我真的好帥可是我不敢跟別人說',null,2,sysdate,null,null,null);
+insert into message_board values(message_board_pk_seq.nextval,12,0,default,'中午不知道吃啥耶...生活好難',null,0,sysdate,null,null,null);
+insert into message_board values(message_board_pk_seq.nextval,12,0,default,'半夜在寫JAVA 有人醒者一起奮鬥嗎?',null,1,sysdate,null,null,null);
+--動態的照片對照表
 
 create table board_photo (
 bd_msg_no varchar2(15) ,
@@ -653,7 +653,7 @@ constraint board_photo_fk foreign key(photo_no) references photos(PHOTO_NO),
 primary key(bd_msg_no,photo_no));
 
 
---���g����
+--按讚紀錄
 
 create table likes_record (
 bd_msg_no varchar2(15) ,
@@ -668,7 +668,7 @@ create sequence likes_record_pk_seq
 increment by 1
 start with 1;
 
---�d���O
+--留言板
 
 create table board_cmt (
 bd_cmt_no varchar2(15) ,
@@ -686,7 +686,7 @@ create sequence board_cmt_pk_seq
 increment by 1
 start with 1;
 
---�q�ίd�����g����
+--通用留言按讚紀錄
 
 create table cmt_likes_record (
 cmt_rcd_no varchar2(15) ,
@@ -701,7 +701,7 @@ create sequence cmt_likes_record_pk_seq
 increment by 1
 start with 1;
 
---�T��
+--訊息
 create table message (
 msg_no varchar2(20) ,
 rcv_no varchar2(10) ,
@@ -718,13 +718,13 @@ increment by 1
 start with 1;
 
 
-INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'1','2',SYSDATE,'�w�w�A�n',1);
-INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'2','1',SYSDATE,'�A�n',1);
-INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'1','2',SYSDATE,'������?',1);
-INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'2','1',SYSDATE,'���n',1);
+INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'1','2',SYSDATE,'安安你好',1);
+INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'2','1',SYSDATE,'你好',1);
+INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'1','2',SYSDATE,'給虧嗎?',1);
+INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'2','1',SYSDATE,'不要',1);
 INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'1','2',SYSDATE,'QAQ',0);
 
---��ݥ\���
+--後端功能表
 
 CREATE TABLE FUNCTION
 (
@@ -734,18 +734,18 @@ CONSTRAINT FUNCTION_F_NO_PK PRIMARY KEY(F_NO)
 );
 
 
-INSERT INTO FUNCTION VALUES('M', '���u�b���޲z');
-INSERT INTO FUNCTION VALUES('PI', '������T�޲z');
-INSERT INTO FUNCTION VALUES('CC', '�f�ֱнm���');
-INSERT INTO FUNCTION VALUES('CG', '�f�ְ����и��');
-INSERT INTO FUNCTION VALUES('CA', '�f�ּs�i');
-INSERT INTO FUNCTION VALUES('CF', '�f�ֶ}��');
-INSERT INTO FUNCTION VALUES('RM', '�|�����|�f��');
-INSERT INTO FUNCTION VALUES('RC', '�ҵ{���|�f��');
-INSERT INTO FUNCTION VALUES('RA', '�峹���|�f��');
-INSERT INTO FUNCTION VALUES('RP', '���a���|�f��');
+INSERT INTO FUNCTION VALUES('M', '員工帳號管理');
+INSERT INTO FUNCTION VALUES('PI', '網頁資訊管理');
+INSERT INTO FUNCTION VALUES('CC', '審核教練資格');
+INSERT INTO FUNCTION VALUES('CG', '審核健身房資格');
+INSERT INTO FUNCTION VALUES('CA', '審核廣告');
+INSERT INTO FUNCTION VALUES('CF', '審核開版');
+INSERT INTO FUNCTION VALUES('RM', '會員檢舉審核');
+INSERT INTO FUNCTION VALUES('RC', '課程檢舉審核');
+INSERT INTO FUNCTION VALUES('RA', '文章檢舉審核');
+INSERT INTO FUNCTION VALUES('RP', '場地檢舉審核');
 
---�v����
+--權限表
 
 CREATE TABLE AUTHORITY
 (
@@ -799,8 +799,8 @@ INSERT INTO AUTHORITY VALUES('MGR004', 'RA');
 INSERT INTO AUTHORITY VALUES('MGR004', 'RP');
 
 ------------------------------
----�|�����|����??
----????�Q���|���e�ݭ�??????
+---會員檢舉紀錄??
+---????被檢舉內容待修??????
 ------------------------------------
 
 CREATE TABLE MEMBERS_REPORT
@@ -822,13 +822,13 @@ CREATE SEQUENCE MEMBERS_REPORT_PK_SEQ
 INCREMENT BY 1
 START WITH 1;
 
-INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'5','6','�o�o��',SYSDATE,0,NULL,NULL);
-INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'7','10','�c�N��|',SYSDATE,0,NULL,NULL);
-INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'8','9','�j�q�~����',SYSDATE,0,NULL,NULL);
-INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'7','5','�c�N��|+�j�q�~����',SYSDATE,1,NULL,NULL);
+INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'5','6','發廢文',SYSDATE,0,NULL,NULL);
+INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'7','10','惡意謾罵',SYSDATE,0,NULL,NULL);
+INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'8','9','大量洗版面',SYSDATE,0,NULL,NULL);
+INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'7','5','惡意謾罵+大量洗版面',SYSDATE,1,NULL,NULL);
 
 ---------------------------------------------------------------------------------
----�Ыؽҵ{
+---創建課程
 ----Lin SQL
 ---------------------------------------------------------------------------------
 create table course
@@ -848,18 +848,18 @@ nocycle
 nocache;
 -----------------------------------------------------------------------------------
 
-----�ҵ{����ƴ���
+----課程假資料測試
 
-Insert into course values('A' || lpad(course_sq.Nextval,4,'0'),'COA1','����','�����x����','A',default);
-Insert into course values('B' || lpad(course_sq.Nextval,4,'0'),'COA1','����','�����s�Ƥ�','B',default);
-Insert into course values('C' || lpad(course_sq.Nextval,4,'0'),'COA1','����','����g�Q��','C',default);
-Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','����','���_�n�W��','D',2);
-Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','����','���_�n�W��','D',default);
-Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','����','���_�n�W��','D',default);
-Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','����','���_�n�W��','D',default);
+Insert into course values('A' || lpad(course_sq.Nextval,4,'0'),'COA1','瑜珈','瑜珈屌炸天','A',default);
+Insert into course values('B' || lpad(course_sq.Nextval,4,'0'),'COA1','飛輪','飛輪龍傲天','B',default);
+Insert into course values('C' || lpad(course_sq.Nextval,4,'0'),'COA1','有氧','有氧狂霸天','C',default);
+Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','跳床','車震爽上天','D',2);
+Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','跳床','車震爽上天','D',default);
+Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','跳床','車震爽上天','D',default);
+Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','跳床','車震爽上天','D',default);
 
 
----�ҵ{�Ϥ�
+---課程圖片
 
 create table course_picture
 (crs_pic_no varchar2(10) Not null,
@@ -910,7 +910,7 @@ commit;
 
 
 
----- course_list����ƴ���
+---- course_list假資料測試
 create table course_list  
 (ct_no Varchar2(10) constraint course_list_ct_no_fk references course_time(ct_no),
  stu_acc Varchar2(20) constraint students_stu_acc_fk references students(stu_acc),
@@ -939,7 +939,7 @@ Insert into course_list values('B' || lpad(course_list_sq.Nextval,6,'0'),'stu002
 Insert into course_list values('C' || lpad(course_list_sq.Nextval,6,'0'),'stu002',TO_DATE('2017-10-20','YYYY-MM-DD'),3,0,null,0,null,null,null,null,0,null);
 
 --------------------------
-----�s�i�ӽ� AD_APPLY 
+----廣告申請 AD_APPLY 
 --------------------------
 CREATE TABLE AD_APPLY
 (
@@ -959,15 +959,15 @@ create sequence AD_APPLY_PK_seq
 increment by 1
 start with 1;
 
-INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'7',0,TO_DATE('1981-11-17','YYYY-MM-DD'),'����','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'���ɽҵ{',null);
-INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'8',0,TO_DATE('1981-11-17','YYYY-MM-DD'),'���V','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'���V�ҵ{',null);
-INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'9',1,TO_DATE('1981-11-17','YYYY-MM-DD'),'����','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'����ҵ{',null);
-INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'10',1,TO_DATE('1981-11-17','YYYY-MM-DD'),'�|�|','YAHOO.COM',TO_DATE('1981-11-19','YYYY-MM-DD'),TO_DATE('1981-12-19','YYYY-MM-DD'),'�|�|�����]',null);
+INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'7',0,TO_DATE('1981-11-17','YYYY-MM-DD'),'瑜珈','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'瑜珈課程',null);
+INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'8',0,TO_DATE('1981-11-17','YYYY-MM-DD'),'重訓','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'重訓課程',null);
+INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'9',1,TO_DATE('1981-11-17','YYYY-MM-DD'),'有氧','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'有氧課程',null);
+INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'10',1,TO_DATE('1981-11-17','YYYY-MM-DD'),'魯魯','YAHOO.COM',TO_DATE('1981-11-19','YYYY-MM-DD'),TO_DATE('1981-12-19','YYYY-MM-DD'),'魯魯健身館',null);
 
 
 
 ----------------------------
----���i����---
+---公告消息---
 
 create table annew (
 ann_no varchar2(15) not null ,
@@ -986,14 +986,14 @@ nocycle
 nocache;
 
 
-INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('1', sysdate, '�����}�Үɶ�����', '�i�нm�������ҵ{�զ�8/10�}��');
-INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('2', sysdate, '�P�P�����о�׳q��', '�P�P�����бq8/18�_�A�i����C���פu�{');
-INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('3', sysdate, '���V�J����Žҵ{���W', '���нm�����V��Žҵ{�q8/15�_�A�C�P��U��2�I�}�l,�w����D���W');
-INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('4', sysdate, '���|�ҵ{���ҳq��', '���нm8/13���|�ҵ{�]�G���Ҥ@��,�q�Ш���!');
+INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('1', sysdate, '飛輪開課時間異動', '張教練的飛輪課程調至8/10開課');
+INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('2', sysdate, '噗噗健身房整修通知', '噗噗健身房從8/18起，進行裝潢維修工程');
+INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('3', sysdate, '重訓入門初級課程報名', '李教練的重訓初級課程從8/15起，每周日下午2點開始,歡迎踴躍報名');
+INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('4', sysdate, '拉舉課程停課通知', '陳教練8/13拉舉課程因故停課一次,敬請見諒!');
 
 
 
----��������-----
+---健身知識-----
 
 
 create table fitkw (
@@ -1012,15 +1012,15 @@ nocycle
 nocache;
 
 
-INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('1', sysdate, '��¦����', '5�Ӱʧ@10�����V�m','�����b�����B�ʤ����@�ΫD�`�j�A�ܦh�s�H�����|���������A�y���ܦh�·СC�b�i��@�P�B�ʫe�A�Ϊ̤O�q�V�m�e�A�����Ӱ��n�R���������A�H������F��̨Ϊ����A�C');
-INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('2', sysdate, '�W�٪���', '�n�W�[�O�q','�L�̪���s����A���t���V�m�����n�a�ո`���g�t�αN�q�H���q�j���ǻ���٦סA�W�[�٦ׯ�����ͪ��O�q�A�ӧC�t���V�m�h����C');
-INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('3', sysdate, '��L����', '��s���G�i�D�A�G�Ÿ��V�m�n���n','�W�ȡA�b�Ÿ��ζi�������A�U�]�B�ʫe2�p�ɶi���I�t�Ҥ��ƦX�����@�y�\�^�A���o�ǧ��@�̥H60�H�̤j�����J�q���j�פU�B��60�����C');
-INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('4', sysdate, '�]�B����', '��]�P�]�]���ӧ�n�H','�ܦh���w��]���B�ͻ{���A�g�L�@�ߤW�����ơA���W�Ÿ��h��ҡA�঳���Ī����Ө���תաC�o���[�I�O���~��');
+INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('1', sysdate, '基礎知識', '5個動作10分鐘訓練','熱身在健身運動中的作用非常大，很多新人往往會忽視熱身，造成很多麻煩。在進行劇烈運動前，或者力量訓練前，都應該做好充分的熱身，以讓身體達到最佳的狀態。');
+INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('2', sysdate, '增肌知識', '要增加力量','他們的研究表明，高負重訓練能夠更好地調節神經系統將電信號從大腦傳遞到肌肉，增加肌肉能夠產生的力量，而低負重訓練則不能。');
+INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('3', sysdate, '其他知識', '研究結果告訴你：空腹訓練好不好','上午，在空腹或進食的狀態下（運動前2小時進食富含碳水化合物的一頓餐），讓這些志願者以60％最大氧氣攝入量的強度下步行60分鐘。');
+INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('4', sysdate, '跑步知識', '晨跑與夜跑哪個更好？','很多喜歡晨跑的朋友認為，經過一晚上的消化，早上空腹去鍛煉，能有有效的消耗身體脂肪。這個觀點是錯誤的');
 
 
 
 
---------���x��T----
+--------平台資訊----
 
 
 create table platinf (
@@ -1039,13 +1039,13 @@ start with 2
 nocycle
 nocache;
 
-INSERT INTO platinf(pin_no, com_address, cp_no, cs_email, pr_policy, upd_date)values('1', '��饫�B�B��10��', '03-5886977', 'fit@gmail.com', '���p�v�O�٭ӤHxxxxxxxxxxxxxx', sysdate);
+INSERT INTO platinf(pin_no, com_address, cp_no, cs_email, pr_policy, upd_date)values('1', '桃園市咕咕路10號', '03-5886977', 'fit@gmail.com', '隱私權保障個人xxxxxxxxxxxxxx', sysdate);
 
 
 
 
 
----�`�����D----
+---常見問題----
 
 create table queans (
 que_no varchar2(15) not null ,
@@ -1062,9 +1062,9 @@ start with 4
 nocycle
 nocache;
 
-INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('1', sysdate, '���U', '�p�󦨬��|��?', '�n�J���U������A�q�U�Կ��̤��P������ܶ�gxxxxxx');
-INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('2', sysdate, '����', '�L�k�[�ઽ��?', '���T�{�����s�u�]�w�O�_���T�A�Y�������D�A�Ь��߫ȪA�H��');
-INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('3', sysdate, '���W', '�p����W�ҵ{?', '�i�J�нm������A�Ŀ�}�]�ҵ{�ýT�{��A�i�J�u�Wú�Oxxxx');
+INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('1', sysdate, '註冊', '如何成為會員?', '登入註冊頁面後，從下拉選單依不同身分選擇填寫xxxxxx');
+INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('2', sysdate, '直播', '無法觀賞直播?', '先確認網路連線設定是否正確，若仍有問題，請洽詢客服人員');
+INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('3', sysdate, '報名', '如何報名課程?', '進入教練頁面後，勾選開設課程並確認後，進入線上繳費xxxx');
 
 commit;
 

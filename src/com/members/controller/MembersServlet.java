@@ -179,28 +179,22 @@ public class MembersServlet extends HttpServlet {
 					//身分為教練
 					else if("1".equals(rank)) {
 						System.out.println("(MembersServlet)rank in 1");
-						req.setAttribute("user", membersVO);
-						String url = "/CoachesServlet";
-						RequestDispatcher successView = req.getRequestDispatcher(url);
-						successView.forward(req, res);
+
+
 						return;
 					}
 					//身分為健身房業者
 					else if("2".equals(rank)) {
 						System.out.println("(MembersServlet)rank in 2");
-						req.setAttribute("user", membersVO);
-						String url = "/GymsServlet";
-						RequestDispatcher failView = req.getRequestDispatcher(url);
-						failView.forward(req, res);
+
+
 						return;
 					}
 					//身分為員工
 					else if("3".equals(rank)) {
 						System.out.println("(MembersServlet)rank in 3");
-						req.setAttribute("user", membersVO);
-						String url = "/ManagerServlet";
-						RequestDispatcher failView = req.getRequestDispatcher(url);
-						failView.forward(req, res);
+
+		
 						return;
 					}
 				} catch(Exception e) {

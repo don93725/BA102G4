@@ -73,8 +73,8 @@ function tick(){
 					dataType : 'text',
 
 					success : function(msg) {
-					console.log(msg)
-						if(msg.length == 0) {
+					console.log(msg);
+						if(msg.trim().length == 0) {
 							swal({
 								title : "更新成功",
 								text : "資料已更新成功",
