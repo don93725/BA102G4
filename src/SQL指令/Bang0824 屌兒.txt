@@ -82,61 +82,61 @@ start with 1
 nomaxvalue
 nocycle;
 
-INSERT INTO MEMBERS VALUES('0','mgr000','3','°·³f-GYMHOME',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr001','3','«i7',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr002','3','«i6',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr003','3','ºÞ²z­û1',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr004','3','ºÞ²z­û2',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'STU1','0','¾Ç­û_S1',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'STU2','0','¾Ç­û_S2',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'COA1','1','±Ð½m_C1',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'COA2','1','±Ð½m_C2',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'GYM1','2','°·¨­©Ð_G1',DEFAULT);
-INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'GYM2','2','°·¨­©Ð_G2',DEFAULT);
+INSERT INTO MEMBERS VALUES('0','mgr000','3','ï¿½ï¿½ï¿½f-GYMHOME',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr001','3','ï¿½i7',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr002','3','ï¿½i6',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr003','3','ï¿½Þ²zï¿½ï¿½1',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr004','3','ï¿½Þ²zï¿½ï¿½2',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'STU1','0','ï¿½Ç­ï¿½_S1',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'STU2','0','ï¿½Ç­ï¿½_S2',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'COA1','1','ï¿½Ð½m_C1',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'COA2','1','ï¿½Ð½m_C2',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'GYM1','2','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_G1',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'GYM2','2','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_G2',DEFAULT);
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'stu001', '0', 'Áà¤K©Ç', default);
+Values(mem_no_seq.NEXTVAL, 'stu001', '0', 'ï¿½ï¿½Kï¿½ï¿½', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'stu002', '0', '¬Ý¯}¬õ¹Ð¤pºëÆF', default);
+Values(mem_no_seq.NEXTVAL, 'stu002', '0', 'ï¿½Ý¯}ï¿½ï¿½ï¿½Ð¤pï¿½ï¿½ï¿½F', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'stu003', '0', '¯º¶ÆíÏ½k', default);
+Values(mem_no_seq.NEXTVAL, 'stu003', '0', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ï½k', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'coa001', '1', '·í¬õ¬µ¤lG', default);
+Values(mem_no_seq.NEXTVAL, 'coa001', '1', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lG', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'coa002', '1', '¦ÌÂÎ', default);
+Values(mem_no_seq.NEXTVAL, 'coa002', '1', 'ï¿½ï¿½ï¿½ï¿½', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'coa003', '1', '§õ¶ø¯Ç¦h¥Ö¥d¥C', default);
+Values(mem_no_seq.NEXTVAL, 'coa003', '1', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ç¦hï¿½Ö¥dï¿½C', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'coa004', '1', '¶V«eÅ¤°¨ÁÉ§J', default);
+Values(mem_no_seq.NEXTVAL, 'coa004', '1', 'ï¿½Vï¿½eÅ¤ï¿½ï¿½ï¿½É§J', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym001', '2', '§d¨}¤ß', default);
+Values(mem_no_seq.NEXTVAL, 'gym001', '2', 'ï¿½dï¿½}ï¿½ï¿½', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym002', '2', '¾Ö´¼', default);
+Values(mem_no_seq.NEXTVAL, 'gym002', '2', 'ï¿½Ö´ï¿½', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym003', '2', '¬õ¹Ð«È´Ì', default);
+Values(mem_no_seq.NEXTVAL, 'gym003', '2', 'ï¿½ï¿½ï¿½Ð«È´ï¿½', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym004', '2', '¦B·Æ', default);
+Values(mem_no_seq.NEXTVAL, 'gym004', '2', 'ï¿½Bï¿½ï¿½', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'stu004', '0', 'µÞµÞ¤j²´·ú', default);
+Values(mem_no_seq.NEXTVAL, 'stu004', '0', 'ï¿½ÞµÞ¤jï¿½ï¿½ï¿½ï¿½', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'coa005', '1', '±Ð½m', default);
+Values(mem_no_seq.NEXTVAL, 'coa005', '1', 'ï¿½Ð½m', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym005', '2', '¾Ô°êµLÂùÅé¨|À]', default);
+Values(mem_no_seq.NEXTVAL, 'gym005', '2', 'ï¿½Ô°ï¿½Lï¿½ï¿½ï¿½ï¿½|ï¿½]', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym006', '2', '§Ú¬½', default);
+Values(mem_no_seq.NEXTVAL, 'gym006', '2', 'ï¿½Ú¬ï¿½', default);
 
 CREATE TABLE MANAGER(
 MGR_NO VARCHAR2(20),
@@ -158,10 +158,10 @@ INCREMENT BY 1
 START WITH 1;
 
 
-INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),1,'mgr001','123',1,'ÙÉ','dimcjo6u4@gamil.com',0,null,'§Ú¬O­Óäú¤ßªº¤H¡A·Qª¾¹D¦³¦häú¶Ü¡AÅwªï»{ÃÑ®@¡I');
-INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),2,'mgr002','123',1,'¦Ñ¤ý','dimcjo6u4+1@gamil.com',1,null,'§Ú¬O¦Ñ¤ý¡A§Ú¦í¦b¹j¾À³á¡C');
-INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),3,'mgr003','123',0,'¤p©ú','dimcjo6u4+2@gamil.com',0,null,'§Ú¬O¤p©ú¡A§ÚÄ±±o¹j¾À¦Ñ¤ý¦n¹³¦b·d§Ú¦Ñ±C¡C');
-INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),4,'mgr004','123',0,'¤p¤T','dimcjo6u4+3@gamil.com',1,null,'§Ú¬O¤p¤T¡A§Ú¸ò¹j¾À¦Ñ¤ý¦³¤@»L..');
+INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),1,'mgr001','123',1,'ï¿½ï¿½','dimcjo6u4@gamil.com',0,null,'ï¿½Ú¬Oï¿½ï¿½ï¿½ï¿½ï¿½ßªï¿½ï¿½Hï¿½Aï¿½Qï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½hï¿½ï¿½ï¿½Ü¡Aï¿½wï¿½ï¿½{ï¿½Ñ®@ï¿½I');
+INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),2,'mgr002','123',1,'ï¿½Ñ¤ï¿½','dimcjo6u4+1@gamil.com',1,null,'ï¿½Ú¬Oï¿½Ñ¤ï¿½ï¿½Aï¿½Ú¦ï¿½bï¿½jï¿½ï¿½ï¿½ï¿½C');
+INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),3,'mgr003','123',0,'ï¿½pï¿½ï¿½','dimcjo6u4+2@gamil.com',0,null,'ï¿½Ú¬Oï¿½pï¿½ï¿½ï¿½Aï¿½ï¿½Ä±ï¿½oï¿½jï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½nï¿½ï¿½ï¿½bï¿½dï¿½Ú¦Ñ±Cï¿½C');
+INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),4,'mgr004','123',0,'ï¿½pï¿½T','dimcjo6u4+3@gamil.com',1,null,'ï¿½Ú¬Oï¿½pï¿½Tï¿½Aï¿½Ú¸ï¿½jï¿½ï¿½ï¿½Ñ¤ï¿½ï¿½ï¿½ï¿½@ï¿½L..');
 
 Create table coaches
 (coa_acc varchar2(20) not null constraint coa_acc_pk primary key,
@@ -179,23 +179,23 @@ coa_pft number(10) default 0);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('coa001', '14', 'coa001', default, '©P¯È³½', 2, 'T223456781', 'ka123451@yahoo.com.tw', '±Mªø¡G­¸½ü¦³®ñ¡B®±À»¦³®ñ¡B°òÂ¦­«°V¡C·Q»¡ªº¸Ü¡G²´²\¬O¤k¤H³Ì­ì©lªºªZ¾¹¡A¤]¬O¨k¤H°ß¤@µLªk©è§Üªº³Ì¼F®`ªºªZ¾¹¡C', null , default);
+values('coa001', '14', 'coa001', default, 'ï¿½Pï¿½È³ï¿½', 2, 'T223456781', 'ka123451@yahoo.com.tw', 'ï¿½Mï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½Â¦ï¿½ï¿½ï¿½Vï¿½Cï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½Ü¡Gï¿½ï¿½ï¿½\ï¿½Oï¿½kï¿½Hï¿½Ì­ï¿½lï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½Aï¿½]ï¿½Oï¿½kï¿½Hï¿½ß¤@ï¿½Lï¿½kï¿½ï¿½Üªï¿½ï¿½Ì¼Fï¿½`ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½C', null , default);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('coa002', '15', 'coa002', default, 'µ°«ü®z', 1, 'T123456782', 'y123452@yahoo.com.tw', '±Mªø¡G"TRX¦Ù¤OÀJ¶ì¡B¥Ö©Ô´£´µ¡B­¸½ü¦³®ñ¡C·Q»¡ªº¸Ü¡G¨C­Ó¤H³£¬Oºt­û¡AÁy¤W¦bºt¯B¸Ø¡A¤ß¸Ì³£¬O©t¿W¡A¦Ó¥»©Ê¥þ¬Oµ½¨}¡C§Ú­Ì­W­W¦b³o¥@¤WºtÀ¸¡A¨ä¹ê´N¬O¬°¤Fµ¥¤@­Ó¡A¯à¬ÝÀ´¦Û¤vªº¤H¡C', null , default);
+values('coa002', '15', 'coa002', default, 'ï¿½ï¿½ï¿½ï¿½ï¿½z', 1, 'T123456782', 'y123452@yahoo.com.tw', 'ï¿½Mï¿½ï¿½ï¿½G"TRXï¿½Ù¤Oï¿½Jï¿½ï¿½Bï¿½Ö©Ô´ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½Ü¡Gï¿½Cï¿½Ó¤Hï¿½ï¿½ï¿½Oï¿½tï¿½ï¿½ï¿½Aï¿½yï¿½Wï¿½bï¿½tï¿½Bï¿½Ø¡Aï¿½ß¸Ì³ï¿½ï¿½Oï¿½tï¿½Wï¿½Aï¿½Ó¥ï¿½ï¿½Ê¥ï¿½ï¿½Oï¿½ï¿½ï¿½}ï¿½Cï¿½Ú­Ì­Wï¿½Wï¿½bï¿½oï¿½@ï¿½Wï¿½tï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Nï¿½Oï¿½ï¿½ï¿½Fï¿½ï¿½ï¿½@ï¿½Ó¡Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¤vï¿½ï¿½ï¿½Hï¿½C', null , default);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('coa003', '16', 'coa003', default, 'Å¼¿¾Ä~', 1, 'G123456783', 'h123453@yahoo.com.tw', '±Mªø¡G°òÂ¦­«°V¡B¶i¶¥­«°V¡BTRX¦Ù¤OÀJ¶ì¡C·Q»¡ªº¸Ü¡G·R¡A±q¨Ó´N¬O¥ó¤d°j¦ÊÂàªº¨Æ¡A¤£´¿³QÂ÷±ó¡A¤£´¿¨ü¶Ë®`¡A«ç¤\À´±o·R¤H¡C', null , default);
+values('coa003', '16', 'coa003', default, 'Å¼ï¿½ï¿½ï¿½~', 1, 'G123456783', 'h123453@yahoo.com.tw', 'ï¿½Mï¿½ï¿½ï¿½Gï¿½ï¿½Â¦ï¿½ï¿½ï¿½Vï¿½Bï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½BTRXï¿½Ù¤Oï¿½Jï¿½ï¿½Cï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½Ü¡Gï¿½Rï¿½Aï¿½qï¿½Ó´Nï¿½Oï¿½ï¿½dï¿½jï¿½ï¿½ï¿½àªºï¿½Æ¡Aï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë®`ï¿½Aï¿½ï¿½\ï¿½ï¿½ï¿½oï¿½Rï¿½Hï¿½C', null , default);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('coa004', '17', 'coa004', default, '§õ´Â¬v', 2, 'W223456784', 'q123454@yahoo.com.tw', '±Mªø¡G°òÂ¦­«°V¡B¶i¶¥­«°V¡B¨ä¥L¡C·Q»¡ªº¸Ü¡G·R±¡¬O³Ì¬ü¦nªº¹Ú¡A§§ÄRµÛ¨C­Ó¤Hªº¤H¥Í¡CµL½×§A¬O«C¦~ÁÙ¬O¦Ñ¦~¡AµL½×§A¬OÂ÷²§ÁÙ¬O¿W¨­³£¤£­n¥´¯}¦Û¤vªº·R±¡¹Ú¡CÅý¤ß¤¤ªº¤Ó¶§·Å·x¥Í©R¡A§A´N·|¥Ã»·¦~»´¡C', null , default);
+values('coa004', '17', 'coa004', default, 'ï¿½ï¿½ï¿½Â¬v', 2, 'W223456784', 'q123454@yahoo.com.tw', 'ï¿½Mï¿½ï¿½ï¿½Gï¿½ï¿½Â¦ï¿½ï¿½ï¿½Vï¿½Bï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½Bï¿½ï¿½Lï¿½Cï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½Ü¡Gï¿½Rï¿½ï¿½ï¿½Oï¿½Ì¬ï¿½ï¿½nï¿½ï¿½ï¿½Ú¡Aï¿½ï¿½ï¿½Rï¿½Û¨Cï¿½Ó¤Hï¿½ï¿½ï¿½Hï¿½Í¡Cï¿½Lï¿½×§Aï¿½Oï¿½Cï¿½~ï¿½Ù¬Oï¿½Ñ¦~ï¿½Aï¿½Lï¿½×§Aï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½Ù¬Oï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½nï¿½ï¿½ï¿½}ï¿½Û¤vï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½Ú¡Cï¿½ï¿½ï¿½ß¤ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½Å·xï¿½Í©Rï¿½Aï¿½Aï¿½Nï¿½|ï¿½Ã»ï¿½ï¿½~ï¿½ï¿½ï¿½C', null , default);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('coa005', '23', 'coa005', default, '¤ý«Ø¥Á', 1, 'W123436713', 'q123413@yahoo.com.tw', '±Mªø¡G»R°Ê¦³®ñ¡B"TRX¦Ù¤OÀJ¶ì¡C·Q»¡ªº¸Ü¡G§O¦]¬°±I¹æ¦Ó¿ù·R¡A§O¦]¬°¿ù·R¦Ó±I¹æ¤@¥Í¡C', null , default);
+values('coa005', '23', 'coa005', default, 'ï¿½ï¿½ï¿½Ø¥ï¿½', 1, 'W123436713', 'q123413@yahoo.com.tw', 'ï¿½Mï¿½ï¿½ï¿½Gï¿½Rï¿½Ê¦ï¿½ï¿½ï¿½B"TRXï¿½Ù¤Oï¿½Jï¿½ï¿½Cï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½Ü¡Gï¿½Oï¿½]ï¿½ï¿½ï¿½Iï¿½ï¿½Ó¿ï¿½ï¿½Rï¿½Aï¿½Oï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½Ó±Iï¿½ï¿½@ï¿½Í¡C', null , default);
 
 
 Create table students
@@ -203,7 +203,7 @@ Create table students
 stu_no varchar2(10) not null constraint stu_no_fk references members(mem_no),
 stu_psw varchar2(20) not null, 
 stu_sta number(1) default 1,
-stu_name varchar2(30) not null constraint gym_name_uk unique,
+stu_name varchar2(30) not null,
 stu_sex number(1) not null,
 stu_id varchar2(10),
 stu_mail varchar2(50) not null,
@@ -214,16 +214,16 @@ stu_sto number(10) default 0);
 
 
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('stu001', '11', 'stu001', default, '§õ©sÀs', 2, 'F223456781', 'a123451@yahoo.com.tw', '·P¿³½ìªº¶µ¥Ø¡G·ìÏÉ¡B­¸½ü¦³®ñ¡B»R°Ê¦³®ñ¡B®±À»¦³®ñ¡C¦pªG§A·Q³Q§O¤H·R¡A§A­º¥ý¥²¶·¨Ï¦Û¤v­È±o·R¡A¤£¬O¤@¤Ñ¡A¤@­Ó¬P´Á¡A¦Ó¬O¥Ã»·¡C', null, default);
+values('stu001', '11', 'stu001', default, 'ï¿½ï¿½ï¿½sï¿½s', 2, 'F223456781', 'a123451@yahoo.com.tw', 'ï¿½Pï¿½ï¿½ï¿½ìªºï¿½ï¿½ï¿½Ø¡Gï¿½ï¿½ï¿½É¡Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½Rï¿½Ê¦ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½pï¿½Gï¿½Aï¿½Qï¿½Qï¿½Oï¿½Hï¿½Rï¿½Aï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¦Û¤vï¿½È±oï¿½Rï¿½Aï¿½ï¿½ï¿½Oï¿½@ï¿½Ñ¡Aï¿½@ï¿½Ó¬Pï¿½ï¿½ï¿½Aï¿½Ó¬Oï¿½Ã»ï¿½ï¿½C', null, default);
 
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('stu002', '12', 'stu002', default, '¤ý¯E¦t', 1, 'D123456782', 's123452@yahoo.com.tw', '·P¿³½ìªº¶µ¥Ø¡GTRX¦Ù¤OÀJ¶ì¡B»R°Ê¦³®ñ¡B¥Ö©Ô´£´µ¡C¥Í¬¡¨ä¹ê¯uªº«Ü¥­¤Z¡A¥ô¦ó¤H³£¤£¯à±o¨ì©Ò­nªº¥þ³¡¡A¦³±o¥²¦³¥¢¡A¥u¬O¦b±o¥¢ªº¿ï¾Ü¤¤¡A¾Ö¦³§A¦Û¤v³Ì¬Ã¶QªºªF¦è¡C', null, default);
+values('stu002', '12', 'stu002', default, 'ï¿½ï¿½ï¿½Eï¿½t', 1, 'D123456782', 's123452@yahoo.com.tw', 'ï¿½Pï¿½ï¿½ï¿½ìªºï¿½ï¿½ï¿½Ø¡GTRXï¿½Ù¤Oï¿½Jï¿½ï¿½Bï¿½Rï¿½Ê¦ï¿½ï¿½ï¿½Bï¿½Ö©Ô´ï¿½ï¿½ï¿½ï¿½Cï¿½Í¬ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½Ü¥ï¿½ï¿½Zï¿½Aï¿½ï¿½ï¿½ï¿½Hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½Ò­nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½uï¿½Oï¿½bï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¤ï¿½ï¿½Aï¿½Ö¦ï¿½ï¿½Aï¿½Û¤vï¿½Ì¬Ã¶Qï¿½ï¿½ï¿½Fï¿½ï¿½C', null, default);
 
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('stu003', '13', 'stu003', default, '§õ¤Ñ´I', 2, 'A223456783', 'w123453@yahoo.com.tw', '·P¿³½ìªº¶µ¥Ø¡G¥Ö©Ô´£´µ¡B·ìÏÉ¡B¶i¶¥­«°V¡B­¸½ü¦³®ñ¡CÁ`¬O¥õ±æ©M¸r¼}µÛ§O¤Hªº©¯ºÖ¡A¤@¦^ÀY¡A«oµo²{¦Û¤v¥¿³Q¥õ±æ©M¸r¼}µÛ¡C­n¬Ã±¤©M·Pª¾¦Û¤v¯u¥¿¾Ö¦³ªº©¯ºÖ¡C¤£­nÅý§Aªº©¯ºÖ¡A¥u¬O¦b§O¤H²´¸Ì¡C', null, default);
+values('stu003', '13', 'stu003', default, 'ï¿½ï¿½ï¿½Ñ´I', 2, 'A223456783', 'w123453@yahoo.com.tw', 'ï¿½Pï¿½ï¿½ï¿½ìªºï¿½ï¿½ï¿½Ø¡Gï¿½Ö©Ô´ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½É¡Bï¿½iï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cï¿½`ï¿½Oï¿½ï¿½ï¿½ï¿½Mï¿½rï¿½}ï¿½Û§Oï¿½Hï¿½ï¿½ï¿½ï¿½ï¿½Ö¡Aï¿½@ï¿½^ï¿½Yï¿½Aï¿½oï¿½oï¿½{ï¿½Û¤vï¿½ï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½Mï¿½rï¿½}ï¿½Û¡Cï¿½nï¿½Ã±ï¿½ï¿½Mï¿½Pï¿½ï¿½ï¿½Û¤vï¿½uï¿½ï¿½ï¿½Ö¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¡Cï¿½ï¿½ï¿½nï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Ö¡Aï¿½uï¿½Oï¿½bï¿½Oï¿½Hï¿½ï¿½ï¿½Ì¡C', null, default);
 
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('stu004', '22', 'stu004', default, '¶º¥i¿Ë', 1, 'A123456712', 'w123412@yahoo.com.tw', '·P¿³½ìªº¶µ¥Ø¡GTRX¦Ù¤OÀJ¶ì¡B»R°Ê¦³®ñ¡C¤£­n¦]¬°±I¹æ¥hÅÊ·R¡A®É¶¡¬O­ÓÅ]°­¡A¤Ñªø¤é¤[¡A¦pªG§A¬O­Ó¦h±¡ªº¤H¡A§Y¨Ï¤£·R¹ï¤è¡A¨ì®É­Ô¤]·|²£¥Í·P±¡¡A¨ì³Ì«á§A«ç¤\¿ì¡H', null, default);
+values('stu004', '22', 'stu004', default, 'ï¿½ï¿½ï¿½iï¿½ï¿½', 1, 'A123456712', 'w123412@yahoo.com.tw', 'ï¿½Pï¿½ï¿½ï¿½ìªºï¿½ï¿½ï¿½Ø¡GTRXï¿½Ù¤Oï¿½Jï¿½ï¿½Bï¿½Rï¿½Ê¦ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½nï¿½]ï¿½ï¿½ï¿½Iï¿½ï¿½hï¿½Ê·Rï¿½Aï¿½É¶ï¿½ï¿½Oï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½Aï¿½Ñªï¿½ï¿½ï¿½[ï¿½Aï¿½pï¿½Gï¿½Aï¿½Oï¿½Ó¦hï¿½ï¿½ï¿½ï¿½ï¿½Hï¿½Aï¿½Yï¿½Ï¤ï¿½ï¿½Rï¿½ï¿½ï¿½Aï¿½ï¿½É­Ô¤]ï¿½|ï¿½ï¿½ï¿½Í·Pï¿½ï¿½ï¿½Aï¿½ï¿½Ì«ï¿½Aï¿½ï¿½\ï¿½ï¿½H', null, default);
 
 
 Create table gyms
@@ -240,53 +240,53 @@ gym_pic blob);
 
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('gym001', '18', 'gym001', default, '¨S¤O°·¨­©Ð-®ç¶é¼t', 'n123456788@yahoo.com.tw', '®ç¶é¥«¤¤Ãc°ÏÀs©£¸ô¤@¬q168¸¹', '24.9486715,121.224426', 'µ²±B¬O·R±¡ªº¼X¹Ó¡A¦ý¬O¦pªG¤£µ²±B¡A·R±¡´N¦ºµL¸®¨­¤§¦a¡C', null);
+values('gym001', '18', 'gym001', default, 'ï¿½Sï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½t', 'n123456788@yahoo.com.tw', 'ï¿½ï¿½é¥«ï¿½ï¿½ï¿½cï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½q168ï¿½ï¿½', '24.9486715,121.224426', 'ï¿½ï¿½ï¿½Bï¿½Oï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Ó¡Aï¿½ï¿½ï¿½Oï¿½pï¿½Gï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½Aï¿½Rï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½aï¿½C', null);
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('gym002', '19', 'gym002', default, '§Ö¼Ö°·¨­©Ð-®ç¶é¼t', 'i123456789@yahoo.com.tw', '®ç¶é¥«¤K¼w°Ï©¾§µµó23¸¹', '24.9606286,121.29899069999999', '¤@°¦³¾¤£¥i¯à¦b¦P¤@´Ê¾ð¤W°±¯d¤Ó¤[¡A§_«h¹ï³o³¾¹ï³o¾ð³£¬O¤@ºØ­t¾á¡A³¾¨àÁ`·Q¥h¬Ý¥t¤@¤ù¤ÑªÅ¡A¦Ó¾ð¤]¤£Ä@¨C¤Ñ­±¹ï¦P¼Ëªº­·´º¡C', null);
+values('gym002', '19', 'gym002', default, 'ï¿½Ö¼Ö°ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½t', 'i123456789@yahoo.com.tw', 'ï¿½ï¿½é¥«ï¿½Kï¿½wï¿½Ï©ï¿½ï¿½ï¿½ï¿½ï¿½23ï¿½ï¿½', '24.9606286,121.29899069999999', 'ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½bï¿½Pï¿½@ï¿½Ê¾ï¿½Wï¿½ï¿½ï¿½dï¿½Ó¤[ï¿½Aï¿½_ï¿½hï¿½ï¿½oï¿½ï¿½ï¿½ï¿½oï¿½ð³£¬Oï¿½@ï¿½Ø­tï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Qï¿½hï¿½Ý¥tï¿½@ï¿½ï¿½ï¿½ÑªÅ¡Aï¿½Ó¾ï¿½]ï¿½ï¿½ï¿½@ï¿½Cï¿½Ñ­ï¿½ï¿½ï¿½Pï¿½Ëªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C', null);
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('gym003', '20', 'gym003', default, '´d¶Ë°·¨­©Ð(·s¥_¼t)', 'r123456780@yahoo.com.tw', '·s¥_¥«ªO¾ô°ÏÂù¤Q¸ô¤G¬q143¸¹', '25.0279619,121.47475099999997', '­Y¤£±o¤£¤ÀÂ÷,¤]­n¦n¦n¦a»¡Án¦A¨£,¤]­n¦b¤ß¸Ì¦sµÛ·PÁÂ,·PÁÂ¥Lµ¹¤F§A¤@¤À°O¾Ð¡C', null);
+values('gym003', '20', 'gym003', default, 'ï¿½dï¿½Ë°ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½sï¿½_ï¿½t)', 'r123456780@yahoo.com.tw', 'ï¿½sï¿½_ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Qï¿½ï¿½ï¿½Gï¿½q143ï¿½ï¿½', '25.0279619,121.47475099999997', 'ï¿½Yï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½]ï¿½nï¿½nï¿½nï¿½aï¿½ï¿½ï¿½nï¿½Aï¿½ï¿½,ï¿½]ï¿½nï¿½bï¿½ß¸Ì¦sï¿½Û·Pï¿½ï¿½,ï¿½Pï¿½Â¥Lï¿½ï¿½ï¿½Fï¿½Aï¿½@ï¿½ï¿½ï¿½Oï¿½Ð¡C', null);
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('gym004', '21', 'gym004', default, '²n²n°·¨­©Ð-¥x¤¤¼t', 'x123456788@yahoo.com.tw', '¥x¤¤¥«¤j¶®°Ï¤¤²M¸ô¤T¬q1090¸¹¥xÆW 2F', '24.9486715,121.224426', '·R¹L´N©ß¦b¨­«á¡A¤£­n½qÃh¹L¥h¡A¦]¬°¥¦²¦³º¤w¸g¹L¥h¡A²{¦b¬O·sªº¶}©l¡A±N¹L¥hªº³±¼v¯d¦b²{¦b¥u·|Åý§Aªº²{¦b¤]¦¨¬°¹L¥h¡C', null);
+values('gym004', '21', 'gym004', default, 'ï¿½nï¿½nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½xï¿½ï¿½ï¿½t', 'x123456788@yahoo.com.tw', 'ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½Ï¤ï¿½ï¿½Mï¿½ï¿½ï¿½Tï¿½q1090ï¿½ï¿½ï¿½xï¿½W 2F', '24.9486715,121.224426', 'ï¿½Rï¿½Lï¿½Nï¿½ß¦bï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½nï¿½qï¿½hï¿½Lï¿½hï¿½Aï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½gï¿½Lï¿½hï¿½Aï¿½{ï¿½bï¿½Oï¿½sï¿½ï¿½ï¿½}ï¿½lï¿½Aï¿½Nï¿½Lï¿½hï¿½ï¿½ï¿½ï¿½ï¿½vï¿½dï¿½bï¿½{ï¿½bï¿½uï¿½|ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½{ï¿½bï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½hï¿½C', null);
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('gym005', '24', 'gym005', default, '¨S¤ß°·¨­©Ð(°ª¶¯¼t)', 'x425456738@yahoo.com.tw', '°ª¶¯¥«¥ªÀç°Ï³Õ·R¤T¸ô102¸¹', '22.673214,120.30494299999998', '¤@¬q¤£³Q±µ¨üªº·R±¡¡A»Ý­nªº¤£¬O¶Ë¤ß¡A¦Ó¬O®É¶¡¡A¤@¬q¥i¥H¥Î¨Ó¿ò§Ñªº®É¶¡¡C¤@Áû³Q²`²`¶Ë¤Fªº¤ß¡A»Ý­nªº¤£¬O¦P±¡¡A¦Ó¬O©ú¥Õ¡C', null);
+values('gym005', '24', 'gym005', default, 'ï¿½Sï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½t)', 'x425456738@yahoo.com.tw', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï³Õ·Rï¿½Tï¿½ï¿½102ï¿½ï¿½', '22.673214,120.30494299999998', 'ï¿½@ï¿½qï¿½ï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½Aï¿½Ý­nï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Ë¤ß¡Aï¿½Ó¬Oï¿½É¶ï¿½ï¿½Aï¿½@ï¿½qï¿½iï¿½Hï¿½Î¨Ó¿ï¿½Ñªï¿½ï¿½É¶ï¿½ï¿½Cï¿½@ï¿½ï¿½ï¿½Qï¿½`ï¿½`ï¿½Ë¤Fï¿½ï¿½ï¿½ß¡Aï¿½Ý­nï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Pï¿½ï¿½ï¿½Aï¿½Ó¬Oï¿½ï¿½ï¿½Õ¡C', null);
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('gym006', '25', 'gym006', default, 'ÀH½t°·¨­©Ð-°ª¶¯¼t', 'x425456738@yahoo.com.tw', '°ª¶¯¥«¥ªÀç°Ï³Õ·R¤G¸ô600-1¸¹', '22.6683231,120.30371409999998', 'Á|±o°_©ñ±o¤Uªº¥sÁ|­«¡AÁ|±o°_©ñ¤£¤Uªº¥s­t­«¡C¥i±¤¡A¤j¦h¼Æ¤Hªº·R±¡¡A³£¬O­t­«ªº¡C', null);
+values('gym006', '25', 'gym006', default, 'ï¿½Hï¿½tï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½t', 'x425456738@yahoo.com.tw', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï³Õ·Rï¿½Gï¿½ï¿½600-1ï¿½ï¿½', '22.6683231,120.30371409999998', 'ï¿½|ï¿½oï¿½_ï¿½ï¿½oï¿½Uï¿½ï¿½ï¿½sï¿½|ï¿½ï¿½ï¿½Aï¿½|ï¿½oï¿½_ï¿½ñ¤£¤Uï¿½ï¿½ï¿½sï¿½tï¿½ï¿½ï¿½Cï¿½iï¿½ï¿½ï¿½Aï¿½jï¿½hï¿½Æ¤Hï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Oï¿½tï¿½ï¿½ï¿½ï¿½ï¿½C', null);
 
 
---¥Ã7°²¸ê®Æ
+--ï¿½ï¿½7ï¿½ï¿½ï¿½ï¿½ï¿½
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('STU1', '5', 'stu123', default, '¾|¤p¤p', 2, 'F223456781', 'a123451@yahoo.com.tw', '¤Ñ²P¦ó³BµLªÚ¯ó,¦^²¶¤@¯º°{¨ì¸y¡C', null, default);
+values('STU1', '5', 'stu123', default, 'ï¿½|ï¿½pï¿½p', 2, 'F223456781', 'a123451@yahoo.com.tw', 'ï¿½Ñ²Pï¿½ï¿½Bï¿½Lï¿½Ú¯ï¿½,ï¿½^ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½{ï¿½ï¿½yï¿½C', null, default);
 
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('STU2', '6', 'stu123', default, '¤ý¾|³D', 1, 'D123456782', 's123452@yahoo.com.tw', '«á®c¨ÎÄR¦³¤T¤d,ÅKªS¿i¦¨Â¸ªá°w¡C', null, default);
+values('STU2', '6', 'stu123', default, 'ï¿½ï¿½ï¿½|ï¿½D', 1, 'D123456782', 's123452@yahoo.com.tw', 'ï¿½ï¿½cï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½Tï¿½d,ï¿½Kï¿½Sï¿½iï¿½ï¿½Â¸ï¿½ï¿½wï¿½C', null, default);
 
 
----·s¼WCoaches¸ê®Æ¥Î
+---ï¿½sï¿½WCoachesï¿½ï¿½Æ¥ï¿½
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('COA1', '7', 'coa123', default, '¾|¦Ü²`', 2, 'T223456781', 'ka123451@yahoo.com.tw', 'µL¤ß´¡¬h,¬h¾í¥Ä¡C', null , default);
+values('COA1', '7', 'coa123', default, 'ï¿½|ï¿½Ü²`', 2, 'T223456781', 'ka123451@yahoo.com.tw', 'ï¿½Lï¿½ß´ï¿½ï¿½h,ï¿½hï¿½ï¿½Ä¡C', null , default);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('COA2', '8', 'coa123', default, '¾|´¼§u', 1, 'T123456782', 'y123452@yahoo.com.tw', '¾|¨ì²`³B,Å]ªk®v¡C', null , default);
+values('COA2', '8', 'coa123', default, 'ï¿½|ï¿½ï¿½ï¿½u', 1, 'T123456782', 'y123452@yahoo.com.tw', 'ï¿½|ï¿½ï¿½`ï¿½B,ï¿½]ï¿½kï¿½vï¿½C', null , default);
 
 
---·s¼WGyms¸ê®Æ¥Î
+--ï¿½sï¿½WGymsï¿½ï¿½Æ¥ï¿½
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
-values('GYM1', '9', 'gym123', default, 'QQ°·¨­©Ð-®ç¶é¼t', 'n123456788@yahoo.com.tw', '®ç¶é¥«¤¤Ãc°ÏÀs©£¸ô¤@¬q168¸¹', '24.9486715,121.224426', '¤@­Ó«K·í¦Y¤£¹¡,¨º´N¦A¦Y²Ä¤G­Ó§a¡C', null);
+values('GYM1', '9', 'gym123', default, 'QQï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½t', 'n123456788@yahoo.com.tw', 'ï¿½ï¿½é¥«ï¿½ï¿½ï¿½cï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½q168ï¿½ï¿½', '24.9486715,121.224426', 'ï¿½@ï¿½Ó«Kï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Nï¿½Aï¿½Yï¿½Ä¤Gï¿½Ó§aï¿½C', null);
 
 Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add,gym_latlng, gym_into, gym_pic)
-values('GYM2', '10', 'gym123', default, '³æ¨­Ê¨¨k°·¨­©Ð-®ç¶é¼t', 'i123456789@yahoo.com.tw', '®ç¶é¥«¤K¼w°Ï©¾§µµó23¸¹', '24.9606286,121.29899069999999', '¦b«D¬w¡A¨C¤»¤Q¬í,´N¦³¤@¤ÀÄÁ¹L¥h¡C', null);
+values('GYM2', '10', 'gym123', default, 'ï¿½æ¨­Ê¨ï¿½kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½ï¿½t', 'i123456789@yahoo.com.tw', 'ï¿½ï¿½é¥«ï¿½Kï¿½wï¿½Ï©ï¿½ï¿½ï¿½ï¿½ï¿½23ï¿½ï¿½', '24.9606286,121.29899069999999', 'ï¿½bï¿½Dï¿½wï¿½Aï¿½Cï¿½ï¿½ï¿½Qï¿½ï¿½,ï¿½Nï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½Lï¿½hï¿½C', null);
 
 
---³õ¦a
+--ï¿½ï¿½ï¿½a
 
 Create sequence p_no_seq
 increment by 1
@@ -306,20 +306,20 @@ p_cap number(10),
 p_date date default sysdate);
 
 Insert into place(p_no, g_acc , p_name, p_into, p_status, p_add, p_latlng, p_cap, p_date)
-Values(p_no_seq.NEXTVAL, 'gym001', '­¸½ü±Ð«Ç', '«Ü´Îªº³õ¦a', default, '®ç¶é¥«¤¤Ãc°ÏÀs©£¸ô¤@¬q168¸¹', '24.9486715,121.224426', 20, default);
+Values(p_no_seq.NEXTVAL, 'gym001', 'ï¿½ï¿½ï¿½ï¿½ï¿½Ð«ï¿½', 'ï¿½Ü´Îªï¿½ï¿½ï¿½ï¿½a', default, 'ï¿½ï¿½é¥«ï¿½ï¿½ï¿½cï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½q168ï¿½ï¿½', '24.9486715,121.224426', 20, default);
 
 Insert into place(p_no, g_acc , p_name, p_into, p_status, p_add, p_latlng, p_cap, p_date)
-Values(p_no_seq.NEXTVAL, 'gym001', '¯}Ãa±Ð«Ç', '§ó´Îªº³õ¦a', default, '¥x¥_¥«¤j¦w°ÏÃ¹´µºÖ¸ô¤G¬q9¸¹', '25.0251243,121.52405720000002', 40, default);
+Values(p_no_seq.NEXTVAL, 'gym001', 'ï¿½}ï¿½aï¿½Ð«ï¿½', 'ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½a', default, 'ï¿½xï¿½_ï¿½ï¿½ï¿½jï¿½wï¿½ï¿½Ã¹ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Gï¿½q9ï¿½ï¿½', '25.0251243,121.52405720000002', 40, default);
 
----Place °²¸ê®Æ
+---Place ï¿½ï¿½ï¿½ï¿½ï¿½
 
-INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM1','GYMHOME¤¤Ãc¸êµ¦·|©±','«Ü´ÎªºÀô¹Ò',default, '®ç¶é¥«¤¤Ãc°Ï¤¤¥¡¸ô1¸¹', '24.9486715,121.224426', 20, default);
-INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM2','GYMHOME®ç¶é¿N¯N©±','«Ü­»ªº³õ¦a',default, '®ç¶é¥«¤¤Ãc°Ï¤¤¥¡¸ô2¸¹', '24.9486715,121.224426', 20, default);
-INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM1','GYMHOME©f¤lªA°È©±','«Ü¶Ùªº³õ¦a',default, '®ç¶é¥«¤¤Ãc°Ï¤¤¥¡¸ô3¸¹', '24.9486715,121.224426', 20, default);
-INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM2','GYMHOME¦³®ñÅw¼Ö©±','®ñ®ð¥R¨¬ªºÀô¹Ò',default, '®ç¶é¥«¤¤Ãc°Ï¤¤¥¡¸ô4¸¹', '24.9486715,121.224426', 20, default);
----³Ð«ØPLACE_time
+INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM1','GYMHOMEï¿½ï¿½ï¿½cï¿½êµ¦ï¿½|ï¿½ï¿½','ï¿½Ü´Îªï¿½ï¿½ï¿½ï¿½ï¿½',default, 'ï¿½ï¿½é¥«ï¿½ï¿½ï¿½cï¿½Ï¤ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½', '24.9486715,121.224426', 20, default);
+INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM2','GYMHOMEï¿½ï¿½ï¿½Nï¿½Nï¿½ï¿½','ï¿½Ü­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½a',default, 'ï¿½ï¿½é¥«ï¿½ï¿½ï¿½cï¿½Ï¤ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½', '24.9486715,121.224426', 20, default);
+INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM1','GYMHOMEï¿½fï¿½lï¿½Aï¿½È©ï¿½','ï¿½Ü¶Ùªï¿½ï¿½ï¿½ï¿½a',default, 'ï¿½ï¿½é¥«ï¿½ï¿½ï¿½cï¿½Ï¤ï¿½ï¿½ï¿½ï¿½ï¿½3ï¿½ï¿½', '24.9486715,121.224426', 20, default);
+INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM2','GYMHOMEï¿½ï¿½ï¿½ï¿½ï¿½wï¿½Ö©ï¿½','ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',default, 'ï¿½ï¿½é¥«ï¿½ï¿½ï¿½cï¿½Ï¤ï¿½ï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½', '24.9486715,121.224426', 20, default);
+---ï¿½Ð«ï¿½PLACE_time
 ----Lin SQL
------OPC_ACC ¹ïÀ³¯²­É±Ð½m±b¸¹
+-----OPC_ACC ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É±Ð½mï¿½bï¿½ï¿½
 ---------------------------------------------------------------------------------
 CREATE TABLE PLACE_time (
  PT_NO              VARCHAR2(15) NOT NULL,
@@ -345,7 +345,7 @@ NOCYCLE
 NOCACHE;
 
 ----------------------------------------------------------------------------------------------------------------------
-----³õ¦a®É¬q°²¸ê®Æ´ú¸Õ
+----ï¿½ï¿½ï¿½aï¿½É¬qï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½
 
 INSERT INTO PLACE_time (PT_NO,P_NO,OPC_ACC,RP_DATE,RP_TIME,OP_DATE,PBU_PRICE,PAU_PRICE,PBU_DATE,report,eva,eva_ct)
                    VALUES (PLACE_time_sq.Nextval,'1','COA1',TO_DATE('2017-10-18','YYYY-MM-DD'),1,TO_DATE('2017-08-18','YYYY-MM-DD'),5000,10000,TO_DATE('2017-08-19','YYYY-MM-DD'),0,0,null);
@@ -356,8 +356,8 @@ INSERT INTO PLACE_time (PT_NO,P_NO,OPC_ACC,RP_DATE,RP_TIME,OP_DATE,PBU_PRICE,PAU
 
 commit;
 --------------------------------------------------------------------------
----³õ¦aÀËÁ|¬ö¿ý
--------????????REF_CTX «Ý­×????
+---ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½|ï¿½ï¿½ï¿½ï¿½
+-------????????REF_CTX ï¿½Ý­ï¿½????
 ---------------------------------------
 
 CREATE TABLE PLACE_REPORT
@@ -386,7 +386,7 @@ INSERT INTO PLACE_REPORT VALUES(PLACE_REPORT_PK_SEQ.NEXTVAL,'2','7','WHAT THE',s
 INSERT INTO PLACE_REPORT VALUES(PLACE_REPORT_PK_SEQ.NEXTVAL,'1','8','WTF',sysdate,default,'test6',null);
 
 
---³õ¦a¹Ï¤ù
+--ï¿½ï¿½ï¿½aï¿½Ï¤ï¿½
 
 
 create table place_picture
@@ -405,7 +405,7 @@ nocache;
 
 
 
---¦n¤Í¦Cªí
+--ï¿½nï¿½Í¦Cï¿½ï¿½
 
 create table friends (
 mem_no varchar2(10) ,
@@ -420,7 +420,7 @@ insert into friends values(11,13,sysdate);
 insert into friends values(11,14,sysdate);
 
 
---ªO¶ô
+--ï¿½Oï¿½ï¿½
 
 create table forums (
 forum_no varchar2(15) ,
@@ -441,19 +441,19 @@ start with 1
 nocycle
 nocache;
 
-insert into forums values(forums_pk_seq.nextval,null,'¤½§iª©','±Mªù©ñ¤@¨Ç¤½§iÃþ',null,3,default,default,default);
-insert into forums values(forums_pk_seq.nextval,null,'¤K¨öª©','¤£§K«Uªº¨Ó²á¤@¤U¤K¨ö§a',null,3,default,default,default);
-insert into forums values(forums_pk_seq.nextval,null,'°ÝÃDª©','´£¨Ñ¦U¦ì°·¨­ªÌ¸ß°Ýªº¦a¤è',null,3,default,default,default);
-insert into forums values(forums_pk_seq.nextval,null,'·sª¾ª©','¦³¥ô¦ó³Ì·s®ø®§³£±N·|¦b¦¹',null,3,default,default,default);
-insert into forums values(forums_pk_seq.nextval,null,'«P¾Pª©','±Mªùµ¹¤©¥Zµn¥ô¦ó«P¾P¸ê°T',null,3,default,default,default);
-insert into forums values(forums_pk_seq.nextval,null,'¥æ¤Íª©','°·¨­¤§¾lÁÙ¥i¬ù¨ä¥L¹B°Ê³á',null,3,default,default,default);
-insert into forums values(forums_pk_seq.nextval,'11','¶³ºÝ°·¨­©Ð','§Ï©»¦b¶³ºÝ¤@¯ë³£¬Ý¤£¨ì¦b¹B°Ê','¶³ºÝÅ¥»¡³Ìªñ«Ü¬õ¡A¥ý³Ð°_¨Ó',default,default,default,default);
-insert into forums values(forums_pk_seq.nextval,'12','¤ö«z°·¨­©Ð','¤ö«z¤H³£¯S§O±j§§¡A°·¨­¤@µ´¡A§Ö¤@°_¨Ó¦P¼Ö','µo´­¥ú¤j¤ö«z',default,default,default,default);
-insert into forums values(forums_pk_seq.nextval,'13','°·°_¨Ó´ª°_¨Ó','¹B°Ê¦P¦n¶i¨Ó´ª¹Î³á~~','·PÄ±¦¹ª©¤Ö¤F¤@­Ó´ª¹Î°Ï',default,default,default,default);
-insert into forums values(forums_pk_seq.nextval,'14','¤£·Q°·¨­','´£­Ò¤£·Q°·¨­ªº­·®ð','¬Ý¨ì°·¨­´N¥Í77¡A§Ú´N¬O¤£·Q°ÊªºªÎ¦vªü',default,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'ï¿½ï¿½ï¿½iï¿½ï¿½','ï¿½Mï¿½ï¿½ï¿½ï¿½@ï¿½Ç¤ï¿½ï¿½iï¿½ï¿½',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'ï¿½Kï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Kï¿½Uï¿½ï¿½ï¿½Ó²ï¿½@ï¿½Uï¿½Kï¿½ï¿½ï¿½a',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'ï¿½ï¿½ï¿½Dï¿½ï¿½','ï¿½ï¿½ï¿½Ñ¦Uï¿½ì°·ï¿½ï¿½ï¿½Ì¸ß°Ýªï¿½ï¿½aï¿½ï¿½',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'ï¿½sï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì·sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½|ï¿½bï¿½ï¿½',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'ï¿½Pï¿½Pï¿½ï¿½','ï¿½Mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½nï¿½ï¿½ï¿½ï¿½Pï¿½Pï¿½ï¿½T',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'ï¿½ï¿½Íªï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½lï¿½Ù¥iï¿½ï¿½ï¿½ï¿½Lï¿½Bï¿½Ê³ï¿½',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,'11','ï¿½ï¿½ï¿½Ý°ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½Ï©ï¿½ï¿½bï¿½ï¿½ï¿½Ý¤@ï¿½ë³£ï¿½Ý¤ï¿½ï¿½ï¿½bï¿½Bï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½Ìªï¿½Ü¬ï¿½ï¿½Aï¿½ï¿½ï¿½Ð°_ï¿½ï¿½',default,default,default,default);
+insert into forums values(forums_pk_seq.nextval,'12','ï¿½ï¿½ï¿½zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½zï¿½Hï¿½ï¿½ï¿½Sï¿½Oï¿½jï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½ï¿½ï¿½Aï¿½Ö¤@ï¿½_ï¿½Ó¦Pï¿½ï¿½','ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½z',default,default,default,default);
+insert into forums values(forums_pk_seq.nextval,'13','ï¿½ï¿½ï¿½_ï¿½Ó´ï¿½ï¿½_ï¿½ï¿½','ï¿½Bï¿½Ê¦Pï¿½nï¿½iï¿½Ó´ï¿½ï¿½Î³ï¿½~~','ï¿½PÄ±ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤Fï¿½@ï¿½Ó´ï¿½ï¿½Î°ï¿½',default,default,default,default);
+insert into forums values(forums_pk_seq.nextval,'14','ï¿½ï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½Ò¤ï¿½ï¿½Qï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½Ý¨ì°·ï¿½ï¿½ï¿½Nï¿½ï¿½77ï¿½Aï¿½Ú´Nï¿½Oï¿½ï¿½ï¿½Qï¿½Êªï¿½ï¿½Î¦vï¿½ï¿½',default,default,default,default);
 
 
---¤å³¹Ãþ«¬
+--ï¿½å³¹ï¿½ï¿½ï¿½ï¿½
 
 
 create table art_types (
@@ -469,31 +469,31 @@ create sequence art_types_seq
 increment by 10
 start with 10;
 
-insert into art_types values(art_types_seq.nextval,'1','¤@¯ë¤½§i',default);
-insert into art_types values(art_types_seq.nextval,'1','¨t²Î¤½§i',default);
-insert into art_types values(art_types_seq.nextval,'1','ºò«æ³q§i',default);
-insert into art_types values(art_types_seq.nextval,'2','®T¼Ö¨ö',default);
-insert into art_types values(art_types_seq.nextval,'2','¸ß°Ý¨ö',default);
-insert into art_types values(art_types_seq.nextval,'2','µo¼o¨ö',default);
-insert into art_types values(art_types_seq.nextval,'3','°·¨­°ÝÃD',default);
-insert into art_types values(art_types_seq.nextval,'3','ºô¯¸°ÝÃD',default);
-insert into art_types values(art_types_seq.nextval,'3','ªk«ß°ÝÃD',default);
-insert into art_types values(art_types_seq.nextval,'3','¤ß²z°ÝÃD',default);
-insert into art_types values(art_types_seq.nextval,'4','¤@¯ë·sª¾',default);
-insert into art_types values(art_types_seq.nextval,'4','¬ì§Þ·sª¾',default);
-insert into art_types values(art_types_seq.nextval,'4','ªÀ·|·sª¾',default);
-insert into art_types values(art_types_seq.nextval,'4','®T¼Ö·sª¾',default);
-insert into art_types values(art_types_seq.nextval,'5','·s«~¤W¥«',default);
-insert into art_types values(art_types_seq.nextval,'5','«P¾P¬¡°Ê',default);
-insert into art_types values(art_types_seq.nextval,'5','²M­Ü¬¡°Ê',default);
-insert into art_types values(art_types_seq.nextval,'5','Áp¦X©ç½æ',default);
-insert into art_types values(art_types_seq.nextval,'5','Áp¦X©ç½æ',default);
-insert into art_types values(art_types_seq.nextval,'6','¬ù¥´µP',default);
-insert into art_types values(art_types_seq.nextval,'6','¬ù°Ûºq',default);
-insert into art_types values(art_types_seq.nextval,'6','¬ù¬Û¿Ë',default);
-insert into art_types values(art_types_seq.nextval,'6','¦Û§Ú¤¶²Ð',default);
+insert into art_types values(art_types_seq.nextval,'1','ï¿½@ï¿½ë¤½ï¿½i',default);
+insert into art_types values(art_types_seq.nextval,'1','ï¿½tï¿½Î¤ï¿½ï¿½i',default);
+insert into art_types values(art_types_seq.nextval,'1','ï¿½ï¿½ï¿½qï¿½i',default);
+insert into art_types values(art_types_seq.nextval,'2','ï¿½Tï¿½Ö¨ï¿½',default);
+insert into art_types values(art_types_seq.nextval,'2','ï¿½ß°Ý¨ï¿½',default);
+insert into art_types values(art_types_seq.nextval,'2','ï¿½oï¿½oï¿½ï¿½',default);
+insert into art_types values(art_types_seq.nextval,'3','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D',default);
+insert into art_types values(art_types_seq.nextval,'3','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½D',default);
+insert into art_types values(art_types_seq.nextval,'3','ï¿½kï¿½ß°ï¿½ï¿½D',default);
+insert into art_types values(art_types_seq.nextval,'3','ï¿½ß²zï¿½ï¿½ï¿½D',default);
+insert into art_types values(art_types_seq.nextval,'4','ï¿½@ï¿½ï¿½sï¿½ï¿½',default);
+insert into art_types values(art_types_seq.nextval,'4','ï¿½ï¿½Þ·sï¿½ï¿½',default);
+insert into art_types values(art_types_seq.nextval,'4','ï¿½ï¿½ï¿½|ï¿½sï¿½ï¿½',default);
+insert into art_types values(art_types_seq.nextval,'4','ï¿½Tï¿½Ö·sï¿½ï¿½',default);
+insert into art_types values(art_types_seq.nextval,'5','ï¿½sï¿½~ï¿½Wï¿½ï¿½',default);
+insert into art_types values(art_types_seq.nextval,'5','ï¿½Pï¿½Pï¿½ï¿½ï¿½ï¿½',default);
+insert into art_types values(art_types_seq.nextval,'5','ï¿½Mï¿½Ü¬ï¿½ï¿½ï¿½',default);
+insert into art_types values(art_types_seq.nextval,'5','ï¿½pï¿½Xï¿½ï¿½ï¿½',default);
+insert into art_types values(art_types_seq.nextval,'5','ï¿½pï¿½Xï¿½ï¿½ï¿½',default);
+insert into art_types values(art_types_seq.nextval,'6','ï¿½ï¿½ï¿½ï¿½ï¿½P',default);
+insert into art_types values(art_types_seq.nextval,'6','ï¿½ï¿½ï¿½Ûºq',default);
+insert into art_types values(art_types_seq.nextval,'6','ï¿½ï¿½ï¿½Û¿ï¿½',default);
+insert into art_types values(art_types_seq.nextval,'6','ï¿½Û§Ú¤ï¿½ï¿½ï¿½',default);
 
---¤å³¹
+--ï¿½å³¹
 
 create table articles (
 art_no varchar2(15) ,
@@ -515,7 +515,7 @@ start with 1
 nocycle
 nocache;
 
---¤å³¹¬Û¤ù
+--ï¿½å³¹ï¿½Û¤ï¿½
 
 create table article_photos (
 art_pt_no varchar2(20) ,
@@ -531,7 +531,7 @@ start with 1
 nocycle
 nocache;
 
---¤å³¹¯d¨¥
+--ï¿½å³¹ï¿½dï¿½ï¿½
 create table article_comments (
 art_cmt_no varchar2(20) ,
 art_no varchar2(15) ,
@@ -551,7 +551,7 @@ nocache;
 
 
 
---¤å³¹ÀËÁ|
+--ï¿½å³¹ï¿½ï¿½ï¿½|
 
 create table article_report (
 art_rpt_no varchar2(15) ,
@@ -572,7 +572,7 @@ nocycle
 nocache;
 
 
---¬ÛÃ¯
+--ï¿½ï¿½Ã¯
 
 create table albums (
 al_no varchar2(15) ,
@@ -591,14 +591,14 @@ start with 1
 nocycle
 nocache;
 
-insert into albums values(albums_pk_seq.nextval,'11',default,'¹B°Ê',default,default,1);
-insert into albums values(albums_pk_seq.nextval,'11',default,'¦Y¶º',default,default,default);
-insert into albums values(albums_pk_seq.nextval,'11',default,'¦nªF',default,1,default);
-insert into albums values(albums_pk_seq.nextval,'11',default,'»Å³á',default,default,default);
-insert into albums values(albums_pk_seq.nextval,'11',default,'¨Ó¤@µo',default,default,default);
-insert into albums values(albums_pk_seq.nextval,'11',default,'ÆgÆgÆg',default,default,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'ï¿½Bï¿½ï¿½',default,default,1);
+insert into albums values(albums_pk_seq.nextval,'11',default,'ï¿½Yï¿½ï¿½',default,default,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'ï¿½nï¿½F',default,1,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'ï¿½Å³ï¿½',default,default,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'ï¿½Ó¤@ï¿½o',default,default,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'ï¿½gï¿½gï¿½g',default,default,default);
 
---¬Û¤ù
+--ï¿½Û¤ï¿½
 
 
 create table photos (
@@ -618,7 +618,7 @@ start with 1
 nocycle
 nocache;
 
---°ÊºA®ø®§
+--ï¿½ÊºAï¿½ï¿½ï¿½ï¿½
 
 create table message_board (
 bd_msg_no varchar2(15) ,
@@ -640,10 +640,10 @@ increment by 1
 start with 1
 nocycle
 nocache;
-insert into message_board values(message_board_pk_seq.nextval,11,0,default,'§Ú¯uªº¦n«Ó¥i¬O§Ú¤£´±¸ò§O¤H»¡',null,2,sysdate,null,null,null);
-insert into message_board values(message_board_pk_seq.nextval,12,0,default,'¤¤¤È¤£ª¾¹D¦YÔ£­C...¥Í¬¡¦nÃø',null,0,sysdate,null,null,null);
-insert into message_board values(message_board_pk_seq.nextval,12,0,default,'¥b©]¦b¼gJAVA ¦³¤H¿ôªÌ¤@°_¾Ä°«¶Ü?',null,1,sysdate,null,null,null);
---°ÊºAªº·Ó¤ù¹ï·Óªí
+insert into message_board values(message_board_pk_seq.nextval,11,0,default,'ï¿½Ú¯uï¿½ï¿½ï¿½nï¿½Ó¥iï¿½Oï¿½Ú¤ï¿½ï¿½ï¿½ï¿½ï¿½Oï¿½Hï¿½ï¿½',null,2,sysdate,null,null,null);
+insert into message_board values(message_board_pk_seq.nextval,12,0,default,'ï¿½ï¿½ï¿½È¤ï¿½ï¿½ï¿½ï¿½Dï¿½YÔ£ï¿½C...ï¿½Í¬ï¿½ï¿½nï¿½ï¿½',null,0,sysdate,null,null,null);
+insert into message_board values(message_board_pk_seq.nextval,12,0,default,'ï¿½bï¿½]ï¿½bï¿½gJAVA ï¿½ï¿½ï¿½Hï¿½ï¿½ï¿½Ì¤@ï¿½_ï¿½Ä°ï¿½ï¿½ï¿½?',null,1,sysdate,null,null,null);
+--ï¿½ÊºAï¿½ï¿½ï¿½Ó¤ï¿½ï¿½ï¿½Óªï¿½
 
 create table board_photo (
 bd_msg_no varchar2(15) ,
@@ -653,7 +653,7 @@ constraint board_photo_fk foreign key(photo_no) references photos(PHOTO_NO),
 primary key(bd_msg_no,photo_no));
 
 
---«öÆg¬ö¿ý
+--ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½
 
 create table likes_record (
 bd_msg_no varchar2(15) ,
@@ -668,7 +668,7 @@ create sequence likes_record_pk_seq
 increment by 1
 start with 1;
 
---¯d¨¥ªO
+--ï¿½dï¿½ï¿½ï¿½O
 
 create table board_cmt (
 bd_cmt_no varchar2(15) ,
@@ -686,7 +686,7 @@ create sequence board_cmt_pk_seq
 increment by 1
 start with 1;
 
---³q¥Î¯d¨¥«öÆg¬ö¿ý
+--ï¿½qï¿½Î¯dï¿½ï¿½ï¿½ï¿½ï¿½gï¿½ï¿½ï¿½ï¿½
 
 create table cmt_likes_record (
 cmt_rcd_no varchar2(15) ,
@@ -701,7 +701,7 @@ create sequence cmt_likes_record_pk_seq
 increment by 1
 start with 1;
 
---°T®§
+--ï¿½Tï¿½ï¿½
 create table message (
 msg_no varchar2(20) ,
 rcv_no varchar2(10) ,
@@ -718,13 +718,13 @@ increment by 1
 start with 1;
 
 
-INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'1','2',SYSDATE,'¦w¦w§A¦n',1);
-INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'2','1',SYSDATE,'§A¦n',1);
-INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'1','2',SYSDATE,'µ¹Á«¶Ü?',1);
-INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'2','1',SYSDATE,'¤£­n',1);
+INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'1','2',SYSDATE,'ï¿½wï¿½wï¿½Aï¿½n',1);
+INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'2','1',SYSDATE,'ï¿½Aï¿½n',1);
+INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'1','2',SYSDATE,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?',1);
+INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'2','1',SYSDATE,'ï¿½ï¿½ï¿½n',1);
 INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'1','2',SYSDATE,'QAQ',0);
 
---«áºÝ¥\¯àªí
+--ï¿½ï¿½Ý¥\ï¿½ï¿½ï¿½
 
 CREATE TABLE FUNCTION
 (
@@ -734,18 +734,18 @@ CONSTRAINT FUNCTION_F_NO_PK PRIMARY KEY(F_NO)
 );
 
 
-INSERT INTO FUNCTION VALUES('M', '­û¤u±b¸¹ºÞ²z');
-INSERT INTO FUNCTION VALUES('PI', 'ºô­¶¸ê°TºÞ²z');
-INSERT INTO FUNCTION VALUES('CC', '¼f®Ö±Ð½m¸ê®æ');
-INSERT INTO FUNCTION VALUES('CG', '¼f®Ö°·¨­©Ð¸ê®æ');
-INSERT INTO FUNCTION VALUES('CA', '¼f®Ö¼s§i');
-INSERT INTO FUNCTION VALUES('CF', '¼f®Ö¶}ª©');
-INSERT INTO FUNCTION VALUES('RM', '·|­ûÀËÁ|¼f®Ö');
-INSERT INTO FUNCTION VALUES('RC', '½Òµ{ÀËÁ|¼f®Ö');
-INSERT INTO FUNCTION VALUES('RA', '¤å³¹ÀËÁ|¼f®Ö');
-INSERT INTO FUNCTION VALUES('RP', '³õ¦aÀËÁ|¼f®Ö');
+INSERT INTO FUNCTION VALUES('M', 'ï¿½ï¿½ï¿½uï¿½bï¿½ï¿½ï¿½Þ²z');
+INSERT INTO FUNCTION VALUES('PI', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Tï¿½Þ²z');
+INSERT INTO FUNCTION VALUES('CC', 'ï¿½fï¿½Ö±Ð½mï¿½ï¿½ï¿½');
+INSERT INTO FUNCTION VALUES('CG', 'ï¿½fï¿½Ö°ï¿½ï¿½ï¿½ï¿½Ð¸ï¿½ï¿½');
+INSERT INTO FUNCTION VALUES('CA', 'ï¿½fï¿½Ö¼sï¿½i');
+INSERT INTO FUNCTION VALUES('CF', 'ï¿½fï¿½Ö¶}ï¿½ï¿½');
+INSERT INTO FUNCTION VALUES('RM', 'ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½fï¿½ï¿½');
+INSERT INTO FUNCTION VALUES('RC', 'ï¿½Òµ{ï¿½ï¿½ï¿½|ï¿½fï¿½ï¿½');
+INSERT INTO FUNCTION VALUES('RA', 'ï¿½å³¹ï¿½ï¿½ï¿½|ï¿½fï¿½ï¿½');
+INSERT INTO FUNCTION VALUES('RP', 'ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½|ï¿½fï¿½ï¿½');
 
---Åv­­ªí
+--ï¿½vï¿½ï¿½ï¿½ï¿½
 
 CREATE TABLE AUTHORITY
 (
@@ -799,8 +799,8 @@ INSERT INTO AUTHORITY VALUES('MGR004', 'RA');
 INSERT INTO AUTHORITY VALUES('MGR004', 'RP');
 
 ------------------------------
----·|­ûÀËÁ|¬ö¿ý??
----????³QÀËÁ|¤º®e«Ý­×??????
+---ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½ï¿½ï¿½ï¿½??
+---????ï¿½Qï¿½ï¿½ï¿½|ï¿½ï¿½ï¿½eï¿½Ý­ï¿½??????
 ------------------------------------
 
 CREATE TABLE MEMBERS_REPORT
@@ -822,13 +822,13 @@ CREATE SEQUENCE MEMBERS_REPORT_PK_SEQ
 INCREMENT BY 1
 START WITH 1;
 
-INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'5','6','µo¼o¤å',SYSDATE,0,NULL,NULL);
-INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'7','10','´c·Nðã½|',SYSDATE,0,NULL,NULL);
-INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'8','9','¤j¶q¬~ª©­±',SYSDATE,0,NULL,NULL);
-INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'7','5','´c·Nðã½|+¤j¶q¬~ª©­±',SYSDATE,1,NULL,NULL);
+INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'5','6','ï¿½oï¿½oï¿½ï¿½',SYSDATE,0,NULL,NULL);
+INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'7','10','ï¿½cï¿½Nï¿½ï¿½|',SYSDATE,0,NULL,NULL);
+INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'8','9','ï¿½jï¿½qï¿½~ï¿½ï¿½ï¿½ï¿½',SYSDATE,0,NULL,NULL);
+INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'7','5','ï¿½cï¿½Nï¿½ï¿½|+ï¿½jï¿½qï¿½~ï¿½ï¿½ï¿½ï¿½',SYSDATE,1,NULL,NULL);
 
 ---------------------------------------------------------------------------------
----³Ð«Ø½Òµ{
+---ï¿½Ð«Ø½Òµ{
 ----Lin SQL
 ---------------------------------------------------------------------------------
 create table course
@@ -848,18 +848,18 @@ nocycle
 nocache;
 -----------------------------------------------------------------------------------
 
-----½Òµ{°²¸ê®Æ´ú¸Õ
+----ï¿½Òµ{ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½
 
-Insert into course values('A' || lpad(course_sq.Nextval,4,'0'),'COA1','·ìÏÉ','·ìÏÉÎx¬µ¤Ñ','A',default);
-Insert into course values('B' || lpad(course_sq.Nextval,4,'0'),'COA1','­¸½ü','­¸½üÀs¶Æ¤Ñ','B',default);
-Insert into course values('C' || lpad(course_sq.Nextval,4,'0'),'COA1','¦³®ñ','¦³®ñ¨gÅQ¤Ñ','C',default);
-Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','¸õ§É','¨®¾_²n¤W¤Ñ','D',2);
-Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','¸õ§É','¨®¾_²n¤W¤Ñ','D',default);
-Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','¸õ§É','¨®¾_²n¤W¤Ñ','D',default);
-Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','¸õ§É','¨®¾_²n¤W¤Ñ','D',default);
+Insert into course values('A' || lpad(course_sq.Nextval,4,'0'),'COA1','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½','A',default);
+Insert into course values('B' || lpad(course_sq.Nextval,4,'0'),'COA1','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½Æ¤ï¿½','B',default);
+Insert into course values('C' || lpad(course_sq.Nextval,4,'0'),'COA1','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½gï¿½Qï¿½ï¿½','C',default);
+Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½_ï¿½nï¿½Wï¿½ï¿½','D',2);
+Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½_ï¿½nï¿½Wï¿½ï¿½','D',default);
+Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½_ï¿½nï¿½Wï¿½ï¿½','D',default);
+Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½_ï¿½nï¿½Wï¿½ï¿½','D',default);
 
 
----½Òµ{¹Ï¤ù
+---ï¿½Òµ{ï¿½Ï¤ï¿½
 
 create table course_picture
 (crs_pic_no varchar2(10) Not null,
@@ -910,7 +910,7 @@ commit;
 
 
 
----- course_list°²¸ê®Æ´ú¸Õ
+---- course_listï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½
 create table course_list  
 (ct_no Varchar2(10) constraint course_list_ct_no_fk references course_time(ct_no),
  stu_acc Varchar2(20) constraint students_stu_acc_fk references students(stu_acc),
@@ -939,7 +939,7 @@ Insert into course_list values('B' || lpad(course_list_sq.Nextval,6,'0'),'stu002
 Insert into course_list values('C' || lpad(course_list_sq.Nextval,6,'0'),'stu002',TO_DATE('2017-10-20','YYYY-MM-DD'),3,0,null,0,null,null,null,null,0,null);
 
 --------------------------
-----¼s§i¥Ó½Ð AD_APPLY 
+----ï¿½sï¿½iï¿½Ó½ï¿½ AD_APPLY 
 --------------------------
 CREATE TABLE AD_APPLY
 (
@@ -959,15 +959,15 @@ create sequence AD_APPLY_PK_seq
 increment by 1
 start with 1;
 
-INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'7',0,TO_DATE('1981-11-17','YYYY-MM-DD'),'·ìÏÉ','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'·ìÏÉ½Òµ{',null);
-INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'8',0,TO_DATE('1981-11-17','YYYY-MM-DD'),'­«°V','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'­«°V½Òµ{',null);
-INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'9',1,TO_DATE('1981-11-17','YYYY-MM-DD'),'¦³®ñ','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'¦³®ñ½Òµ{',null);
-INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'10',1,TO_DATE('1981-11-17','YYYY-MM-DD'),'¾|¾|','YAHOO.COM',TO_DATE('1981-11-19','YYYY-MM-DD'),TO_DATE('1981-12-19','YYYY-MM-DD'),'¾|¾|°·¨­À]',null);
+INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'7',0,TO_DATE('1981-11-17','YYYY-MM-DD'),'ï¿½ï¿½ï¿½ï¿½','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'ï¿½ï¿½ï¿½É½Òµ{',null);
+INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'8',0,TO_DATE('1981-11-17','YYYY-MM-DD'),'ï¿½ï¿½ï¿½V','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'ï¿½ï¿½ï¿½Vï¿½Òµ{',null);
+INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'9',1,TO_DATE('1981-11-17','YYYY-MM-DD'),'ï¿½ï¿½ï¿½ï¿½','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'ï¿½ï¿½ï¿½ï¿½Òµ{',null);
+INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'10',1,TO_DATE('1981-11-17','YYYY-MM-DD'),'ï¿½|ï¿½|','YAHOO.COM',TO_DATE('1981-11-19','YYYY-MM-DD'),TO_DATE('1981-12-19','YYYY-MM-DD'),'ï¿½|ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½]',null);
 
 
 
 ----------------------------
----¤½§i®ø®§---
+---ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½---
 
 create table annew (
 ann_no varchar2(15) not null ,
@@ -986,14 +986,14 @@ nocycle
 nocache;
 
 
-INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('1', sysdate, '­¸½ü¶}½Ò®É¶¡²§°Ê', '±i±Ð½mªº­¸½ü½Òµ{½Õ¦Ü8/10¶}½Ò');
-INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('2', sysdate, '¼P¼P°·¨­©Ð¾ã­×³qª¾', '¼P¼P°·¨­©Ð±q8/18°_¡A¶i¦æ¸ËæCºû­×¤uµ{');
-INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('3', sysdate, '­«°V¤Jªùªì¯Å½Òµ{³ø¦W', '§õ±Ð½mªº­«°Vªì¯Å½Òµ{±q8/15°_¡A¨C©P¤é¤U¤È2ÂI¶}©l,Åwªï¿ãÅD³ø¦W');
-INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('4', sysdate, '©ÔÁ|½Òµ{°±½Ò³qª¾', '³¯±Ð½m8/13©ÔÁ|½Òµ{¦]¬G°±½Ò¤@¦¸,·q½Ð¨£½Ì!');
+INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('1', sysdate, 'ï¿½ï¿½ï¿½ï¿½ï¿½}ï¿½Ò®É¶ï¿½ï¿½ï¿½ï¿½ï¿½', 'ï¿½iï¿½Ð½mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµ{ï¿½Õ¦ï¿½8/10ï¿½}ï¿½ï¿½');
+INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('2', sysdate, 'ï¿½Pï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½Ð¾ï¿½×³qï¿½ï¿½', 'ï¿½Pï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½Ð±q8/18ï¿½_ï¿½Aï¿½iï¿½ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½×¤uï¿½{');
+INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('3', sysdate, 'ï¿½ï¿½ï¿½Vï¿½Jï¿½ï¿½ï¿½ï¿½Å½Òµ{ï¿½ï¿½ï¿½W', 'ï¿½ï¿½ï¿½Ð½mï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½ï¿½Å½Òµ{ï¿½q8/15ï¿½_ï¿½Aï¿½Cï¿½Pï¿½ï¿½Uï¿½ï¿½2ï¿½Iï¿½}ï¿½l,ï¿½wï¿½ï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½W');
+INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('4', sysdate, 'ï¿½ï¿½ï¿½|ï¿½Òµ{ï¿½ï¿½ï¿½Ò³qï¿½ï¿½', 'ï¿½ï¿½ï¿½Ð½m8/13ï¿½ï¿½ï¿½|ï¿½Òµ{ï¿½]ï¿½Gï¿½ï¿½ï¿½Ò¤@ï¿½ï¿½,ï¿½qï¿½Ð¨ï¿½ï¿½ï¿½!');
 
 
 
----°·¨­ª¾ÃÑ-----
+---ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-----
 
 
 create table fitkw (
@@ -1012,15 +1012,15 @@ nocycle
 nocache;
 
 
-INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('1', sysdate, '°òÂ¦ª¾ÃÑ', '5­Ó°Ê§@10¤ÀÄÁ°V½m','¼ö¨­¦b°·¨­¹B°Ê¤¤ªº§@¥Î«D±`¤j¡A«Ü¦h·s¤H©¹©¹·|©¿µø¼ö¨­¡A³y¦¨«Ü¦h³Â·Ð¡C¦b¶i¦æ¼@¯P¹B°Ê«e¡A©ÎªÌ¤O¶q°V½m«e¡A³£À³¸Ó°µ¦n¥R¤Àªº¼ö¨­¡A¥HÅý¨­Åé¹F¨ì³Ì¨Îªºª¬ºA¡C');
-INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('2', sysdate, '¼W¦Ùª¾ÃÑ', '­n¼W¥[¤O¶q','¥L­Ìªº¬ã¨sªí©ú¡A°ª­t­«°V½m¯à°÷§ó¦n¦a½Õ¸`¯«¸g¨t²Î±N¹q«H¸¹±q¤j¸£¶Ç»¼¨ì¦Ù¦×¡A¼W¥[¦Ù¦×¯à°÷²£¥Íªº¤O¶q¡A¦Ó§C­t­«°V½m«h¤£¯à¡C');
-INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('3', sysdate, '¨ä¥Lª¾ÃÑ', '¬ã¨sµ²ªG§i¶D§A¡GªÅ¸¡°V½m¦n¤£¦n','¤W¤È¡A¦bªÅ¸¡©Î¶i­¹ªºª¬ºA¤U¡]¹B°Ê«e2¤p®É¶i­¹´I§tºÒ¤ô¤Æ¦Xª«ªº¤@¹yÀ\¡^¡AÅý³o¨Ç§ÓÄ@ªÌ¥H60¢H³Ì¤j®ñ®ðÄá¤J¶qªº±j«×¤U¨B¦æ60¤ÀÄÁ¡C');
-INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('4', sysdate, '¶]¨Bª¾ÃÑ', '±á¶]»P©]¶]­þ­Ó§ó¦n¡H','«Ü¦h³ßÅw±á¶]ªºªB¤Í»{¬°¡A¸g¹L¤@±ß¤Wªº®ø¤Æ¡A¦­¤WªÅ¸¡¥hÁë·Ò¡A¯à¦³¦³®Äªº®ø¯Ó¨­Åé¯×ªÕ¡C³o­ÓÆ[ÂI¬O¿ù»~ªº');
+INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('1', sysdate, 'ï¿½ï¿½Â¦ï¿½ï¿½ï¿½ï¿½', '5ï¿½Ó°Ê§@10ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½m','ï¿½ï¿½ï¿½ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½Ê¤ï¿½ï¿½ï¿½ï¿½@ï¿½Î«Dï¿½`ï¿½jï¿½Aï¿½Ü¦hï¿½sï¿½Hï¿½ï¿½ï¿½ï¿½ï¿½|ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½yï¿½ï¿½ï¿½Ü¦hï¿½Â·Ð¡Cï¿½bï¿½iï¿½ï¿½@ï¿½Pï¿½Bï¿½Ê«eï¿½Aï¿½ÎªÌ¤Oï¿½qï¿½Vï¿½mï¿½eï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½nï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Fï¿½ï¿½Ì¨Îªï¿½ï¿½ï¿½ï¿½Aï¿½C');
+INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('2', sysdate, 'ï¿½Wï¿½Ùªï¿½ï¿½ï¿½', 'ï¿½nï¿½Wï¿½[ï¿½Oï¿½q','ï¿½Lï¿½Ìªï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½tï¿½ï¿½ï¿½Vï¿½mï¿½ï¿½ï¿½ï¿½ï¿½nï¿½aï¿½Õ¸`ï¿½ï¿½ï¿½gï¿½tï¿½Î±Nï¿½qï¿½Hï¿½ï¿½ï¿½qï¿½jï¿½ï¿½ï¿½Ç»ï¿½ï¿½ï¿½Ù¦×¡Aï¿½Wï¿½[ï¿½Ù¦×¯ï¿½ï¿½ï¿½ï¿½ï¿½Íªï¿½ï¿½Oï¿½qï¿½Aï¿½Ó§Cï¿½tï¿½ï¿½ï¿½Vï¿½mï¿½hï¿½ï¿½ï¿½ï¿½C');
+INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('3', sysdate, 'ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½sï¿½ï¿½ï¿½Gï¿½iï¿½Dï¿½Aï¿½Gï¿½Å¸ï¿½ï¿½Vï¿½mï¿½nï¿½ï¿½ï¿½n','ï¿½Wï¿½È¡Aï¿½bï¿½Å¸ï¿½ï¿½Î¶iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Uï¿½]ï¿½Bï¿½Ê«e2ï¿½pï¿½É¶iï¿½ï¿½ï¿½Iï¿½tï¿½Ò¤ï¿½ï¿½Æ¦Xï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½yï¿½\ï¿½^ï¿½Aï¿½ï¿½ï¿½oï¿½Ç§ï¿½ï¿½@ï¿½Ì¥H60ï¿½Hï¿½Ì¤jï¿½ï¿½ï¿½ï¿½ï¿½Jï¿½qï¿½ï¿½ï¿½jï¿½×¤Uï¿½Bï¿½ï¿½60ï¿½ï¿½ï¿½ï¿½ï¿½C');
+INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('4', sysdate, 'ï¿½]ï¿½Bï¿½ï¿½ï¿½ï¿½', 'ï¿½ï¿½]ï¿½Pï¿½]ï¿½]ï¿½ï¿½ï¿½Ó§ï¿½nï¿½H','ï¿½Ü¦hï¿½ï¿½ï¿½wï¿½ï¿½]ï¿½ï¿½ï¿½Bï¿½Í»{ï¿½ï¿½ï¿½Aï¿½gï¿½Lï¿½@ï¿½ß¤Wï¿½ï¿½ï¿½ï¿½ï¿½Æ¡Aï¿½ï¿½ï¿½Wï¿½Å¸ï¿½ï¿½hï¿½ï¿½Ò¡Aï¿½à¦³ï¿½ï¿½ï¿½Äªï¿½ï¿½ï¿½ï¿½Ó¨ï¿½ï¿½ï¿½×ªÕ¡Cï¿½oï¿½ï¿½ï¿½[ï¿½Iï¿½Oï¿½ï¿½ï¿½~ï¿½ï¿½');
 
 
 
 
---------¥­¥x¸ê°T----
+--------ï¿½ï¿½ï¿½xï¿½ï¿½T----
 
 
 create table platinf (
@@ -1039,13 +1039,13 @@ start with 2
 nocycle
 nocache;
 
-INSERT INTO platinf(pin_no, com_address, cp_no, cs_email, pr_policy, upd_date)values('1', '®ç¶é¥«©B©B¸ô10¸¹', '03-5886977', 'fit@gmail.com', 'Áô¨pÅv«O»Ù­Ó¤Hxxxxxxxxxxxxxx', sysdate);
+INSERT INTO platinf(pin_no, com_address, cp_no, cs_email, pr_policy, upd_date)values('1', 'ï¿½ï¿½é¥«ï¿½Bï¿½Bï¿½ï¿½10ï¿½ï¿½', '03-5886977', 'fit@gmail.com', 'ï¿½ï¿½ï¿½pï¿½vï¿½Oï¿½Ù­Ó¤Hxxxxxxxxxxxxxx', sysdate);
 
 
 
 
 
----±`¨£°ÝÃD----
+---ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½D----
 
 create table queans (
 que_no varchar2(15) not null ,
@@ -1062,9 +1062,9 @@ start with 4
 nocycle
 nocache;
 
-INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('1', sysdate, 'µù¥U', '¦p¦ó¦¨¬°·|­û?', 'µn¤Jµù¥U­¶­±«á¡A±q¤U©Ô¿ï³æ¨Ì¤£¦P¨­¤À¿ï¾Ü¶ñ¼gxxxxxx');
-INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('2', sysdate, 'ª½¼½', 'µLªkÆ[½àª½¼½?', '¥ý½T»{ºô¸ô³s½u³]©w¬O§_¥¿½T¡A­Y¤´¦³°ÝÃD¡A½Ð¬¢¸ß«ÈªA¤H­û');
-INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('3', sysdate, '³ø¦W', '¦p¦ó³ø¦W½Òµ{?', '¶i¤J±Ð½m­¶­±«á¡A¤Ä¿ï¶}³]½Òµ{¨Ã½T»{«á¡A¶i¤J½u¤WÃº¶Oxxxx');
+INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('1', sysdate, 'ï¿½ï¿½ï¿½U', 'ï¿½pï¿½ó¦¨¬ï¿½ï¿½|ï¿½ï¿½?', 'ï¿½nï¿½Jï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½qï¿½Uï¿½Ô¿ï¿½ï¿½Ì¤ï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¶ï¿½gxxxxxx');
+INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('2', sysdate, 'ï¿½ï¿½ï¿½ï¿½', 'ï¿½Lï¿½kï¿½[ï¿½àª½ï¿½ï¿½?', 'ï¿½ï¿½ï¿½Tï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½uï¿½]ï¿½wï¿½Oï¿½_ï¿½ï¿½ï¿½Tï¿½Aï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Dï¿½Aï¿½Ð¬ï¿½ï¿½ß«ÈªAï¿½Hï¿½ï¿½');
+INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('3', sysdate, 'ï¿½ï¿½ï¿½W', 'ï¿½pï¿½ï¿½ï¿½ï¿½Wï¿½Òµ{?', 'ï¿½iï¿½Jï¿½Ð½mï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Ä¿ï¿½}ï¿½]ï¿½Òµ{ï¿½Ã½Tï¿½{ï¿½ï¿½Aï¿½iï¿½Jï¿½uï¿½WÃºï¿½Oxxxx');
 
 commit;
 

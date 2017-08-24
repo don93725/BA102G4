@@ -91,6 +91,7 @@ public class StudentsDAO implements StudentsDAO_interface{
 			con.setAutoCommit(true);
 			
 		} catch(SQLException se) {
+			se.printStackTrace();
 			try {
 				se.printStackTrace();
 				con.rollback();
@@ -136,7 +137,7 @@ public class StudentsDAO implements StudentsDAO_interface{
 			pstmt.executeUpdate();
 					
 		} catch (SQLException se) {
-			se.getStackTrace();
+			se.printStackTrace();
 			try{
 				con.rollback();
 			} catch (Exception e) {
