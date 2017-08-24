@@ -11,7 +11,7 @@
 <%@include file="/back_end/include/basic_ace_script.file" %>
 <script src="<%=request.getContextPath()%>/style/assets/js/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/style/assets/css/sweetalert.css">
-<title>Insert title here</title>
+<title>健貨後台管理系統</title>
 <style>
 .kv-avatar .krajee-default.file-preview-frame,.kv-avatar .krajee-default.file-preview-frame:hover {
     margin: 0;
@@ -31,7 +31,7 @@
 }
 </style>
 
-<title>個人資料</title>
+<title>健貨後台管理系統</title>
 
 </head>
 <body>

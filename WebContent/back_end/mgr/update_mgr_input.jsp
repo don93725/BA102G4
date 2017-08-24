@@ -10,7 +10,7 @@
 <%@include file="/back_end/include/fileInput/fileInput_head.file" %>
 <%@include file="/back_end/include/basic_ace_script.file" %>
 
-<title>Insert title here</title>
+<title>健貨後台管理系統</title>
 
 <!-- the fileinput plugin initialization -->
 <style>

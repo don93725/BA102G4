@@ -40,8 +40,8 @@
 				<div class="row">
 					<div class="space-6"></div>
 
-					<div class="col-sm-7 infobox-container">
-						<div class="infobox infobox-green  ">
+					<div class="col-sm-12 infobox-container">
+						<div class="infobox infobox-green ">
 							<div class="infobox-icon">
 								<i class="icon-user"></i>
 							</div>
@@ -97,41 +97,8 @@
 					<div class="vspace-sm"></div>
 
 					<div class="col-sm-5">
-						<div class="widget-box">
-							<div class="widget-header widget-header-flat widget-header-small">
-								<h5>
-									<i class="icon-signal"></i> 訪問來源
-								</h5>
-
-								<div class="widget-toolbar no-border">
-									<button class="btn btn-minier btn-primary dropdown-toggle"
-										data-toggle="dropdown">
-										本周 <i class="icon-angle-down icon-on-right bigger-110"></i>
-									</button>
-
-									<ul
-										class="dropdown-menu pull-right dropdown-125 dropdown-lighter dropdown-caret">
-										<li class="active"><a href="#" class="blue"> <i
-												class="icon-caret-right bigger-110">&nbsp;</i> 本周
-										</a></li>
-
-										<li><a href="#"> <i
-												class="icon-caret-right bigger-110 invisible">&nbsp;</i> 上周
-										</a></li>
-
-										<li><a href="#"> <i
-												class="icon-caret-right bigger-110 invisible">&nbsp;</i> 本月
-										</a></li>
-
-										<li><a href="#"> <i
-												class="icon-caret-right bigger-110 invisible">&nbsp;</i> 上月
-										</a></li>
-									</ul>
-								</div>
-							</div>
-
-						</div>
-						<!-- /widget-box -->
+						
+						
 					</div>
 					<!-- /span -->
 				</div>
