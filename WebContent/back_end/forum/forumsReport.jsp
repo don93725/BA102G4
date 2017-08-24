@@ -5,7 +5,7 @@
 
 <head>
 
-<title>Insert title here</title>
+<title>健貨後台管理系統</title>
 	<%@include file="/back_end/include/basic_ace_script.file" %>
 
 </head>

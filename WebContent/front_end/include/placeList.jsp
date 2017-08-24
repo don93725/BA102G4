@@ -111,7 +111,7 @@
 										</div>	
 									</td>
 									<td>
-										<input type="button" class="btn btn-primary btn-sm" value="我要下架" onclick="unPublish()">
+										<input type="button" class="btn btn-primary btn-sm" value="我要下架" onclick="unPublish(${placeVO.p_no})">
 									</td>
 									</c:if>
 									<!-- 上架中的場地 結束 -->
@@ -218,13 +218,44 @@
 				showConfirmButton : true,
 				timer : 2000});
 		}
-		function unPublish(){
+		function unPublish(no){
 			swal({
 				title : "場地下架",
 				text : "下架後的場地無法被看見",
-				type : "info",
-				showConfirmButton : true,
-				timer : 2000});
+				type: "info",
+				showCancelButton: true,
+				confirmButtonColor: "#F8BB86",
+				cancelButtonText: "取消",
+				confirmButtonText: "確定",
+				closeOnConfirm: true
+			},function(response){
+				if(response){
+					$.ajax({
+						url : webCtx + '/Place_PublishServlet',
+						data : {
+							p_no : no,
+							action : 'unPublish'
+						},
+						
+						type : "POST",
+						dataType : 'text',
+
+						success : function(msg) {
+							swal("下架成功", "場地已下架", "success");
+							$(".inline").colorbox.close();
+							setTimeout("location.reload()",1000);
+						},
+
+						error : function(xhr, ajaxOptions, thrownError) {						
+							swal("失敗", "HelloWorld", "error");
+						}
+					});
+				}
+			});
+		
+		
+		
+		
 		}
 	</script>
 

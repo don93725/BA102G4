@@ -3,7 +3,7 @@
 <html lang="zh-cn-en">
 	
 	<head>
-		<title>test</title>
+		<title>login</title>
 
 		<!-- basic styles -->
 		<link href="<%= request.getContextPath()%>/style/assets/css/bootstrap.min.css" rel="stylesheet" />
