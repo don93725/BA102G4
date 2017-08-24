@@ -11,7 +11,7 @@ import com.place.model.PlaceVO;
 import com.students.model.StudentsVO;
 
 public class Course_listVO {
-	Integer crs_time, stu_pay_sta,report_sta,n_sta,count;
+	Integer crs_time, stu_pay_sta,report_sta,n_sta,count,crsAvg,coaAvg;
 	String ct_no,stu_acc,report_ct,feedback,evaluation_cao,evaluation_crs,reason,crs_timeShow;
 	Date cl_date,stu_pay_date;
 	Course_timeVO course_timeVO;
@@ -215,6 +215,23 @@ public class Course_listVO {
 	public void setCrs_timeShow(String crs_timeShow) {
 		this.crs_timeShow = crs_timeShow;
 	}
+
+	public Integer getCrsAvg() {
+		return crsAvg;
+	}
+
+	public void setCrsAvg(Integer crsAvg) {
+		this.crsAvg = crsAvg;
+	}
+
+	public Integer getCoaAvg() {
+		return coaAvg;
+	}
+
+	public void setCoaAvg(Integer coaAvg) {
+		this.coaAvg = coaAvg;
+	}
+
 	
 
 }

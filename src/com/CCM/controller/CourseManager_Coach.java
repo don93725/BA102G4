@@ -8,7 +8,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -97,8 +99,7 @@ private final static String CONTENT_TYPE = "text/html; charset=UTF-8";
 			System.out.println(coa_acc );
 			
 			
-			
-										
+												
 						
 			
 			List<Course_listVO>courseList = course_listSvc.getReserve_List(coa_acc);
@@ -109,18 +110,23 @@ private final static String CONTENT_TYPE = "text/html; charset=UTF-8";
 			
 		}
 											
-					
+				
+		
+		
+		
+		
+		
 		if (action.equals("getReady")) {
 			
 			
-			String stu_acc = jsonObject.get("stu_acc").getAsString();
+			String coa_acc = jsonObject.get("coa_acc").getAsString();
 			
-			System.out.println(stu_acc );
+			System.out.println(coa_acc );
 			
 																
 						
 			
-			List<Course_listVO>courseList = course_listSvc.getReady_List(stu_acc);
+			List<Course_listVO>courseList = course_listSvc.getCoachReady_List(coa_acc);
 			
 			writeText(rp, gson.toJson(courseList));
 			
@@ -133,14 +139,14 @@ private final static String CONTENT_TYPE = "text/html; charset=UTF-8";
 		if (action.equals("getFinished")) {
 			
 			
-			String stu_acc = jsonObject.get("stu_acc").getAsString();
+			String coa_acc = jsonObject.get("coa_acc").getAsString();
 			
-			System.out.println(stu_acc );
+			System.out.println(coa_acc );
 			
 																
 						
 			
-			List<Course_listVO>courseList = course_listSvc.getReady_List(stu_acc);
+			List<Course_listVO>courseList = course_listSvc.getReady_List(coa_acc);
 			
 			writeText(rp, gson.toJson(courseList));
 			
@@ -148,7 +154,42 @@ private final static String CONTENT_TYPE = "text/html; charset=UTF-8";
 			
 		}	
 		
+
+		if (action.equals("QRcode")) {
+			
+			String ct_no = jsonObject.get("ct_no").getAsString();
+			String stu_acc = jsonObject.get("stu_acc").getAsString();
+			
+			System.out.println(ct_no+""+stu_acc );
+			
+				
+			Map<String,String>msgs = new LinkedHashMap<String,String>()	;				
+			
+			boolean msg;
+						
+			
+			msg = course_listSvc.updateNSta(ct_no, stu_acc);
+			
+			if(msg == true){
+				
+				msgs.put("true","true");
+				
+				
+				writeText(rp, gson.toJson(msgs));
+				
+				System.out.println(msgs);
+			}else{
+				
+				
+				System.out.println("false");
+			}
+			
+	
 		
+		
+		
+		
+		}	
 		
 		
 		

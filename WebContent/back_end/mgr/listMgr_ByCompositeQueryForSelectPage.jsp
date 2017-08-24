@@ -9,7 +9,7 @@
 
 <html lang="zh-cn-en">
 <head>
-<title>複合查詢 - listMgr_ByCompositeQuery</title>
+<title>健貨後台管理系統</title>
 </head>
 <body>
 	<div class="page-content">
