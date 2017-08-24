@@ -55,7 +55,7 @@
 		</textarea></td>
 	</tr>
 	
-	<tr rospan='2'>
+	<tr>
 		<td>公告圖片:</td>
 		<td><img id='pic' height=100 src='${pageContext.request.contextPath }/g1/PhotoOutputA?ann_no=${annewVO.ann_no}'/>
 		<br><input class='btn btn-info' type='button' value='修改圖片' onclick='upload();'>

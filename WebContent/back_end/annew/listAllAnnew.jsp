@@ -93,49 +93,9 @@
 
 
 
-		<%@include file="/back_end/include/ace_setting_footer.file"%>
-</body>
-<script type="text/javascript">
-window.onload = init;
-function init(){
-	Preview.file_change();
-}
-function upload(){
-	$('#file').trigger('click');
-}
 
-Preview = new function() {
-	var fileInput = $('#file');
-	this.file_change = function() {
-		$('#file').on('change', function() {
-			
-			show(this);
-		});
-	}
-	var show = function(input) {
-		if (input.files && input.files[0]) {
-			each_img(input.files);
-		}
-	}			
-	var each_img = function(files) {
-		$.each(files,function(index, file) {
-				if (file.type.match('image')) {
-					var reader = new FileReader();				
-					reader.onload = function() {
-						$('#pic').prop('src',reader.result);
-						$('#pic').css('display',"block");
-						$('#pic').css('height',"200px");
-					}
-					if (file) {
-						reader.readAsDataURL(file);
-					}
-				}
-			});
-	}
 
-}
-</script>
-		<%@include file="/back_end/include/ace_setting_footer.file"%>
+<%@include file="/back_end/include/ace_setting_footer.file"%>
 </body>
 </html>
 
