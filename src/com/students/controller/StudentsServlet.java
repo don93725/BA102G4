@@ -251,84 +251,72 @@ public class StudentsServlet extends HttpServlet {
 				return;
 			}
 		}
-			
-		// 來自index.jsp的logout請求
-		if ("logout".equals(action)) {
-			HttpSession session = req.getSession();
-			session.invalidate();
-			res.sendRedirect(req.getContextPath()+"/front_end/index.jsp");
-			   return;
-		}
 		
-		//來自personal.jsp的請求
-		if ("update".equals(action)) { 
-			Map<String,String> errorMsgs = new LinkedHashMap<String,String>();
-			// Store this set in the request scope, in case we need to
-			// send the ErrorPage view.
-			req.setAttribute("errorMsgs", errorMsgs);
-			HttpSession session = req.getSession();
-			MembersVO membersVO = (MembersVO) session.getAttribute("user");
-			StudentsVO studentsVO = (StudentsVO) session.getAttribute("student");
-			try {
-				//1.接收請求參數 - 輸入格式的錯誤處理
-				//驗證姓名
-				String stu_name = req.getParameter("stu_name");
-				String stu_nameReg = "^[(\u4e00-\u9fa5)(a-zA-Z)]{2,6}$";
-				if (stu_name == null || stu_name.trim().length() == 0) {
-					errorMsgs.put("stu_name","會員姓名: 請勿空白");
-				} else if(!(stu_name.matches(stu_nameReg))) {
-					errorMsgs.put("stu_name","會員姓名: 只能是中、英文字母 ,且長度必需在2到6之間");
-	            }
-				
-				//驗證信箱
-				String stu_mail = req.getParameter("stu_mail");
-				System.out.println("test= " + stu_mail);
-				String stu_mailReg = "^[_A-Za-z0-9-]+([.][_A-Za-z0-9-]+)*@[a-z0-9-]+([.][a-z0-9-]+)*$";
-				if(stu_mail == null || stu_mail.trim().length() == 0) {
-					errorMsgs.put("stu_mail", "會員信箱: 請勿空白");
-				}else if(!(stu_mail.matches(stu_mailReg)) || stu_mail.length() > 50) {
-					errorMsgs.put("stu_mail", "會員信箱: 格式錯誤");
-				}
+			//來自personal.jsp的請求
+			if ("update".equals(action)) { 
+				Map<String,String> errorMsgs = new LinkedHashMap<String,String>();
+				// Store this set in the request scope, in case we need to
+				// send the ErrorPage view.
+				req.setAttribute("errorMsgs", errorMsgs);
+				HttpSession session = req.getSession();
+				MembersVO membersVO = (MembersVO) session.getAttribute("user");
+				StudentsVO studentsVO = (StudentsVO) session.getAttribute("student");
+				try {
+					//1.接收請求參數 - 輸入格式的錯誤處理
+					//驗證姓名
+					String stu_name = req.getParameter("stu_name");
+					String stu_nameReg = "^[(\u4e00-\u9fa5)(a-zA-Z)]{2,6}$";
+					if (stu_name == null || stu_name.trim().length() == 0) {
+						errorMsgs.put("stu_name","請勿空白");
+					} else if(!(stu_name.matches(stu_nameReg))) {
+						errorMsgs.put("stu_name","只能是中、英文字母 ,且長度必需在2到6之間");
+		            }
+					
+					//驗證信箱
+					String stu_mail = req.getParameter("stu_mail");
+					System.out.println("test= " + stu_mail);
+					String stu_mailReg = "^[_A-Za-z0-9-]+([.][_A-Za-z0-9-]+)*@[a-z0-9-]+([.][a-z0-9-]+)*$";
+					if(stu_mail == null || stu_mail.trim().length() == 0) {
+						errorMsgs.put("stu_mail", "請勿空白");
+					}else if(!(stu_mail.matches(stu_mailReg)) || stu_mail.length() > 50) {
+						errorMsgs.put("stu_mail", "格式錯誤");
+					}
 
-				//驗證自我介紹
-				String stu_into = req.getParameter("stu_into");
-				if(stu_into == null || stu_into.trim().length() == 0) {
-					errorMsgs.put("stu_into", "會員自我介紹: 請勿空白");
-				}else if(stu_into.length() > 500) {
-					errorMsgs.put("stu_into", "會員自我介紹: 格式錯誤");
-				}
-				
-				// 資料有誤就返回form表單
-				if(!errorMsgs.isEmpty()) {
-					System.out.println("I got the errorMsgs");
-					out.print(errorMsgs);
-
+					//驗證自我介紹
+					String stu_into = req.getParameter("stu_into");
+					if(stu_into == null || stu_into.trim().length() == 0) {
+						errorMsgs.put("stu_into", "請勿空白");
+					}else if(stu_into.length() > 500) {
+						errorMsgs.put("stu_into", "格式錯誤");
+					}				
+					
+					// 資料有誤就返回form表單
+					if(!errorMsgs.isEmpty()) {
+						Gson gSon = new Gson();
+						out.print(gSon.toJson(errorMsgs));
+						return;
+					}				
+					//2.開始修改資料
+					StudentsService studentsSV = new StudentsService();
+					studentsVO = studentsSV.updateStudents(studentsVO, stu_name, stu_mail, stu_into);
+					studentsVO = studentsSV.loginStudents(studentsVO.getStu_acc(), studentsVO.getStu_psw());
+					//3.修改完成,準備轉交(Send the Success vsiew)
+					session.setAttribute("user", membersVO);
+					session.setAttribute("student", studentsVO);
+					System.out.println("update is complete");
 					return;
-				}				
-				//2.開始修改資料
-				StudentsService studentsSV = new StudentsService();
-				studentsVO = studentsSV.updateStudents(studentsVO, stu_name, stu_mail, stu_into);
-				studentsVO = studentsSV.loginStudents(studentsVO.getStu_acc(), studentsVO.getStu_psw());
-				//3.修改完成,準備轉交(Send the Success vsiew)
-				System.out.println("update is complete");
-				session.setAttribute("user", membersVO);
-				session.setAttribute("student", studentsVO);
-				String url = req.getContextPath() + "/front_end/editPage/personal.jsp";
-				System.out.println("ok!");
-				res.sendRedirect(url);
-				return;
-				
-			//其他可能的錯誤處理
-			} catch(Exception e) {	
-				e.printStackTrace();
-				errorMsgs.put("Exception",e.getMessage());
-				System.out.println(errorMsgs.get("Exception"));
-				String url = "/front_end/editPage/personal.jsp";
-				RequestDispatcher failureView = req.getRequestDispatcher(url);
-				failureView.forward(req, res);
-				return;
+					
+				//其他可能的錯誤處理
+				} catch(Exception e) {	
+					e.printStackTrace();
+					errorMsgs.put("Exception",e.getMessage());
+					System.out.println(errorMsgs.get("Exception"));
+					String url = "/front_end/editPage/personal.jsp";
+					RequestDispatcher failureView = req.getRequestDispatcher(url);
+					failureView.forward(req, res);
+					return;
+				}
 			}
-		}
 		
 		if ("search_stu".equals(action)) {
 			List<String> errorMsgs = new LinkedList<String>();
