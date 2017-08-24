@@ -105,45 +105,57 @@ $(function(){
 	$('#friend').addClass('active');
 })
 function delFriend(mem_no,path){
-	 $.ajax({
-         url: path+"/friends/FirendCtrl",
-         data: {
-         	action:"delete",
-         	"mem_no":mem_no
-         } ,
-         type:"POST",
-         dataType:'text',
-         success: function(msg){
-             if(msg.trim().length==0){
-             	swal({
-							  title: "刪除成功",
-							  text: "已成功刪除好友",
-							  timer: 1000,
-							  type: "success",
-							  showConfirmButton: false
-					},function(){
-						location.reload();
-					});
-             }else{	
-					swal({
-					  title: "刪除錯誤",
-					  text: "請稍後再試",
-					  timer: 1000,
-					  type: "error",
-					  showConfirmButton: false
-					});
-             }
-         },
-			error:function(xhr, ajaxOptions, thrownError){ 
-	                swal({
-					  title: "添加錯誤",
-					  text: "請稍後再試",
-					  timer: 1000,
-					  type: "error",
-					  showConfirmButton: false
-					});
-          }
-  });
+	swal({
+		  title: "確定要刪除好友？",
+	 	  text: "你們是不是吵架了呀，有話好好說阿。",
+		  type: "warning",
+		  showCancelButton: true,
+		  confirmButtonColor: "#DD6B55",
+		  cancelButtonText: "算了",
+		  confirmButtonText: "是的",
+		  closeOnConfirm: false
+	},function(){
+		$.ajax({
+	         url: path+"/friends/FirendCtrl",
+	         data: {
+	         	action:"delete",
+	         	"mem_no":mem_no
+	         } ,
+	         type:"POST",
+	         dataType:'text',
+	         success: function(msg){
+	             if(msg.trim().length==0){
+	             	swal({
+								  title: "刪除成功",
+								  text: "已成功刪除好友",
+								  timer: 1000,
+								  type: "success",
+								  showConfirmButton: false
+						},function(){
+							location.reload();
+						});
+	             }else{	
+						swal({
+						  title: "刪除錯誤",
+						  text: "請稍後再試",
+						  timer: 1000,
+						  type: "error",
+						  showConfirmButton: false
+						});
+	             }
+	         },
+				error:function(xhr, ajaxOptions, thrownError){ 
+		                swal({
+						  title: "添加錯誤",
+						  text: "請稍後再試",
+						  timer: 1000,
+						  type: "error",
+						  showConfirmButton: false
+						});
+	          }
+	  });
+	});
+	 
 }
 </script>  	
 </html>

@@ -1,34 +1,46 @@
-<%@ page contentType="text/html; charset=Big5"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="com.annew.model.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn-en">
 <head>
-<title>¤½§i®ø®§¸ê®Æ</title>
-</head>
-<body bgcolor='#E8FFFF'>
 
-<table border='5' cellpadding='5' cellspacing='0' width='800' style="border-color:#FFD700;">
-	<tr bgcolor='yellow' align='center' valign='middle' height='20'>
-		<td>
-		<h3>¤½§i®ø®§¸ê®Æ</h3>
-		<a href="selectAnnew_page.jsp">¦^­º­¶</a>
-		</td>
-	</tr>
-</table>
-<br>
-<table border='2' bgcolor="#DEFFDE" style="border-color:#0000FF;" width='1500'>
+<title>å¥è²¨å¾Œå°ç®¡ç†ç³»çµ±</title>
+	<%@include file="/back_end/include/basic_ace_script.file" %>
+
+</head>
+<body>
+<%@include file="/back_end/include/navbar.file" %>
+<%@include file="/back_end/include/sliderBar_breadCrumb.file" %>
+
+	<div class="page-content">
+		<div class="page-header">
+			<a href="selectAnnew_page.jsp">é¦–é </a>
+			<h1>
+				å…¬å‘Šæ¶ˆæ¯è³‡æ–™  <small> <i class="icon-double-angle-right"></i>
+						Announces List
+				</small>
+			</h1>
+		</div>
+		<!-- /.page-header -->
+		<div class='container'>
+	<div class='row'>
+		<table class='table'>
+	<thead>
 	<tr>
 		
-		<th>¥Zµn¤é´Á</th>
-		<th>§ó·s¤é´Á</th>
-		<th>¤½§i¼ĞÃD</th>
-		<th>¤½§i¤º¤å</th>
-		<th>¤½§i¹Ï¤ù</th>
-<!-- 		<th>ªş¥óÀÉ®×</th> -->
-		<th>­×§ï</th>
-		<th>§R°£</th>
+		<th>åˆŠç™»æ—¥æœŸ</th>
+		<th>æ›´æ–°æ—¥æœŸ</th>
+		<th>å…¬å‘Šæ¨™é¡Œ</th>
+		<th>å…¬å‘Šå…§æ–‡</th>
+		<th>å…¬å‘Šåœ–ç‰‡</th>
+<!-- 		<th>é™„ä»¶æª”æ¡ˆ</th> -->
+		<th>ä¿®æ”¹</th>
+		<th>åˆªé™¤</th>
 	</tr>
+	</thead>
+	<tbody>
 	<c:forEach var="annew" items='${annewVO}' >
 	<!-- for( AnnewVO annew : annewVO{
 	  
@@ -44,20 +56,67 @@
 		
 		<td>
 			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/back_end/annew/annew.do">
-			     <input type="submit" value="­×§ï">
+			     <input type="submit" value="ä¿®æ”¹">
 			     <input type="hidden" name="ann_no" value="${annew.ann_no}">
 			     <input type="hidden" name="action"	value="getOne_For_Update"></FORM>
 		</td>
 		<td>
 			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/back_end/annew/annew.do">
-			    <input type="submit" value="§R°£">
+			    <input type="submit" value="åˆªé™¤">
 			    <input type="hidden" name="ann_no" value="${annew.ann_no}">
 			    <input type="hidden" name="action"value="delete"></FORM>
 		</td>
 		
 	</tr>
 	</c:forEach>
+	</tbody>
 </table>
+	</div>
+</div>
 
+
+
+<script type="text/javascript">
+window.onload = init;
+function init(){
+	Preview.file_change();
+}
+function upload(){
+	$('#file').trigger('click');
+}
+
+Preview = new function() {
+	var fileInput = $('#file');
+	this.file_change = function() {
+		$('#file').on('change', function() {
+			
+			show(this);
+		});
+	}
+	var show = function(input) {
+		if (input.files && input.files[0]) {
+			each_img(input.files);
+		}
+	}			
+	var each_img = function(files) {
+		$.each(files,function(index, file) {
+				if (file.type.match('image')) {
+					var reader = new FileReader();				
+					reader.onload = function() {
+						$('#pic').prop('src',reader.result);
+						$('#pic').css('display',"block");
+						$('#pic').css('height',"200px");
+					}
+					if (file) {
+						reader.readAsDataURL(file);
+					}
+				}
+			});
+	}
+
+}
+</script>
+
+<%@include file="/back_end/include/ace_setting_footer.file"%>
 </body>
 </html>

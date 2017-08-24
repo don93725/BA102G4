@@ -14,85 +14,88 @@
    pageContext.setAttribute("plain",plain);
    %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
-
 <head>
-    <title>健貨 - GymHome</title>
-	<%@include file="/front_end/include/basicScript.file" %>
+
+<title>健貨後台管理系統</title>
+	<%@include file="/back_end/include/basic_ace_script.file" %>
+
 </head>
-
-
 <body>
-
-
-    <!-- Page Content -->
-    <div class="container">
-         
-        <!-- Intro Content -->
-        <div class="row">
+<%@include file="/back_end/include/navbar.file" %>
+<%@include file="/back_end/include/sliderBar_breadCrumb.file" %>
+	<div class="page-content">
+		<div class="page-header">
+			<h1>
+				編輯關於我們 <small> <i class="icon-double-angle-right"></i>
+					Edit About. 
+				</small>
+			</h1>
+		</div>
+		<!-- /.page-header -->
+		</div>
+		<div class='container'>
+		<div class="row">
            
             <div class="col-md-12">
             	<div class='row'>
             	
             	<div class="col-md-12">
-            	<h2>健貨 - 編輯關於我們</h2>
             	</div>
             	<FORM METHOD="post" ACTION="platinf.do" name="form1" enctype='multipart/form-data'>
-            	 <div class="col-md-12">
+            	<table class='table'>
+            	 <tr><td>圖片</td><td>
                 <img style='height:300px;' id='pic' class="img-responsive" src="${pageContext.request.contextPath }/util/OutputPic?pin_no=1" alt="">
                 
-                <input type="button" class='btn btn-primary' onclick='upload_Pic();' value='上傳圖片' />
+                <input type="button" class='btn btn-primary' onclick='upload_Pic();' value='上傳圖片' /></td>
                 <input type="file" id='file' name="pin_photo" style='display:none;'/>
-           		 </div>
+           		 </tr>
             	<div class="col-md-12">
-            	<h4>
-            	<label for="basic-url">電話</label>
-				<div class="input-group">
-				  <input type="text" class="form-control" name="cp_no" aria-describedby="basic-addon3" value='${plain.cp_no}'>
-				</div>
-				</h4>
-            	<h4>
-            	<label for="basic-url">地址</label>
-            	<div class="input-group">
-				  <input type="text" class="form-control" name="com_address" aria-describedby="basic-addon3" value='${plain.com_address}'>
-				</div>
-            	</h4>
-            	<h4>
-            	<label for="basic-url">信箱</label>
-            	<div class="input-group">
-				  <input type="text" class="form-control" name="cs_email" aria-describedby="basic-addon3" value=' ${plain.cs_email}'>
-				</div>            	
-            	</h4>
-            	<h4>
-            	<label for="basic-url">介紹</label>
-            	<div class="input-group">
-				  <textarea class="form-control" name="pr_policy" aria-describedby="basic-addon3">${plain.pr_policy}</textarea>
-				</div> 
-            	</h4>
-            	</div>
+            	<tr><td>
+            	<label for="basic-url">電話</label></td><td>
+				  <input type="text" class="form-control" name="cp_no" aria-describedby="basic-addon3" value='${plain.cp_no}'></td>
+				</tr>
+            	<tr><td>
+            	<label for="basic-url">地址</label></td><td>
+				  <input type="text" class="form-control" name="com_address" aria-describedby="basic-addon3" value='${plain.com_address}'></td>
+            	</tr>
+            	<tr><td>
+            	<label for="basic-url">信箱</label></td><td>
+				  <input type="text" class="form-control" name="cs_email" aria-describedby="basic-addon3" value=' ${plain.cs_email}'></td>
+            	</tr>
+            	<tr><td>
+            	<label for="basic-url">介紹</label></td><td>
+				  <textarea style='resize:none;' class="form-control" name="pr_policy" aria-describedby="basic-addon3">${plain.pr_policy}</textarea></td>
+            	</tr>
+            	<tr align='center'><td colspan='2'>
             	<input type="hidden" name="action" value="update">
 				<input type="hidden" name="pin_no" value="1">
-				<input type="submit" class='btn btn-primary' value="確認修改" >&nbsp<input type="reset" class='btn btn-danger' value="重填資料" ></FORM>
+				<input type="submit" class='btn btn-primary' value="確認修改" >&nbsp<input type="reset" class='btn btn-danger' value="重填資料" ></td></tr>
+				</table>
+				</FORM>
 				</div>
             </div>
         </div>
         <!-- /.row -->
-    </div>
-    <!-- /.container -->
+        </div>
 
+
+		<%@include file="/back_end/include/ace_setting_footer.file"%>
 
 
 </body>
 
 	<%@include file="/front_end/include/basicScript2.file" %>
 <script type="text/javascript">
+window.onload= init;
 function upload_Pic(){
 	$('#file').trigger('click');	
 }
-$(function(){
+function init(){
 	Preview.file_change();
-})
+}
 Preview = new function() {
 	var fileInput = $('#file');
 	this.file_change = function() {
@@ -123,3 +126,4 @@ Preview = new function() {
 }
 </script>
 </html>
+

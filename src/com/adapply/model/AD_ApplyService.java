@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
+import com.course_time.model.Course_timeVO;
+
 public class AD_ApplyService {
 
 	private AD_ApplyDAO_interface dao;
@@ -56,5 +58,8 @@ public class AD_ApplyService {
 	}
 	public Set<AD_ApplyVO> getStat(Integer arv_stat){
 		return dao.getStat(arv_stat);
+	}
+	public Course_timeVO AD_CourseTimeGetCtNO(String crs_no){
+		return dao.getCourseTimeByCT_NO(crs_no);
 	}
 }

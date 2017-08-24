@@ -70,7 +70,7 @@
                                 <a href="<%= request.getContextPath()%>/front_end/browse/find_gyms.jsp">找健身房</a>
                             </li>
                             <li>
-                                <a href="#">找場地</a>
+                                <a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=placeDetailList">找場地</a>
                             </li>
                             <li>
                                 <a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=crsDetailList">找課程</a>

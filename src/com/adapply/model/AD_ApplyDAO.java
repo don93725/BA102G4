@@ -14,6 +14,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.course_time.model.Course_timeVO;
+
 public class AD_ApplyDAO implements AD_ApplyDAO_interface {
 	private static DataSource ds = null;
 	static {
@@ -38,6 +40,8 @@ public class AD_ApplyDAO implements AD_ApplyDAO_interface {
 			"UPDATE AD_APPLY set AD_NAME=?,AD_URL=?,AD_ONDATE=?,AD_OFFDATE=?,AD_CTX=?,AD_PT=? where AD_NO = ?";
 	private static final String UPDATE_STAT = 
 			"UPDATE AD_APPLY set ARV_STAT=? where AD_NO = ?";
+	private static final String COURSE_TIME_GET_CT_NO = 
+			"select CT_NO from course_time where crs_no=?";
 	@Override
 	public void insert(AD_ApplyVO adApplyVO) {
 		Connection con = null;
@@ -376,6 +380,59 @@ public class AD_ApplyDAO implements AD_ApplyDAO_interface {
 			}
 		}
 		return list;
+	}
+
+	@Override
+	public Course_timeVO getCourseTimeByCT_NO(String crs_no) {
+		Course_timeVO course_timeVO = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(COURSE_TIME_GET_CT_NO);
+
+			pstmt.setString(1, crs_no);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				// membersVo 也稱為 Domain objects
+				course_timeVO = new Course_timeVO();
+				course_timeVO.setCt_no(rs.getString("ct_no"));
+				
+				
+			}
+
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return course_timeVO;
 	}
 
 }

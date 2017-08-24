@@ -21,7 +21,8 @@
 			</h1>
 		</div>
 		<!-- /.page-header -->
-
+		</div>
+		
 
 
 
