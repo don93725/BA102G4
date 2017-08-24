@@ -82,9 +82,8 @@ public class StudentsDAO implements StudentsDAO_interface{
 			//同時新增學健身者
 			addWithMem_no(con, studentsVO);
 			String sql = "insert into albums values(albums_pk_seq.nextval,"+mem_no+",default,'動態相簿',default,0,1)";			
+			new SQLHelper().executeUpdate(sql, null,"mem_no",con);
 			con.commit();
-//			new SQLHelper().executeUpdate(sql, null,"mem_no",con);
-//			con.commit();
 			
 			//清空指令，重複利用
 			pstmt.clearParameters();
