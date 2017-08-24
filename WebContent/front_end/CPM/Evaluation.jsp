@@ -19,25 +19,15 @@
             display: block;
         }
     </style>
-<% String stu_acc1 = request.getParameter("stu_acc"); %>
-<% String stu_acc = new String( stu_acc1.getBytes("ISO-8859-1"),"UTF-8"); %>
 </head>
 <body>
 <div class="col-sm-3">
-	<form action="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do" method="post">
+	<form action="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do" method="post">
 		<div class="form-group " >
-		  <label for="sel1">教練評價 <span id="stars"><i class="glyphicon glyphicon-star" style="font-size:14px;"></i></span>:</label>
-		  <select class="form-control" name="evaluation_coa" onchange="showStars()">
-		    <option value="1">1</option>
-		    <option value="2">2</option>
-		    <option value="3">3</option>
-		    <option value="4">4</option>
-		    <option value="5">5</option>
-		  </select>
-		</div>
+
 		<div class="form-group " >
-		  <label for="sel1">課程評價 <span id="starsCrs"><i class="glyphicon glyphicon-star" style="font-size:14px;"></i></span>:</label>
-		  <select class="form-control" name="evaluation_crs" onchange="showStarsCrs()">
+		  <label for="sel1">場地評價 <span id="starsCrs"><i class="glyphicon glyphicon-star" style="font-size:14px;"></i></span>:</label>
+		  <select class="form-control" name="eva" onchange="showStarsCrs()">
 		    <option value="1">1</option>
 		    <option value="2">2</option>
 		    <option value="3">3</option>
@@ -46,14 +36,13 @@
 		  </select>
 		</div>
 		<div class="form-group">
-		  <label for="comment">課程回饋:</label>
-		  <textarea class="form-control" rows="5" id="comment" name="feedback"></textarea>
+		  <label for="comment">場地回饋:</label>
+		  <textarea class="form-control" rows="5" id="comment" name="eva_ct"></textarea>
 		</div>
 		<div class="form-group">
 		  <input type="submit" class="form-control btn btn-warning" value="送出">
 		</div>
-		<input type="hidden" name="ct_no" value="<%= request.getParameter("ct_no") %>">
-		<input type="hidden" name="stu_acc" value="<%= stu_acc %>">
+		<input type="hidden" name="p_no" value="<%= request.getParameter("p_no") %>">
 		<input type="hidden" name="action" value="evaluation">
 	</form>
 </div>

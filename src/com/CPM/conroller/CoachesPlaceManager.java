@@ -15,6 +15,9 @@ import com.course_list.model.Course_listVO;
 import com.course_time.model.Course_timeService;
 import com.course_time.model.Course_timeVO;
 import com.members.model.MembersVO;
+import com.place_report.model.PlaceReportService;
+import com.place_time.model.Place_timeService;
+import com.place_time.model.Place_timeVO;
 
 /**
  * Servlet implementation class CoachesPlaceManager
@@ -29,28 +32,22 @@ public class CoachesPlaceManager extends HttpServlet {
 		String action = req.getParameter("action");
 		HttpSession session = req.getSession();
 		if ("pay".equals(action)) {
-			String ct_no = req.getParameter("ct_no");
-			String stu_acc = req.getParameter("stu_acc");
+			String pt_no = req.getParameter("pt_no");
 			
-			Course_listService course_listSVC = new Course_listService();
-			course_listSVC.payCourse_list(ct_no, stu_acc);
-			Course_listVO course_listVO = course_listSVC.getOneCourse_list(ct_no, stu_acc);
+			Place_timeService place_timeSVC = new Place_timeService();
+			place_timeSVC.payPlace_time(pt_no);
+			Place_timeVO place_timeVO = place_timeSVC.getOnePlace_time(pt_no);
 			
-			req.setAttribute("course_listVO", course_listVO);
-			RequestDispatcher pay = req.getRequestDispatcher("/front_end/SCM/PaySuccess.jsp");
+			req.setAttribute("place_timeVO", place_timeVO);
+			RequestDispatcher pay = req.getRequestDispatcher("/front_end/CPM/PaySuccess.jsp");
 			pay.forward(req, res);
 			return;
-		}else if("deleteCourse".equals(action)){
-			String ct_no = req.getParameter("ct_no");
-			String stu_acc = req.getParameter("stu_acc");
+		}else if("deletePlace".equals(action)){
+			String pt_no = req.getParameter("pt_no");
 			
-			Course_listService course_listSVC = new Course_listService();
-			course_listSVC.deleteCourse_list(ct_no, stu_acc);
+			Place_timeService place_timeSVC = new Place_timeService();
+			place_timeSVC.deletePlace_time(pt_no);
 			
-			req.setAttribute("active", "1");
-			req.setAttribute("page", "/front_end/SCM/CourseList.jsp");
-			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/SCM/index.jsp");
-			courseList.forward(req, res);
 			return;
 		}else if("signUp".equals(action)){
 			
@@ -60,12 +57,12 @@ public class CoachesPlaceManager extends HttpServlet {
 			return;
 		}else if("showBlock".equals(action)){
 			
-			Course_timeService course_timeSVC = new Course_timeService();
-			Course_timeVO course_timeVO = course_timeSVC.getOneCourse_time(req.getParameter("ct_no"));
+			Place_timeService place_timeSVC = new Place_timeService();
+			Place_timeVO place_timeVO = place_timeSVC.getOnePlace_time(req.getParameter("pt_no"));
 			
-			req.setAttribute("course_timeVO", course_timeVO);
+			req.setAttribute("place_timeVO", place_timeVO);
 			
-			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/SCM/ShowBlock.jsp");
+			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/CPM/ShowBlock.jsp");
 			courseList.forward(req, res);
 			return;
 		}else if("showLeaveBlock".equals(action)){
@@ -88,36 +85,28 @@ public class CoachesPlaceManager extends HttpServlet {
 			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/SCM/ShowReportBlock.jsp");
 			courseList.forward(req, res);
 			return;
-		}else if("courseList".equals(action)){
+		}else if("placeList".equals(action)){
 			
 			req.setAttribute("active", "1");
-			req.setAttribute("which", "選課列表");
-			req.setAttribute("page", "/front_end/SCM/CourseList.jsp");
-			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/SCM/index.jsp");
-			courseList.forward(req, res);
+			req.setAttribute("which", "場地列表");
+			req.setAttribute("page", "/front_end/CPM/PlaceList.jsp");
+			RequestDispatcher placeList = req.getRequestDispatcher("/front_end/CPM/index.jsp");
+			placeList.forward(req, res);
 			return;
-		}else if("courseOpen".equals(action)){
-			
-			req.setAttribute("active", "2");
-			req.setAttribute("which", "開課列表");
-			req.setAttribute("page", "/front_end/SCM/CourseOpen.jsp");
-			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/SCM/index.jsp");
-			courseList.forward(req, res);
-			return;
-		}else if("courseRecord".equals(action)){
+		}else if("placeRecord".equals(action)){
 			
 			req.setAttribute("active", "3");
-			req.setAttribute("which", "課程紀錄");
-			req.setAttribute("page", "/front_end/SCM/CourseRecord.jsp");
-			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/SCM/index.jsp");
+			req.setAttribute("which", "場地使用紀錄");
+			req.setAttribute("page", "/front_end/CPM/PlaceRecord.jsp");
+			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/CPM/index.jsp");
 			courseList.forward(req, res);
 			return;
 		}else if("calendar".equals(action)){
 			
 			req.setAttribute("active", "4");
 			req.setAttribute("which", "行事曆");
-			req.setAttribute("page", "/front_end/SCM/Calendar.jsp");
-			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/SCM/index.jsp");
+			req.setAttribute("page", "/front_end/CPM/Calendar.jsp");
+			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/CPM/index.jsp");
 			courseList.forward(req, res);
 			return;
 		}else if("leaveCourse".equals(action)){
@@ -129,13 +118,15 @@ public class CoachesPlaceManager extends HttpServlet {
 			course_listSVC.leave(reason,ct_no, stu_acc);
 
 			return;
-		}else if("reportCourse".equals(action)){
-			String report_ct = req.getParameter("report_ct");
-			String ct_no = req.getParameter("ct_no");
-			String stu_acc = req.getParameter("stu_acc");
+		}else if("reportPlace".equals(action)){
+			String pr_ctx = req.getParameter("pr_ctx");
+			String pt_no = req.getParameter("pt_no");
 			
-			Course_listService course_listSVC = new Course_listService();
-			course_listSVC.report(report_ct,ct_no, stu_acc);
+			Place_timeService place_timeSVC = new Place_timeService();
+			place_timeSVC.report(pt_no);
+			
+			PlaceReportService placeReportSVC = new PlaceReportService();
+			placeReportSVC.addPR(pt_no, ((MembersVO)session.getAttribute("user")).getMem_no(), pr_ctx, null, null);
 
 			return;
 		}else if("evaluation".equals(action)){

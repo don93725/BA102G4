@@ -422,4 +422,60 @@ public class PlaceDAO implements PlaceDAO_interface {
 //
 //	}
 
+	@Override
+	public PlaceVO getOnePlacePt_no(String pt_no) {
+		PlaceVO placeVO = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement("SELECT * FROM place where p_no = (select p_no from place_time where pt_no = ?)");
+
+			pstmt.setString(1, pt_no);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				placeVO = new PlaceVO();
+				placeVO.setP_no(rs.getString("p_no"));
+				placeVO.setG_acc(rs.getString("g_acc"));
+				placeVO.setP_name(rs.getString("p_name"));
+				placeVO.setP_into(rs.getString("p_into"));
+				placeVO.setP_status(rs.getInt("p_status"));
+				placeVO.setP_add(rs.getString("p_add"));
+				placeVO.setP_latlng(rs.getString("p_latlng"));
+				placeVO.setP_cap(rs.getInt("p_cap"));
+			}
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		System.out.println("into= " + placeVO.getP_into());
+		return placeVO;
+	}
+
 }

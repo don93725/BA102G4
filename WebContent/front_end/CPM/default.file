@@ -2,7 +2,7 @@
 
 <%
 	if (request.getAttribute("page") == null)
-		request.setAttribute("page", "CourseList.jsp");
+		request.setAttribute("page", "PlaceList.jsp");
 
 	
 %>

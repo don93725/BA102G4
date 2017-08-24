@@ -38,6 +38,10 @@ public class PlaceService {
 	public PlaceVO getOnePlace(String p_no) {
 	return dao.findByPrimaryKey(p_no);
 	}
+	
+	public PlaceVO getOnePlacePt_no(String pt_no) {
+		return dao.getOnePlacePt_no(pt_no);
+	}
 
 	public void updatePlace(String p_name, String p_into, String p_add, String p_latlng, Integer p_cap, String p_no) {
 		PlaceVO placeVO = new PlaceVO();

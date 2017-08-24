@@ -220,6 +220,8 @@ public class Course_timeDAO implements Course_timeDAO_interface {
 				courseVO.setPicList(course_pictureSVC.getAll(rs.getString("crs_no")));
 				placeVO.setP_name((rs.getString("p_name")==null)?"無":rs.getString("p_name"));
 				placeVO.setP_no(rs.getString("p_no"));
+				placeVO.setP_add(rs.getString("p_add"));
+				placeVO.setP_latlng(rs.getString("p_latlng"));
 				coachesVO.setCoa_no(rs.getString("coa_no"));
 				coachesVO.setCoa_name(rs.getString("coa_name"));
 				course_timeVO.setCourseVO(courseVO);

@@ -11,9 +11,6 @@
 <link
 	href="<%=request.getContextPath()%>/style/assets/css/bootstrap.min.css"
 	rel="stylesheet" />
-<%!String stu_acc1; String stu_acc; %>
-<% stu_acc1 = request.getParameter("stu_acc"); %>
-<% stu_acc = new String( stu_acc1.getBytes("ISO-8859-1"),"UTF-8"); %>
 <style>
         .demo-container {
             width: 100%;
@@ -35,14 +32,13 @@
 <div class='card-wrapper'></div>
 <!-- CSS is included via this JavaScript file -->
 <div class="form-container active">
-<form method="post" action="<%=request.getContextPath()%>/SCM/StudentsCourseManager.do">
+<form method="post" action="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do">
     <input placeholder="**** **** **** ****" type="tel" name="number">
     <input placeholder="Full name" type="text" name="name">
     <input placeholder="MM/YY" type="tel" name="expiry">
     <input placeholder="CVC" type="number" name="cvc">
     <input type="submit" class="btn btn-warning" value="送出" style="margin-left:3em;">
-<input type="hidden" name="ct_no" value="<%= request.getParameter("ct_no") %>">
-<input type="hidden" name="stu_acc" value="<%= stu_acc %>">
+<input type="hidden" name="pt_no" value="<%= request.getParameter("pt_no") %>">
 <input type="hidden" name="action" value="pay">
 </form>
 </div>

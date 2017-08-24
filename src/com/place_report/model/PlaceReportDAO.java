@@ -31,9 +31,9 @@ public class PlaceReportDAO implements PlaceReportDAO_interface {
 			"INSERT INTO PLACE_REPORT VALUES(PLACE_REPORT_PK_SEQ.NEXTVAL,?,?,?,SYSDATE,DEFAULT,?,?)";
 	
 	private static final String GET_ALL =
-			"SELECT TO_NUMBER(PR_NO,'99999') PR_NO,P_NO,MEM_NO,PR_CTX,PR_TIME,PR_STAT,REF_CTX,PR_PT FROM PLACE_REPORT order by PR_NO"; 
+			"SELECT TO_NUMBER(PR_NO,'99999') PR_NO,PT_NO,MEM_NO,PR_CTX,PR_TIME,PR_STAT,REF_CTX,PR_PT FROM PLACE_REPORT order by PR_NO"; 
 	private static final String GET_STAT_PR = 
-			"SELECT TO_NUMBER(PR_NO,'99999') PR_NO,P_NO,MEM_NO,PR_CTX,PR_TIME,PR_STAT,REF_CTX,PR_PT FROM PLACE_REPORT where PR_STAT = ?";
+			"SELECT TO_NUMBER(PR_NO,'99999') PR_NO,PT_NO,MEM_NO,PR_CTX,PR_TIME,PR_STAT,REF_CTX,PR_PT FROM PLACE_REPORT where PR_STAT = ?";
 	
 	
 	private static final String UPDATE = 
@@ -42,7 +42,7 @@ public class PlaceReportDAO implements PlaceReportDAO_interface {
 //			"UPDATE MEMBERS SET MR_NUM=MR_NUM+1 WHERE MEM_NO=(select MEM_NO from PLACE_report where Pr_no=?)";
 //	
 	private static final String UPDATE_MEM_PR_NUM=
-			"UPDATE MEMBERS SET MR_NUM=MR_NUM+1 WHERE MEM_acc=(select g_acc from PLACE where P_no=?)";
+			"UPDATE MEMBERS SET MR_NUM=MR_NUM+1 WHERE MEM_acc=(select g_acc from PLACE where p_no = (select p_no from place_time where pt_no = ?))";
 
 	@Override
 	public void insert(PlaceReportVO placeReportVO) {
@@ -54,7 +54,7 @@ public class PlaceReportDAO implements PlaceReportDAO_interface {
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(INSERT_PR);
 
-			pstmt.setString(1, placeReportVO.getP_no());
+			pstmt.setString(1, placeReportVO.getPt_no());
 			pstmt.setString(2, placeReportVO.getMem_no());
 			pstmt.setString(3, placeReportVO.getPr_ctx());
 			pstmt.setString(4, placeReportVO.getRef_ctx());
@@ -131,7 +131,7 @@ System.out.println("DAO:~~update  "+placeReportVO.getPr_no());
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(UPDATE_MEM_PR_NUM);
 
-			pstmt.setString(1, placeReportVO.getP_no());
+			pstmt.setString(1, placeReportVO.getPt_no());
 			pstmt.executeUpdate();
 
 			// Handle any driver errors
@@ -175,7 +175,7 @@ System.out.println("DAO:~~update  "+placeReportVO.getPr_no());
 				// empVO 也稱為 Domain objects
 				placeReportVO = new PlaceReportVO();
 				placeReportVO.setPr_no(rs.getString("pr_no"));
-				placeReportVO.setP_no(rs.getString("p_no"));
+				placeReportVO.setP_no(rs.getString("pt_no"));
 				placeReportVO.setMem_no(rs.getString("mem_no"));
 				placeReportVO.setPr_ctx(rs.getString("pr_ctx"));
 				placeReportVO.setPr_time(rs.getDate("pr_time"));
@@ -231,7 +231,7 @@ System.out.println("DAO:~~update  "+placeReportVO.getPr_no());
 			while (rs.next()) {
 				placeReportVO = new PlaceReportVO();
 				placeReportVO.setPr_no(rs.getString("pr_no"));
-				placeReportVO.setP_no(rs.getString("p_no"));
+				placeReportVO.setPt_no(rs.getString("pt_no"));
 				placeReportVO.setMem_no(rs.getString("mem_no"));
 				placeReportVO.setPr_ctx(rs.getString("pr_ctx"));
 				placeReportVO.setPr_time(rs.getDate("pr_time"));

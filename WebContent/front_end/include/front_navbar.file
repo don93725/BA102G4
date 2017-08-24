@@ -242,18 +242,18 @@
                         <a href="<%=request.getContextPath()%>/adapply/AD_ApplyCtrl?action=addAD">廣告申請</a>
                     </li>
                     
-                    <!-- 場地租借 -->
+                    <!-- 場地管理 -->
                     <li class="dropdown navbar_icon">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">場地租借 <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">場地管理<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">付訂金</a>
+                                <a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=placeList">場地列表</a>
                             </li>
                             <li>
-                                <a href="#">付尾款</a>
+                                <a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=placeRecord">場地使用記錄</a>
                             </li>
                             <li>
-                                <a href="#">檢舉場地</a>
+                                <a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=calendar">行事曆</a>
                             </li>
                         </ul>
                     </li>
