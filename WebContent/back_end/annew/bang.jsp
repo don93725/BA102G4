@@ -19,65 +19,24 @@ AnnewVO annewVO = (AnnewVO) request.getAttribute("annewVO");
 
 	<div class="page-content">
 		<div class="page-header">
+			<a href="selectAnnew_page.jsp">首頁</a>
 			<h1>
 				公告消息新增 <small> <i class="icon-double-angle-right"></i>
-						Announces maker <i class="icon-double-angle-right"></i>  <a href="selectAnnew_page.jsp">回首頁</a>
+						Announces maker
 				</small>
 			</h1>
 		</div>
 		<!-- /.page-header -->
 		<div class='container'>
 	<div class='row'>
-	<h3>資料:</h3>
-<%-- 錯誤表列 --%>
-<c:if test="${not empty errorMsgs}">
-	<font color='red'>請修正以下錯誤:
-	<ul>
-		<c:forEach var="message" items="${errorMsgs}">
-			<li>${message}</li>
-		</c:forEach>
-	</ul>
-	</font>
-</c:if>
-
-<FORM METHOD="post" ACTION="annew.do" name="form1" enctype="multipart/form-data">
-<table class="table">
-	<tbody>
-	<tr>
-		<td>公告標題:</td>
-		<td><input class='form-control' type="TEXT" name="ann_title" size="45" style="background-color:#C9FFC9;"
-			value="<%= (annewVO==null)? "" : annewVO.getAnn_title()%>" /></td>
-	</tr>
-	
-	<tr>
-		<td>公告內文:</td>
-		<td><textarea class='form-control' name= "ann_ctx" rows="20" cols="40" style="resize:none;border:2px #00C700 dashed;background-color:#C9FFC9;"></textarea></td>
-	</tr>
-	
-	<tr>
-		<td>公告圖片:</td>
-		<td>
-		<img id='pic' src=''>
-		<input class='btn btn-info' type="button" onclick='upload();' value='上傳圖片'/></td>
-		<input  id='file' type="file" name="ann_photo" style='display:none;'/>
-	</tr>
-	
-	<tr align='center'>
-		<td colspan='2'>
-		<input type="hidden" name="action" value="insert">
-		<input type="submit" class='btn btn-primary' value="送出新增" >
-		<input type="reset" class='btn btn-danger' value="重填" >
-		</td>
-	</tr>
-</tbody>
-</table>
-<br>
-</FORM>
+		
 	</div>
 </div>
 
 
 
+		<%@include file="/back_end/include/ace_setting_footer.file"%>
+</body>
 <script type="text/javascript">
 window.onload = init;
 function init(){
@@ -118,8 +77,6 @@ Preview = new function() {
 
 }
 </script>
-		<%@include file="/back_end/include/ace_setting_footer.file"%>
-</body>
 </html>
 
 

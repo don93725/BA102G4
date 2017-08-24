@@ -4,24 +4,32 @@
 <%
 	AnnewVO annewVO = (AnnewVO) request.getAttribute("annewVO"); //AnnewServlet.java (Controller), 存入req的annewVO物件 (包括幫忙取出的annewVO, 也包括輸入資料錯誤時的annewVO物件)
 %>
-<html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn-en">
 <head>
-<title>公告消息修改</title></head>
 
+<title>健貨後台管理系統</title>
+	<%@include file="/back_end/include/basic_ace_script.file" %>
 
+</head>
+<body>
+<%@include file="/back_end/include/navbar.file" %>
+<%@include file="/back_end/include/sliderBar_breadCrumb.file" %>
 
-<body bgcolor='#E8FFFF'>
-
-<table border='5' cellpadding='5' cellspacing='0' width='400' style="border-color:#FFD700;">
-	<tr bgcolor='yellow' align='center' valign='middle' height='20'>
-		<td>
-		<h3>公告消息修改</h3>
-		<a href="selectAnnew_page.jsp">回首頁</a></td>
-	</tr>
-</table>
-
-<h3>資料修改:</h3>
-<%-- 錯誤表列 --%>
+	<div class="page-content">
+		<div class="page-header">
+			<a href="selectAnnew_page.jsp">首頁</a>
+			<h1>
+				公告消息修改 <small> <i class="icon-double-angle-right"></i>
+						Announces modify
+				</small>
+			</h1>
+		</div>
+		<!-- /.page-header -->
+		<div class='container'>
+	<div class='row'>
+		<%-- 錯誤表列 --%>
 <c:if test="${not empty errorMsgs}">
 	<font color='red'>請修正以下錯誤:
 	<ul>
@@ -33,43 +41,59 @@
 </c:if>
 
 <FORM METHOD="post" ACTION="annew.do" name="form1" enctype='multipart/form-data'>
-<table border="2" bgcolor="#FFB01C" style="border-color:#0000FF;">
-	
+<table class='table'>
+	<tbody>	
 	<tr>
 		<td>公告標題:</td>
-		<td><input type="TEXT" name="ann_title" size="45" style="background-color:#C9FFC9;" value="<%=annewVO.getAnn_title()%>" /></td>
+		<td><input class='form-control' type="TEXT" name="ann_title" size="45" style="background-color:#C9FFC9;" value="<%=annewVO.getAnn_title()%>" /></td>
 	</tr>
 	
 		
 	<tr>
 		<td>公告內文:</td>
-		<td align='center'><textarea name= "ann_ctx" rows="20" cols="40" style="resize:none;border:2px #00C700 dashed;background-color:#C9FFC9;"><%=annewVO.getAnn_ctx()%>
+		<td><textarea class='form-control' name= "ann_ctx" rows="20" cols="40" style="resize:none;background-color:#C9FFC9;"><%=annewVO.getAnn_ctx()%>
 		</textarea></td>
 	</tr>
 	
 	<tr rospan='2'>
 		<td>公告圖片:</td>
-		<td><img id='pic' height=100 src='${pageContext.request.contextPath }/g1/PhotoOutputA?ann_no=${annewVO.ann_no}'/><br><input type="file" id='file' name="ann_photo"/></td>
+		<td><img id='pic' height=100 src='${pageContext.request.contextPath }/g1/PhotoOutputA?ann_no=${annewVO.ann_no}'/>
+		<br><input class='btn btn-info' type='button' value='修改圖片' onclick='upload();'>
+		<input type="file" id='file' name="ann_photo" style='display:none;'/>
+		</td>
+	</tr>
+	<tr>
+	<td colspan='2' align='center'><input type="hidden" name="action" value="update">
+		<input type="hidden" name="ann_no" value="<%=annewVO.getAnn_no()%>">
+		<input class='btn btn-primary' type="submit" value="確認修改" >
+		<input class='btn btn-danger' type="reset" value="重置修改">
+	</td>
 	</tr>
 	
 	
-
+	</tbody>
 </table>
-<br>
-<input type="hidden" name="action" value="update">
-<input type="hidden" name="ann_no" value="<%=annewVO.getAnn_no()%>">
-<input type="submit" value="確認修改" style="width:80px;height:40px;font-size:15px;"></FORM>
+</FORM>
+		
+	</div>
+</div>
 
-</body>
-<script src="https://code.jquery.com/jquery.js"></script>	
+
+
 <script type="text/javascript">
-$(function(){
+window.onload = init;
+function init(){
 	Preview.file_change();
-})
+}
+function upload(){
+	$('#file').trigger('click');
+}
+
 Preview = new function() {
 	var fileInput = $('#file');
 	this.file_change = function() {
 		$('#file').on('change', function() {
+			
 			show(this);
 		});
 	}
@@ -84,6 +108,8 @@ Preview = new function() {
 					var reader = new FileReader();				
 					reader.onload = function() {
 						$('#pic').prop('src',reader.result);
+						$('#pic').css('display',"block");
+						$('#pic').css('height',"200px");
 					}
 					if (file) {
 						reader.readAsDataURL(file);
@@ -94,4 +120,6 @@ Preview = new function() {
 
 }
 </script>
+<%@include file="/back_end/include/ace_setting_footer.file"%>
+</body>
 </html>
