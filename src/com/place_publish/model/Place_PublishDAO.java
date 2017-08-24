@@ -24,13 +24,15 @@ public class Place_PublishDAO implements Place_PublishDAO_interface{
 		}
 	}
 	
-	private static final String INSERT_PP =
+	private static final String INSERT_PT =
 			"Insert into place_time(pt_no, p_no, opc_acc, rp_date, rp_time, op_date,"
 			+ " pbu_price, pau_price, pbu_date, pau_date, report, eva, eva_ct)"
 			+ "values(PLACE_time_sq.NEXTVAL, ?, null, null, null, null,  ?, ? ,null, null, default,"
 			+ " default, null)";
 	private static final String UPDATE_PUBLIS_STAT =
 			"Update place set p_status = 1 where p_no = ?";
+	private static final String DELETE_PT = 
+			"Delete place_time where p_no = ?";
 	private static final String UNPUBLISH_PUBLIS_STAT =
 			"Update place set p_status = 0 where p_no = ?";
 	
@@ -43,7 +45,7 @@ public class Place_PublishDAO implements Place_PublishDAO_interface{
 			con = ds.getConnection();
 			con.setAutoCommit(false);
 
-			pstmt = con.prepareStatement(INSERT_PP);
+			pstmt = con.prepareStatement(INSERT_PT);
 			pstmt.setString(1, place_publishVO.getP_no());
 			pstmt.setString(2, place_publishVO.getPbu_price());
 			pstmt.setString(3, place_publishVO.getPau_price());
@@ -84,16 +86,22 @@ public class Place_PublishDAO implements Place_PublishDAO_interface{
 	public void unPublish(String p_no) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
 		try {
 			con = ds.getConnection();
 			con.setAutoCommit(false);
-
-			pstmt = con.prepareStatement(UNPUBLISH_PUBLIS_STAT);
+			
+			pstmt = con.prepareStatement(DELETE_PT);
 			pstmt.setString(1, p_no);
 			pstmt.executeUpdate();
-			System.out.println("uppublish place_status complete");
+			pstmt2 = con.prepareStatement(UNPUBLISH_PUBLIS_STAT);
+			pstmt2.setString(1, p_no);
+			pstmt2.executeUpdate();
+			System.out.println("delete pt and update place_status complete");
+			
 			con.commit();
 			con.setAutoCommit(true);
+			
 		} catch(SQLException se) {
 			try {
 				se.printStackTrace();

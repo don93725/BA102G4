@@ -241,9 +241,16 @@
 						dataType : 'text',
 
 						success : function(msg) {
-							swal("下架成功", "場地已下架", "success");
-							$(".inline").colorbox.close();
-							setTimeout("location.reload()",1000);
+							if(msg.length == 0) {
+								swal({
+									title : "下架成功",
+									text : "場地已下架",
+									type : "success",
+									timer : "1500",
+								});
+								$(".inline").colorbox.close();
+								setTimeout("location.reload()",1000);
+							}
 						},
 
 						error : function(xhr, ajaxOptions, thrownError) {						

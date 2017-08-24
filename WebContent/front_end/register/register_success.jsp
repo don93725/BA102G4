@@ -6,7 +6,7 @@
 <html lang="zh-cn-en">
 
 	<head>
-		<meta http-equiv="refresh" content="3; <%= request.getContextPath()%>/front_end/index.jsp">
+		<meta http-equiv="refresh" content="5; <%= request.getContextPath()%>/front_end/index.jsp">
 		<title>健貨 - GymHome</title>
 		<%@include file="/front_end/include/loginStyle.file" %>
 	</head>
@@ -36,8 +36,13 @@
 										<div class="widget-main">
 
 											<h4 class="header green lighter bigger">	
-												<b><p>註冊已完成，請等待管理員審核後即可登入!</p></b>
-												頁面將在&nbsp<span id="divNum">3</span>&nbsp秒後跳轉...
+												<b><p>註冊已完成</p></b>
+												<small>
+													<p><b>健身者&nbsp</b>可立即登入</p>
+													<p><b>教練&nbsp與&nbsp健身房業者&nbsp</b>管理員審核後即可登入</p>
+													<br>
+													頁面將在&nbsp<span id="divNum">5</span>&nbsp秒後跳轉...
+												</small>
 											</h4>
 
 											<div>
@@ -62,9 +67,8 @@
 		</div><!-- /.main-container -->
 
 
-		<%@include file="/front_end/include/registerJS.file" %>
 		<script type="text/javascript">
-			var num = 3;
+			var num = 5;
 			var timerId;
 			function countDown(){
 				num--;
@@ -78,9 +82,8 @@
 				timerId = setInterval(countDown , 1000);
 			}
 			window.onload = init;
-			</script>	
+		</script> -->	
 	
-	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>
 							
