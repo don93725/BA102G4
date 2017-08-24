@@ -5,31 +5,27 @@
 				<div class="tabbable">
 					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
 						<li class="active">
-							<a data-toggle="tab" href="#home1">基本資料</a>
-						</li>
-						<c:if test='${not empty param.mem_rank}'>
-							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath() %>/MembersServlet?mem_rank=${param.mem_rank}&mem_no=${param.mem_no}&action=lookPersonal");'>基本資料</a>
-						</c:if>							
+							<a data-toggle="tab" href="#home1">基本資料</a>							
 						</li>
 
 						<li id='albumTab'>
-							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${param.mem_no}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}");'>相簿</a>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${user.mem_no}");'>相簿</a>
 							
 						</li>
 						<li id='BdTab'>
-							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${param.mem_no}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}");'>個人動態</a>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}");'>個人動態</a>
 						</li>
 						<c:if test='${empty param.mem_rank}'>
 						<li id='FdBdTab'>
-							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${param.mem_no}&friend=1");'>好友動態</a>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}&friend=1");'>好友動態</a>
 						</li>
 						</c:if>
 						<li id='friend'>
-							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/friends/FirendCtrl?mem_no=${param.mem_no}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}");'>好友列表</a>
+							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/friends/FirendCtrl?mem_no=${user.mem_no}");'>好友列表</a>
 						</li>			
 						
 						<li id='comment'>
-							<a data-toggle="tab" href='#' onclick='goTo("<%= request.getContextPath()%>/all/CommentsCtrl?mem_no=${param.mem_no}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}");'>留言板</a>
+							<a data-toggle="tab" href='#' onclick='goTo("<%= request.getContextPath()%>/all/CommentsCtrl?mem_no=${user.mem_no}");'>留言板</a>
 						</li>						
 						<c:if test='${empty param.mem_rank}'>
 						<li id='msgTab'>

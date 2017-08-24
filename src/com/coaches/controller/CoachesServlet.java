@@ -1,6 +1,7 @@
 package com.coaches.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Base64;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpSession;
 
 import com.coaches.model.CoachesService;
 import com.coaches.model.CoachesVO;
+import com.google.gson.Gson;
 import com.members.model.MembersService;
 import com.members.model.MembersVO;
 import com.tools.Tools;
@@ -29,6 +31,7 @@ public class CoachesServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String action = req.getParameter("action");
+		PrintWriter out = res.getWriter();
 		System.out.println("(C)action= " + action);
 			
 			if(action == null) {
@@ -249,13 +252,6 @@ public class CoachesServlet extends HttpServlet {
 					failureView.forward(req, res);
 				}
 			}
-			// 來自index.jsp的logout請求
-			if ("logout".equals(action)) {
-				HttpSession session = req.getSession();
-				session.invalidate();
-				res.sendRedirect(req.getContextPath()+"/front_end/index.jsp");
-			    return;
-			}
 			
 			//來自personal.jsp的請求
 			if ("update".equals(action)) { 
@@ -294,50 +290,20 @@ public class CoachesServlet extends HttpServlet {
 						errorMsgs.put("coa_into", "會員自我介紹: 格式錯誤");
 					}
 					
-//					//驗證大頭貼
-//					String cropped_pic = req.getParameter("cropped_pic");
-//					//base64轉byte[]
-//					Base64.Decoder decoder = Base64.getDecoder();
-//					byte[] coa_pic_byte = null;
-//					
-//					if(cropped_pic == null || "".equals(cropped_pic)) {
-//						errorMsgs.put("coa_pic", "會員大頭貼: 請鎖定圖片");
-//					}else {
-//						coa_pic_byte = decoder.decode(cropped_pic.split(",")[1]);
-//						//圖片大小(kb...)
-//						int pic_length = coa_pic_byte.length;
-//						String pic_type = cropped_pic.substring(5, 10);
-////						Part coa_pic = req.getPart("upload-file");
-////						String fileType = coa_pic.getContentType();
-//						if(pic_length > (5*1024*1024)) {
-//							errorMsgs.put("coa_pic", "會員大頭貼: 檔案過大");
-//						} else if(!("image".equals(pic_type))) {
-//							errorMsgs.put("coa_pic", "會員大頭貼: 僅允許圖片格式");
-//						}
-//					}
-					
-//					System.out.println("PartSize=" + coa_pic.getSize());
-//					System.out.println("I got the parameter from form");
-					
 					// 資料有誤就返回form表單
 					if(!errorMsgs.isEmpty()) {
-						System.out.println("I got the errorMsgs");
-						String url = "/front_end/editPage/personal.jsp";
-						RequestDispatcher failureView = req.getRequestDispatcher(url);
-						failureView.forward(req, res);
+						Gson gSon = new Gson();
+						out.print(gSon.toJson(errorMsgs));
 						return;
-					}				
+					}					
 					//2.開始修改資料
 					CoachesService coachesSV = new CoachesService();
 					coachesVO = coachesSV.updateCoaches(coachesVO, coa_name, coa_mail, coa_into);
 					coachesVO = coachesSV.loginCoaches(coachesVO.getCoa_acc(), coachesVO.getCoa_psw());
 					//3.修改完成,準備轉交(Send the Success view)
-					System.out.println("update is complete");
 					session.setAttribute("user", membersVO);
 					session.setAttribute("coach", coachesVO);
-					String url = req.getContextPath() + "/front_end/editPage/personal.jsp";
-					System.out.println("ok!");
-					res.sendRedirect(url);
+					System.out.println("update is complete");
 					return;
 					
 				//其他可能的錯誤處理
