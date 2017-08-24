@@ -20,13 +20,8 @@ public class AnnewShowCtrl extends HttpServlet {
 		String ann_tilte = req.getParameter("ann_tilte");
 		String ann_date = req.getParameter("ann_date");
 		String queryString = req.getQueryString();
-		if(queryString==null){
-			AnnewService annewService = new AnnewService();
-			List<AnnewVO> annewList = annewService.getAll();
-			req.setAttribute("annewList", annewList);
-			req.getRequestDispatcher("/front_end/annew/annewList.jsp").forward(req, res);		
-			return;
-		}
+			
+		
 		if(ann_no!=null){
 			AnnewService annewService = new AnnewService();
 			AnnewVO annewVo = annewVo = annewService.getOneAnnew(ann_no);
@@ -48,6 +43,11 @@ public class AnnewShowCtrl extends HttpServlet {
 			req.getRequestDispatcher("/front_end/annew/annewList.jsp").forward(req, res);		
 			return;
 		}
+		AnnewService annewService = new AnnewService();
+		List<AnnewVO> annewList = annewService.getAll();
+		req.setAttribute("annewList", annewList);
+		req.getRequestDispatcher("/front_end/annew/annewList.jsp").forward(req, res);		
+		return;
 		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
