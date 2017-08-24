@@ -184,14 +184,10 @@ public class CoachesPlaceManager extends HttpServlet {
 			String p_name = req.getParameter("p_name");
 			String p_add = req.getParameter("p_add");
 			String p_cap = req.getParameter("p_cap");
-			String rp_date = req.getParameter("rp_date");
-			String rp_time = req.getParameter("rp_time");
 			
 			String select = (p_name == ""?"":" And p.p_name LIKE '%"+ p_name +"%'") 
 						  + (p_add == ""?"":" And p.p_add LIKE '%"+ p_add +"%'") 
-						  + (p_cap.equals("null")?"":" And p.p_cap between "+ p_cap.substring(0, p_cap.indexOf("-")) + " and " + p_cap.substring(p_cap.indexOf("-")+1, p_cap.lastIndexOf("0")+1))
-						  + (rp_date == ""?"":" And pt.rp_date = TO_DATE('" + rp_date + "','YYYY-MM-DD')")
-						  + (rp_time.equals("null")?"":" And pt.rp_time = '"+ rp_time + "'");
+						  + (p_cap.equals("null")?"":" And p.p_cap between "+ p_cap.substring(0, p_cap.indexOf("-")) + " and " + p_cap.substring(p_cap.indexOf("-")+1, p_cap.lastIndexOf("0")+1));
 
 			Place_timeService place_timeSVC = new Place_timeService();
 			ArrayList<Place_timeVO> plist = (ArrayList) place_timeSVC.getAllListSelect(select); 
