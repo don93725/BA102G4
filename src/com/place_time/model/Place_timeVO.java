@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import com.gyms.model.GymsVO;
 import com.place.model.PlaceVO;
+import com.place_pic.model.Place_PicVO;
 import com.place_report.model.PlaceReportVO;
 
 public class Place_timeVO implements java.io.Serializable {
@@ -25,6 +26,7 @@ public class Place_timeVO implements java.io.Serializable {
 	private Integer eva;
 	private String eva_ct;
 	private PlaceReportVO placeReportVO;
+	private Place_PicVO place_picVO;
 	
 	
 	public Place_timeVO(String pt_no, String p_no, String opc_acc, Date rp_date, Integer rp_time, Date op_date,
@@ -179,5 +181,14 @@ public class Place_timeVO implements java.io.Serializable {
 	public void setPlaceReportVO(PlaceReportVO placeReportVO) {
 		this.placeReportVO = placeReportVO;
 	}
+
+	public Place_PicVO getPlace_picVO() {
+		return place_picVO;
+	}
+
+	public void setPlace_picVO(Place_PicVO place_picVO) {
+		this.place_picVO = place_picVO;
+	}
+	
 
 }

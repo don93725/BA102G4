@@ -6,27 +6,24 @@
 		<div id="carousel-id" class="carousel slide" data-ride="carousel" style="border:2px #ccc solid;border-radius:10px;margin:1em;">
 		<font style="font-size:14px;font-weight:bold;margin-left:3em;"><i class="glyphicon glyphicon-chevron-left"></i>鍵盤左右觀看<i class="glyphicon glyphicon-chevron-right"></i></font>
         <div class="carousel-inner">
-	        <c:if test="${1 != 1 }">
+
 	        	<% int c=0; %>
-				<c:forEach var="couurse_pictureVO" items="${course_timeVO.courseVO.picList}">
+				<c:forEach var="place_PicVO" items="${place_PicList}">
 				<c:if test="<%= c==0 %>">
 		        	<div class="item active" >
-			            <img src="${couurse_pictureVO.crs_base}" style="border-radius:10px;" width="200" height="200">
+			            <img src="${place_PicVO.p_base}" style="border-radius:10px;" width="200" height="200">
 	
 			        </div>
 				</c:if>
 				<c:if test="<%= c!=0 %>">
 		        	<div class="item"  style="border:2px #ccc solid;border-radius:10px;margin:1em;">
-			            <img src="${couurse_pictureVO.crs_base}" style="border-radius:10px;" width="200" height="200">
+			            <img src="${place_PicVO.p_base}" style="border-radius:10px;" width="200" height="200">
 	
 			        </div>
 				</c:if>
 				<%c++; %>
 				</c:forEach>
-	        </c:if>
-	        <c:if test="${1 == 1}">
-				<img src="<%=request.getContextPath()%>/front_end/CPM/images/Ni.jpg" style="border-radius:10px;" width="200" height="200">
-	        </c:if>
+
         </div >
 
         <a class="left carousel-control" href="#carousel-id" data-slide="prev" ><span class="" id="goleft"></span></a>

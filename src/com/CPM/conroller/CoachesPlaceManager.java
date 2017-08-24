@@ -1,6 +1,8 @@
 package com.CPM.conroller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +17,8 @@ import com.course_list.model.Course_listVO;
 import com.course_time.model.Course_timeService;
 import com.course_time.model.Course_timeVO;
 import com.members.model.MembersVO;
+import com.place_pic.model.Place_PicService;
+import com.place_pic.model.Place_PicVO;
 import com.place_report.model.PlaceReportService;
 import com.place_report.model.PlaceReportVO;
 import com.place_time.model.Place_timeService;
@@ -72,8 +76,10 @@ public class CoachesPlaceManager extends HttpServlet {
 			Place_timeService place_timeSVC = new Place_timeService();
 			Place_timeVO place_timeVO = place_timeSVC.getOnePlace_time(req.getParameter("pt_no"));
 			
+			Place_PicService place_picSVC = new Place_PicService();
+			List<Place_PicVO> place_PicList = place_picSVC.getAllPPic(place_timeVO.getP_no());
 			req.setAttribute("place_timeVO", place_timeVO);
-			
+			req.setAttribute("place_PicList", place_PicList);
 			RequestDispatcher courseList = req.getRequestDispatcher("/front_end/CPM/ShowBlock.jsp");
 			courseList.forward(req, res);
 			return;
@@ -161,6 +167,41 @@ public class CoachesPlaceManager extends HttpServlet {
 			Place_timeService place_timeSVC = new Place_timeService();
 			place_timeSVC.deleteCalendar(rp_date,rp_time,((MembersVO)session.getAttribute("user")).getMem_acc());
 
+			return;
+		}else if("placeDetailList".equals(action)){
+			Place_timeService place_timeSVC = new Place_timeService();
+			ArrayList<Place_timeVO> plist = (ArrayList) place_timeSVC.getAllList(); 
+			for (int i = 0; i < plist.size(); i++) {
+				plist.get(i).setRp_timeShow(
+						(String) getServletContext().getAttribute(String.valueOf(((Place_timeVO) plist.get(i)).getRp_time())));
+			}
+			req.setAttribute("plist", plist);
+			RequestDispatcher pay = req.getRequestDispatcher("/front_end/PlaceDetails/PlaceList.jsp");
+			pay.forward(req, res);
+			return;
+		}else if ("placeSelectList".equals(action)) {
+			Course_timeService course_timeSVC = new Course_timeService();
+			String p_name = req.getParameter("p_name");
+			String p_add = req.getParameter("p_add");
+			String p_cap = req.getParameter("p_cap");
+			String rp_date = req.getParameter("rp_date");
+			String rp_time = req.getParameter("rp_time");
+			
+			String select = (p_name == ""?"":" And p.p_name LIKE '%"+ p_name +"%'") 
+						  + (p_add == ""?"":" And p.p_add LIKE '%"+ p_add +"%'") 
+						  + (p_cap.equals("null")?"":" And p.p_cap between "+ p_cap.substring(0, p_cap.indexOf("-")) + " and " + p_cap.substring(p_cap.indexOf("-")+1, p_cap.lastIndexOf("0")+1))
+						  + (rp_date == ""?"":" And pt.rp_date = TO_DATE('" + rp_date + "','YYYY-MM-DD')")
+						  + (rp_time.equals("null")?"":" And pt.rp_time = '"+ rp_time + "'");
+
+			Place_timeService place_timeSVC = new Place_timeService();
+			ArrayList<Place_timeVO> plist = (ArrayList) place_timeSVC.getAllListSelect(select); 
+			for (int i = 0; i < plist.size(); i++) {
+				plist.get(i).setRp_timeShow(
+						(String) getServletContext().getAttribute(String.valueOf(((Place_timeVO) plist.get(i)).getRp_time())));
+			}
+			req.setAttribute("plist", plist);
+			RequestDispatcher coursePublishList = req.getRequestDispatcher("/front_end/PlaceDetails/PlaceList.jsp");
+			coursePublishList.forward(req, res);
 			return;
 		}
 		
