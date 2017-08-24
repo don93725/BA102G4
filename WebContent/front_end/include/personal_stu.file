@@ -7,10 +7,6 @@
 						<li class="active">
 							<a data-toggle="tab" href="#home1">基本資料</a>							
 						</li>
-						<c:if test='${not empty param.mem_rank}'>
-							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath() %>/MembersServlet?mem_rank=${param.mem_rank}&mem_no=${param.mem_no}&action=lookPersonal");'>基本資料</a>
-						</c:if>							
-						</li>
 
 						<li id='albumTab'>
 							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${param.mem_no}${not empty param.mem_rank? "&mem_rank=":""}${not empty param.mem_rank? param.mem_rank:""}");'>相簿</a>
