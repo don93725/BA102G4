@@ -39,7 +39,7 @@ public class DBGifReader extends HttpServlet {
 		String pr_no = req.getParameter("pr_no");
 		String gym_acc = req.getParameter("gym_acc");
 		String coa_acc = req.getParameter("coa_acc");
-		
+	
 //		if(userMgr.getMgr_no()!=null){
 //			from = "manager";
 //			wherePk = "mgr_no";
@@ -53,7 +53,7 @@ public class DBGifReader extends HttpServlet {
 			this.sqlTool(from, wherePk, mgr_no, getphoto, req, res, out);
 		}
 		if(ad_no!=null){
-			from ="adapply";
+			from ="ad_apply";
 			wherePk = "ad_no";
 			getphoto = "ad_pt";
 			this.sqlTool(from, wherePk, ad_no, getphoto, req, res, out);
@@ -110,10 +110,11 @@ public class DBGifReader extends HttpServlet {
 		try {
 
 			PreparedStatement pstmt = null;
+			System.out.println(sql);
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, whereValue);
 			ResultSet rs = pstmt.executeQuery();
-
+			
 			
 			if (rs.next()) {
 				BufferedInputStream in = new BufferedInputStream(rs.getBinaryStream(getphoto));

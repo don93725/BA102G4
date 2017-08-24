@@ -298,6 +298,7 @@
             <div class="col-xs-12 col-md-4">
             	<!--廣告圖-->
                 <img class="img-responsive" src="http://ochappy-co.cocolog-nifty.com/photos/uncategorized/2015/03/01/pic_006.jpg" style="width: 100%;">
+<%-- 		        <%@ include file="/front_end/adapply/rollingAD.file" %> --%>
             </div>
         </div>
 </div><!-- page container3結束 -->
