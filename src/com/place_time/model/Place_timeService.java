@@ -91,9 +91,23 @@ public class Place_timeService {
 		dao.payPlace_time(pt_no);
 	}
 	
+	public void payAfter(String pt_no) {
+		
+		dao.payAfter(pt_no);
+	}
+	
 	public void report(String pt_no) {
 		
 		dao.report(pt_no);
+	}
+	
+	public void eva(Integer eva,String eva_ct,String pt_no) {
+		
+		dao.eva(eva,eva_ct,pt_no);
+	}
+	public void deleteCalendar(String rp_date,Integer rp_time,String opc_acc) {
+		
+		dao.deleteCalendar(rp_date,rp_time,opc_acc);
 	}
 
 }

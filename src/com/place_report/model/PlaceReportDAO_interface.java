@@ -9,4 +9,5 @@ public interface PlaceReportDAO_interface {
 	public void updatePRNum(PlaceReportVO placeReportVO);
 	public List<PlaceReportVO> getAll();
 	public List<PlaceReportVO> getStat(Integer pr_stat);
+	public PlaceReportVO getByPt(String pt_no);
 }

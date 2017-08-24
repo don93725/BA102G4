@@ -13,7 +13,7 @@ public class PlaceReportService {
 	
 	public PlaceReportVO addPR(String pt_no,String mem_no,String pr_ctx,String ref_ctx,byte[] pr_pt){
 		PlaceReportVO placeReportVO = new PlaceReportVO();
-		placeReportVO.setP_no(pt_no);
+		placeReportVO.setPt_no(pt_no);
 		placeReportVO.setMem_no(mem_no);
 		placeReportVO.setPr_ctx(pr_ctx);
 		placeReportVO.setRef_ctx(ref_ctx);
@@ -40,4 +40,7 @@ public class PlaceReportService {
 		return dao.getAll();
 	}
 	
+	public PlaceReportVO getByPt(String pt_no){
+		return dao.getByPt(pt_no);
+	}
 }
