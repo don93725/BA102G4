@@ -58,7 +58,7 @@ public class CoachesDAO implements CoachesDAO_interface{
 	private static final String EVALUTION_RANK =
 			"select * from (select round(avg(evaluation_cao),1),a.coa_acc from coaches a join course b on a.coa_acc = b.c_acc "
 			+ "join course_time c on b.crs_no = c.crs_no "
-			+ "join course_list d on c.ct_no=d.ct_no group by a.coa_acc order by avg(evaluation_cao)) e join coaches f on e.coa_acc = f.coa_acc where rownum < 4";
+			+ "join course_list d on c.ct_no=d.ct_no where evaluation_cao is not null group by a.coa_acc order by avg(evaluation_cao)) e join coaches f on e.coa_acc = f.coa_acc where rownum < 4";
 	
 	@Override
 	public void insert(MembersVO membersVO, CoachesVO coachesVO) {

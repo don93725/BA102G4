@@ -15,6 +15,9 @@
 	})
 </script>
 <body>
+<%
+
+%>
 
 	<!-- 導覽列 -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -23,19 +26,6 @@
 	
 	<!-- Page Content -->
 	<div class="container">
-
-	<!-- 新增場地視窗 -->
-	<%@include file="/front_end/include/insertPlace.file" %>	
-	<!-- 新增場地視窗結束 -->
-	<!-- 修改場地視窗 -->
-	<%@include file="/front_end/include/updatePlace.file" %>	
-	<!-- 修改場地視窗結束 -->
-	<!-- 修改場地圖片視窗 -->
-	<%@include file="/front_end/include/insertPlacePic.file" %>	
-	<!-- 修改場地圖片視窗結束 -->
-	<!-- 上架場地視窗 -->
-	<%@include file="/front_end/include/publishPlace.file" %>	
-	<!-- 上架場地視窗結束 -->
 
 		<!-- Page Heading/Breadcrumbs -->
 		<div class="breadcrumbs" id="breadcrumbs">

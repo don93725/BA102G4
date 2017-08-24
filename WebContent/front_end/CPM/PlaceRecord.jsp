@@ -58,13 +58,13 @@
 									</td>
 									<td>
 										<button class="btn btn-warning pay<%= count %>" onclick="payment(<%= count %>)" style="border-radius:6px;">前往付款</button>
-										<a href="#" onclick="window.open('<%=request.getContextPath()%>/front_end/CPM/Pay.jsp?pt_no=${place_timeVO.pt_no}','YOOO', config='height=500,width=516');"><button id="pay<%= count %>" style="display:none;">前往付款</button>
+										<a href="#" onclick="window.open('<%=request.getContextPath()%>/front_end/CPM/PayAfter.jsp?pt_no=${place_timeVO.pt_no}','YOOO', config='height=500,width=516');"><button id="pay<%= count %>" style="display:none;">前往付款</button>
 									</td>
 									<td>
-										<c:if test="${place_timeVO.report == 1}">
+										<c:if test="${place_timeVO.report == 1 || place_timeVO.report == 2}">
 											<a href=""><font
 												style="font-weight: bold; font-size: 18px; cursor: pointer;"
-												onmouseover="showReportBlock('${course_listVO.ct_no}','${course_listVO.stu_acc}')"
+												onmouseover="showReportBlock('${place_timeVO.pt_no}')"
 												onmouseout="hideLeaveBlock()">已檢舉</font></a>
 										</c:if> 
 										<c:if test="${place_timeVO.report == 0}">
@@ -85,7 +85,7 @@
 									</td>
 
 									<a href="#"
-										onclick="window.open('<%=request.getContextPath()%>/front_end/CPM/Evaluation.jsp?p_no=${place_timeVO.p_no}', 'YOOO', config='height=400,width=500');"><button
+										onclick="window.open('<%=request.getContextPath()%>/front_end/CPM/Evaluation.jsp?pt_no=${place_timeVO.pt_no}', 'YOOO', config='height=400,width=500');"><button
 											id="evaluation<%=count%>" style="display: none;">評價課程</button></a>
 								</tr>
 								<button style="display:none;" class="paybtn" onclick="payStatus(<%= count %>)">6666</button>

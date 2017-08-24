@@ -42,7 +42,7 @@
 		<div class="form-group">
 		  <input type="submit" class="form-control btn btn-warning" value="送出">
 		</div>
-		<input type="hidden" name="p_no" value="<%= request.getParameter("p_no") %>">
+		<input type="hidden" name="pt_no" value="<%= request.getParameter("pt_no") %>">
 		<input type="hidden" name="action" value="evaluation">
 	</form>
 </div>

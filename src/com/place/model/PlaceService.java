@@ -59,11 +59,11 @@ public class PlaceService {
 		dao.insertPic(list, ppp_no);
 	}
 
-
-//	public List<PlaceVO> getAll() {
-//		return dao.getAll();
+//	public PlaceVO getPlaceInfo(String pt_no) {
+//		return dao.getPlaceInfo(pt_no);
 //	}
-//	
-//	
 	
+	public PlaceVO getPlaceInfoByP_no(String p_no) {
+		return dao.getPlaceInfoByP_no(p_no);
+	}
 }

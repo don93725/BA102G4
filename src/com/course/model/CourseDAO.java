@@ -209,7 +209,7 @@ public class CourseDAO implements CourseDAO_interface {
 				courseVO.setC_acc(rs.getString("c_acc"));
 				courseVO.setCrs_name(rs.getString("crs_name"));
 				courseVO.setDetails(rs.getString("details"));
-				courseVO.setCategory(rs.getString("catrgory"));
+				courseVO.setCategory(rs.getString("catergory"));
 				courseVO.setStatus(rs.getInt("status"));
 
 			}

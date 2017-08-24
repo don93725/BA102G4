@@ -12,6 +12,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.place_pic.model.Place_PicVO;
+import com.place_publish.model.Place_PublishVO;
 import com.place_time.model.Place_timeVO;
 import com.students.model.StudentsVO;
 
@@ -42,9 +44,12 @@ public class PlaceDAO implements PlaceDAO_interface {
 			"UPDATE place set p_name = ?, p_into = ?, p_add = ?, p_latlng = ?, p_cap = ? where p_no = ?";
 	private static final String INSERT_PIC =
 			"INSERT INTO PLACE_PICTURE VALUES(place_pic_sq.NEXTVAL, ?, ?)";
-	//	private static final String GET_ALL_STMT = "SELECT p_no,g_acc FROM place order by p_no";
-//	private static final String DELETE_PLACE_TIME = "DELETE FROM place_time where pt_no = ?";
-//	private static final String DELETE_PLACE = "DELETE FROM place where p_no = ?";
+	private static final String PLACEINFO =
+			"select * from place_time pt join place p on pt.p_no = "
+			+ "p.p_no join place_picture pp on pp.p_no = p.p_no where pt_no = ?";
+	private static final String PLACEINFOBYNO =
+			"select * from place p join place_time pt on p.p_no = "
+			+ "pt.p_no join place_picture pp on p.p_no = pp.p_no where p.p_no = ?";
 
 	@Override
 	public void insert(PlaceVO placeVO) {
@@ -364,63 +369,6 @@ public class PlaceDAO implements PlaceDAO_interface {
 			}	
 		}
 	}
-//	@Override
-//	public List<PlaceVO> getAll() {
-//		// TODO Auto-generated method stub
-//
-//		List<PlaceVO> list = new ArrayList<PlaceVO>();
-//		PlaceVO placeVO = null;
-//
-//		Connection con = null;
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//
-//		try {
-//
-//			con = ds.getConnection();
-//			pstmt = con.prepareStatement(GET_ALL_STMT);
-//			rs = pstmt.executeQuery();
-//
-//			while (rs.next()) {
-//				// empVO �]�٬� Domain objects
-//				placeVO = new PlaceVO();
-//				placeVO.setP_no(rs.getString("p_no"));
-//				placeVO.setG_acc(rs.getString("g_acc"));
-//				placeVO.setP_name(rs.getString("p_name"));
-//				placeVO.setStatus(rs.getInt("status"));
-//				list.add(placeVO); // Store the row in the list
-//			}
-//
-//			// Handle any driver errors
-//		} catch (SQLException se) {
-//			throw new RuntimeException("A database error occured. " + se.getMessage());
-//			// Clean up JDBC resources
-//		} finally {
-//			if (rs != null) {
-//				try {
-//					rs.close();
-//				} catch (SQLException se) {
-//					se.printStackTrace(System.err);
-//				}
-//			}
-//			if (pstmt != null) {
-//				try {
-//					pstmt.close();
-//				} catch (SQLException se) {
-//					se.printStackTrace(System.err);
-//				}
-//			}
-//			if (con != null) {
-//				try {
-//					con.close();
-//				} catch (Exception e) {
-//					e.printStackTrace(System.err);
-//				}
-//			}
-//		}
-//		return list;
-//
-//	}
 
 	@Override
 	public PlaceVO getOnePlacePt_no(String pt_no) {
@@ -475,6 +423,137 @@ public class PlaceDAO implements PlaceDAO_interface {
 			}
 		}
 		System.out.println("into= " + placeVO.getP_into());
+		return placeVO;
+	}
+
+//	@Override
+//	public PlaceVO getPlaceInfo(String pt_no) {
+//		PlaceVO placeVO = null;
+//		Place_PicVO place_picVO = null;
+//		Place_PublishVO place_publishVO = null;
+//		Connection con = null;
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		List list = null;
+//
+//		try {
+//			con = ds.getConnection();
+//			pstmt = con.prepareStatement(PLACEINFO);
+//
+//			pstmt.setString(1, pt_no);
+//
+//			rs = pstmt.executeQuery();
+//			while (rs.next()) {
+//				placeVO = new PlaceVO();			
+//				placeVO.setP_no(rs.getString("p_no"));
+//				placeVO.setG_acc(rs.getString("g_acc"));
+//				placeVO.setP_name(rs.getString("p_name"));
+//				placeVO.setP_into(rs.getString("p_into"));
+//				placeVO.setP_status(rs.getInt("p_status"));
+//				placeVO.setP_add(rs.getString("p_add"));
+//				placeVO.setP_latlng(rs.getString("p_latlng"));
+//				placeVO.setP_cap(rs.getInt("g_cap"));
+//				place_picVO = new Place_PicVO();
+//				place_picVO.setP_pic_no(rs.getString("p_pic_no"));
+//				place_picVO.setP_base(rs.getString("p_base"));
+//				place_publishVO = new Place_PublishVO();
+//				place_publishVO.setPbu_price(rs.getString("pbu_price"));
+//				place_publishVO.setPau_price(rs.getString("pau_price"));
+//				
+//				placeVO.setPlace_picVO(place_picVO);
+//				placeVO.setPlace_publishVO(place_publishVO);
+//			}
+//		} catch (SQLException se) {
+//			throw new RuntimeException("A database error occured. " + se.getMessage());
+//		} finally {
+//			if (rs != null) {
+//				try {
+//					rs.close();
+//				} catch (SQLException se) {
+//					se.printStackTrace(System.err);
+//				}
+//			}
+//			if (pstmt != null) {
+//				try {
+//					pstmt.close();
+//				} catch (SQLException se) {
+//					se.printStackTrace(System.err);
+//				}
+//			}
+//			if (con != null) {
+//				try {
+//					con.close();
+//				} catch (Exception e) {
+//					e.printStackTrace(System.err);
+//				}
+//			}
+//		}
+//		return placeVO;
+//	}
+
+	@Override
+	public PlaceVO getPlaceInfoByP_no(String p_no) {
+		PlaceVO placeVO = null;
+		Place_PicVO place_picVO = null;
+		Place_PublishVO place_publishVO = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List list = null;
+
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(PLACEINFOBYNO);
+
+			pstmt.setString(1, p_no);
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				placeVO = new PlaceVO();			
+				placeVO.setP_no(rs.getString("p_no"));
+				placeVO.setG_acc(rs.getString("g_acc"));
+				placeVO.setP_name(rs.getString("p_name"));
+				placeVO.setP_into(rs.getString("p_into"));
+				placeVO.setP_status(rs.getInt("p_status"));
+				placeVO.setP_add(rs.getString("p_add"));
+				placeVO.setP_latlng(rs.getString("p_latlng"));
+				placeVO.setP_cap(rs.getInt("p_cap"));
+				place_publishVO = new Place_PublishVO();
+				place_publishVO.setPp_no(rs.getString("pt_no"));
+				place_publishVO.setPbu_price(rs.getString("pbu_price"));
+				place_publishVO.setPau_price(rs.getString("pau_price"));
+				place_picVO = new Place_PicVO();
+				place_picVO.setP_pic_no(rs.getString("p_pic_no"));
+				place_picVO.setP_base(rs.getString("p_base"));
+				
+				placeVO.setPlace_picVO(place_picVO);
+				placeVO.setPlace_publishVO(place_publishVO);
+			}
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
 		return placeVO;
 	}
 

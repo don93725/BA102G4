@@ -270,5 +270,58 @@ System.out.println("DAO:~~update  "+placeReportVO.getPr_no());
 		}
 		return list;
 	}
+	@Override
+	public PlaceReportVO getByPt(String pt_no) {
+		PlaceReportVO placeReportVO = null;
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = ds.getConnection();
+			pstmt = con.prepareStatement("select * from PLACE_REPORT where pt_no = ?");
+			pstmt.setString(1, pt_no);
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				// empVO 也稱為 Domain objects
+				placeReportVO = new PlaceReportVO();
+				placeReportVO.setPr_no(rs.getString("pr_no"));
+				placeReportVO.setPt_no(rs.getString("pt_no"));
+				placeReportVO.setMem_no(rs.getString("mem_no"));
+				placeReportVO.setPr_ctx(rs.getString("pr_ctx"));
+				placeReportVO.setPr_time(rs.getDate("pr_time"));
+				placeReportVO.setPr_stat(rs.getInt("pr_stat"));
+				placeReportVO.setRef_ctx(rs.getString("ref_ctx"));
+				placeReportVO.setPr_pt(rs.getBytes("pr_pt"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return placeReportVO;
+	}
 
 }
