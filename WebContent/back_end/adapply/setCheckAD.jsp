@@ -4,6 +4,7 @@
 <%@ page import="java.util.*"%>
 <%@ page import="com.adapply.model.*"%>
 <jsp:useBean id="ADapplyMemSvc" scope="page" class="com.members.model.MembersService"/>
+
 <%
 	AD_ApplyService ADSvc = new AD_ApplyService();
 	Set<AD_ApplyVO> list = ADSvc.getStat(0);
@@ -69,7 +70,9 @@
 <%-- 									<td class="center">${ADapplyMemSvc.getOneMem(ad_ApplyVO.mem_no).mem_acc}</td> --%>
 									<td class="center">${ad_ApplyVO.ad_name}</td>
 <%-- 									<td class="center">${ad_ApplyVO.pay_date}</td> --%>
-									<td class="center">${ad_ApplyVO.ad_url}</td>
+									<c:if test="${ADapplyMemSvc.getOneMem(ad_ApplyVO.mem_no).mem_rank==1}">
+									<td class="center"><a href="<%=request.getContextPath()%>/front_end/CourseDetails/courseInfo.jsp?${ad_ApplyVO.ad_url}">${ad_ApplyVO.ad_name}</td>
+									</c:if>
 									<td class="center">${ad_ApplyVO.ad_ondate}</td>
 									<td class="center">${ad_ApplyVO.ad_offdate}</td>
 									<td class="center">${ad_ApplyVO.ad_ctx}</td>
