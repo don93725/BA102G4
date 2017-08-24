@@ -86,5 +86,8 @@ public class CoachesService {
 	
 		return true;
 	}
+	public List<CoachesVO> getRankList(){
+		return ((CoachesDAO)dao).getRankList();
+	}
 }
 

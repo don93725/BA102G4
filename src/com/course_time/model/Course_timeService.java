@@ -96,8 +96,8 @@ public class Course_timeService{
 	    dao.deleteCalendar(crs_date,crs_time,c_acc);
   }
   
-  public  List<Course_timeVO> getStuByCt(String c_acc){
-	  return dao.getStuByCt(c_acc);
+  public  List<Course_timeVO> getStuByCt(String c_acc,String ct_no){
+	  return dao.getStuByCt(c_acc,ct_no);
   }
 
 }

@@ -2,7 +2,9 @@ package com.place_time.model;
 
 import java.sql.Date;
 
+import com.gyms.model.GymsVO;
 import com.place.model.PlaceVO;
+import com.place_report.model.PlaceReportVO;
 
 public class Place_timeVO implements java.io.Serializable {
 
@@ -17,7 +19,14 @@ public class Place_timeVO implements java.io.Serializable {
 	private Date pbu_date;
 	private Date pau_date;
 	private PlaceVO placeVO;
-
+	private GymsVO gymsVO;
+	private String rp_timeShow;
+	private Integer report;
+	private Integer eva;
+	private String eva_ct;
+	private PlaceReportVO placeReportVO;
+	
+	
 	public Place_timeVO(String pt_no, String p_no, String opc_acc, Date rp_date, Integer rp_time, Date op_date,
 			String pbu_price, String pau_price, Date pbu_date, Date pau_date, PlaceVO placeVO) {
 		this.pt_no = pt_no;
@@ -121,6 +130,54 @@ public class Place_timeVO implements java.io.Serializable {
 
 	public void setPlaceVO(PlaceVO placeVO) {
 		this.placeVO = placeVO;
+	}
+
+	public GymsVO getGymsVO() {
+		return gymsVO;
+	}
+
+	public void setGymsVO(GymsVO gymsVO) {
+		this.gymsVO = gymsVO;
+	}
+
+	public String getRp_timeShow() {
+		return rp_timeShow;
+	}
+
+	public void setRp_timeShow(String rp_timeShow) {
+		this.rp_timeShow = rp_timeShow;
+	}
+
+	public Integer getReport() {
+		return report;
+	}
+
+	public void setReport(Integer report) {
+		this.report = report;
+	}
+
+	public Integer getEva() {
+		return eva;
+	}
+
+	public void setEva(Integer eva) {
+		this.eva = eva;
+	}
+
+	public String getEva_ct() {
+		return eva_ct;
+	}
+
+	public void setEva_ct(String eva_ct) {
+		this.eva_ct = eva_ct;
+	}
+
+	public PlaceReportVO getPlaceReportVO() {
+		return placeReportVO;
+	}
+
+	public void setPlaceReportVO(PlaceReportVO placeReportVO) {
+		this.placeReportVO = placeReportVO;
 	}
 
 }

@@ -1781,19 +1781,57 @@ public class Course_listDAO implements Course_listDAO_interface{
 				}
 			}
 		}
-		
-		
-		
-		
-		
-		
-		
 		return list;
-	
-	
-	
-	
-	
-	
 	}
+	
+	
+	public Course_listVO getEva(String ct_no) {
+		Course_listVO course_listVO = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement("select Round(Avg(evaluation_crs),1) crsavg, Round(Avg(evaluation_cao),1) coaavg from course_list where ct_no = ? And evaluation_crs is NOT NULL And evaluation_cao is NOT NULL");
+			pstmt.setString(1, ct_no);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				course_listVO = new Course_listVO();
+				course_listVO.setCrsAvg(rs.getInt("crsavg"));
+				course_listVO.setCoaAvg(rs.getInt("coaavg"));
+			}
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return course_listVO;
+	}
+	
 }

@@ -21,7 +21,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
 <head>
-<title>listAllCourseRep</title>
+<title>健貨後台管理系統</title>
 <%@include file="/back_end/include/basic_ace_script.file" %>
 </head>
 <body>
@@ -79,9 +79,9 @@
 
 									<td class="center">
 										<form method="post" action="<%=request.getContextPath()%>/courserep/CourseRepCtrl">
-											<input type="submit" value="核准"> <input type="hidden"
-												name="ct_no" value="${courseReportVO.ct_no}"> <input
-												type="hidden" name="action" value="Report">
+											<input type="submit" value="核准"> 
+											<input type="hidden" name="ct_no" value="${courseReportVO.ct_no}"> 
+											<input type="hidden" name="action" value="Report">
 										</form>
 									</td>
 

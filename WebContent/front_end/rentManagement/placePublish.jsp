@@ -40,6 +40,9 @@ $(document).ready(function(){
 	<!-- 修改場地視窗 -->
 	<%@include file="/front_end/include/updatePlace.file" %>	
 	<!-- 修改場地視窗結束 -->
+	<!-- 修改場地圖片視窗 -->
+	<%@include file="/front_end/include/insertPlacePic.file" %>	
+	<!-- 修改場地圖片視窗結束 -->
 	<!-- 上架場地視窗 -->
 	<%@include file="/front_end/include/publishPlace.file" %>	
 	<!-- 上架場地視窗結束 -->
@@ -153,6 +156,7 @@ $(document).ready(function(){
 			<div class="vspace-xs-6"></div>
 		</div>
 		<!-- /row -->
+</div>
 </div>
 	
 			

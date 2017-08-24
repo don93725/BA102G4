@@ -19,7 +19,10 @@ import javax.servlet.http.Part;
 
 import com.authority.model.AuthorityService;
 import com.manager.model.ManagerVO;
+import com.members.model.MembersService;
 import com.members.model.MembersVO;
+import com.message.model.MessageService;
+import com.place.model.PlaceService;
 import com.place_report.model.PlaceReportService;
 import com.place_report.model.PlaceReportVO;
 
@@ -126,13 +129,21 @@ public class PlaceRepCtrl extends HttpServlet {
 			List<String>errorMsgs = new LinkedList<String>();
 			req.setAttribute("errorMsgs", errorMsgs);
 			
+			MessageService messageSvc = new MessageService();
 			
 				try {
 					String pr_no = req.getParameter("pr_no");
-					String p_no = req.getParameter("p_no")
-;					PlaceReportService PRSvc = new PlaceReportService();
+					String pt_no = req.getParameter("pt_no");					
+					PlaceReportService PRSvc = new PlaceReportService();
 					PRSvc.updatePR(pr_no);
-					PRSvc.updatePRNum(p_no);
+					PRSvc.updatePRNum(pt_no);
+					
+					PlaceService pSvc = new PlaceService();
+					String G_acc =  pSvc.getOnePlacePt_no(pt_no).getG_acc();
+					MembersService memSvc = new MembersService();
+					String G_no = memSvc.getMemAcc(G_acc).getMem_no();
+					messageSvc.add(G_no, "0", "您的場地被檢舉,請近期改善...");
+					
 					String url = "/back_end/placerep/CheckPlaceRep.jsp";
 					RequestDispatcher successView = req.getRequestDispatcher(url);
 					successView.forward(req, res);

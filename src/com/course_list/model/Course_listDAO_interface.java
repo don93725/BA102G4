@@ -49,11 +49,15 @@ public interface Course_listDAO_interface {
 
 	List<Course_listVO> getCoachReserve(String coa_acc);
 
+
 	
 
 	void updateNSta(Course_listVO course_listVO);
 
 	List<Course_listVO> getCoachReady(String coa_acc);
+
+
+	public Course_listVO getEva(String ct_no);
 
 
 }

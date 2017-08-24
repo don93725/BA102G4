@@ -127,18 +127,15 @@ public class Course_listService {
 			    return this.dao.getReserve(coa_acc);
 			  }
 
+
 		  public boolean updateNSta(String ct_no,String stu_acc) {
 				Course_listVO course_listVO = new Course_listVO();
 				course_listVO.setCt_no(ct_no);
 				course_listVO.setStu_acc(ct_no);
 				
 				dao.updateNSta(course_listVO);
-				return true;
-			}
-		  
-		  
-		
-		  
+				return true;}
+
 		  public List<Course_listVO> getReady_List(String stu_acc){
 			    return this.dao.getReady(stu_acc);
 			  }
@@ -150,6 +147,10 @@ public class Course_listService {
 		  public List<Course_listVO> getFinished(String stu_acc){
 			    return this.dao.getFinished(stu_acc);
 		  }
+		  
+		  public Course_listVO getEva(String ct_no) {
+			return dao.getEva(ct_no);
+		 }
 		  
 
 }

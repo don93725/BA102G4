@@ -59,5 +59,8 @@ public class GymsService {
 	public void updateGymApply(Integer gym_sta,String gym_acc){
 		 dao.setSta(gym_sta, gym_acc);
 	}
+	public GymsVO look_search_mem(MembersVO membersVO) {
+		return dao.look_search_mem(membersVO);
+	}
 	
 }

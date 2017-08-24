@@ -427,6 +427,29 @@ public class GymsServlet extends HttpServlet {
 					return;
 				}
 			}
+			if("lookPersonal".equals(action)) {
+				Map<String,String> errorMsgs = new LinkedHashMap<String,String>();
+				req.setAttribute("errorMsgs", errorMsgs);
+				try {
+					MembersVO membersVO = (MembersVO) req.getAttribute("user");
+					
+					GymsService gymsService = new GymsService();
+					GymsVO gymVO = gymsService.look_search_mem(membersVO);
+					req.setAttribute("gym", gymVO);
+					String url = "/front_end/search/lookPersonal.jsp";
+					RequestDispatcher successView = req.getRequestDispatcher(url);
+					successView.forward(req, res);
+					return;
+				} catch(Exception e) {
+					System.out.println("(S)例外發生");
+					e.printStackTrace();
+					errorMsgs.put("Exception",e.getMessage());
+					System.out.println(errorMsgs.get("Exception"));
+					String url = req.getContextPath() + "/front_end/browse/find_students.jsp";
+					res.sendRedirect(url);
+					return;
+				}
+			}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

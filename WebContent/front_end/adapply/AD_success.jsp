@@ -9,18 +9,16 @@
 <html lang="zh-cn-en">
 <head>
 <title>listAllAD</title>
-	<%@include file="/back_end/include/basic_ace_script.file" %>
 </head>
 <body>
-<%@include file="/back_end/include/navbar.file" %>
-<%@include file="/back_end/include/sliderBar_breadCrumb.file" %>
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				廣告申請審核 <small> <i class="icon-double-angle-right"></i>
-					setCheckAD.jsp
+				廣告申請成功<small> <i class="icon-double-angle-right"></i>
+					AD_success.jsp
 				</small>
 			</h1>
+			<a href="<%=request.getContextPath()%>/front_end/index.jsp">首頁</a>
 		</div>
 		<!-- /.page-header -->
 		
@@ -103,6 +101,5 @@
 		<!-- /row -->
 	</div>
 	
-		<%@include file="/back_end/include/ace_setting_footer.file"%>
 </body>
 </html>

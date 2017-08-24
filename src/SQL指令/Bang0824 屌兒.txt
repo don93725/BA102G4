@@ -1,0 +1,1071 @@
+DROP TABLE course_list;
+DROP SEQUENCE course_list_sq;
+DROP TABLE course_time;
+DROP SEQUENCE course_time_sq;
+drop table course_picture;
+DROP TABLE course;
+DROP SEQUENCE course_sq;
+DROP TABLE PLACE_REPORT;
+DROP SEQUENCE PLACE_REPORT_PK_SEQ;
+DROP TABLE place_time;
+DROP SEQUENCE place_time_sq;
+drop table place_picture;
+DROP TABLE place;
+drop table annew;
+drop table fitkw;
+drop table platinf;
+drop table queans;
+drop sequence annew_seq;
+drop sequence fitkw_seq;
+drop sequence platinf_seq;
+drop sequence queans_seq;
+
+DROP TABLE MEMBERS_REPORT;
+DROP SEQUENCE MEMBERS_REPORT_PK_SEQ;
+DROP TABLE AD_APPLY;
+DROP SEQUENCE AD_APPLY_PK_SEQ;
+DROP TABLE AUTHORITY;
+DROP TABLE FUNCTION;
+DROP TABLE MANAGER;
+DROP SEQUENCE MANAGER_PK_SEQ;
+drop sequence forums_pk_seq;
+drop sequence articles_pk_seq;
+drop sequence art_types_seq;
+Drop sequence article_comments_pk_seq;
+drop sequence article_photos_pk_seq;
+drop sequence article_report_pk_seq;
+drop sequence albums_pk_seq;
+drop sequence photos_pk_seq;
+drop sequence message_board_pk_seq;
+drop sequence likes_record_pk_seq;
+drop sequence board_cmt_pk_seq;
+drop sequence cmt_likes_record_pk_seq;
+drop sequence message_pk_seq;
+Drop sequence mem_no_seq;
+Drop sequence p_no_seq;
+drop sequence place_pic_sq;
+drop sequence course_pic_sq;
+drop table article_comments;
+drop table article_photos;
+drop table article_report;
+drop table articles;
+drop table art_types;
+Drop table forums;
+drop table board_photo;
+drop table photos;
+drop table albums;
+drop table likes_record;
+drop table cmt_likes_record;
+drop table message_board;
+drop table friends;
+drop table board_cmt;
+drop table message;
+Drop table coaches;
+Drop table students;
+Drop table gyms;
+Drop table members;
+
+
+
+
+Create table members
+(mem_no varchar2(10) not null constraint mem_no_pk primary key,
+mem_acc varchar2(20) not null constraint mem_acc_uk unique,
+mem_rank varchar2(1) not null,
+mem_nickname varchar2(50),
+mr_num number(3) default 0);
+
+
+Create sequence mem_no_seq
+increment by 1
+start with 1
+nomaxvalue
+nocycle;
+
+INSERT INTO MEMBERS VALUES('0','mgr000','3','健貨-GYMHOME',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr001','3','勇7',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr002','3','勇6',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr003','3','管理員1',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr004','3','管理員2',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'STU1','0','學員_S1',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'STU2','0','學員_S2',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'COA1','1','教練_C1',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'COA2','1','教練_C2',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'GYM1','2','健身房_G1',DEFAULT);
+INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'GYM2','2','健身房_G2',DEFAULT);
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'stu001', '0', '醜八怪', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'stu002', '0', '看破紅塵小精靈', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'stu003', '0', '笑傲糨糊', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'coa001', '1', '當紅炸子G', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'coa002', '1', '米蟲', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'coa003', '1', '李奧納多皮卡丘', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'coa004', '1', '越前聾馬賽克', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'gym001', '2', '吳良心', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'gym002', '2', '擁智', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'gym003', '2', '紅塵客棧', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'gym004', '2', '冰滑', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'stu004', '0', '萌萌大眼睛', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'coa005', '1', '教練', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'gym005', '2', '戰國無雙體育館', default);
+
+Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
+Values(mem_no_seq.NEXTVAL, 'gym006', '2', '我狠', default);
+
+CREATE TABLE MANAGER(
+MGR_NO VARCHAR2(20),
+MEM_NO VARCHAR2(10) NOT NULL,
+MGR_ID VARCHAR2(20) NOT NULL,
+MGR_PWD VARCHAR2(20) NOT NULL,
+MGR_JOB NUMBER(1) DEFAULT 0 NOT NULL,
+MGR_NAME VARCHAR2(20) NOT NULL,
+MGR_EMAIL VARCHAR2(50) NOT NULL,
+MGR_STATUS NUMBER(1) DEFAULT 0,
+MGR_PIC BLOB ,
+MGR_INT VARCHAR2(300),
+CONSTRAINT MANAGER_MGR_NO_PK PRIMARY KEY(MGR_NO),
+CONSTRAINT MANAGER_MEM_NO_FK FOREIGN KEY(MEM_NO) REFERENCES MEMBERS(MEM_NO),
+CONSTRAINT MANAGER_MGR_ID_UK UNIQUE(MGR_ID));
+
+CREATE SEQUENCE MANAGER_PK_SEQ
+INCREMENT BY 1
+START WITH 1;
+
+
+INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),1,'mgr001','123',1,'棨','dimcjo6u4@gamil.com',0,null,'我是個噁心的人，想知道有多噁嗎，歡迎認識哦！');
+INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),2,'mgr002','123',1,'老王','dimcjo6u4+1@gamil.com',1,null,'我是老王，我住在隔壁喔。');
+INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),3,'mgr003','123',0,'小明','dimcjo6u4+2@gamil.com',0,null,'我是小明，我覺得隔壁老王好像在搞我老婆。');
+INSERT INTO MANAGER VALUES('MGR' || lpad(MANAGER_PK_SEQ.NEXTVAL,3,'0'),4,'mgr004','123',0,'小三','dimcjo6u4+3@gamil.com',1,null,'我是小三，我跟隔壁老王有一腿..');
+
+Create table coaches
+(coa_acc varchar2(20) not null constraint coa_acc_pk primary key,
+coa_no varchar2(10) not null constraint coa_no_fk references members(mem_no),
+coa_psw varchar2(20) not null,
+coa_sta number(1) default 0,
+coa_name varchar2(30) not null,
+coa_sex number(1) not null,
+coa_id varchar2(10),
+coa_mail varchar2(50) not null,
+coa_into varchar2(1500) not null,
+coa_pic blob,
+coa_pft number(10) default 0);
+
+
+Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
+ coa_mail, coa_into, coa_pic, coa_pft)
+values('coa001', '14', 'coa001', default, '周紙魚', 2, 'T223456781', 'ka123451@yahoo.com.tw', '專長：飛輪有氧、拳擊有氧、基礎重訓。想說的話：眼淚是女人最原始的武器，也是男人唯一無法抵抗的最厲害的武器。', null , default);
+
+Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
+ coa_mail, coa_into, coa_pic, coa_pft)
+values('coa002', '15', 'coa002', default, '粥指弱', 1, 'T123456782', 'y123452@yahoo.com.tw', '專長："TRX肌力雕塑、皮拉提斯、飛輪有氧。想說的話：每個人都是演員，臉上在演浮誇，心裡都是孤獨，而本性全是善良。我們苦苦在這世上演戲，其實就是為了等一個，能看懂自己的人。', null , default);
+
+Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
+ coa_mail, coa_into, coa_pic, coa_pft)
+values('coa003', '16', 'coa003', default, '髒蕪繼', 1, 'G123456783', 'h123453@yahoo.com.tw', '專長：基礎重訓、進階重訓、TRX肌力雕塑。想說的話：愛，從來就是件千迴百轉的事，不曾被離棄，不曾受傷害，怎么懂得愛人。', null , default);
+
+Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
+ coa_mail, coa_into, coa_pic, coa_pft)
+values('coa004', '17', 'coa004', default, '李朝洋', 2, 'W223456784', 'q123454@yahoo.com.tw', '專長：基礎重訓、進階重訓、其他。想說的話：愛情是最美好的夢，壯麗著每個人的人生。無論你是青年還是老年，無論你是離異還是獨身都不要打破自己的愛情夢。讓心中的太陽溫暖生命，你就會永遠年輕。', null , default);
+
+Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
+ coa_mail, coa_into, coa_pic, coa_pft)
+values('coa005', '23', 'coa005', default, '王建民', 1, 'W123436713', 'q123413@yahoo.com.tw', '專長：舞動有氧、"TRX肌力雕塑。想說的話：別因為寂寞而錯愛，別因為錯愛而寂寞一生。', null , default);
+
+
+Create table students
+(stu_acc varchar2(20) not null constraint stu_acc_pk primary key,
+stu_no varchar2(10) not null constraint stu_no_fk references members(mem_no),
+stu_psw varchar2(20) not null, 
+stu_sta number(1) default 1,
+stu_name varchar2(30) not null constraint gym_name_uk unique,
+stu_sex number(1) not null,
+stu_id varchar2(10),
+stu_mail varchar2(50) not null,
+stu_into varchar2(1500),
+stu_pic blob,
+stu_sto number(10) default 0);
+
+
+
+Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
+values('stu001', '11', 'stu001', default, '李孟龍', 2, 'F223456781', 'a123451@yahoo.com.tw', '感興趣的項目：瑜珈、飛輪有氧、舞動有氧、拳擊有氧。如果你想被別人愛，你首先必須使自己值得愛，不是一天，一個星期，而是永遠。', null, default);
+
+Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
+values('stu002', '12', 'stu002', default, '王浩宇', 1, 'D123456782', 's123452@yahoo.com.tw', '感興趣的項目：TRX肌力雕塑、舞動有氧、皮拉提斯。生活其實真的很平凡，任何人都不能得到所要的全部，有得必有失，只是在得失的選擇中，擁有你自己最珍貴的東西。', null, default);
+
+Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
+values('stu003', '13', 'stu003', default, '李天富', 2, 'A223456783', 'w123453@yahoo.com.tw', '感興趣的項目：皮拉提斯、瑜珈、進階重訓、飛輪有氧。總是仰望和羨慕著別人的幸福，一回頭，卻發現自己正被仰望和羨慕著。要珍惜和感知自己真正擁有的幸福。不要讓你的幸福，只是在別人眼裡。', null, default);
+
+Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
+values('stu004', '22', 'stu004', default, '飯可親', 1, 'A123456712', 'w123412@yahoo.com.tw', '感興趣的項目：TRX肌力雕塑、舞動有氧。不要因為寂寞去戀愛，時間是個魔鬼，天長日久，如果你是個多情的人，即使不愛對方，到時候也會產生感情，到最後你怎么辦？', null, default);
+
+
+Create table gyms
+(gym_acc varchar2(20) not null constraint gym_acc_pk primary key,
+gym_no varchar2(10) not null constraint gym_no_fk references members(mem_no),
+gym_psw varchar2(20) not null,
+gym_sta number(1) default 0,
+gym_name varchar2(50) not null,
+gym_mail varchar2(50) not null,
+gym_add varchar2(150) not null,
+gym_latlng varchar2(50) not null,
+gym_into varchar2(1500) not null,
+gym_pic blob);
+
+
+Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
+values('gym001', '18', 'gym001', default, '沒力健身房-桃園廠', 'n123456788@yahoo.com.tw', '桃園市中壢區龍岡路一段168號', '24.9486715,121.224426', '結婚是愛情的墳墓，但是如果不結婚，愛情就死無葬身之地。', null);
+
+Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
+values('gym002', '19', 'gym002', default, '快樂健身房-桃園廠', 'i123456789@yahoo.com.tw', '桃園市八德區忠孝街23號', '24.9606286,121.29899069999999', '一隻鳥不可能在同一棵樹上停留太久，否則對這鳥對這樹都是一種負擔，鳥兒總想去看另一片天空，而樹也不願每天面對同樣的風景。', null);
+
+Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
+values('gym003', '20', 'gym003', default, '悲傷健身房(新北廠)', 'r123456780@yahoo.com.tw', '新北市板橋區雙十路二段143號', '25.0279619,121.47475099999997', '若不得不分離,也要好好地說聲再見,也要在心裡存著感謝,感謝他給了你一分記憶。', null);
+
+Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
+values('gym004', '21', 'gym004', default, '爽爽健身房-台中廠', 'x123456788@yahoo.com.tw', '台中市大雅區中清路三段1090號台灣 2F', '24.9486715,121.224426', '愛過就拋在身後，不要緬懷過去，因為它畢竟已經過去，現在是新的開始，將過去的陰影留在現在只會讓你的現在也成為過去。', null);
+
+Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
+values('gym005', '24', 'gym005', default, '沒心健身房(高雄廠)', 'x425456738@yahoo.com.tw', '高雄市左營區博愛三路102號', '22.673214,120.30494299999998', '一段不被接受的愛情，需要的不是傷心，而是時間，一段可以用來遺忘的時間。一顆被深深傷了的心，需要的不是同情，而是明白。', null);
+
+Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
+values('gym006', '25', 'gym006', default, '隨緣健身房-高雄廠', 'x425456738@yahoo.com.tw', '高雄市左營區博愛二路600-1號', '22.6683231,120.30371409999998', '舉得起放得下的叫舉重，舉得起放不下的叫負重。可惜，大多數人的愛情，都是負重的。', null);
+
+
+--永7假資料
+Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
+values('STU1', '5', 'stu123', default, '魯小小', 2, 'F223456781', 'a123451@yahoo.com.tw', '天涯何處無芳草,回眸一笑閃到腰。', null, default);
+
+Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
+values('STU2', '6', 'stu123', default, '王魯蛇', 1, 'D123456782', 's123452@yahoo.com.tw', '後宮佳麗有三千,鐵杵磨成繡花針。', null, default);
+
+
+---新增Coaches資料用
+
+Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
+ coa_mail, coa_into, coa_pic, coa_pft)
+values('COA1', '7', 'coa123', default, '魯至深', 2, 'T223456781', 'ka123451@yahoo.com.tw', '無心插柳,柳橙汁。', null , default);
+
+Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
+ coa_mail, coa_into, coa_pic, coa_pft)
+values('COA2', '8', 'coa123', default, '魯智吟', 1, 'T123456782', 'y123452@yahoo.com.tw', '魯到深處,魔法師。', null , default);
+
+
+--新增Gyms資料用
+
+Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add, gym_latlng, gym_into, gym_pic)
+values('GYM1', '9', 'gym123', default, 'QQ健身房-桃園廠', 'n123456788@yahoo.com.tw', '桃園市中壢區龍岡路一段168號', '24.9486715,121.224426', '一個便當吃不飽,那就再吃第二個吧。', null);
+
+Insert into gyms(gym_acc, gym_no, gym_psw, gym_sta, gym_name, gym_mail, gym_add,gym_latlng, gym_into, gym_pic)
+values('GYM2', '10', 'gym123', default, '單身囧男健身房-桃園廠', 'i123456789@yahoo.com.tw', '桃園市八德區忠孝街23號', '24.9606286,121.29899069999999', '在非洲，每六十秒,就有一分鐘過去。', null);
+
+
+--場地
+
+Create sequence p_no_seq
+increment by 1
+start with 1
+nomaxvalue
+nocycle;
+
+Create table place
+(p_no varchar2(10) not null constraint p_no_pk primary key,
+g_acc varchar2(20) not null constraint gym_acc_fk references gyms(gym_acc),
+p_name varchar2(50) not null,
+p_into varchar2(1500),
+p_status number(1) default 0,
+p_add varchar2(50),
+p_latlng varchar2(50),
+p_cap number(10),
+p_date date default sysdate);
+
+Insert into place(p_no, g_acc , p_name, p_into, p_status, p_add, p_latlng, p_cap, p_date)
+Values(p_no_seq.NEXTVAL, 'gym001', '飛輪教室', '很棒的場地', default, '桃園市中壢區龍岡路一段168號', '24.9486715,121.224426', 20, default);
+
+Insert into place(p_no, g_acc , p_name, p_into, p_status, p_add, p_latlng, p_cap, p_date)
+Values(p_no_seq.NEXTVAL, 'gym001', '破壞教室', '更棒的場地', default, '台北市大安區羅斯福路二段9號', '25.0251243,121.52405720000002', 40, default);
+
+---Place 假資料
+
+INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM1','GYMHOME中壢資策會店','很棒的環境',default, '桃園市中壢區中央路1號', '24.9486715,121.224426', 20, default);
+INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM2','GYMHOME桃園燒烤店','很香的場地',default, '桃園市中壢區中央路2號', '24.9486715,121.224426', 20, default);
+INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM1','GYMHOME妹子服務店','很嗨的場地',default, '桃園市中壢區中央路3號', '24.9486715,121.224426', 20, default);
+INSERT INTO PLACE VALUES (p_no_seq.NEXTVAL,'GYM2','GYMHOME有氧歡樂店','氧氣充足的環境',default, '桃園市中壢區中央路4號', '24.9486715,121.224426', 20, default);
+---創建PLACE_time
+----Lin SQL
+-----OPC_ACC 對應租借教練帳號
+---------------------------------------------------------------------------------
+CREATE TABLE PLACE_time (
+ PT_NO              VARCHAR2(15) NOT NULL,
+ P_NO               VARCHAR2(10) NOT NULL CONSTRAINT PLACE_PUBLISH_P_NO_FK REFERENCES PLACE (P_NO),
+ OPC_ACC            VARCHAR2(20),
+ RP_DATE	    DATE ,
+ RP_TIME	    Number(1),
+ OP_DATE	    DATE DEFAULT SYSDATE,
+ PBU_PRICE	    Varchar2(10),
+ PAU_PRICE	    Varchar2(10),
+ PBU_DATE	    DATE ,
+ PAU_DATE	    DATE ,
+ REPORT             NUMBER(1) default 0,
+ EVA                NUMBER(1) default 0,
+ EVA_CT             Varchar2(900),
+CONSTRAINT PLACE_time_pt_no_pk PRIMARY KEY (PT_NO));
+
+CREATE SEQUENCE PLACE_time_sq
+INCREMENT BY 1
+START WITH 1
+NOMAXVALUE
+NOCYCLE
+NOCACHE;
+
+----------------------------------------------------------------------------------------------------------------------
+----場地時段假資料測試
+
+INSERT INTO PLACE_time (PT_NO,P_NO,OPC_ACC,RP_DATE,RP_TIME,OP_DATE,PBU_PRICE,PAU_PRICE,PBU_DATE,report,eva,eva_ct)
+                   VALUES (PLACE_time_sq.Nextval,'1','COA1',TO_DATE('2017-10-18','YYYY-MM-DD'),1,TO_DATE('2017-08-18','YYYY-MM-DD'),5000,10000,TO_DATE('2017-08-19','YYYY-MM-DD'),0,0,null);
+INSERT INTO PLACE_time (PT_NO,P_NO,OPC_ACC,RP_DATE,RP_TIME,OP_DATE,PBU_PRICE,PAU_PRICE,PBU_DATE,report,eva,eva_ct)
+                   VALUES (PLACE_time_sq.Nextval,'2','COA1',TO_DATE('2017-10-19','YYYY-MM-DD'),2,TO_DATE('2017-08-19','YYYY-MM-DD'),3000,6000,TO_DATE('2017-08-20','YYYY-MM-DD'),0,0,null);
+INSERT INTO PLACE_time (PT_NO,P_NO,OPC_ACC,RP_DATE,RP_TIME,OP_DATE,PBU_PRICE,PAU_PRICE,PBU_DATE,report,eva,eva_ct)
+                   VALUES (PLACE_time_sq.Nextval,'3','COA2',TO_DATE('2017-10-20','YYYY-MM-DD'),3,TO_DATE('2017-08-20','YYYY-MM-DD'),7000,14000,TO_DATE('2017-08-21','YYYY-MM-DD'),0,0,null);
+
+commit;
+--------------------------------------------------------------------------
+---場地檢舉紀錄
+-------????????REF_CTX 待修????
+---------------------------------------
+
+CREATE TABLE PLACE_REPORT
+(
+PR_NO VARCHAR2(15),
+PT_NO VARCHAR2(10) NOT NULL,
+MEM_NO VARCHAR2(10) NOT NULL,
+PR_CTX VARCHAR2(300) NOT NULL,
+PR_TIME DATE DEFAULT SYSDATE,
+PR_STAT NUMBER(1) DEFAULT 0 NOT NULL,
+REF_CTX VARCHAR2(900),
+PR_PT BLOB,
+CONSTRAINT PLACE_REPORT_PR_NO_PK PRIMARY KEY(PR_NO),
+CONSTRAINT PLACE_REPORT_PT_NO_FK FOREIGN KEY(PT_NO) REFERENCES PLACE_time(PT_NO),
+CONSTRAINT PLACE_REPORT_MEM_NO_FK FOREIGN KEY(MEM_NO) REFERENCES MEMBERS(MEM_NO)
+);
+
+CREATE SEQUENCE PLACE_REPORT_PK_SEQ
+INCREMENT BY 1
+START WITH 1;
+
+INSERT INTO PLACE_REPORT VALUES(PLACE_REPORT_PK_SEQ.NEXTVAL,'1','5','WHAT THE HELL',sysdate,default,'test1',null);
+INSERT INTO PLACE_REPORT VALUES(PLACE_REPORT_PK_SEQ.NEXTVAL,'2','6','WHAT',sysdate,default,'test2',null);
+INSERT INTO PLACE_REPORT VALUES(PLACE_REPORT_PK_SEQ.NEXTVAL,'3','7','WHAT THE',sysdate,default,'test3',null);
+INSERT INTO PLACE_REPORT VALUES(PLACE_REPORT_PK_SEQ.NEXTVAL,'2','7','WHAT THE',sysdate,default,'test5',null);
+INSERT INTO PLACE_REPORT VALUES(PLACE_REPORT_PK_SEQ.NEXTVAL,'1','8','WTF',sysdate,default,'test6',null);
+
+
+--場地圖片
+
+
+create table place_picture
+(p_pic_no varchar2(10) Not null,
+ p_no varchar2(10) Not null CONSTRAINT place_pic_p_no_fk REFERENCES place(p_no),
+ p_base Clob Not null,
+ constraint place_pic_no_pk primary key (p_pic_no)
+);
+
+create sequence place_pic_sq
+increment by 1
+start with 1
+nocycle
+nocache;
+
+
+
+
+--好友列表
+
+create table friends (
+mem_no varchar2(10) ,
+fd_no varchar2(10) ,
+fd_date date default sysdate , 
+constraint friends_fk foreign key(mem_no) references members(MEM_NO),
+constraint friends_fk2 foreign key(fd_no) references members(MEM_NO)
+,primary key(MEM_NO,FD_NO));
+
+insert into friends values(11,12,sysdate);
+insert into friends values(11,13,sysdate);
+insert into friends values(11,14,sysdate);
+
+
+--板塊
+
+create table forums (
+forum_no varchar2(15) ,
+mem_no varchar2(10) ,
+forum_name varchar2(30) ,
+forum_desc varchar2(150) ,
+forum_note varchar2(150) ,
+forum_stat varchar2(1) default 0 ,
+forum_views number(6) default 0 ,
+forum_mviews number(6) default 0 , 
+forum_date date default sysdate,
+constraint forums_pk primary key(forum_no));
+
+
+create sequence forums_pk_seq
+increment by 1
+start with 1
+nocycle
+nocache;
+
+insert into forums values(forums_pk_seq.nextval,null,'公告版','專門放一些公告類',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'八卦版','不免俗的來聊一下八卦吧',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'問題版','提供各位健身者詢問的地方',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'新知版','有任何最新消息都將會在此',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'促銷版','專門給予刊登任何促銷資訊',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,null,'交友版','健身之餘還可約其他運動喔',null,3,default,default,default);
+insert into forums values(forums_pk_seq.nextval,'11','雲端健身房','彷彿在雲端一般都看不到在運動','雲端聽說最近很紅，先創起來',default,default,default,default);
+insert into forums values(forums_pk_seq.nextval,'12','爪哇健身房','爪哇人都特別強壯，健身一絕，快一起來同樂','發揚光大爪哇',default,default,default,default);
+insert into forums values(forums_pk_seq.nextval,'13','健起來揪起來','運動同好進來揪團喔~~','感覺此版少了一個揪團區',default,default,default,default);
+insert into forums values(forums_pk_seq.nextval,'14','不想健身','提倡不想健身的風氣','看到健身就生77，我就是不想動的肥宅阿',default,default,default,default);
+
+
+--文章類型
+
+
+create table art_types (
+art_type_no varchar2(10) ,
+forum_no varchar2(15) ,
+art_type_name varchar2(30) ,
+art_type_stat number(1) default 0,
+constraint art_types_pk primary key(art_type_no),
+constraint art_types_fk foreign key(forum_no) references forums(forum_no));
+
+
+create sequence art_types_seq
+increment by 10
+start with 10;
+
+insert into art_types values(art_types_seq.nextval,'1','一般公告',default);
+insert into art_types values(art_types_seq.nextval,'1','系統公告',default);
+insert into art_types values(art_types_seq.nextval,'1','緊急通告',default);
+insert into art_types values(art_types_seq.nextval,'2','娛樂卦',default);
+insert into art_types values(art_types_seq.nextval,'2','詢問卦',default);
+insert into art_types values(art_types_seq.nextval,'2','發廢卦',default);
+insert into art_types values(art_types_seq.nextval,'3','健身問題',default);
+insert into art_types values(art_types_seq.nextval,'3','網站問題',default);
+insert into art_types values(art_types_seq.nextval,'3','法律問題',default);
+insert into art_types values(art_types_seq.nextval,'3','心理問題',default);
+insert into art_types values(art_types_seq.nextval,'4','一般新知',default);
+insert into art_types values(art_types_seq.nextval,'4','科技新知',default);
+insert into art_types values(art_types_seq.nextval,'4','社會新知',default);
+insert into art_types values(art_types_seq.nextval,'4','娛樂新知',default);
+insert into art_types values(art_types_seq.nextval,'5','新品上市',default);
+insert into art_types values(art_types_seq.nextval,'5','促銷活動',default);
+insert into art_types values(art_types_seq.nextval,'5','清倉活動',default);
+insert into art_types values(art_types_seq.nextval,'5','聯合拍賣',default);
+insert into art_types values(art_types_seq.nextval,'5','聯合拍賣',default);
+insert into art_types values(art_types_seq.nextval,'6','約打牌',default);
+insert into art_types values(art_types_seq.nextval,'6','約唱歌',default);
+insert into art_types values(art_types_seq.nextval,'6','約相親',default);
+insert into art_types values(art_types_seq.nextval,'6','自我介紹',default);
+
+--文章
+
+create table articles (
+art_no varchar2(15) ,
+mem_no varchar2(10) ,
+forum_no varchar2(15) ,
+art_type varchar2(20) ,
+art_add_date date ,
+art_upd_date date ,
+art_name varchar2(30) ,
+art_ctx clob ,
+art_views number(5) default 0,
+art_mviews number(5) default 0,
+constraint articles_pk primary key(art_no),
+constraint art_frm_fk foreign key(forum_no) references forums(forum_no));
+
+create sequence articles_pk_seq
+increment by 1
+start with 1
+nocycle
+nocache;
+
+--文章相片
+
+create table article_photos (
+art_pt_no varchar2(20) ,
+art_no varchar2(15) ,
+art_pt blob ,
+art_pt_idx varchar2(5) , 
+constraint article_photos_pk primary key(art_pt_no),
+constraint article_photos_fk foreign key(art_no) references ARTICLES(ART_NO));
+
+create sequence article_photos_pk_seq
+increment by 1
+start with 1
+nocycle
+nocache;
+
+--文章留言
+create table article_comments (
+art_cmt_no varchar2(20) ,
+art_no varchar2(15) ,
+mem_no varchar2(10) ,
+art_cmt_ctx varchar2(600) ,
+art_cmt_img blob ,
+art_cmt_time date , 
+constraint article_comments_pk primary key(art_cmt_no),
+constraint cmt_art_no_fk foreign key(art_no) references articles(art_no));
+
+
+create sequence article_comments_pk_seq
+increment by 1
+start with 1
+nocycle
+nocache;
+
+
+
+--文章檢舉
+
+create table article_report (
+art_rpt_no varchar2(15) ,
+art_no varchar2(15) not null ,
+rpt_mem_no varchar2(10) not null ,
+rpt_type varchar2(30) not null ,
+rpt_ctx varchar2(150) not null ,
+rpt_time date default sysdate ,
+rpt_stat varchar2(1) default 0 , 
+constraint article_report_pk primary key(art_rpt_no),
+constraint article_report_fk foreign key(art_no) references ARTICLES(ART_NO),
+constraint article_rpt_mem_fk foreign key(rpt_mem_no) references MEMBERS(MEM_NO));
+
+create sequence article_report_pk_seq
+increment by 1
+start with 1
+nocycle
+nocache;
+
+
+--相簿
+
+create table albums (
+al_no varchar2(15) ,
+mem_no varchar2(10) ,
+al_date date default sysdate ,
+al_name varchar2(30) ,
+al_views number(10) default 0 ,
+al_prvt varchar2(1) default 0 ,
+al_board varchar2(1) default 0, 
+constraint albums_pk primary key(al_no),
+constraint albums_fk foreign key(mem_no) references members(mem_no));
+
+create sequence albums_pk_seq
+increment by 1
+start with 1
+nocycle
+nocache;
+
+insert into albums values(albums_pk_seq.nextval,'11',default,'運動',default,default,1);
+insert into albums values(albums_pk_seq.nextval,'11',default,'吃飯',default,default,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'好東',default,1,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'酷喔',default,default,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'來一發',default,default,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'讚讚讚',default,default,default);
+
+--相片
+
+
+create table photos (
+photo_no varchar2(20) ,
+al_no varchar2(15) ,
+photo_desc varchar2(90) ,
+photo blob ,
+sphoto blob , 
+ul_date date default sysdate,
+constraint photos_pk primary key(photo_no),
+constraint photos_fk foreign key(al_no) references albums(AL_NO));
+
+
+create sequence photos_pk_seq
+increment by 1
+start with 1
+nocycle
+nocache;
+
+--動態消息
+
+create table message_board (
+bd_msg_no varchar2(15) ,
+mem_no varchar2(10) ,
+bd_type varchar2(1) not null ,
+bd_likes number(10) default 0 ,
+bd_msg_ctx varchar2(900) ,
+bd_ref_ctx clob ,
+bd_prvt varchar2(1) default 0 ,
+bd_msg_time date default sysdate ,
+bd_upd_time date default sysdate , 
+bd_film blob,
+bd_ref_url varchar2(200),
+constraint message_board_pk primary key(bd_msg_no),
+constraint message_board_fk foreign key(mem_no) references MEMBERS(MEM_NO));
+
+create sequence message_board_pk_seq
+increment by 1
+start with 1
+nocycle
+nocache;
+insert into message_board values(message_board_pk_seq.nextval,11,0,default,'我真的好帥可是我不敢跟別人說',null,2,sysdate,null,null,null);
+insert into message_board values(message_board_pk_seq.nextval,12,0,default,'中午不知道吃啥耶...生活好難',null,0,sysdate,null,null,null);
+insert into message_board values(message_board_pk_seq.nextval,12,0,default,'半夜在寫JAVA 有人醒者一起奮鬥嗎?',null,1,sysdate,null,null,null);
+--動態的照片對照表
+
+create table board_photo (
+bd_msg_no varchar2(15) ,
+photo_no varchar2(20) ,
+constraint board_fk foreign key(bd_msg_no) references message_board(BD_MSG_NO),
+constraint board_photo_fk foreign key(photo_no) references photos(PHOTO_NO),
+primary key(bd_msg_no,photo_no));
+
+
+--按讚紀錄
+
+create table likes_record (
+bd_msg_no varchar2(15) ,
+mem_no varchar2(10) ,
+if_click varchar2(1) not null , 
+constraint likes_record_fk foreign key(bd_msg_no) references message_board (BD_MSG_NO),
+constraint likes_record_fk2 foreign key(mem_no) references members(MEM_NO)
+,primary key(BD_MSG_NO,MEM_NO));
+
+
+create sequence likes_record_pk_seq
+increment by 1
+start with 1;
+
+--留言板
+
+create table board_cmt (
+bd_cmt_no varchar2(15) ,
+mem_no varchar2(10) ,
+cmt_type varchar2(1) not null ,
+org_no varchar2(30) ,
+bd_cmt_ctx varchar2(150) ,
+cmt_likes number(10) default 0 ,
+bd_cmt_time date default sysdate ,
+bd_cmt_reply varchar2(150), 
+constraint board_cmt_pk primary key(bd_cmt_no),
+constraint board_cmt_fk foreign key(mem_no) references members(MEM_NO));
+
+create sequence board_cmt_pk_seq
+increment by 1
+start with 1;
+
+--通用留言按讚紀錄
+
+create table cmt_likes_record (
+cmt_rcd_no varchar2(15) ,
+mem_no varchar2(10) ,
+cmt_type varchar2(1) ,
+cmt_pk varchar2(30) ,
+if_click varchar2(1) , 
+constraint cmt_likes_record_pk primary key( cmt_rcd_no),
+constraint cmt_likes_record_fk foreign key(mem_no) references members(MEM_NO));
+
+create sequence cmt_likes_record_pk_seq
+increment by 1
+start with 1;
+
+--訊息
+create table message (
+msg_no varchar2(20) ,
+rcv_no varchar2(10) ,
+post_no varchar2(10) ,
+send_time date default sysdate ,
+msg_ctx clob , 
+if_read varchar2(1) default 0,
+constraint message_pk primary key(msg_no),
+constraint message_rcv_fk foreign key(rcv_no) references members(mem_no),
+constraint message_post_fk foreign key(post_no) references members(mem_no));
+
+create sequence message_pk_seq
+increment by 1
+start with 1;
+
+
+INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'1','2',SYSDATE,'安安你好',1);
+INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'2','1',SYSDATE,'你好',1);
+INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'1','2',SYSDATE,'給虧嗎?',1);
+INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'2','1',SYSDATE,'不要',1);
+INSERT INTO MESSAGE VALUES(MESSAGE_PK_SEQ.NEXTVAL,'1','2',SYSDATE,'QAQ',0);
+
+--後端功能表
+
+CREATE TABLE FUNCTION
+(
+F_NO VARCHAR2(10),
+FNAME VARCHAR2(50) NOT NULL,
+CONSTRAINT FUNCTION_F_NO_PK PRIMARY KEY(F_NO)
+);
+
+
+INSERT INTO FUNCTION VALUES('M', '員工帳號管理');
+INSERT INTO FUNCTION VALUES('PI', '網頁資訊管理');
+INSERT INTO FUNCTION VALUES('CC', '審核教練資格');
+INSERT INTO FUNCTION VALUES('CG', '審核健身房資格');
+INSERT INTO FUNCTION VALUES('CA', '審核廣告');
+INSERT INTO FUNCTION VALUES('CF', '審核開版');
+INSERT INTO FUNCTION VALUES('RM', '會員檢舉審核');
+INSERT INTO FUNCTION VALUES('RC', '課程檢舉審核');
+INSERT INTO FUNCTION VALUES('RA', '文章檢舉審核');
+INSERT INTO FUNCTION VALUES('RP', '場地檢舉審核');
+
+--權限表
+
+CREATE TABLE AUTHORITY
+(
+MGR_NO VARCHAR2(10),
+F_NO VARCHAR2(10),
+CONSTRAINT AUTHORITY_MAR_NO_FK FOREIGN KEY(MGR_NO) REFERENCES MANAGER(MGR_NO),
+CONSTRAINT AUTHORITY_F_NO_FK FOREIGN KEY(F_NO) REFERENCES FUNCTION(F_NO),
+PRIMARY KEY(MGR_NO,F_NO)
+);
+
+INSERT INTO AUTHORITY VALUES('MGR001', 'M');
+INSERT INTO AUTHORITY VALUES('MGR001', 'PI');
+INSERT INTO AUTHORITY VALUES('MGR001', 'CC');
+INSERT INTO AUTHORITY VALUES('MGR001', 'CG');
+INSERT INTO AUTHORITY VALUES('MGR001', 'CA');
+INSERT INTO AUTHORITY VALUES('MGR001', 'CF');
+INSERT INTO AUTHORITY VALUES('MGR001', 'RM');
+INSERT INTO AUTHORITY VALUES('MGR001', 'RC');
+INSERT INTO AUTHORITY VALUES('MGR001', 'RA');
+INSERT INTO AUTHORITY VALUES('MGR001', 'RP');
+
+INSERT INTO AUTHORITY VALUES('MGR002', 'M');
+INSERT INTO AUTHORITY VALUES('MGR002', 'PI');
+INSERT INTO AUTHORITY VALUES('MGR002', 'CC');
+INSERT INTO AUTHORITY VALUES('MGR002', 'CG');
+INSERT INTO AUTHORITY VALUES('MGR002', 'CA');
+INSERT INTO AUTHORITY VALUES('MGR002', 'CF');
+INSERT INTO AUTHORITY VALUES('MGR002', 'RM');
+INSERT INTO AUTHORITY VALUES('MGR002', 'RC');
+INSERT INTO AUTHORITY VALUES('MGR002', 'RA');
+INSERT INTO AUTHORITY VALUES('MGR002', 'RP');
+
+INSERT INTO AUTHORITY VALUES('MGR003', 'PI');
+INSERT INTO AUTHORITY VALUES('MGR003', 'CC');
+INSERT INTO AUTHORITY VALUES('MGR003', 'CG');
+INSERT INTO AUTHORITY VALUES('MGR003', 'CA');
+INSERT INTO AUTHORITY VALUES('MGR003', 'CF');
+INSERT INTO AUTHORITY VALUES('MGR003', 'RM');
+INSERT INTO AUTHORITY VALUES('MGR003', 'RC');
+INSERT INTO AUTHORITY VALUES('MGR003', 'RA');
+INSERT INTO AUTHORITY VALUES('MGR003', 'RP');
+
+INSERT INTO AUTHORITY VALUES('MGR004', 'PI');
+INSERT INTO AUTHORITY VALUES('MGR004', 'CC');
+INSERT INTO AUTHORITY VALUES('MGR004', 'CG');
+INSERT INTO AUTHORITY VALUES('MGR004', 'CA');
+INSERT INTO AUTHORITY VALUES('MGR004', 'CF');
+INSERT INTO AUTHORITY VALUES('MGR004', 'RM');
+INSERT INTO AUTHORITY VALUES('MGR004', 'RC');
+INSERT INTO AUTHORITY VALUES('MGR004', 'RA');
+INSERT INTO AUTHORITY VALUES('MGR004', 'RP');
+
+------------------------------
+---會員檢舉紀錄??
+---????被檢舉內容待修??????
+------------------------------------
+
+CREATE TABLE MEMBERS_REPORT
+(
+MR_NO VARCHAR2(15),
+MR_DEF VARCHAR2(10) NOT NULL,
+MR_PRO VARCHAR2(10) NOT NULL,
+MR_CTX VARCHAR2(300) NOT NULL,
+MR_TIME DATE DEFAULT SYSDATE,
+MR_STAT NUMBER(1) DEFAULT 0 NOT NULL,
+REF_CTX VARCHAR2(900),
+MR_PT BLOB,
+CONSTRAINT MEMBERS_REPORT_PR_NO_PK PRIMARY KEY(MR_NO),
+CONSTRAINT MEMBERS_REPORT_MR_DEF_FK FOREIGN KEY(MR_DEF) REFERENCES MEMBERS(MEM_NO),
+CONSTRAINT MEMBERS_REPORT_MR_PRO_FK FOREIGN KEY(MR_PRO) REFERENCES MEMBERS(MEM_NO)
+);
+
+CREATE SEQUENCE MEMBERS_REPORT_PK_SEQ
+INCREMENT BY 1
+START WITH 1;
+
+INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'5','6','發廢文',SYSDATE,0,NULL,NULL);
+INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'7','10','惡意謾罵',SYSDATE,0,NULL,NULL);
+INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'8','9','大量洗版面',SYSDATE,0,NULL,NULL);
+INSERT INTO MEMBERS_REPORT VALUES(MEMBERS_REPORT_PK_SEQ.NEXTVAL,'7','5','惡意謾罵+大量洗版面',SYSDATE,1,NULL,NULL);
+
+---------------------------------------------------------------------------------
+---創建課程
+----Lin SQL
+---------------------------------------------------------------------------------
+create table course
+(crs_no varchar2(10) Not null,
+ c_acc varchar2(20) Not null,
+ crs_name varchar2(50) Not null,
+ details varchar2(300) Not null,
+ category varchar2(10) Not null,
+ status number(1) default 1,
+ constraint course_crs_no_pk primary key (crs_no)
+);
+
+create sequence course_sq
+increment by 1
+start with 1
+nocycle
+nocache;
+-----------------------------------------------------------------------------------
+
+----課程假資料測試
+
+Insert into course values('A' || lpad(course_sq.Nextval,4,'0'),'COA1','瑜珈','瑜珈屌炸天','A',default);
+Insert into course values('B' || lpad(course_sq.Nextval,4,'0'),'COA1','飛輪','飛輪龍傲天','B',default);
+Insert into course values('C' || lpad(course_sq.Nextval,4,'0'),'COA1','有氧','有氧狂霸天','C',default);
+Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','跳床','車震爽上天','D',2);
+Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','跳床','車震爽上天','D',default);
+Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','跳床','車震爽上天','D',default);
+Insert into course values('D' || lpad(course_sq.Nextval,4,'0'),'COA2','跳床','車震爽上天','D',default);
+
+
+---課程圖片
+
+create table course_picture
+(crs_pic_no varchar2(10) Not null,
+ crs_no varchar2(10) Not null CONSTRAINT course_pic_crs_no_fk REFERENCES course(crs_no),
+ crs_base Clob,
+ constraint course_crs_pic_no_pk primary key (crs_pic_no)
+);
+
+create sequence course_pic_sq
+increment by 1
+start with 1
+nocycle
+nocache;
+---------------------------------------------------------------------------------
+
+
+create table course_time
+(ct_no varchar2(10) Not null,
+ crs_no varchar2(10) Not null constraint course_time_crs_no_fk references course(crs_no),
+ p_no VARCHAR2(10) constraint course_time_p_no_fk references place(p_no),
+ crs_date DATE Not null,
+ deadline DATE Not null,
+ crs_time Number(1) Not null,
+ price Varchar2(10) Not null,
+ limit varchar2(3) Not null,
+ class_num varchar2(3) Not null,
+ status number(1) default 1,
+ constraint course_time_ct_no_pk primary key (ct_no)
+);
+
+create sequence course_time_sq
+increment by 1
+start with 1
+nocycle
+nocache;
+
+-----------------------------
+Insert into course_time (ct_no,crs_no,p_no,crs_date,deadline,crs_time,price,limit,class_num,status)
+                  values('A' || lpad(course_time_sq.Nextval,6,'0'),'A0001','1',TO_DATE('2017-10-18','YYYY-MM-DD'),TO_DATE('2017-10-01','YYYY-MM-DD'),1,2000,'20','12',1);
+Insert into course_time (ct_no,crs_no,p_no,crs_date,deadline,crs_time,price,limit,class_num,status)
+                  values('B' || lpad(course_time_sq.Nextval,6,'0'),'B0002','2',TO_DATE('2017-10-19','YYYY-MM-DD'),TO_DATE('2017-10-02','YYYY-MM-DD'),1,3000,'25','15',1);
+Insert into course_time (ct_no,crs_no,p_no,crs_date,deadline,crs_time,price,limit,class_num,status)
+                  values('C' || lpad(course_time_sq.Nextval,6,'0'),'C0003','3',TO_DATE('2017-10-20','YYYY-MM-DD'),TO_DATE('2017-10-03','YYYY-MM-DD'),1,5000,'30','15',1);
+
+
+
+commit;
+
+
+
+---- course_list假資料測試
+create table course_list  
+(ct_no Varchar2(10) constraint course_list_ct_no_fk references course_time(ct_no),
+ stu_acc Varchar2(20) constraint students_stu_acc_fk references students(stu_acc),
+ cl_date Date Not null,
+ crs_time Number(1) Not null,
+ stu_pay_sta Number(1) default 0,
+ stu_pay_date Date,
+ report_sta Number(1) default 0,
+ report_ct Varchar2(900),
+ feedback Varchar2(900),
+ evaluation_cao Varchar2(10),
+ evaluation_crs Varchar2(10),
+ n_sta Number(1) default 0,
+ reason Varchar2(900),
+ constraint course_list_ct_no_stu_acc_pk primary key (ct_no,stu_acc)
+);
+
+create sequence course_list_sq
+increment by 1
+start with 1
+nocycle
+nocache;
+
+Insert into course_list values('A' || lpad(course_list_sq.Nextval,6,'0'),'stu001',TO_DATE('2017-10-18','YYYY-MM-DD'),1,0,null,0,null,null,null,null,0,null);
+Insert into course_list values('B' || lpad(course_list_sq.Nextval,6,'0'),'stu002',TO_DATE('2017-10-19','YYYY-MM-DD'),2,0,null,0,null,null,null,null,0,null);
+Insert into course_list values('C' || lpad(course_list_sq.Nextval,6,'0'),'stu002',TO_DATE('2017-10-20','YYYY-MM-DD'),3,0,null,0,null,null,null,null,0,null);
+
+--------------------------
+----廣告申請 AD_APPLY 
+--------------------------
+CREATE TABLE AD_APPLY
+(
+AD_NO VARCHAR2(10) CONSTRAINT AD_APPLY_AD_NO_PK PRIMARY KEY,
+MEM_NO VARCHAR2(10) NOT NULL CONSTRAINT AD_APPLY_MEM_NO_FK REFERENCES MEMBERS(MEM_NO) ,
+ARV_STAT NUMBER(1) DEFAULT 0,
+PAY_DATE DATE,
+AD_NAME VARCHAR2(30),
+AD_URL VARCHAR2(30),
+AD_ONDATE DATE,
+AD_OFFDATE DATE,
+AD_CTX VARCHAR2(300),
+AD_PT BLOB 
+);
+
+create sequence AD_APPLY_PK_seq
+increment by 1
+start with 1;
+
+INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'7',0,TO_DATE('1981-11-17','YYYY-MM-DD'),'瑜珈','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'瑜珈課程',null);
+INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'8',0,TO_DATE('1981-11-17','YYYY-MM-DD'),'重訓','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'重訓課程',null);
+INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'9',1,TO_DATE('1981-11-17','YYYY-MM-DD'),'有氧','YAHOO.COM',TO_DATE('1981-11-18','YYYY-MM-DD'),TO_DATE('1981-12-18','YYYY-MM-DD'),'有氧課程',null);
+INSERT INTO AD_APPLY VALUES(AD_APPLY_PK_SEQ.NEXTVAL,'10',1,TO_DATE('1981-11-17','YYYY-MM-DD'),'魯魯','YAHOO.COM',TO_DATE('1981-11-19','YYYY-MM-DD'),TO_DATE('1981-12-19','YYYY-MM-DD'),'魯魯健身館',null);
+
+
+
+----------------------------
+---公告消息---
+
+create table annew (
+ann_no varchar2(15) not null ,
+ann_date date default sysdate ,
+upd_date date ,
+ann_title varchar2(80) not null ,
+ann_ctx varchar2(900) not null ,
+ann_photo blob ,
+att_no blob , 
+constraint annew_pk primary key(ann_no));
+
+create sequence annew_seq
+increment by 1
+start with 5
+nocycle
+nocache;
+
+
+INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('1', sysdate, '飛輪開課時間異動', '張教練的飛輪課程調至8/10開課');
+INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('2', sysdate, '噗噗健身房整修通知', '噗噗健身房從8/18起，進行裝潢維修工程');
+INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('3', sysdate, '重訓入門初級課程報名', '李教練的重訓初級課程從8/15起，每周日下午2點開始,歡迎踴躍報名');
+INSERT INTO annew(ann_no, ann_date, ann_title, ann_ctx)values('4', sysdate, '拉舉課程停課通知', '陳教練8/13拉舉課程因故停課一次,敬請見諒!');
+
+
+
+---健身知識-----
+
+
+create table fitkw (
+fik_no varchar2(15) not null ,
+upd_date date default sysdate ,
+fik_type varchar2(20) not null ,
+fik_title varchar2(80) not null ,
+fik_ctx varchar2(900) not null ,
+fik_photo blob , 
+constraint fitkw_pk primary key(fik_no));
+
+create sequence fitkw_seq
+increment by 1
+start with 5
+nocycle
+nocache;
+
+
+INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('1', sysdate, '基礎知識', '5個動作10分鐘訓練','熱身在健身運動中的作用非常大，很多新人往往會忽視熱身，造成很多麻煩。在進行劇烈運動前，或者力量訓練前，都應該做好充分的熱身，以讓身體達到最佳的狀態。');
+INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('2', sysdate, '增肌知識', '要增加力量','他們的研究表明，高負重訓練能夠更好地調節神經系統將電信號從大腦傳遞到肌肉，增加肌肉能夠產生的力量，而低負重訓練則不能。');
+INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('3', sysdate, '其他知識', '研究結果告訴你：空腹訓練好不好','上午，在空腹或進食的狀態下（運動前2小時進食富含碳水化合物的一頓餐），讓這些志願者以60％最大氧氣攝入量的強度下步行60分鐘。');
+INSERT INTO fitkw(fik_no, upd_date, fik_type, fik_title, fik_ctx)values('4', sysdate, '跑步知識', '晨跑與夜跑哪個更好？','很多喜歡晨跑的朋友認為，經過一晚上的消化，早上空腹去鍛煉，能有有效的消耗身體脂肪。這個觀點是錯誤的');
+
+
+
+
+--------平台資訊----
+
+
+create table platinf (
+pin_no varchar2(15) not null ,
+com_address varchar2(80) not null ,
+cp_no varchar2(30) not null ,
+cs_email varchar2(30) not null ,
+pr_policy varchar2(600) not null ,
+upd_date date default sysdate ,
+pin_photo blob , 
+constraint platinf_pk primary key(pin_no));
+
+create sequence platinf_seq
+increment by 1
+start with 2
+nocycle
+nocache;
+
+INSERT INTO platinf(pin_no, com_address, cp_no, cs_email, pr_policy, upd_date)values('1', '桃園市咕咕路10號', '03-5886977', 'fit@gmail.com', '隱私權保障個人xxxxxxxxxxxxxx', sysdate);
+
+
+
+
+
+---常見問題----
+
+create table queans (
+que_no varchar2(15) not null ,
+upd_date date default sysdate ,
+que_type varchar2(20) not null ,
+que_title varchar2(150) not null ,
+ans_ctx varchar2(900) not null ,
+que_photo blob , 
+constraint queans_pk primary key(que_no));
+
+create sequence queans_seq
+increment by 1
+start with 4
+nocycle
+nocache;
+
+INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('1', sysdate, '註冊', '如何成為會員?', '登入註冊頁面後，從下拉選單依不同身分選擇填寫xxxxxx');
+INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('2', sysdate, '直播', '無法觀賞直播?', '先確認網路連線設定是否正確，若仍有問題，請洽詢客服人員');
+INSERT INTO queans(que_no, upd_date, que_type, que_title, ans_ctx)values('3', sysdate, '報名', '如何報名課程?', '進入教練頁面後，勾選開設課程並確認後，進入線上繳費xxxx');
+
+commit;
+
+

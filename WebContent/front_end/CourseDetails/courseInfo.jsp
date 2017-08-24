@@ -10,6 +10,9 @@
 <% 
 	Course_timeService course_timeSVC = new Course_timeService();
 	Course_listService course_listSVC = new Course_listService();
+	
+	Course_listVO eva = course_listSVC.getEva(request.getParameter("ct_no"));
+	
 	if(session.getAttribute("user")==null){
 		pageContext.setAttribute("noLoginNow", 0);
 	}else{
@@ -31,6 +34,7 @@
 	
 	pageContext.setAttribute("course_timeVO", course_timeVO);
 	pageContext.setAttribute("calendarList", calendarList);
+	pageContext.setAttribute("eva", eva);
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -87,7 +91,7 @@
 				<div class="col-xs-12 col-sm-12">
 					<div class="item">
 						<h3>課程詳情:</h3>
-						&emsp;&emsp;&emsp;&emsp;<font size="3px" style="font-weight:bold;">${course_timeVO.courseVO.details}</font></p>
+						&emsp;&emsp;&emsp;&emsp;<font size="3px" style="font-weight:bold;">${course_timeVO.courseVO.details}</font></p><br>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-12">
@@ -96,9 +100,9 @@
 						&emsp;<font style="font-size:16px;font-weight:bold;">${course_timeVO.deadline}</font>
 						&emsp;&emsp;&emsp;<font style="font-size:22px;">上課日期:</font>
 						&emsp;<font style="font-size:16px;font-weight:bold;">${course_timeVO.crs_date} ${course_timeVO.crs_timeShow}</font>
-						&emsp;&emsp;<font style="font-size:22px;">價錢:</font>
+						<br><br><font style="font-size:22px;">價錢:</font>
 						&emsp;<font color="#D60000" style="font-size:30px;font-weight:bold;">$${course_timeVO.price}</font><br>
-		
+						<span style="visibility:hidden;"> 66</span>
 					</div>
 				</div>
 			</div>
@@ -111,7 +115,10 @@
 				<div class="col-xs-12 col-sm-2">
 					<p style="border-right:2px #ccc solid;margin-top:1em;">
 					<span style="position:relative;right:1em;">
-						<i class="glyphicon glyphicon-star-empty" style="font-size:16px;"></i> <font color="orange" style="font-size:16px;font-weight:bold;">4.5</font><br>
+						<i class="glyphicon glyphicon-star-empty" style="font-size:16px;"></i>
+						<font color="orange" style="font-size:16px;font-weight:bold;">
+							<c:out value="${eva.crsAvg == 0?null:eva.crsAvg}" default="尚無評價"  />
+						</font><br>
 						<font style="font-size:18px;">課程評價</font>
 					</span>						
 					</p>
@@ -119,7 +126,10 @@
 				<div class="col-xs-12 col-sm-2" >
 					<p style="border-right:2px #ccc solid;margin-top:1em;">
 					<span style="position:relative;right:1em;">
-						<i class="glyphicon glyphicon-star-empty" style="font-size:16px;"></i> <font color="orange" style="font-size:16px;font-weight:bold;">4.1</font><br>
+						<i class="glyphicon glyphicon-star-empty" style="font-size:16px;"></i> 
+						<font color="orange" style="font-size:16px;font-weight:bold;">
+							<c:out value="${eva.coaAvg == 0?null:eva.coaAvg}" default="尚無評價"  />
+						</font><br>
 						<font style="font-size:18px;">教練評價</font>
 					</span>
 					</p>
@@ -193,7 +203,7 @@
 							</a>
 						</li>
 
-						<li style="width:14em;" id="shitMap" onclick="initMap()">
+						<li style="width:14em;" id="shitMap" onclick="initMap(${course_timeVO.placeVO.p_latlng})">
 							<a data-toggle="tab" href="#placedetail">
 								<i class="blue glyphicon glyphicon-map-marker" style="font-size:20px;"></i>
 								<font style="font-size:20px;" >場地資訊</font>
@@ -258,12 +268,20 @@
 						<div id="profile" class="tab-pane">
 							<%@include file="/front_end/CourseDetails/person_comments.file" %>
 						</div>
-						<div id="placedetail" class="tab-pane">
-							<div class="map" style="height: 800px;width: 1100px;margin: 0px;padding: 0px;">     
-								<div id="map" style="height: 100%;">
+						<c:if test="${course_timeVO.placeVO.p_no != null }">
+							<div id="placedetail" class="tab-pane">
+								<div class="map" style="height: 800px;width: 1100px;margin: 0px;padding: 0px;">     
+									<div id="map" style="height: 100%;">
+									</div>
 								</div>
 							</div>
-						</div>
+						</c:if>
+						<c:if test="${course_timeVO.placeVO.p_no == null }">
+							<div id="placedetail" class="tab-pane">
+								<font style="font-size:40px;" >教練並沒有選擇場地,嗚嗚嗚嗚</font><br>
+								<img src="<%= request.getContextPath()%>/front_end/CourseDetails/images/don.jpg" width="900" height="600">
+							</div>
+						</c:if>
 					</div>
 				
 			</div><!-- /span -->
@@ -472,10 +490,9 @@
 
 })
 
-function initMap() {
-    	var latlng = '25.037531,121.5639969';
+function initMap(lat) {
+    	var latlng = lat;
     	// map
-    	console.log("AAA");
     	var mapOptions = {
             	center: new google.maps.LatLng(latlng.split(",")[0],latlng.split(",")[1]),
             	panControl: true, //要不要出現可以上下左右移動的面板

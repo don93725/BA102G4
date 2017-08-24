@@ -11,9 +11,9 @@ public class PlaceReportService {
 		dao = new PlaceReportDAO();
 	}
 	
-	public PlaceReportVO addPR(String p_no,String mem_no,String pr_ctx,String ref_ctx,byte[] pr_pt){
+	public PlaceReportVO addPR(String pt_no,String mem_no,String pr_ctx,String ref_ctx,byte[] pr_pt){
 		PlaceReportVO placeReportVO = new PlaceReportVO();
-		placeReportVO.setP_no(p_no);
+		placeReportVO.setP_no(pt_no);
 		placeReportVO.setMem_no(mem_no);
 		placeReportVO.setPr_ctx(pr_ctx);
 		placeReportVO.setRef_ctx(ref_ctx);
@@ -27,9 +27,9 @@ public class PlaceReportService {
 		dao.update(placeReportVO);
 		return placeReportVO;
 	}
-	public PlaceReportVO updatePRNum(String p_no){
+	public PlaceReportVO updatePRNum(String pt_no){
 		PlaceReportVO placeReportVO = new PlaceReportVO();
-		placeReportVO.setP_no(p_no);
+		placeReportVO.setPt_no(pt_no);
 		dao.updatePRNum(placeReportVO);
 		return placeReportVO;
 	}

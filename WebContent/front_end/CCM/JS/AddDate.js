@@ -13,7 +13,7 @@ function plus() {
 					'<span id="sp'
 							+ count
 							+ '"'
-							+ '>報名截止日期:<input type="text" id="start'+count+'" name="deadline" class="deadline" required="required"><br>課程日期:<input type="text" id="end'+count+'" name="date" class="date"> &nbsp&nbsp時段:<select name="time'+count+'" class="time'+count+'" id=""><option value="1">早上-1</option><option value="2">早上-2</option><option value="3">下午-1</option><option value="4">下午-2</option><option value="5">晚上-1</option><option value="6">晚上-2</option></select><br>開課人數:<input type="text" name="class_num" required="required"> &nbsp&nbsp 人數上限:<input type="text" name="limit" required="required"><br>價錢:<input type="text" name="price" required="required">'
+							+ '>報名截止日期:<input type="text" id="start'+count+'" name="deadline" class="deadline" required="required"><br>課程日期:<input type="text" id="end'+count+'" name="date" class="date"> &nbsp&nbsp時段:<select name="time'+count+'" class="time'+count+'" id=""><option value="1">08:00-09:30</option><option value="2">10:00-11:30</option><option value="3">13:00-14:30</option><option value="4">15:00-16:30</option><option value="5">18:00-19:30</option><option value="6">20:00-21:30</option></select><br>開課人數:<input type="text" name="class_num" required="required"> &nbsp&nbsp 人數上限:<input type="text" name="limit" required="required"><br>價錢:<input type="text" name="price" required="required">'
 							+ $("#place").html() +'<br><br></span>');
 	$("#count").val(count);
 	addDatepicker(count);

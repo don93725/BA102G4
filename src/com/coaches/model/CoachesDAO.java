@@ -1,5 +1,8 @@
 package com.coaches.model;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +17,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import com.don.util.SQLHelper;
+import com.don.util.TransData;
 import com.members.model.MembersVO;
 
 public class CoachesDAO implements CoachesDAO_interface{
@@ -51,7 +55,10 @@ public class CoachesDAO implements CoachesDAO_interface{
 			"Select * from coaches where coa_acc = ?　and coa_no = ?";
 	private static final String UPDATE_STAT =
 			"Update coaches set coa_sta=? where coa_acc = ?";
-	
+	private static final String EVALUTION_RANK =
+			"select * from (select round(avg(evaluation_cao),1),a.coa_acc from coaches a join course b on a.coa_acc = b.c_acc "
+			+ "join course_time c on b.crs_no = c.crs_no "
+			+ "join course_list d on c.ct_no=d.ct_no group by a.coa_acc order by avg(evaluation_cao)) e join coaches f on e.coa_acc = f.coa_acc where rownum < 4";
 	
 	@Override
 	public void insert(MembersVO membersVO, CoachesVO coachesVO) {
@@ -572,6 +579,57 @@ public class CoachesDAO implements CoachesDAO_interface{
 			}
 		}
 		
+	}
+	public List<CoachesVO> getRankList(){
+		SQLHelper helper = new SQLHelper();
+		List<Object[]> list = helper.executeQuery(EVALUTION_RANK, null);
+		List<CoachesVO> tempList = new ArrayList<CoachesVO>();
+		
+		for(int i = 0 ; i < list.size() ; i++){
+			Object[] obj = list.get(i);
+			CoachesVO coachesVO = new CoachesVO();
+			if(obj[0]!=null){
+				coachesVO.setScore(Double.valueOf(obj[0].toString()));
+			}			
+			if(obj[3]!=null){
+				coachesVO.setCoa_no(String.valueOf(obj[3]));
+				
+			}			
+			if(obj[6]!=null){
+				coachesVO.setCoa_name(String.valueOf(obj[6]));
+				
+			}
+			
+			if(obj[10]!=null){
+				String into =String.valueOf(obj[10]);
+				if(into.length()>15){
+					into = into.substring(0,15)+" ...";					
+				}
+				coachesVO.setCoa_into(into);
+				
+			}
+			if(obj[11]!=null){
+				Blob b = (Blob)obj[11];
+				byte[] bytes;
+				try {
+					InputStream is = b.getBinaryStream(); 
+					bytes = new byte[is.available()];
+					is.read(bytes);
+					coachesVO.setCoa_pic(bytes);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(obj[12]!=null){
+				coachesVO.setCoa_pft(Integer.parseInt(String.valueOf(obj[12])));
+			}
+			tempList.add(coachesVO);
+		}
+		return tempList;
 	}
 	
 }

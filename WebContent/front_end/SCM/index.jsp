@@ -50,7 +50,7 @@ function leave(ct_no,stu_acc){
 
  				success : function(msg) {
  					swal("請假成功!", "請假原因:" + inputValue , "success");
- 					setTimeout(function(){ dropdown(4); }, 1500);
+ 					setTimeout(function(){ location.reload(); }, 1500);
  				},
 
  				error : function(xhr, ajaxOptions, thrownError) {
@@ -91,7 +91,7 @@ function report(ct_no,stu_acc){
 
  				success : function(msg) {
  					swal("檢舉成功!", "檢舉原因:" + inputValue , "success");
- 					setTimeout(function(){ dropdown(5); }, 1500);
+ 					setTimeout(function(){ location.reload(); }, 1500);
  				},
 
  				error : function(xhr, ajaxOptions, thrownError) {

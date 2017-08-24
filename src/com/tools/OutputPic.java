@@ -35,7 +35,7 @@ public class OutputPic extends HttpServlet {
 				}
 				else if("1".equals(mem_rank) ) {
 					bytes = new CoachesDAO().getPicByte(mem_no);
-			}
+				}
 				else if("2".equals(mem_rank) ) {
 					bytes = new GymsDAO().getPicByte(mem_no);
 				}

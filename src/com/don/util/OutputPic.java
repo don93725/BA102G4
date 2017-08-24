@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.album.dao.PhotosDAO;
 import com.board.dao.Message_boardDAO;
 import com.forum.dao.Article_commentsDAO;
+import com.platinf.model.PlatinfService;
 import com.sun.xml.internal.messaging.saaj.util.Base64;
 
 /**
@@ -32,14 +33,21 @@ public class OutputPic extends HttpServlet {
 		String al_no = req.getParameter("al_no");
 		String bd_msg_no = req.getParameter("bd_msg_no");
 		String mem_no = req.getParameter("mem_no");
+		String pin_no = req.getParameter("pin_no");
+		
 		byte[] bytes = null;
 		try {
 			// 判斷區請寫入B
+			
 			if(bd_msg_no!=null){
 				res.setContentType("video/mp4");
 				bytes = new Message_boardDAO().getPic("bd_film",bd_msg_no);
 				out.write(bytes);
 				return ;
+			}
+			if(pin_no!=null){
+				PlatinfService platinfService = new PlatinfService();
+				bytes = platinfService.getPic(pin_no);
 			}
 			if(mem_no != null){
 				String mem_rank = req.getParameter("mem_rank");

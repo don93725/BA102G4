@@ -34,11 +34,15 @@ public class PlaceDAO implements PlaceDAO_interface {
 			"Select * from place where g_acc = ?";
 	private static final String DELETE_PLACE =
 			"Delete from place where p_no = ?";
+	private static final String DELETE_PLACE_PIC =
+			"Delete from place_picture where p_no = ?";
 	private static final String GET_ONE_PLACE =
 			"SELECT * FROM place where p_no = ?";
 	private static final String UPDATE =
-			"UPDATE place set p_name = ?, p_into = ?, p_add = ?, p_latlng = ?, p_cap = ?, p_date = sysdate where p_no = ?";
-//	private static final String GET_ALL_STMT = "SELECT p_no,g_acc FROM place order by p_no";
+			"UPDATE place set p_name = ?, p_into = ?, p_add = ?, p_latlng = ?, p_cap = ? where p_no = ?";
+	private static final String INSERT_PIC =
+			"INSERT INTO PLACE_PICTURE VALUES(place_pic_sq.NEXTVAL, ?, ?)";
+	//	private static final String GET_ALL_STMT = "SELECT p_no,g_acc FROM place order by p_no";
 //	private static final String DELETE_PLACE_TIME = "DELETE FROM place_time where pt_no = ?";
 //	private static final String DELETE_PLACE = "DELETE FROM place where p_no = ?";
 
@@ -160,16 +164,29 @@ public class PlaceDAO implements PlaceDAO_interface {
 	public void delete(String p_no) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
 
 		try {
 			con = ds.getConnection();
+			pstmt2 = con.prepareStatement(DELETE_PLACE_PIC);
+			pstmt2.setString(1, p_no);
+			System.out.println("SQL= " + DELETE_PLACE_PIC + p_no);
+			pstmt2.executeUpdate();
 			pstmt = con.prepareStatement(DELETE_PLACE);
 			pstmt.setString(1, p_no);
 			pstmt.executeUpdate();
+			
 		} catch(SQLException se) {
 			throw new RuntimeException("A database error occured. "
 					+ se.getMessage());
 		} finally {
+			if(pstmt2 != null) {
+				try {
+					pstmt2.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 			if(pstmt != null) {
 				try {
 					pstmt.close();
@@ -294,54 +311,59 @@ public class PlaceDAO implements PlaceDAO_interface {
 			}
 		}
 	}
-//
-//	@Override
-//	public void delete(String p_no) {
-//		// TODO Auto-generated method stub
-//		int updateCount_Place_Time = 0;
-//		
-//		Connection con = null;
-//		PreparedStatement pstmt = null;
-//
-//		try {
-//
-//			con = ds.getConnection();
-//			con.setAutoCommit(false);
-//			
-//			pstmt = con.prepareStatement(DELETE_PLACE_TIME);
-//			pstmt.setString(1, p_no);
-//			updateCount_Place_Time = pstmt.executeUpdate();
-//			
-//			pstmt = con.prepareStatement(DELETE_PLACE);
-//			pstmt.setString(1, p_no);
-//			pstmt.executeUpdate();
-//			
-//			con.commit();
-//			con.setAutoCommit(true);
-//			
-//			// Handle any driver errors
-//		} catch (SQLException se) {
-//			throw new RuntimeException("A database error occured. " + se.getMessage());
-//			// Clean up JDBC resources
-//		} finally {
-//			if (pstmt != null) {
-//				try {
-//					pstmt.close();
-//				} catch (SQLException se) {
-//					se.printStackTrace(System.err);
-//				}
-//			}
-//			if (con != null) {
-//				try {
-//					con.close();
-//				} catch (Exception e) {
-//					e.printStackTrace(System.err);
-//				}
-//			}
-//		}
-//	}
-//
-//
+
+	public void insertPic(List list, String ppp_no) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+			con = ds.getConnection();
+			con.setAutoCommit(false);
+			pstmt = con.prepareStatement(INSERT_PIC);
+
+			for(int i = 0 ; i < list.size() ; i++){
+				pstmt.setString(1, ppp_no);
+				pstmt.setString(2, list.get(i).toString());
+				pstmt.executeUpdate();
+				System.out.println(INSERT_PIC);
+				System.out.println(ppp_no);
+				System.out.println(list.get(i).toString());
+				con.commit();
+			}
+			con.setAutoCommit(true);
+		} catch (SQLException se) {
+			try {
+				se.printStackTrace();
+				con.rollback();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} 
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				if(pstmt != null) {
+					try {
+						pstmt.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				if(con != null) {
+					try {
+						con.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}	
+		}
+	}
 //	@Override
 //	public List<PlaceVO> getAll() {
 //		// TODO Auto-generated method stub
@@ -399,5 +421,61 @@ public class PlaceDAO implements PlaceDAO_interface {
 //		return list;
 //
 //	}
+
+	@Override
+	public PlaceVO getOnePlacePt_no(String pt_no) {
+		PlaceVO placeVO = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement("SELECT * FROM place where p_no = (select p_no from place_time where pt_no = ?)");
+
+			pstmt.setString(1, pt_no);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				placeVO = new PlaceVO();
+				placeVO.setP_no(rs.getString("p_no"));
+				placeVO.setG_acc(rs.getString("g_acc"));
+				placeVO.setP_name(rs.getString("p_name"));
+				placeVO.setP_into(rs.getString("p_into"));
+				placeVO.setP_status(rs.getInt("p_status"));
+				placeVO.setP_add(rs.getString("p_add"));
+				placeVO.setP_latlng(rs.getString("p_latlng"));
+				placeVO.setP_cap(rs.getInt("p_cap"));
+			}
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		System.out.println("into= " + placeVO.getP_into());
+		return placeVO;
+	}
 
 }

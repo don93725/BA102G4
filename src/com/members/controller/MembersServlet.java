@@ -39,9 +39,10 @@ public class MembersServlet extends HttpServlet {
 			// 來自index.jsp的logout請求
 			if ("logout".equals(action)) {
 				HttpSession session = req.getSession();
-				session.invalidate();
-				res.sendRedirect(req.getContextPath()+"/front_end/index.jsp");
-				return;
+				if(session != null) {
+					session.invalidate();
+					return;
+				}
 			}
 			
 			if("forgetPSW".equals(action)) {
