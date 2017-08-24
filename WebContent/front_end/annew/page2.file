@@ -8,8 +8,8 @@
     <%}%>
   
     <%if(pageIndex<pageIndexArray[pageNumber-1]){%>
-        <td><A href="request.getContextPath()%>/AnnewShowCtrl?whichPage=<%=whichPage+1%>">下一頁 </A>&nbsp;</td>
-        <td><A href="request.getContextPath()%>/AnnewShowCtrl?whichPage=<%=pageNumber%>">末頁</A>&nbsp;</td>
+        <td><A href="<%=request.getContextPath()%>/AnnewShowCtrl?whichPage=<%=whichPage+1%>">下一頁 </A>&nbsp;</td>
+        <td><A href="<%=request.getContextPath()%>/AnnewShowCtrl?whichPage=<%=pageNumber%>">末頁</A>&nbsp;</td>
     <%}%>
   <%}%>  
  </tr>
@@ -20,7 +20,7 @@
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </td>
-   <FORM METHOD="post" ACTION="request.getContextPath()%>/AnnewShowCtrl">   
+   <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/AnnewShowCtrl">   
         <td>
            <select size="1" name="whichPage">
         <%for (int i=1; i<=pageNumber; i++){%>

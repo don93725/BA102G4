@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="BIG5"%>
 <%@ page import="com.members.model.*" %>
+<%@ page import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
@@ -45,7 +46,8 @@
 
     <!-- Page Content -->
     <div class="container" style='min-height: 100%;'>
-		<c:forEach var='annew' items='${annewList }'>
+    	<%@ include file="page1.file" %> 
+		<c:forEach var='annew' items='${annewList }' begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
         <!-- Blog Post Row -->
         <div class="row aaaaaa">
             <div class="col-md-1 text-center" style='margin-top:10px;'>
@@ -59,7 +61,7 @@
             </div>
             <div class="col-md-6">
                 <h3>
-                    <a href="blog-post.html">${annew.ann_title }</a>
+                    <a href="${pageContext.request.contextPath }/AnnewShowCtrl?ann_no=${annew.ann_no}">${annew.ann_title }</a>
                 </h3>
                 <p>by 後台管理員
                 </p>
@@ -70,7 +72,7 @@
         <!-- /.row -->
 		</c:forEach>
         </div>
-    
+    	<%@ include file="page2.file" %> 
 		</div>
         <hr>
 
