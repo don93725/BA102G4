@@ -9,7 +9,7 @@
 <body>
 	<div style="margin:2em;">
 		<h3 style="font-weight:bold;"><font color="#e02429">檢舉原因:</font></h3>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="font-size:16px;font-weight:bold;">${course_listVO.report_ct}</font>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="font-size:16px;font-weight:bold;">${placeReportVO.pr_ctx}</font>
 		</div>
 		<img alt="" src="<%= request.getContextPath()%>/front_end/CourseDetails/images/label.png" style=" position:absolute;right:0;bottom:0;" width="60" height="60">
 	</div>

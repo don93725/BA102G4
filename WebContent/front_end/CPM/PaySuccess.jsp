@@ -14,7 +14,7 @@
 </head>
 <body>
 	<form style="margin:2em;position: absolute;left: 15%;top:3%;" method="post">
-		<img src="<%=request.getContextPath()%>/front_end/SCM/images/666.jpg" witdh="130" height="130"><font size="50px" style="font-weight:bold;position: relative;top: 35px;">付費成功</font><br>
+		<img src="<%=request.getContextPath()%>/front_end/CPM/images/suc.gif" witdh="130" height="130"><font size="50px" style="font-weight:bold;position: relative;top: 35px;">付費成功</font><br>
 		<font size="5px" style="font-weight:bold;">場地名稱 :</font> <font size="3px" style="font-weight:bold;">${place_timeVO.placeVO.p_name}</font><br>
 		<span style="position: relative;top: 3px;"><font size="4px" style="font-weight:bold;">付款金額 :</font> <font size="3px" style="font-weight:bold;">$${place_timeVO.pbu_price}</font></span><br>
 		<input type="button" class="btn btn-danger" onclick="window.close()" style="position: relative;top: 10px;" value="確認">

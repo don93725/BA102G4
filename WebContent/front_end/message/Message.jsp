@@ -319,7 +319,11 @@
 				
 		}
 		function show(path,post_no,mem_nickname){
-			$('.msgInput').show();
+			if(post_no=='0'){
+				$('.msgInput').hide();	
+			}else{
+				$('.msgInput').show();				
+			}
 			$('#msgContent').empty();
 			$('#sendWho').val(post_no);
 			$('#thisPage').val(1);

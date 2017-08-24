@@ -170,10 +170,7 @@ public class MembersServlet extends HttpServlet {
 					//身分為健身者
 					if("0".equals(rank)) {
 						System.out.println("(MembersServlet)rank in 0");
-						req.setAttribute("user", membersVO);
-						String url = "/StudentsServlet";
-						RequestDispatcher successView = req.getRequestDispatcher(url);
-						successView.forward(req, res);
+
 						return;
 					}
 					//身分為教練

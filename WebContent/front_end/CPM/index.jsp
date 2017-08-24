@@ -91,7 +91,7 @@ function report(pt_no,p_no){
 
  				success : function(msg) {
  					swal("檢舉成功!", "檢舉原因:" + inputValue , "success");
- 					setTimeout(function(){ loaction.reload(); }, 1500);
+ 					setTimeout(function(){ location.reload(); }, 1500);
  				},
 
  				error : function(xhr, ajaxOptions, thrownError) {
@@ -301,11 +301,11 @@ function showLeaveBlock(ct_no,stu_acc){
 	$("#showMouseLeave").css("display","block");
 }
 
-function showReportBlock(ct_no,stu_acc){
+function showReportBlock(pt_no){
 	$.ajax({
 			url : '<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do',
 			data : {
-				pr_no : pr_no,	
+				pt_no : pt_no,	
 				action : 'showReportBlock'
 			},
 			type : "POST",
@@ -470,7 +470,6 @@ function addCalendar(title, start, className, minTime) {
 							},
 
 							eventClick : function(calEvent, jsEvent, view) {
-								if(calEvent.title.match('加退選') != null){
 									
 									if(('' + (calEvent.start.getMonth() + 1)).length == 1){
 										var month = "0" + (calEvent.start.getMonth() + 1);
@@ -496,13 +495,13 @@ function addCalendar(title, start, className, minTime) {
 									console.log(crs_time);
 
 									swal({
-										  title: "是否要退選課程?",
+										  title: "是否要取消預訂?",
 										  text: "You will not be able to recover this!",
 										  type: "warning",
 										  showCancelButton: true,
 										  confirmButtonColor: "#DD6B55",
 										  cancelButtonText: "不了!",
-										  confirmButtonText: "確認退選!",
+										  confirmButtonText: "取消預訂!",
 										  closeOnConfirm: false,
 										  closeOnCancel: false
 										},
@@ -512,16 +511,15 @@ function addCalendar(title, start, className, minTime) {
 												$.ajax({
 													url : '<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do',
 									 				data : {
-									 					cl_date : cl_date,	
-									 					crs_time : crs_time,
-									 					stu_acc : '<%= ((MembersVO) session.getAttribute("user")).getMem_acc() %>',
-									 					action : 'deleteCalendarCourse'
+									 					rp_date : cl_date,	
+									 					rp_time : crs_time,
+									 					action : 'deleteCalendarPlace'
 									 				},
 									 				type : "POST",
 									 				dataType : 'text',
 
 									 				success : function(msg) {
-									 					swal("退選成功!", "Your are already retire the course.", "success");
+									 					swal("取消成功!", "Your are already retire the course.", "success");
 									 					setTimeout(function(){ location.reload(); }, 1200);
 									 				},
 
@@ -534,7 +532,6 @@ function addCalendar(title, start, className, minTime) {
 										  }
 										});
 							
-								}
 							}
 
 						});

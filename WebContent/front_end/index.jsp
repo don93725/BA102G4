@@ -106,29 +106,29 @@
 								<h2>本周第一名教練</h2>
 							</div>
 						<div class="item-caption yellow">
-							<c:if test="${not empty coachRank && fn:length(coachRank)>0 }">
+							<c:if test="${ fn:length(coachRank)>0 }">
 								<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=1&mem_no=${coachRank[0].coa_no}&action=lookPersonal">
 							</c:if>
-         					<c:if test="${not empty coachRank && fn:length(coachRank)<1 }">
+         					<c:if test="${fn:length(coachRank)<1 }">
 								<a href="#">
 							</c:if>
 								<div class="item-caption-inner">
 									<div class="item-caption-inner1">
-										<c:if test="${not empty coachRank && fn:length(coachRank)>0 }">
+										<c:if test="${ fn:length(coachRank)>0 }">
 											<h4>${coachRank[0].coa_name }</h4></br>
 											<span>${coachRank[0].coa_into }</span>
 										</c:if>
-            							<c:if test="${not empty coachRank && fn:length(coachRank)<1 }">
+            							<c:if test="${fn:length(coachRank)<1}">
 											<h4>目前從缺</h4></br>										
 										</c:if>
 									</div>
 								</div>
 							</a>
 						</div>
-							<c:if test="${not empty coachRank && fn:length(coachRank)>0 }">
+							<c:if test="${ fn:length(coachRank)>0 }">
 								<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachRank[0].coa_no}" alt=""/>
 							</c:if>
-         				<c:if test="${not empty coachRank && fn:length(coachRank)<1 }">
+         				<c:if test="${ fn:length(coachRank)<1 }">
 							<img  src="http://down.epchina.com/portal/201509/08/154457pee2rumj27f145bu.jpg" alt=""/>
 						</c:if>
 					</div>
@@ -143,29 +143,29 @@
 								<h2>本周第二名教練</h2>
 							</div>
 						<div class="item-caption yellow">
-							<c:if test="${not empty coachRank && fn:length(coachRank)>1 }">
+							<c:if test="${ fn:length(coachRank)>1 }">
 								<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=1&mem_no=${coachRank[1].coa_no}&action=lookPersonal">
 							</c:if>
-         					<c:if test="${not empty coachRank && fn:length(coachRank)<2 }">
+         					<c:if test="${ fn:length(coachRank)<2 }">
 								<a href="#">
 							</c:if>
 								<div class="item-caption-inner">
 									<div class="item-caption-inner1">
-									<c:if test="${not empty coachRank && fn:length(coachRank)>1 }">
+									<c:if test="${ fn:length(coachRank)>1 }">
 											<h4>${coachRank[1].coa_name }</h4></br>
 											<span>${coachRank[1].coa_into }</span>
 										</c:if>
-            							<c:if test="${not empty coachRank && fn:length(coachRank)<2 }">
+            							<c:if test="${fn:length(coachRank)<2 }">
 											<h4>目前從缺</h4></br>										
 										</c:if>
 										</div>
 								</div>
 							</a>
 						</div>
-						<c:if test="${not empty coachRank && fn:length(coachRank)>1 }">
+						<c:if test="${ fn:length(coachRank)>1 }">
 								<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachRank[1].coa_no}" alt=""/>
 							</c:if>
-         					<c:if test="${not empty coachRank && fn:length(coachRank)<2 }">
+         					<c:if test="${ fn:length(coachRank)<2 }">
 												<img  src="http://down.epchina.com/portal/201509/08/154457pee2rumj27f145bu.jpg" alt=""/>
 						</c:if>
 					</div>
@@ -180,19 +180,19 @@
 								<h2>本周第三名教練</h2>
 							</div>
 						<div class="item-caption yellow">
-							<c:if test="${not empty coachRank && fn:length(coachRank)>2 }">
+							<c:if test="${ fn:length(coachRank)>2 }">
 								<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=1&mem_no=${coachRank[2].coa_no}&action=lookPersonal">
 							</c:if>
-         					<c:if test="${not empty coachRank && fn:length(coachRank)<3 }">
+         					<c:if test="${ fn:length(coachRank)<3 }">
 								<a href="#">
 							</c:if>
 								<div class="item-caption-inner">
 									<div class="item-caption-inner1">
-            							<c:if test="${not empty coachRank && fn:length(coachRank)>2 }">
+            							<c:if test="${ fn:length(coachRank)>2 }">
 											<h4>${coachRank[2].coa_name }</h4></br>
 											<span>${coachRank[2].coa_into }</span>
 										</c:if>
-            							<c:if test="${not empty coachRank && fn:length(coachRank)<3 }">
+            							<c:if test="${ fn:length(coachRank)<3 }">
 											<h4>目前從缺</h4></br>										
 										</c:if>
 									</div>
@@ -200,10 +200,10 @@
 							</a>
 						</div>
 							
-							<c:if test="${not empty coachRank && fn:length(coachRank)>2 }">
+							<c:if test="${ fn:length(coachRank)>2 }">
 								<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachRank[2].coa_no}" alt=""/>
 							</c:if>
-         					<c:if test="${not empty coachRank && fn:length(coachRank)<3 }">
+         					<c:if test="${ fn:length(coachRank)<3 }">
 								<img  src="http://down.epchina.com/portal/201509/08/154457pee2rumj27f145bu.jpg" alt=""/>
 							</c:if>
 					</div>

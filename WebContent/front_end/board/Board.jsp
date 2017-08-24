@@ -322,7 +322,7 @@
 										<div class="dropdown">
 											<button class="btn btn-default dropdown-toggle" type="button"
 												id="dropdownMenu1" data-toggle="dropdown"
-												aria-haspopup="true" aria-expanded="true" value="0">
+												aria-haspopup="true" aria-expanded="true" value="0" onclick='addOpen.call(this);'>
 												隱私設定 <span class="caret"></span>
 											</button>
 											<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -387,13 +387,13 @@
 												<div data-toggle="dropdown" aria-haspopup="true"
 													aria-expanded="false">
 													<img
-														src="${pageContext.request.contextPath}/front_end/board/images/cmmtPrvt${message_board.bd_prvt }.png">
+														src="${pageContext.request.contextPath}/front_end/board/images/cmmtPrvt${message_board.bd_prvt }.png"  <c:if test="${message_board.mem_no.mem_no==user.mem_no }">onclick='addOpen2.call(this);'</c:if>>
 													<c:if test="${message_board.mem_no.mem_no==user.mem_no }">
 														<span class="caret"></span>
 												</div>
 
 												<ul class="dropdown-menu" id='cmtPrvt'>
-													<li><a href="#">隱私設定${message_board.mem_no.mem_no}</a></li>
+													<li><a href="#">隱私設定</a></li>
 													<li role="separator" class="divider"></li>
 													<li><a href="#" onclick="setCmmtPrvt.call(this,'${pageContext.request.contextPath}','${message_board.mem_no.mem_no }','${message_board.bd_msg_no }','0');">朋友</a></li>
 													<li><a href="#" onclick="setCmmtPrvt.call(this,'${pageContext.request.contextPath}','${message_board.mem_no.mem_no }','${message_board.bd_msg_no }','1');">公開</a></li>
@@ -489,7 +489,7 @@
 						<div id='picCmt${bd_photo.photo_no}' style='display:none;'>
 						<div class="panel panel-default" style='font-size: 20px;max-height:103%; height:103%;'>
 									  <div class="panel-heading" >留言</div>
-									     <ul class="list-group pre-scrollable" style=' vertical-align:middle;max-height:88%; height:88%;'>
+									     <ul class="list-group pre-scrollable" style=' vertical-align:middle;max-height:82%; height:82%;'>
 										    <c:if test="${empty bd_photo.comments }">
 										    	<li class="list-group-item text-center" style='height: 100%; font-size: 20px;'>							    		
 										    	<div>目前尚無留言</div>
@@ -509,13 +509,13 @@
 															</a>
 														</div>
 														
-														<div class="col-xs-12 col-sm-8 cmt" >
+														<div class="col-xs-12 col-sm-7 cmt" >
 															<span class='a' style='padding:50px; margin-top:50px; padding-right: 0px;'>${comment.bd_cmt_ctx }</span>
 															<input type='text' class='b' value='${comment.bd_cmt_ctx }' style='display:none;' onfocus='this.value = this.value;'/>
 															<span class='c' ><a href="#" style='margin-left: 3px' onclick='addPhotoCmtLikes.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }");'><span class='cmtLikes'>${(comment.ifClick)?'收回讚':'讚'}</span><span style='margin-left: 5px;'>${(comment.cmt_likes>0)? comment.cmt_likes:''  }</span></a></span>
 												
 														</div>
-														<div class="col-xs-12 col-sm-2 cmt">
+														<div class="col-xs-12 col-sm-3 cmt">
 														<c:if test="${user.mem_no==comment.mem_no.mem_no }">
 														<a href='#' onclick='editPhotoCmmt.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }");' style='color:black'>
 															<span class='glyphicon glyphicon-pencil'></span></a>
@@ -765,7 +765,7 @@
       </a>
       </div>
       <div class="modal-footer">
-      	<div class="col-xs-12 col-sm-2 col-sm-offset-9" style="padding-left: 80px;" >
+      	<div class="col-xs-12 col-sm-2 col-sm-offset-9" style="padding-left: 0px;" >
       		<div class="dropup">
 					<button class="btn btn-default btn-lg dropdown-toggle" type="button"
 						id="dropdownMenu3" data-toggle="dropdown"
@@ -835,6 +835,20 @@
 		src="${pageContext.request.contextPath}/front_end/album/js/jquery.fancybox.js"></script>
 	<script src='${pageContext.request.contextPath}/front_end/comm/js/sweetalert.min.js'></script>
 	<script type="text/javascript">
+	function addOpen(){
+		if($(this).parent().hasClass('open')){
+			$(this).parent().removeClass('open');
+		}else{
+			$(this).parent().addClass('open');
+		}
+	}
+	function addOpen2(){
+		if($(this).parent().parent().hasClass('open')){
+			$(this).parent().parent().removeClass('open');
+		}else{
+			$(this).parent().parent().addClass('open');
+		}
+	}
 	function sharePhoto(event,path,bd_msg_no,mem_no,mem_rank,mem_nickname,bd_msg_time,bd_type,photo_no){
 		event.preventDefault();
 		$('.sharePic:last').attr('src',path+'/util/OutputPic?mem_no='+mem_no+"&mem_rank="+mem_rank);

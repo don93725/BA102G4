@@ -210,6 +210,8 @@ public class Place_timeDAO implements Place_timeDAO_interface {
 				place_timeVO.setPbu_price(rs.getString("PBU_PRICE"));
 				place_timeVO.setPau_price(rs.getString("PAU_PRICE"));
 				place_timeVO.setPbu_date(rs.getDate("PBU_DATE"));
+				place_timeVO.setPau_date(rs.getDate("PAU_DATE"));
+				place_timeVO.setEva_ct(rs.getString("eva_ct"));
 				placeVO.setP_no(rs.getString("p_no"));
 				placeVO.setP_name(rs.getString("p_name"));
 				placeVO.setP_into(rs.getString("p_into"));
@@ -462,6 +464,7 @@ public class Place_timeDAO implements Place_timeDAO_interface {
 				place_timeVO.setPbu_price(rs.getString("PBU_PRICE"));
 				place_timeVO.setPau_price(rs.getString("PAU_PRICE"));
 				place_timeVO.setPbu_date(rs.getDate("PBU_DATE"));
+				place_timeVO.setPau_date(rs.getDate("PAU_DATE"));
 				place_timeVO.setReport(rs.getInt("report"));
 				place_timeVO.setEva(rs.getInt("eva"));
 				place_timeVO.setEva_ct(rs.getString("eva_ct"));
@@ -543,6 +546,121 @@ public class Place_timeDAO implements Place_timeDAO_interface {
 				}
 			}
 		}
+		
+	}
+
+	@Override
+	public void payAfter(String pt_no) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement("Update place_time set pau_date = sysdate where pt_no = ?");
+			
+			pstmt.setString(1, pt_no);
+
+			pstmt.executeUpdate();
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+	}
+
+	@Override
+	public void eva(Integer eva,String eva_ct,String pt_no) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement("Update place_time set eva = ?,eva_ct = ? where pt_no = ?");
+			
+			pstmt.setInt(1, eva);
+			pstmt.setString(2, eva_ct);
+			pstmt.setString(3, pt_no);
+
+			pstmt.executeUpdate();
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		
+	}
+
+	@Override
+	public void deleteCalendar(String rp_date, Integer rp_time, String opc_acc) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement("DELETE FROM PLACE_time where rp_date = ? AND rp_time = ? AND opc_acc = ?");
+			pstmt.setDate(1, java.sql.Date.valueOf(rp_date));
+			pstmt.setInt(2, rp_time);
+			pstmt.setString(3, opc_acc);
+
+			pstmt.executeUpdate();
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. " + se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+
 		
 	}
 

@@ -30,13 +30,13 @@
 												<div data-toggle="dropdown" aria-haspopup="true"
 													aria-expanded="false">
 													<img
-														src="${pageContext.request.contextPath}/front_end/board/images/cmmtPrvt${message_board.bd_prvt }.png">
+														src="${pageContext.request.contextPath}/front_end/board/images/cmmtPrvt${message_board.bd_prvt }.png"  <c:if test="${message_board.mem_no.mem_no==user.mem_no }">onclick='addOpen2.call(this);'</c:if>>
 													<c:if test="${message_board.mem_no.mem_no==user.mem_no }">
 														<span class="caret"></span>
 												</div>
 
 												<ul class="dropdown-menu" id='cmtPrvt'>
-													<li><a href="#">隱私設定${message_board.mem_no.mem_no}</a></li>
+													<li><a href="#">隱私設定</a></li>
 													<li role="separator" class="divider"></li>
 													<li><a href="#" onclick="setCmmtPrvt.call(this,'${pageContext.request.contextPath}','${message_board.mem_no.mem_no }','${message_board.bd_msg_no }','0');">朋友</a></li>
 													<li><a href="#" onclick="setCmmtPrvt.call(this,'${pageContext.request.contextPath}','${message_board.mem_no.mem_no }','${message_board.bd_msg_no }','1');">公開</a></li>
