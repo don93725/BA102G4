@@ -33,7 +33,7 @@ FitkwVO fitkwVO = (FitkwVO) request.getAttribute("fitkwVO");
                     </small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="index.html">首頁</a>
+                    <li><a href="${pageContext.request.contextPath }">首頁</a>
                     </li>
                     <li class="active"><a href="${pageContext.request.contextPath }/front_end/fitkw/knowledges.jsp">健身知識列表</a></li>
                     <li class="active">健身知識</li>

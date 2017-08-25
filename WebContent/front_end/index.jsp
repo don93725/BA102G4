@@ -269,7 +269,7 @@
             		<ul style="list-style:none;margin-left:15px;">
 					<c:forEach var='fitkw' items="${fitkwList}">
 						<li style="margin-left: 0px; display: flex;">
-							<a>
+							<a href='<%= request.getContextPath()%>/FitkwCtrl?action=getOne_For_Display&fik_no=${fitkw.fik_no}'>
 								<span class="label label-lg label-pink arrowed-right">
 									${fitkw.fik_type }
 								</span>
@@ -284,7 +284,7 @@
 						<p></p>
 						</c:forEach>
 						<li style="margin-left: 0px; display: flex;">
-							<a>
+							<a href='<%= request.getContextPath()%>/front_end/fitkw/knowledges.jsp'>
 								<span>
 									看更多&nbsp<i class="icon-arrow-right"></i>
 								</span>						
