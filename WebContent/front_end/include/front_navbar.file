@@ -58,7 +58,7 @@
                                 <a href="<%= request.getContextPath()%>/AnnewShowCtrl">公告消息</a>
                             </li>
                             <li>
-                                <a href="#">健身知識</a>
+                                <a href="<%= request.getContextPath()%>/front_end/fitkw/knowledges.jsp">健身知識</a>
                             </li>
                             <li>
                                 <a href="<%= request.getContextPath()%>/front_end/browse/find_coaches.jsp">找教練</a>

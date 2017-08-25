@@ -70,4 +70,7 @@ public class FitkwService {
 	public byte[] getPic(String fik_no){
 		return ((FitkwDAO)dao).getPic(fik_no);
 	}
+	public List<FitkwVO> getFrontAll() {
+		return dao.getFrontAll();
+	}
 }

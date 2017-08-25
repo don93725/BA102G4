@@ -41,7 +41,8 @@ public class FitkwDAO implements FitkwDAO_interface {
 			"UPDATE fitkw set upd_date=sysdate,fik_type=?,fik_title=?, fik_ctx=? where fik_no = ?";
 		private static final String GET_PIC = 
 			"select fik_photo from fitkw where fik_no=?";
-
+		private static final String GET_FRONT_ALL_STMT = 
+				"SELECT fik_no,to_char(upd_date,'yyyy-mm-dd')upd_date,fik_type,fik_title,fik_ctx,fik_photo FROM fitkw order by upd_date desc";
 
 	@Override
 	public void insert(FitkwVO fitkwVO) {
@@ -558,5 +559,66 @@ public class FitkwDAO implements FitkwDAO_interface {
 			}
 		}
 		return photo;
+	}
+	@Override
+	public List<FitkwVO> getFrontAll() {
+		List<FitkwVO> list = new ArrayList<FitkwVO>();
+		FitkwVO fitkwVO = null;
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_FRONT_ALL_STMT);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				// annewsVO 銋迂� Domain objects
+				fitkwVO = new FitkwVO();
+				fitkwVO.setFik_no(rs.getString("fik_no"));
+				fitkwVO.setUpd_date(rs.getDate("upd_date"));
+				fitkwVO.setFik_type(rs.getString("fik_type"));
+				fitkwVO.setFik_title(rs.getString("fik_title"));
+				String ctx = rs.getString("fik_ctx");
+				if(ctx.length()>50){
+					ctx = ctx.substring(0, 50) + "...";
+				}
+				fitkwVO.setFik_ctx(ctx);
+				fitkwVO.setFik_photo(rs.getBytes("fik_photo"));
+				list.add(fitkwVO); // Store the row in the list
+			}
+
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return list;
 	}
 }

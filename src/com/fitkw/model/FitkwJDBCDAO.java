@@ -528,5 +528,11 @@ public class FitkwJDBCDAO implements FitkwDAO_interface {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public List<FitkwVO> getFrontAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 
