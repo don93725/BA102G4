@@ -1,25 +1,30 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page import="com.adapply.model.*"%>
 <%@ page import="java.util.*"%>
 
 
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn-en">
+
 <head>
-<title>°·³f - GymHome</title>
+    <title>å¥è²¨ - GymHome</title>
+		<%@include file="/front_end/include/basicScript.file" %>	
+</head>
+
+<body>
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- 		¿O½c -->
+<!-- 		ç‡ˆç®± -->
 <script src="<%=request.getContextPath() %>/style/assets/js/jquery-1.10.2.min.js"></script>
 <script src="<%=request.getContextPath() %>/style/assets/js/jquery.colorbox.js"></script>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/style/assets/css/colorbox.css"/>
 		
-<!-- datapicker¥Î		 -->
+<!-- datapickerç”¨		 -->
 <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
@@ -29,13 +34,18 @@
 	<script src="<%=request.getContextPath()%>/style/bootstrap-fileinput-master/js/fileinput.min.js"></script>	
 </head>
 <body>
+	<!-- å°è¦½åˆ— -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<%@include file="/front_end/include/front_navbar.file" %>
+    </nav>
+    
 <div class="container">
 	<div class="row col-xs-12 col-sm-4 col-sm-offset-3">
 	<table border='1' cellpadding='5' cellspacing='0' width='400'>
 		<tr bgcolor='#CCCCFF' align='center' valign='middle' height='20'>
 			<td>
-				<h3>¼s§i¥Ó½Ğ - addADD.jsp</h3>
-				<h3>${user.mem_nickname},§A¦n!!</h3>
+				<h3>å»£å‘Šç”³è«‹ - addADD.jsp</h3>
+				<h3>${user.mem_nickname},ä½ å¥½!!</h3>
 			</td>
 		</tr>
 	</table>
@@ -46,7 +56,7 @@
 
 	
 	<c:if test="${not empty errorMsgs}">
-		<font color='red'>¿ù»~:
+		<font color='red'>éŒ¯èª¤:
 			<ul>
 				<c:forEach var="message" items="${errorMsgs}">
 					<li>${message.value}</li>
@@ -63,11 +73,11 @@
 				
 				<div class="form-group">
 					<label for="ad_name" class="col-xs-12 col-sm-3 control-label">
-						¼s§i¦WºÙ:
+						å»£å‘Šåç¨±:
 					</label>
 					<div class="col-xs-12 col-sm-9">
 						<input type="text" name="ad_name" id="ad_name"  
-							value="${param.ad_name}" placeholder="½Ğ¿é¤J¼s§i¦WºÙ" class="form-control">
+							value="${param.ad_name}" placeholder="è«‹è¼¸å…¥å»£å‘Šåç¨±" class="form-control">
 							<font color='red'>${errorMsgs.ad_name}</font>
 					</div>
 				</div>
@@ -107,7 +117,7 @@
 			<div class="form-group">
 				<c:set var="nowDate" scope="page" value="<%=new java.sql.Date(System.currentTimeMillis())%>" />
 				<label for="date1" class="col-xs-12 col-sm-3 control-label">
-					¥Zµn¤é´Á:
+					åˆŠç™»æ—¥æœŸ:
 				</label>
 				<div class="col-xs-12 col-sm-9">
 					<input type="date" name="ad_ondate" id="date1"  min='${nowDate}'
@@ -119,7 +129,7 @@
 			<div class="form-group">
 				<c:set var="twDate" scope="page" value="<%=new java.sql.Date(System.currentTimeMillis()+1*24*3600*1000)%>" />
 				<label for="ad_offdate" class="col-xs-12 col-sm-3 control-label">
-					ºI¤î¤é´Á:
+					æˆªæ­¢æ—¥æœŸ:
 				</label>
 				<div class="col-xs-12 col-sm-9">
 					<input type="date" name="ad_offdate" id="date2"  min='${twDate}'
@@ -133,7 +143,7 @@
     		
     		<div class="form-group">
         		<label class="col-xs-12 col-sm-3 control-label">
-					À³¥Iª÷ÃB:
+					æ‡‰ä»˜é‡‘é¡:
 				</label>
 				<div class="col-xs-12 col-sm-9">
 					<font id="Money" size="50" color='red'></font>
@@ -143,7 +153,7 @@
 			
 			<div class="form-group">
 				<label class="col-xs-12 col-sm-3 control-label">
-					¼s§i±Ô­z:
+					å»£å‘Šæ•˜è¿°:
 				</label>
 				<div class="col-xs-12 col-sm-9">
 					<textarea rows="5"  name="ad_ctx" class="form-control"
@@ -155,7 +165,7 @@
 
 <!-- 			<div class="form-group"> -->
 <!-- 				<label class="col-xs-12 col-sm-3 control-label"> -->
-<!-- 					¼s§i¹Ï¤ù: -->
+<!-- 					å»£å‘Šåœ–ç‰‡: -->
 <!-- 				</label> -->
 <!-- 				<div class="col-xs-12 col-sm-9"> -->
 <!-- 					<input type="file" name="ad_pt" size="45" -->
@@ -178,8 +188,8 @@
 				<div class="col-xs-12 col-sm-9">
 <%-- 					<input type="hidden" name="ad_url" value="${user.mem_rank}">  --%>
 					<input type="hidden" name="action" value="insert"> 
-					<a class='inline ' href="#inline_content"><button class="btn btn-primary">Ãº¶O</button></a>
-<!-- 					<input type="submit" value="°e¥X·s¼W"> -->
+					<a class='inline ' href="#inline_content"><button class="btn btn-primary">ç¹³è²»</button></a>
+<!-- 					<input type="submit" value="é€å‡ºæ–°å¢"> -->
 				</div>
 			</div>
 		
@@ -188,7 +198,7 @@
 		</div>
 	</div>
 </div>
-								<!-- 	«H¥Î¥d¥I´Ú -->
+								<!-- 	ä¿¡ç”¨å¡ä»˜æ¬¾ -->
 	<div class="container">
 	<div class="row">							
 	<div style='display:none'>
@@ -238,10 +248,10 @@
        		 	</div>
        		 	<div class="form-group">
        		 	<label class="col-xs-12 col-sm-3 col-sm-offset-3 control-label">
-       		 		<input type="button" class="btn btn-warning btn-lg" value="¨ú®ø" onclick="$('.inline').colorbox.close();" class="form-control">
+       		 		<input type="button" class="btn btn-warning btn-lg" value="å–æ¶ˆ" onclick="$('.inline').colorbox.close();" class="form-control">
        		 	</label>
        		 	<div class="col-xs-12 col-sm-3">
-       		 		<input type="button" class="btn btn-primary btn-lg" value="¥I´Ú" onclick="$('#form1').submit();" class="form-control">
+       		 		<input type="button" class="btn btn-primary btn-lg" value="ä»˜æ¬¾" onclick="$('#form1').submit();" class="form-control">
        		 	</div>
        		 	</div>
    			 </div>
@@ -251,9 +261,9 @@
 	</div>
 	</div>
 	
-<!-- 	¥I´Ú¦b³o¥X²{ -->
+<!-- 	ä»˜æ¬¾åœ¨é€™å‡ºç¾ -->
 <!-- 	<div class="tab-content page" style="background-color:white;"> -->
-<!-- 		<div class="col-md-12"><a class='inline' href="#inline_content"><button class="btn btn-primary">Ãº¶O</button></a></div> -->
+<!-- 		<div class="col-md-12"><a class='inline' href="#inline_content"><button class="btn btn-primary">ç¹³è²»</button></a></div> -->
 <!-- 	</div> -->
 	
 	 <script src="<%=request.getContextPath()%>/style/card-master/dist/card.js"></script>
@@ -309,28 +319,34 @@ $(document).ready(function(){
 		});
 
 		function DateMoney() {
-			//©w¸q°_©l ¦~¤ë¤é
+			//å®šç¾©èµ·å§‹ å¹´æœˆæ—¥
 			var StartDate = $("#date1").val();
-			//©w¸qµ²§ô ¦~¤ë¤é
+			//å®šç¾©çµæŸ å¹´æœˆæ—¥
 			var EndDate = $("#date2").val();
 
-			console.log('¬Û®t ' + (DateDifference(StartDate, EndDate)) + '¤Ñ'
-					+ '¦@' + (DateDifference(StartDate, EndDate)) * 500 + '¤¸');
+			console.log('ç›¸å·® ' + (DateDifference(StartDate, EndDate)) + 'å¤©'
+					+ 'å…±' + (DateDifference(StartDate, EndDate)) * 500 + 'å…ƒ');
 			var round = Math.round((DateDifference(StartDate, EndDate)) * 500)
-			$('#Money').text(" $ " + round + "¤¸");
+			$('#Money').text(" $ " + round + "å…ƒ");
 		}
-		// ºâ¥X¤é´Á»P¤é´Á¶¡ªº®t¶Z¦³´X¤Ñ
+		// ç®—å‡ºæ—¥æœŸèˆ‡æ—¥æœŸé–“çš„å·®è·æœ‰å¹¾å¤©
 		function DateDifference(StartDate, EndDate) {
 
 			var myStartDate = new Date(StartDate);
 			var myEndDate = new Date(EndDate);
 
-			// ¤Ñ¼Æ¡A86400000¬O24*60*60*1000¡A°£¥H86400000´N¬O¦³´X¤Ñ
+			// å¤©æ•¸ï¼Œ86400000æ˜¯24*60*60*1000ï¼Œé™¤ä»¥86400000å°±æ˜¯æœ‰å¹¾å¤©
 			return (myEndDate - myStartDate) / 86400000;
 
 		}
 		
 		
 	</script>
+<!-- å›é ‚ç«¯ã€Footerã€æœ€åº•éƒ¨ -->
+	<%@include file="/front_end/include/footer.file" %>
+	
 </body>
+	<!--navbaræ·¡å…¥ã€ä¸‹æ‹‰å¼é¸å–®æ»‘å‹•ã€navbarè®Šè‰²ã€ç‰©ä»¶æ·¡å‡ºæ•ˆæœã€å›åˆ°æœ€é ‚ç«¯ã€æ§åˆ¶å­—æ•¸é¡¯ç¤º -->
+	<%@include file="/front_end/include/basicScript2.file" %>
 </html>
+<div id="backTop"></div>
