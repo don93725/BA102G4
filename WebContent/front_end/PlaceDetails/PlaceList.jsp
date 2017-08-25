@@ -111,7 +111,7 @@
 	                                        <td>${place_timeVO.placeVO.p_name}</a></td>
 	                                        <td>${place_timeVO.placeVO.p_add}</a></td>
 	                                        <td>$${place_timeVO.pbu_price} / $${place_timeVO.pau_price}</td>
-	                                        <td><a href="<%=request.getContextPath()%>/front_end/CourseDetails/courseInfo.jsp?ct_no=${place_timeVO.pt_no}&crs_no=${place_timeVO.placeVO.p_no}"><button class="btn btn-inverse" style="border-radius:6px;">預訂/觀看詳情</button></a></td>
+	                                        <td><a href="<%= request.getContextPath() %>/PlaceInfoServlet?p_no=${place_timeVO.placeVO.p_no}&action=lookPlaceInfoByP"><button class="btn btn-inverse" style="border-radius:6px;">預訂/觀看詳情</button></a></td>
 	                                    </tr>
 									</c:forEach>
                                  </tbody>
