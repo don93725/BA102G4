@@ -97,7 +97,10 @@ public class Place_PublishServlet extends HttpServlet {
 		if("orderPlace".equals(action)) {
 			Map<String,String> errorMsgs = new LinkedHashMap<String,String>();
 			req.setAttribute("errorMsgs", errorMsgs);
+			HttpSession session = req.getSession();
+			MembersVO membersVO = (MembersVO)session.getAttribute("user");
 			try{
+				String acc = membersVO.getMem_acc();
 				String p_no = req.getParameter("p_no");
 				String rp_date = req.getParameter("rp_date");
 				Integer rp_time = Integer.valueOf(req.getParameter("rp_time"));
@@ -122,7 +125,7 @@ public class Place_PublishServlet extends HttpServlet {
 					return;
 				}
 				Place_PublishService ppSV = new Place_PublishService();
-				ppSV.order(p_no,rp_date, rp_time, pbu_price, pau_price);
+				ppSV.order(p_no,rp_date, rp_time, pbu_price, pau_price, acc);
 				return;
 			}catch(Exception e){
 				e.printStackTrace();

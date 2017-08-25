@@ -21,13 +21,14 @@ public class Place_PublishService {
 		dao.unPublish(p_no);
 	}
 
-	public void order(String p_no, String rp_date, Integer rp_time, String  pbu_price, String pau_price){
+	public void order(String p_no, String rp_date, Integer rp_time, String  pbu_price, String pau_price,String acc){
 		Place_PublishVO pp = new Place_PublishVO();
 		pp.setP_no(p_no);
 		pp.setRp_date(java.sql.Date.valueOf(rp_date));
 		pp.setRp_time(rp_time);
 		pp.setPbu_price(pbu_price);
 		pp.setPau_price(pau_price);
+		pp.setOpc_acc(acc);
 		dao.order(pp);
 	}
 }
