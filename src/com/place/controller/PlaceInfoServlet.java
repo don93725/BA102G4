@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +38,10 @@ public class PlaceInfoServlet extends HttpServlet {
 				PlaceVO placeVO = placeSV.getPlaceInfoByP_no(p_no);
 				System.out.println("placeVO= "+placeVO);
 				req.setAttribute("placeVO", placeVO);
-				
+				String url = "/front_end/place_info/place_info.jsp";
+				RequestDispatcher successView = req.getRequestDispatcher(url);
+				successView.forward(req, res);
+				return;
 			}catch(Exception e) {
 				e.printStackTrace();
 			}

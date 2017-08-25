@@ -71,21 +71,6 @@
                             </select>
                     </div>
 		
-					<div class="col-lg-2">
-                            <input type="text" name="rp_date" id="rp_date" placeholder="場地日期">
-                    </div>
-                    
-                    <div class="col-lg-2">
-                            <select class="form-control" name="rp_time" id="rp_time">
-                                <option value="null">選擇時段</option>
-                                <option value="1">08:00-09:30</option>
-                                <option value="2">10:00-11:30</option>
-                                <option value="3">13:00-14:30</option>
-                                <option value="4">15:00-16:30</option>
-                                <option value="5">18:00-19:30</option>     
-                                <option value="6">20:00-21:30</option>            
-                            </select>
-                    </div>
                     
                     <div class="col-lg-1">
                     	<input type="button" class="btn btn-info" id="sendSelectbtn"  value="送出條件">
@@ -114,7 +99,6 @@
                                         <th class="center">容納人數</th>
                                         <th>場館</th>
                                         <th>地址</th>
-                                        <th>時段</th>
                                         <th>訂金/尾款</th>
                                         <th>預定按鈕</th>
                                      </tr>
@@ -126,9 +110,8 @@
 	                                        <td class="center"><span class="label label-xs label-warning arrowed-in">${place_timeVO.placeVO.p_cap}人</span></td>
 	                                        <td>${place_timeVO.placeVO.p_name}</a></td>
 	                                        <td>${place_timeVO.placeVO.p_add}</a></td>
-	                                        <td>${place_timeVO.rp_date}<br>${place_timeVO.rp_timeShow}</td>
 	                                        <td>$${place_timeVO.pbu_price} / $${place_timeVO.pau_price}</td>
-	                                        <td><a href="<%=request.getContextPath()%>/front_end/CourseDetails/courseInfo.jsp?ct_no=${place_timeVO.pt_no}&crs_no=${place_timeVO.placeVO.p_no}"><button class="btn btn-inverse" style="border-radius:6px;">報名/觀看詳情</button></a></td>
+	                                        <td><a href="<%= request.getContextPath() %>/PlaceInfoServlet?p_no=${place_timeVO.placeVO.p_no}&action=lookPlaceInfoByP"><button class="btn btn-inverse" style="border-radius:6px;">預訂/觀看詳情</button></a></td>
 	                                    </tr>
 									</c:forEach>
                                  </tbody>
@@ -176,7 +159,7 @@ $(function(){
 });
 
 function sendSelect(){
-	if($("#p_name").val() == '' && $("#p_add").val() == '' && $("select[name='p_cap']").val() == 'null' && $("#rp_date").val() == '' && $("select[name='rp_time']").val() == 'null'){
+	if($("#p_name").val() == '' && $("#p_add").val() == '' && $("select[name='p_cap']").val() == 'null'){
 		swal("未選擇條件", "Please choose at least one condition!", "error");
 	}else{
 		$("#sendSelect").click();

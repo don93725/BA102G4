@@ -295,11 +295,13 @@
             </div>
             <!-- 健身知識 結束-->
              
-            <div class="col-xs-12 col-md-4">
+            <div class="col-xs-12 col-md-4"  >
             	<!--廣告圖-->
-                <img class="img-responsive" src="http://ochappy-co.cocolog-nifty.com/photos/uncategorized/2015/03/01/pic_006.jpg" style="width: 100%;">
-<%-- 		        <%@ include file="/front_end/adapply/rollingAD.file" %> --%>
-            </div>
+<!--                 <img class="img-responsive" src="http://ochappy-co.cocolog-nifty.com/photos/uncategorized/2015/03/01/pic_006.jpg" style="width: 100%;"> -->
+<%-- 					<%@ include file="/front_end/adapply/sliderAD.jsp"%> --%>
+					<%@ include file="/front_end/adapply/FanPage.jsp" %>
+
+				</div>
         </div>
 </div><!-- page container3結束 -->
 </div><!-- 最新消息+健身知識 結束 -->

@@ -35,8 +35,8 @@ public class Place_timeDAO implements Place_timeDAO_interface {
 	private static final String INSERT_STMT = "INSERT INTO PLACE_TIME (PT_NO,P_NO,OPC_ACC,RP_DATE,RP_TIME,OP_DATE,PBU_PRICE,PAU_PRICE,PBU_DATE) VALUES (PLACE_TIME_sq.Nextval,?,?,?,?,?,?,?,?)";
 
 	private static final String GET_ALL_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where pt.opc_acc = ? AND rp_date > sysdate";
-	private static final String GET_ALL_LIST_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where rp_date > sysdate";
-	private static final String GET_ALL_LIST_SELECT_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where rp_date > sysdate";
+	private static final String GET_ALL_LIST_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where p.p_status=1";
+	private static final String GET_ALL_LIST_SELECT_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where p.p_status=1";
 	private static final String GET_ALL_COA_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where pt.opc_acc = ? AND rp_date > sysdate";
 	private static final String GET_ALL_USED_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where pt.opc_acc = ? AND rp_date < sysdate";
 	private static final String GET_ONE_STMT = "SELECT * FROM PLACE_TIME pt JOIN place p ON pt.p_no = p.p_no JOIN gyms g on g.gym_acc = p.g_acc where pt.pt_no = ?";

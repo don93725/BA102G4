@@ -203,7 +203,7 @@
 							</a>
 						</li>
 
-						<li style="width:14em;" id="shitMap" onclick="initMap(${course_timeVO.placeVO.p_latlng})">
+						<li style="width:14em;" id="shitMap" onclick="initMap('${course_timeVO.placeVO.p_latlng}')">
 							<a data-toggle="tab" href="#placedetail">
 								<i class="blue glyphicon glyphicon-map-marker" style="font-size:20px;"></i>
 								<font style="font-size:20px;" >場地資訊</font>

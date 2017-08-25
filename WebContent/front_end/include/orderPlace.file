@@ -1,0 +1,98 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ 
+	<div style='display:none'>
+		<div id='order_content' style='padding:0px; background:#fff;'>
+			<h1>預定場地</h1>
+			<form>
+				教練帳號:<br><div id="" style="display:none;color:red;"></div>
+				<input type="text" name="" id=""><br>
+				租借日期：<br><div id="alertA_p_cap" style="display:none;color:red;"></div>
+				<input id="thedate" type="text" /><br>
+				租借時段：<br><div id="alertA_p_add" style="display:none;color:red;"></div>
+				<select>
+					<option>08:00-09:30</option>
+					<option>10:00-11:30</option>
+					<option>13:00-14:30</option>
+					<option>15:00-16:30</option>
+					<option>18:00-19:30</option>
+					<option>20:00-21:30</option>
+				</select>
+				<br>
+				訂購價錢:<br><div id="alertA_p_into" style="display:none;color:red;"></div>
+				<span style="color:red;">${placeVO.place_publishVO.pbu_price}</span><br>
+				<br>
+				尾款價錢:<br><div id="alertA_p_into" style="display:none;color:red;"></div>
+				<span style="color:red;">${placeVO.place_publishVO.pau_price}</span><br>
+				<input type="button" class="btn btn-primary" value="新增" onclick="sendA();">
+				<input type="reset" class="btn btn-default" name="" value="重新填寫" id="cancel">
+				<br>
+			</form>
+		</div>
+	</div>
+	
+	<!-- 本頁面專屬js -->
+	<script>
+		function fuckMe(){
+			$("#p_add1_value").val($("#gym_add1").val());
+		}
+		
+		function fuckYou() {
+			$("#p_name1_value").val("格鬥八角鐵籠");
+			$("#p_cap1_value").val("10");
+			$("#p_add1_value").val("台北市大安區敦化南路一段232巷6號B1");
+			$("#p_into1_value").val("可做為MMA之訓練場地，並提供賽事之舉辦與租借。");
+		}
+
+		function sendA() {
+			swal({
+				title: "確定新增?",
+				type: "info",
+				showCancelButton: true,
+				confirmButtonColor: "#F8BB86",
+				cancelButtonText: "取消",
+				confirmButtonText: "確定",
+				closeOnConfirm: false
+			},function(response){
+				if(response){
+					$.ajax({
+						url : webCtx + '/PlaceServlet',
+						data : {
+							p_name : $("#p_name1_value").val(),
+							p_cap : $("#p_cap1_value").val(),
+							p_add : $("#p_add1_value").val(),
+							p_into : $("#p_into1_value").val(),
+							action : 'insert'
+						},
+						type : "POST",
+						dataType : 'text',
+						
+						success : function(msg) {
+							if(msg.length == 0) {
+								swal({
+									title : "新增成功!",
+									text : "資料已新增成功",
+									type : "success",
+									showConfirmButton : false
+								});
+									$(".inline").colorbox.close();
+									setTimeout("location.reload()",1000);
+							}else {
+								swal({
+									title : "失敗",
+									text : "內容不正確",
+									type : "error"
+								});
+									$.each(JSON.parse(msg), function(key, value){
+										$('#alertA_' + key.trim()).css('display','block');
+										$('#alertA_' + key.trim()).html(value);
+									})
+							}						
+						},
+						error : function(xhr, ajaxOptions, thrownError) {						
+							swal("失敗", "404或500", "error");
+						}
+					});
+				}
+			});
+		}
+	</script>
