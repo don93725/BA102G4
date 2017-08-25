@@ -53,7 +53,7 @@
             <div class="col-md-4">
                 <div class="panel panel-success">
                     <div class="panel-heading">
-                        <h4><center><i class="icon-star icon-lg"></i>找教練?${user.mem_no}${user.mem_acc}${user.mem_rank}${user.mem_nickname}</center></h4>
+                        <h4><center><i class="icon-star icon-lg"></i>找教練?</center></h4>
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>

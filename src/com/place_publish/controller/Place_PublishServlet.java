@@ -104,19 +104,11 @@ public class Place_PublishServlet extends HttpServlet {
 				String p_no = req.getParameter("p_no");
 				String rp_date = req.getParameter("rp_date");
 				Integer rp_time = Integer.valueOf(req.getParameter("rp_time"));
-				if(1!=rp_time&& 2!=rp_time&& 3!=rp_time && 4!=rp_time && 5!=rp_time && 6!=rp_time){
-					errorMsgs.put("rp_time", "時段不正確");
-				}
+
 				String pbu_price = req.getParameter("pbu_price");
-				String pbu_price_ck = "^[0-9]*$";
-				if(!(pbu_price_ck.matches(pbu_price))){
-					errorMsgs.put("pbu_price", "訂金錯誤");
-				}
+
 				String pau_price = req.getParameter("pau_price");
-				String pau_price_ck = "^[0-9]*$";
-				if(!(pau_price_ck.matches(pau_price))){
-					errorMsgs.put("pau_price_ck", "尾款錯誤");
-				}
+
 				System.out.println("data= " + rp_date + rp_time + pbu_price + pau_price);
 				if(!errorMsgs.isEmpty()){
 					System.out.println("errorMsgs != 空的");

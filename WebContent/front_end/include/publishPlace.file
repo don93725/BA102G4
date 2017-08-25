@@ -111,7 +111,6 @@
 				success : function(msg) {
 					$.each(JSON.parse(msg), function(key, value){
 						$('#imggg' + key).prop('src',value);
-						alert(key + " " + value);
 					})
 				},
 				error : function(xhr, ajaxOptions, thrownError) {						
