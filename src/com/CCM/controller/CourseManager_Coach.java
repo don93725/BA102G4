@@ -170,6 +170,45 @@ private final static String CONTENT_TYPE = "text/html; charset=UTF-8";
 			
 			msg = course_listSvc.updateNSta(ct_no, stu_acc);
 			
+			if(msg ){
+				
+				msgs.put("true","true");
+				
+				
+				writeText(rp, gson.toJson(msgs));
+				
+				System.out.println(msgs);
+			}else{
+				
+				
+				System.out.println("false");
+			}
+			
+	
+		
+		
+		
+		
+		}	
+		
+		
+		
+		
+		if (action.equals("dontGoClass")) {
+			
+			String ct_no = jsonObject.get("ct_no").getAsString();
+			String stu_acc = jsonObject.get("stu_acc").getAsString();
+			String reason = jsonObject.get("reason").getAsString();
+			System.out.println(ct_no+""+stu_acc+""+reason );
+			
+				
+			Map<String,String>msgs = new LinkedHashMap<String,String>()	;				
+			
+			boolean msg;
+						
+			
+			msg = course_listSvc.updateNStaAndroid(ct_no, stu_acc, reason);
+			
 			if(msg == true){
 				
 				msgs.put("true","true");
@@ -190,6 +229,12 @@ private final static String CONTENT_TYPE = "text/html; charset=UTF-8";
 		
 		
 		}	
+		
+		
+		
+		
+		
+		
 		
 		
 		
