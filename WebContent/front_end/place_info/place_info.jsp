@@ -22,6 +22,17 @@
  		var path = window.location.pathname;
  		webCtx = path.substring(0, path.indexOf('/', 1));
 	})
+	function hello() {
+		$('.inline').colorbox({
+			inline: true,
+			width: "50%",
+		});
+		var start = '#datepicker';
+			  $(start).datepicker({
+			    dateFormat: 'yy-mm-dd',
+			    minDate : +1
+			  });
+	}
 </script>
 <body>
 <!-- 我要預定視窗 -->
@@ -62,7 +73,6 @@
     	<div class="row">
     		<div class="col-lg-12">
     			<h2>${placeVO.p_name}</h2>
-    			<h2>${placeVO.place_publishVO.pt_no}</h2>
     		</div>
     		
 			<div class="col-xs-12 col-lg-7" style="position:relative;">
@@ -173,7 +183,7 @@
 					</c:when>
 					<c:otherwise>
 						<div class="col-xs-12 col-sm-4" id="signUp" style="cursor: pointer;">
-							<a class='inline' href="#order_content" onclick="hello()">
+							<a class='inline' href="#order_content" onclick="hello();">
 								<p style="margin-top:1em;">
 								<font style="font-size:30px;" id="signUpFont">馬上租借</font>
 								</p>
@@ -184,6 +194,110 @@
 			</div>
 			</center>
 		</div>
+		
+		<div class="row" style="margin-top:3em;">
+			<div class="col-sm-12" style="padding-left:0px;padding-right:0px;">
+				
+					<ul class="nav nav-tabs" id="myTab">
+						<li class="active" style="width:14em;">
+							<a data-toggle="tab" href="#xxx">
+								<i class="green icon-home bigger-110" style="font-size:20px;"></i>
+								<font style="font-size:20px;">課程行事曆</font>
+							</a>
+						</li>
+
+						<li style="width:14em;">
+							<a data-toggle="tab" href="#profile">
+								<i class="red glyphicon glyphicon-bullhorn" style="font-size:20px;"></i>
+								<font style="font-size:20px;">問與答</font>
+									<span class="badge badge-danger" style="font-size:16px;">${course_timeVO.cmtNum}</span>
+							</a>
+						</li>
+
+						<li style="width:14em;" id="shitMap" onclick="initMap(${course_timeVO.placeVO.p_latlng})">
+							<a data-toggle="tab" href="#placedetail">
+								<i class="blue glyphicon glyphicon-map-marker" style="font-size:20px;"></i>
+								<font style="font-size:20px;" >場地資訊</font>
+							</a>
+						</li>
+					</ul>
+
+					<div class="tab-content" >	
+						<div class="row tab-pane active" id="xxx">
+				<div class="col-sm-9">
+					<div class="space"></div>
+
+					<div id="calendar"></div>
+				</div>
+
+				<div class="col-sm-3">
+					<div class="widget-box transparent">
+						<div class="widget-header">
+							<h4>時段:</h4>
+						</div>
+
+						<div class="widget-body">
+							<div class="widget-main no-padding">
+								<div id="external-events">
+
+
+									<div class="external-event label-success"
+										data-class="label-success">
+										<i class="glyphicon glyphicon-search"></i> 08:00-09:30
+									</div>
+
+									<div class="external-event label-danger"
+										data-class="label-danger">
+										<i class="glyphicon glyphicon-search"></i> 10:00-11:30
+									</div>
+
+									<div class="external-event label-purple"
+										data-class="label-purple">
+										<i class="glyphicon glyphicon-search"></i> 13:00-14:30
+									</div>
+
+									<div class="external-event label-yellow"
+										data-class="label-yellow">
+										<i class="glyphicon glyphicon-search"></i> 15:00-16:30
+									</div>
+
+									<div class="external-event label-pink" data-class="label-pink">
+										<i class="glyphicon glyphicon-search"></i> 18:00-19:30
+									</div>
+
+									<div class="external-event label-info" data-class="label-info">
+										<i class="glyphicon glyphicon-search"></i> 20:00-21:30
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+						<p></p>
+						<div id="profile" class="tab-pane">
+							<%@include file="/front_end/CourseDetails/person_comments.file" %>
+						</div>
+						<c:if test="${course_timeVO.placeVO.p_no != null }">
+							<div id="placedetail" class="tab-pane">
+								<div class="map" style="height: 800px;width: 1100px;margin: 0px;padding: 0px;">     
+									<div id="map" style="height: 100%;">
+									</div>
+								</div>
+							</div>
+						</c:if>
+						<c:if test="${course_timeVO.placeVO.p_no == null }">
+							<div id="placedetail" class="tab-pane">
+								<font style="font-size:40px;" >教練並沒有選擇場地,嗚嗚嗚嗚</font><br>
+								<img src="<%= request.getContextPath()%>/front_end/CourseDetails/images/don.jpg" width="900" height="600">
+							</div>
+						</c:if>
+					</div>
+				
+			</div><!-- /span -->
+			
+		</div><!-- row end -->
 		
 		
 </div>

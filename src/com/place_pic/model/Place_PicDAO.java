@@ -88,7 +88,6 @@ public class Place_PicDAO implements Place_PicDAO_interface{
 			while(rs.next()){
 				pic_noList.add(rs.getString("p_base"));
 			}
-			System.out.println("pic_noList" + pic_noList);
 		} catch(SQLException se) {
 			try {
 				se.printStackTrace();

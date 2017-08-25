@@ -12,6 +12,7 @@
 		<div id='order_content' style='padding:0px; background:#fff;'>
 			<h1>預定場地</h1>
 			<form>
+				<input type="text" id="p_nooo" value="${placeVO.p_no}">
 				教練帳號:<br><div id="" style="display:none;color:red;"></div>
 				<input type="text" id="mem_acc"><br>
 				租借日期：<br><div id="" style="display:none;color:red;"></div>
@@ -45,19 +46,6 @@
 
 	<!-- 本頁面專屬js -->
 	<script>
-	
-	function hello() {
-		$('.inline').colorbox({
-			inline: true,
-			width: "50%",
-		});
-		var start = '#datepicker';
-			  $(start).datepicker({
-			    dateFormat: 'yy-mm-dd',
-			    minDate : +1
-			  });
-	}
-
 		function sendO() {
 			swal({
 				title: "確定送出?",
@@ -72,10 +60,11 @@
 					$.ajax({
 						url : webCtx + '/Place_PublishServlet',
 						data : {
-							p_name : $("#p_name1_value").val(),
-							p_cap : $("#p_cap1_value").val(),
-							p_add : $("#p_add1_value").val(),
-							p_into : $("#p_into1_value").val(),
+							p_no : $("#p_nooo"),
+							rp_date : $("#datepicker").val(),
+							rp_time : $("#rp_time").val(),
+							pbu_price : $("#pbu_price").html(),
+							pau_price : $("#pau_price").html(),
 							action : 'orderPlace'
 						},
 						type : "POST",
@@ -84,8 +73,8 @@
 						success : function(msg) {
 							if(msg.length == 0) {
 								swal({
-									title : "新增成功!",
-									text : "資料已新增成功",
+									title : "申請成功!",
+									text : "資料已申請成功",
 									type : "success",
 									showConfirmButton : false
 								});
@@ -93,7 +82,7 @@
 									setTimeout("location.reload()",1000);
 							}else {
 								swal({
-									title : "失敗",
+									title : "申請失敗",
 									text : "內容不正確",
 									type : "error"
 								});
@@ -111,7 +100,6 @@
 			});
 		}
 	</script>
-
 <!-- colorbox -->
 <script src="<%= request.getContextPath() %>/style/assets/js/jquery.colorbox.js"></script>
 <link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/colorbox.css" />

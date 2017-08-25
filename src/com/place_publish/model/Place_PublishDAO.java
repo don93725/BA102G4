@@ -35,6 +35,9 @@ public class Place_PublishDAO implements Place_PublishDAO_interface{
 			"Delete place_time where p_no = ?";
 	private static final String UNPUBLISH_PUBLIS_STAT =
 			"Update place set p_status = 0 where p_no = ?";
+	private static final String UPDATE_P_TIME =
+			"update place_time set rp_date"
+			+ " = ?, rp_time = ?, op_date = default, pbu_price = ?, pau_price =?";
 	
 	@Override
 	public void insert(Place_PublishVO place_publishVO) {
@@ -126,5 +129,46 @@ public class Place_PublishDAO implements Place_PublishDAO_interface{
 			}
 		}
 	}
-
+	public void order(Place_PublishVO pp) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try {
+			con = ds.getConnection();
+			con.setAutoCommit(false);
+			
+			pstmt = con.prepareStatement(UPDATE_P_TIME);
+			pstmt.setDate(1, pp.getRp_date());
+			pstmt.setInt(2, pp.getRp_time());
+			pstmt.setString(3,pp.getPbu_price());
+			pstmt.setString(4, pp.getPau_price());
+			pstmt.executeUpdate();
+			System.out.println("delete pt and update place_status complete");
+			con.commit();
+			con.setAutoCommit(true);
+			
+		} catch(SQLException se) {
+			try {
+				se.printStackTrace();
+				con.rollback();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} 
+		} finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if(con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
 }
