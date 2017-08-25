@@ -123,8 +123,6 @@ function sendC() {
 	$.each($('.aaaa'),function(){
 		data.append("pic",$(this).attr('src'));
 		data.append("p_no",$('.ppp_no').val());
-		alert($(this).attr('src'));
-		alert($('.ppp_no').val());
 	});
 	$.ajax({
 		url : webCtx + '/PlaceServlet?action=insertPic',
