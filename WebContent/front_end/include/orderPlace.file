@@ -39,9 +39,7 @@
 		</div>
 	</div>
 	
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 
 	<!-- 本頁面專屬js -->
@@ -65,7 +63,7 @@
 							rp_time : $("#rp_time").val(),
 							pbu_price : $("#pbu_price").html(),
 							pau_price : $("#pau_price").html(),
-							action : 'orderPlace'
+							action : 'orderPlace',
 						},
 						type : "POST",
 						dataType : 'text',
