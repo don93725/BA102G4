@@ -79,5 +79,7 @@ public class StudentsService {
 		return true;
 	}
 
-
+	public void update_forPic(String stu_no, byte[] coa_pic_byte) {
+		dao.update_forPic(stu_no, coa_pic_byte);
+	}
 }

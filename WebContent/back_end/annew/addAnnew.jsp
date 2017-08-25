@@ -5,23 +5,30 @@
 AnnewVO annewVO = (AnnewVO) request.getAttribute("annewVO");
 %>
 
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-cn-en">
 <head>
-<title>公告消息新增</title></head>
 
-<body bgcolor='#E8FFFF'>
+<title>健貨後台管理系統</title>
+	<%@include file="/back_end/include/basic_ace_script.file" %>
 
-<table border='5' cellpadding='5' cellspacing='0' width='400' style="border-color:#FFD700;">
-	<tr bgcolor='yellow' align='center' valign='middle' height='20'>
-		<td>
-		<h3>公告消息新增</h3>
-		<a href="selectAnnew_page.jsp">回首頁</a>
-		</td>
+</head>
+<body>
+<%@include file="/back_end/include/navbar.file" %>
+<%@include file="/back_end/include/sliderBar_breadCrumb.file" %>
 
-	</tr>
-</table>
-
-<h3>資料:</h3>
+	<div class="page-content">
+		<div class="page-header">
+			<h1>
+				公告消息新增 <small> <i class="icon-double-angle-right"></i>
+						Announces maker <i class="icon-double-angle-right"></i>  <a href="selectAnnew_page.jsp">回首頁</a>
+				</small>
+			</h1>
+		</div>
+		<!-- /.page-header -->
+		<div class='container'>
+	<div class='row'>
+	<h3>資料:</h3>
 <%-- 錯誤表列 --%>
 <c:if test="${not empty errorMsgs}">
 	<font color='red'>請修正以下錯誤:
@@ -34,33 +41,85 @@ AnnewVO annewVO = (AnnewVO) request.getAttribute("annewVO");
 </c:if>
 
 <FORM METHOD="post" ACTION="annew.do" name="form1" enctype="multipart/form-data">
-<table border="2" bgcolor="#FFB01C" style="border-color:#0000FF;">
-
+<table class="table">
+	<tbody>
 	<tr>
 		<td>公告標題:</td>
-		<td><input type="TEXT" name="ann_title" size="45" style="background-color:#C9FFC9;"
+		<td><input class='form-control' type="TEXT" name="ann_title" size="45" style="background-color:#C9FFC9;"
 			value="<%= (annewVO==null)? "" : annewVO.getAnn_title()%>" /></td>
 	</tr>
 	
 	<tr>
 		<td>公告內文:</td>
-		<td align='center'><textarea name= "ann_ctx" rows="20" cols="40" style="resize:none;border:2px #00C700 dashed;background-color:#C9FFC9;"></textarea></td>
+		<td><textarea class='form-control' name= "ann_ctx" rows="20" cols="40" style="resize:none;border:2px #00C700 dashed;background-color:#C9FFC9;"></textarea></td>
 	</tr>
 	
 	<tr>
 		<td>公告圖片:</td>
-		<td><input type="file" name="ann_photo"/></td>
+		<td>
+		<img id='pic' src=''>
+		<input class='btn btn-info' type="button" onclick='upload();' value='上傳圖片'/></td>
+		<input  id='file' type="file" name="ann_photo" style='display:none;'/>
 	</tr>
 	
-<!-- 	<tr> -->
-<!-- 		<td>附件檔案:</td> -->
-<!-- 		<td><input type="file" name="att_no"/></td> -->
-<!-- 	</tr> -->
-
+	<tr align='center'>
+		<td colspan='2'>
+		<input type="hidden" name="action" value="insert">
+		<input type="submit" class='btn btn-primary' value="送出新增" >
+		<input type="reset" class='btn btn-danger' value="重填" >
+		</td>
+	</tr>
+</tbody>
 </table>
 <br>
-<input type="hidden" name="action" value="insert">
-<input type="submit" value="送出新增" style="width:80px;height:40px;font-size:15px;"></FORM>
-</body>
+</FORM>
+	</div>
+</div>
 
+
+
+<script type="text/javascript">
+window.onload = init;
+function init(){
+	Preview.file_change();
+}
+function upload(){
+	$('#file').trigger('click');
+}
+
+Preview = new function() {
+	var fileInput = $('#file');
+	this.file_change = function() {
+		$('#file').on('change', function() {
+			
+			show(this);
+		});
+	}
+	var show = function(input) {
+		if (input.files && input.files[0]) {
+			each_img(input.files);
+		}
+	}			
+	var each_img = function(files) {
+		$.each(files,function(index, file) {
+				if (file.type.match('image')) {
+					var reader = new FileReader();				
+					reader.onload = function() {
+						$('#pic').prop('src',reader.result);
+						$('#pic').css('display',"block");
+						$('#pic').css('height',"200px");
+					}
+					if (file) {
+						reader.readAsDataURL(file);
+					}
+				}
+			});
+	}
+
+}
+</script>
+		<%@include file="/back_end/include/ace_setting_footer.file"%>
+</body>
 </html>
+
+

@@ -83,12 +83,12 @@
                     <div class="col-lg-2">
                             <select class="form-control" name="crs_time" id="crs_time">
                                 <option value="null">選擇時段</option>
-                                <option value="1">早上-1</option>
-                                <option value="2">早上-2</option>
-                                <option value="3">下午-1</option>
-                                <option value="4">下午-2</option>
-                                <option value="5">晚上-1</option>     
-                                <option value="6">晚上-2</option>            
+                                <option value="1">08:00-09:30</option>
+                                <option value="2">10:00-11:30</option>
+                                <option value="3">13:00-14:30</option>
+                                <option value="4">15:00-16:30</option>
+                                <option value="5">18:00-19:30</option>     
+                                <option value="6">20:00-21:30</option>            
                             </select>
                     </div>
                     
@@ -129,12 +129,12 @@
 
                                 <tbody>
 									<c:forEach var="course_timeVO" items="${crsList}">
-	                                    <tr>
+	                                    <tr style="font-weight:bold;">
 	                                        <td class="center"><span class="label label-xs label-warning arrowed-in">${course_timeVO.courseVO.categoryChange}</span></td>
 	                                        <td>${course_timeVO.coachesVO.coa_name}</td>
 	                                        <td><a href="#">${course_timeVO.placeVO.p_name}</a></td>
 	                                        <td>${course_timeVO.courseVO.crs_name}</td>
-	                                        <td>${course_timeVO.crs_date}-${course_timeVO.crs_timeShow}</td>
+	                                        <td>${course_timeVO.crs_date}<br>${course_timeVO.crs_timeShow}</td>
 	                                        <td>${course_timeVO.count}/${course_timeVO.limit}</td>
 	                                        <td>$${course_timeVO.price}</td>
 	                                        <td><a href="<%=request.getContextPath()%>/front_end/CourseDetails/courseInfo.jsp?ct_no=${course_timeVO.ct_no}&crs_no=${course_timeVO.crs_no}"><button class="btn btn-inverse" style="border-radius:6px;">報名/觀看詳情</button></a></td>
@@ -211,3 +211,9 @@ function readAll(){
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+<style type="text/css">
+.btn {
+	border-radius:6px;
+}
+</style>

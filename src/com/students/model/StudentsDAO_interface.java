@@ -11,4 +11,5 @@ public interface StudentsDAO_interface {
 	public List<StudentsVO> getAll();
 	public List<StudentsVO> searchStu(String search_Name, String search_Type);
 	public StudentsVO look_search_mem(MembersVO membersVO);
+	public void update_forPic(String stu_acc, byte[] coa_pic_byte );
 }

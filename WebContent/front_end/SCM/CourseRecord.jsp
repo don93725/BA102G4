@@ -55,7 +55,7 @@
 									</c:if>
 								</td>
 								<td>
-									<c:if test="${course_listVO.report_sta == 1}">
+									<c:if test="${course_listVO.report_sta == 1 || course_listVO.report_sta == 2}">
 										<a href=""><font style="font-weight:bold;font-size:18px;cursor: pointer;" onmouseover="showReportBlock('${course_listVO.ct_no}','${course_listVO.stu_acc}')" onmouseout="hideLeaveBlock()">已檢舉</font></a>
 									</c:if>
 									<c:if test="${course_listVO.report_sta == 0}">

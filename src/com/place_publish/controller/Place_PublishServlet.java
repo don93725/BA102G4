@@ -37,15 +37,23 @@ public class Place_PublishServlet extends HttpServlet {
 				//1.接收請求參數 - 輸入格式的錯誤處理
 				String p_no = req.getParameter("pppp_no");
 				if(p_no == null || p_no.trim().length() == 0) {
-					errorMsgs.put("p_no", "場地編號0");
+					errorMsgs.put("p_no", "無場地編號");
 				}
 				String pbu_price = req.getParameter("pbu_price");
+				String pbu_price_ck = "^[0-9]*$";
 				if(pbu_price == null || pbu_price.trim().length() == 0) {
 					errorMsgs.put("pbu_price", "訂金未輸入");
 				}
+				if(!(pbu_price.matches(pbu_price_ck))) {
+					errorMsgs.put("pbu_price", "訂金只能輸入數字");
+				}
 				String pau_price = req.getParameter("pau_price");
+				String pau_price_ck = "^[0-9]*$";
 				if(pau_price == null || pau_price.trim().length() == 0) {
 					errorMsgs.put("pau_price", "尾款未輸入");
+				}
+				if(!(pau_price.matches(pau_price_ck))) {
+					errorMsgs.put("pau_price", "尾款只能輸入數字");
 				}
 				System.out.println("p_no= " + p_no + " pbu= " + pbu_price + " and pau= " + pau_price);
 				// 資料有誤就返回form表單
@@ -74,7 +82,7 @@ public class Place_PublishServlet extends HttpServlet {
 		if("unPublish".equals(action)){
 			try {
 				String p_no = req.getParameter("p_no");	
-
+				System.out.println("p_no= " + p_no);
 				Place_PublishService Place_PublishSV = new Place_PublishService();
 				Place_PublishSV.unPublish(p_no);
 				System.out.println("unPublish is complete");

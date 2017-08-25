@@ -68,7 +68,7 @@
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <center><a href="find_pleaces.jsp"><span class="btn btn-warning btn-lg tooltip-warning" data-rel="tooltip" data-placement="bottom" title="訊息">立刻預定場地</span></a></center>
+                        <center><a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=placeDetailList"><span class="btn btn-warning btn-lg tooltip-warning" data-rel="tooltip" data-placement="bottom" title="訊息">立刻預定場地</span></a></center>
                     </div>
                 </div>
             </div>
@@ -106,29 +106,29 @@
 								<h2>本周第一名教練</h2>
 							</div>
 						<div class="item-caption yellow">
-							<c:if test="${not empty coachRank && fn:length(coachRank)>0 }">
+							<c:if test="${ fn:length(coachRank)>0 }">
 								<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=1&mem_no=${coachRank[0].coa_no}&action=lookPersonal">
 							</c:if>
-         					<c:if test="${not empty coachRank && fn:length(coachRank)<1 }">
+         					<c:if test="${fn:length(coachRank)<1 }">
 								<a href="#">
 							</c:if>
 								<div class="item-caption-inner">
 									<div class="item-caption-inner1">
-										<c:if test="${not empty coachRank && fn:length(coachRank)>0 }">
+										<c:if test="${ fn:length(coachRank)>0 }">
 											<h4>${coachRank[0].coa_name }</h4></br>
 											<span>${coachRank[0].coa_into }</span>
 										</c:if>
-            							<c:if test="${not empty coachRank && fn:length(coachRank)<1 }">
+            							<c:if test="${fn:length(coachRank)<1}">
 											<h4>目前從缺</h4></br>										
 										</c:if>
 									</div>
 								</div>
 							</a>
 						</div>
-							<c:if test="${not empty coachRank && fn:length(coachRank)>0 }">
+							<c:if test="${ fn:length(coachRank)>0 }">
 								<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachRank[0].coa_no}" alt=""/>
 							</c:if>
-         				<c:if test="${not empty coachRank && fn:length(coachRank)<1 }">
+         				<c:if test="${ fn:length(coachRank)<1 }">
 							<img  src="http://down.epchina.com/portal/201509/08/154457pee2rumj27f145bu.jpg" alt=""/>
 						</c:if>
 					</div>
@@ -143,29 +143,29 @@
 								<h2>本周第二名教練</h2>
 							</div>
 						<div class="item-caption yellow">
-							<c:if test="${not empty coachRank && fn:length(coachRank)>1 }">
+							<c:if test="${ fn:length(coachRank)>1 }">
 								<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=1&mem_no=${coachRank[1].coa_no}&action=lookPersonal">
 							</c:if>
-         					<c:if test="${not empty coachRank && fn:length(coachRank)<2 }">
+         					<c:if test="${ fn:length(coachRank)<2 }">
 								<a href="#">
 							</c:if>
 								<div class="item-caption-inner">
 									<div class="item-caption-inner1">
-									<c:if test="${not empty coachRank && fn:length(coachRank)>1 }">
+									<c:if test="${ fn:length(coachRank)>1 }">
 											<h4>${coachRank[1].coa_name }</h4></br>
 											<span>${coachRank[1].coa_into }</span>
 										</c:if>
-            							<c:if test="${not empty coachRank && fn:length(coachRank)<2 }">
+            							<c:if test="${fn:length(coachRank)<2 }">
 											<h4>目前從缺</h4></br>										
 										</c:if>
 										</div>
 								</div>
 							</a>
 						</div>
-						<c:if test="${not empty coachRank && fn:length(coachRank)>1 }">
+						<c:if test="${ fn:length(coachRank)>1 }">
 								<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachRank[1].coa_no}" alt=""/>
 							</c:if>
-         					<c:if test="${not empty coachRank && fn:length(coachRank)<2 }">
+         					<c:if test="${ fn:length(coachRank)<2 }">
 												<img  src="http://down.epchina.com/portal/201509/08/154457pee2rumj27f145bu.jpg" alt=""/>
 						</c:if>
 					</div>
@@ -180,19 +180,19 @@
 								<h2>本周第三名教練</h2>
 							</div>
 						<div class="item-caption yellow">
-							<c:if test="${not empty coachRank && fn:length(coachRank)>2 }">
+							<c:if test="${ fn:length(coachRank)>2 }">
 								<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=1&mem_no=${coachRank[2].coa_no}&action=lookPersonal">
 							</c:if>
-         					<c:if test="${not empty coachRank && fn:length(coachRank)<3 }">
+         					<c:if test="${ fn:length(coachRank)<3 }">
 								<a href="#">
 							</c:if>
 								<div class="item-caption-inner">
 									<div class="item-caption-inner1">
-            							<c:if test="${not empty coachRank && fn:length(coachRank)>2 }">
+            							<c:if test="${ fn:length(coachRank)>2 }">
 											<h4>${coachRank[2].coa_name }</h4></br>
 											<span>${coachRank[2].coa_into }</span>
 										</c:if>
-            							<c:if test="${not empty coachRank && fn:length(coachRank)<3 }">
+            							<c:if test="${ fn:length(coachRank)<3 }">
 											<h4>目前從缺</h4></br>										
 										</c:if>
 									</div>
@@ -200,10 +200,10 @@
 							</a>
 						</div>
 							
-							<c:if test="${not empty coachRank && fn:length(coachRank)>2 }">
+							<c:if test="${ fn:length(coachRank)>2 }">
 								<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachRank[2].coa_no}" alt=""/>
 							</c:if>
-         					<c:if test="${not empty coachRank && fn:length(coachRank)<3 }">
+         					<c:if test="${ fn:length(coachRank)<3 }">
 								<img  src="http://down.epchina.com/portal/201509/08/154457pee2rumj27f145bu.jpg" alt=""/>
 							</c:if>
 					</div>
@@ -269,7 +269,7 @@
             		<ul style="list-style:none;margin-left:15px;">
 					<c:forEach var='fitkw' items="${fitkwList}">
 						<li style="margin-left: 0px; display: flex;">
-							<a>
+							<a href='<%= request.getContextPath()%>/FitkwCtrl?action=getOne_For_Display&fik_no=${fitkw.fik_no}'>
 								<span class="label label-lg label-pink arrowed-right">
 									${fitkw.fik_type }
 								</span>
@@ -284,7 +284,7 @@
 						<p></p>
 						</c:forEach>
 						<li style="margin-left: 0px; display: flex;">
-							<a>
+							<a href='<%= request.getContextPath()%>/front_end/fitkw/knowledges.jsp'>
 								<span>
 									看更多&nbsp<i class="icon-arrow-right"></i>
 								</span>						
@@ -295,10 +295,13 @@
             </div>
             <!-- 健身知識 結束-->
              
-            <div class="col-xs-12 col-md-4">
+            <div class="col-xs-12 col-md-4"  >
             	<!--廣告圖-->
-                <img class="img-responsive" src="http://ochappy-co.cocolog-nifty.com/photos/uncategorized/2015/03/01/pic_006.jpg" style="width: 100%;">
-            </div>
+<!--                 <img class="img-responsive" src="http://ochappy-co.cocolog-nifty.com/photos/uncategorized/2015/03/01/pic_006.jpg" style="width: 100%;"> -->
+<%-- 					<%@ include file="/front_end/adapply/sliderAD.jsp"%> --%>
+					<%@ include file="/front_end/adapply/FanPage.jsp" %>
+
+				</div>
         </div>
 </div><!-- page container3結束 -->
 </div><!-- 最新消息+健身知識 結束 -->

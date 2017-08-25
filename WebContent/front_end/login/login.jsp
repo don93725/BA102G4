@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
 	
 	<head>
-		<title>°·³f - GymHome</title>
+		<title>å¥è²¨ - GymHome</title>
 		<%@include file="/front_end/include/basicScript.file" %>	
 		<%@include file="/front_end/include/loginStyle.file" %>
 	</head>
@@ -18,8 +18,8 @@
 							<div class="center">
 								<h1>
 									<i class="icon-leaf green"></i>
-									<span class="red">°·³f</span>
-									<span class="white">·|­ûµn¤J¨t²Î</span>
+									<span class="red">å¥è²¨</span>
+									<span class="white">æœƒå“¡ç™»å…¥ç³»çµ±</span>
 								</h1>
 								<h4 class="blue">&copy; Gym Home</h4>
 							</div>
@@ -27,13 +27,13 @@
 							<div class="space-6"></div>
 
 							<div class="position-relative">
-								<!--µn¤Jµe­±-->
+								<!--ç™»å…¥ç•«é¢-->
 								<div id="login-box" class="login-box visible widget-box no-border">
 									<div class="widget-body">
 										<div class="widget-main">
 											<h4 class="header blue lighter bigger">
 												<i class="icon-coffee green"></i>
-												½Ğ¿é¤J±zªº±b¸¹¡B±K½X
+												è«‹è¼¸å…¥æ‚¨çš„å¸³è™Ÿã€å¯†ç¢¼
 											</h4>
 
 											<div class="space-6"></div>
@@ -42,14 +42,14 @@
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" name="account" placeholder="½Ğ¿é¤J±b¸¹" />
+															<input type="text" class="form-control" name="account" placeholder="è«‹è¼¸å…¥å¸³è™Ÿ" />
 															<i class="icon-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" name="password" placeholder="½Ğ¿é¤J±K½X" />
+															<input type="password" class="form-control" name="password" placeholder="è«‹è¼¸å…¥å¯†ç¢¼" />
 															<i class="icon-lock"></i>
 														</span>
 													</label>
@@ -59,13 +59,13 @@
 													<div class="clearfix">
 														<label class="inline">
 															<input type="checkbox" class="ace" />
-															<span class="lbl"> °O¦í§Ú</span>
+															<span class="lbl"> è¨˜ä½æˆ‘</span>
 														</label>
 
 														<input type="hidden" name="action" value="login">
 														<button type="submit" class="width-35 pull-right btn btn-sm btn-inverse">
 															<i class="icon-key"></i>
-															µn¤J
+															ç™»å…¥
 														</button>
 													</div>
 
@@ -74,7 +74,7 @@
 											</form>
 
 											<div class="social-or-login center">
-												<span class="bigger-110">©Î¥Î¥H¤U±b¸¹µn¤J</span>
+												<span class="bigger-110">æˆ–ç”¨ä»¥ä¸‹å¸³è™Ÿç™»å…¥</span>
 											</div>
 
 											<div class="social-login center">
@@ -96,13 +96,13 @@
 											<div>
 												<a href="#" onclick="show_box('forgot-box'); return false;" class="forgot-password-link">
 													<i class="icon-arrow-left"></i>
-													§Ñ°O±K½X?
+													å¿˜è¨˜å¯†ç¢¼?
 												</a>
 											</div>
 
 											<div>
 												<a href="#" onclick="show_box('signup-box-select'); return false;" class="user-signup-link"">
-													§Ú·Q¦¨¬°·|­û
+													æˆ‘æƒ³æˆç‚ºæœƒå“¡
 													<i class="icon-arrow-right"></i>
 												</a>
 											</div>
@@ -110,18 +110,18 @@
 									</div><!-- /widget-body -->
 								</div><!-- /login-box -->
 								
-								<!--§Ñ°O±K½X-->
+								<!--å¿˜è¨˜å¯†ç¢¼-->
 								<div id="forgot-box" class="forgot-box widget-box no-border">
 									<div class="widget-body">
 										<div class="widget-main">
 											<h4 class="header red lighter bigger">
 												<i class="icon-key"></i>
-												§ä¦^±K½X
+												æ‰¾å›å¯†ç¢¼
 											</h4>
 
 											<div class="space-6"></div>
 											<p>
-												¿é¤J±zªº¹q¤l¶l¥ó¨ÃÂIÀ»«H¤º³sµ²
+												è¼¸å…¥æ‚¨çš„é›»å­éƒµä»¶ä¸¦é»æ“Šä¿¡å…§é€£çµ
 											</p>
 
 												<fieldset>
@@ -133,21 +133,21 @@
 													</label>
 
 													<div class="clearfix">
-														<input type="button" class="width-35 pull-right btn btn-sm btn-danger" value="°e¥X" onclick="forgetPSW()">
+														<input type="button" class="width-35 pull-right btn btn-sm btn-danger" value="é€å‡º" onclick="forgetPSW()">
 													</div>
 												</fieldset>
 										</div><!-- /widget-main -->
 
 										<div class="toolbar center">
 											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
-												ªğ¦^µn¤J
+												è¿”å›ç™»å…¥
 												<i class="icon-arrow-right"></i>
 											</a>
 										</div>
 									</div><!-- /widget-body -->
 								</div><!-- /forgot-box -->
 
-								<!--¨­¤À¿ï¾Ü-->
+								<!--èº«åˆ†é¸æ“‡-->
 								<div id="signup-box-select" class="signup-box widget-box no-border">
 								<center>
 									<div class="widget-body">
@@ -155,7 +155,7 @@
 											<div>
 											<a href="<%=request.getContextPath() %>/front_end/register/students_register.jsp">
 												<button type="button" class="width-50 pull-center btn btn-md btn-success">
-													§Ú¬O°·¨­ªÌ
+													æˆ‘æ˜¯å¥èº«è€…
 													<i class="icon-arrow-right"></i>
 												
 												</button>
@@ -165,7 +165,7 @@
 											<div>
 											<a href="<%=request.getContextPath() %>/front_end/register/coaches_register.jsp">
 												<button type="button" class="width-50 pull-middle btn btn-md btn-warning">
-													§Ú¬O±Ğ½m
+													æˆ‘æ˜¯æ•™ç·´
 														<i class="icon-arrow-right"></i>
 												</button>
 											</a>
@@ -174,7 +174,7 @@
 											<div>
 											<a href="<%=request.getContextPath() %>/front_end/register/gyms_register.jsp">	
 												<button type="button" class="width-50 pull-center btn btn-md btn-info">
-													§Ú¬O°·¨­©Ğ·~ªÌ
+													æˆ‘æ˜¯å¥èº«æˆ¿æ¥­è€…
 													<i class="icon-arrow-right"></i>
 												</button>
 											</a>
@@ -183,7 +183,7 @@
 										<div class="toolbar center">
 											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
 												<i class="icon-arrow-left"></i>
-												ªğ¦^µn¤J
+												è¿”å›ç™»å…¥
 											</a>
 										</div>
 									</div><!-- /widget-body -->
@@ -197,20 +197,18 @@
 			</div>
 		</div><!-- /.main-container -->
 
-		<%@include file="/front_end/include/registerJS.file" %>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-		<!-- ±±¨îµù¥U¿ï¶µ -->
+		<!-- æ§åˆ¶è¨»å†Šé¸é … -->
 		<script type="text/javascript">
 			function show_box(id) {
 			 $(".widget-box.visible").removeClass('visible');
 			 $('#'+id).addClass('visible');
 			}
 		</script>
-		<!-- §Ñ°O±K½X -->
+		<!-- å¿˜è¨˜å¯†ç¢¼ -->
 		<script>
 		function forgetPSW(){
 			swal({
-				title : "±H«H¤¤",
+				title : "å¯„ä¿¡ä¸­",
 				imageUrl: "/BA102G4/style/images/p2.gif",
 				timer: 1500,
 	  			showConfirmButton: false
@@ -228,16 +226,16 @@
 						console.log(msg)
 							if(msg.length == 0) {
 								swal({
-									title : "±H«H¦¨¥\",
-									text : "½Ğ¥h¦¬«H",
+									title : "å¯„ä¿¡æˆåŠŸ",
+									text : "è«‹å»æ”¶ä¿¡",
 									type : "success",
 									showConfirmButton : true
 								});
 							}else {
 								swal({
-									title : "±H«H¥¢±Ñ",
+									title : "å¯„ä¿¡å¤±æ•—",
 									text : "",
-									type : "error"
+									type : "error",
 									showConfirmButton : true
 								});
 							}						
@@ -248,6 +246,5 @@
 			});
 		}
 		</script>
-	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>

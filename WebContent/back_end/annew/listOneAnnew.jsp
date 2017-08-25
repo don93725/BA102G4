@@ -41,4 +41,6 @@ AnnewVO annewVO = (AnnewVO) request.getAttribute("annewVO"); //AnnewServlet.java
 </table>
 
 </body>
+		<%@include file="/back_end/include/ace_setting_footer.file"%>
+</body>
 </html>

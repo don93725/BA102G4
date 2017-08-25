@@ -45,7 +45,7 @@ public class LoginFilter implements Filter {
 //			res.sendRedirect(req.getContextPath() + "/login.html");
 			session.setAttribute("location", location);
 			session.setAttribute("referer", req.getHeader("Referer"));
-			res.sendRedirect(req.getContextPath() + "/front_end/login.jsp");
+			res.sendRedirect(req.getContextPath() + "/front_end/login/login.jsp");
 			return;
 		} else {
 			chain.doFilter(request, response);

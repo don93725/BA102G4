@@ -58,7 +58,7 @@
                                 <a href="<%= request.getContextPath()%>/AnnewShowCtrl">公告消息</a>
                             </li>
                             <li>
-                                <a href="#">健身知識</a>
+                                <a href="<%= request.getContextPath()%>/front_end/fitkw/knowledges.jsp">健身知識</a>
                             </li>
                             <li>
                                 <a href="<%= request.getContextPath()%>/front_end/browse/find_coaches.jsp">找教練</a>
@@ -70,7 +70,7 @@
                                 <a href="<%= request.getContextPath()%>/front_end/browse/find_gyms.jsp">找健身房</a>
                             </li>
                             <li>
-                                <a href="#">找場地</a>
+                                <a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=placeDetailList">找場地</a>
                             </li>
                             <li>
                                 <a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=crsDetailList">找課程</a>
@@ -95,7 +95,7 @@
                         </ul>
                     </li>
                     <!-- 判斷角色 -->
-                    <input type="text" id="rankColor" value="${sessionScope.user.mem_rank }">
+                    <input type="hidden" id="rankColor" value="${sessionScope.user.mem_rank }">
      
 <!-- 身分為訪客時，顯示 -->                    
 <c:if test="${empty sessionScope.user.mem_rank }">

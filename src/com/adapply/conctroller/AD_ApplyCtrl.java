@@ -21,6 +21,7 @@ import com.adapply.model.AD_ApplyService;
 import com.adapply.model.AD_ApplyVO;
 import com.authority.model.AuthorityService;
 import com.course.model.CourseService;
+import com.course_time.model.Course_timeVO;
 import com.manager.model.ManagerVO;
 import com.members.model.MembersVO;
 import com.message.model.MessageService;
@@ -84,9 +85,11 @@ public class AD_ApplyCtrl extends HttpServlet {
 				String mem_no = membersVO.getMem_no();
 				
 				String ad_url = null;
+				
 				try {
 					ad_url = req.getParameter("ad_url").trim();
-					System.out.println(ad_url);
+					
+					
 				} catch (Exception e) {
 					errorMsgs.add("請選擇廣告類型");
 				}

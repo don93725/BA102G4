@@ -72,7 +72,7 @@ public class MgrCtrl extends HttpServlet {
 				// 失敗就轉交至以下網頁
 				if (!mgrPwd) {
 					System.out.println("(MgrCtl)密碼錯誤");
-					String url = req.getContextPath() + "/front_end/login_pw_fail.jsp";
+					String url = req.getContextPath() + "/front_end/login/login_pw_fail.jsp";
 					res.sendRedirect(url);
 					return;
 				}
@@ -127,7 +127,7 @@ public class MgrCtrl extends HttpServlet {
 		if("logout".equals(action)){
 			HttpSession session = req.getSession();
 			session.invalidate();
-			res.sendRedirect(req.getContextPath()+"/front_end/login.jsp");
+			res.sendRedirect(req.getContextPath()+"/front_end/login/login.jsp");
 			return;
 		}
 

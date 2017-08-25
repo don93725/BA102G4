@@ -211,7 +211,7 @@
 										</div>
 										
 										<div class="toolbar center">
-											<a href="<%= request.getContextPath()%>/front_end/login.jsp" class="back-to-login-link">
+											<a href="<%= request.getContextPath()%>/front_end/login/login.jsp" class="back-to-login-link">
 												<i class="icon-arrow-left"></i>
 												ªð¦^µn¤J
 											</a>

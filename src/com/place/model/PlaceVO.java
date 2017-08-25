@@ -2,6 +2,9 @@ package com.place.model;
 
 import java.sql.Date;
 
+import com.place_pic.model.Place_PicVO;
+import com.place_publish.model.Place_PublishVO;
+
 public class PlaceVO implements java.io.Serializable {
 
 	private String p_no;
@@ -13,6 +16,21 @@ public class PlaceVO implements java.io.Serializable {
 	private String p_latlng;
 	private Integer p_cap;
 	private Date p_date;
+	private Place_PublishVO place_publishVO;
+	private Place_PicVO place_picVO;
+	
+	public Place_PublishVO getPlace_publishVO() {
+		return place_publishVO;
+	}
+	public void setPlace_publishVO(Place_PublishVO place_publishVO) {
+		this.place_publishVO = place_publishVO;
+	}
+	public Place_PicVO getPlace_picVO() {
+		return place_picVO;
+	}
+	public void setPlace_picVO(Place_PicVO place_picVO) {
+		this.place_picVO = place_picVO;
+	}
 	public String getP_no() {
 		return p_no;
 	}

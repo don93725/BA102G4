@@ -271,6 +271,88 @@
 								</li>
 							</ul>
 						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-legal"></i>
+								<span class="menu-text"> 頁面資訊維護 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li>
+									<a href="<%=request.getContextPath()%>/back_end/annew/selectAnnew_page.jsp">
+										<i class="icon-double-angle-right"></i>
+										<i class="icon-fighter-jet"></i>
+										公告管理
+									</a>
+								</li>
+
+								<li>
+									<a href="<%=request.getContextPath()%>/back_end/editAbout/about.jsp">
+										<i class="icon-double-angle-right"></i>
+										<i class="icon-certificate"></i>
+										關於我們
+									</a>
+								</li>
+
+								<li>
+									<a href="<%=request.getContextPath()%>/back_end/fitkw/selectFitkw_page.jsp">
+										<i class="icon-double-angle-right"></i>
+										<i class="icon-book"></i>
+										健身知識
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-double-angle-right"></i>
+										管理
+									</a>
+								</li>
+
+								<li>
+									<a href="#" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+										管理
+										<b class="arrow icon-angle-down"></b>
+									</a>
+
+									<ul class="submenu">
+										<li>
+											<a href="#">
+												<i class="icon-leaf"></i>
+												管理
+											</a>
+										</li>
+
+										<li>
+											<a href="#" class="dropdown-toggle">
+												<i class="icon-pencil"></i>
+												管理
+												<b class="arrow icon-angle-down"></b>
+											</a>
+
+											<ul class="submenu">
+												<li>
+													<a href="#">
+														<i class="icon-plus"></i>
+														管理
+													</a>
+												</li>
+
+												<li>
+													<a href="#">
+														<i class="icon-eye-open"></i>
+														管理
+													</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
 						
 
 					<div class="sidebar-collapse" id="sidebar-collapse">

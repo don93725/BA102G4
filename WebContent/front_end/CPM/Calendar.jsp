@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.course_time.model.*"%>
+<%@ page import="com.place_time.model.*"%>
 <%@ page import="com.course_list.model.*"%>
 <%@ page import="com.members.model.*"%>
 <%@ page import="com.coaches.model.*"%>
@@ -10,19 +10,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <% 
-	Course_listService course_listSVC = new Course_listService();
-	ArrayList<Course_listVO> crslist = (ArrayList) course_listSVC.getAll(((MembersVO) session.getAttribute("user")).getMem_acc());
-	ArrayList<Course_listVO> crslistOpen = (ArrayList) course_listSVC.getAllOpen(((MembersVO) session.getAttribute("user")).getMem_acc());
-	for (int i = 0; i < crslist.size(); i++) {
-		((Course_listVO) crslist.get(i)).setCrs_timeShow((String) getServletContext()
-				.getAttribute(String.valueOf(((Course_listVO) crslist.get(i)).getCrs_time())));
+	Place_timeService place_timeSVC = new Place_timeService();
+	ArrayList<Place_timeVO> plist = (ArrayList) place_timeSVC.getAllCoa(((MembersVO) session.getAttribute("user")).getMem_acc());
+	for (int i = 0; i < plist.size(); i++) {
+		plist.get(i).setRp_timeShow(
+				(String) getServletContext().getAttribute(String.valueOf(((Place_timeVO) plist.get(i)).getRp_time())));
 	}
-	for (int i = 0; i < crslistOpen.size(); i++) {
-		((Course_listVO) crslistOpen.get(i)).setCrs_timeShow((String) getServletContext()
-				.getAttribute(String.valueOf(((Course_listVO) crslistOpen.get(i)).getCrs_time())));	
-	}
-	pageContext.setAttribute("crslist", crslist);
-	pageContext.setAttribute("crslistOpen", crslistOpen);
+	pageContext.setAttribute("plist", plist);
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -92,47 +86,25 @@
 				</div>
 			</div>
 			<span style="display:none;">
-				<c:forEach var="course_time" items="${crslist}">
+				<c:forEach var="place_time" items="${plist}">
 					<c:choose>
-							<c:when test="${course_time.crs_time == 1}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (加退選)','${course_time.cl_date}','label-success',8)">
+							<c:when test="${place_time.rp_time == 1}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${place_time.placeVO.p_name}','${place_time.rp_date}','label-success',8)">
 							</c:when>
-							<c:when test="${course_time.crs_time == 2}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (加退選)','${course_time.cl_date}','label-danger',10)">
+							<c:when test="${place_time.rp_time == 2}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${place_time.placeVO.p_name}','${place_time.rp_date}','label-danger',10)">
 							</c:when>
-							<c:when test="${course_time.crs_time == 3}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (加退選)','${course_time.cl_date}','label-purple',13)">
+							<c:when test="${place_time.rp_time == 3}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${place_time.placeVO.p_name}','${place_time.rp_date}','label-purple',13)">
 							</c:when>
-							<c:when test="${course_time.crs_time == 4}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (加退選)','${course_time.cl_date}','label-yellow',15)">
+							<c:when test="${place_time.rp_time == 4}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${place_time.placeVO.p_name}','${place_time.rp_date}','label-yellow',15)">
 							</c:when>
-							<c:when test="${course_time.crs_time == 5}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (加退選)','${course_time.cl_date}','label-pink',18)">
+							<c:when test="${place_time.rp_time == 5}">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${place_time.placeVO.p_name}','${place_time.rp_date}','label-pink',18)">
 							</c:when>
 							<c:otherwise>
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (加退選)','${course_time.cl_date}','label-info',20)">
-							</c:otherwise>
-						</c:choose>
-				</c:forEach>
-				<c:forEach var="course_time" items="${crslistOpen}">
-					<c:choose>
-							<c:when test="${course_time.crs_time == 1}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.cl_date}','label-success',8)">
-							</c:when>
-							<c:when test="${course_time.crs_time == 2}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.cl_date}','label-danger',10)">
-							</c:when>
-							<c:when test="${course_time.crs_time == 3}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.cl_date}','label-purple',13)">
-							</c:when>
-							<c:when test="${course_time.crs_time == 4}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.cl_date}','label-yellow',15)">
-							</c:when>
-							<c:when test="${course_time.crs_time == 5}">
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.cl_date}','label-pink',18)">
-							</c:when>
-							<c:otherwise>
-								<input type="button" class="calendarbtn" onclick="addCalendar('${course_time.courseVO.crs_name} (開課)','${course_time.cl_date}','label-info',20)">
+								<input type="button" class="calendarbtn" onclick="addCalendar('${place_time.placeVO.p_name}','${place_time.rp_date}','label-info',20)">
 							</c:otherwise>
 						</c:choose>
 				</c:forEach>
