@@ -41,7 +41,7 @@ public class Course_listDAO implements Course_listDAO_interface{
 	private static final String UPDATE_MEM_CR_NUM="UPDATE MEMBERS SET MR_NUM=MR_NUM+1 WHERE MEM_acc=(select c_acc FROM COURSE WHERE CRS_NO=(SELECT CRS_NO FROM COURSE_TIME WHERE CT_NO=(SELECT CT_NO FROM COURSE_LIST WHERE CT_NO=?)))";
 	private static final String UPDATE_REP_STA = "UPDATE course_list  set REPORT_STA=2 where ct_no=?";
 	private static final String UPDATE_N_STA = "UPDATE course_list set N_STA=1 where ct_no=? AND STU_ACC=?";
-
+	private static final String UPDATE_NV_STA_Android = "UPDATE course_list set N_STA=2, REASON=? where ct_no=? AND STU_ACC=? ";
 	
 	static {
 		try {
@@ -954,16 +954,58 @@ public class Course_listDAO implements Course_listDAO_interface{
 	}
 	
 	@Override
-	public void updateNSta(Course_listVO course_listVO) {
+	public boolean updateNSta(Course_listVO course_listVO) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-
+		boolean result = false;
 		try {
 
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(UPDATE_N_STA);
 			pstmt.setString(1, course_listVO.getCt_no());
 			pstmt.setString(2, course_listVO.getStu_acc());
+			int num = pstmt.executeUpdate();
+			if(num != 0){
+				result = true;
+			}
+			// Handle any driver errors
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
+		}
+		return result ;			
+		
+	}
+	
+	@Override
+	public void updateNStaAndroid(Course_listVO course_listVO) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(UPDATE_NV_STA_Android);
+			pstmt.setString(1, course_listVO.getReason());
+			pstmt.setString(2, course_listVO.getCt_no());
+			pstmt.setString(3, course_listVO.getStu_acc());
+			
 			pstmt.executeUpdate();
 
 			// Handle any driver errors
@@ -989,8 +1031,6 @@ public class Course_listDAO implements Course_listDAO_interface{
 		}			
 		
 	}
-	
-	
 	
 	
 	

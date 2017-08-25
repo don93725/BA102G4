@@ -19,7 +19,7 @@ AnnewVO annewVO = (AnnewVO) request.getAttribute("annewVO");
 
 	<div class="page-content">
 		<div class="page-header">
-			<a href="selectAnnew_page.jsp">首頁</a>
+			<a href="selectFitkw_page.jsp">首頁</a>
 			<h1>
 				公告消息新增 <small> <i class="icon-double-angle-right"></i>
 						Announces maker

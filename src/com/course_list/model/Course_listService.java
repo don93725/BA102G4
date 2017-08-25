@@ -131,11 +131,25 @@ public class Course_listService {
 		  public boolean updateNSta(String ct_no,String stu_acc) {
 				Course_listVO course_listVO = new Course_listVO();
 				course_listVO.setCt_no(ct_no);
-				course_listVO.setStu_acc(ct_no);
+				course_listVO.setStu_acc(stu_acc);
 				
-				dao.updateNSta(course_listVO);
-				return true;}
+				
+				
+				return dao.updateNSta(course_listVO);}
 
+		  public boolean updateNStaAndroid(String ct_no,String stu_acc,String reason) {
+				Course_listVO course_listVO = new Course_listVO();
+				course_listVO.setCt_no(ct_no);
+				course_listVO.setStu_acc(stu_acc);
+				course_listVO.setReason(reason);
+				dao.updateNStaAndroid(course_listVO);
+				
+				return true;}
+		  
+		  
+		  
+		  
+		  
 		  public List<Course_listVO> getReady_List(String stu_acc){
 			    return this.dao.getReady(stu_acc);
 			  }

@@ -3,10 +3,9 @@ package com.members.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-
+import java.util.LinkedHashMap;
 import java.util.List;
-
-
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +21,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.members.model.MembersDAO;
+import com.members.model.MembersService;
 import com.members.model.MembersVO;
 
 import com.students.model.StudentsDAO;
@@ -69,20 +69,84 @@ public class MemberLoginServlet extends HttpServlet {
 		
 		String role = jsonObject.get("role").getAsString();
 		
+		
+		
+				
+//		String mem_acc = jsonObject.get("mem_acc").getAsString();
+		
+		
+		Map<String,String> errorMsgs = new LinkedHashMap<String,String>();
+		
+		
+		
+		
+		String mem_accReg = "^[(a-zA-Z0-9_)]{6,20}$";
+		
+		
 		String username = jsonObject.get("username").getAsString();
 		
+		
+		
+//		if(username == null || username.trim().length() == 0) {
+//			errorMsgs.put("mem_acc","會員帳號: 請勿空白");
+//		}else if(!(username.matches(mem_accReg))) {
+//			errorMsgs.put("mem_acc","會員帳號: 只能是大小寫英數字(含_)，且長度必需在6到20之間");
+//		}
+		
+
+		
 		String password = jsonObject.get("password").getAsString();
+		
+		String stu_pswReg = "^[(a-zA-Z0-9_)]{6,20}$";
+		if(password == null || password.trim().length() == 0) {
+			errorMsgs.put("stu_psw", "會員密碼: 請勿空白");
+		}else if(!(password.matches(stu_pswReg))) {
+			errorMsgs.put("stu_psw","會員密碼: 只能是大小寫英數字(含_)，且長度必需在6到20之間");
+		}
+		
+		
+		
+		
+		
+		if(!errorMsgs.isEmpty()) {
+			System.out.println("I got the errorMsgs");
+
+				
+								
+				
+			writeText(response, gson.toJson(errorMsgs));
+				
+			System.out.println(errorMsgs);
+		}else{
 		
 		
 		System.out.print(role+username+password);
 		
+		Map<String,String>msgs = new LinkedHashMap<String,String>();
+		
 		if (role.equals("1")) {
 			CoachesVO coachesVO = coashesSvc.loginCoaches(username, password);
 		
-			writeText(response, gson.toJson(coachesVO));
+			if(coachesVO != null){
+				msgs.put("msgs", "true");
 			
-			System.out.println(coachesVO);
-		
+				System.out.print(role+""+username+""+password);
+			
+				writeText(response, gson.toJson(msgs));
+			
+			
+				System.out.println(msgs);
+			}else{
+				
+				msgs.put("false", "false");
+			
+				writeText(response, gson.toJson(msgs));
+				
+				
+				System.out.println(msgs);
+				
+			}
+			
 			
 		
 		}else {
@@ -90,16 +154,33 @@ public class MemberLoginServlet extends HttpServlet {
 			
 			StudentsVO studentsVO = studentsSvc.loginStudents(username, password);
 		
-			writeText(response, gson.toJson(studentsVO));
+			if(studentsVO != null){
+				
+				msgs.put("msgs", "true");
 			
-			System.out.println(studentsVO);
+			
+			
+				writeText(response, gson.toJson(msgs));
+			
+			
+				System.out.println(msgs);
+			}else{
+				
+				msgs.put("false", "false");
+			
+				writeText(response, gson.toJson(msgs));
+				
+				
+				System.out.println(msgs);
+				
+			}
 		
 		
 		
 		}
 		
 		
-		
+		}
 		
 		
 		

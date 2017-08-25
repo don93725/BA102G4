@@ -12,5 +12,6 @@ public interface FitkwDAO_interface {
     public List<FitkwVO> getAll();
     public List<FitkwVO> getPartByType(String fik_type);
     public List<FitkwVO> getPartByDate(String upd_date);
+	List<FitkwVO> getFrontAll();
 
 }
