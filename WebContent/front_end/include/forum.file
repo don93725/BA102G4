@@ -30,7 +30,7 @@
             <div class="col-xs-12 col-md-12" style="padding:0px;">
             	<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forumRank[1].forum_no}" style="color:black;">	
             		<div class="col-md-4 f_item" style="background-color:#FFA488;opacity:0.8;font-size:40px;padding-top:40px;">            			
-            			<p style="font-size:60px;position:absolute;left:50%;top:25%;z-index:1;">${forumRank[1].forum_name}<br></p>
+            			<p style="font-size:60px;position:absolute;left:50%;top:25%;z-index:1;">${forumRank[1].forum_name}</p>
             			<img src="/BA102G4/images/friend.png" style="position:absolute;opacity:0.5;top:10px;left:10px;width:55%;">
             		</div>
             	</a>
@@ -55,7 +55,7 @@
 
             	<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forumRank[4].forum_no}" style="color:black;">
             		<div class="col-md-2 f_item" style="background-color:#7f6fc7;opacity:0.8;font-size:40px;padding-top:40px;">
-            			<p style="color:#FFFF00;font-size:50px;position:absolute;left:10%;top:30%;z-index:1;">${forumRank[4].forum_name}<br></p>
+            			<p style="color:#FFFF00;font-size:50px;position:absolute;left:10%;top:30%;z-index:1;">${forumRank[4].forum_name}</p>
             			<img src="/BA102G4/images/document.png" style="position:absolute;opacity:0.5;top:4%;left:12%;height:90%;">
             		</div>
             	</a>

@@ -40,6 +40,8 @@
 					<div class="space-6"></div>
 
 					<div class="col-sm-12 infobox-container">
+					
+					
 						<div class="infobox infobox-green ">
 							<div class="infobox-icon">
 								<i class="icon-user"></i>
@@ -51,6 +53,7 @@
 							</div>
 						</div>
 
+
 						<div class="infobox infobox-orange2  ">
 							<div class="infobox-icon">
 								<i class="icon-linux"></i>
@@ -60,9 +63,8 @@
 								<span class="infobox-data-number">${CountSvc.getCount("coaches")}人</span>
 								<div class="infobox-content">教練</div>
 							</div>
-
-							
 						</div>
+
 
 						<div class="infobox infobox-blue  ">
 							<div class="infobox-icon">
@@ -75,6 +77,7 @@
 							</div>
 						</div>
 
+
 						<div class="infobox infobox-orange  ">
 							<div class="infobox-icon">
 								<i class="icon-github-alt"></i>
@@ -84,13 +87,10 @@
 								<span class="infobox-data-number">${CountSvc.getCount("manager")}人</span>
 								<div class="infobox-content">員工</div>
 							</div>
-
-							
 						</div>
 
+
 						<div class="space-6"></div>
-
-
 					</div>
 
 					<div class="vspace-sm"></div>
