@@ -20,42 +20,33 @@
 </style>
 
 		<div class="f_row">
+            
             <div class="col-xs-12 col-md-12" style="padding:0px;">
                 <center>
                 	<h2 class="page-header white_bg" style="color:white;">討論專區<small style="color:white;">Forum</small></h2>
                 </center>
             </div>
+            
             <div class="col-xs-12 col-md-12" style="padding:0px;">
-            	<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forumRank[1].forum_no}" style="color:black;">
-            		<div style="display:inline-block;position:absolute;top:0;left:15%;z-index:1;">
-            			<img src="http://pnga.mypng.cn/1915/gps_19.png" style="width:50px;opacity:1;">
+            	<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forumRank[1].forum_no}" style="color:black;">	
+            		<div class="col-md-4 f_item" style="background-color:#FFA488;opacity:0.8;font-size:40px;padding-top:40px;">            			
+            			<p style="font-size:60px;position:absolute;left:50%;top:25%;z-index:1;">${forumRank[1].forum_name}<br></p>
+            			<img src="/BA102G4/images/friend.png" style="position:absolute;opacity:0.5;top:10px;left:10px;width:55%;">
             		</div>
-            		<div class="col-md-4 f_item" style="background-color:#ebae18;opacity:0.8;font-size:40px;padding-top:40px;">            			
-            			<center>${forumRank[1].forum_name}<br>
-            				<p style="font-size:25px;">進入看板<i class="icon-arrow-right"></i></p>
-            			</center>
-            		</div>	
             	</a>
             	
             	<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forumRank[3].forum_no}" style="color:black;">
-            		<div style="display:inline-block;position:absolute;top:0;left:42%;z-index:1;">
-            			<img src="http://pnga.mypng.cn/1915/gps_19.png" style="width:50px;opacity:1;">
-            		</div>
             		<div class="col-md-2 f_item" style="background-color:#fdfeff;opacity:0.8;font-size:40px;padding-top:40px;">
-            			<center>${forumRank[3].forum_name}<br>
-            				<p style="font-size:25px;">進入看板<i class="icon-arrow-right"></i></p>
-            			</center>
+            			<p style="color:#000088;font-size:50px;position:absolute;left:10%;top:30%;z-index:1;">${forumRank[3].forum_name}</p>
+            			<img src="/BA102G4/images/money.png" style="position:absolute;opacity:0.5;top:15%;left:30px;height:70%;">
             		</div>	
             	</a>
             	
             	<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forumRank[2].forum_no}" style="color:black;">
-            		<div style="display:inline-block;position:absolute;top:0;left:68%;z-index:1;">
-            			<img src="http://pnga.mypng.cn/1915/gps_19.png" style="width:50px;opacity:1;">
-            		</div>
-            		<div class="col-md-4 f_item" style="background-color:#a6c220;opacity:0.8;font-size:40px;padding-top:40px;">
-            			<center>${forumRank[2].forum_name}<br>
-            				<p style="font-size:25px;">進入看板<i class="icon-arrow-right"></i></p>
-            			</center>
+            		<div class="col-md-4 f_item" style="background-color:#a6c220;opacity:0.8;padding-top:3%;color:red;">
+            			<p style="color:#EEFFBB;font-size:60px;position:absolute;top:25%;left:27%;z-index:1;">${forumRank[2].forum_name}</p>
+            			<img src="/BA102G4/images/laba1.png" style="position:absolute;opacity:0.5;top:10px;left:10px;height:90%;">
+            			<img src="/BA102G4/images/laba2.png" style="position:absolute;opacity:0.5;top:50px;right:10px;height:70%;">
             		</div>
             	</a>
             	
@@ -63,36 +54,24 @@
             		<div class="col-md-1" style="background-color:#fdfeff;opacity:1;font-size:40px;padding-top:40px;margin:10px;height:200px;"></div>
 
             	<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forumRank[4].forum_no}" style="color:black;">
-            		<div style="display:inline-block;position:absolute;top:50%;left:17%;z-index:1;">
-            			<img src="http://pnga.mypng.cn/1915/gps_19.png" style="width:50px;opacity:1;">
-            		</div>
             		<div class="col-md-2 f_item" style="background-color:#7f6fc7;opacity:0.8;font-size:40px;padding-top:40px;">
-            			<center>${forumRank[4].forum_name}<br>
-            				<p style="font-size:25px;">進入看板<i class="icon-arrow-right"></i></p>
-            			</center>
+            			<p style="color:#FFFF00;font-size:50px;position:absolute;left:10%;top:30%;z-index:1;">${forumRank[4].forum_name}<br></p>
+            			<img src="/BA102G4/images/document.png" style="position:absolute;opacity:0.5;top:4%;left:12%;height:90%;">
             		</div>
             	</a>
             	
             	<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forumRank[0].forum_no}" style="color:black;">
-            		<div style="display:inline-block;position:absolute;top:50%;left:52%;z-index:1;">
-            			<img src="http://pnga.mypng.cn/1915/gps_19.png" style="width:50px;opacity:1;">
-            		</div>
             		<div class="col-md-6 f_item" style="background-color:yellow;opacity:0.8;font-size:40px;padding-top:40px;">
-            			<center>${forumRank[0].forum_name}<br>
-            				<p style="font-size:25px;">進入看板<i class="icon-arrow-right"></i></p>
-            			</center>
+            			<p style="color:#FF8800;font-size:60px;position:absolute;left:30%;top:25%;z-index:1;">${forumRank[0].forum_name}</p>
+            			<img src="/BA102G4/images/coffee2.png" style="position:absolute;opacity:0.5;top:35%;left:2%;height:70%;">
+            			<img src="/BA102G4/images/coffee.png" style="position:absolute;opacity:0.5;top:0;right:1%;height:110%;">
             		</div>
             	</a>
             	
             	<a href="/BA102G4/forum/ForumCtrl" style="color:black;">
-            		<div class="pushpin" style="display:inline-block;position:absolute;top:50%;left:87%;z-index:1;">
-            			<img src="http://pnga.mypng.cn/1915/gps_19.png" style="width:50px;opacity:1;">
-            		</div>
             		<div class="col-md-2 f_item" style="background-color:#309cff;opacity:0.8;font-size:40px;padding-top:40px;">
-            			<center>
-            				其他<br>
-            				<p style="font-size:25px;">進入看板<i class="icon-arrow-right"></i></p>
-            			</center>
+            			<p style="color:#FFFFFF;font-size:60px;position:absolute;left:18%;top:25%;z-index:1;">其他</p>
+			    		<img src="/BA102G4/images/other.png" style="position:absolute;opacity:0.5;top:-10%;left:-13%;height:120%;">
             		</div>
 				</a>
 				
