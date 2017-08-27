@@ -68,7 +68,7 @@
 		<c:forEach var="article_report" items='${article_report }' varStatus="loop">
 		<tr class="art_rpt">
 			<td><a target="_blank" href="${pageContext.request.contextPath}/forum/ArticleShowCtrl?forum_no=${article_report.art_no.forum_no }&art_no=${article_report.art_no.art_no}">${article_report.art_no.art_name}</a></td>
-			<td><a target="_blank" href='${pageContext.request.contextPath}/forum/PersonalPageCtrl?mem_no=${article_report.rpt_mem_no.mem_no}'>${article_report.rpt_mem_no.mem_nickname}</a></td>
+			<td><a target="_blank" href='${pageContext.request.contextPath}/forum/PersonalPageCtrl?mem_no=${article_report.rpt_mem_no.mem_no}&mem_rank=${article_report.rpt_mem_no.mem_rank}&action=lookPersonal'>${article_report.rpt_mem_no.mem_nickname}</a></td>
 			<td>
 			<c:if test="${article_report.rpt_type==0}">涉及歧視</c:if>
 			<c:if test="${article_report.rpt_type==1}">含十八禁</c:if>
