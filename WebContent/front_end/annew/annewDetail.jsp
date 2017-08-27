@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="BIG5"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn-en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +12,7 @@
 	<title>健貨 - GymHome</title>
 		<%@include file="/front_end/include/basicScript.file" %>
 </head>
-
+<%@include file="/front_end/include/basicScript.file" %>
  
 <body>
 
@@ -24,6 +24,7 @@
     
     <!-- Page Content -->
     <div class="container">
+    	
 		<!-- Page Heading/Breadcrumbs -->
         <div class="breadcrumbs" id="breadcrumbs">
             <script type="text/javascript">
@@ -31,48 +32,41 @@
             </script>
             
             <div class="col-lg-12">
-                <h1>公告消息
+                <h1 class="page-header">公告消息
                     <small>Announce</small>
                 </h1>
             </div>
 
-            <ul class="breadcrumb">
+            <ol class="breadcrumb">
                 <li>
                     <i class="icon-home home-icon"></i>
-                        <a href="index.html">首頁</a>
+                        <a href="${pageContext.request.contextPath }">首頁</a>
                      </li>
                 <li class="active"><a href="${pageContext.request.contextPath }/AnnewShowCtrl">公告消息</a></li>
                 <li class="active">公告詳情</li>
-            </ul><!-- .breadcrumb -->
+            </ol><!-- .breadcrumb -->
         </div>
-        <br>
-        <!-- Page Heading/Breadcrumbs -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">${annewVo.ann_title }<br>
-                    <small><i class="fa fa-clock-o"></i> Posted by 系統管理員 on ${annewVo.ann_date }
-                    </small>
-                </h1>
-
-            </div>
-        </div>
-        <!-- /.row -->
+        <!-- Page Heading/Breadcrumbs -->    
 
         <!-- Content Row -->
         <div class="row">
 
             <!-- Blog Post Content Column -->
             <div class="col-lg-8">
-
-              
-
+				<hr>
+				
+              	<p><i class="fa fa-clock-o"></i>日期：  ${annewVo.ann_date }</p>
+				<hr>
+				
                 <!-- Preview Image -->
                 <img class="img-responsive" src="${pageContext.request.contextPath }/g1/PhotoOutputA?ann_no=${annewVo.ann_no }" alt="">
 
                 <hr>
 
                 <!-- Post Content -->
-                <p class="lead">${annewVo.ann_ctx }</p>
+               
+                <p class="lead">${annewVo.ann_title }</p>
+                <p >${annewVo.ann_ctx }</p>
 
                 <hr>
 

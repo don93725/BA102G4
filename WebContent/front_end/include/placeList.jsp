@@ -24,30 +24,31 @@
 			<button class="btn btn-white">
 				<i class="icon-plus"></i>新增場地
 			</button>
-		</a>
-
+		</a><i class="arrow-left"></i>
+		<p></p>
 		<div class="row">
 			<div class="col-xs-12 col-sm-12">
 				<div class="table-responsive">
-					<table id="sample-table-1" class="table table-striped">
+					<table id="sample-table-1" class="table table-striped" style="text-align:center;">
 						<thead class="aaa">
 							<tr>
 								<th class="center">場地名稱</th>
-								<th>可容納人數</th>
-								<th>場地地址</th>
-								<th>場地介紹</th>
-								<th></th>
-								<th></th>
-								<th></th>
+								<th class="center">人數</th>
+								<th class="center">場地地址</th>
+								<th class="center">場地介紹</th>
+								<th class="center"></th>
+								<th class="center"></th>
+								<th class="center"></th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="placeVO" items="${placeList}">
-								<tr><input type="text" value="${placeVO.p_no}">
-									<td class="center"><span class="">${placeVO.p_name}</span></td>	
-									<td><span class="">${placeVO.p_cap}</span></td>
-									<td><span class="">${placeVO.p_add}</span></td>
-									<td><span class="">${placeVO.p_into}</span></td>
+								<tr>
+									<input type="hidden" value="${placeVO.p_no}">
+									<td style="vertical-align:middle;">${placeVO.p_name}</td>	
+									<td style="vertical-align:middle;">${placeVO.p_cap}</td>
+									<td style="vertical-align:middle;">${placeVO.p_add}</td>
+									<td style="vertical-align:middle;" class="p_into_limited">${placeVO.p_into}</td>
 									<input type="hidden" class="p_status" value="${placeVO.p_status}">
 									
 									
@@ -55,23 +56,23 @@
 									<c:if test="${placeVO.p_status == '0'}">
 									<td>
 										<div class="btn-group"> 
-  											<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    											編輯 <span class="caret"></span>
+  											<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-width:5px;">
+    											編輯<span class="caret"></span>
   											</button>
   											<ul class="dropdown-menu" style="min-width:50px;">
     											<li>
    													<a class='inline' href="#update_content" onclick="show('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')">
-   														<i class="icon-edit"></i> 更新場地	
+   													<i class="icon-edit"></i> 更新場地	
     												</a>
     											</li>
     											<li>
     												<a class='inline' href="#insertPic_content" onclick="showPicWindow('${placeVO.p_no}')" value="新增圖片">
-    													<i class="icon-edit"></i> 新增圖片
+    												<i class="icon-camera"></i> 新增圖片
     												</a>
     											</li>
     											<li>
     												<a href="#" onclick="deletePlace('${placeVO.p_no}', '${placeVO.p_status}')">
-    													<i class="icon-edit"></i> 刪除場地
+    												&nbsp<i class="icon-map-marker"></i> 刪除場地
     												</a>
     											</li>
   											</ul>
@@ -79,7 +80,7 @@
 									</td>
 									<td>
 										<a class='inline' href="#publish_content" onclick="showPublish('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')">
-											<input type="button" class="btn btn-info btn-sm" value="我要上架">
+											<input type="button" class="btn btn-info" value="我要上架">
 										</a>
 									</td>
 									<td>
@@ -91,7 +92,7 @@
 									<c:if test="${placeVO.p_status == '1'}">
 									<td>
 										<div class="btn-group"> 
-  											<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled="disabled">
+  											<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled="disabled" style="border-width:5px;">
     											編輯 <span class="caret"></span>
   											</button>
   											<ul class="dropdown-menu" style="min-width:50px;">
@@ -114,51 +115,17 @@
 										</div>	
 									</td>
 									<td>
-										<input type="button" class="btn btn-primary btn-sm" value="我要下架" onclick="unPublish(${placeVO.p_no})">
+										<input type="button" class="btn btn-primary" value="我要下架" onclick="unPublish(${placeVO.p_no})">
 									</td>
 									<td>
 										<form action="<%= request.getContextPath() %>/PlaceInfoServlet" method="POST">
-    										<input type="submit" class="btn btn-warning btn-sm" value="場地詳情">
+    										<input type="submit" class="btn btn-warning" value="場地詳情">
     										<input type="hidden" name="p_no" value="${placeVO.p_no}">
     										<input type="hidden" name="action" value="lookPlaceInfoByP">
     									</form>
 									</td>
 									</c:if>
 									<!-- 上架中的場地 結束 -->
-									
-									<!-- 使用中的場地 -->
-									<c:if test="${placeVO.p_status == '2'}">
-									<td>
-										<div class="btn-group"> 
-  											<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled="disabled">
-    											編輯 <span class="caret"></span>
-  											</button>
-  											<ul class="dropdown-menu" style="min-width:50px;">
-    											<li>
-   													<a href="#" onclick="useOrUp();">
-   														<i class="icon-edit"></i> 更新場地	
-    												</a>
-    											</li>
-    											<li>
-    												<a href="#" onclick="useOrUp();">
-    													<i class="icon-edit"></i> 新增圖片
-    												</a>
-    											</li>
-    											<li>
-    												<a href="#" onclick="useOrUp();">
-    													<i class="icon-edit"></i> 刪除場地
-    												</a>
-    											</li>
-  											</ul>
-										</div>	
-									</td>
-									<td>
-										<input type="button" class="btn btn-light btn-sm" disabled="disabled" value="使用中">
-									</td>
-									<td>
-									</td>
-									</c:if>
-									<!-- 使用中的場地  結束-->
 									
 								</tr>
 							</c:forEach>
@@ -174,7 +141,7 @@
 	<!-- 課程管理 全部 結束 -->
 </body>
 
-	<!-- 刪除效果、使用中、已上架按鈕控制 -->
+	<!-- 刪除效果、已上架按鈕控制 -->
 	<script>
 		function deletePlace(no, p_status) {
 			swal({
@@ -271,11 +238,19 @@
 					});
 				}
 			});
-		
-		
-		
-		
 		}
 	</script>
-
+<!-- 控制字數顯示 -->
+<script>
+$(function(){
+	var len = 20; // 超過50個字以"..."取代
+    $(".p_into_limited").each(function(){
+        if($(this).text().length>len){
+            $(this).attr("title",$(this).text());
+            var text=$(this).text().substring(0,len-1)+" ...";
+            $(this).text(text);
+        }
+    });
+});
+</script>
 </html>

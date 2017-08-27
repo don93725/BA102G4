@@ -11,7 +11,6 @@
 	<div style='display:none;'>
 		<div id='order_content' style='padding:0px; background:#fff;'>
 			<h1>預定場地</h1>
-			<form>
 				<input type="text" id="p_nooo1" value="${placeVO.p_no}">
 				教練帳號:<br><div id="" style="display:none;color:red;"></div>
 				<input type="text" id="mem_acc"><br>
@@ -32,10 +31,9 @@
 				<br>
 				尾款:<br><div id="" style="display:none;color:red;"></div>
 				<span id="pau_price1" style="color:red;">${placeVO.place_publishVO.pau_price}</span><br>
-				<input type="button" class="btn btn-primary" value="送出" onclick="sendZ()">
+				<input type="button" class="btn btn-primary" value="送出" onclick="sendtoop()">
 				<input type="reset" class="btn btn-default" name="" value="重新填寫" id="cancel">
 				<br>
-			</form>
 		</div>
 	</div>
 	
@@ -44,7 +42,7 @@
 
 	<!-- 本頁面專屬js -->
 	<script>
-		function sendZ() {
+		function sendtoop() {
 			swal({
 				title: "確定送出?",
 				type: "info",
@@ -58,19 +56,12 @@
 					$.ajax({
 						url : webCtx + '/Place_PublishServlet',
 						data : {
-							p_no : $("#p_nooo1"),
+							p_no : $("#p_nooo1").val(),
 							rp_date : $("#datepicker").val(),
-<<<<<<< HEAD
 							rp_time : $("#rp_time").val(),
 							pbu_price : $("#pbu_price").html(),
 							pau_price : $("#pau_price").html(),
-							action : 'orderPlace',
-=======
-							rp_time : $("#rp_time1").val(),
-							pbu_price : $("#pbu_price1").html(),
-							pau_price : $("#pau_price1").html(),
 							action : 'orderPlace'
->>>>>>> refs/remotes/origin/master
 						},
 						type : "POST",
 						dataType : 'text',
@@ -91,10 +82,7 @@
 									text : "內容不正確",
 									type : "error"
 								});
-									$.each(JSON.parse(msg), function(key, value){
-										$('#alertA_' + key.trim()).css('display','block');
-										$('#alertA_' + key.trim()).html(value);
-									})
+
 							}						
 						},
 						error : function(xhr, ajaxOptions, thrownError) {						
@@ -105,6 +93,3 @@
 			});
 		}
 	</script>
-<!-- colorbox -->
-<script src="<%= request.getContextPath() %>/style/assets/js/jquery.colorbox.js"></script>
-<link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/colorbox.css" />

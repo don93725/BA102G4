@@ -53,33 +53,41 @@
             <div class="col-md-4">
                 <div class="panel panel-success">
                     <div class="panel-heading">
-                        <h4><center><i class="icon-star icon-lg"></i>找教練?</center></h4>
+                        <h4><center><i class="icon-group"></i> 找教練?</center></h4>
+                    </div>
+                    <div class="panel-body f_coach">
+					<p>擁有私人教練的好處：
+<p>1. 增加訓練動機，避免因恆心不夠而中途放棄之現象。
+2. 安全的訓練指導，減少因不當使用而造成的傷害。
+3. 正確又具效果的訓練課程，專為個人量身訂做。
+4. 針對特殊需求訓練，不論是傷害復健或是增強運動能力。
+5. 自信的增加來自於健美勻稱的身材！良好的運動訓練計畫除了可促進健康外，最主要是可以獲得令人稱羨的完美身材。
+不論您是要增重、強壯、減重、瘦身、復健、增強運動表現，您的專屬私人教練都會為您量身訂做一個屬於您個人的完美健身計畫！</p>
                     </div>
                     <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <center><a href="find_coaches.jsp"><span class="btn btn-success btn-lg tooltip-success" data-rel="tooltip" data-placement="bottom" title="訊息">立刻預定教練</span></a></center>
+                    	<center><a href="<%=request.getContextPath()%>/front_end/browse/find_coaches.jsp"><span class="btn btn-success btn-lg tooltip-success aa" data-rel="tooltip" data-placement="bottom">立刻預定教練</span></a></center>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="panel panel-warning">
                     <div class="panel-heading">
-                        <h4><center><i class="icon-bell-alt"></i> 找場地?</center></h4>
+                        <h4><center><i class="icon-home"></i> 找場地?</center></h4>
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <center><a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=placeDetailList"><span class="btn btn-warning btn-lg tooltip-warning" data-rel="tooltip" data-placement="bottom" title="訊息">立刻預定場地</span></a></center>
+                        <center><a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=placeDetailList"><span class="btn btn-warning btn-lg tooltip-warning aa" data-rel="tooltip" data-placement="bottom">立刻預定場地</span></a></center>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h4><center><i class="icon-bell-alt"></i> 找課程?</center></h4>
+                        <h4><center><i class="icon-calendar"></i> 找課程?</center></h4>
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <center><a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=crsDetailList"><span class="btn btn-info btn-lg tooltip-info" data-rel="tooltip" data-placement="bottom" title="訊息"><i class="icon-hand-o-up"></i>立刻預定課程</span></a></center>
+                        <center><a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=crsDetailList"><span class="btn btn-info btn-lg tooltip-info aa" data-rel="tooltip" data-placement="bottom"><i class="icon-hand-o-up"></i>立刻預定課程</span></a></center>
                     </div>
                 </div>
             </div>
@@ -247,11 +255,13 @@
 						<p></p>
 						</c:forEach>
 						
-						<li style="margin-left: 0px; display: flex;">
+						<li style="display:flex;float:right;">
 							<a href="<%= request.getContextPath()%>/AnnewShowCtrl">
+								<right>
 								<span>
 									看更多&nbsp<i class="icon-arrow-right"></i>
-								</span>						
+								</span>
+								</right>				
 							</a>
 						</li>
 					</ul>
@@ -283,7 +293,7 @@
 						</li>
 						<p></p>
 						</c:forEach>
-						<li style="margin-left: 0px; display: flex;">
+						<li style="display:flex;float:right;">
 							<a href='<%= request.getContextPath()%>/front_end/fitkw/knowledges.jsp'>
 								<span>
 									看更多&nbsp<i class="icon-arrow-right"></i>
@@ -294,7 +304,7 @@
             	</div>
             </div>
             <!-- 健身知識 結束-->
-             
+
             <div class="col-xs-12 col-md-4"  >
             	<!--廣告圖-->
 <!--                 <img class="img-responsive" src="http://ochappy-co.cocolog-nifty.com/photos/uncategorized/2015/03/01/pic_006.jpg" style="width: 100%;"> -->
@@ -305,7 +315,7 @@
         </div>
 </div><!-- page container3結束 -->
 </div><!-- 最新消息+健身知識 結束 -->
-
+<br>
 
 <!-- 討論區 -->
 <div class="full_width" style="background-image: url('/BA102G4/style/images/ranking_img.jpg');background-attachment: fixed;">
@@ -327,5 +337,18 @@
 </body>
 	<!--navbar淡入、下拉式選單滑動、navbar變色、物件淡出效果、回到最頂端、控制字數顯示 -->
 	<%@include file="/front_end/include/basicScript2.file" %>
+<!-- 控制字數顯示 -->
+<script>
+$(function(){
+	var len = 150; // 超過50個字以"..."取代
+    $(".f_coach").each(function(){
+        if($(this).text().length>len){
+            $(this).attr("title",$(this).text());
+            var text=$(this).text().substring(0,len-1)+" ...";
+            $(this).text(text);
+        }
+    });
+});
+</script>
 </html>
 <div id="backTop"></div>

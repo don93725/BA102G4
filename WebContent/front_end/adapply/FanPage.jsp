@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<div class="fb-page" data-href="https://www.facebook.com/&#x5065;&#x8ca8;-GymHome-493230431012478/" data-tabs="timeline" data-height="232" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/&#x5065;&#x8ca8;-GymHome-493230431012478/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/&#x5065;&#x8ca8;-GymHome-493230431012478/">°·³f - GymHome</a></blockquote></div>
+<div class="fb-page" data-href="https://www.facebook.com/&#x5065;&#x8ca8;-GymHome-493230431012478/" data-tabs="timeline" data-height="237" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/&#x5065;&#x8ca8;-GymHome-493230431012478/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/&#x5065;&#x8ca8;-GymHome-493230431012478/">°·³f - GymHome</a></blockquote></div>
 
 
 <div id="fb-root"></div>
