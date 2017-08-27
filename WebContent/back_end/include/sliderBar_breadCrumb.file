@@ -100,6 +100,8 @@
 							</a>
 
 							<ul class="submenu">
+							
+						<!--	
 								<li>
 									<a href="<%=request.getContextPath()%>/back_end/adapply/setCheckAD.jsp">
 										<i class="icon-double-angle-right"></i>
@@ -107,7 +109,7 @@
 										廣告審核
 									</a>
 								</li>
-
+						-->
 								<li>
 									<a href="<%=request.getContextPath()%>/forum/ForumsManagerCtrl">
 										<i class="icon-double-angle-right"></i>
