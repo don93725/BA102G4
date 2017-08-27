@@ -245,12 +245,7 @@
 							</a>
 
 							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-								<li>
-									<a href="#">
-										<i class="icon-cog"></i>
-										設置
-									</a>
-								</li>
+								
 
 								<li>
 									<a href="<%=request.getContextPath()%>/back_end/update_personal/updatePersonal.jsp">

@@ -56,7 +56,7 @@
 					<table id="sample-table-1" class="table table-striped">
 						<thead class="aaa">
 							<tr>
-								<th class="center">檢舉編號</th>
+<!-- 								<th class="center">檢舉編號</th> -->
 								<th class="center">場地編號</th>
 								<th class="center">檢舉者帳號</th>
 								<th class="center">檢舉原因</th>
@@ -73,7 +73,7 @@
 							<c:forEach var="placeReportVO" items="${list}"
 								begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
 								<tr align="center" valign="middle">
-									<td class="center">${placeReportVO.pr_no}</td>
+<%-- 									<td class="center">${placeReportVO.pr_no}</td> --%>
 									<td class="center">${placeReportVO.pt_no}</td>
 									<%-- 				<td>${placeReportVO.mem_no}</td> --%>
 									<td class="center">${CheckPlaceMemSvc.getOneMem(placeReportVO.mem_no).mem_acc}</td>
@@ -86,7 +86,7 @@
 									<td class="center">${placeReportVO.pr_stat==0?'未審核':'已審核'}</td>
 									<td class="center">
 										<form method="post" action="<%=request.getContextPath()%>/placerep/PlaceRepCtrl">
-											<input type="submit" value="核准"> <input type="hidden"
+											<input type="submit" class="btn btn-primary" value="核准"> <input type="hidden"
 													name="pr_no" value="${placeReportVO.pr_no}"> 
 											<input type="hidden" name="pt_no" value="${placeReportVO.pt_no}">
 											<input type="hidden" name="action" value="Report">
@@ -94,7 +94,7 @@
 									</td>
 
 									<td class="center"><form method="post" action="<%=request.getContextPath()%>/placerep/PlaceRepCtrl">
-											<input type="submit" value="駁回"> 
+											<input type="submit" class="btn btn-danger" value="駁回"> 
 											<input type="hidden" name="pr_no" value="${placeReportVO.pr_no}"> <input
 												type="hidden" name="action" value="NO_Report">
 										</form>

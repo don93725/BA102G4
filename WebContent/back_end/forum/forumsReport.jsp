@@ -27,7 +27,7 @@
 				<table id="sample-table-1" class="table table-striped">
 						<thead class="aaa">
 							<tr>
-								<th class="center">編號</th>
+<!-- 								<th class="center">編號</th> -->
 								<th class="center">論壇</th>
 								<th class="center">介紹</th>
 								<th class="center">申請原因</th>
@@ -38,15 +38,15 @@
 					<c:forEach var="forum" items="${forums }">
 						<tbody>
 							<tr>
-								<td class="center">${forum.forum_no }</td>
+<%-- 								<td class="center">${forum.forum_no }</td> --%>
 								<td class="center"><a
 										href='${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forum.forum_no }'>${forum.forum_name }</a></td>
 								<td class="center">${forum.forum_desc }</td>
 								<td class="center">${forum.forum_note}</td>
-								<td class="center">${forum.forum_stat }</td>
+								<td class="center">${forum.forum_stat == 0?'未審核':''}</td>
 								<td class="center">
-									<a href='${pageContext.request.contextPath}/forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=1&thisPage=${thisPage }&rcv_no=${forum.mem_no}'><button>通過</button></a>
-									<a href='${pageContext.request.contextPath}/forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=2&thisPage=${thisPage }'><button>不通過</button></a>
+									<a href='${pageContext.request.contextPath}/forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=1&thisPage=${thisPage }&rcv_no=${forum.mem_no}'><button class="btn btn-primary" >通過</button></a>
+									<a href='${pageContext.request.contextPath}/forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=2&thisPage=${thisPage }'><button class="btn btn-danger">不通過</button></a>
 								</td>
 
 							</tr>

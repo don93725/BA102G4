@@ -14,5 +14,11 @@ public class CountService {
 		return len;
 	}
 	
+	public int getCountIntValue(String from,String where,int value){
+		CountDAO dao = new CountDAO();
+		int len = dao.getCountIntValue(from,where,value);
+		return len;
+	}
+	
 	
 }

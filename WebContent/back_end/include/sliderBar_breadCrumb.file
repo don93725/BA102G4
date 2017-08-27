@@ -132,49 +132,9 @@
 									</a>
 								</li>
 
-								<li>
-									<a href="#">
-										<i class="icon-double-angle-right"></i>
-										管理
-									</a>
-								</li>
-
-								<li>
-									<a href="#" class="dropdown-toggle">
-										<i class="icon-double-angle-right"></i>
-										管理
-										<b class="arrow icon-angle-down"></b>
-									</a>
-
+								
 									<ul class="submenu">
-										<li>
-											<a href="#">
-												<i class="icon-leaf"></i>
-												管理
-											</a>
-										</li>
-
-										<li>
-											<a href="#" class="dropdown-toggle">
-												<i class="icon-pencil"></i>
-												管理
-												<b class="arrow icon-angle-down"></b>
-											</a>
-
 											<ul class="submenu">
-												<li>
-													<a href="#">
-														<i class="icon-plus"></i>
-														管理
-													</a>
-												</li>
-
-												<li>
-													<a href="#">
-														<i class="icon-eye-open"></i>
-														管理
-													</a>
-												</li>
 											</ul>
 										</li>
 									</ul>
@@ -215,55 +175,16 @@
 									</a>
 								</li>
 
-								<li>
-									<a href="#">
-										<i class="icon-double-angle-right"></i>
-										管理
-									</a>
-								</li>
 
 								<li>
-									<a href="#">
-										<i class="icon-double-angle-right"></i>
-										管理
-									</a>
-								</li>
-
-								<li>
-									<a href="#" class="dropdown-toggle">
-										<i class="icon-double-angle-right"></i>
-										管理
-										<b class="arrow icon-angle-down"></b>
-									</a>
 
 									<ul class="submenu">
-										<li>
-											<a href="#">
-												<i class="icon-leaf"></i>
-												管理
-											</a>
-										</li>
 
 										<li>
-											<a href="#" class="dropdown-toggle">
-												<i class="icon-pencil"></i>
-												管理
-												<b class="arrow icon-angle-down"></b>
-											</a>
 
 											<ul class="submenu">
-												<li>
-													<a href="#">
-														<i class="icon-plus"></i>
-														管理
-													</a>
-												</li>
 
 												<li>
-													<a href="#">
-														<i class="icon-eye-open"></i>
-														管理
-													</a>
 												</li>
 											</ul>
 										</li>
@@ -304,49 +225,12 @@
 									</a>
 								</li>
 
-								<li>
-									<a href="#">
-										<i class="icon-double-angle-right"></i>
-										管理
-									</a>
-								</li>
 
 								<li>
-									<a href="#" class="dropdown-toggle">
-										<i class="icon-double-angle-right"></i>
-										管理
-										<b class="arrow icon-angle-down"></b>
-									</a>
 
 									<ul class="submenu">
 										<li>
-											<a href="#">
-												<i class="icon-leaf"></i>
-												管理
-											</a>
-										</li>
-
-										<li>
-											<a href="#" class="dropdown-toggle">
-												<i class="icon-pencil"></i>
-												管理
-												<b class="arrow icon-angle-down"></b>
-											</a>
-
 											<ul class="submenu">
-												<li>
-													<a href="#">
-														<i class="icon-plus"></i>
-														管理
-													</a>
-												</li>
-
-												<li>
-													<a href="#">
-														<i class="icon-eye-open"></i>
-														管理
-													</a>
-												</li>
 											</ul>
 										</li>
 									</ul>
