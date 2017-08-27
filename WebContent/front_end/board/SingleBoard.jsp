@@ -401,7 +401,7 @@
 														</div>
 														<div class="col-xs-12 col-sm-2 cmt">
 														<c:if test="${user.mem_no==comment.mem_no.mem_no }">
-														<a href='#' onclick='editPhotoCmmt.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }");' style='color:black'>
+														<a href='#' onclick='editPhotoCmmt.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }","${comment.mem_no.mem_no}");' style='color:black'>
 															<span class='glyphicon glyphicon-pencil'></span></a>
 															&nbsp&nbsp&nbsp&nbsp&nbsp
 														<a href='#' onclick='delPhotoCmmt.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }","${comment.mem_no.mem_no}");' style='color:black'>
