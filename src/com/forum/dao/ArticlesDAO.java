@@ -100,7 +100,7 @@ public class ArticlesDAO extends BasicDAO implements DAOInterface<Articles> {
 	// 建置查詢單筆
 
 	public Articles getVOByPK(String art_no) {
-		String SQL = "Select * from articles a join (select mem_nickname,mem_no from members) b on a.mem_no=b.mem_no where art_no=?";
+		String SQL = "Select * from articles a join (select mem_nickname,mem_rank,mem_no from members) b on a.mem_no=b.mem_no where art_no=?";
 		Object[] param = { art_no };
 		List<Articles> list = getVOBySQL(SQL, param);
 		Articles articles = list.get(0);

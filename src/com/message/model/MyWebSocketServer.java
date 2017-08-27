@@ -54,7 +54,9 @@ public class MyWebSocketServer {
 				}
 				if(rcvSession!=null){
 					if(rcvSession.isOpen()){
-						rcvSession.getAsyncRemote().sendText(message);
+						synchronized (lock){
+							rcvSession.getAsyncRemote().sendText(message);
+						}
 					}			
 				}				
 			}
@@ -79,11 +81,15 @@ public class MyWebSocketServer {
 				String data= "{ \"type\":\"call\",\"obj\": {\"rcv_no\":"+post_no+",\"nickname\":\""+nickname+"\",\"mem_rank\":\""+mem_rank+"\"}}";
 				Session rcvSession = connectedSessions.get(rcv_no);					
 				if(rcvSession!=null&&rcvSession.isOpen()){
+					synchronized (lock){
 						rcvSession.getAsyncRemote().sendText(data);
+					}
 				}else{
 					data = "{ \"type\":\"stopCall\"}";
 					Session postSession = connectedSessions.get(post_no);
-						postSession.getAsyncRemote().sendText(data);							
+					synchronized (lock){
+						postSession.getAsyncRemote().sendText(data);
+					}
 				}
 				
 			}
@@ -93,7 +99,9 @@ public class MyWebSocketServer {
 				String data = "{ \"type\":\"stopCall\"}";
 				Session rcvSession = connectedSessions.get(rcv_no);	
 				if(rcvSession!=null&&rcvSession.isOpen()){
-					rcvSession.getAsyncRemote().sendText(data);
+					synchronized (lock){
+						rcvSession.getAsyncRemote().sendText(data);
+					}
 				}
 				
 				
@@ -104,7 +112,9 @@ public class MyWebSocketServer {
 				String data = "{ \"type\":\"stopWait\",\"obj\": {\"nickname\":\""+nickname+"\"}}";
 				Session rcvSession = connectedSessions.get(rcv_no);	
 				if(rcvSession!=null&&rcvSession.isOpen()){
-					rcvSession.getAsyncRemote().sendText(data);
+					synchronized (lock){
+						rcvSession.getAsyncRemote().sendText(data);
+					}
 				}
 				
 				

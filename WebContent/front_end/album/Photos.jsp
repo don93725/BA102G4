@@ -302,7 +302,7 @@ font-size:50px;
 												</div>
 												<div class="col-xs-12 col-sm-3 cmt">
 												<c:if test="${user.mem_no==comment.mem_no.mem_no }">
-												<a href='#' onclick='editPhotoCmmt.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }");' style='color:black'>
+												<a href='#' onclick='editPhotoCmmt.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }","${comment.mem_no.mem_no }");' style='color:black'>
 													<span class='glyphicon glyphicon-pencil'></span></a>
 													&nbsp&nbsp&nbsp&nbsp&nbsp
 												<a href='#' onclick='delPhotoCmmt.call(this,event,"${pageContext.request.contextPath}","${comment.bd_cmt_no }","${comment.mem_no.mem_no}");' style='color:black'>
@@ -464,7 +464,7 @@ font-size:50px;
       		<div class="dropup">
 					<button class="btn btn-default btn-lg dropdown-toggle" type="button"
 						id="dropdownMenu2" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="true" value="0">
+						aria-haspopup="true" aria-expanded="true" value="0" onclick='addOpen.call(this,event);'>
 						隱私 <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -526,6 +526,14 @@ font-size:50px;
 	<script src="${pageContext.request.contextPath}/front_end/album/js/jquery.fancybox.js"></script>
 	<script src='${pageContext.request.contextPath}/front_end/comm/js/sweetalert.min.js'></script>	
 	<script type="text/javascript">
+	function addOpen(event){
+		event.preventDefault();
+		if($(this).parent().hasClass('open')){
+			$(this).parent().removeClass('open');
+		}else{
+			$(this).parent().addClass('open');
+		}
+	}
 	function sharePhoto(path,al_no,mem_no,mem_rank,mem_nickname,ul_date,photo_no){
 		$('#sharePic').attr('src',path+'/util/OutputPic?mem_no='+mem_no+"&mem_rank="+mem_rank);
 		$('#shareIMG').attr('src',path+'/util/OutputPic?photo_no='+photo_no);
