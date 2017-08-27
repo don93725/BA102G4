@@ -20,7 +20,7 @@ import javax.websocket.CloseReason;
 
 @ServerEndpoint("/MyWebSocketServer/{name}")
 public class MyWebSocketServer {
-
+	private Integer lock=1;
 	private static final Map<String,Session> connectedSessions = Collections.synchronizedMap(new HashMap<String,Session>());
 
 	@OnOpen
@@ -65,7 +65,9 @@ public class MyWebSocketServer {
 				data= "{ \"type\":\"phone\",\"obj\":"+data+"}";
 				Session rcvSession = connectedSessions.get(rcv_no);					
 				if(rcvSession!=null&&rcvSession.isOpen()){
-						rcvSession.getAsyncRemote().sendText(data);
+						synchronized (lock){
+							rcvSession.getAsyncRemote().sendText(data);							
+						}
 				}
 				
 			}
@@ -77,12 +79,11 @@ public class MyWebSocketServer {
 				String data= "{ \"type\":\"call\",\"obj\": {\"rcv_no\":"+post_no+",\"nickname\":\""+nickname+"\",\"mem_rank\":\""+mem_rank+"\"}}";
 				Session rcvSession = connectedSessions.get(rcv_no);					
 				if(rcvSession!=null&&rcvSession.isOpen()){
-					rcvSession.getAsyncRemote().sendText(data);
+						rcvSession.getAsyncRemote().sendText(data);
 				}else{
 					data = "{ \"type\":\"stopCall\"}";
 					Session postSession = connectedSessions.get(post_no);
-					
-					postSession.getAsyncRemote().sendText(data);							
+						postSession.getAsyncRemote().sendText(data);							
 				}
 				
 			}
