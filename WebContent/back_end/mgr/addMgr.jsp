@@ -5,7 +5,7 @@
 <%@ page import="com.members.model.*"%>		
 									
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn-en">
 <head>
 	<%@include file="/back_end/include/fileInput/fileInput_head.file" %>
 	<%@include file="/back_end/include/basic_ace_script.file" %>

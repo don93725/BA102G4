@@ -1,18 +1,18 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!-- navbar開始! -->
-<div class="navbar navbar-default fixed" id="navbar">
+<div class="navbar navbar-default" id="navbar">
 	
 <!-- navbar位置固定 -->
 	<script type="text/javascript">
-		try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+		try{ace.settings.check('navbar' , '')}catch(e){}
 	</script>
 	
 
 <!-- 整條narbar -->
 		<div class="navbar navbar-default" id="navbar">
 			<script type="text/javascript">
-				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+				try{ace.settings.check('navbar' , '')}catch(e){}
 			</script>
 			
 			<div class="navbar-container" id="navbar-container">

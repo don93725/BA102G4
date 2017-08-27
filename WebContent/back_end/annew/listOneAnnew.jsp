@@ -3,7 +3,7 @@
 <%
 AnnewVO annewVO = (AnnewVO) request.getAttribute("annewVO"); //AnnewServlet.java(Controller), 存入req的annewVO物件
 %>
-<html>
+<html lang="zh-cn-en">
 <head>
 <title>公告消息資料</title>
 </head>
