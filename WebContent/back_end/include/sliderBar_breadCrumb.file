@@ -237,16 +237,6 @@
 		<div class="breadcrumbs" id="breadcrumbs">
 			<script type="text/javascript">
 				try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
-			</script>
-
-			<ul class="breadcrumb">
-				<li>
-				<i class="icon-home home-icon"></i>
-					<a href="#">首頁</a>
-				</li>
-				
-				<li class="active">控制台</li>
-					</ul>
-					
+			</script>		
 <!-- .breadcrumb -->
 			</div>

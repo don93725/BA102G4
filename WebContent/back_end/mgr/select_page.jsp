@@ -22,21 +22,21 @@
 
 					<div class="col-md-2">
 						<div class="input-group">
-							<label class="input-group-addon">員工編號</label> <input type="text"
-								name="mgr_no" class="form-control" placeholder="請輸入編號">
+							<input type="text"
+								name="mgr_no" class="form-control" placeholder="請輸入編號" style="height:34px;">
 						</div>
 					</div>
 					<div class="col-md-2">
 						<div class="input-group">
-							<label class="input-group-addon">員工姓名</label> <input type="text"
-								name="mgr_name" class="form-control" placeholder="請輸入姓名">
+							<input type="text"
+								name="mgr_name" class="form-control" placeholder="請輸入姓名" style="height:34px;">
 						</div>
 					</div>
 					<div class="col-md-2">
 						<div class="input-group">
-							<label class="input-group-addon">職位</label>
-							<select name="mgr_job">
-								<option value="">請選擇
+							
+							<select name="mgr_job" style="height:34px;width:145px;">
+								<option value="">請選擇職位
 								<option value="0">管理員		
 								<option value="1">系統管理員		
 							</select>
@@ -44,9 +44,9 @@
 					</div>
 					<div class="col-md-2">
 						<div class="input-group">
-							<label class="input-group-addon">狀態</label>
-								<select name="mgr_status">
-									<option value="">請選擇		
+							
+								<select name="mgr_status" style="height:34px;width:145px;">
+									<option value="">請選擇狀態	
 									<option value="0">帳號起用中		
 									<option value="1">帳號以停權		
 								</select>

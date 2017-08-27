@@ -4,7 +4,6 @@
 	<!-- basic styles -->
 		<link href="<%=request.getContextPath() %>/style/assets/css/bootstrap.min.css" rel="stylesheet" />
 	 	<link rel="stylesheet" href="<%=request.getContextPath() %>/style/assets/css/font-awesome.min.css" />
-		<link rel="stylesheet" href="<%=request.getContextPath() %>/style/assets/css/ace-skins.min.css" />
 <!-- fonts 
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
 -->

@@ -24,36 +24,38 @@
 <div class="row">
 		<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 			<div class="table-responsive">
-				<table id="sample-table-1" class="table table-striped">
+				<table id="sample-table-1" class="table table-striped table-hover" style="text-align:center;">
 						<thead class="aaa">
 							<tr>
 <!-- 								<th class="center">編號</th> -->
-								<th class="center">論壇</th>
-								<th class="center">介紹</th>
-								<th class="center">申請原因</th>
-								<th class="center">審核狀態</th>
-								<th class="center">審核決定</th>
+								<th class="center" style="vertical-align:middle;">論壇</th>
+								<th class="center" style="vertical-align:middle;">介紹</th>
+								<th class="center" style="vertical-align:middle;">申請原因</th>
+								<th class="center" style="vertical-align:middle;">審核狀態</th>
+								<th class="center" style="vertical-align:middle;">審核決定</th>
 							</tr>
 						</thead>
 					<c:forEach var="forum" items="${forums }">
 						<tbody>
 							<tr>
 <%-- 								<td class="center">${forum.forum_no }</td> --%>
-								<td class="center"><a
+								<td class="center" style="vertical-align:middle;"><a
 										href='${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${forum.forum_no }'>${forum.forum_name }</a></td>
-								<td class="center">${forum.forum_desc }</td>
-								<td class="center">${forum.forum_note}</td>
-								<td class="center">${forum.forum_stat == 0?'未審核':''}</td>
-								<td class="center">
-									<a href='${pageContext.request.contextPath}/forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=1&thisPage=${thisPage }&rcv_no=${forum.mem_no}'><button class="btn btn-primary" >通過</button></a>
-									<a href='${pageContext.request.contextPath}/forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=2&thisPage=${thisPage }'><button class="btn btn-danger">不通過</button></a>
+								<td class="center" style="vertical-align:middle;">${forum.forum_desc }</td>
+								<td class="center" style="vertical-align:middle;">${forum.forum_note}</td>
+								<td class="center" style="vertical-align:middle;">${forum.forum_stat == 0?'未審核':''}</td>
+								<td class="center" style="vertical-align:middle;">
+									<a href='${pageContext.request.contextPath}/forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=1&thisPage=${thisPage }&rcv_no=${forum.mem_no}'><button class="btn btn-primary btn-sm" >通過</button></a>
+									<a href='${pageContext.request.contextPath}/forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=2&thisPage=${thisPage }'><button class="btn btn-danger btn-sm">不通過</button></a>
 								</td>
 
 							</tr>
 						</tbody>
 					</c:forEach>
 				</table>
-	<jsp:include page="/back_end/forum/ChangePage.jsp"></jsp:include>
+				<center>
+					<jsp:include page="/back_end/forum/ChangePage.jsp"></jsp:include>
+				</center>
 
 
 

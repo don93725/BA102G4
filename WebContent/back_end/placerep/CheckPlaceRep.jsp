@@ -53,48 +53,48 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 				<div class="table-responsive">
-					<table id="sample-table-1" class="table table-striped">
+					<table id="sample-table-1" class="table table-striped table-hover" style="text-align:center;">
 						<thead class="aaa">
 							<tr>
 <!-- 								<th class="center">檢舉編號</th> -->
-								<th class="center">場地編號</th>
-								<th class="center">檢舉者帳號</th>
-								<th class="center">檢舉原因</th>
-								<th class="center">時間</th>
+								<th class="center" style="vertical-align:middle;">場地編號</th>
+								<th class="center" style="vertical-align:middle;">檢舉者帳號</th>
+								<th class="center" style="vertical-align:middle;">檢舉原因</th>
+								<th class="center" style="vertical-align:middle;">時間</th>
 <!-- 								<th class="center">被檢舉內容</th> -->
-								<th class="center">照片</th>
-								<th class="center">狀態</th>
-								<th class="center">核准</th>
-								<th class="center">駁回</th>
+								<th class="center" style="vertical-align:middle;">照片</th>
+								<th class="center" style="vertical-align:middle;">狀態</th>
+								<th class="center" style="vertical-align:middle;">核准</th>
+								<th class="center" style="vertical-align:middle;">駁回</th>
 							</tr>
 						</thead>
 						<tbody>
 							<%@ include file="page1.file"%>
 							<c:forEach var="placeReportVO" items="${list}"
 								begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
-								<tr align="center" valign="middle">
+								<tr style="vertical-align:middle;">
 <%-- 									<td class="center">${placeReportVO.pr_no}</td> --%>
-									<td class="center">${placeReportVO.pt_no}</td>
+									<td style="vertical-align:middle;">${placeReportVO.pt_no}</td>
 									<%-- 				<td>${placeReportVO.mem_no}</td> --%>
-									<td class="center">${CheckPlaceMemSvc.getOneMem(placeReportVO.mem_no).mem_acc}</td>
-									<td class="center">${placeReportVO.pr_ctx}</td>
-									<td class="center"><fmt:formatDate type="both" dateStyle="long"
+									<td style="vertical-align:middle;">${CheckPlaceMemSvc.getOneMem(placeReportVO.mem_no).mem_acc}</td>
+									<td style="vertical-align:middle;">${placeReportVO.pr_ctx}</td>
+									<td style="vertical-align:middle;"><fmt:formatDate type="both" dateStyle="long"
 															timeStyle="long" value="${placeReportVO.pr_time}" /></td>
 <%-- 									<td class="center"> ${placeReportVO.ref_ctx}</td> --%>
-									<td class="center"><img src="<%=request.getContextPath()%>/tools/DBGifReader?pr_no=${placeReportVO.pr_no}"
+									<td style="vertical-align:middle;"><img src="<%=request.getContextPath()%>/tools/DBGifReader?pr_no=${placeReportVO.pr_no}"
 															style="width: 100px; height: 100px;"></td>
-									<td class="center">${placeReportVO.pr_stat==0?'未審核':'已審核'}</td>
-									<td class="center">
+									<td style="vertical-align:middle;">${placeReportVO.pr_stat==0?'未審核':'已審核'}</td>
+									<td style="vertical-align:middle;">
 										<form method="post" action="<%=request.getContextPath()%>/placerep/PlaceRepCtrl">
-											<input type="submit" class="btn btn-primary" value="核准"> <input type="hidden"
+											<input type="submit" class="btn btn-primary btn-sm" value="核准"> <input type="hidden"
 													name="pr_no" value="${placeReportVO.pr_no}"> 
 											<input type="hidden" name="pt_no" value="${placeReportVO.pt_no}">
 											<input type="hidden" name="action" value="Report">
 										</form>
 									</td>
 
-									<td class="center"><form method="post" action="<%=request.getContextPath()%>/placerep/PlaceRepCtrl">
-											<input type="submit" class="btn btn-danger" value="駁回"> 
+									<td style="vertical-align:middle;"><form method="post" action="<%=request.getContextPath()%>/placerep/PlaceRepCtrl">
+											<input type="submit" class="btn btn-danger btn-sm" value="駁回"> 
 											<input type="hidden" name="pr_no" value="${placeReportVO.pr_no}"> <input
 												type="hidden" name="action" value="NO_Report">
 										</form>
