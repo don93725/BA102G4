@@ -192,7 +192,6 @@ $(function(){
 	$('.f_no:eq(5)').attr('checked','');
 	$('.f_no:eq(6)').attr('checked','');
 	$('.f_no:eq(7)').attr('checked','');
-	$('.f_no:eq(8)').attr('checked','');
 	$('#a').change(function(){
 		if($(this).val()==0){
 			$('.f_no:eq(3)').removeAttr('checked');			

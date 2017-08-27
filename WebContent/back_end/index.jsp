@@ -99,6 +99,76 @@
 						
 						
 					</div>
+					<div class="space-6"></div>
+  
+ 						<div class="infobox infobox-red  ">
+ 							<div class="infobox-icon">
+ 								<i class="icon-github-alt"></i>
+ 							</div>
+ 
+							<div class="infobox-data">
+ 								<span class="infobox-data-number">${CountSvc.getCountIntValue("place_report","pr_stat",0)}件</span>
+ 								<div class="infobox-content">場地檢舉</div>
+ 							</div>
+ 						</div>
+ 						
+ 						<div class="infobox infobox-red  ">
+ 							<div class="infobox-icon">
+								<i class="icon-github-alt"></i>
+							</div>
+ 
+ 							<div class="infobox-data">
+ 								<span class="infobox-data-number">${CountSvc.getCountIntValue("course_list","report_sta",1)}件</span>
+ 								<div class="infobox-content">課程檢舉</div>
+ 							</div>
+ 						</div>
+ 
+ 						<div class="space-6"></div>
+ 
+ 						<div class="infobox infobox-red  ">
+ 							<div class="infobox-icon">
+ 								<i class="icon-github-alt"></i>
+ 							</div>
+ 
+ 							<div class="infobox-data">
+ 								<span class="infobox-data-number">${CountSvc.getCountIntValue("gyms","gym_sta",0)}件</span>
+ 								<div class="infobox-content">健身房審核</div>
+ 							</div>
+						</div>
+ 
+ 						<div class="infobox infobox-red  ">
+ 							<div class="infobox-icon">
+ 								<i class="icon-github-alt"></i>
+ 							</div>
+ 
+ 							<div class="infobox-data">
+ 								<span class="infobox-data-number">${CountSvc.getCountIntValue("coaches","coa_sta",0)}件</span>
+ 								<div class="infobox-content">教練審核</div>
+ 							</div>
+ 						</div>
+
+						<div class="infobox infobox-red  ">
+							<div class="infobox-icon">
+ 								<i class="icon-github-alt"></i>
+ 							</div>
+ 
+ 							<div class="infobox-data">
+ 								<span class="infobox-data-number">${CountSvc.getCountIntValue("forums","forum_stat",0)}件</span>
+ 								<div class="infobox-content">開版審核</div>
+ 							</div>
+ 						</div>
+ 
+ 						<div class="infobox infobox-red  ">
+ 							<div class="infobox-icon">
+ 								<i class="icon-github-alt"></i>
+ 							</div>
+ 
+ 							<div class="infobox-data">
+ 								<span class="infobox-data-number">${CountSvc.getCountIntValue("ad_apply","arv_stat",0)}件</span>
+ 								<div class="infobox-content">廣告審核</div>
+ 							</div>
+ 						</div>
+  					</div>
 					<!-- /span -->
 				</div>	
 		
