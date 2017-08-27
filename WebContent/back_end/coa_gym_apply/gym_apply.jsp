@@ -72,8 +72,8 @@
 									<td class="center">
 										<form method="post"
 											action="<%=request.getContextPath()%>/CoaGymApplyCtrl">
-											<input type="submit" value="®Ö­ã"> 
-											<input type="hidden"name="gym_acc" value="${gymsVO.gym_acc}"> 
+											<input type="submit" class="btn btn-primary" value="®Ö­ã"> 
+											<input type="hidden" name="gym_acc" value="${gymsVO.gym_acc}"> 
 											<input type="hidden" name="gym_no" value="${gymsVO.gym_no}"> 
 											<input type="hidden" name="action" value="GymApply_ok">
 										</form>
@@ -81,7 +81,7 @@
 
 									<td class="center"><form method="post"
 											action="<%=request.getContextPath()%>/CoaGymApplyCtrl">
-											<input type="submit" value="»é¦^"> 
+											<input type="submit" class="btn btn-danger" value="»é¦^"> 
 											<input type="hidden" name="gym_acc" value="${gymsVO.gym_acc}"> 
 											<input type="hidden" name="gym_no" value="${gymsVO.gym_no}"> 
 											<input type="hidden" name="action" value="GymApply_no">

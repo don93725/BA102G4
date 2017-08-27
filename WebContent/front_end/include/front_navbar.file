@@ -237,10 +237,10 @@
                     
 
                     
-                    <!-- 廣告申請 -->
+                    <!-- 廣告申請
                     <li class="navbar_icon">
                         <a href="<%=request.getContextPath()%>/adapply/AD_ApplyCtrl?action=addAD">廣告申請</a>
-                    </li>
+                    </li>   -->
                     
                     <!-- 場地管理 -->
                     <li class="dropdown navbar_icon">
@@ -308,10 +308,10 @@
                         </ul>
                     </li>
                     
-                    <!-- 廣告申請 -->
+                    <!-- 廣告申請 
                     <li class="navbar_icon">
                         <a href="<%=request.getContextPath()%>/adapply/AD_ApplyCtrl?action=addAD">廣告申請</a>
-                    </li>
+                    </li>  -->
                     
                     <!-- 租借管理 -->
                     <li class="dropdown navbar_icon">

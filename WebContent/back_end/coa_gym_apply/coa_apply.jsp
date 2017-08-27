@@ -67,14 +67,14 @@
 											style="width: 100px; height: 100px;"></td>
 									<td class="center">${coachesVO.coa_acc}</td>
 									<td class="center">${coachesVO.coa_name}</td>
-									<td class="center">${coachesVO.coa_sex}</td>
+									<td class="center">${coachesVO.coa_sex == 1 ?'男':'女'}</td>
 									<td class="center">${coachesVO.coa_mail}</td>
 <%-- 									<td class="center">${coachesVO.coa_into}</td> --%>
 									<td class="center">${coachesVO.coa_sta == 0 ?'未審核':''}</td>
 									<td class="center">
 										<form method="post"
 											action="<%=request.getContextPath()%>/CoaGymApplyCtrl">
-											<input type="submit" value="核准"> 
+											<input type="submit" class="btn btn-primary" value="核准"> 
 											<input type="hidden"name="coa_acc" value="${coachesVO.coa_acc}"> 
 											<input type="hidden" name="coa_no" value="${coachesVO.coa_no}"> 
 											<input type="hidden" name="action" value="CoaApply_ok">
@@ -83,9 +83,9 @@
 
 									<td class="center"><form method="post"
 											action="<%=request.getContextPath()%>/CoaGymApplyCtrl">
-											<input type="submit" value="駁回"> <input type="hidden"
-												name="coa_acc" value="${coachesVO.coa_acc}"> <input
-												type="hidden" name="action" value="CoaApply_no">
+											<input type="submit" class="btn btn-danger" value="駁回"> 
+											<input type="hidden" name="coa_acc" value="${coachesVO.coa_acc}">
+											<input type="hidden" name="action" value="CoaApply_no">
 										</form>
 									</td>
 								</tr>

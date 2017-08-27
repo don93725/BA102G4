@@ -188,17 +188,16 @@ $(function(){
 	$('.f_no:eq(0)').attr('checked','');
 	$('.f_no:eq(1)').attr('checked','');
 	$('.f_no:eq(2)').attr('checked','');
-	$('.f_no:eq(3)').attr('checked','');
+	$('.f_no:eq(4)').attr('checked','');
 	$('.f_no:eq(5)').attr('checked','');
 	$('.f_no:eq(6)').attr('checked','');
 	$('.f_no:eq(7)').attr('checked','');
 	$('.f_no:eq(8)').attr('checked','');
-	$('.f_no:eq(9)').attr('checked','');
 	$('#a').change(function(){
 		if($(this).val()==0){
-			$('.f_no:eq(4)').removeAttr('checked');			
+			$('.f_no:eq(3)').removeAttr('checked');			
 		}else{
-			$('.f_no:eq(4)').attr('checked','');
+			$('.f_no:eq(3)').attr('checked','');
 		}
 
 	});

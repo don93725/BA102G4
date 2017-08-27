@@ -15,6 +15,7 @@
 				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
 			</script>
 
+<<<<<<< HEAD
 			<div class="navbar-container" id="navbar-container">
 				<div class="navbar-header pull-left">
 					<a href="#" class="navbar-brand">
@@ -27,6 +28,54 @@
 
 				<div class="navbar-header pull-right" role="navigation">
 					<ul class="nav ace-nav">
+=======
+		<div class="navbar-header pull-right" role="navigation">
+			<ul class="nav ace-nav">
+					<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+							</ul>
+						</li>
+
+						<li class="purple">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<i class="icon-bell-alt icon-animated-bell"></i>
+								<span class="badge badge-important">8</span>
+							</a>
+
+							<ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+								<li class="dropdown-header">
+									<i class="icon-warning-sign"></i>
+									8條通知
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-pink icon-comment"></i>
+												新聞評論
+											</span>
+											<span class="pull-right badge badge-info">+12</span>
+										</div>
+									</a>
+								</li>
+
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-success icon-shopping-cart"></i>
+												新訂單
+											</span>
+											<span class="pull-right badge badge-success">+8</span>
+										</div>
+									</a>
+								</li>
+
+							</ul>
+						</li>
+
+>>>>>>> refs/remotes/origin/master
 
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
@@ -40,6 +89,11 @@
 							</a>
 
 							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+<<<<<<< HEAD
+=======
+								
+
+>>>>>>> refs/remotes/origin/master
 								<li>
 									<a href="<%=request.getContextPath()%>/back_end/update_personal/updatePersonal.jsp">
 										<i class="icon-user"></i>

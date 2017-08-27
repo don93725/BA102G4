@@ -79,17 +79,17 @@
 
 									<td class="center">
 										<form method="post" action="<%=request.getContextPath()%>/courserep/CourseRepCtrl">
-											<input type="submit" value="®Ö­ã"> <input type="hidden"
-												name="ct_no" value="${courseReportVO.ct_no}"> <input
-												type="hidden" name="action" value="Report">
+											<input type="submit" class="btn btn-primary" value="®Ö­ã"> 
+											<input type="hidden" name="ct_no" value="${courseReportVO.ct_no}"> 
+											<input type="hidden" name="action" value="Report">
 										</form>
 									</td>
 
 									<td class="center">
 										<form method="post" action="<%=request.getContextPath()%>/courserep/CourseRepCtrl">
-											<input type="submit" value="»é¦^"> <input type="hidden"
-												name="ct_no" value="${courseReportVO.ct_no}"> <input
-												type="hidden" name="action" value="NO_Report">
+											<input type="submit" class="btn btn-danger" value="»é¦^"> 
+											<input type="hidden" name="ct_no" value="${courseReportVO.ct_no}"> 
+											<input type="hidden" name="action" value="NO_Report">
 										</form>
 									</td>
 								</tr>
