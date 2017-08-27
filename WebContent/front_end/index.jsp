@@ -51,7 +51,7 @@
         <!-- 找XX -->
         <div class="row">
             <div class="col-md-4">
-                <div class="panel panel-success">
+                <div class="panel panel-warning">
                     <div class="panel-heading">
                         <h4><center><i class="icon-group"></i> 找教練?</center></h4>
                     </div>
@@ -65,29 +65,29 @@
 不論您是要增重、強壯、減重、瘦身、復健、增強運動表現，您的專屬私人教練都會為您量身訂做一個屬於您個人的完美健身計畫！</p>
                     </div>
                     <div class="panel-body">
-                    	<center><a href="<%=request.getContextPath()%>/front_end/browse/find_coaches.jsp"><span class="btn btn-success btn-lg tooltip-success aa" data-rel="tooltip" data-placement="bottom">立刻預定教練</span></a></center>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-warning">
-                    <div class="panel-heading">
-                        <h4><center><i class="icon-home"></i> 找場地?</center></h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <center><a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=placeDetailList"><span class="btn btn-warning btn-lg tooltip-warning aa" data-rel="tooltip" data-placement="bottom">立刻預定場地</span></a></center>
+                    	<center><a href="<%=request.getContextPath()%>/front_end/browse/find_coaches.jsp"><span class="btn btn-warning btn-lg aa" data-rel="tooltip" data-placement="bottom">立刻預定教練</span></a></center>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="panel panel-info">
                     <div class="panel-heading">
+                        <h4><center><i class="icon-home"></i> 找場地?</center></h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                        <center><a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=placeDetailList"><span class="btn btn-info btn-lg aa" data-rel="tooltip" data-placement="bottom">立刻預定場地</span></a></center>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
                         <h4><center><i class="icon-calendar"></i> 找課程?</center></h4>
                     </div>
                     <div class="panel-body">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <center><a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=crsDetailList"><span class="btn btn-info btn-lg tooltip-info aa" data-rel="tooltip" data-placement="bottom"><i class="icon-hand-o-up"></i>立刻預定課程</span></a></center>
+                        <center><a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=crsDetailList"><span class="btn btn-success btn-lg aa" data-rel="tooltip" data-placement="bottom"><i class="icon-hand-o-up"></i>立刻預定課程</span></a></center>
                     </div>
                 </div>
             </div>

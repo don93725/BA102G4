@@ -53,55 +53,56 @@
 	
 	<c:if test="${not empty user }">
 		<div class="col-xs-12 col-sm-12">
-						<a class='inline' href="#inline_content"><button class='btn btn-lg btn-primary'>申請板塊</button></a>
+						<a class='inline' href="#inline_content"><button class='btn btn-lg btn-white'>申請板塊</button></a>
 		</div>
 	</c:if>
+	
 		<div class="col-xs-12 col-sm-12">
+			<p></p>
 			<div class="panel panel-default">
 						<table class="table table-hover">
 							<thead>
-								<tr class='active well'><th colspan='5'><h4>官方版塊</h4></th></tr>
+								<tr class='active well'><th colspan='5' style="text-align:center;color:;font-size:30px;background-color:#FFFFBB">官方版塊</th></tr>
 								<tr>
-									<th>編號</th>
-										<th>板塊名稱</th>
-										<th>文章數</th>
+									<th style="text-align:center;">編號</th>
+										<th style="text-align:center;">板塊名稱</th>
+										<th style="text-align:center;">文章數</th>
 										<th>介紹</th>
-										<th>點擊次數</th>
+										<th style="text-align:center;">點擊次數</th>
 								</tr>
 							</thead>
 							<tbody>
 									<c:forEach var='f' items='${offcialforums}' varStatus="loop">
 							<tr>
-								<td>${loop.count }</td>
-								<td><a
+								<td style="text-align:center;">${loop.count }</td>
+								<td style="text-align:center;"><a
 									href='${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${f.forum_no }'>${f.forum_name }</a></td>
-								<td><c:out value="${countOfficialArticles[f.forum_no ] }" default="0" /></td>
+								<td style="text-align:center;"><c:out value="${countOfficialArticles[f.forum_no ] }" default="0" /></td>
 								<td>${f.forum_desc }</td>
-								<td>${f.forum_views }</td>
+								<td style="text-align:center;">${f.forum_views }</td>
 							</tr>
 						</c:forEach>
 							</tbody>
 						
-					 
 						<thead>
-							<tr class='active well'><th colspan='5'><h4>會員板塊</h4></th></tr>
+							<tr class='active well'><th colspan='5' style="text-align:center;color:;font-size:30px;background-color:#EEFFBB">會員板塊</th></tr>
 							<tr>
-								<th>編號</th>
-									<th>板塊名稱</th>
-									<th>文章數</th>
+								<th style="text-align:center;">編號</th>
+									<th style="text-align:center;">板塊名稱</th>
+									<th style="text-align:center;">文章數</th>
 									<th>介紹</th>
-									<th>點擊次數</th>
+									<th style="text-align:center;">點擊次數</th>
 							</tr>
 						</thead>
 						<tbody>
 									<c:forEach var='f' items='${ forums}' varStatus="loop">
 						<tr>
-							<td>${loop.count }</td>
-							<td><a
+							<td style="text-align:center;">${loop.count }</td>
+							<td style="text-align:center;"><a
 								href='${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${f.forum_no }'>${f.forum_name }</a></td>
-							<td><c:out value="${countArticles[f.forum_no ] }" default="0" /></td>
+							<td style="text-align:center;"><c:out value="${countArticles[f.forum_no ] }" default="0" /></td>
 							<td>${f.forum_desc }</td>
-							<td>${f.forum_views }</td>
+							<td style="text-align:center;">${f.forum_views }</td>
 						</tr>
 					</c:forEach>
 						</tbody>

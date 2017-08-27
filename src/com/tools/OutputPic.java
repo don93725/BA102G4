@@ -31,7 +31,7 @@ public class OutputPic extends HttpServlet {
 		try {
 			if (mem_no != null) {
 				if("0".equals(mem_rank) ) {
-					System.out.println("mem_no" + mem_no);
+					System.out.println("mem_no= " + mem_no);
 					bytes = new StudentsDAO().getPicByte(mem_no);
 				}
 				else if("1".equals(mem_rank) ) {

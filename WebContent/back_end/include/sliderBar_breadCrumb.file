@@ -1,40 +1,22 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="main-container" id="main-container">
-	<script type="text/javascript">
-		try{ace.settings.check('main-container' , 'fixed')}catch(e){}
-	</script>
+			<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>
 
 	<div class="main-container-inner">
-		<a class="menu-toggler" id="menu-toggler" href="#">
-			<span class="menu-text"></span>
-		</a>
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
 	
 <!-- sidebar開始! -->
-	<div class="sidebar fixed" id="sidebar">
-		<script type="text/javascript">
-			try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
-		</script>
+	<div class="sidebar" id="sidebar">
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+					</script>
 
 	<div class="sidebar-shortcuts" id="sidebar-shortcuts">
-		<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-			<button class="btn btn-success">
-				<i class="icon-signal"></i>
-			</button>
-
-			<button class="btn btn-info">
-				<i class="icon-pencil"></i>
-			</button>
-
-			<button class="btn btn-warning">
-				<i class="icon-group"></i>
-			</button>
-
-			<button class="btn btn-danger">
-				<i class="icon-cogs"></i>
-			</button>
-		</div>
-
 		<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
 			<span class="btn btn-success"></span>
 
@@ -50,7 +32,7 @@
 	<ul class="nav nav-list">
 		<li class="active">
 			<a href="<%=request.getContextPath()%>/back_end/index.jsp">
-				<i class="icon-dashboard"></i>
+				<i class="icon-home"></i>
 				<span class="menu-text"> 首頁 </span>
 			</a>
 		</li>
@@ -267,14 +249,4 @@
 					</ul>
 					
 <!-- .breadcrumb -->
-
-				<div class="nav-search" id="nav-search">
-					<form class="form-search">
-						<span class="input-icon">
-							<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-								<i class="icon-search nav-search-icon"></i>
-						</span>
-					</form>
-				</div>
-<!-- #nav-search -->
 			</div>
