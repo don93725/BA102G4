@@ -95,10 +95,7 @@
 
 					<div class="vspace-sm"></div>
 
-					<div class="col-sm-5">
-						
-						
-					</div>
+					
 					<div class="space-6"></div>
   
  						<div class="infobox infobox-red  ">
