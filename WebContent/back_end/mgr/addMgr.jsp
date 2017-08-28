@@ -173,6 +173,8 @@
 			<input type="hidden" name="action" value="insert">
 			<%-- <input type="hidden" name="mgr_no" value="${managerVO.mgr_no}"> --%>
 			<input type="submit" value="送出新增" class="btn btn-success btn-lg btn-block" >
+			
+			<input type="button" id="smallButton" onclick="magic()" value="神奇小按鈕">&nbsp<i class="icon-arrow-left"></i>&nbsp點我快速新增資料
 		</div>
 	</div>
 
@@ -181,6 +183,15 @@
 </div>
 </form>
 
+<script type="text/javascript">
+function magic(){
+	document.getElementById("mgr_name").value = "魯大同";
+	document.getElementById("mem_nickname").value = "魯Big同";
+	document.getElementById("mgr_id").value = "mgr123";
+	document.getElementById("mgr_email").value = "ba102g4@gmail.com";
+	document.getElementById("mgr_int").value = "大家好,我叫魯大同,大家可以叫我Big同~";
+}
+</script>
 
 
 
