@@ -27,7 +27,7 @@ public class Place_PublishDAO implements Place_PublishDAO_interface{
 	private static final String INSERT_PT =
 			"Insert into place_time(pt_no, p_no, opc_acc, rp_date, rp_time, op_date,"
 			+ " pbu_price, pau_price, pbu_date, pau_date, report, eva, eva_ct)"
-			+ "values(PLACE_time_sq.NEXTVAL, ?, null, null, null, null,  ?, ? ,null, null, default,"
+			+ " values(PLACE_time_sq.NEXTVAL, ?, null, null, null, null,  ?, ? ,null, null, default,"
 			+ " default, null)";
 	private static final String UPDATE_PUBLIS_STAT =
 			"Update place set p_status = 1 where p_no = ?";
@@ -36,8 +36,10 @@ public class Place_PublishDAO implements Place_PublishDAO_interface{
 	private static final String UNPUBLISH_PUBLIS_STAT =
 			"Update place set p_status = 0 where p_no = ?";
 	private static final String UPDATE_P_TIME =
-			"update place_time set opc_acc=?, rp_date"
-			+ " = ?, rp_time = ?, op_date = default, pbu_price = ?, pau_price =?";
+			"Insert into place_time(pt_no, p_no, opc_acc, rp_date, rp_time, op_date,"
+					       		+ " pbu_price, pau_price, pbu_date, pau_date, report, eva, eva_ct)"
+					       		+ " values(PLACE_time_sq.NEXTVAL, ?, ?, ?, ?, sysdate,  ?, ? ,null, null, default,"
+								+ " default, null)";
 	
 	@Override
 	public void insert(Place_PublishVO place_publishVO) {
@@ -137,13 +139,14 @@ public class Place_PublishDAO implements Place_PublishDAO_interface{
 			con.setAutoCommit(false);
 			
 			pstmt = con.prepareStatement(UPDATE_P_TIME);
-			pstmt.setString(1, pp.getOpc_acc());
-			pstmt.setDate(2, pp.getRp_date());
-			pstmt.setInt(3, pp.getRp_time());
-			pstmt.setString(4,pp.getPbu_price());
-			pstmt.setString(5, pp.getPau_price());
+			
+			pstmt.setString(1, pp.getP_no());
+			pstmt.setString(2, pp.getOpc_acc());
+			pstmt.setDate(3, pp.getRp_date());
+			pstmt.setInt(4, pp.getRp_time());
+			pstmt.setString(5,pp.getPbu_price());
+			pstmt.setString(6, pp.getPau_price());
 			pstmt.executeUpdate();
-			System.out.println("delete pt and update place_status complete");
 			con.commit();
 			con.setAutoCommit(true);
 			

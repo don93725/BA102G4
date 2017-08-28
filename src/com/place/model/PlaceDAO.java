@@ -34,7 +34,7 @@ public class PlaceDAO implements PlaceDAO_interface {
 			"Insert into place(p_no, g_acc , p_name, p_into, p_status, p_add, p_latlng, p_cap, p_date)"
 			+ "Values(p_no_seq.NEXTVAL, ?, ?, ?, default, ?, ?, ?, default)";
 	private static final String PLACE_LIST =
-			"Select * from place where g_acc = ?";
+			"select * from place where g_acc = ?";
 	private static final String DELETE_PLACE =
 			"Delete from place where p_no = ?";
 	private static final String DELETE_PLACE_PIC =
@@ -49,8 +49,8 @@ public class PlaceDAO implements PlaceDAO_interface {
 			"select * from place_time pt join place p on pt.p_no = "
 			+ "p.p_no join place_picture pp on pp.p_no = p.p_no where pt_no = ?";
 	private static final String PLACEINFOBYNO =
-			"select * from place p join place_time pt on p.p_no = "
-			+ "pt.p_no join place_picture pp on p.p_no = pp.p_no where p.p_no = ?";
+			"select * from place_time pt join place p on p.p_no = "
+			+ "pt.p_no join place_picture pp on p.p_no = pp.p_no where pt.pt_no = ?";
 
 	@Override
 	public void insert(PlaceVO placeVO) {
@@ -109,9 +109,13 @@ public class PlaceDAO implements PlaceDAO_interface {
 	public List<PlaceVO> getPlaceList(String placeList_acc, String placeList_status) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmt1 = null;
 		ResultSet rs = null;
+		ResultSet rs1 = null;
 		List<PlaceVO> placeList = new ArrayList<PlaceVO>();
 		PlaceVO placeVO = null;
+		Place_PublishVO place_publishVO = null;
+		
 		String SQL = null;
 		try {
 			con = ds.getConnection();
@@ -128,9 +132,9 @@ public class PlaceDAO implements PlaceDAO_interface {
 			pstmt = con.prepareStatement(SQL);
 			pstmt.setString(1, placeList_acc);
 			rs = pstmt.executeQuery();
-			
 			while(rs.next()){
 				placeVO = new PlaceVO();
+				place_publishVO = new Place_PublishVO();
 				placeVO.setP_no(rs.getString("p_no"));
 				placeVO.setP_name(rs.getString("p_name"));
 				placeVO.setP_cap(rs.getInt("p_cap"));
@@ -138,7 +142,9 @@ public class PlaceDAO implements PlaceDAO_interface {
 				placeVO.setP_latlng(rs.getString("p_latlng"));
 				placeVO.setP_into(rs.getString("p_into"));
 				placeVO.setP_status(rs.getInt("p_status"));
-				placeVO.setP_date(rs.getDate("p_date"));	
+				placeVO.setP_date(rs.getDate("p_date"));
+
+				
 				placeList.add(placeVO);
 			}
 		} catch(SQLException se) {
@@ -493,7 +499,7 @@ public class PlaceDAO implements PlaceDAO_interface {
 //	}
 
 	@Override
-	public PlaceVO getPlaceInfoByP_no(String p_no) {
+	public PlaceVO getPlaceInfoByP_no(String pt_no) {
 		PlaceVO placeVO = null;
 		Place_PicVO place_picVO = null;
 		Place_PublishVO place_publishVO = null;
@@ -507,7 +513,7 @@ public class PlaceDAO implements PlaceDAO_interface {
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(PLACEINFOBYNO);
 
-			pstmt.setString(1, p_no);
+			pstmt.setString(1, pt_no);
 
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
