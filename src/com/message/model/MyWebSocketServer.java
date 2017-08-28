@@ -31,7 +31,7 @@ public class MyWebSocketServer {
 	}
 
 	@OnMessage
-	public void onMessage(Session userSession, String message) {
+	public synchronized void onMessage(Session userSession, String message) {
 		JSONObject json = JSONObject.fromObject(message);
 		System.out.println("-------------------------");
 		System.out.println(message);
@@ -50,12 +50,24 @@ public class MyWebSocketServer {
 				message = gson.toJson(m);				
 				message= "{ \"type\":\"text\",\"obj\":"+message+"}";
 				if(userSession.isOpen()){
-					userSession.getAsyncRemote().sendText(message);			
+					synchronized (lock){
+						try {
+							userSession.getBasicRemote().sendText(message);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}		
+					}
 				}
 				if(rcvSession!=null){
 					if(rcvSession.isOpen()){
 						synchronized (lock){
-							rcvSession.getAsyncRemote().sendText(message);
+							try {
+								rcvSession.getBasicRemote().sendText(message);
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 						}
 					}			
 				}				
@@ -68,7 +80,12 @@ public class MyWebSocketServer {
 				Session rcvSession = connectedSessions.get(rcv_no);					
 				if(rcvSession!=null&&rcvSession.isOpen()){
 						synchronized (lock){
-							rcvSession.getAsyncRemote().sendText(data);							
+							try {
+								rcvSession.getBasicRemote().sendText(data);
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}							
 						}
 				}
 				
@@ -82,13 +99,23 @@ public class MyWebSocketServer {
 				Session rcvSession = connectedSessions.get(rcv_no);					
 				if(rcvSession!=null&&rcvSession.isOpen()){
 					synchronized (lock){
-						rcvSession.getAsyncRemote().sendText(data);
+						try {
+							rcvSession.getBasicRemote().sendText(data);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 				}else{
 					data = "{ \"type\":\"stopCall\"}";
 					Session postSession = connectedSessions.get(post_no);
 					synchronized (lock){
-						postSession.getAsyncRemote().sendText(data);
+						try {
+							postSession.getBasicRemote().sendText(data);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 				}
 				
@@ -100,7 +127,12 @@ public class MyWebSocketServer {
 				Session rcvSession = connectedSessions.get(rcv_no);	
 				if(rcvSession!=null&&rcvSession.isOpen()){
 					synchronized (lock){
-						rcvSession.getAsyncRemote().sendText(data);
+						try {
+							rcvSession.getBasicRemote().sendText(data);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 				}
 				
@@ -113,7 +145,12 @@ public class MyWebSocketServer {
 				Session rcvSession = connectedSessions.get(rcv_no);	
 				if(rcvSession!=null&&rcvSession.isOpen()){
 					synchronized (lock){
-						rcvSession.getAsyncRemote().sendText(data);
+						try {
+							rcvSession.getBasicRemote().sendText(data);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 				}
 				

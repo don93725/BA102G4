@@ -173,7 +173,7 @@
     <dispatcher>ERROR</dispatcher>
     <dispatcher>ASYNC</dispatcher>
   </filter-mapping>
-    <context-param>
+  <context-param>
     <param-name>org.apache.tomcat.websocket.textBufferSize</param-name>
     <param-value>80000000</param-value>
   </context-param>

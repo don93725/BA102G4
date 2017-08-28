@@ -600,7 +600,7 @@
 			        refresh();		        	
 		        }
 		        if(type.trim()=='phone'){
-		        	console.log('收到信息 : ' + message.data);					
+		        	console.log('收到信息123 : ' + message);					
 					if (isRTCPeerConnection)
 						processSignalingMessage(obj);//建立视频连接
 					else
@@ -828,7 +828,7 @@
 		
 		function maybeStart() {
 			if (!started && localStream && channelReady) {
-				setStatus("連線中...");
+				setStatus("<input type=\"button\" id=\"hangup\" value=\"離開\" onclick=\"onHangup()\" />");
 				console.log("Creating PeerConnection.");
 				createPeerConnection();
 				console.log("Adding local stream.");
