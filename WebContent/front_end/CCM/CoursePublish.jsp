@@ -39,9 +39,9 @@
                                 <option value="5">18:00-19:30</option>     
                                 <option value="6">20:00-21:30</option>            
                             </select><br> 
-		開課人數:<input type="text" name="class_num" required="required"> &nbsp&nbsp
-		人數上限:<input type="text" name="limit" required="required"><br>
-		價錢:<input type="text" name="price" required="required">&nbsp&nbsp&nbsp&nbsp
+		開課人數:<input type="text" name="class_num" pattern="^([1-9][0-9]){1,2}$" title="只能輸入1-99" minlength="1" maxlength="2" required="required"> &nbsp&nbsp
+		人數上限:<input type="text" name="limit" pattern="^([1-9][0-9]){1,2}$" title="只能輸入1-99" minlength="1" maxlength="2" required="required"><br>
+		價錢:<input type="text" name="price" pattern="^([1-9][0-9]){1,6}$" minlength="1" maxlength="6" required="required">&nbsp&nbsp&nbsp&nbsp
 		<span id="place">
 		場地:<select name="p_no">
 				<option value="null">無
