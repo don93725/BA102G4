@@ -13,8 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.album.dao.PhotosDAO;
 import com.board.dao.Message_boardDAO;
+import com.coaches.model.CoachesDAO;
 import com.forum.dao.Article_commentsDAO;
+import com.gyms.model.GymsDAO;
 import com.platinf.model.PlatinfService;
+import com.students.model.StudentsDAO;
 import com.sun.xml.internal.messaging.saaj.util.Base64;
 
 /**
@@ -49,21 +52,18 @@ public class OutputPic extends HttpServlet {
 				PlatinfService platinfService = new PlatinfService();
 				bytes = platinfService.getPic(pin_no);
 			}
-			if(mem_no != null){
+			if (mem_no != null) {				
 				String mem_rank = req.getParameter("mem_rank");
-				if("0".equals(mem_rank)){
-					
+				if("0".equals(mem_rank) ) {
+					System.out.println("mem_no= " + mem_no);
+					bytes = new StudentsDAO().getPicByte(mem_no);
 				}
-				if("1".equals(mem_rank)){
-					
+				else if("1".equals(mem_rank) ) {
+					bytes = new CoachesDAO().getPicByte(mem_no);
 				}
-				if("2".equals(mem_rank)){
-					
+				else if("2".equals(mem_rank) ) {
+					bytes = new GymsDAO().getPicByte(mem_no);
 				}
-				if("3".equals(mem_rank)){
-					
-				}
-				
 			}
 			if (art_cmt_no != null) {
 				bytes = new Article_commentsDAO().getPic(art_cmt_no);
@@ -89,7 +89,7 @@ public class OutputPic extends HttpServlet {
 			if (bytes != null) {
 				out.write(bytes);
 			} else {
-				InputStream in = getServletContext().getResourceAsStream("/front_end/forum/images/tomcat.gif");
+				InputStream in = getServletContext().getResourceAsStream("/style/images/noPic.png");
 				bytes = new byte[in.available()];
 				in.read(bytes);
 				out.write(bytes);
@@ -97,7 +97,7 @@ public class OutputPic extends HttpServlet {
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			InputStream in = getServletContext().getResourceAsStream("/front_end/forum/images/tomcat.gif");
+			InputStream in = getServletContext().getResourceAsStream("/style/images/noPic.png");
 			bytes = new byte[in.available()];
 			in.read(bytes);
 			out.write(bytes);

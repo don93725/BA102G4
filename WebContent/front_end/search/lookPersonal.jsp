@@ -8,7 +8,6 @@
 <html lang="zh-cn-en">
 
 <head>
-
     <title>健貨 - GymHome</title>
 		<%@include file="/front_end/include/basicScript.file" %>
 	<!-- 神動畫 -->
@@ -16,8 +15,6 @@
   	<link rel="stylesheet" href="dist/sweetalert.css">
 
 </head>
-
-
 <body>
 
     <!-- 導覽列 -->
