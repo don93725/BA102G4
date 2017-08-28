@@ -17,7 +17,7 @@
 			
 			<div class="navbar-container" id="navbar-container">
 				<div class="navbar-header pull-left">
-					<a href="#" class="navbar-brand">
+					<a href="<%=request.getContextPath()%>/back_end/index.jsp" class="navbar-brand">
 						<small>
 							<i class="icon-leaf"></i>
 							健貨後台管理系統

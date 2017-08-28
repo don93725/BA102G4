@@ -69,6 +69,7 @@
 							</tr>
 						</thead>
 						<tbody>
+							<%int count = 0 ;%>
 							<%@ include file="page1.file"%>
 							<c:forEach var="placeReportVO" items="${list}"
 								begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
@@ -86,8 +87,10 @@
 									<td style="vertical-align:middle;">${placeReportVO.pr_stat==0?'未審核':'已審核'}</td>
 									<td style="vertical-align:middle;">
 										<form method="post" action="<%=request.getContextPath()%>/placerep/PlaceRepCtrl">
-											<input type="submit" class="btn btn-primary btn-sm" value="核准"> <input type="hidden"
-													name="pr_no" value="${placeReportVO.pr_no}"> 
+<!-- 											<input type="submit" class="btn btn-primary btn-sm" value="核准">  -->
+											<input type="button" class="btn btn-primary btn-sm" value="核准" onclick="sendClick(<%=++count%>)">
+											<button  style="display:none;" class="btn btn-primary btn-sm" id="GGG<%=count%>">核准</button>
+											<input type="hidden" name="pr_no" value="${placeReportVO.pr_no}"> 
 											<input type="hidden" name="pt_no" value="${placeReportVO.pt_no}">
 											<input type="hidden" name="action" value="Report">
 										</form>
@@ -108,5 +111,32 @@
 			</div>
 		</div>
 	</div>
-<%@include file="/back_end/include/ace_setting_footer.file"%></body>
+<%@include file="/back_end/include/ace_setting_footer.file"%>
+</body>
+<script type="text/javascript">
+
+function sendClick(c){
+	var btn = "#GGG"+c;
+	swal({
+		  title: "確定要送出審核？",
+		  text: "此舉完成審核動作。",
+		  type: "warning",
+		  showCancelButton: true,
+		  confirmButtonColor: "#DD6B55",
+		  confirmButtonText: "是的",
+		  cancelButtonText: "算了",
+		  closeOnConfirm: false,
+		  closeOnCancel: false
+		},
+		function(isConfirm){
+		  if (isConfirm) {
+			  $(btn).click();
+		  } else {
+		    swal.close();
+		  }
+		});
+	
+}
+
+</script>
 </html>
