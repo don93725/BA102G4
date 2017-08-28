@@ -16,14 +16,14 @@
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				頁面資訊維護  <small><i class="icon-double-angle-right"></i> 健身知識管理</small>
+				頁面資訊維護  <small><i class="icon-double-angle-right"></i> 健身知識</small>
 			</h1>
 		</div>
 		
 	<!-- /.page-header -->
 	<div class='container'>
 	<div class='row'>
-	<center><h2>健身知識管理</h2></center>
+	<center><h2>健身知識</h2></center>
 	<p></p>
 	
 	<div class='col-sm-12'>

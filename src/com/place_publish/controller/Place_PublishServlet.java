@@ -110,7 +110,6 @@ public class Place_PublishServlet extends HttpServlet {
 				String pau_price = req.getParameter("pau_price");
 				
 
-				System.out.println("data= " + rp_date + rp_time + pbu_price + pau_price);
 				if(!errorMsgs.isEmpty()){
 					System.out.println("errorMsgs != 空的");
 					Gson gSon = new Gson();

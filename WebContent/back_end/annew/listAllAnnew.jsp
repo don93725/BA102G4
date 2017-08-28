@@ -26,7 +26,7 @@
 		<div class="page-header">
 			<h1>
 				頁面資訊維護 <small>
-				<i class="icon-double-angle-right"></i> 公告管理 
+				<i class="icon-double-angle-right"></i><a href="selectAnnew_page.jsp"> 公告管理 </a>
 				<i class="icon-double-angle-right"></i> 公告總覽
 				</small>
 			</h1>
