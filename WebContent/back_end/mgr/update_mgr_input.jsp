@@ -42,8 +42,9 @@
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				員工帳號管理 <small> <i class="icon-double-angle-right"></i>
-					員工資料修改 - update_mgr_input.jsp
+				員工帳號管理 <small>
+				<i class="icon-double-angle-right"></i><a href="/BA102G4/back_end/mgr/select_page.jsp"> 員工總覽  </a>
+				<i class="icon-double-angle-right"></i> 修改員工 
 				</small>
 			</h1>
 		</div>
@@ -166,7 +167,7 @@
 							<div class="col-xs-12 col-sm-9" data-role="fieldcontain">
 								<c:forEach var="functionVO" items="${funSvc.all}">
 									<fieldset data-role="controlgroup" data-type="horizontal">
-										<div class="checkbox">
+										<div class="checkbox" style="padding-left:0px;">
 											<label> <input type="checkbox" class='f_no' id="f_no"
 												name="f_no" value="${functionVO.f_no}"
 												${functionVO.f_no==autSvc.getOneFun(managerVO.mgr_no,functionVO.f_no).f_no?'checked':''}>

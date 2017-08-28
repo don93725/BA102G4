@@ -15,8 +15,9 @@
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				員工帳號管理 <small> <i class="icon-double-angle-right"></i>
-					查詢結果
+				員工帳號管理 <small>
+				<i class="icon-double-angle-right"></i><a href="/BA102G4/back_end/mgr/select_page.jsp"> 員工總覽  </a>
+				<i class="icon-double-angle-right"></i> 查詢結果 
 				</small>
 			</h1>
 		</div>
