@@ -29,29 +29,29 @@
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				頁面資訊維護 <small>
-				<i class="icon-double-angle-right"></i> 關於我們
+				頁面資訊維護 <small> <i class="icon-double-angle-right"></i>
+					關於我們
 				</small>
 			</h1>
 		</div>
 		<!-- /.page-header -->
-	</div>
+		</div>
 		<div class='container'>
 		<div class="row">
-        <center><h2>關於我們</h2></center>
+           
             <div class="col-md-12">
             	<div class='row'>
             	
             	<div class="col-md-12">
             	</div>
             	<FORM METHOD="post" ACTION="platinf.do" name="form1" enctype='multipart/form-data'>
-            	<table class='table' style="text-align:center;">
-            	 <tr>
-            	 <td style="vertical-align:middle;" align="center" >圖片</td>
-            	 <td align="left">
-            	 <img style='height:300px;' id='pic' class="img-responsive" src="${pageContext.request.contextPath }/util/OutputPic?pin_no=1" alt="">
-                <br>
-                <input type="button" class='btn btn-default' onclick='upload_Pic();' value='上傳圖片' /></td>
+            	<table class='table' align="center">
+            	<tr><td style="vertical-align:middle;" align="center" >
+            		圖片
+            	</td><td style="vertical-align:middle;" align="center" >
+                <img style='height:300px;' id='pic' class="img-responsive" src="${pageContext.request.contextPath }/util/OutputPic?pin_no=1" alt="">
+                
+                <input type="button" class='btn btn-dafault' onclick='upload_Pic();' value='上傳圖片' /></td>
                 <input type="file" id='file' name="pin_photo" style='display:none;'/>
            		 </tr>
             	<div class="col-md-12">
@@ -69,12 +69,12 @@
             	</tr>
             	<tr><td style="vertical-align:middle;" align="center" >
             	<label for="basic-url">介紹</label></td><td>
-				  <textarea style='resize:none;' class="form-control" name="pr_policy" aria-describedby="basic-addon3" rows="5">${plain.pr_policy}</textarea></td>
+				  <textarea style='resize:none;' class="form-control" name="pr_policy" aria-describedby="basic-addon3" rows="7">${plain.pr_policy}</textarea></td>
             	</tr>
-            	<tr align='center'><td colspan='2'>
+            	<tr align='center'><td colspan='2' align="center" >
             	<input type="hidden" name="action" value="update">
 				<input type="hidden" name="pin_no" value="1">
-				<input type="submit" class='btn btn-primary' value="確認修改" >&nbsp<input type="reset" class='btn btn-danger' value="重填資料" ></td></tr>
+				<input type="submit" class='btn btn-primary' value="確認修改" >&nbsp&nbsp&nbsp<input type="reset" class='btn btn-danger' value="重填資料" ></td></tr>
 				</table>
 				</FORM>
 				</div>

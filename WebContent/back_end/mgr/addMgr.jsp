@@ -42,7 +42,7 @@
 		<div class="page-header">
 			<h1>
 				員工帳號管理 <small> <i class="icon-double-angle-right"></i>
-					員工資料新增 - addMgr.jsp
+					新增員工
 				</small>
 			</h1>
 		</div>
@@ -65,6 +65,7 @@
 
 <div class="container">
 <div class="row">
+
 <div  class="col-xs-12 col-sm-6 col-sm-offset-2">
 <form method="post" action="<%=request.getContextPath()%>/mgr/MgrCtrl" name="form1" enctype="multipart/form-data" class="form-horizontal">
 	

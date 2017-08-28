@@ -24,7 +24,7 @@
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				±b¸¹¼f®Ö <small> <i class="icon-double-angle-right"></i>
+				¼f®ÖºÞ²z <small> <i class="icon-double-angle-right"></i>
 					±Ð½m¼f®Ö
 				</small>
 			</h1>
@@ -41,6 +41,7 @@
 		</c:if>
 
 		<div class="row">
+		<center><h2>±Ð½m¼f®Ö</h2></center>
 			<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 				<div class="table-responsive">
 					<table id="sample-table-1" class="table table-striped table-hover" style="text-align:center;">
@@ -53,10 +54,8 @@
 								<th class="center" style="vertical-align:middle;">©Ê§O</th>
 								<th class="center" style="vertical-align:middle;">¨­¤ÀÃÒ¦r¸¹</th>
 								<th class="center" style="vertical-align:middle;">E-mail</th>
-<!-- 								<th class="center">Â²¤¶</th> -->
-								
-								<th class="center" style="vertical-align:middle;">®Ö­ã</th>
-								<th class="center" style="vertical-align:middle;">»é¦^</th>
+<!-- 								<th class="center">Â²¤¶</th> -->							
+								<th class="center" style="vertical-align:middle;"></th>
 							</tr>
 						</thead>
 						<tbody> 
@@ -74,7 +73,7 @@
 									<td class="center" style="vertical-align:middle;">${coachesVO.coa_sta == 0 ?'¥¼¼f®Ö':''}</td>
 									<td class="center" style="vertical-align:middle;">
 										<form method="post"
-											action="<%=request.getContextPath()%>/CoaGymApplyCtrl">
+											action="<%=request.getContextPath()%>/CoaGymApplyCtrl" style="display:inline;">
 <!-- 											<input type="submit" class="btn btn-primary btn-sm" value="®Ö­ã">  -->
 											<input type="button" class="btn btn-primary btn-sm" value="®Ö­ã" onclick="sendClick(<%=++count%>)">
 											<button  style="display:none;" class="btn btn-primary btn-sm" id="GGG<%=count%>">®Ö­ã</button>
@@ -82,10 +81,9 @@
 											<input type="hidden" name="coa_no" value="${coachesVO.coa_no}"> 
 											<input type="hidden" name="action" value="CoaApply_ok">
 										</form>
-									</td>
-
-									<td  class="center" style="vertical-align:middle;"><form method="post"
-											action="<%=request.getContextPath()%>/CoaGymApplyCtrl">
+										
+										<form method="post"
+											action="<%=request.getContextPath()%>/CoaGymApplyCtrl" style="display:inline;">
 											<input type="submit" class="btn btn-danger btn-sm" value="»é¦^"> 
 											<input type="hidden" name="coa_acc" value="${coachesVO.coa_acc}">
 											<input type="hidden" name="action" value="CoaApply_no">

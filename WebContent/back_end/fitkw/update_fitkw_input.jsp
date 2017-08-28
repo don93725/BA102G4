@@ -19,17 +19,17 @@
 
 	<div class="page-content">
 		<div class="page-header">
-			<a href="selectFitkw_page.jsp">首頁</a>
 			<h1>
-				健身知識修改 <small> <i class="icon-double-angle-right"></i>
-						Announces maker
+				頁面資訊維護 <small>
+				<i class="icon-double-angle-right"></i> <a href="selectFitkw_page.jsp">健身知識 </a>
+				<i class="icon-double-angle-right"></i> 修改健身知識
 				</small>
 			</h1>
 		</div>
 		<!-- /.page-header -->
 		<div class='container'>
 	<div class='row'>
-		<h3>資料修改:</h3>
+		<center><h2>修改健身知識</h2></center>
 <%-- 錯誤表列 --%>
 <c:if test="${not empty errorMsgs}">
 	<font color='red'>請修正以下錯誤:
@@ -42,17 +42,17 @@
 </c:if>
 
 <FORM METHOD="post" ACTION="fitkw.do" name="form1" enctype='multipart/form-data'>
-<table class="table">
+<table class='table' style="text-align:center;">
 	<tbody>
 	<tr>
-		<td>知識標題:</td>
-		<td><input class='form-control' type="TEXT" name="fik_title" size="45" style="background-color:#C9FFC9;" value="<%=fitkwVO.getFik_title()%>" /></td>
+		<td class="center" style="vertical-align:middle;">知識標題</td>
+		<td class="center" style="vertical-align:middle;"><input class='form-control' type="TEXT" name="fik_title" size="45" value="<%=fitkwVO.getFik_title()%>" /></td>
 	</tr>
 	
 	<jsp:useBean id="fitkwSvc" scope="page" class="com.fitkw.model.FitkwService" />
 	<tr>
-		<td>知識主題:<font color=red><b></b></font></td>
-		<td><select class='form-control'  size="1" name="fik_type" style="background-color:#8CFFFF;">
+		<td class="center" style="vertical-align:middle;">知識主題<font color=red><b></b></font></td>
+		<td class="center" style="vertical-align:middle;"><select class='form-control'  size="1" name="fik_type">
 		  <option value="基礎知識"<%if("基礎知識".equals(fitkwVO.getFik_type())){
 		  out.print("selected");}%>>基礎知識</option> 
 		  <option value="增肌知識"<%if("增肌知識".equals(fitkwVO.getFik_type())){
@@ -70,33 +70,31 @@
 	</tr>
 	
 	<tr>
-		<td>知識內文:</td>
+		<td class="center" style="vertical-align:middle;">知識內文</td>
 <%-- 		<td><input type="TEXT" name="fik_ctx" size="45"	value="<%=fitkwVO.getFik_ctx()%>" /></td> --%>
-			<td><textarea class='form-control'  name= "fik_ctx" rows="20" cols="40" style="resize:none;border:2px #00C700 dashed;background-color:#C9FFC9;"><%=fitkwVO.getFik_ctx()%>
+			<td><textarea class='form-control'  name= "fik_ctx" rows="20" cols="40" style="resize:none;"><%=fitkwVO.getFik_ctx()%>
 			</textarea></td>
-
 	</tr>
 	
-	<tr rospan='2'>
-		<td>知識圖片:</td>
-		<td>
-		<img id='pic' height=100 src='${pageContext.request.contextPath }/g1/PhotoOutput?fik_no=${fitkwVO.fik_no}'/><br>		
-		<input class='btn btn-info' type="button" onclick='upload();' value='上傳圖片'/>
-		<input type="file" id='file' name="fik_photo" style='display:none;'/></td>
-			
+	<tr>
+		<td class="center" style="vertical-align:middle;">知識圖片</td>
+		<td align="left"><img id='pic' height=100 src='${pageContext.request.contextPath }/g1/PhotoOutput?fik_no=${fitkwVO.fik_no}'/><input type="file" id='file' name="fik_photo" style='display:none;'/><br>	
+		<br><input class='btn btn-default' type="button" onclick='upload();' value='上傳圖片'/></td>		
 	</tr>
-	<tr align='center'><td>
-	<input type="hidden" name="action" value="update">
-	<input type="hidden" name="fik_no" value="<%=fitkwVO.getFik_no()%>">
-	<input class='btn btn-primary' type="submit" value="確認修改"></td>
-	</tr>
+	
+	<tr align='center'>
+	<td colspan='2'>
+		<input type="hidden" name="action" value="update">
+		<input type="hidden" name="fik_no" value="<%=fitkwVO.getFik_no()%>">
+		<input class='btn btn-primary' type="submit" value="確認修改">
+	</td>
+
 	</tbody>
 	</table>
 	</FORM>
+	
 	</div>
 </div>
-
-
 
 		<%@include file="/back_end/include/ace_setting_footer.file"%>
 </body>

@@ -29,15 +29,13 @@
 						<i class="icon-remove"></i>
 					</button>
 
-					<i class="icon-ok green"></i> 歡迎使用 <strong class="green">
-						健貨後台管理系統 <small>(v1.2)</small>
-					</strong> 
+					<i class="icon-ok green"></i> 歡迎使用 <strong class="green">健貨後台管理系統</strong> 
 				</div>
 
 				<div class="row">
 					<div class="space-6"></div>
 
-					<div class="col-sm-12 infobox-container">
+					<div class="col-sm-12 infobox-container" align="center">
 					
 					
 						<div class="infobox infobox-green">
@@ -87,11 +85,10 @@
 							</div>
 						</div>
 					</div>
-				</div>
-					
- 
- 
- 						
+					<div class="col-sm-12" align="center">
+						<img src="<%= request.getContextPath()%>/style/images/logo_b.gif" style="width:300px;">
+					</div>
+				</div>		
 			</div>
 					
 					

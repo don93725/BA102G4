@@ -32,7 +32,7 @@
 		<div class="page-header">
 			<h1>
 				檢舉管理 <small> <i class="icon-double-angle-right"></i>
-					場地檢舉_未審核
+					場地檢舉
 				</small>
 			</h1>
 		</div>
@@ -51,6 +51,7 @@
 		</c:if>
 		
 		<div class="row">
+		<center><h2>場地檢舉</h2></center>
 			<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 				<div class="table-responsive">
 					<table id="sample-table-1" class="table table-striped table-hover" style="text-align:center;">

@@ -24,16 +24,17 @@
 
 	<div class="page-content">
 		<div class="page-header">
-			<a href="selectAnnew_page.jsp">首頁</a>
 			<h1>
-				公告消息總覽 <small> <i class="icon-double-angle-right"></i>
-						Announces List
+				頁面資訊維護 <small>
+				<i class="icon-double-angle-right"></i><a href="selectAnnew_page.jsp"> 公告管理 </a>
+				<i class="icon-double-angle-right"></i> 公告總覽
 				</small>
 			</h1>
 		</div>
 		<!-- /.page-header -->
 		<div class='container'>
 	<div class='row'>
+	<center><h2>公告總覽</h2></center>
 		<%-- 錯誤表列 --%>
 <c:if test="${not empty errorMsgs}">
 	<font color='red'>請修正以下錯誤:
@@ -45,18 +46,17 @@
 	</font>
 </c:if>
 
-	<table class='table'>
+	<table class='table' style="text-align:center;">
 		<thead>
-		<tr>
-			
-			<th>刊登日期</th>
-			<th>更新日期</th>
-			<th>公告標題</th>
-			<th>公告內文</th>
-			<th>公告圖片</th>
+		<tr align='center' valign='middle'>
+			<th class="center" style="vertical-align:middle;">刊登日期</th>
+			<th class="center" style="vertical-align:middle;">更新日期</th>
+			<th class="center" style="vertical-align:middle;">公告標題</th>
+			<th class="center" style="vertical-align:middle;">公告內文</th>
+			<th class="center" style="vertical-align:middle;">公告圖片</th>
 	<!-- 		<th>附件檔案</th> -->
-			<th>修改</th>
-			<th>刪除</th>
+			<th class="center" style="vertical-align:middle;">修改</th>
+			<th class="center" style="vertical-align:middle;">刪除</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -64,22 +64,22 @@
 		<c:forEach var="annewVO" items="${list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
 			<tr align='center' valign='middle'>
 				
-				<td>${annewVO.ann_date}</td>
-				<td>${annewVO.upd_date}</td>
-				<td align='left'>${annewVO.ann_title}</td>
-				<td align='left' valign='top'>${annewVO.ann_ctx}</td>
+				<td style="vertical-align:middle;" align="center" >${annewVO.ann_date}</td>
+				<td style="vertical-align:middle;" align="center" >${annewVO.upd_date}</td>
+				<td style="vertical-align:middle;" align="center" >${annewVO.ann_title}</td>
+				<td style="vertical-align:middle;" align="center" >${annewVO.ann_ctx}</td>
 				<td><img height=80 src='${pageContext.request.contextPath }/g1/PhotoOutputA?ann_no=${annewVO.ann_no}'/></td>
 	<%-- 			<td>${annewVO.att_no}</td> --%>
 				
-				<td>
+				<td style="vertical-align:middle;" align="center" >
 				  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/back_end/annew/annew.do">
-				     <input class='btn btn-warning' type="submit" value="修改">
+				     <input class='btn btn-warning btn-sm' type="submit" value="修改">
 				     <input type="hidden" name="ann_no" value="${annewVO.ann_no}">
 				     <input type="hidden" name="action"	value="getOne_For_Update"></FORM>
 				</td>
-				<td>
+				<td style="vertical-align:middle;" align="center" >
 				  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/back_end/annew/annew.do">
-				    <input class='btn btn-danger' type="submit" value="刪除">
+				    <input class='btn btn-danger btn-sm' type="submit" value="刪除">
 				    <input type="hidden" name="ann_no" value="${annewVO.ann_no}">
 				    <input type="hidden" name="action"value="delete"></FORM>
 				</td>
@@ -91,11 +91,6 @@
 	</div>
 </div>
 
-
-
-<<<<<<< HEAD
-=======
-		
 </body>
 <script type="text/javascript">
 window.onload = init;
@@ -105,7 +100,6 @@ function init(){
 function upload(){
 	$('#file').trigger('click');
 }
->>>>>>> refs/remotes/origin/master
 
 
 <%@include file="/back_end/include/ace_setting_footer.file"%>

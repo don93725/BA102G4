@@ -16,48 +16,49 @@
 
 	<div class="page-content">
 		<div class="page-header">
-			<a href="selectFitkw_page.jsp">首頁</a>
 			<h1>
-				公告消息新增 <small> <i class="icon-double-angle-right"></i>
-						Announces maker
+				頁面資訊維護 <small>
+				<i class="icon-double-angle-right"></i> <a href="selectFitkw_page.jsp">健身知識 </a>
+				<i class="icon-double-angle-right"></i> 搜尋結果
 				</small>
 			</h1>
 		</div>
 		<!-- /.page-header -->
 		<div class='container'>
 	<div class='row'>
+		<center><h2>搜尋結果</h2></center>
 		<table class='table'>
 	<thead>
 	<tr>
 
-		<th>更新日期</th>
-		<th>知識主題</th>
-		<th>知識標題</th>
-		<th>知識內文</th>
-		<th>知識圖片</th>
-		<th>修改</th>
-		<th>刪除</th>
+		<th class="center" style="vertical-align:middle;">更新日期</th>
+		<th class="center" style="vertical-align:middle;">知識主題</th>
+		<th class="center" style="vertical-align:middle;">知識標題</th>
+		<th class="center" style="vertical-align:middle;">知識內文</th>
+		<th class="center" style="vertical-align:middle;">知識圖片</th>
+		<th class="center" style="vertical-align:middle;">修改</th>
+		<th class="center" style="vertical-align:middle;">刪除</th>
 	</tr>
 	</thead>
 	<tbody>
 	<c:forEach var="fitkw" items='${fitkwVO}' >
 	<tr align='center' valign='middle'>
 
-		<td width="100">${fitkw.upd_date}</td>
-		<td width="100">${fitkw.fik_type}</td>
-		<td align='left' width="100">${fitkw.fik_title}</td>
-		<td align='left' valign='top'>${fitkw.fik_ctx}</td>
-		<td width="100"><img height=80 src='${pageContext.request.contextPath }/g1/PhotoOutput?fik_no=${fitkw.fik_no}'/></td>
+		<td class="center" style="vertical-align:middle;" width="100">${fitkw.upd_date}</td>
+		<td class="center" style="vertical-align:middle;" width="100">${fitkw.fik_type}</td>
+		<td class="center" style="vertical-align:middle;" width="100">${fitkw.fik_title}</td>
+		<td align="left">${fitkw.fik_ctx}</td>
+		<td class="center" style="vertical-align:middle;"><img height=80 src='${pageContext.request.contextPath }/g1/PhotoOutput?fik_no=${fitkw.fik_no}'/></td>
 		
-		<td>
+		<td class="center" style="vertical-align:middle;">
 			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/back_end/fitkw/fitkw.do">
-			     <input class='btn btn-warning' type="submit" value="修改">
+			     <input class='btn btn-warning btn-sm' type="submit" value="修改">
 			     <input type="hidden" name="fik_no" value="${fitkw.fik_no}">
 			     <input type="hidden" name="action"	value="getOne_For_Update"></FORM>
 		</td>
-		<td>
+		<td class="center" style="vertical-align:middle;">
 			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/back_end/fitkw/fitkw.do">
-			    <input class='btn btn-danger' type="submit" value="刪除">
+			    <input class='btn btn-danger btn-sm' type="submit" value="刪除">
 			    <input type="hidden" name="ann_no" value="${fitkw.fik_no}">
 			    <input type="hidden" name="action"value="delete"></FORM>
 		</td>

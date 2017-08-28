@@ -22,9 +22,10 @@
 		</div>
 		<!-- /.page-header -->
 <div class="row">
+<center><h2>¶}ª©¼f®Ö</h2></center>
 		<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 			<div class="table-responsive">
-				<table id="sample-table-1" class="table table-striped table-hover" style="text-align:center;">
+				<table id="sample-table-1" class="table table-hover" style="text-align:center;">
 						<thead class="aaa">
 							<tr>
 <!-- 								<th class="center">½s¸¹</th> -->

@@ -20,15 +20,16 @@ AnnewVO annewVO = (AnnewVO) request.getAttribute("annewVO");
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				公告消息新增 <small> <i class="icon-double-angle-right"></i>
-						Announces maker <i class="icon-double-angle-right"></i>  <a href="selectAnnew_page.jsp">回首頁</a>
+				頁面資訊維護 <small>
+				<i class="icon-double-angle-right"></i><a href="selectAnnew_page.jsp"> 公告管理 </a>
+				<i class="icon-double-angle-right"></i> 新增公告
 				</small>
 			</h1>
 		</div>
 		<!-- /.page-header -->
 		<div class='container'>
 	<div class='row'>
-	<h3>資料:</h3>
+	<center><h2>新增公告</h2></center>
 <%-- 錯誤表列 --%>
 <c:if test="${not empty errorMsgs}">
 	<font color='red'>請修正以下錯誤:
@@ -41,24 +42,24 @@ AnnewVO annewVO = (AnnewVO) request.getAttribute("annewVO");
 </c:if>
 
 <FORM METHOD="post" ACTION="annew.do" name="form1" enctype="multipart/form-data">
-<table class="table">
+<table class="table" style="text-align:center;">
 	<tbody>
 	<tr>
-		<td>公告標題:</td>
-		<td><input class='form-control' type="TEXT" name="ann_title" size="45" style="background-color:#C9FFC9;"
+		<td class="center" style="vertical-align:middle;">公告標題</td>
+		<td class="center" style="vertical-align:middle;"><input class='form-control' type="TEXT" name="ann_title" size="45"
 			value="<%= (annewVO==null)? "" : annewVO.getAnn_title()%>" /></td>
 	</tr>
 	
 	<tr>
-		<td>公告內文:</td>
-		<td><textarea class='form-control' name= "ann_ctx" rows="20" cols="40" style="resize:none;border:2px #00C700 dashed;background-color:#C9FFC9;"></textarea></td>
+		<td class="center" style="vertical-align:middle;">公告內文</td>
+		<td><textarea class='form-control' name= "ann_ctx" rows="20" cols="40" style="resize:none;"></textarea></td>
 	</tr>
 	
 	<tr>
-		<td>公告圖片:</td>
-		<td>
+		<td class="center" style="vertical-align:middle;">公告圖片</td>
+		<td align="left">
 		<img id='pic' src=''>
-		<input class='btn btn-info' type="button" onclick='upload();' value='上傳圖片'/></td>
+		<input class='btn btn-default' type="button" onclick='upload();' value='上傳圖片'/></td>
 		<input  id='file' type="file" name="ann_photo" style='display:none;'/>
 	</tr>
 	

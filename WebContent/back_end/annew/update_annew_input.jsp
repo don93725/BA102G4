@@ -19,16 +19,17 @@
 
 	<div class="page-content">
 		<div class="page-header">
-			<a href="selectAnnew_page.jsp">首頁</a>
 			<h1>
-				公告消息修改 <small> <i class="icon-double-angle-right"></i>
-						Announces modify
+				頁面資訊維護 <small>
+				<i class="icon-double-angle-right"></i><a href="selectAnnew_page.jsp"> 公告管理 </a>
+				<i class="icon-double-angle-right"></i> 修改公告
 				</small>
 			</h1>
 		</div>
 		<!-- /.page-header -->
 		<div class='container'>
 	<div class='row'>
+	<center><h2>修改公告</h2></center>
 		<%-- 錯誤表列 --%>
 <c:if test="${not empty errorMsgs}">
 	<font color='red'>請修正以下錯誤:
@@ -41,31 +42,32 @@
 </c:if>
 
 <FORM METHOD="post" ACTION="annew.do" name="form1" enctype='multipart/form-data'>
-<table class='table'>
+<table class='table' style="text-align:center;">
 	<tbody>	
 	<tr>
-		<td>公告標題:</td>
-		<td><input class='form-control' type="TEXT" name="ann_title" size="45" style="background-color:#C9FFC9;" value="<%=annewVO.getAnn_title()%>" /></td>
+		<td class="center" style="vertical-align:middle;">公告標題</td>
+		<td class="center" style="vertical-align:middle;"><input class='form-control' type="TEXT" name="ann_title" size="45" value="<%=annewVO.getAnn_title()%>" /></td>
 	</tr>
 	
 		
 	<tr>
-		<td>公告內文:</td>
-		<td><textarea class='form-control' name= "ann_ctx" rows="20" cols="40" style="resize:none;background-color:#C9FFC9;"><%=annewVO.getAnn_ctx()%>
+		<td class="center" style="vertical-align:middle;">公告內文</td>
+		<td class="center" style="vertical-align:middle;"><textarea class='form-control' name= "ann_ctx" rows="20" cols="40" style="resize:none;"><%=annewVO.getAnn_ctx()%>
 		</textarea></td>
 	</tr>
 	
 	<tr>
-		<td>公告圖片:</td>
-		<td><img id='pic' height=100 src='${pageContext.request.contextPath }/g1/PhotoOutputA?ann_no=${annewVO.ann_no}'/>
-		<br><input class='btn btn-info' type='button' value='修改圖片' onclick='upload();'>
+		<td class="center" style="vertical-align:middle;">公告圖片</td>
+		<td align="left"><img id='pic' height=100 src='${pageContext.request.contextPath }/g1/PhotoOutputA?ann_no=${annewVO.ann_no}'/><br>
+		<br><input class='btn btn-default' type='button' value='修改圖片' onclick='upload();'>
 		<input type="file" id='file' name="ann_photo" style='display:none;'/>
 		</td>
 	</tr>
+	
 	<tr>
-	<td colspan='2' align='center'><input type="hidden" name="action" value="update">
+	<td class="center" style="vertical-align:middle;" colspan="2"><input type="hidden" name="action" value="update">
 		<input type="hidden" name="ann_no" value="<%=annewVO.getAnn_no()%>">
-		<input class='btn btn-primary' type="submit" value="確認修改" >
+		<input class='btn btn-primary' type="submit" value="確認修改">&nbsp&nbsp&nbsp
 		<input class='btn btn-danger' type="reset" value="重置修改">
 	</td>
 	</tr>
