@@ -38,7 +38,7 @@
 								<th class="center">場地介紹</th>
 								<th class="center"></th>
 								<th class="center"></th>
-								<th class="center"></th>
+
 							</tr>
 						</thead>
 						<tbody>
@@ -117,13 +117,7 @@
 									<td>
 										<input type="button" class="btn btn-primary" value="我要下架" onclick="unPublish(${placeVO.p_no})">
 									</td>
-									<td>
-										<form action="<%= request.getContextPath() %>/PlaceInfoServlet" method="POST">
-    										<input type="submit" class="btn btn-warning" value="場地詳情">
-    										<input type="hidden" name="p_no" value="${placeVO.p_no}">
-    										<input type="hidden" name="action" value="lookPlaceInfoByP">
-    									</form>
-									</td>
+
 									</c:if>
 									<!-- 上架中的場地 結束 -->
 									
