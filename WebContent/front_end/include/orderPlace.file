@@ -53,6 +53,7 @@
 				closeOnConfirm: false
 			},function(response){
 				if(response){
+				console.log($("#rp_time").val());
 					$.ajax({
 						url : webCtx + '/Place_PublishServlet',
 						data : {
@@ -75,7 +76,7 @@
 									showConfirmButton : false
 								});
 									$(".inline").colorbox.close();
-									setTimeout("location.reload()",1000);
+								//	setTimeout("location.reload()",1000);
 							}else {
 								swal({
 									title : "申請失敗",

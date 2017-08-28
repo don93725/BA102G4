@@ -14,21 +14,27 @@
     <meta name="author" content=""> -->
 
  <title>健貨 - GymHome</title>
+  <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/libraries/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/libraries/p5.play.js"></script>
+  <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/libraries/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/libraries/p5.sound.js"></script>
+
+  <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/sketch.js"></script>
 <%@include file="/front_end/include/basicScript.file" %>
 </head>
 
 <body>
-	
+	<div id = "bgCanvas" style="position:absolute;z-index:-1;"></div>  
 	<!-- 導覽列 -->
  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 <%@include file="/front_end/include/front_navbar.file" %>
   </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" style="background-color:transparent;">
         
         <!-- Page Heading/Breadcrumbs -->
-        <div class="breadcrumbs" id="breadcrumbs">
+        <div class="breadcrumbs" id="breadcrumbs" style="background-color:transparent;">
             <script type="text/javascript">
                 try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
             </script>
@@ -52,7 +58,7 @@
         
 
             <div class="col-lg-12">
-                <div class="row">
+                <div class="row" style="background-color:transparent;">
 				<form action="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do" method="post">
                     <div class="col-lg-2">
                             <input type="text" name="p_name" id="p_name" placeholder="輸入名稱">
@@ -93,7 +99,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12">
                         <div class="table-responsive">
-                            <table id="sample-table-1" class="table table-striped">
+                            <table id="sample-table-1" class="table" style="background-color:transparent;">
                                 <thead class="aaa">
                                     <tr>
                                         <th class="center">容納人數</th>
