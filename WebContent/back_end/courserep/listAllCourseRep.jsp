@@ -31,7 +31,7 @@
 		<div class="page-header">
 			<h1>
 				檢舉管理 <small> <i class="icon-double-angle-right"></i>
-					課程檢舉審核_未處理 - ListAllCourseRep.jsp
+					課程檢舉
 				</small>
 			</h1>
 		</div>
@@ -48,6 +48,7 @@
 		</font>
 	</c:if>
 	<div class="row">
+	<center><h2>課程檢舉</h2></center>
 		<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 			<div class="table-responsive">
 				<table id="sample-table-1" class="table table-striped table-hover" style="text-align:center;">

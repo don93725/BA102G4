@@ -53,6 +53,7 @@
 <!-- 							</div> -->
 				
 					<div class="row">
+					<center><h2>員工帳號管理</h2></center>
 						<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 							<div class="table-responsive">
 								<table id="sample-table-1" class="table table-striped table-hover" style="text-align:center;">

@@ -15,18 +15,28 @@
 
 	<div class="page-content">
 		<div class="page-header">
-			<a href="selectFitkw_page.jsp">首頁</a>
 			<h1>
-				健身知識管理 <small> <i class="icon-double-angle-right"></i>
-						Fitness Knowledge Management
-				</small>
+				頁面資訊維護  <small><i class="icon-double-angle-right"></i> 健身知識管理</small>
 			</h1>
 		</div>
-		<!-- /.page-header -->
-		<div class='container'>
+		
+	<!-- /.page-header -->
+	<div class='container'>
 	<div class='row'>
-		<%-- 錯誤表列 --%>
+	<center><h2>健身知識管理</h2></center>
+	<p></p>
+	
+	<div class='col-sm-12'>
+		<a href='listAllFitkw.jsp'><button class='btn btn-warning btn-sm'><i class="icon-eye-open bigger-120"></i> 知識總覽</button></a>
+  		<a href='addFitkw.jsp'><button class='btn btn-success btn-sm'><i class="icon-plus bigger-120"></i> 新增知識</button></a>
+  	</div>
+
+  	
+  	
+  			<%-- 錯誤表列 --%>
 <c:if test="${not empty errorMsgs}">
+
+	<div class='col-sm-12'>
 	<font color='red'>請修正以下錯誤:
 	<ul>
 		<c:forEach var="message" items="${errorMsgs}">
@@ -34,46 +44,47 @@
 		</c:forEach>
 	</ul>
 	</font>
+	</div>
+
 </c:if>
 
+
 	<div class='col-sm-12'>
-	<a href='listAllFitkw.jsp'><input class='btn btn-default' type="button" value="知識總覽"></a>
-  	<a href='addFitkw.jsp'><input class='btn btn-default' type="button" value="新增" ></a>
-  	</div>
-  	
-	<div class='col-sm-12'>
-	<div class='col-sm-6'>
     <FORM METHOD="post" ACTION="fitkw.do" >
         <label for="exampleInputEmail1"><img src="images/flower.gif"><b>輸入標題<img src="images/flower.gif">:</b></label>
-    	<div class="input-group">
-    	<input class='form-control' type="text" name="fik_title" style="background-color:#FFDEDE;">
-		  <div class="input-group-btn">
-		    <input class='btn btn-default form-control' type="submit" value="送出">
-        	<input type="hidden" name="action" value="getPart_By_Title">
-		  </div>
-		</div>   
+    		<div class="input-group">
+    			<input class='form-control' type="text" name="fik_title">
+		  		<div class="input-group-btn">
+		   		 <input class='btn btn-default form-control btn-primary' type="submit" value="送出">
+        			<input type="hidden" name="action" value="getPart_By_Title">
+		  		</div>
+			</div>
     </FORM>
-    </div></div>
+    </div>
+
+
+ 
     <div class='col-sm-12'>
-	<div class='col-sm-6'>
     <FORM METHOD="post" ACTION="fitkw.do" >
        <label for="exampleInputEmail1"><img src="images/flower.gif"><b>輸入日期<img src="images/flower.gif">:</b></label>
        <div class="input-group">
-       <input class='form-control' type="date" name="upd_date" style="background-color:#D6D6FF;">
+       <input class='form-control' type="date" name="upd_date">
 		  <div class="input-group-btn">
-		    <input class='btn btn-default form-control' type="submit" value="送出">
+		    <input class='btn btn-default form-control btn-primary' type="submit" value="送出">
         	<input type="hidden" name="action" value="getPart_By_Date">
 		  </div>
 		</div>
-    </FORM></div></div>
+    </FORM>
+    </div>
+
+
 
   <jsp:useBean id="fitkwSvc" scope="page" class="com.fitkw.model.FitkwService" />
   	<div class='col-sm-12'>
-	<div class='col-sm-6'>
      <FORM METHOD="post" ACTION="fitkw.do" >
        <label for="exampleInputEmail1"><img src="images/flower.gif"><b>選擇主題<img src="images/flower.gif">:</b></label>
         <div class="input-group">
-        <select class='form-control' size="1" name="fik_type" style="background-color:#8CFFFF;">
+        <select class='form-control' size="1" name="fik_type">
           <option value="基礎知識">基礎知識</option>
           <option value="增肌知識">增肌知識</option>
           <option value="跑步知識">跑步知識</option>
@@ -81,15 +92,16 @@
           <option value="其他知識">其他知識</option>
        </select>
 		  <div class="input-group-btn">
-		    <input class='btn btn-default form-control' type="submit" value="送出">
+		    <input class='btn btn-default form-control btn-primary' type="submit" value="送出">
       		 <input type="hidden" name="action" value="getPart_By_Type">
 		  </div>
 		</div>
-    </FORM></div></div>
+    </FORM>
+    </div>
+ 
+
 	</div>
 </div>
-
-
 
 		<%@include file="/back_end/include/ace_setting_footer.file"%>
 </body>

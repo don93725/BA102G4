@@ -23,7 +23,7 @@
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				±b¸¹¼f®Ö <small> <i class="icon-double-angle-right"></i>
+				¼f®ÖºÞ²z <small> <i class="icon-double-angle-right"></i>
 					°·¨­©Ð¼f®Ö
 				</small>
 			</h1>
@@ -40,6 +40,7 @@
 		</c:if>
 
 		<div class="row">
+		<center><h2>°·¨­©Ð¼f®Ö</h2></center>
 			<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 				<div class="table-responsive">
 					<table id="sample-table-1" class="table table-striped table-hover" style="text-align:center;">
@@ -54,7 +55,6 @@
 								<th  class="center" style="vertical-align:middle;">ª¬ºA</th>
 <!-- 								<th class="center">Â²¤¶</th> -->
 								<th class="center" style="vertical-align:middle;">®Ö­ã</th>
-								<th class="center" style="vertical-align:middle;">»é¦^</th>
 							</tr>
 						</thead>
 						<tbody> 
@@ -72,7 +72,7 @@
 									<td class="center" style="vertical-align:middle;">${gymsVO.gym_sta == 0 ?'¥¼¼f®Ö':''}</td>
 									<td class="center" style="vertical-align:middle;">
 										<form method="post"
-											action="<%=request.getContextPath()%>/CoaGymApplyCtrl">
+											action="<%=request.getContextPath()%>/CoaGymApplyCtrl" style="display:inline;">
 <!-- 											<input type="submit" class="btn btn-primary btn-sm" value="®Ö­ã">  -->
 											<input type="button" class="btn btn-primary btn-sm" value="®Ö­ã" onclick="sendClick(<%=++count%>)">
 											<button  style="display:none;" class="btn btn-primary btn-sm" id="GGG<%=count%>">®Ö­ã</button>
@@ -80,10 +80,9 @@
 											<input type="hidden" name="gym_no" value="${gymsVO.gym_no}"> 
 											<input type="hidden" name="action" value="GymApply_ok">
 										</form>
-									</td>
 
-									<td class="center" style="vertical-align:middle;"><form method="post"
-											action="<%=request.getContextPath()%>/CoaGymApplyCtrl">
+										<form method="post"
+											action="<%=request.getContextPath()%>/CoaGymApplyCtrl" style="display:inline;">
 											<input type="submit" class="btn btn-danger btn-sm" value="»é¦^"> 
 											<input type="hidden" name="gym_acc" value="${gymsVO.gym_acc}"> 
 											<input type="hidden" name="gym_no" value="${gymsVO.gym_no}"> 

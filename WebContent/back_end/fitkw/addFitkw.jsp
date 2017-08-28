@@ -19,16 +19,18 @@ FitkwVO fitkwVO = (FitkwVO) request.getAttribute("fitkwVO");
 
 	<div class="page-content">
 		<div class="page-header">
-			<a href="selectFitkw_page.jsp">首頁</a>
 			<h1>
-				健身知識新增 <small> <i class="icon-double-angle-right"></i>
-						Fitness Knowledge
+				頁面資訊維護  
+				<small>
+					<i class="icon-double-angle-right"></i> 健身知識 
+					<i class="icon-double-angle-right"></i> 新增健身知識
 				</small>
 			</h1>
 		</div>
 		<!-- /.page-header -->
 		<div class='container'>
 	<div class='row'>
+	<center><h2>新增健身知識</h2></center>
 		<%-- 錯誤表列 --%>
 <c:if test="${not empty errorMsgs}">
 	<font color='red'>請修正以下錯誤:
@@ -41,18 +43,18 @@ FitkwVO fitkwVO = (FitkwVO) request.getAttribute("fitkwVO");
 </c:if>
 
 <FORM METHOD="post" ACTION="fitkw.do" name="form1" enctype="multipart/form-data">
-<table class='table'>
+<table class='table' align="center">
 <tbody>
 	<tr>
-		<td>知識標題:</td>
-		<td><input class='form-control' type="TEXT" name="fik_title" size="45"  style="background-color:#C9FFC9;"
+		<td style="vertical-align:middle;" align="center" >知識標題:</td>
+		<td><input class='form-control' type="TEXT" name="fik_title" size="45"
 			value="<%= (fitkwVO==null)? "" : fitkwVO.getFik_title()%>" /></td>
 	</tr>
 	
 	<jsp:useBean id="fitkwSvc" scope="page" class="com.fitkw.model.FitkwService" />
 	<tr>
-		<td>知識主題:<font color=red><b></b></font></td>
-		<td><select class='form-control' size="1" name="fik_type" style="background-color:#8CFFFF;">
+		<td style="vertical-align:middle;" align="center" >知識主題:<font color=red><b></b></font></td>
+		<td><select class='form-control' size="1" name="fik_type">
 			<option value="基礎知識">基礎知識</option>
             <option value="增肌知識">增肌知識</option>
             <option value="跑步知識">跑步知識</option>
@@ -63,23 +65,24 @@ FitkwVO fitkwVO = (FitkwVO) request.getAttribute("fitkwVO");
 	</tr>
 	
 	<tr>
-		<td>知識內文:</td>
+		<td style="vertical-align:middle;" align="center" >知識內文:</td>
 <!-- 		<td><input type="TEXT" name="fik_ctx" size="45" -->
 <%-- 			value="<%= (fitkwVO==null)? "" : fitkwVO.getFik_ctx()%>" /></td> --%>
 			
-			<td><textarea class='form-control' name= "fik_ctx" rows="20" cols="40" style="resize:none;border:2px #00C700 dashed;background-color:#C9FFC9;"></textarea></td>
+			<td><textarea class='form-control' name= "fik_ctx" rows="20" cols="40" style="resize:none;"></textarea></td>
 			
 	</tr>
 	
 	<tr>
-		<td>知識圖片:</td>
-		
-		<td><input class='btn btn-info' type='button' onclick='upload();' value='上傳圖片'><input id='file' type="file" name="fik_photo" style='display:none;';/><img id='pic'></td>
+		<td style="vertical-align:middle;" align="center" >知識圖片:</td>
+		<td><img id='pic'>
+		<br><input class='btn btn-default' type='button' onclick='upload();' value='上傳圖片'><input id='file' type="file" name="fik_photo" style='display:none;';/></td>
 	</tr>
 
 <tr align='center'><td colspan='2'>
 <input type="hidden" name="action" value="insert">
-<input class='btn btn-primary' type="submit" value="送出新增"><input class='btn btn-danger' type="reset" value="重置表格"></td>
+<input class='btn btn-primary' type="submit" value="送出新增">&nbsp&nbsp&nbsp
+<input class='btn btn-danger' type="reset" value="重置表格"></td>
 </tbody>
 </table>
 </FORM>

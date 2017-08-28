@@ -48,7 +48,7 @@
 								<select name="mgr_status" style="height:34px;width:145px;">
 									<option value="">請選擇狀態	
 									<option value="0">帳號起用中		
-									<option value="1">帳號以停權		
+									<option value="1">帳號已停權		
 								</select>
 						</div>
 					</div>

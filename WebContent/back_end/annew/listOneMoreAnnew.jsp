@@ -16,28 +16,29 @@
 
 	<div class="page-content">
 		<div class="page-header">
-			<a href="selectAnnew_page.jsp">首頁</a>
 			<h1>
-				公告消息資料  <small> <i class="icon-double-angle-right"></i>
-						Announces List
+				頁面資訊維護 <small>
+				<i class="icon-double-angle-right"></i> 公告管理 
+				<i class="icon-double-angle-right"></i> 日期蒐尋
 				</small>
 			</h1>
 		</div>
 		<!-- /.page-header -->
 		<div class='container'>
 	<div class='row'>
-		<table class='table'>
+	<center><h2>蒐尋結果</h2></center>
+		<table class='table' style="text-align:center;">
 	<thead>
 	<tr>
 		
-		<th>刊登日期</th>
-		<th>更新日期</th>
-		<th>公告標題</th>
-		<th>公告內文</th>
-		<th>公告圖片</th>
+		<th class="center" style="vertical-align:middle;">刊登日期</th>
+		<th class="center" style="vertical-align:middle;">更新日期</th>
+		<th class="center" style="vertical-align:middle;">公告標題</th>
+		<th class="center" style="vertical-align:middle;">公告內文</th>
+		<th class="center" style="vertical-align:middle;">公告圖片</th>
 <!-- 		<th>附件檔案</th> -->
-		<th>修改</th>
-		<th>刪除</th>
+		<th class="center" style="vertical-align:middle;"></th>
+		<th class="center" style="vertical-align:middle;"></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -47,22 +48,22 @@
 	} -->
 	<tr align='center' valign='middle'>
 		
-		<td>${annew.ann_date}</td>
-		<td>${annew.upd_date}</td>
-		<td align='left'>${annew.ann_title}</td>
-		<td align='left' valign='top'>${annew.ann_ctx}</td>
-		<td><img height=80 src='${pageContext.request.contextPath }/g1/PhotoOutputA?ann_no=${annew.ann_no}'/></td>
+		<td class="center" style="vertical-align:middle;">${annew.ann_date}</td>
+		<td class="center" style="vertical-align:middle;">${annew.upd_date}</td>
+		<td class="center" style="vertical-align:middle;">${annew.ann_title}</td>
+		<td class="center" style="vertical-align:middle;">${annew.ann_ctx}</td>
+		<td class="center" style="vertical-align:middle;"><img height=80 src='${pageContext.request.contextPath }/g1/PhotoOutputA?ann_no=${annew.ann_no}'/></td>
 <%-- 		<td>${annew.att_no}</td> --%>
 		
-		<td>
+		<td class="center" style="vertical-align:middle;">
 			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/back_end/annew/annew.do">
-			     <input type="submit" value="修改">
+			     <button class="btn btn-primary btn-sm">修改</button>
 			     <input type="hidden" name="ann_no" value="${annew.ann_no}">
 			     <input type="hidden" name="action"	value="getOne_For_Update"></FORM>
 		</td>
-		<td>
+		<td class="center" style="vertical-align:middle;">
 			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/back_end/annew/annew.do">
-			    <input type="submit" value="刪除">
+			    <button class="btn btn-danger btn-sm">刪除</button>
 			    <input type="hidden" name="ann_no" value="${annew.ann_no}">
 			    <input type="hidden" name="action"value="delete"></FORM>
 		</td>

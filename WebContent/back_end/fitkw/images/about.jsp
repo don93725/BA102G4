@@ -29,8 +29,8 @@
 	<div class="page-content">
 		<div class="page-header">
 			<h1>
-				編輯關於我們 <small> <i class="icon-double-angle-right"></i>
-					Edit About. 
+				頁面資訊維護 <small> <i class="icon-double-angle-right"></i>
+					關於我們
 				</small>
 			</h1>
 		</div>
@@ -45,34 +45,36 @@
             	<div class="col-md-12">
             	</div>
             	<FORM METHOD="post" ACTION="platinf.do" name="form1" enctype='multipart/form-data'>
-            	<table class='table'>
-            	 <tr><td>圖片</td><td>
+            	<table class='table' align="center">
+            	<tr><td style="vertical-align:middle;" align="center" >
+            		圖片
+            	</td><td style="vertical-align:middle;" align="center" >
                 <img style='height:300px;' id='pic' class="img-responsive" src="${pageContext.request.contextPath }/util/OutputPic?pin_no=1" alt="">
                 
-                <input type="button" class='btn btn-primary' onclick='upload_Pic();' value='上傳圖片' /></td>
+                <input type="button" class='btn btn-dafault' onclick='upload_Pic();' value='上傳圖片' /></td>
                 <input type="file" id='file' name="pin_photo" style='display:none;'/>
            		 </tr>
             	<div class="col-md-12">
-            	<tr><td>
+            	<tr><td style="vertical-align:middle;" align="center" >
             	<label for="basic-url">電話</label></td><td>
 				  <input type="text" class="form-control" name="cp_no" aria-describedby="basic-addon3" value='${plain.cp_no}'></td>
 				</tr>
-            	<tr><td>
+            	<tr><td style="vertical-align:middle;" align="center" >
             	<label for="basic-url">地址</label></td><td>
 				  <input type="text" class="form-control" name="com_address" aria-describedby="basic-addon3" value='${plain.com_address}'></td>
             	</tr>
-            	<tr><td>
+            	<tr><td style="vertical-align:middle;" align="center" >
             	<label for="basic-url">信箱</label></td><td>
 				  <input type="text" class="form-control" name="cs_email" aria-describedby="basic-addon3" value=' ${plain.cs_email}'></td>
             	</tr>
-            	<tr><td>
+            	<tr><td style="vertical-align:middle;" align="center" >
             	<label for="basic-url">介紹</label></td><td>
-				  <textarea style='resize:none;' class="form-control" name="pr_policy" aria-describedby="basic-addon3">${plain.pr_policy}</textarea></td>
+				  <textarea style='resize:none;' class="form-control" name="pr_policy" aria-describedby="basic-addon3" rows="7">${plain.pr_policy}</textarea></td>
             	</tr>
-            	<tr align='center'><td colspan='2'>
+            	<tr align='center'><td colspan='2' align="center" >
             	<input type="hidden" name="action" value="update">
 				<input type="hidden" name="pin_no" value="1">
-				<input type="submit" class='btn btn-primary' value="確認修改" >&nbsp<input type="reset" class='btn btn-danger' value="重填資料" ></td></tr>
+				<input type="submit" class='btn btn-primary' value="確認修改" >&nbsp&nbsp&nbsp<input type="reset" class='btn btn-danger' value="重填資料" ></td></tr>
 				</table>
 				</FORM>
 				</div>
