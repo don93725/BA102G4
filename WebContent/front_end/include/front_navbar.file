@@ -81,19 +81,7 @@
                     <li class="navbar_icon">
                         <a href="/BA102G4/forum/ForumCtrl">討論專區</a>
                     </li>
-                    
-                   
-                    <li class="dropdown navbar_icon">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">客服專區 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li class="navbar_icon">
-                                <a href="#">常見問題</a>
-                            </li>
-                            <li class="navbar_icon">
-                                <a href="#">聯絡我們</a>
-                            </li>
-                        </ul>
-                    </li>
+
                     <!-- 判斷角色 -->
                     <input type="hidden" id="rankColor" value="${sessionScope.user.mem_rank }">
      
