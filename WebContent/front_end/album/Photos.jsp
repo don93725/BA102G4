@@ -13,13 +13,7 @@
 <meta content="Expires" content="-1">
 <meta content="Catch-Control" content="no-cache">
 <meta content="Pragma" content="no-cache">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/front_end/album/css/jquery.fancybox.css">
-<!--[if lt IE 9]>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/front_end/comm/css/sweetalert.css">
 <style type="text/css">
 .shareContent img{
@@ -380,9 +374,6 @@ font-size:50px;
 						<div class="col-xs-12 col-sm-12 pre-scrollable addAlbum" ondragover="javascript: dragHandler(event);" ondrop="javascript: drop_image(event);" id="drop_image" >
 
 						</div>
-			
-						
-						
 
 						<div class="text-center">
 						<input type='button' class="btn btn-primary btn-lg" id='upload' value="上傳照片">
@@ -402,11 +393,7 @@ font-size:50px;
     </div>
   </div>
 </div>
-
-			
-			
-			
-				
+		
 		</div>
 
 
@@ -518,11 +505,8 @@ font-size:50px;
 <!-- 分享 end -->
 
 <!-- test -->
-
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src='${pageContext.request.contextPath}/front_end/album/js/jquery.ajax-progress.js'></script>	
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath}/front_end/album/js/jquery.fancybox.js"></script>
 	<script src='${pageContext.request.contextPath}/front_end/comm/js/sweetalert.min.js'></script>	
 	<script type="text/javascript">
@@ -1307,9 +1291,6 @@ font-size:50px;
 		</script>
  	<!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
-
-	<!-- 最底層 -->
-	<%@include file="/front_end/include/floor.file" %>
 	
 </body>
 	<%@include file="/front_end/include/basicScript2.file" %>

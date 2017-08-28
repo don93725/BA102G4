@@ -51,7 +51,7 @@
     
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" style="min-height: 100%;margin: 0 auto -170px;">
         
         <!-- Page Heading/Breadcrumbs -->
         <div class="breadcrumbs" id="breadcrumbs">    
@@ -64,7 +64,7 @@
             <ul class="breadcrumb">
                 <li>
                     <i class="icon-home home-icon"></i>
-                        <a href="#">首頁</a>
+                        <a href="<%= request.getContextPath()%>/front_end/index.jsp">首頁</a>
                      </li>
                 <li class="active">服務介紹</li>
                 <li class="active">找健身房</li>

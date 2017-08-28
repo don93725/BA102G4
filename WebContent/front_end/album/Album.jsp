@@ -11,14 +11,9 @@
 		<meta content="Catch-Control" content="no-cache">
 		<meta content="Pragma" content="no-cache">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/front_end/comm/css/sweetalert.css">
-
-		<!--[if lt IE 9]>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+		
 		<style type="text/css">
 			div.album img{
-				height: 150px;
 				width: 100%;
 			}
 			div.addAlbum{
@@ -38,11 +33,12 @@
   </nav>
 
 	<body>		
-		<div class="container" style='min-height: 100%'>
-				   <div class="breadcrumbs" id="breadcrumbs">
+		<div class="container">
+				   <div class="breadcrumbs" id="breadcrumbs" style="line-height:0px;">
 	            
 			            <div class="col-lg-12">
-			                <h1>相簿
+			                <h1>${user.mem_nickname }的相簿
+			                	<small>${user.mem_nickname }'s Album</small>
 			                </h1>
 			            </div>
 			
@@ -52,10 +48,10 @@
 			                        <a href="<%= request.getContextPath()%>/front_end/index.jsp">首頁</a></li>
 			                     </li>
 			                  <c:if test='${empty param.mem_rank}'>
-		                	<li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
+		                	<li class="active"><a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
 		                     </c:if>
 		                     <c:if test='${not empty param.mem_rank}'>
-		                	<li class="active"> <a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=${param.mem_rank}&mem_no=${param.mem_no}&action=lookPersonal">個人空間 </a></li>
+		                	<li class="active"><a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=${param.mem_rank}&mem_no=${param.mem_no}&action=lookPersonal">個人空間 </a></li>
 		                     </c:if>
 			                <li class="active">相簿</li>
 			            </ul><!-- .breadcrumb -->
@@ -117,20 +113,10 @@
 				 
   				</div>
 					</div>
-
-
-				
-			
-			
-			
-				
+	
 			</div>
 		</div>
 		</div>
-		
-
-
-
 
 		<!-- Button trigger modal -->
 
@@ -159,8 +145,6 @@
 						<input type="radio" id='inlineRadioOptions' name="al_prvt" value="1"> 不開放
 					</label>
 					</label>
-
-				
 
       </div>
       <div class="modal-footer">
@@ -370,9 +354,6 @@
 		</script>
   	<!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
-
-	<!-- 最底層 -->
-	<%@include file="/front_end/include/floor.file" %>
 	
 </body>
 	<%@include file="/front_end/include/basicScript2.file" %>

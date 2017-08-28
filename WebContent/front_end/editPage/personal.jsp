@@ -70,9 +70,6 @@
       
 	<!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
-	
-	<!-- ³Ì©³¼h -->
-	<%@include file="/front_end/include/floor.file" %>
 
 </body>
 	<%@include file="/front_end/include/basicScript2.file" %>

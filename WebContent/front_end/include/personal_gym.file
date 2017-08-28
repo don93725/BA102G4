@@ -3,14 +3,13 @@
         <div class="row">
         	<div class="col-sm-12">
 				<div class="tabbable">
-					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
+					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4" style="background-color:#E0FFFF;">
 						<li class="active">
 							<a data-toggle="tab" href="#home1">基本資料</a>							
 						</li>
 
 						<li id='albumTab'>
 							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/album/AlbumsShowCtrl?mem_no=${user.mem_no}");'>相簿</a>
-							
 						</li>
 						<li id='BdTab'>
 							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/board/BoardShowCtrl?mem_no=${user.mem_no}");'>個人動態</a>
@@ -53,38 +52,8 @@
 											<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
 												<div class="inline position-relative">
 													<a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
-														<i class="icon-circle light-green middle"></i>
-														&nbsp;
 														<span class="white">${user.mem_nickname}</span>
 													</a>
-
-													<ul class="align-left dropdown-menu dropdown-caret dropdown-lighter">
-														<li class="dropdown-header"> 狀態 </li>
-
-														<li>
-															<a href="#">
-																<i class="icon-circle green"></i>
-																&nbsp;
-																<span class="green">可被用的</span>
-															</a>
-														</li>
-
-														<li>
-															<a href="#">
-																<i class="icon-circle red"></i>
-																&nbsp;
-																<span class="red">正在忙碌的</span>
-															</a>
-														</li>
-
-														<li>
-															<a href="#">
-																<i class="icon-circle grey"></i>
-																&nbsp;
-																<span class="grey">不能被用的</span>
-															</a>
-														</li>
-													</ul>
 												</div>
 											</div>
 										</div>
@@ -92,68 +61,27 @@
 										<div class="space-6"></div>
 
 										<div class="profile-contact-info">
-											<div class="profile-contact-links align-left">												
-												
-												<a class="btn btn-link" href="#">
-													<i class="icon-globe bigger-125 blue"></i>
-													個人網站
-												</a>
-											</div>
-
 											<div class="space-6"></div>
-
-											<div class="profile-social-links center">
-												<a href="#" class="tooltip-info" title="" data-original-title="Visit my Facebook">
-													<i class="middle icon-facebook-sign icon-2x blue"></i>
-												</a>
-
-												<a href="#" class="tooltip-info" title="" data-original-title="Visit my Twitter">
-													<i class="middle icon-twitter-sign icon-2x light-blue"></i>
-												</a>
-													
-												<a href="#" class="tooltip-error" title="" data-original-title="Visit my Pinterest">
-													<i class="middle icon-pinterest-sign icon-2x red"></i>
-												</a>
-											</div>
 										</div>
 
-										<div class="hr hr12 dotted"></div>
-											<div class="clearfix">
-												<div class="grid2">
-													<span class="bigger-175 blue">25</span>
-													<br />
-													追蹤者
-												</div>
-
-												<div class="grid2">
-													<span class="bigger-175 blue">12</span>
-													<br />
-													正在追蹤
-												</div>
-											</div>
-											<div class="hr hr16 dotted"></div>
-										</div>
-
-										<div class="col-xs-12 col-sm-9">
-											<div class="center">
+										<div class=""></div>
+											<div class="">
+												<div class="">
 												<span class="btn btn-app btn-sm btn-light no-hover">
-													<span class="line-height-1 bigger-170 blue"> 1,411 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 觀看 </span>
-												</span>
-
+														<span class="line-height-1 bigger-170 blue"> 1,411 </span>
+														<br />
+														<span class="line-height-1 smaller-90"> 觀看 </span>
+													</span>
 												<span class="btn btn-app btn-sm btn-yellow no-hover">
 													<span class="line-height-1 bigger-170"> 32 </span>
 													<br />
 													<span class="line-height-1 smaller-90"> 追蹤者 </span>
 												</span>
-												
 												<span class="btn btn-app btn-sm btn-pink no-hover">
 													<span class="line-height-1 bigger-170"> 4 </span>
 													<br />
 													<span class="line-height-1 smaller-90"> 計畫 </span>
 												</span>
-
 												<span class="btn btn-app btn-sm btn-grey no-hover">
 													<span class="line-height-1 bigger-170"> 23 </span>
 													<br />
@@ -171,10 +99,19 @@
 													<br />
 													<span class="line-height-1 smaller-90"> 聯絡 </span>
 												</span>
+
+												</div>
+
+												<div class="">
+													<span class=""></span>
+													<br />
+												</div>
 											</div>
+											<div class=""></div>
+										</div>
 
-											<div class="space-12"></div>
-
+										<div class="col-xs-12 col-sm-9">
+										
 										<form action="<%= request.getContextPath() %>/MembersServlet" method="post" id="form_gym">
 											<div class="profile-user-info profile-user-info-striped">
 												<div class="profile-info-row">
@@ -214,16 +151,16 @@
 												</div>
 												
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 地圖 </div>
+													<div class="profile-info-name" style="line-height:250px;"> 地圖 </div>
 														<div class="profile-info-value">											
-															<div class="map" style="height: 300px;width: 600px;margin: 0px;padding: 0px;">									
+															<div class="map" style="height: 300px;width: 660px;margin: 0px;padding: 0px;">									
 																<div id="map" style="height: 100%;"></div>
 															</div>
 														</div>
 												</div>
 
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 場館介紹 </div>
+													<div class="profile-info-name" style="line-height:190px;"> 場館介紹 </div>
 													<div class="profile-info-value">				
 														<textarea class="canEdit limited" id="gym_into" name="gym_into" cols="80" rows="10" required  minlength="1" maxlength="500" disabled="disabled" style="resize:none">${gym.gym_into }</textarea>
 														<div id="alert_gym_into" style="display:none;color:red;"></div>
@@ -236,9 +173,6 @@
 														<input type="button" class="btn btn-default btm-md" id="gym_modiData" disabled="true" value="確認修改資料" onclick="tick()">
 													</center>
 												</div>
-
-											<div class="space-20"></div>
-
 								</div>	
 						</div>
 						<!-- a $home1結束 -->
@@ -247,7 +181,7 @@
 				</div>
 			</div><!-- /span -->
 		</div><!-- /row -->
-		
-		<script>
-function goTo(path){location.href = path;}
+
+<script>
+	function goTo(path){location.href = path;}
 </script>

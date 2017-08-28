@@ -2,9 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-
-
+<html lang="zh-cn-en">
 <head>
 
 <!--<meta charset="utf-8">
@@ -31,7 +29,7 @@
   </nav>
 
     <!-- Page Content -->
-    <div class="container" style="background-color:transparent;">
+    <div class="container" style="background-color:transparent;min-height: 100%;margin: 0 auto -170px;">
         
         <!-- Page Heading/Breadcrumbs -->
         <div class="breadcrumbs" id="breadcrumbs" style="background-color:transparent;">
@@ -61,15 +59,15 @@
                 <div class="row" style="background-color:transparent;">
 				<form action="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do" method="post">
                     <div class="col-lg-2">
-                            <input type="text" name="p_name" id="p_name" placeholder="輸入名稱">
+                            <input type="text" name="p_name" id="p_name" placeholder="輸入名稱" style="height:42px;">
                     </div>
 
                     <div class="col-lg-2">
-                            <input type="text" name="p_add" id="p_add" placeholder="輸入地址">
+                            <input type="text" name="p_add" id="p_add" placeholder="輸入地址" style="height:42px;">
                     </div>
 
                     <div class="col-lg-2">
-                            <select class="form-control" name="p_cap" id="p_cap">
+                            <select class="form-control" name="p_cap" id="p_cap" style="height:42px;">
                                 <option value="null">選擇人數</option>
                                 <option name="" value="0-20">0-20</option>
 								<option name="" value="20-40">20-40</option>
@@ -91,33 +89,32 @@
 				</form>
                 </div>
             </div>
-
-            
-            <br><br><br>
+			
+			<br><br><br>
             <!--table開始-->
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12">
                         <div class="table-responsive">
-                            <table id="sample-table-1" class="table" style="background-color:transparent;">
+                            <table id="sample-table-1" class="table table-hover" style="background-color:transparent;text-align:center;">
                                 <thead class="aaa">
                                     <tr>
-                                        <th class="center">容納人數</th>
-                                        <th>場館</th>
-                                        <th>地址</th>
-                                        <th>訂金/尾款</th>
-                                        <th>預定按鈕</th>
+                                        <th class="center" style="vertical-align:middle;background-color:#CCEEFF;">容納人數</th>
+                                        <th class="center" style="vertical-align:middle;background-color:#CCEEFF;">場館名稱</th>
+                                        <th class="center" style="vertical-align:middle;background-color:#CCEEFF;">地址</th>
+                                        <th class="center" style="vertical-align:middle;background-color:#CCEEFF;">訂金/尾款</th>
+                                        <th class="center" style="vertical-align:middle;background-color:#CCEEFF;">預定按鈕</th>
                                      </tr>
                                 </thead>
 
                                 <tbody>
 									<c:forEach var="place_timeVO" items="${plist}">
 	                                    <tr style="font-weight:bold;">
-	                                        <td class="center"><span class="label label-xs label-warning arrowed-in">${place_timeVO.placeVO.p_cap}人</span></td>
-	                                        <td>${place_timeVO.placeVO.p_name}</a></td>
-	                                        <td>${place_timeVO.placeVO.p_add}</a></td>
-	                                        <td>$${place_timeVO.pbu_price} / $${place_timeVO.pau_price}</td>
-	                                        <td><a href="<%= request.getContextPath() %>/PlaceInfoServlet?p_no=${place_timeVO.pt_no}&action=lookPlaceInfoByP"><button class="btn btn-inverse" style="border-radius:6px;">預訂/觀看詳情</button></a></td>
+	                                        <td class="center" style="vertical-align:middle;" align="center;"><span class="label label-xs label-info arrowed-in">${place_timeVO.placeVO.p_cap}人</span></td>
+	                                        <td style="vertical-align:middle;" align="center;">${place_timeVO.placeVO.p_name}</a></td>
+	                                        <td style="vertical-align:middle;" align="center;">${place_timeVO.placeVO.p_add}</a></td>
+	                                        <td style="vertical-align:middle;color:#CC0000;" align="center;">$${place_timeVO.pbu_price} / $${place_timeVO.pau_price}</td>
+	                                        <td style="vertical-align:middle;" align="center;"><a href="<%= request.getContextPath() %>/PlaceInfoServlet?p_no=${place_timeVO.pt_no}&action=lookPlaceInfoByP"><button class="btn btn-inverse">預訂/觀看詳情</button></a></td>
 	                                    </tr>
 									</c:forEach>
                                  </tbody>
@@ -178,11 +175,6 @@ function readAll(){
 
 
 </script>
-<style type="text/css">
-.btn {
-	border-radius:6px;
-}
-</style>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/front_end/CCM/dist/sweetalert-dev.js"></script>
 <script type="text/javascript"
