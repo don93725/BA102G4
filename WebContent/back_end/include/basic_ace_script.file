@@ -25,3 +25,6 @@
 	 	
 	<!-- ace settings handler -->
 		<script src="<%=request.getContextPath() %>/style/assets/js/ace-extra.min.js"></script>
+			<!-- 超強動畫 -->
+	<link rel="stylesheet" href="<%= request.getContextPath() %>/style/assets/css/sweetalert.css" />
+	<script src="<%= request.getContextPath() %>/style/assets/js/sweetalert.min.js"></script>  

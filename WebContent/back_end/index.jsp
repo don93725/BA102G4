@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="BIG5"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
-<jsp:useBean id="CountSvc" scope="page" class="com.index.model.CountService"/> 	
+<jsp:useBean id="CountSvcIndex" scope="page" class="com.index.model.CountService"/> 	
 
 <html lang="zh-cn-en">
 
@@ -46,7 +46,7 @@
 							</div>
 
 							<div class="infobox-data">
-								<span class="infobox-data-number">${CountSvc.getCount("students")}人</span>
+								<span class="infobox-data-number">${CountSvcIndex.getCount("students")}人</span>
 								<div class="infobox-content">健身者</div>
 							</div>
 						</div>
@@ -58,7 +58,7 @@
 							</div>
 
 							<div class="infobox-data">
-								<span class="infobox-data-number">${CountSvc.getCount("coaches")}人</span>
+								<span class="infobox-data-number">${CountSvcIndex.getCount("coaches")}人</span>
 								<div class="infobox-content">教練</div>
 							</div>
 						</div>
@@ -70,7 +70,7 @@
 							</div>
 
 							<div class="infobox-data">
-								<span class="infobox-data-number">${CountSvc.getCount("gyms")}人</span>
+								<span class="infobox-data-number">${CountSvcIndex.getCount("gyms")}人</span>
 								<div class="infobox-content">健身房</div>
 							</div>
 						</div>
@@ -82,109 +82,20 @@
 							</div>
 
 							<div class="infobox-data">
-								<span class="infobox-data-number">${CountSvc.getCount("manager")}人</span>
+								<span class="infobox-data-number">${CountSvcIndex.getCount("manager")}人</span>
 								<div class="infobox-content">員工</div>
 							</div>
 						</div>
 					</div>
 				</div>
 					
-					<div class="row">
-						<div class="space-6"></div>
-						
-						<div class="col-sm-12 infobox-container">
+ 
+ 
  						
- 						<a href="#">
- 						<div class="infobox infobox-red infobox-dark">
- 							<div class="infobox-icon">
- 								<i class="icon-github-alt"></i>
- 							</div>
- 
-							<div class="infobox-data">
- 								<span class="infobox-data-number">${CountSvc.getCountIntValue("place_report","pr_stat",0)}件</span>
- 								<div class="infobox-content">場地檢舉</div>
- 							</div>
- 						</div>
- 						</a>
- 						
- 						<a href="#">
- 						<div class="infobox infobox-red infobox-dark">
- 							<div class="infobox-icon">
-								<i class="icon-github-alt"></i>
-							</div>
- 
- 							<div class="infobox-data">
- 								<span class="infobox-data-number">${CountSvc.getCountIntValue("course_list","report_sta",1)}件</span>
- 								<div class="infobox-content">課程檢舉</div>
- 							</div>
- 						</div>
- 						</div>
- 						</a>
- 					</div>
- 				</duv>
- 
- 
- 						<div class="row">
-						<div class="space-6"></div>
-						<div class="col-sm-12 infobox-container">
- 						
- 						<a href="">
- 						<div class="infobox infobox-orange2 infobox-dark">
- 							<div class="infobox-icon">
- 								<i class="icon-github-alt"></i>
- 							</div>
- 
- 							<div class="infobox-data">
- 								<span class="infobox-data-number">${CountSvc.getCountIntValue("gyms","gym_sta",0)}件</span>
- 								<div class="infobox-content">健身房審核</div>
- 							</div>
-						</div>
-						</a>
-						
-						<a href="">
- 						<div class="infobox infobox-orange2 infobox-dark">
- 							<div class="infobox-icon">
- 								<i class="icon-github-alt"></i>
- 							</div>
- 
- 							<div class="infobox-data">
- 								<span class="infobox-data-number">${CountSvc.getCountIntValue("coaches","coa_sta",0)}件</span>
- 								<div class="infobox-content">教練審核</div>
- 							</div>
- 						</div>
-						</a>
-						
-						<a href="">
-						<div class="infobox infobox-orange2 infobox-dark">
-							<div class="infobox-icon">
- 								<i class="icon-github-alt"></i>
- 							</div>
- 
- 							<div class="infobox-data">
- 								<span class="infobox-data-number">${CountSvc.getCountIntValue("forums","forum_stat",0)}件</span>
- 								<div class="infobox-content">開版審核</div>
- 							</div>
- 						</div>
- 						</a>
- 						
- 						<a href="">
- 						<div class="infobox infobox-orange2 infobox-dark">
- 							<div class="infobox-icon">
- 								<i class="icon-github-alt"></i>
- 							</div>
- 
- 							<div class="infobox-data">
- 								<span class="infobox-data-number">${CountSvc.getCountIntValue("ad_apply","arv_stat",0)}件</span>
- 								<div class="infobox-content">廣告審核</div>
- 							</div>
- 						</div>
- 						</a>
-  					</div>
-				</div>
 			</div>
 					
 					
-</div>	
+	
 		
 	<%@include file="/back_end/include/ace_setting_footer.file"%>
 </body>

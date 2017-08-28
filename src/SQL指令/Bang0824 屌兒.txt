@@ -591,12 +591,36 @@ start with 1
 nocycle
 nocache;
 
-insert into albums values(albums_pk_seq.nextval,'11',default,'運動',default,default,1);
-insert into albums values(albums_pk_seq.nextval,'11',default,'吃飯',default,default,default);
-insert into albums values(albums_pk_seq.nextval,'11',default,'好東',default,1,default);
-insert into albums values(albums_pk_seq.nextval,'11',default,'酷喔',default,default,default);
-insert into albums values(albums_pk_seq.nextval,'11',default,'來一發',default,default,default);
-insert into albums values(albums_pk_seq.nextval,'11',default,'讚讚讚',default,default,default);
+insert into albums values(albums_pk_seq.nextval,'11',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'12',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'13',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'14',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'15',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'16',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'17',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'18',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'19',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'20',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'21',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'22',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'23',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'24',default,'動態相簿',default,default,1);
+
+insert into albums values(albums_pk_seq.nextval,'25',default,'動態相簿',default,default,1);
+
 
 --相片
 

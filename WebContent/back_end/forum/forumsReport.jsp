@@ -45,7 +45,7 @@
 								<td class="center" style="vertical-align:middle;">${forum.forum_note}</td>
 								<td class="center" style="vertical-align:middle;">${forum.forum_stat == 0?'未審核':''}</td>
 								<td class="center" style="vertical-align:middle;">
-									<a href='${pageContext.request.contextPath}/forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=1&thisPage=${thisPage }&rcv_no=${forum.mem_no}'><button class="btn btn-primary btn-sm" >通過</button></a>
+									<a href='${pageContext.request.contextPath}/forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=1&thisPage=${thisPage }&rcv_no=${forum.mem_no}' onclick='return check.call(this,event);'><button class="btn btn-primary btn-sm" >通過</button></a>
 									<a href='${pageContext.request.contextPath}/forum/ForumsManagerCtrl?action=confirm&forum_no=${forum.forum_no }&forum_stat=2&thisPage=${thisPage }'><button class="btn btn-danger btn-sm">不通過</button></a>
 								</td>
 
@@ -66,4 +66,26 @@
 
 		<%@include file="/back_end/include/ace_setting_footer.file"%>
 </body>
+<script type="text/javascript">
+function check(event,form){
+	event.preventDefault();
+	
+	var src = $(this).prop('href');
+	swal({
+		  title: "確定要送出審核？",
+		  text: "此舉完成審核動作。",
+		  type: "warning",
+		  showCancelButton: true,
+		  confirmButtonColor: "#DD6B55",
+		  confirmButtonText: "是的",
+		  cancelButtonText:"算了",
+		  closeOnConfirm: false
+		},function(res){
+			if(res){
+				location.href = src;
+				form.submit();
+			}
+		});
+}
+</script>
 </html>
