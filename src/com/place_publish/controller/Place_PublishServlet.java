@@ -108,6 +108,7 @@ public class Place_PublishServlet extends HttpServlet {
 				String pbu_price = req.getParameter("pbu_price");
 
 				String pau_price = req.getParameter("pau_price");
+				
 
 				System.out.println("data= " + rp_date + rp_time + pbu_price + pau_price);
 				if(!errorMsgs.isEmpty()){

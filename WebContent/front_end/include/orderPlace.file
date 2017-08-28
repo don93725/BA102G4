@@ -17,7 +17,7 @@
 				租借日期：<br><div id="" style="display:none;color:red;"></div>
 				<input id="datepicker" type="text"/><br>
 				租借時段：<br><div id="" style="display:none;color:red;"></div>
-				<select id="rp_time1">
+				<select id="rp_time">
 					<option value="1">08:00-09:30</option>
 					<option value="2">10:00-11:30</option>
 					<option value="3">13:00-14:30</option>
@@ -42,7 +42,9 @@
 
 	<!-- 本頁面專屬js -->
 	<script>
+		
 		function sendtoop() {
+			console.log($("#rp_time").val());
 			swal({
 				title: "確定送出?",
 				type: "info",
@@ -53,6 +55,7 @@
 				closeOnConfirm: false
 			},function(response){
 				if(response){
+				console.log($("#rp_time").val());
 					$.ajax({
 						url : webCtx + '/Place_PublishServlet',
 						data : {
@@ -75,7 +78,7 @@
 									showConfirmButton : false
 								});
 									$(".inline").colorbox.close();
-									setTimeout("location.reload()",1000);
+								//	setTimeout("location.reload()",1000);
 							}else {
 								swal({
 									title : "申請失敗",

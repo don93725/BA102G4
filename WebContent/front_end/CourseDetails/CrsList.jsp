@@ -13,21 +13,31 @@
     <meta name="author" content=""> -->
 
  <title>健貨 - GymHome</title>
+ <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/libraries/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/libraries/p5.play.js"></script>
+  <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/libraries/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/libraries/p5.sound.js"></script>
+
+  <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/sketch.js"></script>
+  
 <%@include file="/front_end/include/basicScript.file" %>
 </head>
 
 <body>
-	
+	<div id = "bgCanvas" style="position:absolute;z-index:-1;"></div>  
+    
+    
+    <div id = "logo"></div>
 	<!-- 導覽列 -->
  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 <%@include file="/front_end/include/front_navbar.file" %>
   </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" style="background-color:transparent;"> 
         
         <!-- Page Heading/Breadcrumbs -->
-        <div class="breadcrumbs" id="breadcrumbs">
+        <div class="breadcrumbs" id="breadcrumbs" style="background-color:transparent;">
             <script type="text/javascript">
                 try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
             </script>
@@ -51,7 +61,7 @@
         
 
             <div class="col-lg-12">
-                <div class="row">
+                <div class="row" style="background-color:transparent;">
 				<form action="<%=request.getContextPath()%>/CCM/CourseManager.do" method="post">
                     <div class="col-lg-2">
                             <input type="text" name="coa_name" id="coa_name" placeholder="輸入教練名稱">
@@ -110,13 +120,13 @@
             <br><br><br>
             <!--table開始-->
             <div class="col-lg-12">
-                <div class="row">
+                <div class="row" >
                     <div class="col-xs-12 col-sm-12">
-                        <div class="table-responsive">
-                            <table id="sample-table-1" class="table table-striped">
-                                <thead class="aaa">
-                                    <tr>
-                                        <th class="center">類別</th>
+                        <div class="" >
+                            <table id="sample-table-1" class="table" style="background-color:transparent;">
+                                <thead class="">
+                                    <tr >
+                                        <th class="center" >類別</th>
                                         <th>教練</th>
                                         <th>場館</th>
                                         <th>課程名稱</th>
@@ -211,6 +221,8 @@ function readAll(){
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+
 
 <style type="text/css">
 .btn {

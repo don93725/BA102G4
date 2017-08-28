@@ -19,7 +19,7 @@
 	}
 	pageContext.setAttribute("cpList", cpList);
 %>
-<%!int count = 0;%>
+<% int count = 0;%>
 <jsp:useBean id="course_timeSVC" scope="page" class="com.course_time.model.Course_timeService" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
