@@ -15,6 +15,52 @@
 <%@include file="/back_end/include/sliderBar_breadCrumb.file" %>
 
 <div class="page-content">
+	<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/mgr/MgrCtrl"
+			name="form1" enctype='multipart/form-data'>
+			<div class="row"  style="height:40px;">
+				<div class="col-md-12 col-md-offset-1 ">
+
+					<div class="col-md-2">
+						<div class="input-group">
+							<input type="text"
+								name="mgr_no" class="form-control" placeholder="請輸入編號" style="height:34px;">
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="input-group">
+							<input type="text"
+								name="mgr_name" class="form-control" placeholder="請輸入姓名" style="height:34px;">
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="input-group">
+							
+							<select name="mgr_job" style="height:34px;width:145px;">
+								<option value="">請選擇職位
+								<option value="0">管理員		
+								<option value="1">系統管理員		
+							</select>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="input-group">
+							
+								<select name="mgr_status" style="height:34px;width:145px;">
+									<option value="">請選擇狀態	
+									<option value="0">帳號起用中		
+									<option value="1">帳號以停權		
+								</select>
+						</div>
+					</div>
+					<div class="col-md-2">
+						<button type="submit" class="btn btn-sm btn-info"><i class="icon-search nav-search-icon"></i>查詢</button>
+						<input type="hidden" name="action" value="listMgr_ByCompositeQuery">
+					</div>
+								
+				</div>
+			</div>
+		</FORM>
+	
 	<%-- 錯誤表列 --%>
 	<c:if test="${not empty errorMsgs}">
 		<font color='red'>請修正以下錯誤:
@@ -25,60 +71,7 @@
 			</ul>
 		</font>
 	</c:if>
-
-		<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/mgr/MgrCtrl"
-			name="form1" enctype='multipart/form-data'>
-			<div class="row">
-				<div class="col-md-12 col-md-offset-1 ">
-
-					<div class="col-md-2">
-						<div class="input-group">
-							<label class="input-group-addon">員工編號</label> <input type="text"
-								name="mgr_no" class="form-control" placeholder="請輸入編號">
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="input-group">
-							<label class="input-group-addon">員工姓名</label> <input type="text"
-								name="mgr_name" class="form-control" placeholder="請輸入姓名">
-						</div>
-					</div>
-					<div class="col-md-2">
-						<div class="input-group">
-							<label class="input-group-addon">職位</label> <select
-								name="mgr_job">
-								<option value="">請選擇
-									<option value="0">管理員
-											
-								<option value="1">系統管理員
-										
-							</select>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="input-group">
-										<label class="input-group-addon">狀態</label>
-										 <select name="mgr_status">
-											<option value="">請選擇
-											
-								<option value="0">帳號起用中
-											
-								<option value="1">帳號以停權
-										
-							</select>
-									</div>
-								</div>
-								
-								<div class="col-md-2">
-								
-									<button type="submit" class="btn btn-sm btn-info"><i class="icon-search nav-search-icon"></i>查詢</button>
-									<input type="hidden" name="action" value="listMgr_ByCompositeQuery">
-								</div>
-								
-							</div>
-						</div>
-					</FORM>
-	 	
+	
 <c:if test="${param.action !='listMgr_ByCompositeQuery'}">
 	<jsp:include page="/back_end/mgr/listAllMgrForSelectPage.jsp" />
 </c:if>		

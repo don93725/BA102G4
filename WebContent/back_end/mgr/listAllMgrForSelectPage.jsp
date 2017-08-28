@@ -55,17 +55,17 @@
 					<div class="row">
 						<div class="col-xs-12 col-sm-10 col-sm-offset-1">
 							<div class="table-responsive">
-								<table id="sample-table-1" class="table table-striped">
+								<table id="sample-table-1" class="table table-striped table-hover" style="text-align:center;">
 									<thead class="aaa">
 										<tr>
-											<th class="center">管理員編號</th>
-											<th class="center">照片</th>
-											<th class="center">帳號</th>
-											<th class="center">職務</th>
-											<th class="center">姓名</th>
-											<th class="center">信箱</th>
-											<th class="center">狀態</th>
-											<th class="center">修改</th>
+											<th class="center" style="vertical-align:middle;">管理員編號</th>
+											<th class="center" style="vertical-align:middle;">照片</th>
+											<th class="center" style="vertical-align:middle;">帳號</th>
+											<th class="center" style="vertical-align:middle;">職務</th>
+											<th class="center" style="vertical-align:middle;">姓名</th>
+											<th class="center" style="vertical-align:middle;">信箱</th>
+											<th class="center" style="vertical-align:middle;">狀態</th>
+											<th class="center" style="vertical-align:middle;"></th>
 										</tr>
 									</thead>
 									
@@ -74,22 +74,22 @@
 										<c:forEach var="managerVO" items="${list}" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
 										<tr>
 											
-											<td class="center">${managerVO.mgr_no}</td>
+											<td class="center" style="vertical-align:middle;">${managerVO.mgr_no}</td>
 											
-											<td class="center">
+											<td class="center" style="vertical-align:middle;">
 												<img src="<%=request.getContextPath()%>/tools/DBGifReader?mgr_no=${managerVO.mgr_no}" style="width:100px;height:100px;">
 											</td>
 											
-											<td class="center">${managerVO.mgr_id}</td>
-											<td class="center">${(managerVO.mgr_job==0)?'管理員':'系統管理員'}</td>
-											<td class="center">${managerVO.mgr_name}</td>
-											<td class="center">${managerVO.mgr_email}</td>
-											<td class="center">${(managerVO.mgr_status==0)?'在職中':'離職'}</td>
+											<td class="center" style="vertical-align:middle;">${managerVO.mgr_id}</td>
+											<td class="center" style="vertical-align:middle;">${(managerVO.mgr_job==0)?'管理員':'系統管理員'}</td>
+											<td class="center" style="vertical-align:middle;">${managerVO.mgr_name}</td>
+											<td class="center" style="vertical-align:middle;">${managerVO.mgr_email}</td>
+											<td class="center" style="vertical-align:middle;">${(managerVO.mgr_status==0)?'在職中':'離職'}</td>
 											
 											
-											<td class="center">
+											<td class="center" style="vertical-align:middle;">
 											<FORM METHOD="post" ACTION="<%=request.getContextPath()%>/mgr/MgrCtrl" enctype='multipart/form-data'>
-			    								<button type="submit" class="btn btn-app btn-primary  btn-xs "><i class="icon-edit "></i>修改</button>
+			    								<button type="submit" class="btn btn-primary  btn-sm "><i class="icon-edit"></i>修改</button>
 			     								<input type="hidden" name="mem_no" value="${managerVO.mem_no}">
 			   								  	<input type="hidden" name="mgr_no" value="${managerVO.mgr_no}">
 			   									<input type="hidden" name="action"	value="getOne_For_Update">

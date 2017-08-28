@@ -9,7 +9,7 @@
 	pageContext.setAttribute("list", list);
 %> 
 <!DOCTYPE html >
-<html>
+<html lang="zh-cn-en">
 <head>
 <title>listAllAD</title>
 </head>

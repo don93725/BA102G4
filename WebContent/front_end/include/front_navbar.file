@@ -173,7 +173,7 @@
                     	<c:if test='${nrNum==0}'><a href="#"></c:if>
                     	<c:if test='${nrNum!=0}'><a href="<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}"><span id='nrNum' class='badge' style='background-color:red !important;'>${nrNum}</span></c:if>                	
                     		
-                    		<img src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=0&mem_no=${studentsVO.stu_no}" style="width:20px;" />
+                    		<img src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=0&mem_no=${student.stu_no}" style="width:20px;border-radius:100px;" />
                     		${sessionScope.user.mem_nickname}&nbsp學員，你好
                    		</a>
                     </li>
@@ -237,10 +237,10 @@
                     
 
                     
-                    <!-- 廣告申請 -->
+                    <!-- 廣告申請
                     <li class="navbar_icon">
                         <a href="<%=request.getContextPath()%>/adapply/AD_ApplyCtrl?action=addAD">廣告申請</a>
-                    </li>
+                    </li>   -->
                     
                     <!-- 場地管理 -->
                     <li class="dropdown navbar_icon">
@@ -308,10 +308,10 @@
                         </ul>
                     </li>
                     
-                    <!-- 廣告申請 -->
+                    <!-- 廣告申請 
                     <li class="navbar_icon">
                         <a href="<%=request.getContextPath()%>/adapply/AD_ApplyCtrl?action=addAD">廣告申請</a>
-                    </li>
+                    </li>  -->
                     
                     <!-- 租借管理 -->
                     <li class="dropdown navbar_icon">

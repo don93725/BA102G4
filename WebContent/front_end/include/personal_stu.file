@@ -61,38 +61,9 @@
 											<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
 												<div class="inline position-relative">
 													<a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
-														<i class="icon-circle light-green middle"></i>
-														&nbsp;
 														<span class="white">${user.mem_nickname }</span>
 													</a>
 
-													<ul class="align-left dropdown-menu dropdown-caret dropdown-lighter">
-														<li class="dropdown-header"> 狀態 </li>
-
-														<li>
-															<a href="#">
-																<i class="icon-circle green"></i>
-																&nbsp;
-																<span class="green">可被用的</span>
-															</a>
-														</li>
-
-														<li>
-															<a href="#">
-																<i class="icon-circle red"></i>
-																&nbsp;
-																<span class="red">正在忙碌的</span>
-															</a>
-														</li>
-
-														<li>
-															<a href="#">
-																<i class="icon-circle grey"></i>
-																&nbsp;
-																<span class="grey">不能被用的</span>
-															</a>
-														</li>
-													</ul>
 												</div>
 											</div>
 										</div>

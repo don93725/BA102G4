@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<table border="0">    
+<table border="0" align="right">    
 
  <tr>
   <%if (rowsPerPage<rowNumber) {%>
@@ -17,7 +17,7 @@
 
 </table>    
 <%if ( pageNumber > 1) {%>
-<table border="0">   
+<table border="0" align="center">   
  <tr> 
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

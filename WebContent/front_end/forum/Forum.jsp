@@ -91,7 +91,7 @@
 									<td><a
 										href="${pageContext.request.contextPath}/forum/ArticleShowCtrl?forum_no=${param.forum_no }&art_no=${art.art_no}">${art.art_name}</a></td>
 									<td><a
-										href='${pageContext.request.contextPath}/forum/PersonalPageCtrl?mem_no=${art.mem_no.mem_no}'>${art.mem_no.mem_nickname}</a></td>
+										href='${pageContext.request.contextPath}/forum/PersonalPageCtrl?mem_no=${art.mem_no.mem_no}&mem_rank=${art.mem_no.mem_rank}&action=lookPersonal'>${art.mem_no.mem_nickname}</a></td>
 									<td><fmt:setLocale value="en_US" />
 										<fmt:formatDate value="${art.art_add_date}"
 											pattern="yyyy-MM-d HH:mm" /></td>

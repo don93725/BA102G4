@@ -5,7 +5,7 @@
 <%@ page import="com.members.model.*"%>		
 									
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn-en">
 <head>
 	<%@include file="/back_end/include/fileInput/fileInput_head.file" %>
 	<%@include file="/back_end/include/basic_ace_script.file" %>
@@ -143,7 +143,7 @@
 		<div class="col-xs-12 col-sm-9" data-role="fieldcontain">	
 <c:forEach var="functionVO" items="${funSvc.all}">
 			<fieldset data-role="controlgroup" data-type="horizontal">
-			<div  class="checkbox">
+			<div  class="checkbox" style="padding-left:0px;">
 				<label>
 					<input type="checkbox" class='f_no' id="f_no" name="f_no" value="${functionVO.f_no}"> 
 					${functionVO.fname} 
@@ -188,17 +188,15 @@ $(function(){
 	$('.f_no:eq(0)').attr('checked','');
 	$('.f_no:eq(1)').attr('checked','');
 	$('.f_no:eq(2)').attr('checked','');
-	$('.f_no:eq(3)').attr('checked','');
+	$('.f_no:eq(4)').attr('checked','');
 	$('.f_no:eq(5)').attr('checked','');
 	$('.f_no:eq(6)').attr('checked','');
 	$('.f_no:eq(7)').attr('checked','');
-	$('.f_no:eq(8)').attr('checked','');
-	$('.f_no:eq(9)').attr('checked','');
 	$('#a').change(function(){
 		if($(this).val()==0){
-			$('.f_no:eq(4)').removeAttr('checked');			
+			$('.f_no:eq(3)').removeAttr('checked');			
 		}else{
-			$('.f_no:eq(4)').attr('checked','');
+			$('.f_no:eq(3)').attr('checked','');
 		}
 
 	});

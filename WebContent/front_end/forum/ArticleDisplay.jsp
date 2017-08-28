@@ -92,7 +92,7 @@
 						  <tbody>
 						  		<tr>	
 									<td rowspan='3' width='100' style='text-align: center' valign="top"><img width=80 src='${pageContext.request.contextPath}/util/OutputPic?mem_no=${articles.mem_no.mem_no}&mem_rank=${articles.mem_no.mem_rank}'><br>
-									<a href='${pageContext.request.contextPath}/forum/PersonalPageCtrl?mem_no=${articles.mem_no.mem_no}'>${articles.mem_no.mem_nickname}</a><br>
+									<a href='${pageContext.request.contextPath}/forum/PersonalPageCtrl?mem_no=${articles.mem_no.mem_no}&mem_rank=${articles.mem_no.mem_rank}&action=lookPersonal'>${articles.mem_no.mem_nickname}</a><br>
 									<c:if test="${articles.mem_no.mem_rank=='0'}">學員</c:if><c:if test="${articles.mem_no.mem_rank=='1'}">教練</c:if><c:if test="${articles.mem_no.mem_rank=='2'}">健身房</c:if>
 									<c:if test="${not empty user }">
 									<br>
@@ -122,7 +122,9 @@
 						<table class="table table-bordered">
 							<tbody>
 								<tr>	
-									<td rowspan='3' width='100' style='text-align: center' valign="top"><img width=80 src='${pageContext.request.contextPath}/util/OutputPic?mem_no=${comments.mem_no.mem_no}&mem_rank=${comments.mem_no.mem_rank}'><br><a href='${pageContext.request.contextPath}/forum/PersonalPageCtrl?mem_no=${comments.mem_no.mem_no}'>${comments.mem_no.mem_nickname}</a><br>
+									<td rowspan='3' width='100' style='text-align: center' valign="top"><img width=80 src='${pageContext.request.contextPath}/util/OutputPic?mem_no=${comments.mem_no.mem_no}&mem_rank=${comments.mem_no.mem_rank}'>
+									<br>
+									<a href='${pageContext.request.contextPath}/forum/PersonalPageCtrl?mem_no=${comments.mem_no.mem_no}&mem_rank=${comments.mem_no.mem_rank}&action=lookPersonal'>${comments.mem_no.mem_nickname}</a><br>
 								<c:if test="${comments.mem_no.mem_rank=='0'}">學員</c:if><c:if test="${comments.mem_no.mem_rank=='1'}">教練</c:if><c:if test="${comments.mem_no.mem_rank=='2'}">健身房</c:if></td>
 								
 								<td valign="top">${comments.art_cmt_ctx }</td>
