@@ -583,8 +583,8 @@ public class FitkwDAO implements FitkwDAO_interface {
 				fitkwVO.setFik_type(rs.getString("fik_type"));
 				fitkwVO.setFik_title(rs.getString("fik_title"));
 				String ctx = rs.getString("fik_ctx");
-				if(ctx.length()>50){
-					ctx = ctx.substring(0, 50) + "...";
+				if(ctx.length()>120){
+					ctx = ctx.substring(0, 120) + "...";
 				}
 				fitkwVO.setFik_ctx(ctx);
 				fitkwVO.setFik_photo(rs.getBytes("fik_photo"));

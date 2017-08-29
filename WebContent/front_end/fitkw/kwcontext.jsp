@@ -14,7 +14,6 @@ FitkwVO fitkwVO = (FitkwVO) request.getAttribute("fitkwVO");
 		<%@include file="/front_end/include/basicScript.file" %>
 </head>
 
-
 <body>
 
     <!-- 導覽列 -->
@@ -26,57 +25,55 @@ FitkwVO fitkwVO = (FitkwVO) request.getAttribute("fitkwVO");
       <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
-            <div class="col-lg-12">
-                <h1 class="page-header">健身知識
-                    <small>Knowledge
-                    </small>
-                </h1>
-                <ol class="breadcrumb">
-                    <li><i class="icon-home home-icon"></i><a href="${pageContext.request.contextPath }">首頁</a>
+            <div class="breadcrumbs" id="breadcrumbs">
+            	<div class="col-lg-12">
+                	<h1>健身知識
+                    	<small>Knowledge</small>
+                	</h1>
+            	</div>
+
+                <ul class="breadcrumb">
+                	<li>
+                		<i class="icon-home home-icon"></i>
+                			<a href="${pageContext.request.contextPath }">首頁</a>
                     </li>
                     <li class="active"><a href="${pageContext.request.contextPath }/front_end/fitkw/knowledges.jsp">健身知識列表</a></li>
                     <li class="active">健身知識</li>
-                </ol>
+                </ul>
             </div>
         <!-- /.row -->
 
         <!-- Content Row -->
         <div class="row">
-
-            <!-- Blog Post Content Column -->
-            <div class="col-lg-8">
-
-                <!-- Blog Post -->
-
-                <hr>
-
-                <!-- Date/Time -->
-                <p><i class="fa fa-clock-o"></i>日期： <%= fitkwVO.getUpd_date()%></p>
-
-                <hr>
-
-                <!-- Preview Image -->
-                <img class="img-responsive" src='${pageContext.request.contextPath }/g1/PhotoOutput?fik_no=${fitkwVO.fik_no}' alt="" style="width:80%;">
-
-                <hr>
-
-                <!-- Post Content -->
-                <p class="lead"><%= fitkwVO.getFik_title()%></p>
-                <p><%= fitkwVO.getFik_ctx()%></p>
+				<div class="col-lg-12" style="padding-top:5px;" align="right">
+                	<i class="fa fa-clock-o"></i>日期： <%= fitkwVO.getUpd_date()%>
+                </div>
                 
+				<div class="col-lg-12" align="center">
+               		<h1><b><%= fitkwVO.getFik_title()%></b></h1>
+                </div>
 
                 <hr>
+				
+				<div class="col-lg-12" align="center" style="padding-top:10px;padding-bottom:20px;">
+                	<img class="img-responsive" src='${pageContext.request.contextPath }/g1/PhotoOutput?fik_no=${fitkwVO.fik_no}' alt="" style="width:80%;">
+				</div>
+				
+                <hr>
 
+                <div class="col-lg-12" style="padding-left:50px;padding-right:50px;">
+                	<%= fitkwVO.getFik_ctx()%>
+                </div>
+
+                <hr>
+                
+				<div class="col-lg-12" align="center" style="padding-top:10px;">
+					<a href="${pageContext.request.contextPath }/front_end/fitkw/knowledges.jsp">回上頁</a>
+				</div>
                 <!-- Blog Comments -->
 
-              
-
-        </div>
-        <!-- /.row -->
-        <!-- Footer -->        
-
-    </div></div>
-        <hr>
+    </div>
+    </div>
 
         <!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>

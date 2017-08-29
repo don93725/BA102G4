@@ -44,7 +44,7 @@
     <div class="container">
     	<div class="row">
     		<center><div class="col-lg-12">
-    			<h2>歡迎來到健貨-Gym Home ~</h2>
+    			<h2>歡迎來到健貨 - Gym Home</h2>
     		</div></center>
     	</div>
         <br>
@@ -74,8 +74,13 @@
                     <div class="panel-heading">
                         <h4><center><i class="icon-home"></i> 找場地?</center></h4>
                     </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                    <div class="panel-body f_coach">
+                        <p>健貨致力於推廣社區運動發展，打造微型精緻專業機能健身中心。
+為數極多的健身房業者中，分成為健身空間及運動教室，設有多功能教室/飛輪專屬教室，並引進世界前三大高級運動器材，包括重量訓練、心肺訓練、功能性訓練等各項器材。
+相信健貨服務團隊由專業認證師資及健身教練組成，提供透明健全的會員制度，規劃數十種時下潮流課程，讓您享受健康玩課的樂趣。我們誠摯歡迎每位喜歡運動或是想要運動的人，一起加入我們。
+不論您是要增重、強壯、減重、瘦身、復健、增強運動表現，我們的場地都會為您量身提供一個屬於您個人的完美健身場地！ </p>
+					</div>
+					<div class="panel-body">
                         <center><a href="<%=request.getContextPath()%>/CPM/CoachesPlaceManager.do?action=placeDetailList"><span class="btn btn-info btn-lg aa" data-rel="tooltip" data-placement="bottom">立刻預定場地</span></a></center>
                     </div>
                 </div>
@@ -85,9 +90,13 @@
                     <div class="panel-heading">
                         <h4><center><i class="icon-calendar"></i> 找課程?</center></h4>
                     </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <center><a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=crsDetailList"><span class="btn btn-success btn-lg aa" data-rel="tooltip" data-placement="bottom"><i class="icon-hand-o-up"></i>立刻預定課程</span></a></center>
+                    <div class="panel-body f_coach">
+                        <p>我們誠摯歡迎每位喜歡運動或是想要運動的人，一起加入我們。 經由我們認真仔細有耐心的指導，推動你/妳們朝美麗、提升、強壯、健康的目標前進。健貨希望利用本身的運動專業知識、豐富的教學經驗，以及充滿熱忱的心，讓更多人能在舒適、乾淨和安全的環境下，享受運動給予的種種好處。 我們提供個人運動指導課程和小班制團體課程。
+-個人運動指導課程：針對不同學員的身體情況，給予個別化的運動計畫，讓你/妳更有效率達成運動目標。服務項目包含一對一和一對二指導、體重控制、曲線雕塑、特殊族群運動指導、體能訓練、復健運動訓練等。
+-小班制團體課程：小班制確實控管上課人數，讓教練更能注意到學員們的運動狀況，提升運動效率，避免運動傷害的產生。課程包含有氧舞蹈、瑜珈、皮拉提斯、滾筒按摩與訓練、體適能拳擊、TRX懸吊式訓練、循環訓練等。另提供公司行號企業配合與自由教練場地租借。</p>
+					</div>
+					<div class="panel-body">
+					<center><a href="<%=request.getContextPath()%>/CCM/CourseManager.do?action=crsDetailList"><span class="btn btn-success btn-lg aa" data-rel="tooltip" data-placement="bottom"><i class="icon-hand-o-up"></i>立刻預定課程</span></a></center>
                     </div>
                 </div>
             </div>
