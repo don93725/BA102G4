@@ -3,13 +3,17 @@
 <%@ page import="com.coaches.model.*" %>
 <%@ page import="com.students.model.*" %>
 <%@ page import="com.gyms.model.*" %>
+<%@ page import="com.album.service.*" %>
+<%@ page import="com.board.service.*" %>
+<%@ page import="com.friends.model.*" %>
+<%@ page import="com.comments.model.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
 
 <head>
 
-    <title>°·³f - GymHome</title>
+    <title>°·³f - GymHome${mem_no }</title>
 	<%@include file="/front_end/include/basicScript.file" %>
 	<%@include file="/front_end/include/registerStyle.file" %>
 
@@ -22,6 +26,16 @@
 		<%@include file="/front_end/include/front_navbar.file" %>
     </nav>
 	
+<%  	
+	int albumNumber = new AlbumsService().getAlbumNum(user.getMem_no());
+	pageContext.setAttribute("albumNumber", albumNumber);
+	int boardNumber = new Message_boardService().getBoardNumber(user.getMem_no());
+	pageContext.setAttribute("boardNumber", boardNumber);
+	int friendNumber = new FriendsService().getFriendNum(user.getMem_no());
+	pageContext.setAttribute("friendNumber", friendNumber);
+	int personCmtNumber = new Board_cmtService().getPersonCmtNumber(user.getMem_no());
+	pageContext.setAttribute("personCmtNumber", personCmtNumber);
+%>
 	<!-- ¼ÐÃD+ÄÑ¥]shit -->
     <!-- Page Content -->
     <div class="container">   
