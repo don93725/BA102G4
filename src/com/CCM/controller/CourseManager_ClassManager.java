@@ -216,7 +216,7 @@ private final static String CONTENT_TYPE = "text/html; charset=UTF-8";
 																
 						
 			
-			List<Course_listVO>courseList = course_listSvc.getReady_List(stu_acc);
+			List<Course_listVO>courseList = course_listSvc.getFinished(stu_acc);
 			
 			writeText(rp, gson.toJson(courseList));
 			

@@ -55,12 +55,13 @@
 									<td style="vertical-align:middle;" align="center;"><input type="button" class="btn btn-primary"
 										id="update<%=count%>" onclick="changeDisabled(1,<%=count%>)"
 										value="我要修改">
-										<center><button class="btn btn-warning" id="updateCommit<%=count%>"
-											onclick="changeDisabled(2,<%=count%>)" style="display: none;">確認修改</button></center></td>
-									<td style="vertical-align:middle;" align="center;"><button class="btn btn-danger" onclick = "deleteCrs()">刪除</button>
+										<button class="btn btn-warning" id="updateCommit<%=count%>"
+											onclick="changeDisabled(2,<%=count%>)" style="display: none;">確認修改</button></td>
+									<td style="vertical-align:middle;" align="center;"><button class="btn btn-danger" onclick = "deleteCrs(<%=count%>)">刪除</button>
+
 									<FORM METHOD="post"
 											ACTION="<%=request.getContextPath()%>/CCM/CourseManager.do" style="display: none;">
-											<button class="btn btn-danger" id="deleteCrs">刪除</button>
+											<button class="btn btn-danger" id="deleteCrs<%=count%>">刪除</button>
 											<input type="hidden" name="crs_no" value="${courseVO.crs_no}">
 											<input type="hidden" name="action" value="courseDelete">
 										</FORM></td>

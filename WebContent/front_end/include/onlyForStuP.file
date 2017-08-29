@@ -9,7 +9,7 @@
 	background: #1bbd2f;
 	border: 4px solid #95d90d;
 	display:none;
-	left:25%;
+	left:30%;
 	padding: 10px;
 }
 .arrow_box:after, .arrow_box:before {
@@ -257,7 +257,7 @@ function showMsgDialog(){
 	var x = position.left;  
 	var y = position.top;
 	if($('#dialog').css('display')=='none'){
-		$('#dialog').css("top","65%");
+		$('#dialog').css("top","51%");
 		$('#dialog').css("display","block");
 		$('#msgInput').focus();
 	}else{

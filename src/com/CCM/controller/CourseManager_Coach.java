@@ -102,7 +102,7 @@ private final static String CONTENT_TYPE = "text/html; charset=UTF-8";
 												
 						
 			
-			List<Course_listVO>courseList = course_listSvc.getReserve_List(coa_acc);
+			List<Course_listVO>courseList = course_listSvc.getCoachReserve_List(coa_acc);
 			
 			writeText(rp, gson.toJson(courseList));
 			
@@ -146,7 +146,7 @@ private final static String CONTENT_TYPE = "text/html; charset=UTF-8";
 																
 						
 			
-			List<Course_listVO>courseList = course_listSvc.getReady_List(coa_acc);
+			List<Course_listVO>courseList = course_listSvc.getCoachFinished(coa_acc);
 			
 			writeText(rp, gson.toJson(courseList));
 			

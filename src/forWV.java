@@ -28,7 +28,7 @@ public class forWV extends HttpServlet {
 		HttpSession session = req.getSession();
 		MembersService membersSV = new MembersService();
 		MembersVO nowLogin_VO = membersSV.select(account);
-		req.setAttribute("user", nowLogin_VO);
+		req.getSession().setAttribute("user", nowLogin_VO);
 		String rank = nowLogin_VO.getMem_rank();
 		if("0".equals(rank)) {
 			StudentsService studentsSV = new StudentsService();

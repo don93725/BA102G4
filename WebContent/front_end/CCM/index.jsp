@@ -757,7 +757,7 @@
 	}
 	
 	
-	function deleteCrs(){
+	function deleteCrs(c){
 		swal({
 			  title: "確定刪除課程?",
 			  text: "You will not be able to recover this!",
@@ -773,7 +773,7 @@
 			function(isConfirm){
 			  if (isConfirm) {
 	 			swal("刪除成功!", "Your course has been deleted.", "success");
-	 			setTimeout(function(){ $("#deleteCrs").click(); }, 1000);
+	 			setTimeout(function(){ $("#deleteCrs"+c).click(); }, 1000);
 
 			  } else {
 				swal("取消刪除", "Your course is safe :)", "error");
@@ -782,7 +782,7 @@
 			});
 	}
 	
-	function deleteCrstime(){
+	function deleteCrstime(c){
 		swal({
 			  title: "確定下架課程?",
 			  text: "You will not be able to recover this!",
@@ -798,7 +798,7 @@
 			function(isConfirm){
 			  if (isConfirm) {
 	 			swal("下架成功!", "Your course has been deleted.", "success");
-	 			setTimeout(function(){ $("#deleteCrstime").click(); }, 1000);
+	 			setTimeout(function(){ $("#deleteCrstime"+c).click(); }, 1000);
 
 			  } else {
 				swal("取消下架", "Your course is safe :)", "error");
