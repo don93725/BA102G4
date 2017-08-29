@@ -33,7 +33,7 @@ public class AuthorityService {
 	public List<AuthorityVO> getAll(){
 		return dao.getAll();
 	}
-	public Set<AuthorityVO> getFno(String mgr_no){
+	public Set<String> getFno(String mgr_no){
 		return dao.getFun(mgr_no);
 	}
 	public ManagerVO getMgrNO(String mgr_id){
