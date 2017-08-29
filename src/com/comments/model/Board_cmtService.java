@@ -2,6 +2,7 @@ package com.comments.model;
 
 import java.util.Date;
 
+import com.friends.model.FriendsDAO;
 import com.members.model.MembersVO;
 
 public class Board_cmtService {
@@ -58,5 +59,11 @@ public class Board_cmtService {
 	public boolean deleteReply(String bd_cmt_no){
 		Board_cmtDAO dao = new Board_cmtDAO();
 		return dao.updateReply(bd_cmt_no, null);
+	}
+	public int getPersonCmtNumber(String org_no){
+		String sql = "select count(*) from board_cmt where cmt_type=2 and org_no="+org_no;
+		FriendsDAO dao = new FriendsDAO();
+		
+		return dao.countBySQL(sql);
 	}
 }
