@@ -65,14 +65,11 @@
 </c:if><!-- 身分為健身房業者時的 Content結束 -->
 
     <hr>
-        
+
     </div>
       
 	<!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
-	
-	<!-- 最底層 -->
-	<%@include file="/front_end/include/floor.file" %>
 
 </body>
 	<%@include file="/front_end/include/basicScript2.file" %>

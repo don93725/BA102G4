@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="zh-ch-en">
 <head>
 <meta content="Expires" content="-1">
 <meta content="Catch-Control" content="no-cache">
@@ -11,7 +11,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/front_end/forum/css/ArticleDisplay.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/front_end/forum/js/kindeditor/themes/default/default.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/front_end/comm/css/sweetalert.css">
 
 <title>健貨 - GymHome</title>
@@ -37,13 +36,13 @@
 <c:if test="${param.action=='goCreatePage'}">
 
 <form action="${pageContext.request.contextPath}/forum/ArticlesActionCtrl" method='post' id='articleForm'>
- <table class="table">
+ <table class="table" style="text-align:center;">
 <thead>
-	<caption><h1>發表文章</h1></caption>	
+	<caption><center><h1>發表文章</h1></center></caption>	
 </thead>
 <tbody>
 <tr>
-	<td>標題</td>
+	<td style="vertical-align:middle;" align="center;">標題</td>
 	<td style='width:15%;'>
 		<select class='form-control' name='art_type_name'>		
 		<c:forEach var='art_types' items="${art_types}" varStatus="loop2">
@@ -53,7 +52,7 @@
 	<td><input type='text' class='form-control' name='art_name' id='art_name' ><input type='hidden' name='forum_no' value='${param.forum_no }'><input type='hidden' name='action' id='artAction' value='create'></td>
 </tr>
 <tr>
-<td>內文</td><td colspan='2'>
+<td style="vertical-align:middle;" align="center;">內文</td><td colspan='2'>
 <div contentEditable="true" id='ctx' name='content' style='width:100%; height:500px;'></div>
 <textarea id="my-textarea" name='art_ctx' style="display:none"></textarea>     
 <input type="file" id='file' name='file' style="display:none"/> 

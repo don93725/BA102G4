@@ -11,11 +11,6 @@
 <meta content="Pragma" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">		
-<link rel="stylesheet" href="${pageContext.request.contextPath}/front_end/forum/css/ArticleDisplay.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/front_end/forum/css/colorbox.css" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/front_end/album/css/jquery.fancybox.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/front_end/forum/js/kindeditor/themes/default/default.css" />
@@ -91,18 +86,19 @@
 						  <table class="table table-bordered">
 						  <tbody>
 						  		<tr>	
-									<td rowspan='3' width='100' style='text-align: center' valign="top"><img width=80 src='${pageContext.request.contextPath}/util/OutputPic?mem_no=${articles.mem_no.mem_no}&mem_rank=${articles.mem_no.mem_rank}'><br>
+									<td rowspan='3' width='100' style="vertical-align:middle;text-align:center;" align="center;"><img width=80 src='${pageContext.request.contextPath}/util/OutputPic?mem_no=${articles.mem_no.mem_no}&mem_rank=${articles.mem_no.mem_rank}'><br>
 									<a href='${pageContext.request.contextPath}/forum/PersonalPageCtrl?mem_no=${articles.mem_no.mem_no}&mem_rank=${articles.mem_no.mem_rank}&action=lookPersonal'>${articles.mem_no.mem_nickname}</a><br>
-									<c:if test="${articles.mem_no.mem_rank=='0'}">學員</c:if><c:if test="${articles.mem_no.mem_rank=='1'}">教練</c:if><c:if test="${articles.mem_no.mem_rank=='2'}">健身房</c:if>
-									<c:if test="${not empty user }">
+									<small><c:if test="${articles.mem_no.mem_rank=='0'}">學員</c:if><c:if test="${articles.mem_no.mem_rank=='1'}">教練</c:if><c:if test="${articles.mem_no.mem_rank=='2'}">健身房</c:if>
+									<c:if test="${not empty user }"></small>
+									<br>
 									<br>
 									<button class='btn btn-primary' onclick='sharePhoto.call(this,event,"${pageContext.request.contextPath}","${articles.forum_no}","${articles.art_type}","${articles.art_name}","${articles.art_no}","${articles.mem_no.mem_no}","${articles.mem_no.mem_rank}","${articles.mem_no.mem_nickname}","${articles.art_add_date}");'>分享</button>
 									</c:if>
 									</td>
-									<td colspan='2'>${articles.art_name}</td>
+									<td colspan='2' style="background-color:#DDDDDD;">標題：&nbsp${articles.art_name}</td>
 								</tr>
 								<tr><td id='shareArt_ctx' valign="top">${articles.art_ctx}</td></tr>
-								<tr><td>
+								<tr><td style="text-align:right;">
 									<c:if test="${(articles.mem_no.mem_no==user.mem_no)||user.mem_rank=='3'||user.mem_rank=='4'}">
 									<a href="${pageContext.request.contextPath}/forum/ArticlesActionCtrl?action=goUpdatePage&forum_no=${param.forum_no }&art_no=${articles.art_no}"><button class='btn btn-info'><span class='glyphicon glyphicon-pencil'></span>&nbsp編輯</button></a>&nbsp
 									<a href="${pageContext.request.contextPath}/forum/ArticlesActionCtrl?action=delete&forum_no=${param.forum_no }&art_no=${articles.art_no}" onclick="return del.call(this);"><button class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span>&nbsp刪除</button></a>&nbsp

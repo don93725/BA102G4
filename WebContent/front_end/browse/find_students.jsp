@@ -58,14 +58,14 @@
         <div class="breadcrumbs" id="breadcrumbs">    
             <div class="col-lg-12">
                 <h1>找學員
-                    <small>Coaches</small>
+                    <small>Students</small>
                 </h1>
             </div>
 
             <ul class="breadcrumb">
                 <li>
                     <i class="icon-home home-icon"></i>
-                        <a href="#">首頁</a>
+                        <a href="<%= request.getContextPath()%>/front_end/index.jsp">首頁</a>
                      </li>
                 <li class="active">服務介紹</li>
                 <li class="active">找學員</li>

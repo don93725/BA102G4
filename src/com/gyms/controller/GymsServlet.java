@@ -276,7 +276,7 @@ public class GymsServlet extends HttpServlet {
 					} else if(!(gym_name.matches(gym_nameReg))) {
 						errorMsgs.put("gym_name","場館名稱: 只能是中、英文字母 ,且長度必需在1到16之間");
 		            }
-					
+					System.out.println("gym_name= " + gym_name);
 					//驗證信箱
 					String gym_mail = req.getParameter("gym_mail");
 					String gym_mailReg = "^[_A-Za-z0-9-]+([.][_A-Za-z0-9-]+)*@[a-z0-9-]+([.][a-z0-9-]+)*$";
@@ -285,6 +285,7 @@ public class GymsServlet extends HttpServlet {
 					}else if(!(gym_mail.matches(gym_mailReg)) || gym_mail.length() > 50) {
 						errorMsgs.put("gym_mail", "會員信箱: 格式錯誤");
 					}
+					System.out.println("gym_mail= " + gym_mail);
 					
 					//驗證地址
 					String gym_add = req.getParameter("gym_add");
@@ -300,7 +301,7 @@ public class GymsServlet extends HttpServlet {
 					if(gym_latlng == null) {
 						errorMsgs.put("gym_add", "會員地址: 請不要玩弄Google地圖");
 					}
-					
+					System.out.println("gym_add= " + gym_add);
 					//驗證自我介紹
 					String gym_into = req.getParameter("gym_into");
 					if(gym_into == null || gym_into.trim().length() == 0) {
@@ -308,7 +309,7 @@ public class GymsServlet extends HttpServlet {
 					}else if(gym_into.length() > 500) {
 						errorMsgs.put("gym_into", "會員自我介紹: 格式錯誤");
 					}
-			
+					System.out.println("gym_into= " + gym_into);
 					// 資料有誤就返回form表單
 					if(!errorMsgs.isEmpty()) {
 						Gson gSon = new Gson();

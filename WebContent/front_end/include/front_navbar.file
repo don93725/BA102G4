@@ -222,14 +222,7 @@
                             </li>  
                         </ul>
                     </li>
-                    
 
-                    
-                    <!-- 廣告申請
-                    <li class="navbar_icon">
-                        <a href="<%=request.getContextPath()%>/adapply/AD_ApplyCtrl?action=addAD">廣告申請</a>
-                    </li>   -->
-                    
                     <!-- 場地管理 -->
                     <li class="dropdown navbar_icon">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">場地管理<b class="caret"></b></a>
@@ -252,7 +245,7 @@
                     <li class="navbar_icon">
                     <c:if test='${nrNum==0}'><a href="#"></c:if>
                     	<c:if test='${nrNum!=0}'><a href="<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}"><span id='nrNum' class='badge' style='background-color:red !important;'>${nrNum}</span></c:if>   
-                    		<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachesVO.coa_no}" style="width:20px;" />
+                    		<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coach.coa_no}" style="width:20px;border-radius:100px;" />
                     		${sessionScope.user.mem_nickname}&nbsp教練，你好
                     	</a>
                     </li>
@@ -295,36 +288,14 @@
                               </li>
                         </ul>
                     </li>
-                    
-                    <!-- 廣告申請 
-                    <li class="navbar_icon">
-                        <a href="<%=request.getContextPath()%>/adapply/AD_ApplyCtrl?action=addAD">廣告申請</a>
-                    </li>  -->
-                    
+
                     <!-- 租借管理 -->
-                    <li class="dropdown navbar_icon">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">租借管理 <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">申請者管理</a>
-                            </li>
-                            <li>
-                                <a data-toggle="tab" href="#" onclick="dropdown(1)">上/下架管理</a>
-									<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-										<input type="submit" class="btn btn-default" id="dropdown1" role="button" value="場地列表">
-										<input type="hidden" name="action" value="placeList">
-									</form>
-                            </li>
-                            <li>
-                                <a href="#">租借紀錄查詢</a>
-                            </li>
-                            <li>
-                                <a href="#">租借報表查詢</a>
-                            </li>
-                            <li>
-                                <a href="#">檢舉教練</a>
-                            </li>
-                        </ul>
+                    <li class="navbar_icon">
+                    	<a href="#" onclick="dropdown(1)">租借管理</a>
+							<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
+								<input type="submit" class="btn btn-default" id="dropdown1" role="button" value="場地列表">
+									<input type="hidden" name="action" value="placeList">
+							</form>
                     </li>
                 </ul>
 				
@@ -336,7 +307,7 @@
                     	
                     		<c:if test='${nrNum==0}'><a href="#"></c:if>
                     	<c:if test='${nrNum!=0}'><a href="<%= request.getContextPath()%>/message/MessageCtrl?mem_no=${user.mem_no}"><span id='nrNum' class='badge' style='background-color:red !important;'>${nrNum}</span></c:if>   
-                    		<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=2&mem_no=${gymsVO.gym_no}" style="width:25px;" />
+                    		<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=2&mem_no=${gym.gym_no}" style="width:25px;border-radius:100px;" />
                     		
                     	 	${sessionScope.user.mem_nickname}&nbsp健身房業者，你好
                     	</a>

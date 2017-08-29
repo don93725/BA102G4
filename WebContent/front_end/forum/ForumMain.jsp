@@ -53,7 +53,8 @@
 	
 	<c:if test="${not empty user }">
 		<div class="col-xs-12 col-sm-12">
-						<a class='inline' href="#inline_content"><button class='btn btn-lg btn-white'>申請板塊</button></a>
+			<a class='inline' href="#inline_content"><button class='btn btn-lg btn-white'>申請板塊</button></a>
+			&nbsp<i class="icon-arrow-left"></i>&nbsp會員可以點我申請個人的討論版
 		</div>
 	</c:if>
 	
@@ -123,14 +124,14 @@
 					action="#"
 					method="post">
 					<table class="table table-hover">
-						<caption><h1>版塊申請</h1></caption>						
+						<caption><center><h1>版塊申請</h1></center></caption>		
 						<tbody>
 							<tr>
-							<td><label>版塊名字</label></td>
+							<td style="vertical-align:middle;" align="center;"><label>版塊名字</label></td>
 							<td><input type="text" class='form-control' id='forum_name' name='forum_name'></td>
 						</tr>
 						<tr>
-							<td valign="top"><label>文章類型</label></td>
+							<td style="vertical-align:middle;" align="center;"><label>文章類型</label></td>
 							<td><c:forEach begin="0" end="4" varStatus="loop">									
 									<input type="text" name="art_type_name" style="display: none;width:60%;">
 									<button type="button" class='xbtn btn btn-danger'
@@ -141,12 +142,12 @@
 						</tr>
 
 						<tr>
-							<td><label>版塊敘述</label></td>
+							<td style="vertical-align:middle;" align="center;"><label>版塊敘述</label></td>
 							<td><textarea style='resize: none;' class='form-control' rows="5" cols="20" id='forum_desc'
 									name='forum_desc'></textarea></td>
 						</tr>
 						<tr>
-							<td><label>申請原因</label></td>
+							<td style="vertical-align:middle;" align="center;"><label>申請原因</label></td>
 							<td><textarea style='resize: none;' class='form-control' rows="5" cols="20" id='forum_note'
 									name='forum_note'></textarea></td>
 						</tr>

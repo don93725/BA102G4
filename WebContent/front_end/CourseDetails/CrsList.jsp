@@ -2,22 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-
+<html lang="zh-cn-en">
 <head>
-
-<!--<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content=""> -->
 
  <title>健貨 - GymHome</title>
  <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/libraries/p5.js"></script>
   <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/libraries/p5.play.js"></script>
   <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/libraries/p5.dom.js"></script>
   <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/libraries/p5.sound.js"></script>
-
   <script language="javascript" type="text/javascript" src="<%=request.getContextPath()%>/front_end/game/p5-js-play/sketch.js"></script>
   
 <%@include file="/front_end/include/basicScript.file" %>
@@ -34,7 +26,7 @@
   </nav>
 
     <!-- Page Content -->
-    <div class="container" style="background-color:transparent;"> 
+    <div class="container" style="background-color:transparent;min-height: 100%;margin: 0 auto -170px;"> 
         
         <!-- Page Heading/Breadcrumbs -->
         <div class="breadcrumbs" id="breadcrumbs" style="background-color:transparent;">
@@ -64,15 +56,15 @@
                 <div class="row" style="background-color:transparent;">
 				<form action="<%=request.getContextPath()%>/CCM/CourseManager.do" method="post">
                     <div class="col-lg-2">
-                            <input type="text" name="coa_name" id="coa_name" placeholder="輸入教練名稱">
+                            <input type="text" name="coa_name" id="coa_name" placeholder="輸入教練名稱" style="height:42px;">
                     </div>
 
                     <div class="col-lg-2">
-                            <input type="text" name="crs_name" id="crs_name" placeholder="輸入課程名稱">
+                            <input type="text" name="crs_name" id="crs_name" placeholder="輸入課程名稱" style="height:42px;">
                     </div>
 
                     <div class="col-lg-2">
-                            <select class="form-control" name="category" id="category">
+                            <select class="form-control" name="category" id="category" style="height:42px;">
                                 <option value="null">選擇種類</option>
                                 <option name="" value="A">瑜珈</option>
 								<option name="" value="B">飛輪有氧</option>
@@ -87,11 +79,11 @@
                     </div>
 		
 					<div class="col-lg-2">
-                            <input type="text" name="crs_date" id="crs_date" placeholder="課程日期">
+                            <input type="text" name="crs_date" id="crs_date" placeholder="課程日期" style="height:42px;">
                     </div>
                     
                     <div class="col-lg-2">
-                            <select class="form-control" name="crs_time" id="crs_time">
+                            <select class="form-control" name="crs_time" id="crs_time" style="height:42px;">
                                 <option value="null">選擇時段</option>
                                 <option value="1">08:00-09:30</option>
                                 <option value="2">10:00-11:30</option>
@@ -121,53 +113,47 @@
             <!--table開始-->
             <div class="col-lg-12">
                 <div class="row" >
-                    <div class="col-xs-12 col-sm-12">
-                        <div class="" >
-                            <table id="sample-table-1" class="table" style="background-color:transparent;">
+                    <div class="col-sm-12 col-lg-12">
+
+                            <table id="sample-table-1" class="table table-hover" style="background-color:transparent;text-align:center;" align="center">
                                 <thead class="">
                                     <tr >
-                                        <th class="center" >類別</th>
-                                        <th>教練</th>
-                                        <th>場館</th>
-                                        <th>課程名稱</th>
-                                        <th>時段</th>
-                                        <th>人數</th>
-                                        <th>價格</th>
-                                        <th>預定按鈕</th>
+                                        <th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">類別</th>
+                                        <th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">教練</th>
+                                        <th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">場館</th>
+                                        <th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">課程名稱</th>
+                                        <th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">時段</th>
+                                        <th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">人數</th>
+                                        <th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">價格</th>
+                                        <th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">預定按鈕</th>
                                      </tr>
                                 </thead>
 
                                 <tbody>
 									<c:forEach var="course_timeVO" items="${crsList}">
 	                                    <tr style="font-weight:bold;">
-	                                        <td class="center"><span class="label label-xs label-warning arrowed-in">${course_timeVO.courseVO.categoryChange}</span></td>
-	                                        <td>${course_timeVO.coachesVO.coa_name}</td>
-	                                        <td><a href="#">${course_timeVO.placeVO.p_name}</a></td>
-	                                        <td>${course_timeVO.courseVO.crs_name}</td>
-	                                        <td>${course_timeVO.crs_date}<br>${course_timeVO.crs_timeShow}</td>
-	                                        <td>${course_timeVO.count}/${course_timeVO.limit}</td>
-	                                        <td>$${course_timeVO.price}</td>
-	                                        <td><a href="<%=request.getContextPath()%>/front_end/CourseDetails/courseInfo.jsp?ct_no=${course_timeVO.ct_no}&crs_no=${course_timeVO.crs_no}"><button class="btn btn-inverse" style="border-radius:6px;">報名/觀看詳情</button></a></td>
+	                                        <td style="vertical-align:middle;" align="center;"><span class="label label-xs label-warning arrowed-in">${course_timeVO.courseVO.categoryChange}</span></td>
+	                                        <td style="vertical-align:middle;" align="center;">${course_timeVO.coachesVO.coa_name}</td>
+	                                        <td style="vertical-align:middle;" align="center;"><a href="#">${course_timeVO.placeVO.p_name}</a></td>
+	                                        <td style="vertical-align:middle;" align="center;">${course_timeVO.courseVO.crs_name}</td>
+	                                        <td style="vertical-align:middle;" align="center;">${course_timeVO.crs_date}<br>${course_timeVO.crs_timeShow}</td>
+	                                        <td style="vertical-align:middle;" align="center;">${course_timeVO.count}/${course_timeVO.limit}</td>
+	                                        <td style="vertical-align:middle;color:#CC0000;" align="center;">$${course_timeVO.price}</td>
+	                                        <td style="vertical-align:middle;" align="center;"><a href="<%=request.getContextPath()%>/front_end/CourseDetails/courseInfo.jsp?ct_no=${course_timeVO.ct_no}&crs_no=${course_timeVO.crs_no}"><button class="btn btn-inverse">報名/觀看詳情</button></a></td>
 	                                    </tr>
 									</c:forEach>
                                  </tbody>
                                 
                             </table>
-                        </div><!-- /.table-responsive -->
+
                     </div><!-- /col-sm-12 -->
                 </div><!-- /row -->
             </div>
             <!--table結束-->
-        
-
         <hr>
-
         <!-- Footer -->
-
-
     </div>
     <!-- /.container -->
-
 
   	<!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
@@ -221,11 +207,3 @@ function readAll(){
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-
-
-
-<style type="text/css">
-.btn {
-	border-radius:6px;
-}
-</style>

@@ -9,16 +9,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<meta content="Expires" content="-1">
 		<meta content="Catch-Control" content="no-cache">
-		<meta content="Pragma" content="no-cache">
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/front_end/comm/css/sweetalert.css">
-
-		<!--[if lt IE 9]>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-		<![endif]-->
+		<meta content="Pragma" content="no-cache">		
 		<style type="text/css">
 			div.album img{
-				height: 150px;
 				width: 100%;
 			}
 			div.addAlbum{
@@ -38,11 +31,12 @@
   </nav>
 
 	<body>		
-		<div class="container" style='min-height: 100%'>
-				   <div class="breadcrumbs" id="breadcrumbs">
+		<div class="container">
+				   <div class="breadcrumbs" id="breadcrumbs" style="line-height:0px;">
 	            
 			            <div class="col-lg-12">
-			                <h1>相簿
+			                <h1>${user.mem_nickname }的相簿
+			                	<small>${user.mem_nickname }'s Album</small>
 			                </h1>
 			            </div>
 			
@@ -52,10 +46,10 @@
 			                        <a href="<%= request.getContextPath()%>/front_end/index.jsp">首頁</a></li>
 			                     </li>
 			                  <c:if test='${empty param.mem_rank}'>
-		                	<li class="active"> <a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
+		                	<li class="active"><a href="<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic">個人空間 </a></li>
 		                     </c:if>
 		                     <c:if test='${not empty param.mem_rank}'>
-		                	<li class="active"> <a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=${param.mem_rank}&mem_no=${param.mem_no}&action=lookPersonal">個人空間 </a></li>
+		                	<li class="active"><a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=${param.mem_rank}&mem_no=${param.mem_no}&action=lookPersonal">個人空間 </a></li>
 		                     </c:if>
 			                <li class="active">相簿</li>
 			            </ul><!-- .breadcrumb -->
@@ -88,7 +82,7 @@
 				</div>
 				</c:if>
 				
-				
+				<br><br>
 				<div class ="panel-body">
 				<c:forEach var="album" items="${albums }"> 
 						<div class="col-xs-12 col-sm-3 album">						
@@ -97,7 +91,7 @@
 						<div class="list-group-item">
 						<img style='height:250px ; width:100%' src="${pageContext.request.contextPath}/util/OutputPic?al_no=${album.al_no }&num=<c:out value="${photosNum[album.al_no] }" default="0"/>">
 						</div>
-						<div class="list-group-item list-group-item-danger text-center">
+						<div class="list-group-item text-center" style="background-color:#ADD8E6;">
 						
 						<c:if test='${album.al_board!=1 }'><input type="checkbox" name="al_no" value='${album.al_no }' hidden></c:if><span>${album.al_name }</span>
 						<input type="checkbox" name="al_private" value='${album.al_prvt }' hidden>
@@ -117,20 +111,10 @@
 				 
   				</div>
 					</div>
-
-
-				
-			
-			
-			
-				
+	
 			</div>
 		</div>
 		</div>
-		
-
-
-
 
 		<!-- Button trigger modal -->
 
@@ -159,8 +143,6 @@
 						<input type="radio" id='inlineRadioOptions' name="al_prvt" value="1"> 不開放
 					</label>
 					</label>
-
-				
 
       </div>
       <div class="modal-footer">
@@ -370,9 +352,6 @@
 		</script>
   	<!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
-
-	<!-- 最底層 -->
-	<%@include file="/front_end/include/floor.file" %>
 	
 </body>
 	<%@include file="/front_end/include/basicScript2.file" %>

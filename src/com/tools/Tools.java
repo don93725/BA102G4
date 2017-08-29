@@ -96,8 +96,6 @@ public class Tools {
             while ((line = reader.readLine()) != null) {builder.append(line);}
             JSONObject json = new JSONObject(builder.toString()); //轉換json格式
             JSONArray ja = json.getJSONArray("results");//取得json的Array物件
-//            for (int i = 0; i < ja.length(); i++) {
-//            	System.out.print("地址：" + json.getString("formatted_address") + " ");
             	System.out.println(json);
             	Double lat = (Double)ja.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lat");
             	Double lng = (Double)ja.getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getDouble("lng");

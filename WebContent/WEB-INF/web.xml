@@ -167,6 +167,7 @@
     <filter-name>AutPI</filter-name>
     <url-pattern>/back_end/editAbout/*</url-pattern>
     <url-pattern>/back_end/annew/*</url-pattern>
+    <url-pattern>/back_end/fitkw/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
     <dispatcher>FORWARD</dispatcher>
     <dispatcher>INCLUDE</dispatcher>

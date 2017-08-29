@@ -11,16 +11,13 @@
 <meta content="Catch-Control" content="no-cache">
 <meta content="Pragma" content="no-cache">
 <meta http-equiv="Content-Type" content="text/html; charset=BIG5">
-<link rel="stylesheet"
-			href="${pageContext.request.contextPath}/front_end/forum/css/colorbox.css" />
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/front_end/forum/css/ArticleDisplay.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/front_end/comm/css/sweetalert.css">
 <title>健貨 - GymHome</title>
 <%@include file="/front_end/include/basicScript.file" %>
 </head>
-<link href="<%= request.getContextPath() %>/style/assets/css/ace.min.css" rel="stylesheet">
 
 <body>
 	
@@ -31,7 +28,6 @@
 	<div class="container" style='min-height: 100%;'>
 			<div class="row">
 					<div class="breadcrumbs" id="breadcrumbs">
-	            
 			            <div class="col-lg-12">
 			                <h1>${forum_name }
 			                </h1>
@@ -39,18 +35,18 @@
 	
 	           			<ul class="breadcrumb">
 			              	<li>
-				                  <i class="icon-home home-icon"></i>
-				                      <a href="<%= request.getContextPath()%>/front_end/index.jsp">首頁</a>
-				                   </li>
-				              <li class="active"><a  href="${pageContext.request.contextPath}/forum/ForumCtrl">討論大廳</a></li>
-				              <li class="active">${forum_name }</li>
-			          </ul><!-- .breadcrumb -->
+				            	<i class="icon-home home-icon"></i>
+				            	<a href="<%= request.getContextPath()%>/front_end/index.jsp">首頁</a>
+				            </li>
+				            <li class="active"><a  href="${pageContext.request.contextPath}/forum/ForumCtrl">討論大廳</a></li>
+				            <li class="active">${forum_name }</li>
+			          	</ul><!-- .breadcrumb -->
 	        		</div>
 					<br>
 				<div class="col-xs-12 col-sm-12">					
 					<c:if test="${! empty user }">
 						<a
-							href='${pageContext.request.contextPath}/forum/ArticlesActionCtrl?action=goCreatePage&forum_no=${param.forum_no }'><button class='btn btn-primary'>新增文章</button></a>
+							href='${pageContext.request.contextPath}/forum/ArticlesActionCtrl?action=goCreatePage&forum_no=${param.forum_no }'><button class='btn btn-info' style="font-size:16px;">新增文章</button></a>
 					</c:if>
 					<c:if test="${(mem_no==user.mem_no&&!empty user.mem_no)||(!empty user &&mem_no=='0'&&user.mem_rank==3) }">
 						<a id='trig' href="#" onclick="editForum('${pageContext.request.contextPath}','${param.forum_no }')"><button class='btn btn-primary'>編輯板塊</button></a>
@@ -60,11 +56,11 @@
 				</div>
 				<div class="col-xs-12 col-sm-12" style='margin-bottom: 10px; margin-top: 10px;  '>
 					<a
-					href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${param.forum_no }"><span class='label label-default' >全部</span></a>
+					href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${param.forum_no }"><span class='label label-default label-lg' >全部</span></a>
 					
-					<c:forEach var="art_types" items="${art_types}" varStatus="loop">
+				<c:forEach var="art_types" items="${art_types}" varStatus="loop">
 					<a href="${pageContext.request.contextPath}/forum/ForumShowCtrl?forum_no=${param.forum_no }&art_type_no=${art_types.art_type_no}">
-					<span class='label label-default' ><c:out value="${art_types.art_type_name }" /></span></a>
+					<span class='label label-default label-lg' ><c:out value="${art_types.art_type_name }" /></span></a>
 				</c:forEach>
 				</div>				
 				<div class="col-xs-12 col-sm-12">
@@ -72,31 +68,31 @@
 					  <!-- Default panel contents -->
 					  
 					  <!-- Table -->
-					  <table class="table table-hover">
+					  <table class="table table-hover" style="text-align:center;">
 						
 						<thead>
 							<tr class="active">
-								<th>文章類型</th>
-								<th>文章標題</th>
-								<th>發文者</th>
-								<th>發文時間</th>
-								<th>瀏覽次數</th>
-								<th>最後留言</th>
+								<th class="center" style="vertical-align:middle;" align="center;">文章類型</th>
+								<th class="center" style="vertical-align:middle;" align="center;">文章標題</th>
+								<th class="center" style="vertical-align:middle;" align="center;">發文者</th>
+								<th class="center" style="vertical-align:middle;" align="center;">發文時間</th>
+								<th class="center" style="vertical-align:middle;" align="center;">瀏覽次數</th>
+								<th class="center" style="vertical-align:middle;" align="center;">最後留言</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="art" items="${articles }">
 								<tr valign="middle">
-									<td>${art.art_type}</td>
-									<td><a
+									<td style="vertical-align:middle;" align="center;">${art.art_type}</td>
+									<td style="vertical-align:middle;" align="center;"><a
 										href="${pageContext.request.contextPath}/forum/ArticleShowCtrl?forum_no=${param.forum_no }&art_no=${art.art_no}">${art.art_name}</a></td>
-									<td><a
+									<td style="vertical-align:middle;" align="center;"><a
 										href='${pageContext.request.contextPath}/forum/PersonalPageCtrl?mem_no=${art.mem_no.mem_no}&mem_rank=${art.mem_no.mem_rank}&action=lookPersonal'>${art.mem_no.mem_nickname}</a></td>
-									<td><fmt:setLocale value="en_US" />
+									<td style="vertical-align:middle;" align="center;"><fmt:setLocale value="en_US" />
 										<fmt:formatDate value="${art.art_add_date}"
 											pattern="yyyy-MM-d HH:mm" /></td>
-									<td>${art.art_views}</td>
-									<td><c:if test="${empty art.newestCmmt }">尚無人留言</c:if><a
+									<td style="vertical-align:middle;" align="center;">${art.art_views}</td>
+									<td style="vertical-align:middle;" align="center;"><c:if test="${empty art.newestCmmt }">尚無人留言</c:if><a
 										href='${pageContext.request.contextPath}/forum/PersonalPageCtrl?mem_no=${art.newestCmmt.mem_no.mem_no}'>${art.newestCmmt.mem_no.mem_nickname }</a><br>
 									<span style='color: gray;'><fmt:formatDate value="${art.newestCmmt.art_cmt_time }"
 											pattern="yyyy-MM-d HH:mm" /></span>											
@@ -111,7 +107,9 @@
 						</tbody>
 					</table>
 					</div>
-					<jsp:include page="/front_end/forum/ChangePage.jsp"/>
+					<center>
+						<jsp:include page="/front_end/forum/ChangePage.jsp"/>
+					</center>
 				</div>
 			</div>
 		</div>
@@ -174,9 +172,6 @@
 		
   	<!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
-
-	<!-- 最底層 -->
-	<%@include file="/front_end/include/floor.file" %>
 	
 </body>
 	<%@include file="/front_end/include/basicScript2.file" %>
