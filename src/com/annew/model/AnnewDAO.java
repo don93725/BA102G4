@@ -25,7 +25,7 @@ public class AnnewDAO implements AnnewDAO_interface {
 	private static final String INSERT_STMT = 
 		"INSERT INTO annew (ann_no,ann_date,upd_date,ann_title,ann_ctx,ann_photo,att_no) VALUES (annew_seq.NEXTVAL, default, null, ?, ?, ?, ?)";
 	private static final String GET_ALL_STMT = 
-		"SELECT ann_no,to_char(ann_date,'yyyy-mm-dd')ann_date,to_char(upd_date,'yyyy-mm-dd')upd_date,ann_title,ann_ctx,ann_photo,att_no FROM annew order by ann_no";
+		"SELECT ann_no,to_char(ann_date,'yyyy-mm-dd')ann_date,to_char(upd_date,'yyyy-mm-dd')upd_date,ann_title,ann_ctx,ann_photo,att_no FROM annew order by nvl(upd_date,0) desc ,ann_date desc";
 	private static final String GET_ONE_STMT = 
 		"SELECT ann_no,to_char(ann_date,'yyyy-mm-dd')ann_date,to_char(upd_date,'yyyy-mm-dd')upd_date,ann_title,ann_ctx,ann_photo,att_no FROM annew where ann_no = ?";
 	private static final String FIND_BY_TITLE_STMT = 
@@ -490,5 +490,11 @@ public class AnnewDAO implements AnnewDAO_interface {
 			}
 		}
 		return photo;
+	}
+
+	@Override
+	public List<AnnewVO> getFrontAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

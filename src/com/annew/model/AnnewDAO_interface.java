@@ -13,5 +13,6 @@ public interface AnnewDAO_interface {
     public AnnewVO findByPrimaryKey(String ann_no);
     public List<AnnewVO> getAll();
     public List<AnnewVO> getPartByDate(String ann_date);
+	List<AnnewVO> getFrontAll();
 
 }
