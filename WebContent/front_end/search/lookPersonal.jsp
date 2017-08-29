@@ -27,20 +27,25 @@
     </nav>
 	<%  	
 	String paramMem_no = request.getParameter("mem_no");
-	int albumNumber = new AlbumsService().getAlbumNumForOther(paramMem_no);
-	pageContext.setAttribute("albumNumber", albumNumber);
-	boolean friendShip = new FriendsService().checkFriendShip(paramMem_no,user.getMem_no());
-	int boardNumber = 0;
-	if(friendShip){
-		boardNumber = new Message_boardService().getFriendsBoardNumByCondition(paramMem_no,"bd_prvt=0 or bd_prvt=1");		
-	}else{
-		boardNumber = new Message_boardService().getFriendsBoardNumByCondition(paramMem_no,"bd_prvt=1");			
+	if(paramMem_no!=null){
+		int albumNumber = new AlbumsService().getAlbumNumForOther(paramMem_no);
+		pageContext.setAttribute("albumNumber", albumNumber);
+		boolean friendShip = false;
+		if(user!=null){
+			friendShip = new FriendsService().checkFriendShip(paramMem_no,user.getMem_no());			
+		}
+		int boardNumber = 0;
+		if(friendShip){
+			boardNumber = new Message_boardService().getFriendsBoardNumByCondition(paramMem_no,"bd_prvt=0 or bd_prvt=1");		
+		}else{
+			boardNumber = new Message_boardService().getFriendsBoardNumByCondition(paramMem_no,"bd_prvt=1");			
+		}
+		pageContext.setAttribute("boardNumber", boardNumber);
+		int friendNumber = new FriendsService().getFriendNum(paramMem_no);
+		pageContext.setAttribute("friendNumber", friendNumber);
+		int personCmtNumber = new Board_cmtService().getPersonCmtNumber(paramMem_no);
+		pageContext.setAttribute("personCmtNumber", personCmtNumber);		
 	}
-	pageContext.setAttribute("boardNumber", boardNumber);
-	int friendNumber = new FriendsService().getFriendNum(paramMem_no);
-	pageContext.setAttribute("friendNumber", friendNumber);
-	int personCmtNumber = new Board_cmtService().getPersonCmtNumber(paramMem_no);
-	pageContext.setAttribute("personCmtNumber", personCmtNumber);
 %>
 	<!-- ¼ÐÃD+ÄÑ¥]shit -->
     <!-- Page Content -->

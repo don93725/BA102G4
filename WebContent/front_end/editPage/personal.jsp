@@ -27,14 +27,17 @@
     </nav>
 	
 <%  	
-	int albumNumber = new AlbumsService().getAlbumNum(user.getMem_no());
-	pageContext.setAttribute("albumNumber", albumNumber);
-	int boardNumber = new Message_boardService().getBoardNumber(user.getMem_no());
-	pageContext.setAttribute("boardNumber", boardNumber);
-	int friendNumber = new FriendsService().getFriendNum(user.getMem_no());
-	pageContext.setAttribute("friendNumber", friendNumber);
-	int personCmtNumber = new Board_cmtService().getPersonCmtNumber(user.getMem_no());
-	pageContext.setAttribute("personCmtNumber", personCmtNumber);
+	String paramMem_no = user.getMem_no();
+	if(paramMem_no!=null){
+		int albumNumber = new AlbumsService().getAlbumNum(paramMem_no);
+		pageContext.setAttribute("albumNumber", albumNumber);
+		int boardNumber = new Message_boardService().getBoardNumber(paramMem_no);
+		pageContext.setAttribute("boardNumber", boardNumber);
+		int friendNumber = new FriendsService().getFriendNum(paramMem_no);
+		pageContext.setAttribute("friendNumber", friendNumber);
+		int personCmtNumber = new Board_cmtService().getPersonCmtNumber(paramMem_no);
+		pageContext.setAttribute("personCmtNumber", personCmtNumber);		
+	}
 %>
 	<!-- ¼ÐÃD+ÄÑ¥]shit -->
     <!-- Page Content -->
