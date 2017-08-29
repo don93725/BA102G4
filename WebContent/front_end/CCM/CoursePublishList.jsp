@@ -76,10 +76,10 @@
 											onclick="changeDisabled(4,<%=countp%>)"
 											style="display: none;">確認修改</button></td>
 									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">
-									<input type="submit" class="btn btn-warning" onclick="deleteCrstime()" value="下架">
+									<input type="submit" class="btn btn-warning" onclick="deleteCrstime(<%=countp%>)" value="下架">
 									<FORM METHOD="post"
 											ACTION="<%=request.getContextPath()%>/CCM/CourseManager.do" style="display: none;">
-											<input type="submit" class="btn btn-warning" id="deleteCrstime" value="下架">
+											<input type="submit" class="btn btn-warning" id="deleteCrstime<%=countp%>" value="下架">
 											<input type="hidden" name="ct_no"
 												value="${course_timeVO.ct_no}"><input type="hidden"
 												name="action" value="course_timeDelete">
