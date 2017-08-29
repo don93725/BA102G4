@@ -95,7 +95,7 @@ public class MgrCtrl extends HttpServlet {
 					session.setAttribute("userMgr", managerVO);
 
 					AuthorityService autSvc = new AuthorityService();
-					Set<AuthorityVO> authorityVO = autSvc.getFno(managerVO.getMgr_no());
+					Set<String> authorityVO = autSvc.getFno(managerVO.getMgr_no());
 					session.setAttribute("userMgrFun", authorityVO);
 					System.out.println("(MgrCtl)登入成功");
 					// 4.【登入成功,準備轉交來源網頁，若沒有，則轉回首頁】
