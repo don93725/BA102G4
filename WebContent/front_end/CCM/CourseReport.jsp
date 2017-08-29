@@ -21,7 +21,7 @@
 %>
 <%!int count = 0;%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="zh-cn-en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -31,16 +31,16 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12">
 				<div class="table-responsive">
-					<table id="sample-table-1" class="table table-striped">
+					<table id="sample-table-1" class="table table-striped table-hover" style="text-align:center;">
 						<thead class="aaa">
 							<tr>
-								<th class="center">課程名稱</th>
-								<th class="center">類別</th>
-								<th class="center">開課時間</th>
-								<th class="center">價錢</th>
-								<th class="center">場地</th>
-								<th class="center">人數</th>
-								<th class="center">觀看詳情</th>
+								<th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">課程名稱</th>
+								<th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">類別</th>
+								<th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">開課時間</th>
+								<th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">價錢</th>
+								<th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">場地</th>
+								<th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">人數</th>
+								<th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">觀看詳情</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -58,15 +58,15 @@
 												</c:forEach>
 									</select>
 									</span>
-									<td class="center"><span class="changeCrs_name<%=count%>">${course_timeVO.courseVO.crs_name}</span></td>
-									<td class="center"><span class="changeCategory<%=count%>">${course_timeVO.courseVO.categoryChange}</span></td>
-									<td class="center"><span class="changeCrs_date_time<%=count%>">${course_timeVO.crs_date}<br>${course_timeVO.crs_timeShow}</span></td>
-									<td class="center"><span class="changePrice<%=count%>">${course_timeVO.price}</span></td>
-									<td class="center"><span class="changeP_name<%=count%>">${course_timeVO.placeVO.p_name}</span></td>
+									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><span class="changeCrs_name<%=count%>">${course_timeVO.courseVO.crs_name}</span></td>
+									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><span class="changeCategory<%=count%>">${course_timeVO.courseVO.categoryChange}</span></td>
+									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><span class="changeCrs_date_time<%=count%>">${course_timeVO.crs_date}<br>${course_timeVO.crs_timeShow}</span></td>
+									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><span class="changePrice<%=count%>">${course_timeVO.price}</span></td>
+									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><span class="changeP_name<%=count%>">${course_timeVO.placeVO.p_name}</span></td>
 									<!-- 故意擺兩個 -->
-									<td class="center"><a class="accordion-toggle" data-toggle="collapse"
+									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><a class="accordion-toggle" data-toggle="collapse"
 										data-parent="#accordion" href="#collapse<%=count%>">${course_timeVO.count}/${course_timeVO.limit}</a></td>
-									<td class="center"><input type="button" class="btn btn-primary"
+									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><input type="button" class="btn btn-primary"
 										id="see<%=count%>" onclick="slide(<%=count%>)"
 										value="觀看詳情">
 									</td>

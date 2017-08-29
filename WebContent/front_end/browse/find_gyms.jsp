@@ -51,7 +51,7 @@
     
 
     <!-- Page Content -->
-    <div class="container" style="min-height: 100%;margin: 0 auto -170px;">
+    <div class="container" style="min-height: 100%;">
         
         <!-- Page Heading/Breadcrumbs -->
         <div class="breadcrumbs" id="breadcrumbs">    
@@ -73,13 +73,10 @@
         <br>
         
         <div class="alert alert-block alert-info">
-        	<p><strong>擁有私人教練的好處：</strong><br>
-			<p>1. 增加訓練動機，避免因恆心不夠而中途放棄之現象。<br>
-			2. 安全的訓練指導，減少因不當使用而造成的傷害。<br>
-			3. 正確又具效果的訓練課程，專為個人量身訂做。<br>
-			4. 針對特殊需求訓練，不論是傷害復健或是增強運動能力。<br>
-			5. 自信的增加來自於健美勻稱的身材！良好的運動訓練計畫除了可促進健康外，最主要是可以獲得令人稱羨的完美身材。<br>
-			<p>不論您是要<strong>增重、強壯、減重、瘦身、復健、增強運動表現</strong>，您的專屬私人教練都會為您量身訂做一個屬於您<strong>個人的完美健身計畫！</strong></p>
+        	<p>健貨致力於推廣社區運動發展，打造<strong>微型精緻專業機能健身中心。</strong><br>
+			<p>為數極多的健身房業者中，分成為健身空間及運動教室，設有多功能教室/飛輪專屬教室，並引進世界前三大高級運動器材，包括重量訓練、心肺訓練、功能性訓練等各項器材。<br>
+			<p>相信健貨服務團隊由專業認證師資及健身教練組成，提供透明健全的會員制度，規劃數十種時下潮流課程，讓您享受健康玩課的樂趣。我們誠摯歡迎每位喜歡運動或是想要運動的人，一起加入我們。<br>
+			<p>不論您是要<strong>增重、強壯、減重、瘦身、復健、增強運動表現</strong>，我們的場地都會為您量身提供一個屬於您<strong>個人的完美健身場地！</strong></p>
         </div>
         
             	<form action="<%= request.getContextPath() %>/GymsServlet" method="post" id="search_gym">

@@ -54,7 +54,7 @@
     
 
     <!-- Page Content -->
-    <div class="container" style="min-height: 100%;margin: 0 auto -170px;">
+    <div class="container" style="min-height: 100%;">
         
         <!-- Page Heading/Breadcrumbs -->
         <div class="breadcrumbs" id="breadcrumbs">    
@@ -159,7 +159,6 @@
 						<p style="color:#8a6d3b;font-size:14px;"><strong>±Ð½m</strong></p>
 						</h3>
 						</p>
-						
 					</center>
 				</div>
 			</div>
@@ -168,10 +167,10 @@
 </c:if>
 
 <c:if test="${not empty searchResult && empty errorMsgs}">
-		<div class="row"  style="margin-bottom:20px;margin-top:20px;">
+		<div class="row"  style="margin-bottom:20px;margin-top:20px;text-align:center;">
 <c:forEach var="coachesVO" items="${searchResult}">
             <div class="col-md-3 col-sm-4 animated bounceIn" style="margin-bottom:40px;text-align:center;">
-					<div class="item-container"  style="margin-bottom:0px;text-align:center;">
+					<div class="item-container"  style="margin-bottom:0px;">
 						<div class="item-caption black">
 							<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=1&mem_no=${coachesVO.coa_no}&action=lookPersonal" target="_blank">
 								<div class="item-caption-inner">
@@ -187,7 +186,7 @@
 					</div>
 				<div class="img_title" style="margin-top:0px;text-align:center;">
 					<p>
-					<h3 style="margin-top:0px;padding-bottom:0px;">
+					<h3 style="margin-top:5px;padding-bottom:0px;">
 					${coachesVO.coa_name }
 					<p style="color:#8a6d3b;font-size:14px;"><strong>±Ð½m</strong></p>
 					</h3>

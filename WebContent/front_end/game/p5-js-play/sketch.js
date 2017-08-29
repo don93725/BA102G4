@@ -8,7 +8,7 @@ var shipImage, bulletImage, particleImage;
 var MARGIN = 40;
 
 function setup() {
-var canv = createCanvas(windowWidth, windowHeight-100);
+var canv = createCanvas(windowWidth-20, windowHeight);
 canv.parent("bgCanvas");
   
 bulletImage = loadImage("/BA102G4/front_end/game/p5-js-play/assets/asteroids_bullet.png");

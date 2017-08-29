@@ -402,4 +402,10 @@ public class AnnewJNDIDAO implements AnnewDAO_interface {
 		
 	}
 
+	@Override
+	public List<AnnewVO> getFrontAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

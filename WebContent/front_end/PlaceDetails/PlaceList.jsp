@@ -29,7 +29,7 @@
   </nav>
 
     <!-- Page Content -->
-    <div class="container" style="background-color:transparent;min-height: 100%;margin: 0 auto -170px;">
+    <div class="container" style="background-color:transparent;min-height: 100%;">
         
         <!-- Page Heading/Breadcrumbs -->
         <div class="breadcrumbs" id="breadcrumbs" style="background-color:transparent;">

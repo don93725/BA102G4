@@ -3,6 +3,10 @@
 <%@ page import="com.coaches.model.*" %>
 <%@ page import="com.students.model.*" %>
 <%@ page import="com.gyms.model.*" %>
+<%@ page import="com.album.service.*" %>
+<%@ page import="com.board.service.*" %>
+<%@ page import="com.friends.model.*" %>
+<%@ page import="com.comments.model.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="zh-cn-en">
@@ -21,7 +25,28 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<%@include file="/front_end/include/front_navbar.file" %>
     </nav>
-	
+	<%  	
+	String paramMem_no = request.getParameter("mem_no");
+	if(paramMem_no!=null){
+		int albumNumber = new AlbumsService().getAlbumNumForOther(paramMem_no);
+		pageContext.setAttribute("albumNumber", albumNumber);
+		boolean friendShip = false;
+		if(user!=null){
+			friendShip = new FriendsService().checkFriendShip(paramMem_no,user.getMem_no());			
+		}
+		int boardNumber = 0;
+		if(friendShip){
+			boardNumber = new Message_boardService().getFriendsBoardNumByCondition(paramMem_no,"bd_prvt=0 or bd_prvt=1");		
+		}else{
+			boardNumber = new Message_boardService().getFriendsBoardNumByCondition(paramMem_no,"bd_prvt=1");			
+		}
+		pageContext.setAttribute("boardNumber", boardNumber);
+		int friendNumber = new FriendsService().getFriendNum(paramMem_no);
+		pageContext.setAttribute("friendNumber", friendNumber);
+		int personCmtNumber = new Board_cmtService().getPersonCmtNumber(paramMem_no);
+		pageContext.setAttribute("personCmtNumber", personCmtNumber);		
+	}
+%>
 	<!-- ¼ÐÃD+ÄÑ¥]shit -->
     <!-- Page Content -->
     <div class="container">   

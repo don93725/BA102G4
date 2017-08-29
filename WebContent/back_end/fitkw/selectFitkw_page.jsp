@@ -51,7 +51,7 @@
 
 	<div class='col-sm-12'>
     <FORM METHOD="post" ACTION="fitkw.do" >
-        <label for="exampleInputEmail1"><img src="images/flower.gif"><b>輸入標題<img src="images/flower.gif">:</b></label>
+        <label for="exampleInputEmail1"><img src="images/flower.gif"><b>輸入標題<img src="images/flower.gif"></b></label>
     		<div class="input-group">
     			<input class='form-control' type="text" name="fik_title">
 		  		<div class="input-group-btn">
@@ -66,7 +66,7 @@
  
     <div class='col-sm-12'>
     <FORM METHOD="post" ACTION="fitkw.do" >
-       <label for="exampleInputEmail1"><img src="images/flower.gif"><b>輸入日期<img src="images/flower.gif">:</b></label>
+       <label for="exampleInputEmail1"><img src="images/flower.gif"><b>輸入日期<img src="images/flower.gif"></b></label>
        <div class="input-group">
        <input class='form-control' type="date" name="upd_date">
 		  <div class="input-group-btn">
@@ -82,7 +82,7 @@
   <jsp:useBean id="fitkwSvc" scope="page" class="com.fitkw.model.FitkwService" />
   	<div class='col-sm-12'>
      <FORM METHOD="post" ACTION="fitkw.do" >
-       <label for="exampleInputEmail1"><img src="images/flower.gif"><b>選擇主題<img src="images/flower.gif">:</b></label>
+       <label for="exampleInputEmail1"><img src="images/flower.gif"><b>選擇主題<img src="images/flower.gif"></b></label>
         <div class="input-group">
         <select class='form-control' size="1" name="fik_type">
           <option value="基礎知識">基礎知識</option>

@@ -80,6 +80,18 @@ public class AlbumsService {
 		int num = albumsDAO.countBySQL(sql);
 		return (num - 1) / pageSize + 1;
 	}
+	public int getAlbumNum(String mem_no) {
+		AlbumsDAO albumsDAO = new AlbumsDAO();
+		String sql = "select count(*) from albums where mem_no=" + mem_no + " and al_prvt=0 or al_prvt=1";
+		int num = albumsDAO.countBySQL(sql);
+		return num;
+	}
+	public int getAlbumNumForOther(String mem_no) {
+		AlbumsDAO albumsDAO = new AlbumsDAO();
+		String sql = "select count(*) from albums where mem_no=" + mem_no + " and al_prvt=0";
+		int num = albumsDAO.countBySQL(sql);
+		return num;
+	}
 
 	// 確認資格
 	public boolean checkStatus(String al_no) {

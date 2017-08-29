@@ -59,19 +59,18 @@
 
         <!-- Intro Content -->
         <div class="row">
+       <div class="col-lg-12">
+       	<h2 class="page-header center">健貨 - GymHome</h2>
+       </div>
             <div class="col-md-6">
                 <img class="img-responsive" src="${pageContext.request.contextPath }/util/OutputPic?pin_no=1" alt="">
             </div>
             <div class="col-md-6">
             	<div class='row'>
             	<div class="col-md-12">
-            	<div class="col-md-7">
-            	<h2>健貨 - GymHome</h2>
-            	</div>
-            	<div class="col-md-5">
-            	<p></p>
-            	<p><small>更新時間 ： ${plain.upd_date2}</small></p>
-            	</div>
+            		<div class="col-md-12">
+            			<p align="right"><small>更新時間 ： ${plain.upd_date2}</small></p>
+            		</div>
             	</div>
             	<div class="col-md-12">
             	<h4>電話： ${plain.cp_no}</h4><p></p>
@@ -84,10 +83,12 @@
         </div>
         <!-- /.row -->
 
+		<br>
+
         <!-- Team Members -->
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="page-header">我們的團隊</h2>
+                <h2 class="page-header center">我們的團隊</h2>
             </div>
             <c:forEach var="mgr" items="${mgrList }">
             <div class="col-md-4 text-center">

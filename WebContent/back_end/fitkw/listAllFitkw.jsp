@@ -26,7 +26,7 @@
 		<div class="page-header">
 			<h1>
 				頁面資訊維護 <small>
-				<i class="icon-double-angle-right"></i> 健身知識 
+				<i class="icon-double-angle-right"></i> <a href='${pageContext.request.contextPath }/back_end/fitkw/selectFitkw_page.jsp'>健身知識 </a>
 				<i class="icon-double-angle-right"></i> 健身知識總覽
 				</small>
 			</h1>

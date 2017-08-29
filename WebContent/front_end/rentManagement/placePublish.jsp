@@ -20,7 +20,7 @@
 <!-- 燈箱 -->
 <script>
 $(document).ready(function(){
-	$(".inline").colorbox({inline:true, width:"50%"});
+	$(".inline").colorbox({inline:true, width:"40%"});
 });
 </script>
 
@@ -32,7 +32,7 @@ $(document).ready(function(){
     </nav>
 	
 	<!-- Page Content -->
-	<div class="container">
+	<div class="container" style="min-height: 100%">
 
 	<!-- 新增場地視窗 -->
 	<%@include file="/front_end/include/insertPlace.file" %>	
@@ -74,8 +74,7 @@ $(document).ready(function(){
 						<!-- 上/下架管理 -->
 						<li class="dropdown" id = ""><a data-toggle="dropdown"
 							class="dropdown-toggle" href="#">
-							<i class="green icon-home bigger-110"></i>租借管理 &nbsp;<i
-								class="icon-caret-down bigger-110 width-auto"></i></a> <!-- 課程管理細項 -->
+							租借管理 &nbsp;<i class="icon-caret-down bigger-110 width-auto"></i></a> <!-- 課程管理細項 -->
 							<ul class="dropdown-menu dropdown-info">
 								<li>
 								<a data-toggle="tab" href="#" onclick="dropdown(1)">場地列表</a>

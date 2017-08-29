@@ -52,7 +52,7 @@
     
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" style="min-height: 100%">
         
         <!-- Page Heading/Breadcrumbs -->
         <div class="breadcrumbs" id="breadcrumbs">    
@@ -74,13 +74,9 @@
         <br>
         
         <div class="alert alert-block alert-success">
-        	<p><strong>擁有私人教練的好處：</strong><br>
-			<p>1. 增加訓練動機，避免因恆心不夠而中途放棄之現象。<br>
-			2. 安全的訓練指導，減少因不當使用而造成的傷害。<br>
-			3. 正確又具效果的訓練課程，專為個人量身訂做。<br>
-			4. 針對特殊需求訓練，不論是傷害復健或是增強運動能力。<br>
-			5. 自信的增加來自於健美勻稱的身材！良好的運動訓練計畫除了可促進健康外，最主要是可以獲得令人稱羨的完美身材。<br>
-			<p>不論您是要<strong>增重、強壯、減重、瘦身、復健、增強運動表現</strong>，您的專屬私人教練都會為您量身訂做一個屬於您<strong>個人的完美健身計畫！</strong></p>
+        	<p><strong>把健身帶入生活，處處都是健身房</strong><br>
+			<p>因為<strong>關心、分享</strong>的概念，希望將有助益大眾的健身訊息，更廣為被運用與散布，於是他也開始嘗試將健身活動帶到戶外，有些學員就曾跟著他去公園做過健身訓練。<br>
+			<p>他將公園常見的器材或是坡度地形設計成可供訓練的方式，把健身融入日常生活環境中。甚至還從去年開始籌畫、將日常中隨身可得的工具，設計成健身動作，透過圖解的簡單的健身工具書，掃把、長柄傘等都一一變成健身器材了，<strong>畢竟不是人人都有時間、金錢去健身房，但好的健身動作，卻能幫助很多的人，不應只有在健身房裡被運用。</strong></p>
         </div>
         
             	<form action="<%= request.getContextPath() %>/StudentsServlet" method="post" id="search_stu">
@@ -93,10 +89,15 @@
                     <div class="col-lg-2">
                     	<select class="form-control" id="form-field-select-1" name="search_Type" style="height:42px;">
 							<option value="0">不限查詢類型</option>
-                        	<option value="1">肌力訓練</option>
-                        	<option value="2">瑜珈</option>
-                        	<option value="3">拳擊</option>
-                        	<option value="4">有氧</option>
+                        	<option value="A">瑜珈</option>
+                        	<option value="B">飛輪有氧</option>
+                        	<option value="C">舞動有氧</option>
+                        	<option value="D">拳擊有氧</option>
+							<option value="E">基礎重訓</option>
+							<option value="F">進階重訓</option>
+							<option value="G">皮拉提斯</option>
+							<option value="H">TRX肌力雕塑</option>
+							<option value="O">其他</option>
                     	</select>
                     </div>
 

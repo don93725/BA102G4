@@ -63,7 +63,7 @@
 								<th class="center" style="vertical-align:middle;">檢舉原因</th>
 								<th class="center" style="vertical-align:middle;">時間</th>
 <!-- 								<th class="center">被檢舉內容</th> -->
-								<th class="center" style="vertical-align:middle;">照片</th>
+<!-- 								<th class="center" style="vertical-align:middle;">照片</th> -->
 								<th class="center" style="vertical-align:middle;">狀態</th>
 								<th class="center" style="vertical-align:middle;">核准</th>
 								<th class="center" style="vertical-align:middle;">駁回</th>
@@ -83,8 +83,7 @@
 									<td style="vertical-align:middle;"><fmt:formatDate type="both" dateStyle="long"
 															timeStyle="long" value="${placeReportVO.pr_time}" /></td>
 <%-- 									<td class="center"> ${placeReportVO.ref_ctx}</td> --%>
-									<td style="vertical-align:middle;"><img src="<%=request.getContextPath()%>/tools/DBGifReader?pr_no=${placeReportVO.pr_no}"
-															style="width: 100px; height: 100px;"></td>
+<%-- 									<td style="vertical-align:middle;"><img src="<%=request.getContextPath()%>/tools/DBGifReader?pr_no=${placeReportVO.pr_no}" style="width: 100px; height: 100px;"></td> --%>
 									<td style="vertical-align:middle;">${placeReportVO.pr_stat==0?'未審核':'已審核'}</td>
 									<td style="vertical-align:middle;">
 										<form method="post" action="<%=request.getContextPath()%>/placerep/PlaceRepCtrl">

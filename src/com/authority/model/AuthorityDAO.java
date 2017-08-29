@@ -259,8 +259,8 @@ public class AuthorityDAO implements AuthorityDAO_interface {
 		return list;
 	}
 	@Override
-	public Set<AuthorityVO> getFun(String mgr_no) {
-		Set<AuthorityVO> set = new LinkedHashSet<AuthorityVO>();
+	public Set<String> getFun(String mgr_no) {
+		Set<String> set = new LinkedHashSet<String>();
 		AuthorityVO authorityVO = null;
 	
 		Connection con = null;
@@ -275,10 +275,9 @@ public class AuthorityDAO implements AuthorityDAO_interface {
 			rs = pstmt.executeQuery();
 	
 			while (rs.next()) {
-				authorityVO = new AuthorityVO();
-				authorityVO.setF_no(rs.getString("f_no"));
 				
-				set.add(authorityVO); // Store the row in the vector
+				
+				set.add(rs.getString("f_no")); // Store the row in the vector
 			}
 	
 			// Handle any driver errors

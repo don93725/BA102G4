@@ -143,6 +143,13 @@ public class Message_boardService {
 
 		return (num - 1) / pageSize + 1;
 	}
+	public int getBoardNumber(String mem_no) {
+		Message_boardDAO dao = new Message_boardDAO();
+		String sql = "select count(*) from message_board where mem_no=" + mem_no;
+		int num = dao.countBySQL(sql);
+		
+		return num;
+	}
 	//用來看好友動態
 	public List<Message_board> getFriendsPageAndRank(int thisPage, int pageSize, String user_no) {
 		Message_boardDAO dao = new Message_boardDAO();
@@ -157,8 +164,13 @@ public class Message_boardService {
 		
 		String sql = "select count(*) from message_board where (mem_no=" + user_no + " and (bd_prvt=0 or bd_prvt=1 or bd_prvt=2)) or ((mem_no in (select fd_no from friends where mem_no=" + user_no + " ) or mem_no in (select mem_no from friends where fd_no=" + user_no + " ) )and (bd_prvt=0 or bd_prvt=1))";
 		int num = dao.countBySQL(sql);
-		System.out.println("num="+num);
 		return (num - 1) / pageSize + 1;
+	}
+	public int getFriendsBoardNumByCondition(String user_no, String condition) {
+		Message_boardDAO dao = new Message_boardDAO();		
+		String sql = "select count(*) from message_board where (mem_no=" + user_no + " and ("+condition+"))";
+		int num = dao.countBySQL(sql);
+		return num;
 	}
 	
 	public List<Message_board> getSingleBoard(int thisPage, int pageSize, String bd_msg_no, String condition ) {

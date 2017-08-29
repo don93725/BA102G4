@@ -40,7 +40,7 @@
 		</li>
 
 		<li>
-			<a href="#" class="dropdown-toggle">
+			<a href="#" ${userMgrFun.contains("M")? " class='dropdown-toggle'":"style='cursor:not-allowed;'" } >
 				<i class="icon-group"></i>
 				<span class="menu-text"> 員工帳號管理 </span>
 
@@ -91,7 +91,7 @@
 							
 						<!--	
 								<li>
-									<a href="<%=request.getContextPath()%>/back_end/adapply/setCheckAD.jsp">
+									<a href="<%=request.getContextPath()%>/back_end/adapply/setCheckAD.jsp" >
 										<i class="icon-double-angle-right"></i>
 										<i class="icon-credit-card"></i>
 										廣告審核
@@ -99,7 +99,7 @@
 								</li>
 						-->
 								<li>
-									<a href="<%=request.getContextPath()%>/forum/ForumsManagerCtrl">
+									<a href="<%=request.getContextPath()%>/forum/ForumsManagerCtrl" ${userMgrFun.contains("CF")? "":"onclick='return false;' style='cursor:not-allowed;'"}>
 										<i class="icon-double-angle-right"></i>
 										<i class="icon-book"></i>
 										開版審核
@@ -110,7 +110,7 @@
 								</li>
 
 								<li>
-									<a href="<%=request.getContextPath()%>/back_end/coa_gym_apply/gym_apply.jsp">
+									<a href="<%=request.getContextPath()%>/back_end/coa_gym_apply/gym_apply.jsp" ${userMgrFun.contains("CG")? "":"onclick='return false;' style='cursor:not-allowed;'"}>
 										<i class="icon-double-angle-right"></i>
 										<i class="icon-home"></i>
 										健身房審核
@@ -121,7 +121,7 @@
 								</li>
 
 								<li>
-									<a href="<%=request.getContextPath()%>/back_end/coa_gym_apply/coa_apply.jsp">
+									<a href="<%=request.getContextPath()%>/back_end/coa_gym_apply/coa_apply.jsp" ${userMgrFun.contains("CC")? "":"onclick='return false;' style='cursor:not-allowed;'"}>
 										<i class="icon-double-angle-right"></i>
 										<i class="icon-cogs"></i>
 										教練審核
@@ -163,7 +163,7 @@
 								</li>
 										---->
 								<li>
-									<a href="<%=request.getContextPath()%>/back_end/courserep/listAllCourseRep.jsp">
+									<a href="<%=request.getContextPath()%>/back_end/courserep/listAllCourseRep.jsp" ${userMgrFun.contains("RC")? "":"onclick='return false;' style='cursor:not-allowed;'"}>
 										<i class="icon-double-angle-right"></i>
 										<i class="icon-fighter-jet"></i>
 										課程檢舉
@@ -174,7 +174,7 @@
 								</li>
 
 								<li>
-									<a href="<%=request.getContextPath()%>/back_end/placerep/CheckPlaceRep.jsp">
+									<a href="<%=request.getContextPath()%>/back_end/placerep/CheckPlaceRep.jsp" ${userMgrFun.contains("RP")? "":"onclick='return false;' style='cursor:not-allowed;'"}>
 										<i class="icon-double-angle-right"></i>
 										<i class="icon-certificate"></i>
 										場地檢舉
@@ -202,7 +202,7 @@
 							</ul>
 						</li>
 						<li>
-							<a href="#" class="dropdown-toggle">
+							<a href="#" ${userMgrFun.contains("PI")? "class='dropdown-toggle'":"style='cursor:not-allowed;'"}>
 								<i class="icon-legal"></i>
 								<span class="menu-text"> 頁面資訊維護 </span>
 

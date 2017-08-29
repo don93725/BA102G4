@@ -12,6 +12,6 @@ public interface AuthorityDAO_interface {
 	public void delete(String mgr_no);
 	public AuthorityVO findByPrimaryKey(String mgr_no,String f_no);
 	public List<AuthorityVO> getAll();
-	public Set<AuthorityVO> getFun(String mgr_no);
+	public Set<String> getFun(String mgr_no);
 	public ManagerVO findByMgrNo(String mgr_id);
 }

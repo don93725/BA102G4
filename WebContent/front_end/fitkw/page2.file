@@ -1,34 +1,33 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<table border="0">    
+<table border="0" align="right">    
+
  <tr>
   <%if (rowsPerPage<rowNumber) {%>
     <%if(pageIndex>=rowsPerPage){%>
-        <td><A href="<%=request.getRequestURI()%>?whichPage=1">至第一頁</A>&nbsp;</td>
+        <td><A href="<%=request.getRequestURI()%>?whichPage=1">首頁</A>&nbsp;</td>
         <td><A href="<%=request.getRequestURI()%>?whichPage=<%=whichPage-1%>">上一頁 </A>&nbsp;</td>
     <%}%>
   
     <%if(pageIndex<pageIndexArray[pageNumber-1]){%>
         <td><A href="<%=request.getRequestURI()%>?whichPage=<%=whichPage+1%>">下一頁 </A>&nbsp;</td>
-        <td><A href="<%=request.getRequestURI()%>?whichPage=<%=pageNumber%>">至最後一頁</A>&nbsp;</td>
+        <td><A href="<%=request.getRequestURI()%>?whichPage=<%=pageNumber%>">末頁</A>&nbsp;</td>
     <%}%>
   <%}%>  
  </tr>
-</table>    
+
+</table>     <br>
 <%if ( pageNumber > 1) {%>
-<table border="0">   
+<table border="0" align="center">   
  <tr> 
-
    <FORM METHOD="post" ACTION="<%=request.getRequestURI()%>">   
-   <center>
-
+        <td>
            <select size="1" name="whichPage">
         <%for (int i=1; i<=pageNumber; i++){%>
            <option value="<%=i%>">跳至第<%=i%>頁
-        <%}%> 
+           <%}%> 
            </select>
            <input type="submit" value="確定" >  
-
-    </center>   
+        </td>
    </FORM>
  </tr>
 </table>
