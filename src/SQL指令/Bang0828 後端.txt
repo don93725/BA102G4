@@ -600,6 +600,12 @@ start with 1
 nocycle
 nocache;
 
+insert into albums values(albums_pk_seq.nextval,'5',default,'動態相簿',default,default,1);
+insert into albums values(albums_pk_seq.nextval,'6',default,'動態相簿',default,default,1);
+insert into albums values(albums_pk_seq.nextval,'7',default,'動態相簿',default,default,1);
+insert into albums values(albums_pk_seq.nextval,'8',default,'動態相簿',default,default,1);
+insert into albums values(albums_pk_seq.nextval,'9',default,'動態相簿',default,default,1);
+insert into albums values(albums_pk_seq.nextval,'10',default,'動態相簿',default,default,1);
 insert into albums values(albums_pk_seq.nextval,'11',default,'動態相簿',default,default,1);
 
 insert into albums values(albums_pk_seq.nextval,'12',default,'動態相簿',default,default,1);
