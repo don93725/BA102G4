@@ -29,15 +29,15 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12">
 				<div class="table-responsive">
-					<table id="sample-table-1" class="table table-striped" style="text-align:center;">
+					<table id="sample-table-1" class="table table-striped table-hover" style="text-align:center;">
 						<thead class="aaa">
 							<tr>
-								<th class="center">場地名稱</th>
-								<th class="center">人數</th>
-								<th class="center">場地地址</th>
-								<th class="center">場地介紹</th>
-								<th class="center"></th>
-								<th class="center"></th>
+								<th class="center" style="vertical-align:middle;background-color:#CCEEFF;" align="center;">場地名稱</th>
+								<th class="center" style="vertical-align:middle;background-color:#CCEEFF;" align="center;">人數</th>
+								<th class="center" style="vertical-align:middle;background-color:#CCEEFF;" align="center;">場地地址</th>
+								<th class="center" style="vertical-align:middle;background-color:#CCEEFF;" align="center;">場地介紹</th>
+								<th class="center" style="vertical-align:middle;background-color:#CCEEFF;" align="center;"></th>
+								<th class="center" style="vertical-align:middle;background-color:#CCEEFF;" align="center;"></th>
 
 							</tr>
 						</thead>
@@ -45,10 +45,10 @@
 							<c:forEach var="placeVO" items="${placeList}">
 								<tr>
 									<input type="hidden" value="${placeVO.p_no}">
-									<td style="vertical-align:middle;">${placeVO.p_name}</td>	
-									<td style="vertical-align:middle;">${placeVO.p_cap}</td>
-									<td style="vertical-align:middle;">${placeVO.p_add}</td>
-									<td style="vertical-align:middle;" class="p_into_limited">${placeVO.p_into}</td>
+									<td style="vertical-align:middle;" align="center;">${placeVO.p_name}</td>	
+									<td style="vertical-align:middle;" align="center;">${placeVO.p_cap}</td>
+									<td style="vertical-align:middle;" align="center;">${placeVO.p_add}</td>
+									<td style="vertical-align:middle;" align="center;" class="p_into_limited">${placeVO.p_into}</td>
 									<input type="hidden" class="p_status" value="${placeVO.p_status}">
 									
 									
@@ -82,8 +82,6 @@
 										<a class='inline' href="#publish_content" onclick="showPublish('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')">
 											<input type="button" class="btn btn-info" value="我要上架">
 										</a>
-									</td>
-									<td>
 									</td>
 									</c:if>
 									<!-- 下架的場地 結束 -->

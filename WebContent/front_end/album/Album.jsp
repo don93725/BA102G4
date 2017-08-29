@@ -9,9 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<meta content="Expires" content="-1">
 		<meta content="Catch-Control" content="no-cache">
-		<meta content="Pragma" content="no-cache">
-		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/front_end/comm/css/sweetalert.css">
-		
+		<meta content="Pragma" content="no-cache">		
 		<style type="text/css">
 			div.album img{
 				width: 100%;
@@ -84,7 +82,7 @@
 				</div>
 				</c:if>
 				
-				
+				<br><br>
 				<div class ="panel-body">
 				<c:forEach var="album" items="${albums }"> 
 						<div class="col-xs-12 col-sm-3 album">						
@@ -93,7 +91,7 @@
 						<div class="list-group-item">
 						<img style='height:250px ; width:100%' src="${pageContext.request.contextPath}/util/OutputPic?al_no=${album.al_no }&num=<c:out value="${photosNum[album.al_no] }" default="0"/>">
 						</div>
-						<div class="list-group-item list-group-item-danger text-center">
+						<div class="list-group-item text-center" style="background-color:#ADD8E6;">
 						
 						<c:if test='${album.al_board!=1 }'><input type="checkbox" name="al_no" value='${album.al_no }' hidden></c:if><span>${album.al_name }</span>
 						<input type="checkbox" name="al_private" value='${album.al_prvt }' hidden>

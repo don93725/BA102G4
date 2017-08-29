@@ -251,7 +251,7 @@
   </nav>
 
 	<div class="container">
-			   <div class="breadcrumbs" id="breadcrumbs">
+			   <div class="breadcrumbs" id="breadcrumbs" style="line-height:0px;">
             
 	            <div class="col-lg-12">
 	                <h1>${(empty param.friend)?"個人動態":"好友動態" }
@@ -303,12 +303,12 @@
 						<div class="row">
 							<div class="col-xs-12 col-sm-8">
 								<div class="panel-heading">
-									<button class="btn btn-default" id='uploadTrigger'>
+									<button class="btn btn-info" id='uploadTrigger'>
 										<span class="glyphicon glyphicon-picture"> 新增照片</span>
 									</button>
 									<input type="file" style="display: none;" id="uploadPhoto"
 										multiple>
-									<button class="btn btn-default" id='uploadFilmTrigger'>
+									<button class="btn btn-info" id='uploadFilmTrigger'>
 										<span class="glyphicon glyphicon-facetime-video"> 新增影片</span>
 									</button>
 									<input type="file" style="display: none;" id="uploadFilm">

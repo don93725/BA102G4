@@ -51,14 +51,13 @@ $(document).ready(function(){
 		<div class="breadcrumbs" id="breadcrumbs">
 			<div class="col-lg-12">
 				<h1>
-					租借管理 <small>$#^</small>
+					租借管理 <small>LeasingManagement</small>
 				</h1>
 			</div>
 
 			<ul class="breadcrumb">
 				<li><i class="icon-home home-icon"></i> <a href="#">首頁</a></li>
 				<li class="active">租借管理</li>
-				<li class="active">@$#</li>
 			</ul>
 			<!-- .breadcrumb -->
 		</div>
@@ -71,21 +70,15 @@ $(document).ready(function(){
 			<div class="tabbable">
 					<!-- tab那一欄 -->
 					<ul class="nav nav-tabs" id="myTab">
-						<!-- 申請者管理 -->
-						<li id = ""><a data-toggle="tab" href="#profile" onclick="dropdown(8);"> 申請者管理 </a>
-							<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown8" role="button" value="申請者管理">
-								<input type="hidden" name="action" value="">
-							</form>
-						</li>
 						
 						<!-- 上/下架管理 -->
 						<li class="dropdown" id = ""><a data-toggle="dropdown"
-							class="dropdown-toggle" href="#"> 上/下架管理 &nbsp;<i
+							class="dropdown-toggle" href="#">
+							<i class="green icon-home bigger-110"></i>租借管理 &nbsp;<i
 								class="icon-caret-down bigger-110 width-auto"></i></a> <!-- 課程管理細項 -->
 							<ul class="dropdown-menu dropdown-info">
 								<li>
-								<a data-toggle="tab" href="#" onclick="dropdown(1)">場地列表<span class="badge badge-danger">4</span></a>
+								<a data-toggle="tab" href="#" onclick="dropdown(1)">場地列表</a>
 									<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
 										<input type="submit" class="btn btn-default" id="dropdown1" role="button" value="場地列表">
 										<input type="hidden" name="action" value="placeList">
@@ -107,39 +100,7 @@ $(document).ready(function(){
 									</form>
 								</li>
 								</li>
-								<li><a data-toggle="tab" href="" onclick="dropdown(4)">使用中</a>
-									<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-										<input type="submit" class="btn btn-default" id="dropdown4" role="button" value="正在使用中">
-										<input type="hidden" name="action" value="placeList">
-										<input type="hidden" name="placeList_status" value="2">
-									</form>
-								</li>
 							</ul>
-						</li>
-
-						<!-- 租借紀錄查詢 -->
-						<li class="" id = ""><a data-toggle="tab" href="" onclick="dropdown(5)"> <i
-								class="green icon-home bigger-110"></i>租借紀錄查詢</a>
-							<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown5" role="button" value="租借紀錄查詢">
-								<input type="hidden" name="action" value="">
-							</form>
-						</li>
-
-						<!-- 租借報表查詢 -->
-						<li id = ""><a data-toggle="tab" href="#profile" onclick="dropdown(6)"> 租借報表查詢 </a>
-							<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown6" role="button" value="租借報表查詢">
-								<input type="hidden" name="action" value="">
-							</form>
-						</li>
-						
-						<!-- 檢舉教練 -->
-						<li id = ""><a data-toggle="tab" href="#profile" onclick="dropdown(7)"> 檢舉教練 </a>
-							<form action="<%= request.getContextPath() %>/PlaceServlet" method="post" style="display: none">
-								<input type="submit" class="btn btn-default" id="dropdown7" role="button" value="檢舉教練">
-								<input type="hidden" name="action" value="">
-							</form>
 						</li>
 					</ul>
 
@@ -162,9 +123,6 @@ $(document).ready(function(){
 			
 	<!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
-
-	<!-- 最底層 -->
-	<%@include file="/front_end/include/floor.file" %>
 	
 </body>
 	<%@include file="/front_end/include/basicScript2.file" %>

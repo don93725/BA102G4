@@ -166,22 +166,21 @@
 														<div id="alert_gym_into" style="display:none;color:red;"></div>
 													</div>
 												</div>
-											</div>			
-												<div>
-													<center>
-														<input type="button" class="btn btn-primary btn-md clickMe" id="gym_editData" value="我要修改資料">					
+											</div>
+											<br>
+												<div style="text-align:center;">
+														&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+														&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+														<input type="button" class="btn btn-primary btn-md clickMe" id="gym_editData" value="我要修改資料">&nbsp&nbsp&nbsp
 														<input type="button" class="btn btn-default btm-md" id="gym_modiData" disabled="true" value="確認修改資料" onclick="tick()">
-													</center>
 												</div>
-								</div>	
-						</div>
+									
+							</div>
 						<!-- a $home1結束 -->
-						
 					</div><!-- tab-cotent結束 -->	
 				</div>
 			</div><!-- /span -->
 		</div><!-- /row -->
-
 <script>
 	function goTo(path){location.href = path;}
 </script>

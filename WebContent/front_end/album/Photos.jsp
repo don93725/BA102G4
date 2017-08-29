@@ -14,7 +14,6 @@
 <meta content="Catch-Control" content="no-cache">
 <meta content="Pragma" content="no-cache">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/front_end/album/css/jquery.fancybox.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/front_end/comm/css/sweetalert.css">
 <style type="text/css">
 .shareContent img{
 	width: 50%;
@@ -508,7 +507,6 @@ font-size:50px;
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src='${pageContext.request.contextPath}/front_end/album/js/jquery.ajax-progress.js'></script>	
 	<script src="${pageContext.request.contextPath}/front_end/album/js/jquery.fancybox.js"></script>
-	<script src='${pageContext.request.contextPath}/front_end/comm/js/sweetalert.min.js'></script>	
 	<script type="text/javascript">
 	function addOpen(event){
 		event.preventDefault();
