@@ -1,23 +1,28 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 	<div style='display:none'>
 		<div id='insert_content' style='padding:0px; background:#fff;'>
-			<h1>新增場地</h1>
+			<center><h1>新增場地</h1></center>
 			<input type="button" value="神奇小按鈕" onclick="fuckYou();"><br>
 			<form>
 				場地名稱:<br><div id="alertA_p_name" style="display:none;color:red;"></div>
 				<input type="text" pattern="^[(\u4e00-\u9fa5)(a-zA-Z)]{1,18}$" title="只能是中、英文字母 ,且長度必需在1到18之間" name="p_name_value" id="p_name1_value" size="85" minlength="1" maxlength="18" required><br>
+				<br>
 				可容納人數：<br><div id="alertA_p_cap" style="display:none;color:red;"></div>
 				<input type="text" pattern="^([1-9][0-9]){1,2}$" title="只能輸入1-99" name="p_cap_value" id="p_cap1_value" minlength="1" maxlength="2" required><br>
+				<br>
 				場地地址：<br><div id="alertA_p_add" style="display:none;color:red;"></div>
 				<input type="text" name="p_add_value" id="p_add1_value" pattern="^[(\u4e00-\u9fa5)(a-zA-Z)(0-9)(-)]{1,50}$" title="只能是大小寫英數字，且長度必需在1到50之間" size="85" minlength="1" maxlength="50" required>
-				<input type="hidden" id="gym_add1" value="${gym.gym_add}">
+				<input type="hidden" id="gym_add1" value="${gym.gym_add}"><br>
 				<input type="button" value="地址同健身房位置" onclick="fuckMe();"><br>
+				<br>
 				場地介紹:<br><div id="alertA_p_into" style="display:none;color:red;"></div>
 				<textarea name="p_into_value" id="p_into1_value" title="" rows="5" cols="85" class="text" resize="none"
 					id="" minlength="1" maxlength="500" required></textarea><br>
 				<br>
-				<input type="button" class="btn btn-primary" value="新增" onclick="sendA();">
-				<input type="reset" class="btn btn-default" name="" value="重新填寫" id="cancel">
+				<center>
+					<input type="button" class="btn btn-primary" value="新增" onclick="sendA();">
+					<input type="reset" class="btn btn-default" name="" value="重新填寫" id="cancel">
+				</center>
 			</form>
 		</div>
 	</div>

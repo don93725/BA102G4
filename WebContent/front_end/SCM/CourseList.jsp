@@ -17,7 +17,7 @@
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="zh-cn-en">
 <head>
 
 <title>CourseList</title>
@@ -28,30 +28,30 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12">
 				<div class="table-responsive">
-					<table id="sample-table-1" class="table table-striped">
+					<table id="sample-table-1" class="table table-striped table-hover" style="text-align:center;">
 						<thead class="aaa">
 							<tr>
-								<th class="center">課程名稱</th>
-								<th>類別</th>
-								<th>教練</th>
-								<th>報名截止日期</th>
-								<th>價錢</th>
-								<th>選課情形</th>
-								<th>付費狀態</th>
-								<th>退選</th>
-								<th>付款</th>
+								<th class="center" style="vertical-align:middle;background-color:#C1FFC1;" align="center;">課程名稱</th>
+								<th class="center" style="vertical-align:middle;background-color:#C1FFC1;" align="center;">類別</th>
+								<th class="center" style="vertical-align:middle;background-color:#C1FFC1;" align="center;">教練</th>
+								<th class="center" style="vertical-align:middle;background-color:#C1FFC1;" align="center;">報名截止日期</th>
+								<th class="center" style="vertical-align:middle;background-color:#C1FFC1;" align="center;">價錢</th>
+								<th class="center" style="vertical-align:middle;background-color:#C1FFC1;" align="center;">選課情形</th>
+								<th class="center" style="vertical-align:middle;background-color:#C1FFC1;" align="center;">付費狀態</th>
+								<th class="center" style="vertical-align:middle;background-color:#C1FFC1;" align="center;">退選</th>
+								<th class="center" style="vertical-align:middle;background-color:#C1FFC1;" align="center;">付款</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="course_listVO" items="${crslist}">
 							<tr>
-								<td class="center"><a href="<%=request.getContextPath()%>/front_end/CourseDetails/courseInfo.jsp?ct_no=${course_listVO.ct_no}&crs_no=${course_listVO.course_timeVO.crs_no}"><font style="font-weight:bold;font-size:18px;cursor: pointer;" onmouseover="showBlock('${course_listVO.ct_no}')" onmouseout="hideBlock()">${course_listVO.courseVO.crs_name}</font></a></td>
-								<td>${course_listVO.courseVO.categoryChange}</td>
-								<td>${course_listVO.coachesVO.coa_name}</td>
-								<td>${course_listVO.course_timeVO.deadline}</td>
-								<td>$${course_listVO.course_timeVO.price}</td>
-								<td>${course_listVO.count} / ${course_listVO.course_timeVO.limit}</td>
-								<td>
+								<td style="vertical-align:middle;" align="center;"><a href="<%=request.getContextPath()%>/front_end/CourseDetails/courseInfo.jsp?ct_no=${course_listVO.ct_no}&crs_no=${course_listVO.course_timeVO.crs_no}"><font style="font-weight:bold;font-size:18px;cursor: pointer;" onmouseover="showBlock('${course_listVO.ct_no}')" onmouseout="hideBlock()">${course_listVO.courseVO.crs_name}</font></a></td>
+								<td style="vertical-align:middle;" align="center;">${course_listVO.courseVO.categoryChange}</td>
+								<td style="vertical-align:middle;" align="center;">${course_listVO.coachesVO.coa_name}</td>
+								<td style="vertical-align:middle;" align="center;">${course_listVO.course_timeVO.deadline}</td>
+								<td style="vertical-align:middle;" align="center;">$${course_listVO.course_timeVO.price}</td>
+								<td style="vertical-align:middle;" align="center;">${course_listVO.count} / ${course_listVO.course_timeVO.limit}</td>
+								<td style="vertical-align:middle;" align="center;">
 									<c:if test="${course_listVO.stu_pay_sta  == 0}">
 										<font color='red' style="font-weight:bold;font-size:16px" id="payStatus<%= count %>">未繳費</font>
 									</c:if>
@@ -59,8 +59,8 @@
 										<font color='blue' style="font-weight:bold;font-size:16px" id="payStatus<%= count %>">已繳費</font>
 									</c:if>
 								</td>
-								<td><button class="btn btn-danger" onclick="deleteCourse('${course_listVO.ct_no}','${course_listVO.stu_acc}')" style="border-radius:6px;">退選</button></td>
-								<td><button class="btn btn-warning pay<%= count %>" onclick="payment(<%= count %>)" style="border-radius:6px;">前往付款</button></td>
+								<td style="vertical-align:middle;" align="center;"><button class="btn btn-danger" onclick="deleteCourse('${course_listVO.ct_no}','${course_listVO.stu_acc}')">退選</button></td>
+								<td style="vertical-align:middle;" align="center;"><button class="btn btn-warning pay<%= count %>" onclick="payment(<%= count %>)">前往付款</button></td>
 								<a href="#" onclick="window.open('<%=request.getContextPath()%>/front_end/SCM/Pay.jsp?ct_no=${course_listVO.ct_no}&stu_acc=${course_listVO.stu_acc}', 'YOOO', config='height=500,width=516');"><button id="pay<%= count %>" style="display:none;">前往付款</button></a>
 							</tr>
 							<button style="display:none;" class="paybtn" onclick="payStatus(<%= count %>)">6666</button>
@@ -80,10 +80,6 @@
 </body>
 </html>
 <script>
-
-
-
-
 $('.carousel').carousel({
 	interval: 1000 //changes the speed
 })

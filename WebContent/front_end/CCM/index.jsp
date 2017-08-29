@@ -99,14 +99,14 @@
 				type='hidden' id="count_pic" name="crs_pic_count" value='0'>
 
 			<br>
-			<br> <input type="button" name="" class="btn btn-primary"
-				value="送出" id="send"><input type="button" name=""
-				class="btn btn-default" value="取消" id="cancel"> <input
+			<br> <input type="button" name="" class="btn btn-primary" style="border-radius:0px;"
+				value="送出" id="send">&nbsp&nbsp&nbsp<input type="button" name=""
+				class="btn btn-default" value="取消" id="cancel" style="border-radius:0px;"> <input
 				type="hidden" name="action" value="courseInsert"> <br>
 			<h3>新增圖片</h3>
 			<br>
-			<button onclick="addPic()" class="btn btn-primary">確認新增</button>
-			<button onclick="clearPic()" class="btn btn-default">清除</button>
+			<button onclick="addPic()" class="btn btn-primary" style="border-radius:0px;">確認新增</button>&nbsp&nbsp&nbsp
+			<button onclick="clearPic()" class="btn btn-default" style="border-radius:0px;">清除</button>
 			(須先加入才能新增，最多五張)
 			<div id="dropDIV" ondragover="dragoverHandler(event)"
 				ondrop="dropHandler(event)" onclick="updateFile()">

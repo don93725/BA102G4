@@ -36,8 +36,7 @@
 								<th class="center" style="vertical-align:middle;background-color:#CCEEFF;" align="center;">人數</th>
 								<th class="center" style="vertical-align:middle;background-color:#CCEEFF;" align="center;">場地地址</th>
 								<th class="center" style="vertical-align:middle;background-color:#CCEEFF;" align="center;">場地介紹</th>
-								<th class="center" style="vertical-align:middle;background-color:#CCEEFF;" align="center;"></th>
-								<th class="center" style="vertical-align:middle;background-color:#CCEEFF;" align="center;"></th>
+								<th class="center" style="vertical-align:middle;background-color:#CCEEFF;" align="right;"></th>
 
 							</tr>
 						</thead>
@@ -76,9 +75,7 @@
     												</a>
     											</li>
   											</ul>
-										</div>	
-									</td>
-									<td>
+										</div>
 										<a class='inline' href="#publish_content" onclick="showPublish('${placeVO.p_name}','${placeVO.p_cap}','${placeVO.p_add}','${placeVO.p_into}','${placeVO.p_no}')">
 											<input type="button" class="btn btn-info" value="我要上架">
 										</a>
@@ -88,7 +85,7 @@
 									
 									<!-- 上架中的場地 -->
 									<c:if test="${placeVO.p_status == '1'}">
-									<td>
+									<td style="vertical-align:middle;" align="center">
 										<div class="btn-group"> 
   											<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled="disabled" style="border-width:5px;">
     											編輯 <span class="caret"></span>
@@ -111,8 +108,6 @@
     											</li>
   											</ul>
 										</div>	
-									</td>
-									<td>
 										<input type="button" class="btn btn-primary" value="我要下架" onclick="unPublish(${placeVO.p_no})">
 									</td>
 

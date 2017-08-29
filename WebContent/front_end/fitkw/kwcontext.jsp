@@ -72,10 +72,10 @@ FitkwVO fitkwVO = (FitkwVO) request.getAttribute("fitkwVO");
 				</div>
                 <!-- Blog Comments -->
 
-    </div>
+    	</div>
     </div>
 
-        <!-- Footer -->
+    <!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
 
 </body>

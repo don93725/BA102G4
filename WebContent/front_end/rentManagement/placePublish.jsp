@@ -20,7 +20,7 @@
 <!-- 燈箱 -->
 <script>
 $(document).ready(function(){
-	$(".inline").colorbox({inline:true, width:"50%"});
+	$(".inline").colorbox({inline:true, width:"40%"});
 });
 </script>
 
@@ -32,7 +32,7 @@ $(document).ready(function(){
     </nav>
 	
 	<!-- Page Content -->
-	<div class="container">
+	<div class="container" style="min-height: 100%">
 
 	<!-- 新增場地視窗 -->
 	<%@include file="/front_end/include/insertPlace.file" %>	

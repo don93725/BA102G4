@@ -54,7 +54,7 @@
     
 
     <!-- Page Content -->
-    <div class="container" style="min-height: 100%;margin: 0 auto -170px;">
+    <div class="container" style="min-height: 100%;">
         
         <!-- Page Heading/Breadcrumbs -->
         <div class="breadcrumbs" id="breadcrumbs">    

@@ -18,7 +18,7 @@
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="zh-cn-en">
 <head>
 
 <title>CourseList</title>
@@ -29,26 +29,26 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12">
 				<div class="table-responsive">
-					<table id="sample-table-1" class="table table-striped">
+					<table id="sample-table-1" class="table table-striped table-hover" style="text-align:center;">
 						<thead class="aaa">
 							<tr>
-								<th class="center">場地名稱</th>
-								<th>尾款金額</th>
-								<th>付費狀態</th>
-								<th>付費</th>
-								<th>檢舉場地</th>
-								<th>評價場地</th>
+								<th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">場地名稱</th>
+								<th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">尾款金額</th>
+								<th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">付費狀態</th>
+								<th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">付費</th>
+								<th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">檢舉場地</th>
+								<th class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">評價場地</th>
 							</tr>
 						</thead>
 						<tbody>
 							<c:forEach var="place_timeVO" items="${plist}">
 								<tr style="font-weight: bold; font-size: 16px;">
-									<td class="center"><a herf=""><font
+									<td style="vertical-align:middle;" align="center;"><a herf=""><font
 											style="font-weight: bold; font-size: 18px; cursor: pointer;"
 											onmouseover="showBlock('${place_timeVO.pt_no}')"
 											onmouseout="hideBlock()">${place_timeVO.placeVO.p_name}</font></a></td>
-									<td>$${place_timeVO.pau_price}</td>
-									<td>
+									<td style="vertical-align:middle;" align="center;">$${place_timeVO.pau_price}</td>
+									<td style="vertical-align:middle;" align="center;">
 										<c:if test="${place_timeVO.pau_date == null}">
 											<font color='red' style="font-weight:bold;font-size:16px" id="payStatus<%= count %>">未繳費</font>
 										</c:if>
@@ -56,11 +56,11 @@
 											<font color='blue' style="font-weight:bold;font-size:16px" id="payStatus<%= count %>">已繳費</font>
 										</c:if>
 									</td>
-									<td>
+									<td style="vertical-align:middle;" align="center;">
 										<button class="btn btn-warning pay<%= count %>" onclick="payment(<%= count %>)" style="border-radius:6px;">前往付款</button>
 										<a href="#" onclick="window.open('<%=request.getContextPath()%>/front_end/CPM/PayAfter.jsp?pt_no=${place_timeVO.pt_no}','YOOO', config='height=500,width=516');"><button id="pay<%= count %>" style="display:none;">前往付款</button>
 									</td>
-									<td>
+									<td style="vertical-align:middle;" align="center;">
 										<c:if test="${place_timeVO.report == 1 || place_timeVO.report == 2}">
 											<a href=""><font
 												style="font-weight: bold; font-size: 18px; cursor: pointer;"
@@ -73,7 +73,7 @@
 												style="border-radius: 6px;">檢舉場地</button>
 										</c:if>
 									</td>
-									<td>
+									<td style="vertical-align:middle;" align="center;">
 										<c:if test="${place_timeVO.eva == 0}">
 											<button class="btn btn-primary"
 												onclick="eva(<%=count%>)" style="border-radius: 6px;">評價場地</button>

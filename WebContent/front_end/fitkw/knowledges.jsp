@@ -25,7 +25,7 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" style="min-height: 100%">
         
         <!-- Page Heading/Breadcrumbs -->
         <div class="breadcrumbs" id="breadcrumbs">
@@ -90,8 +90,8 @@
 			</div>
         </div>
         <!-- /.row -->
-
-        <hr>
+	</div>
+</div>
 
         <!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
