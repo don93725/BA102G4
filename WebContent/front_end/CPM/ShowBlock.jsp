@@ -11,13 +11,13 @@
 				<c:forEach var="place_PicVO" items="${place_PicList}">
 				<c:if test="<%= c==0 %>">
 		        	<div class="item active" >
-			            <img src="${place_PicVO.p_base}" style="border-radius:10px;" width="200" height="200">
+			            <img src="${place_PicVO}" style="border-radius:10px;" width="200" height="200">
 	
 			        </div>
 				</c:if>
 				<c:if test="<%= c!=0 %>">
 		        	<div class="item"  style="border:2px #ccc solid;border-radius:10px;margin:1em;">
-			            <img src="${place_PicVO.p_base}" style="border-radius:10px;" width="200" height="200">
+			            <img src="${place_PicVO}" style="border-radius:10px;" width="200" height="200">
 	
 			        </div>
 				</c:if>

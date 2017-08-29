@@ -44,7 +44,7 @@
 						<tbody>
 							<c:forEach var="place_timeVO" items="${plist}">
 							<tr style="font-weight:bold;font-size:16px;">
-								<td class="center"><a href="<%=request.getContextPath()%>/front_end/?ct_no=${course_listVO.ct_no}&crs_no=${course_listVO.course_timeVO.crs_no}"><font style="font-weight:bold;font-size:18px;cursor: pointer;" onmouseover="showBlock('${place_timeVO.pt_no}')" onmouseout="hideBlock()">${place_timeVO.placeVO.p_name}</font></a></td>
+								<td class="center"><a href=""><font style="font-weight:bold;font-size:18px;cursor: pointer;" onmouseover="showBlock('${place_timeVO.pt_no}')" onmouseout="hideBlock()">${place_timeVO.placeVO.p_name}</font></a></td>
 								<td>${place_timeVO.placeVO.p_add}</td>
 								<td>${place_timeVO.rp_date}<br>${place_timeVO.rp_timeShow}</td>
 								<td>$${place_timeVO.pbu_price}</td>
