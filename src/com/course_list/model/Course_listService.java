@@ -162,6 +162,14 @@ public class Course_listService {
 			    return this.dao.getFinished(stu_acc);
 		  }
 		  
+		  public List<Course_listVO> getCoachFinished(String coa_acc){
+			    return this.dao.getCoachFinished(coa_acc);
+		  }
+		  
+		  
+		  
+		  
+		  
 		  public Course_listVO getEva(String ct_no) {
 			return dao.getEva(ct_no);
 		 }

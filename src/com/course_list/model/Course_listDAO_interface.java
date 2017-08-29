@@ -63,5 +63,7 @@ public interface Course_listDAO_interface {
 
 	void updateNStaAndroid(Course_listVO course_listVO);
 
+	List<Course_listVO> getCoachFinished(String coa_acc);
+
 
 }
