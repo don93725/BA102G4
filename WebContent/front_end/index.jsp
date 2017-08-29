@@ -112,7 +112,7 @@
 <br>
 	<div class="row">
             <div class="col-xs-12 col-md-12" style="color:white;">
-                <h2 class="page-header"><center>教練熱門排行榜<small style="color:white;">Ranking700*450</small></center></h2>
+                <h2 class="page-header"><center>教練熱門排行榜</center></h2>
             </div>
             
             <!-- 教練1 -->
@@ -243,7 +243,7 @@
 			<div class="col-xs-12 col-md-4">
             	<div class="panel panel-default" style="margin-top: 0px;padding-top: 0px;">
                     <div class="panel-heading" style="padding-top: 0px;padding-bottom: 0px;background-color:white;">
-            			<h3>最新消息<small>News</small></h3>      	  	
+            			<h3>最新消息</h3>      	  	
             	  	</div>
             	  	<p></p>
             		<ul style="list-style:none; margin-left: 15px;">
@@ -282,7 +282,7 @@
             <div class="col-xs-12 col-md-4">
             	<div class="panel panel-default" style="margin-top: 0px;padding-top: 0px;">
                     <div class="panel-heading" style="padding-top: 0px;padding-bottom: 0px;background-color:white;">
-            			<h3>健身知識<small>knowledge</small></h3>
+            			<h3>健身知識</h3>
             	  	</div>
             	  	<p></p>
             		<ul style="list-style:none;margin-left:15px;">

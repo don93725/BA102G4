@@ -89,10 +89,15 @@
                     <div class="col-lg-2">
                     	<select class="form-control" id="form-field-select-1" name="search_Type" style="height:42px;">
 							<option value="0">不限查詢類型</option>
-                        	<option value="1">肌力訓練</option>
-                        	<option value="2">瑜珈</option>
-                        	<option value="3">拳擊</option>
-                        	<option value="4">有氧</option>
+                        	<option value="A">瑜珈</option>
+                        	<option value="B">飛輪有氧</option>
+                        	<option value="C">舞動有氧</option>
+                        	<option value="D">拳擊有氧</option>
+							<option value="E">基礎重訓</option>
+							<option value="F">進階重訓</option>
+							<option value="G">皮拉提斯</option>
+							<option value="H">TRX肌力雕塑</option>
+							<option value="O">其他</option>
                     	</select>
                     </div>
 
