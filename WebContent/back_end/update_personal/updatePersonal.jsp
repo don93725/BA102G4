@@ -41,8 +41,8 @@
 <div class="page-content">
 		<div class="page-header">
 			<h1>
-				員工帳號管理 <small> <i class="icon-double-angle-right"></i>
-					員工資料修改 - update_mgr_input.jsp
+				個人資料 <small> <i class="icon-double-angle-right"></i>
+					基本資料修改
 				</small>
 			</h1>
 		</div>
