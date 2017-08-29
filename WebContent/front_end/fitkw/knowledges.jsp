@@ -57,7 +57,7 @@
             <div class="col-md-5" style="text-align:center;" align="center">
             	<a href="${pageContext.request.contextPath }/FitkwCtrl?action=getOne_For_Display&fik_no=${fitkwVO.fik_no}">
 <!--             	<img class="img-responsive img-hover" src="http://img1.voc.com.cn/UpLoadFile/2017/06/01/201706011740554338.jpeg" alt=""> -->
-            		<img class="img-responsive img-hover" src='${pageContext.request.contextPath }/g1/PhotoOutput?fik_no=${fitkwVO.fik_no}' alt="" style="height:256px;">
+            		<img class="img-responsive img-hover" src='${pageContext.request.contextPath }/g1/PhotoOutput?fik_no=${fitkwVO.fik_no}' alt="" style="height:256px;display:block; margin:auto;">
                 </a>
             </div>
             <div class="col-md-7" style="vertical-align:middle;" align="center;">

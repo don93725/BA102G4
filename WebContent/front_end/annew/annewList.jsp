@@ -49,7 +49,7 @@
             
             <div class="col-md-5" style="text-align:center;" align="center">
             	<a href="${pageContext.request.contextPath }/AnnewShowCtrl?ann_no=${annew.ann_no}">
-            		<img style="height:256px;"" class="img-responsive img-hover" src="${pageContext.request.contextPath }/g1/PhotoOutputA?ann_no=${annew.ann_no}" alt="">
+            		<img style="height:256px;display:block; margin:auto;" class="img-responsive img-hover" src="${pageContext.request.contextPath }/g1/PhotoOutputA?ann_no=${annew.ann_no}" alt="" >
                 </a>
             </div>
             
