@@ -79,6 +79,8 @@ AnnewVO annewVO = (AnnewVO) request.getAttribute("annewVO");
 
 
 
+		<%@include file="/back_end/include/ace_setting_footer.file"%>
+</body>
 <script type="text/javascript">
 window.onload = init;
 function init(){
@@ -119,8 +121,6 @@ Preview = new function() {
 
 }
 </script>
-		<%@include file="/back_end/include/ace_setting_footer.file"%>
-</body>
 </html>
 
 

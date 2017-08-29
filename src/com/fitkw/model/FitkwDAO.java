@@ -24,7 +24,7 @@ public class FitkwDAO implements FitkwDAO_interface {
 	    private static final String INSERT_STMT = 
 			"INSERT INTO fitkw (fik_no,upd_date,fik_type,fik_title,fik_ctx,fik_photo) VALUES (fitkw_seq.NEXTVAL, default, ?, ?, ?, ?)";
 		private static final String GET_ALL_STMT = 
-			"SELECT fik_no,to_char(upd_date,'yyyy-mm-dd')upd_date,fik_type,fik_title,fik_ctx,fik_photo FROM fitkw order by fik_no";
+			"SELECT fik_no,to_char(upd_date,'yyyy-mm-dd')upd_date,fik_type,fik_title,fik_ctx,fik_photo FROM fitkw order by upd_date desc";
 		private static final String GET_ONE_STMT = 
 			"SELECT fik_no,to_char(upd_date,'yyyy-mm-dd')upd_date,fik_type,fik_title,fik_ctx,fik_photo FROM fitkw where fik_no =?";
 		private static final String FIND_BY_TITLE_STMT = 

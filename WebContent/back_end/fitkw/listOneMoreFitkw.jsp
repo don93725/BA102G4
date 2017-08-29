@@ -18,7 +18,7 @@
 		<div class="page-header">
 			<h1>
 				頁面資訊維護 <small>
-				<i class="icon-double-angle-right"></i> <a href="selectFitkw_page.jsp">健身知識 </a>
+				<i class="icon-double-angle-right"></i> <a href='${pageContext.request.contextPath }/back_end/fitkw/selectFitkw_page.jsp'>健身知識 </a>
 				<i class="icon-double-angle-right"></i> 搜尋結果
 				</small>
 			</h1>
@@ -59,7 +59,7 @@
 		<td class="center" style="vertical-align:middle;">
 			  <FORM METHOD="post" ACTION="<%=request.getContextPath()%>/back_end/fitkw/fitkw.do">
 			    <input class='btn btn-danger btn-sm' type="submit" value="刪除">
-			    <input type="hidden" name="ann_no" value="${fitkw.fik_no}">
+			    <input type="hidden" name="fik_no" value="${fitkw.fik_no}">
 			    <input type="hidden" name="action"value="delete"></FORM>
 		</td>
 		
