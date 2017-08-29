@@ -41,7 +41,7 @@
 %>
 	<!-- 標題+麵包shit -->
     <!-- Page Content -->
-    <div class="container">   
+    <div class="container" style="min-height:100%;">   
         <!-- Page Heading/Breadcrumbs -->
         <div class="breadcrumbs" id="breadcrumbs">
             
@@ -80,11 +80,8 @@
 <c:if test="${user.mem_rank == '2'}">
         <%@include file="/front_end/include/personal_gym.file" %>
 </c:if><!-- 身分為健身房業者時的 Content結束 -->
-
-    <hr>
-
     </div>
-      
+          
 	<!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
 

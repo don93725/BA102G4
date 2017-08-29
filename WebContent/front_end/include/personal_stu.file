@@ -1,9 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-        <!-- 身分為健身者時的 Content -->
+<style>
+	.nav-tabs.tab-color-blue>li>a, .nav-tabs.tab-color-blue>li>a:focus {
+		background-color:#8FBC8F;
+	}
+</style>
+<!-- 身分為健身者時的 Content -->
         <div class="row">
         	<div class="col-sm-12">
 				<div class="tabbable">
-					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
+					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4" style="background-color:#E0EEE0;">
 						<li class="active">
 							<a data-toggle="tab" href="#home1">基本資料</a>							
 						</li>
@@ -71,95 +76,48 @@
 										<div class="space-6"></div>
 
 										<div class="profile-contact-info">
-											<div class="profile-contact-links align-left">
-												
-
-												
-												<a class="btn btn-link" href="#">
-													<i class="icon-globe bigger-125 blue"></i>
-													個人網站
-												</a>
-											</div>
-
 											<div class="space-6"></div>
-
-											<div class="profile-social-links center">
-												<a href="#" class="tooltip-info" title="" data-original-title="Visit my Facebook">
-													<i class="middle icon-facebook-sign icon-2x blue"></i>
-												</a>
-
-												<a href="#" class="tooltip-info" title="" data-original-title="Visit my Twitter">
-													<i class="middle icon-twitter-sign icon-2x light-blue"></i>
-												</a>
-													
-												<a href="#" class="tooltip-error" title="" data-original-title="Visit my Pinterest">
-													<i class="middle icon-pinterest-sign icon-2x red"></i>
-												</a>
-											</div>
 										</div>
 
-										<div class="hr hr12 dotted"></div>
-											<div class="clearfix">
-												<div class="grid2">
-													<span class="bigger-175 blue">25</span>
+										<div class=""></div>
+											<div class="">
+												<div class="">
+												<span class="btn btn-app btn-sm btn-light no-hover">
+														<span class="line-height-1 bigger-170 blue"> ${albumNumber} </span>
+														<br />
+														<span class="line-height-1 smaller-90"> 相簿 </span>
+													</span>
+												<span class="btn btn-app btn-sm btn-yellow no-hover">
+													<span class="line-height-1 bigger-170"> ${boardNumber} </span>
 													<br />
-													追蹤者
+													<span class="line-height-1 smaller-90"> 動態 </span>
+												</span>
+												<span class="btn btn-app btn-sm btn-pink no-hover">
+													<span class="line-height-1 bigger-170"> ${friendNumber} </span>
+													<br />
+													<span class="line-height-1 smaller-90"> 好友 </span>
+												</span>
+												<span class="btn btn-app btn-sm btn-grey no-hover">
+													<span class="line-height-1 bigger-170"> ${personCmtNumber} </span>
+													<br />
+													<span class="line-height-1 smaller-90"> 留言 </span>
+												</span>											
+
 												</div>
 
-												<div class="grid2">
-													<span class="bigger-175 blue">12</span>
+												<div class="">
+													<span class=""></span>
 													<br />
-													正在追蹤
 												</div>
 											</div>
-											<div class="hr hr16 dotted"></div>
+											<div class=""></div>
 										</div>
 
 										<div class="col-xs-12 col-sm-9">
-											<div class="center">
-												<span class="btn btn-app btn-sm btn-light no-hover">
-													<span class="line-height-1 bigger-170 blue"> 1,411 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 觀看 </span>
-												</span>
-
-												<span class="btn btn-app btn-sm btn-yellow no-hover">
-													<span class="line-height-1 bigger-170"> 32 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 追蹤者 </span>
-												</span>
-												
-												<span class="btn btn-app btn-sm btn-pink no-hover">
-													<span class="line-height-1 bigger-170"> 4 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 計畫 </span>
-												</span>
-
-												<span class="btn btn-app btn-sm btn-grey no-hover">
-													<span class="line-height-1 bigger-170"> 23 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 阿災 </span>
-												</span>
-
-												<span class="btn btn-app btn-sm btn-success no-hover">
-													<span class="line-height-1 bigger-170"> 7 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 相簿 </span>
-												</span>
-
-												<span class="btn btn-app btn-sm btn-primary no-hover">
-													<span class="line-height-1 bigger-170"> 55 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 聯絡 </span>
-												</span>
-											</div>
-
-											<div class="space-12"></div>
 
 											<div class="profile-user-info profile-user-info-striped">
-												
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 暱稱 </div>
+													<div class="profile-info-name" style="background-color:#F0FFF0;"> 暱稱 </div>
 													<div class="profile-info-value">
 														<input type="text" pattern="^[(\u4e00-\u9fa5)(a-zA-Z0-9)]{1,15}$" class="canEdit" id="mem_nickname" name="mem_nickname" size="80" value="${user.mem_nickname }"  required minlength="1" maxlength="15" disabled="disabled">
 														<div id="alert_mem_nickname" style="display:none;color:red;"></div>
@@ -167,7 +125,7 @@
 												</div>
 												
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 姓名 </div>
+													<div class="profile-info-name" style="background-color:#F0FFF0;"> 姓名 </div>
 													<div class="profile-info-value">
 														<input type="text" pattern="^[(\u4e00-\u9fa5)(a-zA-Z)]{2,6}$" class="canEdit" id="stu_name" name="stu_name" size="80" value="${student.stu_name }" disabled="disabled" required minlength="2" maxlength="6">
 														<div id="alert_stu_name" style="display:none;color:red;"></div>
@@ -175,7 +133,7 @@
 												</div>
 												
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 性別 </div>
+													<div class="profile-info-name" style="background-color:#F0FFF0;"> 性別 </div>
 													<div class="profile-info-value">
 														<c:if test="${student.stu_sex == '1'}">
 														<span class="editable" id="stu_sex">倫家素<b>男森</b></span>
@@ -187,7 +145,7 @@
 												</div>
 												
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 電子郵件 </div>
+													<div class="profile-info-name" style="background-color:#F0FFF0;"> 電子郵件 </div>
 													<div class="profile-info-value">
 														<input type="text" pattern="^[_A-Za-z0-9-]+([.][_A-Za-z0-9-]+)*@[a-z0-9-]+([.][a-z0-9-]+)*$" class="canEdit" id="stu_mail" name="stu_mail" size="80" value="${student.stu_mail }"  required maxlength="50" disabled="disabled">
 														<div id="alert_stu_mail" style="display:none;color:red;"></div>
@@ -195,7 +153,7 @@
 												</div>
 
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 關於我 </div>
+													<div class="profile-info-name" style="background-color:#F0FFF0;"> 關於我 </div>
 
 													<div class="profile-info-value">
 														<textarea class="canEdit limited" id="stu_into" name="stu_into" cols="80" rows="10" required  minlength="1" maxlength="500" disabled="disabled" style="resize:none">${student.stu_into }</textarea>
@@ -213,13 +171,16 @@
 											
 									</div>
 								</div>	
-						</div>
+							</div>
 						<!-- a $home1結束 -->
 					</div><!-- tab-cotent結束 -->			
 				</div>
 			</div><!-- /span -->
 		</div><!-- /row -->
-		
-		<script>
+	</div>
+</div>
+</div>
+</div>		
+<script>
 function goTo(path){location.href = path;}
 </script>

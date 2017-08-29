@@ -25,7 +25,7 @@
 	function hello() {
 		$('.inline').colorbox({
 			inline: true,
-			width: "50%",
+			width: "20%",
 		});
 		var start = '#datepicker';
 			  $(start).datepicker({
@@ -38,9 +38,6 @@
 <!-- 我要預定視窗 -->
 <%@include file="/front_end/include/orderPlace.file" %>
 <!-- 新增場地視窗結束 -->
-<!-- googleMap -->
-<%@include file="/front_end/include/googleMap2.file" %>
-<!-- googleMap結束 -->
 	
 	<!-- 導覽列 -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -74,7 +71,7 @@
     		<div class="col-lg-12">
     			<h2>${placeVO.p_name}</h2>
     		</div>
-    		
+    			
 			<div class="col-xs-12 col-lg-7" style="position:relative;">
 				<div class="item">
 					<img id="show-image" src="${placeVO.place_picVO.p_base} " style="width:100%;">
@@ -118,11 +115,10 @@
 					</div>
 					<div>
 						<p>場館地址：&nbsp${placeVO.p_add}
-						<a class='inline' href="#map_content" onclick="initMap('${placeVO.p_latlng}')" value="新增圖片">
-    						<i class="icon-map"></i> 查看位置
-    					</a>
-						
-						
+						<input type="hidden" value="${placeVO.p_latlng}" id="map_latlng">
+						<div class="map" style="height: 250px;width: 350px;margin: 0px;padding: 0px;">									
+							<div id="map" style="height: 100%;width:100%;"></div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -195,118 +191,53 @@
 			</center>
 		</div>
 		
-		<div class="row" style="margin-top:3em;">
-			<div class="col-sm-12" style="padding-left:0px;padding-right:0px;">
-				
-					<ul class="nav nav-tabs" id="myTab">
-						<li class="active" style="width:14em;">
-							<a data-toggle="tab" href="#xxx">
-								<i class="green icon-home bigger-110" style="font-size:20px;"></i>
-								<font style="font-size:20px;">課程行事曆</font>
-							</a>
-						</li>
-
-						<li style="width:14em;">
-							<a data-toggle="tab" href="#profile">
-								<i class="red glyphicon glyphicon-bullhorn" style="font-size:20px;"></i>
-								<font style="font-size:20px;">問與答</font>
-									<span class="badge badge-danger" style="font-size:16px;">${course_timeVO.cmtNum}</span>
-							</a>
-						</li>
-
-						<li style="width:14em;" id="shitMap" onclick="initMap(${course_timeVO.placeVO.p_latlng})">
-							<a data-toggle="tab" href="#placedetail">
-								<i class="blue glyphicon glyphicon-map-marker" style="font-size:20px;"></i>
-								<font style="font-size:20px;" >場地資訊</font>
-							</a>
-						</li>
-					</ul>
-
-					<div class="tab-content" >	
-						<div class="row tab-pane active" id="xxx">
-				<div class="col-sm-9">
-					<div class="space"></div>
-
-					<div id="calendar"></div>
-				</div>
-
-				<div class="col-sm-3">
-					<div class="widget-box transparent">
-						<div class="widget-header">
-							<h4>時段:</h4>
-						</div>
-
-						<div class="widget-body">
-							<div class="widget-main no-padding">
-								<div id="external-events">
-
-
-									<div class="external-event label-success"
-										data-class="label-success">
-										<i class="glyphicon glyphicon-search"></i> 08:00-09:30
-									</div>
-
-									<div class="external-event label-danger"
-										data-class="label-danger">
-										<i class="glyphicon glyphicon-search"></i> 10:00-11:30
-									</div>
-
-									<div class="external-event label-purple"
-										data-class="label-purple">
-										<i class="glyphicon glyphicon-search"></i> 13:00-14:30
-									</div>
-
-									<div class="external-event label-yellow"
-										data-class="label-yellow">
-										<i class="glyphicon glyphicon-search"></i> 15:00-16:30
-									</div>
-
-									<div class="external-event label-pink" data-class="label-pink">
-										<i class="glyphicon glyphicon-search"></i> 18:00-19:30
-									</div>
-
-									<div class="external-event label-info" data-class="label-info">
-										<i class="glyphicon glyphicon-search"></i> 20:00-21:30
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-						<p></p>
-						<div id="profile" class="tab-pane">
-							<%@include file="/front_end/CourseDetails/person_comments.file" %>
-						</div>
-						<c:if test="${course_timeVO.placeVO.p_no != null }">
-							<div id="placedetail" class="tab-pane">
-								<div class="map" style="height: 800px;width: 1100px;margin: 0px;padding: 0px;">     
-									<div id="map" style="height: 100%;">
-									</div>
-								</div>
-							</div>
-						</c:if>
-						<c:if test="${course_timeVO.placeVO.p_no == null }">
-							<div id="placedetail" class="tab-pane">
-								<font style="font-size:40px;" >教練並沒有選擇場地,嗚嗚嗚嗚</font><br>
-								<img src="<%= request.getContextPath()%>/front_end/CourseDetails/images/don.jpg" width="900" height="600">
-							</div>
-						</c:if>
-					</div>
-				
-			</div><!-- /span -->
-			
-		</div><!-- row end -->
-		
-		
 </div>
 </div>
 	
-			
 	<!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp7jp6Eg1dQZxn6Fi6h4V34jLnbipVfVU&callback=initMap&language=zh-TW"
+    async defer></script>
+    
+<script>
+    function initMap() {
+    	// map
+    	var map_latlng = $('#map_latlng').val();
+    	var mapOptions = {
+            	center: new google.maps.LatLng(map_latlng.split(",")[0],map_latlng.split(",")[1]),
+            	panControl: true, //要不要出現可以上下左右移動的面板
+            	zoomControl: true, //要不要出現可以放大縮小的面板
+            	mapTypeControl: true, //切換地圖檢視類型的面板
+            	scaleControl: true, //比例尺資訊
+            	streetViewControl: true,  //顯示街景服務的面板
+            	overviewMapControl: true, //總覽圖的面板，在右下有個開合的圖示
+            	zoom: 15 //縮放的大小，0-18，0最小，18最大
+        };
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+     	// marker
+     	var image = '/BA102G4/style/images/mapicon.png';
+     	var beachMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(map_latlng.split(",")[0],map_latlng.split(",")[1]),
+            map: map,
+            icon: image, //圖示
+            title: '我在這裡!!!', //title
+            animation: google.maps.Animation.BOUNCE //動畫
+        });
+     	//跳動動畫
+        beachMarker.addListener('click', function() {
+        	map.setZoom(18);
+        	map.setCenter(beachMarker.getPosition());
+        });
+        
+        map.addListener('center_changed', function() {
+            // 3 seconds after the center of the map has changed, pan back to the
+            // marker.
+        	window.setTimeout(function() {
+        		map.panTo(beachMarker.getPosition());
+        	}, 5000);
+        });
+    }
+</script>
 	
 </body>
-	<%@include file="/front_end/include/basicScript2.file" %>
 </html>

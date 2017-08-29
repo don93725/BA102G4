@@ -94,7 +94,7 @@ INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'COA2','1','教練_C2',DEFAULT);
 INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'GYM1','2','健身房_G1',DEFAULT);
 INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'GYM2','2','健身房_G2',DEFAULT);
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'stu001', '0', '醜八怪', default);
+Values(mem_no_seq.NEXTVAL, 'stu001', '0', '醜巴怪', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
 Values(mem_no_seq.NEXTVAL, 'stu002', '0', '看破紅塵小精靈', default);
@@ -115,7 +115,7 @@ Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
 Values(mem_no_seq.NEXTVAL, 'coa004', '1', '越前聾馬賽克', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym001', '2', '吳良心', default);
+Values(mem_no_seq.NEXTVAL, 'gym001', '2', '吳良心a', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
 Values(mem_no_seq.NEXTVAL, 'gym002', '2', '擁智', default);
@@ -130,13 +130,13 @@ Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
 Values(mem_no_seq.NEXTVAL, 'stu004', '0', '萌萌大眼睛', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'coa005', '1', '教練', default);
+Values(mem_no_seq.NEXTVAL, 'coa005', '1', '李來吸', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
 Values(mem_no_seq.NEXTVAL, 'gym005', '2', '戰國無雙體育館', default);
 
 Insert into members(mem_no, mem_acc, mem_rank, mem_nickname, mr_num)
-Values(mem_no_seq.NEXTVAL, 'gym006', '2', '我狠', default);
+Values(mem_no_seq.NEXTVAL, 'gym006', '2', '慈慈體育館', default);
 
 INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr005','3','可是瑞凡',DEFAULT);
 INSERT INTO MEMBERS VALUES(mem_no_seq.NEXTVAL,'mgr006','3','俊毅',DEFAULT);
@@ -192,11 +192,11 @@ values('coa001', '14', 'coa001', default, '周紙魚', 2, 'T223456781', 'ka12345
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('coa002', '15', 'coa002', default, '粥指弱', 1, 'T123456782', 'y123452@yahoo.com.tw', '專長："TRX肌力雕塑、皮拉提斯、飛輪有氧。想說的話：每個人都是演員，臉上在演浮誇，心裡都是孤獨，而本性全是善良。我們苦苦在這世上演戲，其實就是為了等一個，能看懂自己的人。', null , default);
+values('coa002', '15', 'coa002', default, '粥指弱', 2, 'A252198887', 'y123452@yahoo.com.tw', '專長："TRX肌力雕塑、皮拉提斯、飛輪有氧。想說的話：每個人都是演員，臉上在演浮誇，心裡都是孤獨，而本性全是善良。我們苦苦在這世上演戲，其實就是為了等一個，能看懂自己的人。', null , default);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
-values('coa003', '16', 'coa003', default, '髒蕪繼', 1, 'G123456783', 'h123453@yahoo.com.tw', '專長：基礎重訓、進階重訓、TRX肌力雕塑。想說的話：愛，從來就是件千迴百轉的事，不曾被離棄，不曾受傷害，怎么懂得愛人。', null , default);
+values('coa003', '16', 'coa003', default, '髒蕪繼', 1, 'G123456783', 'h123453@yahoo.com.tw', '專長：基礎重訓、進階重訓、TRX肌力雕塑。想說的話：愛，從來就是件千迴百轉的事，不曾被離棄，不曾受傷害，怎麼懂得愛人。', null , default);
 
 Insert into coaches(coa_acc, coa_no, coa_psw, coa_sta, coa_name, coa_sex, coa_id,
  coa_mail, coa_into, coa_pic, coa_pft)
@@ -226,13 +226,13 @@ Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_i
 values('stu001', '11', 'stu001', default, '李孟龍', 2, 'F223456781', 'a123451@yahoo.com.tw', '感興趣的項目：瑜珈、飛輪有氧、舞動有氧、拳擊有氧。如果你想被別人愛，你首先必須使自己值得愛，不是一天，一個星期，而是永遠。', null, default);
 
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('stu002', '12', 'stu002', default, '王浩宇', 1, 'D123456782', 's123452@yahoo.com.tw', '感興趣的項目：TRX肌力雕塑、舞動有氧、皮拉提斯。生活其實真的很平凡，任何人都不能得到所要的全部，有得必有失，只是在得失的選擇中，擁有你自己最珍貴的東西。', null, default);
+values('stu002', '12', 'stu002', default, '王浩宇', 1, 'D123456782', 's123452@yahoo.com.tw', '感興趣的項目：TRX肌力雕塑、舞動有氧、皮拉提斯、進階重訓。生活其實真的很平凡，任何人都不能得到所要的全部，有得必有失，只是在得失的選擇中，擁有你自己最珍貴的東西。', null, default);
 
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
 values('stu003', '13', 'stu003', default, '李天富', 2, 'A223456783', 'w123453@yahoo.com.tw', '感興趣的項目：皮拉提斯、瑜珈、進階重訓、飛輪有氧。總是仰望和羨慕著別人的幸福，一回頭，卻發現自己正被仰望和羨慕著。要珍惜和感知自己真正擁有的幸福。不要讓你的幸福，只是在別人眼裡。', null, default);
 
 Insert into students(stu_acc, stu_no, stu_psw, stu_sta, stu_name, stu_sex, stu_id, stu_mail, stu_into, stu_pic, stu_sto)
-values('stu004', '22', 'stu004', default, '飯可親', 1, 'A123456712', 'w123412@yahoo.com.tw', '感興趣的項目：TRX肌力雕塑、舞動有氧。不要因為寂寞去戀愛，時間是個魔鬼，天長日久，如果你是個多情的人，即使不愛對方，到時候也會產生感情，到最後你怎么辦？', null, default);
+values('stu004', '22', 'stu004', default, '飯可親', 1, 'A123456712', 'w123412@yahoo.com.tw', '感興趣的項目：TRX肌力雕塑、舞動有氧、拳擊有氧。不要因為寂寞去戀愛，時間是個魔鬼，天長日久，如果你是個多情的人，即使不愛對方，到時候也會產生感情，到最後你怎么辦？', null, default);
 
 
 Create table gyms

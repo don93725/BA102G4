@@ -6,11 +6,6 @@
 <<html lang="zh-cn-en">>
 <head>
 <title>Insert title here</title>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 </head>
 <body>
 	<h1>課程上架</h1>

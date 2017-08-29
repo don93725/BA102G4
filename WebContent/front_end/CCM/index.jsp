@@ -68,11 +68,15 @@
 
 	<!--第一個colorbox -->
 	<div style="display: none;">
-		<div id='add_content' style="margin: 1em;">
-			<h1 class="center">新增課程</h1>
-			<font color='red'><span id="errorMsg"></span></font><br> 課程名稱:<input
-				type="text" name="crs_name" id="crs_name"> 類別: <select
-				name="category" id="category">
+		<div id='add_content'>
+
+			<center><h1 class="center">新增課程</h1></center>
+			<font color='red'><span id="errorMsg"></span></font><br>
+			課程名稱:<br>
+				<input type="text" name="crs_name" id="crs_name" style="width:667px;"><br>
+				<br>
+			類別:<br>
+			<select name="category" id="category" style="width:667px;">
 				<option name="" value="A" selected>瑜珈</option>
 				<option name="" value="B">飛輪有氧</option>
 				<option name="" value="C">舞動有氧</option>
@@ -82,10 +86,12 @@
 				<option name="" value="G">皮拉提斯</option>
 				<option name="" value="H">TRX肌力雕塑</option>
 				<option name="" value="O">其他</option>
-			</select><br> 課程內容簡述:<br>
-			<textarea name="details" rows="4" cols="30" class="text" id="details"></textarea>
+			</select><br>
 			<br>
-			<br> <img src='' id="img0" width="100px" heigth="100px"
+			課程內容簡述:<br>
+			<textarea name="details" rows="4" cols="80" class="text" id="details"></textarea>
+			<br>
+			<img src='' id="img0" width="100px" heigth="100px"
 				style="margin: 1em;"><input type='hidden' name='crs_pic_base0'
 				id="base0" value=''> <img src='' id="img1" width="100px"
 				heigth="100px" style="margin: 1em;"><input type='hidden'
@@ -97,20 +103,19 @@
 				src='' id="img4" width="100px" heigth="100px" style="margin: 1em;"><input
 				type='hidden' name='crs_pic_base4' id="base4" value=''> <input
 				type='hidden' id="count_pic" name="crs_pic_count" value='0'>
-
 			<br>
-			<br> <input type="button" name="" class="btn btn-primary" style="border-radius:0px;"
-				value="送出" id="send">&nbsp&nbsp&nbsp<input type="button" name=""
+			<br><center><input type="button" name="" class="btn btn-primary" style="border-radius:0px;"
+				value="送出" id="send">&nbsp<input type="button" name=""
 				class="btn btn-default" value="取消" id="cancel" style="border-radius:0px;"> <input
-				type="hidden" name="action" value="courseInsert"> <br>
-			<h3>新增圖片</h3>
-			<br>
-			<button onclick="addPic()" class="btn btn-primary" style="border-radius:0px;">確認新增</button>&nbsp&nbsp&nbsp
-			<button onclick="clearPic()" class="btn btn-default" style="border-radius:0px;">清除</button>
-			(須先加入才能新增，最多五張)
+				type="hidden" name="action" value="courseInsert"></center><br>
+			<center><h3>新增圖片</h3></center>
+			
+			<center><button onclick="addPic()" class="btn btn-primary" style="border-radius:0px;">新增</button>
+			<button onclick="clearPic()" class="btn btn-default" style="border-radius:0px;">清除</button></center>
 			<div id="dropDIV" ondragover="dragoverHandler(event)"
 				ondrop="dropHandler(event)" onclick="updateFile()">
 				課程圖片 拖曳圖片到此處上傳,最多五張
+				<center>(須先加入才能新增，最多五張)</center>
 				<div id="up_progress">
 					<div id="imgDIV" style="margin-bottom: 30px;"></div>
 				</div>
@@ -170,7 +175,7 @@
 
 
 	<!-- Page Content -->
-	<div class="container">
+	<div class="container" style="min-height:100%;">
 
 		<!-- Page Heading/Breadcrumbs -->
 		<div class="breadcrumbs" id="breadcrumbs">
@@ -266,9 +271,6 @@
 
  	<!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
-
-	<!-- 最底層 -->
-	<%@include file="/front_end/include/floor.file" %>
 	
 </body>
 
@@ -434,7 +436,7 @@
 	function newCrs() {
 		$(".inline").colorbox({
 			inline : true,
-			width : "48%"
+			width : "38%"
 		});
 	}
 	
@@ -826,17 +828,18 @@
 		var cpic = "changePic" + count;
 
 　		if(value == '1'){
-　			document.getElementById(update).style.display='none'; 
-　			document.getElementById(updateCommit).style.display='block'; 
+　			document.getElementById(update).style.display='none';
+　			document.getElementById(updateCommit).style.display='block';
 　			var cval = $(hctrow).html();
 　			var select = "#changeCategory" + count + " option[value=" + cval + "]";
-　			$(crsrow).html('<input type="text" id="changeCrs_name" value="' + $(crsrow).html() + '">');
-　			$(drow).html('<input type="text" id="changeDetails" value="' + $(drow).html() + '">');
-　			$(crow).html('<select name="category" id="changeCategory' + count + '"><option name="" value="A">瑜珈 </option><option name="" value="B">飛輪有氧</option><option name="" value="C">舞動有氧</option><option name="" value="D">拳擊有氧</option><option name="" value="E">基礎重訓</option><option name="" value="F">進階重訓</option><option name="" value="G">皮拉提斯</option><option name="" value="H">TRX肌力雕塑</option> <option name="" value="O">其他</option></select>');
+　			$(crsrow).html('<input align="center" type="text" id="changeCrs_name" style="height:42px;width:100px;" value="' + $(crsrow).html() + '">');
+　			$(drow).html('<input type="text" id="changeDetails" style="height:42px;width:100px;" value="' + $(drow).html() + '">');
+　			$(crow).html('<select name="category" style="height:42px;width:100px;" id="changeCategory' + count + '"><option name="" value="A">瑜珈 </option><option name="" value="B">飛輪有氧</option><option name="" value="C">舞動有氧</option><option name="" value="D">拳擊有氧</option><option name="" value="E">基礎重訓</option><option name="" value="F">進階重訓</option><option name="" value="G">皮拉提斯</option><option name="" value="H">TRX肌力雕塑</option> <option name="" value="O">其他</option></select>');
 　			$(select).attr('selected','selected');
 　			for(var i=0;i<document.getElementsByClassName(cpic).length;i++){
 	　			document.getElementsByClassName(cpic)[i].style.display='block'; 	
 　			}
+　			
 　		}else if(value == '2'){
 　			document.getElementById(update).style.display='block'; 
 　			document.getElementById(updateCommit).style.display='none'; 
@@ -873,7 +876,7 @@
 
 		 	 				success : function(msg) {
 		 	 					swal("修改成功!", "Your content has been changed.", "success");
-		 	 					setTimeout(function(){ swal.close(); }, 1500);
+		 	 					setTimeout(function(){ location.reload(); }, 1500);
 		 	 				},
 
 		 	 				error : function(xhr, ajaxOptions, thrownError) {
@@ -1118,10 +1121,6 @@
 <style type="text/css">
 #cboxContent, #cboxLoadedContent {
 	border: 0.5px;
-}
-
-.btn {
-	border-radius:6px;
 }
 </style>
 

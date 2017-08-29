@@ -31,7 +31,7 @@
   </nav>
 
 	<body>		
-		<div class="container">
+		<div class="container" style="min-height:100%;">
 				   <div class="breadcrumbs" id="breadcrumbs" style="line-height:0px;">
 	            
 			            <div class="col-lg-12">
