@@ -478,4 +478,10 @@ public class AnnewJDBCDAO implements AnnewDAO_interface {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public List<AnnewVO> getFrontAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

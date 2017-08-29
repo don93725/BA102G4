@@ -32,7 +32,7 @@
             <ul class="breadcrumb">
                 <li>
                     <i class="icon-home home-icon"></i>
-                        <a href="index.html">首頁</a>
+                        <a href="${pageContext.request.contextPath }">首頁</a>
                      </li>
                 <li class="active">公告消息</li>
             </ul><!-- .breadcrumb -->
