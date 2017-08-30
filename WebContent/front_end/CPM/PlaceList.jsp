@@ -57,8 +57,8 @@
 										<font color='blue' style="font-weight:bold;font-size:16px" id="payStatus<%= count %>">已繳費</font>
 									</c:if>
 								</td>
-								<td style="vertical-align:middle;" align="center;"><button class="btn btn-danger" onclick="deletePlace('${place_timeVO.pt_no}',)" style="border-radius:6px;">退訂</button></td>
-								<td style="vertical-align:middle;" align="center;"><button class="btn btn-warning pay<%= count %>" onclick="payment(<%= count %>)" style="border-radius:6px;">前往付款</button></td>
+								<td style="vertical-align:middle;" align="center;"><button class="btn btn-danger" onclick="deletePlace('${place_timeVO.pt_no}',)">退訂</button></td>
+								<td style="vertical-align:middle;" align="center;"><button class="btn btn-warning pay<%= count %>" onclick="payment(<%= count %>)">前往付款</button></td>
 								<a href="#" onclick="window.open('<%=request.getContextPath()%>/front_end/CPM/Pay.jsp?pt_no=${place_timeVO.pt_no}','YOOO', config='height=500,width=516');"><button id="pay<%= count %>" style="display:none;">前往付款</button></a>
 							</tr>
 							<button style="display:none;" class="paybtn" onclick="payStatus(<%= count %>)">6666</button>
@@ -74,7 +74,6 @@
 		<!-- /row -->
 	</div>
 	<!-- 課程管理 全部 結束 -->
-
 </body>
 </html>
 <script>

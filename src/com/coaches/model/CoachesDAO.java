@@ -59,6 +59,8 @@ public class CoachesDAO implements CoachesDAO_interface{
 			"select * from (select round(avg(evaluation_cao),1),a.coa_acc from coaches a join course b on a.coa_acc = b.c_acc "
 			+ "join course_time c on b.crs_no = c.crs_no "
 			+ "join course_list d on c.ct_no=d.ct_no where evaluation_cao is not null group by a.coa_acc order by avg(evaluation_cao)) e join coaches f on e.coa_acc = f.coa_acc where rownum < 4";
+	private static final String UPDATE_FORPIC =
+			"Update coaches set coa_pic = ? where coa_no = ?";
 	
 	@Override
 	public void insert(MembersVO membersVO, CoachesVO coachesVO) {
@@ -580,6 +582,7 @@ public class CoachesDAO implements CoachesDAO_interface{
 		}
 		
 	}
+	
 	public List<CoachesVO> getRankList(){
 		SQLHelper helper = new SQLHelper();
 		List<Object[]> list = helper.executeQuery(EVALUTION_RANK, null);
@@ -632,5 +635,43 @@ public class CoachesDAO implements CoachesDAO_interface{
 		return tempList;
 	}
 	
+	public void update_forPic(String coa_no, byte[] coa_pic_byte) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		try{
+			con = ds.getConnection();
+			con.setAutoCommit(false);
+			
+			pstmt = con.prepareStatement(UPDATE_FORPIC);
+			pstmt.setBytes(1, coa_pic_byte);
+			pstmt.setString(2, coa_no);
+			
+			pstmt.executeUpdate();
+			con.commit();
+			con.setAutoCommit(true);
+		}catch(SQLException se) {
+			try {
+				se.printStackTrace();
+				con.rollback();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} 
+		} finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if(con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 }
 

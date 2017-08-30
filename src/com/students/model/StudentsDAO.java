@@ -470,7 +470,7 @@ public class StudentsDAO implements StudentsDAO_interface{
 		}
 	}
 	
-	public void update_forPic(String stu_no, byte[] coa_pic_byte) {
+	public void update_forPic(String stu_no, byte[] stu_pic_byte) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try{
@@ -478,11 +478,10 @@ public class StudentsDAO implements StudentsDAO_interface{
 			con.setAutoCommit(false);
 			
 			pstmt = con.prepareStatement(UPDATE_FORPIC);
-			pstmt.setBytes(1, coa_pic_byte);
+			pstmt.setBytes(1, stu_pic_byte);
 			pstmt.setString(2, stu_no);
 			
 			pstmt.executeUpdate();
-			System.out.println("CCC");
 			con.commit();
 			con.setAutoCommit(true);
 		}catch(SQLException se) {

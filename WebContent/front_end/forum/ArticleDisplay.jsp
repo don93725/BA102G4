@@ -263,11 +263,11 @@
       </a>
       </div>
       <div class="modal-footer">
-      	<div class="col-xs-12 col-sm-2 col-sm-offset-9" style="padding-left: 80px;" >
+      	<div class="col-xs-12 col-sm-2 col-sm-offset-9" style="padding-left: 50px;" >
       		<div class="dropup">
 					<button class="btn btn-default btn-lg dropdown-toggle" type="button"
 						id="dropdownMenu3" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="true" value="0">
+						aria-haspopup="true" aria-expanded="true" value="0" onclick='addOpen.call(this,event);'>
 						隱私 <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
@@ -300,6 +300,14 @@
 		src="${pageContext.request.contextPath}/front_end/album/js/jquery.fancybox.js"></script>
 <script type="Text/JavaScript" src="${pageContext.request.contextPath}/front_end/forum/js/ArticleDisplay.js"></script>
 <script type="text/javascript">
+function addOpen(event){
+	event.preventDefault();
+	if($(this).parent().hasClass('open')){
+		$(this).parent().removeClass('open');
+	}else{
+		$(this).parent().addClass('open');
+	}
+}
 function sharePhoto(event,path,forum_no,art_type,art_name,art_no,mem_no,mem_rank,mem_nickname,art_add_date){
 	event.preventDefault();
 	var art_ctx = $('#shareArt_ctx').html();

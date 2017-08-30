@@ -41,7 +41,7 @@
 %>
 	<!-- 標題+麵包shit -->
     <!-- Page Content -->
-    <div class="container">   
+    <div class="container" style="min-height:100%;">   
         <!-- Page Heading/Breadcrumbs -->
         <div class="breadcrumbs" id="breadcrumbs">
             
@@ -67,12 +67,12 @@
 <!-- 改變大頭貼燈箱結束 -->
 
 <!-- 身分為健身者時，顯示 -->                    
-<c:if test="${user.mem_rank == '0'}">  
+<c:if test="${user.mem_rank == '0'}">
 		<%@include file="/front_end/include/personal_stu.file" %>
 </c:if><!-- 身分為健身者時的 Content結束 -->
 
 <!-- 身分為教練時，顯示 -->                    
-<c:if test="${user.mem_rank == '1'}">  
+<c:if test="${user.mem_rank == '1'}">
         <%@include file="/front_end/include/personal_coa.file" %>
 </c:if><!-- 身分為教練時的 Content結束 -->
 
@@ -80,11 +80,8 @@
 <c:if test="${user.mem_rank == '2'}">
         <%@include file="/front_end/include/personal_gym.file" %>
 </c:if><!-- 身分為健身房業者時的 Content結束 -->
-
-    <hr>
-
     </div>
-      
+  
 	<!-- Footer -->
 	<%@include file="/front_end/include/footer.file" %>
 
@@ -93,7 +90,8 @@
 	<%@include file="/front_end/include/registerJS.file" %>
 	<!-- 修改按鈕 -->
 	<%@include file="/front_end/include/modiButton.file" %>
-	<c:if test="${user.mem_rank == '2'}">
+
+<c:if test="${user.mem_rank == '2'}">
 <!-- googleMap Api -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp7jp6Eg1dQZxn6Fi6h4V34jLnbipVfVU&callback=initMap&language=zh-TW"
     async defer></script>
@@ -137,7 +135,7 @@
         });
     }
 </script>
-	</c:if>
+</c:if>
 	<!-- 基本資料修改 -->
 	<%@include file="/front_end/include/changeBasicData.file" %>
 </html>

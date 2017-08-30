@@ -60,12 +60,12 @@
 												</c:forEach>
 									</select>
 									</span>
-									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><span class="changeCrs_name<%=countp%>">${course_timeVO.courseVO.crs_name}</span></td>
-									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><span class="changeCategory<%=countp%>">${course_timeVO.courseVO.categoryChange}</span></td>
-									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><span class="changeDeadline<%=countp%>">${course_timeVO.deadline}</span></td>
-									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><span class="changeCrs_date_time<%=countp%>">${course_timeVO.crs_date}<br>${course_timeVO.crs_timeShow}</span></td>
-									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><span class="changePrice<%=countp%>">${course_timeVO.price}</span></td>
-									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><span class="changeP_name<%=countp%>">${course_timeVO.placeVO.p_name}</span></td>
+									<td class="center" style="vertical-align:middle;" align="center;"><span class="changeCrs_name<%=countp%>">${course_timeVO.courseVO.crs_name}</span></td>
+									<td class="center" style="vertical-align:middle;" align="center;"><span class="changeCategory<%=countp%>">${course_timeVO.courseVO.categoryChange}</span></td>
+									<td class="center" style="vertical-align:middle;" align="center;"><span class="changeDeadline<%=countp%>">${course_timeVO.deadline}</span></td>
+									<td class="center" style="vertical-align:middle;" align="center;"><span class="changeCrs_date_time<%=countp%>">${course_timeVO.crs_date}<br>${course_timeVO.crs_timeShow}</span></td>
+									<td class="center" style="vertical-align:middle;" align="center;"><span class="changePrice<%=countp%>">${course_timeVO.price}</span></td>
+									<td class="center" style="vertical-align:middle;" align="center;"><span class="changeP_name<%=countp%>">${course_timeVO.placeVO.p_name}</span></td>
 									<!-- 故意擺兩個 -->
 									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><a class="accordion-toggle" data-toggle="collapse"
 										data-parent="#accordion" href="#collapse<%=countp%>">${course_timeVO.count}/${course_timeVO.limit}</a></td>

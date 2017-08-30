@@ -35,11 +35,14 @@
 	border-width: 36px;
 	margin-top: -36px;
 }
+.nav-tabs.tab-color-blue>li>a, .nav-tabs.tab-color-blue>li>a:focus {
+	background-color:#8FBC8F;
+}
 </style>
         <div class="row">
         	<div class="col-sm-12">
 				<div class="tabbable">
-					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
+					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4" style="background-color:#E0EEE0;">
 						<li class="active">
 							<a data-toggle="tab" href="<%= request.getContextPath() %>/MembersServlet?mem_rank=${param.mem_rank}&mem_no=${param.mem_no}&action=lookPersonal">基本資料</a>
 						</li>
@@ -61,7 +64,7 @@
 					</ul>
 					
 					
-					<div class="tab-content">
+					<div class="tab-content"  style="background-color:white;">
 						<!-- 對應a #home1 -->
 						<div id="home1" class="tab-pane  in active">
 							<div id="user-profile-1" class="user-profile row">
@@ -78,39 +81,8 @@
 
 											<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
 												<div class="inline position-relative">
-													<a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
-														<i class="icon-circle light-green middle"></i>
 														&nbsp;
 														<span class="white">${requestScope.user.mem_nickname }</span>
-													</a>
-
-													<ul class="align-left dropdown-menu dropdown-caret dropdown-lighter">
-														<li class="dropdown-header"> 狀態 </li>
-
-														<li>
-															<a href="#">
-																<i class="icon-circle green"></i>
-																&nbsp;
-																<span class="green">可被用的</span>
-															</a>
-														</li>
-
-														<li>
-															<a href="#">
-																<i class="icon-circle red"></i>
-																&nbsp;
-																<span class="red">正在忙碌的</span>
-															</a>
-														</li>
-
-														<li>
-															<a href="#">
-																<i class="icon-circle grey"></i>
-																&nbsp;
-																<span class="grey">不能被用的</span>
-															</a>
-														</li>
-													</ul>
 												</div>
 											</div>
 										</div>
@@ -156,39 +128,24 @@
 										<div class="col-xs-12 col-sm-9">
 											<div class="center">
 												<span class="btn btn-app btn-sm btn-light no-hover">
-													<span class="line-height-1 bigger-170 blue"> 1,411 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 相簿 </span>
-												</span>
-
+														<span class="line-height-1 bigger-170 blue"> ${albumNumber} </span>
+														<br />
+														<span class="line-height-1 smaller-90"> 相簿 </span>
+													</span>
 												<span class="btn btn-app btn-sm btn-yellow no-hover">
-													<span class="line-height-1 bigger-170"> 32 </span>
+													<span class="line-height-1 bigger-170"> ${boardNumber} </span>
 													<br />
 													<span class="line-height-1 smaller-90"> 動態 </span>
 												</span>
-												
 												<span class="btn btn-app btn-sm btn-pink no-hover">
-													<span class="line-height-1 bigger-170"> 4 </span>
+													<span class="line-height-1 bigger-170"> ${friendNumber} </span>
 													<br />
-													<span class="line-height-1 smaller-90"> 留言版 </span>
+													<span class="line-height-1 smaller-90"> 好友 </span>
 												</span>
-
 												<span class="btn btn-app btn-sm btn-grey no-hover">
-													<span class="line-height-1 bigger-170"> 23 </span>
+													<span class="line-height-1 bigger-170"> ${personCmtNumber} </span>
 													<br />
-													<span class="line-height-1 smaller-90"> 好友  </span>
-												</span>
-
-												<span class="btn btn-app btn-sm btn-success no-hover">
-													<span class="line-height-1 bigger-170"> 7 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 相簿 </span>
-												</span>
-
-												<span class="btn btn-app btn-sm btn-primary no-hover">
-													<span class="line-height-1 bigger-170"> 55 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 聯絡 </span>
+													<span class="line-height-1 smaller-90"> 留言 </span>
 												</span>
 											</div>
 
@@ -196,21 +153,21 @@
 
 											<div class="profile-user-info profile-user-info-striped">
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 暱稱 </div>
+													<div class="profile-info-name" style="background-color:#F0FFF0;"> 暱稱 </div>
 													<div class="profile-info-value">
 														<span class="editable" id="username">${requestScope.user.mem_nickname }</span>
 													</div>
 												</div>
 												
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 姓名 </div>
+													<div class="profile-info-name" style="background-color:#F0FFF0;"> 姓名 </div>
 													<div class="profile-info-value">
 														<span class="editable" id="username">${requestScope.student.stu_name }</span>
 													</div>
 												</div>
 												
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 性別 </div>
+													<div class="profile-info-name" style="background-color:#F0FFF0;"> 性別 </div>
 													<div class="profile-info-value">
 														<c:if test="${requestScope.student.stu_sex == '1'}">
 														<span class="editable" id="username">倫家素男森</span>
@@ -222,14 +179,14 @@
 												</div>
 												
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 電子郵件 </div>
+													<div class="profile-info-name" style="background-color:#F0FFF0;"> 電子郵件 </div>
 													<div class="profile-info-value">
 														<span class="editable" id="username">${requestScope.student.stu_mail }</span>
 													</div>
 												</div>
 
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 關於我 </div>
+													<div class="profile-info-name" style="background-color:#F0FFF0;"> 關於我 </div>
 
 													<div class="profile-info-value">
 														<span class="editable" id="about">${requestScope.student.stu_into }</span>
@@ -245,42 +202,6 @@
 									</div>
 								</div>	
 						</div>
-						<!-- a $home1結束 -->
-						
-						<!-- 對應a #home2 -->
-						<div id="home2" class="tab-pane">
-							<p>Raw denim you probably haven't heard of them jean shorts Austin.Raw denim you probably haven't heard of them jean shorts Austin.</p>
-							<p>Raw denim you probably haven't heard of them jean shorts Austin.Raw denim you probably haven't heard of them jean shorts Austin.</p>
-						</div>
-						<!-- 對應a #home2結束 -->
-						
-						<!-- 對應a #home3 -->
-						<div id="home3" class="tab-pane">
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-						</div>
-						<!-- 對應a #home3結束 -->
-						
-						<!-- 對應a #home4 -->
-						<div id="home4" class="tab-pane">
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-						</div>
-						<!-- 對應a #home4結束 -->
-						
-						<!-- 對應a #home5 -->
-						<div id="home5" class="tab-pane">
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-						</div>
-						<!-- 對應a #home5結束 -->
-						
-						<!-- 對應a #home6 -->
-						<div id="home6" class="tab-pane">
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-							<p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-						</div>
-						<!-- 對應a #home6結束 -->
 					</div><!-- tab-cotent結束 -->
 					
 				</div>

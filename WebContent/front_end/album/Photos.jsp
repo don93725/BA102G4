@@ -446,7 +446,7 @@ font-size:50px;
       </a>
       </div>
       <div class="modal-footer">
-      	<div class="col-xs-12 col-sm-2 col-sm-offset-9" style="padding-left: 80px;" >
+      	<div class="col-xs-12 col-sm-2 col-sm-offset-9" style="padding-left: 50px;" >
       		<div class="dropup">
 					<button class="btn btn-default btn-lg dropdown-toggle" type="button"
 						id="dropdownMenu2" data-toggle="dropdown"

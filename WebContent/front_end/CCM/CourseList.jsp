@@ -58,6 +58,7 @@
 										<button class="btn btn-warning" id="updateCommit<%=count%>"
 											onclick="changeDisabled(2,<%=count%>)" style="display: none;">確認修改</button></td>
 									<td style="vertical-align:middle;" align="center;"><button class="btn btn-danger" onclick = "deleteCrs(<%=count%>)">刪除</button>
+
 									<FORM METHOD="post"
 											ACTION="<%=request.getContextPath()%>/CCM/CourseManager.do" style="display: none;">
 											<button class="btn btn-danger" id="deleteCrs<%=count%>">刪除</button>

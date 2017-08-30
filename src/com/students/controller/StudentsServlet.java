@@ -76,7 +76,7 @@ public class StudentsServlet extends HttpServlet {
 				String mem_acc = req.getParameter("mem_acc");
 				String mem_accReg = "^[(a-zA-Z0-9_)]{6,20}$";
 				MembersService membersSV = new MembersService();
-		
+				
 				if(membersSV.insert_ck(mem_acc)) {
 					errorMsgs.put("mem_acc","會員帳號: 已被使用，請更換");
 				}else if(mem_acc == null || mem_acc.trim().length() == 0) {
@@ -179,6 +179,14 @@ public class StudentsServlet extends HttpServlet {
 
 					//3.新增完成,準備轉交(Send the Success view)
 					System.out.println("insert is complete");
+					HttpSession session = req.getSession();
+					MembersService user = new MembersService();
+					MembersVO nowLogin_VO = membersSV.select(mem_acc);
+					session.setAttribute("user", nowLogin_VO);
+					String rank = nowLogin_VO.getMem_rank();
+					StudentsService student = new StudentsService();
+					StudentsVO studentsVO = studentsSV.loginStudents(mem_acc, stu_psw);
+					session.setAttribute("student", studentsVO);
 					String url = req.getContextPath() + "/front_end/register/register_success.jsp";
 					res.sendRedirect(url);
 					return;
@@ -408,7 +416,7 @@ public class StudentsServlet extends HttpServlet {
 				String cropped_pic = req.getParameter("cropped_pic");
 				//base64轉byte[]
 				Base64.Decoder decoder = Base64.getDecoder();
-				byte[] coa_pic_byte = null;
+				byte[] stu_pic_byte = null;
 						
 				if(cropped_pic == null || "".equals(cropped_pic)) {
 					errorMsgs.put("stu_pic", "請鎖定圖片");
@@ -423,9 +431,9 @@ public class StudentsServlet extends HttpServlet {
 					return;
 				}
 				
-				coa_pic_byte = decoder.decode(cropped_pic.split(",")[1]);
+				stu_pic_byte = decoder.decode(cropped_pic.split(",")[1]);
 				//圖片大小(kb...)
-				int pic_length = coa_pic_byte.length;
+				int pic_length = stu_pic_byte.length;
 				String pic_type = cropped_pic.substring(5, 10);
 				if(pic_length > (5*1024*1024)) {
 					errorMsgs.put("stu_pic", "檔案過大");
@@ -434,7 +442,7 @@ public class StudentsServlet extends HttpServlet {
 				}
 				//2.開始修改資料
 				StudentsService studentsSV = new StudentsService();
-				studentsSV.update_forPic(stu_no, coa_pic_byte);
+				studentsSV.update_forPic(stu_no, stu_pic_byte);
 				System.out.println("update your big head is complete");
 				return;
 						

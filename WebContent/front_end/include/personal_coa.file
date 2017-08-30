@@ -1,10 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<style>
+	.nav-tabs.tab-color-blue>li>a, .nav-tabs.tab-color-blue>li>a:focus {
+		background-color:#EE9A00;
+	}
+</style>
 <!-- 身分為教練時的 Content -->
         <div class="row">
         	<div class="col-sm-12">
 				<div class="tabbable">
-					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
-						<li class="active">
+					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4" style="background-color:#FFDDAA;">
 						<li class="active">
 							<a data-toggle="tab" href="#home1">基本資料</a>							
 						</li>
@@ -36,7 +40,7 @@
 					</ul>
 					
 					
-					<div class="tab-content">
+					<div class="tab-content" style="background-color:white;">
 						<!-- 對應a #home1 -->
 						<div id="home1" class="tab-pane  in active">
 							<div id="user-profile-1" class="user-profile row">
@@ -44,6 +48,13 @@
 									<div>
 										<span style="border:none">
 											<center>
+											
+												<a class='inline' href="#inline_content">
+													<button class="btn btn-white">
+														<i class="icon-plus"></i>更換大頭貼
+													</button>
+												</a>
+												
 												<img id="avatar" class="editable img-responsive" src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=${user.mem_rank}&mem_no=${coach.coa_no}" align="absmiddle" style="margin-top:4px;border-radius:100px;box-shadow:0px 0px 12px #7E7E7E;"/>
 											</center>
 										</span>
@@ -53,132 +64,58 @@
 
 											<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
 												<div class="inline position-relative">
-													<a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
-														<i class="icon-circle light-green middle"></i>
-														&nbsp;
-														<span class="white">${user.mem_nickname }</span>
+														<a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
+														<span class="white">${user.mem_nickname}</span>
 													</a>
-
-													<ul class="align-left dropdown-menu dropdown-caret dropdown-lighter">
-														<li class="dropdown-header"> 狀態 </li>
-
-														<li>
-															<a href="#">
-																<i class="icon-circle green"></i>
-																&nbsp;
-																<span class="green">可被用的</span>
-															</a>
-														</li>
-
-														<li>
-															<a href="#">
-																<i class="icon-circle red"></i>
-																&nbsp;
-																<span class="red">正在忙碌的</span>
-															</a>
-														</li>
-
-														<li>
-															<a href="#">
-																<i class="icon-circle grey"></i>
-																&nbsp;
-																<span class="grey">不能被用的</span>
-															</a>
-														</li>
-													</ul>
 												</div>
 											</div>
-										</div>
+									</div>
 
 										<div class="space-6"></div>
 
 										<div class="profile-contact-info">
-											<div class="profile-contact-links align-left">
-												
-												<a class="btn btn-link" href="#">
-													<i class="icon-globe bigger-125 blue"></i>
-													個人網站
-												</a>
-											</div>
-
 											<div class="space-6"></div>
-
-											<div class="profile-social-links center">
-												<a href="#" class="tooltip-info" title="" data-original-title="Visit my Facebook">
-													<i class="middle icon-facebook-sign icon-2x blue"></i>
-												</a>
-
-												<a href="#" class="tooltip-info" title="" data-original-title="Visit my Twitter">
-													<i class="middle icon-twitter-sign icon-2x light-blue"></i>
-												</a>
-													
-												<a href="#" class="tooltip-error" title="" data-original-title="Visit my Pinterest">
-													<i class="middle icon-pinterest-sign icon-2x red"></i>
-												</a>
-											</div>
 										</div>
 
-										<div class="hr hr12 dotted"></div>
-											<div class="clearfix">
-												<div class="grid2">
-													<span class="bigger-175 blue">25</span>
+										<div class=""></div>
+											<div class="">
+												<div class="">
+												<span class="btn btn-app btn-sm btn-light no-hover">
+														<span class="line-height-1 bigger-170 blue"> ${albumNumber} </span>
+														<br />
+														<span class="line-height-1 smaller-90"> 相簿 </span>
+													</span>
+												<span class="btn btn-app btn-sm btn-yellow no-hover">
+													<span class="line-height-1 bigger-170"> ${boardNumber} </span>
 													<br />
-													追蹤者
+													<span class="line-height-1 smaller-90"> 動態 </span>
+												</span>
+												<span class="btn btn-app btn-sm btn-pink no-hover">
+													<span class="line-height-1 bigger-170"> ${friendNumber} </span>
+													<br />
+													<span class="line-height-1 smaller-90"> 好友 </span>
+												</span>
+												<span class="btn btn-app btn-sm btn-grey no-hover">
+													<span class="line-height-1 bigger-170"> ${personCmtNumber} </span>
+													<br />
+													<span class="line-height-1 smaller-90"> 留言 </span>
+												</span>											
+
 												</div>
 
-												<div class="grid2">
-													<span class="bigger-175 blue">12</span>
+												<div class="">
+													<span class=""></span>
 													<br />
-													正在追蹤
 												</div>
 											</div>
-											<div class="hr hr16 dotted"></div>
+											<div class=""></div>
 										</div>
 
 										<div class="col-xs-12 col-sm-9">
-											<div class="center">
-												<span class="btn btn-app btn-sm btn-light no-hover">
-													<span class="line-height-1 bigger-170 blue"> 1,411 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 觀看 </span>
-												</span>
-
-												<span class="btn btn-app btn-sm btn-yellow no-hover">
-													<span class="line-height-1 bigger-170"> 32 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 追蹤者 </span>
-												</span>
-												
-												<span class="btn btn-app btn-sm btn-pink no-hover">
-													<span class="line-height-1 bigger-170"> 4 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 計畫 </span>
-												</span>
-
-												<span class="btn btn-app btn-sm btn-grey no-hover">
-													<span class="line-height-1 bigger-170"> 23 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 阿災 </span>
-												</span>
-
-												<span class="btn btn-app btn-sm btn-success no-hover">
-													<span class="line-height-1 bigger-170"> 7 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 相簿 </span>
-												</span>
-
-												<span class="btn btn-app btn-sm btn-primary no-hover">
-													<span class="line-height-1 bigger-170"> 55 </span>
-													<br />
-													<span class="line-height-1 smaller-90"> 聯絡 </span>
-												</span>
-											</div>
-
-											<div class="space-12"></div>
 
 											<div class="profile-user-info profile-user-info-striped">
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 暱稱 </div>
+													<div class="profile-info-name" style="background-color:#F5F5DC;"> 暱稱 </div>
 													<div class="profile-info-value">
 														<input type="text" pattern="^[(\u4e00-\u9fa5)(a-zA-Z0-9)]{1,15}$" class="canEdit" id="mem_nickname" name="mem_nickname" size="80" value="${user.mem_nickname }"  required minlength="1" maxlength="15" disabled="disabled">
 														<div id="alert_mem_nickname" style="display:none;color:red;"></div>
@@ -186,7 +123,7 @@
 												</div>
 												
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 姓名 </div>
+													<div class="profile-info-name" style="background-color:#F5F5DC;"> 姓名 </div>
 													<div class="profile-info-value">
 														<input type="text" pattern="^[(\u4e00-\u9fa5)(a-zA-Z)]{2,6}$" class="canEdit" id="coa_name" name="coa_name" size="80" value="${coach.coa_name }" disabled="disabled" required minlength="2" maxlength="6">
 														<div id="alert_coa_name" style="display:none;color:red;"></div>
@@ -194,7 +131,7 @@
 												</div>
 												
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 性別 </div>
+													<div class="profile-info-name" style="background-color:#F5F5DC;"> 性別 </div>
 													<div class="profile-info-value">
 														<c:if test="${coach.coa_sex == '1'}">
 														<span class="editable" id="username">倫家素<b>男森</b></span>
@@ -206,7 +143,7 @@
 												</div>
 												
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 電子郵件 </div>
+													<div class="profile-info-name" style="background-color:#F5F5DC;"> 電子郵件 </div>
 													<div class="profile-info-value">
 														<input type="text" pattern="^[_a-z0-9-]+([.][_a-z0-9-]+)*@[a-z0-9-]+([.][a-z0-9-]+)*$" class="canEdit" id="coa_mail" name="coa_mail" size="80" value="${coach.coa_mail }"  required maxlength="50" disabled="disabled">
 														<div id="alert_coa_mail" style="display:none;color:red;"></div>
@@ -214,7 +151,7 @@
 												</div>
 
 												<div class="profile-info-row">
-													<div class="profile-info-name"> 關於我 </div>
+													<div class="profile-info-name" style="background-color:#F5F5DC;line-height:190px;"> 關於我 </div>
 													<div class="profile-info-value">
 														<textarea class="canEdit limited" id="coa_into" name="coa_into" cols="80" rows="10" required  minlength="1" maxlength="500" disabled="disabled" style="resize:none">${coach.coa_into }</textarea>
 														<div id="alert_coa_into" style="display:none;color:red;"></div>
@@ -228,33 +165,13 @@
 												</center>
 											</div>
 
-
-											<div class="space-20"></div>
 											</div>
 										</div>
-
-										<div class="hr hr2 hr-double"></div>
-
-										<div class="space-6"></div>
-
-										<div class="center">
-											<a href="#" class="btn btn-sm btn-primary">
-												<i class="icon-rss bigger-150 middle"></i>
-												<span class="bigger-110">View more activities</span>
-												<i class="icon-on-right icon-arrow-right"></i>
-											</a>
-										</div>
 									</div>
-								</div>	
+								</div>
+							</div>
 						</div>
-						<!-- a $home1結束 -->
-						
-						
-					</div><!-- tab-cotent結束 -->
-					
-				</div>
-			</div><!-- /span -->
-		</div><!-- /row -->
+
 <script>
 function goTo(path){location.href = path;}
 </script>

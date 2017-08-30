@@ -17,11 +17,10 @@
 						<div class="login-container">
 							<div class="center">
 								<h1>
-									<i class="icon-leaf green"></i>
 									<span class="red">健貨</span>
 									<span class="white">會員登入系統</span>
 								</h1>
-								<h4 class="blue">&copy; Gym Home</h4>
+								<h4 class="blue"><a href="<%= request.getContextPath()%>/front_end/index.jsp">&copy; Gym Home</a></h4>
 							</div>
 
 							<div class="space-6"></div>
@@ -57,11 +56,6 @@
 													<div class="space"></div>
 
 													<div class="clearfix">
-														<label class="inline">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"> 記住我</span>
-														</label>
-
 														<input type="hidden" name="action" value="login">
 														<button type="submit" class="width-35 pull-right btn btn-sm btn-inverse">
 															<i class="icon-key"></i>
