@@ -218,12 +218,10 @@
  <div  id="hidden-content-b" style='display:none;'>
 <div class="modal-content" id='shareContainer' style='width:100%;'>
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">分享此文章至個人動態</h4>
+        <h4 class="modal-title" id="myModalLabel">分享此文章至個人動態<button onclick='appendCmt();'></button></h4>
       </div>
       <div class="modal-body">
-        <textarea class="form-control" id='shareText' rows="3" style="resize: none;">
-        	
-        </textarea>
+        <textarea class="form-control" id='shareText' rows="3" style="resize: none;"></textarea>
       </div>
       <div class="modal-footer">
       
@@ -300,6 +298,9 @@
 		src="${pageContext.request.contextPath}/front_end/album/js/jquery.fancybox.js"></script>
 <script type="Text/JavaScript" src="${pageContext.request.contextPath}/front_end/forum/js/ArticleDisplay.js"></script>
 <script type="text/javascript">
+function appendCmt(){
+	$('#shareText').val('這真是篇好文 請大家多多支持！！！');
+}
 function addOpen(event){
 	event.preventDefault();
 	if($(this).parent().hasClass('open')){
