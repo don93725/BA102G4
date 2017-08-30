@@ -177,10 +177,7 @@
 				</div>
 			</div><!-- /span -->
 		</div><!-- /row -->
-	</div>
-</div>
-</div>
-</div>		
+	
 <script>
 function goTo(path){location.href = path;}
 </script>

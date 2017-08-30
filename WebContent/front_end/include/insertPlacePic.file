@@ -12,7 +12,7 @@
 	
 	<div style='display:none'>
 		<div id='insertPic_content' style='padding:0px; background:#fff;'>
-			<center><h1>新增圖片</h1></center>
+			<center><h1><b>新增圖片</b></h1></center>
 			<div id="alert_p_pic" style="display:none;"></div>
 			<form>
 				<input type="file" id="fileWWW" multiple="multiple" style="display: none;" accept="image/*"/>  

@@ -1,28 +1,28 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 	<div style='display:none'>
 		<div id='update_content' style='padding:0px; background:#fff;'>
-			<center><h1>更新場地</h1></center>
+			<center><h1><b>更新場地</b></h1></center>
 			<form>
 				
 			<div class="form-group">
-			<label for="pp_name">場地名稱： </label><span id="alertQ_p_name" style="display:none;color:red;"></span>
+			<label for="pp_name"><b>場地名稱：</b> </label><span id="alertQ_p_name" style="display:none;color:red;"></span>
 			<input type="text" class="form-control" title="只能是中、英文字母 ,且長度必需在1到6之間" name="pp_name" id="pp_name" size="12" minlength="1" maxlength="6" required>
 			</div>
 						
 			<div class="form-group">
-			<label for="pp_cap">可容納人數： </label><span id="alertQ_p_cap" style="display:none;color:red;"></span>
+			<label for="pp_cap"><b>可容納人數：</b> </label><span id="alertQ_p_cap" style="display:none;color:red;"></span>
 			<input type="text" class="form-control" title="只能輸入1-99" name="pp_cap" id="pp_cap" minlength="1" maxlength="2" size="2" required>
 			</div>
 				
 			<div class="form-group">
-			<label for="pp_add">場地地址： </label><span id="alertQ_p_add" style="display:none;color:red;"></span>
+			<label for="pp_add"><b>場地地址：</b> </label><span id="alertQ_p_add" style="display:none;color:red;"></span>
 			<input type="text" name="pp_add" id="pp_add" class="form-control" title="只能是大小寫英數字，且長度必需在1到50之間" size="85" minlength="1" maxlength="50" required>			
 				<input type="hidden" id="gym_add" value="${gym.gym_add}">
 				<input type="button" value="地址同健身房位置" onclick="fuckMeMe();">
 			</div>
 				
 			<div class="form-group">
-			<label for="pp_into">場地介紹： </label><span id="alertQ_p_into" style="display:none;color:red;"></span>
+			<label for="pp_into"><b>場地介紹：</b> </label><span id="alertQ_p_into" style="display:none;color:red;"></span>
 			<textarea class="form-control" name="pp_into" id="pp_into" title="" rows="5" cols="85" class="text" style="resize:none;"
 				minlength="1" maxlength="500" required></textarea>
 			</div>

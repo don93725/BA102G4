@@ -40,7 +40,7 @@
     <input placeholder="Full name" type="text" name="name">
     <input placeholder="MM/YY" type="tel" name="expiry">
     <input placeholder="CVC" type="number" name="cvc">
-    <input type="submit" class="btn btn-warning" value="送出" style="margin-left:3em;">
+    <input type="submit" class="btn btn-warning" value="送出" style="margin-left:3em;border-radius:0px;">
 <input type="hidden" name="ct_no" value="<%= request.getParameter("ct_no") %>">
 <input type="hidden" name="stu_acc" value="<%= stu_acc %>">
 <input type="hidden" name="action" value="pay">

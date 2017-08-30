@@ -45,7 +45,7 @@
     </nav>
 	
 	<!-- Page Content -->
-	<div class="container">
+	<div class="container" style="min-height:100%;">
 
 		<!-- Page Heading/Breadcrumbs -->
 		<div class="breadcrumbs" id="breadcrumbs">
@@ -149,28 +149,14 @@
 					</p>
 				</div>
 				<c:choose>
-					<c:when test="">
+					<c:when test="${user.mem_rank == 2 || user.mem_rank == 0}">
 						<div class="col-xs-12 col-sm-4" style="cursor: not-allowed;">
 							<p style="margin-top:1em;">
-							<font style="font-size:30px;" color="gray">馬上租借</font>
+							<font style="font-size:30px;" color="gray">業者/學員你好</font>
 							</p>
 						</div>
 					</c:when>
-					<c:when test="">
-						<div class="col-xs-12 col-sm-4" style="cursor: not-allowed;">
-							<p style="margin-top:1em;">
-							<font style="font-size:30px;" color="gray">人數已滿</font>
-							</p>
-						</div>
-					</c:when>
-					<c:when test="">
-						<div class="col-xs-12 col-sm-4" style="cursor: not-allowed;">
-							<p style="margin-top:1em;">
-							<font style="font-size:30px;" color="gray">已報名</font>
-							</p>
-						</div>
-					</c:when>
-					<c:when test="">
+					<c:when test="${empty user.mem_rank }">
 						<div class="col-xs-12 col-sm-4" style="cursor: not-allowed;">
 							<p style="margin-top:1em;">
 							<font style="font-size:30px;" color="gray">請先登入</font>
