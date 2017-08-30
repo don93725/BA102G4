@@ -2,16 +2,70 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% String pageAction = String.valueOf(request.getAttribute("pageAction"));
    pageContext.setAttribute("pageAction",pageAction);	%>
-<style>
-	.nav-tabs.tab-color-blue>li>a, .nav-tabs.tab-color-blue>li>a:focus {
-		background-color:#8FBC8F;
-	}
-</style>
-        <!-- 身分為健身者時的 Content -->
-        <div class="row">
+
+<c:if test="${not empty param.mem_rank}">
+	<c:if test="${param.mem_rank == '0'}">
+		<style>
+		.nav-tabs.tab-color-blue>li>a, .nav-tabs.tab-color-blue>li>a:focus {
+			background-color:#8FBC8F;
+		}
+		</style>
+		<div class="row">
         	<div class="col-sm-12">
 				<div class="tabbable">
 					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4" style="background-color:#E0EEE0;">
+	</c:if>
+	<c:if test="${param.mem_rank == '1'}">
+		<style>
+		.nav-tabs.tab-color-blue>li>a, .nav-tabs.tab-color-blue>li>a:focus {
+			background-color:#EE9A00;
+		}
+		</style>
+		<div class="row">
+        	<div class="col-sm-12">
+				<div class="tabbable">
+					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4" style="background-color:#FFDDAA;">
+	</c:if>
+	<c:if test="${param.mem_rank == '2'}">
+		<div class="row">
+        	<div class="col-sm-12">
+				<div class="tabbable">
+					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
+	</c:if>
+</c:if>
+<c:if test="${empty param.mem_rank}">
+	<c:if test="${user.mem_rank == '0'}">
+		<style>
+		.nav-tabs.tab-color-blue>li>a, .nav-tabs.tab-color-blue>li>a:focus {
+			background-color:#8FBC8F;
+		}
+		</style>
+		<div class="row">
+        	<div class="col-sm-12">
+				<div class="tabbable">
+					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4" style="background-color:#E0EEE0;">
+	</c:if>
+	<c:if test="${user.mem_rank == '1'}">
+		<style>
+		.nav-tabs.tab-color-blue>li>a, .nav-tabs.tab-color-blue>li>a:focus {
+			background-color:#EE9A00;
+		}
+		</style>
+		<div class="row">
+        	<div class="col-sm-12">
+				<div class="tabbable">
+					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4" style="background-color:#FFDDAA;">
+	</c:if>
+	<c:if test="${user.mem_rank == '2'}">
+		<div class="row">
+        	<div class="col-sm-12">
+				<div class="tabbable">
+					<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
+	</c:if>
+</c:if>
+
+
+        <!-- 身分為健身者時的 Content -->
 						<li>
 						<c:if test='${empty param.mem_rank}'>
 							<a data-toggle="tab" href="#" onclick='goTo("<%= request.getContextPath()%>/front_end/editPage/personal.jsp?action=basic");'>基本資料</a>

@@ -207,7 +207,7 @@
 						}						
 					},
 					error : function(xhr, ajaxOptions, thrownError) {						
-						swal("失敗", "404或500", "error");
+						swal("失敗", "網路錯誤", "error");
 					}
 				});
 		});
