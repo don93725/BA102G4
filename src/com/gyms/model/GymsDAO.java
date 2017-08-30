@@ -351,23 +351,7 @@ public class GymsDAO implements GymsDAO_interface{
 			if(obj[8]!=null){
 				gym.setGym_into(String.valueOf(obj[8]));
 			}
-			if(obj[9]!=null){
-				Blob blob = (Blob)obj[9];
-				InputStream in;
-				try {
-					in = blob.getBinaryStream();
-					byte[] b = new byte[in.available()];
-					in.read(b);
-					gym.setGym_pic(b);
-					in.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			
 			temp.add(gym);
 		}
 		return temp;
