@@ -61,6 +61,14 @@ public class Course_listService {
 		    this.dao.pay(ct_no,stu_acc);
 	  }
 	  
+	  public boolean payAdCourse_list(String ct_no,String stu_acc){
+		    this.dao.pay(ct_no,stu_acc);
+			
+		    return true;
+	  }
+	  
+	  
+	  
 	  public boolean signable(String ct_no,String stu_acc){
 		  return this.dao.findSignUp(ct_no,stu_acc);
 	  }
@@ -124,7 +132,7 @@ public class Course_listService {
 			  }
 		 
 		  public List<Course_listVO> getCoachReserve_List(String coa_acc){
-			    return this.dao.getReserve(coa_acc);
+			    return this.dao.getCoachReserve(coa_acc);
 			  }
 
 
