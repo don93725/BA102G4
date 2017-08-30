@@ -19,7 +19,7 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" style="min-height:100%;">
         
         <!-- Page Heading/Breadcrumbs -->
         <div class="breadcrumbs" id="breadcrumbs">

@@ -2,7 +2,7 @@
     pageEncoding="BIG5"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="zh-cn-en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=BIG5">
 <title>健貨 - GymHome</title>
@@ -15,7 +15,7 @@
  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 <%@include file="/front_end/include/front_navbar.file" %>
   </nav>
-  	<div class="container">
+  	<div class="container" style="min-height:100%;">
 			   <div class="breadcrumbs" id="breadcrumbs">
             
 	            <div class="col-lg-12">

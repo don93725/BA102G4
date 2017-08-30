@@ -8,16 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>課程上架</h1>
-	<form action="<%=request.getContextPath()%>/CCM/CourseManager.do"
-		type="post">
-		<h3>課程名稱: ${crs_name}</h3>
-
-		<h3>
-			課程內容簡述:<br> <br> ${details}
-		</h3>
-		<br>
-		<h3>課程圖片預覽:</h3><br>
+	<center><h1>課程上架</h1></center>
+	<form action="<%=request.getContextPath()%>/CCM/CourseManager.do" type="post">
+		<span>
+			<h4 style="color:#8B5A00;"><b>課程名稱　　　</b><input type="text" value="${crs_name}" disabled style="width:85%;"></h4>
+		</span>
+		<span>
+			<h4 style="color:#8B5A00;"><b>課程內容簡述　</b><input type="text" value="${details}" disabled style="width:85%;"></h4>
+		</span>
+		<span>
+			<h4 style="color:#8B5A00;"><b>課程圖片預覽</b>
 			<c:forEach var="course_pictureVO" items="${cpicList}">
 				<img src="${course_pictureVO.crs_base}" width="170" height="170" style="margin: 1em;"> 
 			</c:forEach>
@@ -45,14 +45,169 @@
 				</c:forEach>
 		    </select>
 		</span><br><br>
+			</c:forEach></h4>
+		</span>
+		<span><center>
+			<input type="button" class="btn btn-info" name="send" id="add" value="新增日期">
+			<input type="button" name="send" class="btn btn-danger" id="delete" value="刪除日期">
+		</center></span>
+		<span>
+			<h4>報名截止日期　<input type="text" name="deadline" class="deadline" id="start" required="required" style="width:85%;"></h4>
+		</span>
+		<span>
+			<h4>開課日期　　　<input type="text" name="date" class="date" id="end" required="required" style="width:85%;"></h4>
+		</span>
+		<span>
+			<h4>
+			時段　　　　　
+			<select name="time0" class="time0" id="" style="width:85%;">
+                <option value="1">08:00-09:30</option>
+                <option value="2">10:00-11:30</option>
+                <option value="3">13:00-14:30</option>
+                <option value="4">15:00-16:30</option>
+                <option value="5">18:00-19:30</option>     
+                <option value="6">20:00-21:30</option>            
+            </select>
+            </h4>
+        </span>
+        <span>
+			<h4>
+			開課人數　　　<input type="text" name="class_num" pattern="^([1-9][0-9]){1,2}$" title="只能輸入1-99" minlength="1" maxlength="2" required="required" style="width:85%;">
+			</h4>
+		</span>
+		<span>
+			<h4>
+			人數上限　　　<input type="text" name="limit" pattern="^([1-9][0-9]){1,2}$" title="只能輸入1-99" minlength="1" maxlength="2" required="required" style="width:85%;">
+			</h4>
+		</span>
+		<span>
+			<h4>
+			價錢　　　　　<input type="text" name="price" pattern="^([1-9][0-9]){1,6}$" minlength="1" maxlength="6" required="required" style="width:85%;">
+			</h4>
+		</span>
+		<span>
+			<span id="place">
+			<h4>場地　　　　　
+				<select name="p_no" style="width:85%;">
+					<option value="null" style="width:85%;">無
+					<c:forEach var="place_timeVO" items="${ptList}">
+					<option value="${place_timeVO.p_no}" style="width:100%;">${place_timeVO.placeVO.p_name}
+					</c:forEach>
+		    	</select></h4>
+			</span>
+		</span><br>
+			</c:forEach></h4>
+		</span>
+		<span><center>
+			<input type="button" class="btn btn-info" name="send" id="add" value="新增日期">
+			<input type="button" name="send" class="btn btn-danger" id="delete" value="刪除日期">
+		</center></span>
+		<span>
+			<h4>報名截止日期　<input type="text" name="deadline" class="deadline" id="start" required="required" style="width:85%;"></h4>
+		</span>
+		<span>
+			<h4>開課日期　　　<input type="text" name="date" class="date" id="end" required="required" style="width:85%;"></h4>
+		</span>
+		<span>
+			<h4>
+			時段　　　　　
+			<select name="time0" class="time0" id="" style="width:85%;">
+                <option value="1">08:00-09:30</option>
+                <option value="2">10:00-11:30</option>
+                <option value="3">13:00-14:30</option>
+                <option value="4">15:00-16:30</option>
+                <option value="5">18:00-19:30</option>     
+                <option value="6">20:00-21:30</option>            
+            </select>
+            </h4>
+        </span>
+        <span>
+			<h4>
+			開課人數　　　<input type="text" name="class_num" pattern="^([1-9][0-9]){1,2}$" title="只能輸入1-99" minlength="1" maxlength="2" required="required" style="width:85%;">
+			</h4>
+		</span>
+		<span>
+			<h4>
+			人數上限　　　<input type="text" name="limit" pattern="^([1-9][0-9]){1,2}$" title="只能輸入1-99" minlength="1" maxlength="2" required="required" style="width:85%;">
+			</h4>
+		</span>
+		<span>
+			<h4>
+			價錢　　　　　<input type="text" name="price" pattern="^([1-9][0-9]){1,6}$" minlength="1" maxlength="6" required="required" style="width:85%;">
+			</h4>
+		</span>
+		<span>
+			<span id="place">
+			<h4>場地　　　　　
+				<select name="p_no" style="width:85%;">
+					<option value="null" style="width:85%;">無
+					<c:forEach var="place_timeVO" items="${ptList}">
+					<option value="${place_timeVO.p_no}" style="width:100%;">${place_timeVO.placeVO.p_name}
+					</c:forEach>
+		    	</select></h4>
+			</span>
+		</span><br>
+			</c:forEach></h4>
+		</span>
+		<span><center>
+			<input type="button" class="btn btn-info" name="send" id="add" value="新增日期">
+			<input type="button" name="send" class="btn btn-danger" id="delete" value="刪除日期">
+		</center></span>
+		<span>
+			<h4>報名截止日期　<input type="text" name="deadline" class="deadline" id="start" required="required" style="width:85%;"></h4>
+		</span>
+		<span>
+			<h4>開課日期　　　<input type="text" name="date" class="date" id="end" required="required" style="width:85%;"></h4>
+		</span>
+		<span>
+			<h4>
+			時段　　　　　
+			<select name="time0" class="time0" id="" style="width:85%;">
+                <option value="1">08:00-09:30</option>
+                <option value="2">10:00-11:30</option>
+                <option value="3">13:00-14:30</option>
+                <option value="4">15:00-16:30</option>
+                <option value="5">18:00-19:30</option>     
+                <option value="6">20:00-21:30</option>            
+            </select>
+            </h4>
+        </span>
+        <span>
+			<h4>
+			開課人數　　　<input type="text" name="class_num" pattern="^([1-9][0-9]){1,2}$" title="只能輸入1-99" minlength="1" maxlength="2" required="required" style="width:85%;">
+			</h4>
+		</span>
+		<span>
+			<h4>
+			人數上限　　　<input type="text" name="limit" pattern="^([1-9][0-9]){1,2}$" title="只能輸入1-99" minlength="1" maxlength="2" required="required" style="width:85%;">
+			</h4>
+		</span>
+		<span>
+			<h4>
+			價錢　　　　　<input type="text" name="price" pattern="^([1-9][0-9]){1,6}$" minlength="1" maxlength="6" required="required" style="width:85%;">
+			</h4>
+		</span>
+		<span>
+			<span id="place">
+			<h4>場地　　　　　
+				<select name="p_no" style="width:85%;">
+					<option value="null" style="width:85%;">無
+					<c:forEach var="place_timeVO" items="${ptList}">
+					<option value="${place_timeVO.p_no}" style="width:100%;">${place_timeVO.placeVO.p_name}
+					</c:forEach>
+		    	</select></h4>
+			</span>
+		</span><br>
 		<div id="addtime"></div>
-		 <br>
-		<input type="submit" class="btn btn-primary" name="send" value="送出"> <input type="reset" class="btn btn-warning" name="reset" value="重新填寫">
-		<input type="hidden" name="action" value="course_timeInsert"> 
+		<center>
+			<input type="submit" class="btn btn-primary" name="send" value="送出"> <input type="reset" class="btn btn-warning" name="reset" value="重新填寫">
+			<input type="hidden" name="action" value="course_timeInsert"> 
+		</center>
 		<input type="hidden" name="count" id="count" value="0">
 		<input type="hidden" name="crs_no" value="${crs_no}">
 		<input type="hidden" name="category" value="${category}">
 		<input type="hidden" name="action" value="course_timeInsert">
+		
 	</form>
 </body>
 </html>

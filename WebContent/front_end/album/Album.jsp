@@ -31,12 +31,12 @@
   </nav>
 
 	<body>		
-		<div class="container">
+		<div class="container" style="min-height:100%;">
 				   <div class="breadcrumbs" id="breadcrumbs" style="line-height:0px;">
 	            
 			            <div class="col-lg-12">
-			                <h1>${user.mem_nickname }的相簿
-			                	<small>${user.mem_nickname }'s Album</small>
+			                <h1>相簿
+			                	<small>Album</small>
 			                </h1>
 			            </div>
 			
