@@ -51,7 +51,7 @@
 		<div class="breadcrumbs" id="breadcrumbs">
 			<div class="col-lg-12">
 				<h1>
-					場地詳情 <small>場地詳情</small>
+					場地詳情 <small>PlaceInfo</small>
 				</h1>
 			</div>
 
@@ -102,21 +102,21 @@
 			<div class="col-xs-12 col-lg-4" style="height:300px;font-size:18px;background-color:white;">
 				<div class="item">
 					<div>
-						<p style="color:red;">訂金：&nbsp$${placeVO.place_publishVO.pbu_price}</p>
+						<p style="color:red;"><b>訂金：</b>&nbsp$${placeVO.place_publishVO.pbu_price}</p>
 					</div>
 					<div>
-						<p style="color:red;">尾款：&nbsp$${placeVO.place_publishVO.pau_price}</p>
+						<p style="color:red;"><b>尾款：</b>&nbsp$${placeVO.place_publishVO.pau_price}</p>
 					</div>
 					<div>
-						<p>場館名稱：&nbsp${placeVO.p_name}</p>
+						<p><b>場館名稱：</b>&nbsp${placeVO.p_name}</p>
 					</div>
 					<div>
-						<p>場館介紹：&nbsp${placeVO.p_into}</p>
+						<p><b>場館介紹：</b>&nbsp${placeVO.p_into}</p>
 					</div>
 					<div>
-						<p>場館地址：&nbsp${placeVO.p_add}
+						<p><b>場館地址：</b>&nbsp${placeVO.p_add}
 						<input type="hidden" value="${placeVO.p_latlng}" id="map_latlng">
-						<div class="map" style="height: 250px;width: 350px;margin: 0px;padding: 0px;">									
+						<div class="map" style="height: 200px;width: 350px;margin: 0px;padding: 0px;">									
 							<div id="map" style="height: 100%;width:100%;"></div>
 						</div>
 					</div>
