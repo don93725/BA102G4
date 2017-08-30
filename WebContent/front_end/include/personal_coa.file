@@ -40,7 +40,7 @@
 					</ul>
 					
 					
-					<div class="tab-content">
+					<div class="tab-content" style="background-color:white;">
 						<!-- 對應a #home1 -->
 						<div id="home1" class="tab-pane  in active">
 							<div id="user-profile-1" class="user-profile row">
@@ -48,6 +48,13 @@
 									<div>
 										<span style="border:none">
 											<center>
+											
+												<a class='inline' href="#inline_content">
+													<button class="btn btn-white">
+														<i class="icon-plus"></i>更換大頭貼
+													</button>
+												</a>
+												
 												<img id="avatar" class="editable img-responsive" src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=${user.mem_rank}&mem_no=${coach.coa_no}" align="absmiddle" style="margin-top:4px;border-radius:100px;box-shadow:0px 0px 12px #7E7E7E;"/>
 											</center>
 										</span>
@@ -62,7 +69,7 @@
 													</a>
 												</div>
 											</div>
-										</div>
+									</div>
 
 										<div class="space-6"></div>
 
@@ -161,14 +168,10 @@
 											</div>
 										</div>
 									</div>
-								</div>	
+								</div>
+							</div>
 						</div>
-						<!-- a $home1結束 -->
-					</div><!-- tab-cotent結束 -->
-					
-				</div>
-			</div><!-- /span -->
-		</div><!-- /row -->
+
 <script>
 function goTo(path){location.href = path;}
 </script>

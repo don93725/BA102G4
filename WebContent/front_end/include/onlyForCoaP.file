@@ -64,7 +64,7 @@
 					</ul>
 					
 					
-					<div class="tab-content">
+					<div class="tab-content"  style="background-color:white;">
 						<!-- 對應a #home1 -->
 						<div id="home1" class="tab-pane  in active">
 							<div id="user-profile-1" class="user-profile row">

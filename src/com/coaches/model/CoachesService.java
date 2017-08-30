@@ -89,5 +89,8 @@ public class CoachesService {
 	public List<CoachesVO> getRankList(){
 		return ((CoachesDAO)dao).getRankList();
 	}
+	public void update_forPic(String coa_no, byte[] coa_pic_byte) {
+		dao.update_forPic(coa_no, coa_pic_byte);
+	}
 }
 

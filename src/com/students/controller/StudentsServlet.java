@@ -416,7 +416,7 @@ public class StudentsServlet extends HttpServlet {
 				String cropped_pic = req.getParameter("cropped_pic");
 				//base64轉byte[]
 				Base64.Decoder decoder = Base64.getDecoder();
-				byte[] coa_pic_byte = null;
+				byte[] stu_pic_byte = null;
 						
 				if(cropped_pic == null || "".equals(cropped_pic)) {
 					errorMsgs.put("stu_pic", "請鎖定圖片");
@@ -431,9 +431,9 @@ public class StudentsServlet extends HttpServlet {
 					return;
 				}
 				
-				coa_pic_byte = decoder.decode(cropped_pic.split(",")[1]);
+				stu_pic_byte = decoder.decode(cropped_pic.split(",")[1]);
 				//圖片大小(kb...)
-				int pic_length = coa_pic_byte.length;
+				int pic_length = stu_pic_byte.length;
 				String pic_type = cropped_pic.substring(5, 10);
 				if(pic_length > (5*1024*1024)) {
 					errorMsgs.put("stu_pic", "檔案過大");
@@ -442,7 +442,7 @@ public class StudentsServlet extends HttpServlet {
 				}
 				//2.開始修改資料
 				StudentsService studentsSV = new StudentsService();
-				studentsSV.update_forPic(stu_no, coa_pic_byte);
+				studentsSV.update_forPic(stu_no, stu_pic_byte);
 				System.out.println("update your big head is complete");
 				return;
 						

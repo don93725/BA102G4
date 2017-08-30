@@ -45,7 +45,7 @@
 				</c:forEach>
 		    </select>
 		</span><br><br>
-			</c:forEach></h4>
+
 		</span>
 		<span><center>
 			<input type="button" class="btn btn-info" name="send" id="add" value="新增日期">
@@ -96,7 +96,7 @@
 		    	</select></h4>
 			</span>
 		</span><br>
-			</c:forEach></h4>
+
 		</span>
 		<span><center>
 			<input type="button" class="btn btn-info" name="send" id="add" value="新增日期">
@@ -147,7 +147,7 @@
 		    	</select></h4>
 			</span>
 		</span><br>
-			</c:forEach></h4>
+
 		</span>
 		<span><center>
 			<input type="button" class="btn btn-info" name="send" id="add" value="新增日期">

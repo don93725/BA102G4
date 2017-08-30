@@ -22,6 +22,7 @@ import com.coaches.model.CoachesVO;
 import com.google.gson.Gson;
 import com.members.model.MembersService;
 import com.members.model.MembersVO;
+import com.students.model.StudentsService;
 import com.tools.Tools;
 
 @WebServlet("/CoachesServlet")
@@ -399,6 +400,58 @@ public class CoachesServlet extends HttpServlet {
 					return;
 				}
 			}						
+			if ("update_forPic".equals(action)) {
+				Map<String,String> errorMsgs = new LinkedHashMap<String,String>();
+				req.setAttribute("errorMsgs", errorMsgs);
+				try {
+					//1.接收請求參數 - 輸入格式的錯誤處理
+					String coa_no = req.getParameter("coa_no");
+					//驗證大頭貼
+					String cropped_pic = req.getParameter("cropped_pic");
+					//base64轉byte[]
+					Base64.Decoder decoder = Base64.getDecoder();
+					byte[] coa_pic_byte = null;
+							
+					if(cropped_pic == null || "".equals(cropped_pic)) {
+						errorMsgs.put("coa_pic", "請鎖定圖片");
+					}
+			
+					// 資料有誤就返回form表單
+					if(!errorMsgs.isEmpty()) {
+						System.out.println("I got the errorMsgs");
+						System.out.println("errors= " + errorMsgs);
+						Gson gSon = new Gson();
+						out.print(gSon.toJson(errorMsgs));
+						return;
+					}
+					
+					coa_pic_byte = decoder.decode(cropped_pic.split(",")[1]);
+					//圖片大小(kb...)
+					int pic_length = coa_pic_byte.length;
+					String pic_type = cropped_pic.substring(5, 10);
+					if(pic_length > (5*1024*1024)) {
+						errorMsgs.put("coa_pic", "檔案過大");
+					} else if(!("image".equals(pic_type))) {
+						errorMsgs.put("coa_pic", "僅允許圖片格式");
+					}
+					//2.開始修改資料
+					CoachesService coachesSV = new CoachesService();
+					coachesSV.update_forPic(coa_no, coa_pic_byte);
+					System.out.println("update your big head is complete");
+					return;
+							
+				//其他可能的錯誤處理
+				} catch(Exception e) {
+					out.print("\"例外\" : \"有例外\"");
+					e.printStackTrace();
+					errorMsgs.put("Exception",e.getMessage());
+					System.out.println(errorMsgs.get("Exception"));
+					String url = "/front_end/editPage/personal.jsp";
+					RequestDispatcher failureView = req.getRequestDispatcher(url);
+					failureView.forward(req, res);
+					return;
+				}
+			}
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
