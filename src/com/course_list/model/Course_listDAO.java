@@ -1230,14 +1230,10 @@ public class Course_listDAO implements Course_listDAO_interface{
 			
 		
 			
-			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO JOIN COACHES COA ON CRS.C_ACC = COA.COA_ACC left join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no JOIN GYMS G ON  P.G_ACC = G.GYM_ACC WHERE COA.COA_ACC ="
-			           +"'"+coa_acc+"'"
-			           +""+"CRS.STATUS=1"
-			           +""+"CT.STATUS=1"
-			           +""+"STU_PAY_STA=0"
-			           ;
+			String finalSQL = "SELECT * FROM COURSE_LIST CL JOIN COURSE_TIME  CT  ON CL.CT_NO = CT.CT_NO LEFT OUTER JOIN PLACE P  ON CT.P_NO = P.P_NO  left join course_picture cp ON CT.crs_no = cp.crs_no JOIN COURSE CRS ON CT.CRS_NO = crs.crs_no JOIN GYMS G ON  P.G_ACC = G.GYM_ACC JOIN COACHES COA ON CRS.C_ACC = COA.COA_ACC WHERE CRS.STATUS=1 AND CT.STATUS=1  AND  COA.COA_ACC ="
+			           +"'"+coa_acc+"'";
+			           
 			      
-			          
 				
 			System.out.println(finalSQL);
 			

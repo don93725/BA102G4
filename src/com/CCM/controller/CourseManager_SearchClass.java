@@ -335,7 +335,7 @@ public class CourseManager_SearchClass extends HttpServlet{
 		
 			}
 	
-		
+			
 			
 		
 		

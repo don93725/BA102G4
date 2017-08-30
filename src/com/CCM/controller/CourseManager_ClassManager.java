@@ -336,7 +336,44 @@ private final static String CONTENT_TYPE = "text/html; charset=UTF-8";
 		}
 		
 		
-		
+		if (action.equals("pay")) {
+			
+			
+			
+			
+			
+			String ct_no = jsonObject.get("ct_no").getAsString();
+			String stu_acc = jsonObject.get("stu_acc").getAsString();
+			
+			
+			
+			System.out.println(""+ct_no+""+stu_acc);
+			
+			Map<String,String>msgs = new LinkedHashMap<String,String>()	;											
+						
+			boolean msg ;
+			
+			msg = course_listSvc.payAdCourse_list(ct_no, stu_acc);;
+			
+			if(msg == true){
+				
+				msgs.put("true","true");
+				
+				
+				writeText(rp, gson.toJson(msgs));
+				
+				System.out.println(msgs);
+			}else{
+				
+				
+				System.out.println("false");
+			}
+			
+			
+			
+			
+			
+		}	
 		
 		
 		
