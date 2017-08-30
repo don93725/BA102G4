@@ -58,57 +58,58 @@
     <!-- Page Content -->
     <div class="container">
 		<div class="row" style="position:relative;top:2em;">
-			<div class="col-xs-12 col-sm-4" style="position:relative;top:1em;">
+			<div class="col-xs-12 col-sm-6" style="position:relative;top:1em;">
 				<div class="item">
-					<img src="${course_timeVO.courseVO.picList.get(0).getCrs_base()}" id="large" style="border:2px #ccc solid;border-radius:10px;" width="350" height="350">	
-					<c:forEach var="couurse_pictureVO" items="${course_timeVO.courseVO.picList}"><img src="${couurse_pictureVO.crs_base }" class="small" width="70" height="70" style="border:2px #ccc solid;border-radius:10px;margin-top:1em;"></c:forEach>			
+					<img src="${course_timeVO.courseVO.picList.get(0).getCrs_base()}" id="large" width="550">	
+					<c:forEach var="couurse_pictureVO" items="${course_timeVO.courseVO.picList}"><img src="${couurse_pictureVO.crs_base }" class="small" width="20%" style="margin-top:1em;"></c:forEach>			
 				</div>
 			</div>			
-			<div class="col-xs-12 col-sm-8" style="background-color:white;border:2px #ccc solid;border-radius:10px;">
+			<div class="col-xs-12 col-sm-6" style="background-color:white;border:1px #ccc solid;position:relative;top:1em;">
 				<div class="col-xs-12 col-sm-12">
 					<div class="item">
-						<h3>課程名稱:</h3>
-						<p><font size="5px" style="font-weight:bold;position:relative;left:4em;">${course_timeVO.courseVO.crs_name}</font></p>
+						<h3><b>課程名稱:</b></h3>
+						<p><font size="5px" style="position:relative;left:1em;">${course_timeVO.courseVO.crs_name}</font></p>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-12">
 					<div class="item">
-						<h3>指導教練:</h3>
-						<p><font size="5px" style="font-weight:bold;position:relative;left:4em;">${course_timeVO.coachesVO.coa_name}</font></p>
+						<h3><b>指導教練:</b></h3>
+						<p><font size="5px" style="position:relative;left:1em;">${course_timeVO.coachesVO.coa_name}</font></p>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-12">
 					<div class="item">
-						<h3>所在場館:</h3>
-						<p><font size="5px" style="font-weight:bold;position:relative;left:4em;">${course_timeVO.placeVO.p_name}</font></p>
+						<h3><b>所在場館:</b></h3>
+						<p><font size="5px" style="position:relative;left:1em;">${course_timeVO.placeVO.p_name}</font></p>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-12">
 					<div class="item" style="height:10px;"></div>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-8" style="background-color:white;border:2px #ccc solid;border-radius:10px;margin-top:1em;">
+			<div class="col-xs-12 col-sm-6"></div>
+			<div class="col-xs-12 col-sm-6" style="background-color:white;border:1px #ccc solid;margin-top:1em;position:relative;top:1em;">
 				<div class="col-xs-12 col-sm-12">
 					<div class="item">
-						<h3>課程詳情:</h3>
-						&emsp;&emsp;&emsp;&emsp;<font size="3px" style="font-weight:bold;">${course_timeVO.courseVO.details}</font></p><br>
+						<p><h3><b>課程詳情:</b></h3>
+						<font style="font-size:20px;position:relative;left:1em;">${course_timeVO.courseVO.details}</font></p>
 					</div>
 				</div>
+				
 				<div class="col-xs-12 col-sm-12">
 					<div class="item">
-						<font style="font-size:22px;">截止日期:</font>
-						&emsp;<font style="font-size:16px;font-weight:bold;">${course_timeVO.deadline}</font>
-						&emsp;&emsp;&emsp;<font style="font-size:22px;">上課日期:</font>
-						&emsp;<font style="font-size:16px;font-weight:bold;">${course_timeVO.crs_date} ${course_timeVO.crs_timeShow}</font>
-						<br><br><font style="font-size:22px;">價錢:</font>
-						&emsp;<font color="#D60000" style="font-size:30px;font-weight:bold;">$${course_timeVO.price}</font><br>
+						<h3><b>截止日期:</b></h3></font>
+						<font style="font-size:20px;position:relative;left:1em;">${course_timeVO.deadline}</font><br>
+						<h3><b>上課日期:</b></h3></font>
+						<font style="font-size:20px;position:relative;left:1em;">${course_timeVO.crs_date} ${course_timeVO.crs_timeShow}</font>
+						<br><br><font style="font-size:22px;"><b>價錢:</b></font>
+						<font color="#D60000" style="font-size:30px;left:1em;">$${course_timeVO.price}</font><br>
 						<span style="visibility:hidden;"> 66</span>
 					</div>
 				</div>
 			</div>
 		</div><!-- row end -->
-		<p></p>
-		<div class="row">	
+		<div class="row" style="margin-top:1em;">	
 				
 			<center>
 			<div class="col-xs-12 col-sm-12" style="background-color:white;margin-top:3em;border:2px #ccc solid;border-radius:6px;padding: 0px;">
@@ -183,8 +184,7 @@
 			</center>	
 					
 		</div><!-- row end -->
-		<p></p>
-		<div class="row" style="margin-top:3em;">
+		<div class="row" style="margin-top:1em;">
 			<div class="col-sm-12" style="padding-left:0px;padding-right:0px;">
 				
 					<ul class="nav nav-tabs" id="myTab">
@@ -277,10 +277,10 @@
 							</div>
 						</c:if>
 						<c:if test="${course_timeVO.placeVO.p_no == null }">
-							<div id="placedetail" class="tab-pane">
+							<div id="placedetail" class="tab-pane"><center>
 								<font style="font-size:40px;" >教練並沒有選擇場地,嗚嗚嗚嗚</font><br>
 								<img src="<%= request.getContextPath()%>/front_end/CourseDetails/images/don.jpg" width="900" height="600">
-							</div>
+							</center></div>
 						</c:if>
 					</div>
 				

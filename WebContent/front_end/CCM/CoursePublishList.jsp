@@ -27,6 +27,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<div id="dropdown1" class="tab-pane in active">
 		<div class="row">
 			<div class="col-xs-12 col-sm-12">
@@ -67,15 +68,15 @@
 									<td class="center" style="vertical-align:middle;" align="center;"><span class="changePrice<%=countp%>">${course_timeVO.price}</span></td>
 									<td class="center" style="vertical-align:middle;" align="center;"><span class="changeP_name<%=countp%>">${course_timeVO.placeVO.p_name}</span></td>
 									<!-- 故意擺兩個 -->
-									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><a class="accordion-toggle" data-toggle="collapse"
+									<td class="center" style="vertical-align:middle;" align="center;"><a class="accordion-toggle" data-toggle="collapse"
 										data-parent="#accordion" href="#collapse<%=countp%>">${course_timeVO.count}/${course_timeVO.limit}</a></td>
-									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;"><input type="button" class="btn btn-primary"
+									<td class="center" style="vertical-align:middle;" align="center;"><input type="button" class="btn btn-primary"
 										id="update<%=countp%>" onclick="changeDisabled(3,<%=countp%>)"
 										value="我要修改">
 										<button class="btn btn-warning" id="updateCommit<%=countp%>"
 											onclick="changeDisabled(4,<%=countp%>)"
 											style="display: none;">確認修改</button></td>
-									<td class="center" style="vertical-align:middle;background-color:#FFDDAA;" align="center;">
+									<td class="center" style="vertical-align:middle;" align="center;">
 									<input type="submit" class="btn btn-warning" onclick="deleteCrstime(<%=countp%>)" value="下架">
 									<FORM METHOD="post"
 											ACTION="<%=request.getContextPath()%>/CCM/CourseManager.do" style="display: none;">
@@ -97,5 +98,6 @@
 			</div>
 			<!-- /row -->
 		</div>
+	</div>
 </body>
 </html>

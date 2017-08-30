@@ -135,6 +135,9 @@
 						</c:choose>
 				</c:forEach>
 			</span>
+		</div>
+		</div>
+		
 </body>
 </html>
 

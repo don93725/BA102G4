@@ -175,7 +175,7 @@
 
 
 	<!-- Page Content -->
-	<div class="container" style="min-height:100%;">
+	<div class="container" style="min-height: 100%;">
 
 		<!-- Page Heading/Breadcrumbs -->
 		<div class="breadcrumbs" id="breadcrumbs">
@@ -269,11 +269,11 @@
 
 
 
- 	<!-- Footer -->
-	<%@include file="/front_end/include/footer.file" %>
+
 	
 </body>
-
+ 	<!-- Footer -->
+	<%@include file="/front_end/include/footer.file" %>
 	<%@include file="/front_end/include/basicScript2.file" %>
 
 

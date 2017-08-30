@@ -73,10 +73,14 @@
             		</div>
             	</div>
             	<div class="col-md-12">
-            	<h4>電話： ${plain.cp_no}</h4><p></p>
-            	<h4>地址： ${plain.com_address}</h4><p></p><p></p>
-            	<h4>信箱： ${plain.cs_email}</h4><p></p><p></p>
-            	<h4>介紹： ${plain.pr_policy}</h4><p></p><p></p>
+            	<h4><p>電話：</p>
+            		${plain.cp_no}</h4><p></p>
+            	<h4><p>地址：</p>
+            		${plain.com_address}</h4><p></p><p></p>
+            	<h4></p>信箱：</p>
+            		${plain.cs_email}</h4><p></p><p></p>
+            	<h4></p>介紹：</p>
+            		${plain.pr_policy}</h4><p></p><p></p>
             	</div>
             	</div>
             </div>

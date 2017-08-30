@@ -94,5 +94,6 @@
 			</div>
 			<!-- /row -->
 		</div>
+	</div>
 </body>
 </html>
