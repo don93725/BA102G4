@@ -169,7 +169,7 @@
 		            </ul><!-- .breadcrumb -->
 		        </div></br>
 		        <%@include file="/front_end/include/fakeTab.file" %>
-				<div class="col-xs-12 col-sm-3">
+				<div class="col-xs-4 col-sm-3">
 					<div class="row">
 						<div class="panel panel-default">
 						
@@ -229,7 +229,7 @@
 							</div>
 						</div>
 					</div>
-				<div class="col-xs-12 col-sm-9">
+				<div class="col-xs-8 col-sm-9">
 					<div class="row">
 						<div class="panel panel-default">
 					  <!-- Default panel contents -->
