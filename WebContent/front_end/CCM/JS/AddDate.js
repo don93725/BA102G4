@@ -33,7 +33,7 @@ function addDatepicker(c){
 	var start = '#start' + c;
 	$(end).datepicker();
 	  $(start).datepicker({
-	    minDate: +3,
+	    minDate: 0,
 	    onSelect: function (dat, inst) {
 	      $(end).datepicker('option', 'minDate', dat);
 	    }

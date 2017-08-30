@@ -281,7 +281,7 @@
 						<div class="panel panel-default opcityDiv" id='showBorder'
 					ondrop="javascript: drop_image(event);">
 					<div class="panel-heading">
-						<h3 class="panel-title">新增動態</h3>
+						<h3 class="panel-title">新增動態<button onclick='append();'></button></h3>
 					</div>
 					<div class="panel-body">
 					 		<div class='progressCr' >
@@ -377,7 +377,7 @@
 									</div>
 									<div class="col-xs-12 col-sm-9">
 										<div class="col-xs-12 col-sm-12 cmtInfo">
-											<a href="#">${message_board.mem_no.mem_nickname }</a>
+											<a href="${pageContext.request.contextPath }/forum/PersonalPageCtrl?mem_no=${message_board.mem_no.mem_no }&mem_rank=${message_board.mem_no.mem_rank }&action=lookPersonal">${message_board.mem_no.mem_nickname }</a>
 										</div>
 										<div class="col-xs-12 col-sm-12 cmtInfo cmtTime">
 											<fmt:setLocale value="en_US" />
@@ -625,7 +625,7 @@
 						<!-- 相片分享end -->		
 						<div class="panel-body updatTime">
 						<div class="col-xs-12 col-sm-4">
-						<span id='likes${message_board.bd_msg_no}'>${message_board.bd_likes}</span>&nbsp個讚
+						<span id='likes${message_board.bd_msg_no}'> <fmt:formatNumber type="number"  value='${message_board.bd_likes}'/></span>&nbsp個讚
 						</div>
 							<div class="col-xs-12 col-sm-4 col-sm-offset-4">
 								<fmt:setLocale value="en_US" />
@@ -835,6 +835,9 @@
 		src="${pageContext.request.contextPath}/front_end/album/js/jquery.fancybox.js"></script>
 	<script src='${pageContext.request.contextPath}/front_end/comm/js/sweetalert.min.js'></script>
 	<script type="text/javascript">
+	function append(){
+		$('#bd_msg_ctx').val('這是我最新健身成果的一點小分享，請各位先進參閱。');
+	}
 	function addOpen(event){
 		event.preventDefault();
 		if($(this).parent().hasClass('open')){

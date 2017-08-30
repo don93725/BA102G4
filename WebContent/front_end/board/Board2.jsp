@@ -20,7 +20,7 @@
 									</div>
 									<div class="col-xs-12 col-sm-9">
 										<div class="col-xs-12 col-sm-12 cmtInfo">
-											<a href="#">${message_board.mem_no.mem_nickname }</a>
+											<a href="${pageContext.request.contextPath }/forum/PersonalPageCtrl?mem_no=${message_board.mem_no.mem_no }&mem_rank=${message_board.mem_no.mem_rank }&action=lookPersonal">${message_board.mem_no.mem_nickname }</a>
 										</div>
 										<div class="col-xs-12 col-sm-12 cmtInfo cmtTime">
 											<fmt:setLocale value="en_US" />
@@ -268,7 +268,7 @@
 						<!-- 相片分享end -->		
 						<div class="panel-body updatTime">
 						<div class="col-xs-12 col-sm-4">
-						<span id='likes${message_board.bd_msg_no}'>${message_board.bd_likes}</span>&nbsp個讚
+						<span id='likes${message_board.bd_msg_no}'><fmt:formatNumber type="number"  value='${message_board.bd_likes}'/></span>&nbsp個讚
 						</div>
 							<div class="col-xs-12 col-sm-4 col-sm-offset-4">
 								<fmt:setLocale value="en_US" />

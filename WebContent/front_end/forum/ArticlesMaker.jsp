@@ -38,7 +38,7 @@
 <form action="${pageContext.request.contextPath}/forum/ArticlesActionCtrl" method='post' id='articleForm'>
  <table class="table" style="text-align:center;">
 <thead>
-	<caption><center><h1>發表文章</h1></center></caption>	
+	<caption><center><h1>發表文章<input type='button' onclick='append();'></h1></center></caption>	
 </thead>
 <tbody>
 <tr>
@@ -110,6 +110,11 @@
 <script charset="utf-8" src="${pageContext.request.contextPath}/front_end/forum/js/kindeditor/lang/zh-TW.js"></script>
 <script type="Text/JavaScript" src="${pageContext.request.contextPath}/front_end/forum/js/ArticlesMaker.js"></script>
 <script type="text/javascript">
+function append(){
+	$('#art_name').val("育誠的半年成果發表");
+	editor.html('經過半年的努力<br>我也成功的變成了一個猛男了<br>我覺得依我現在的才情<br>沒有女生可以拒絕我的<br>想不想試試看阿 電腦前的女孩。');
+	
+}
 function back(event,path,forum_no){
 	event.preventDefault();
 	location.href= path+"/forum/ForumShowCtrl?forum_no="+forum_no;

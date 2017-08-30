@@ -3,14 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<<html lang="zh-cn-en">>
+<html lang="zh-cn-en">
 <head>
 <title>Insert title here</title>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 </head>
 <body>
 	<h1>課程上架</h1>
@@ -39,9 +34,9 @@
                                 <option value="5">18:00-19:30</option>     
                                 <option value="6">20:00-21:30</option>            
                             </select><br> 
-		開課人數:<input type="text" name="class_num" pattern="^([1-9][0-9]){1,2}$" title="只能輸入1-99" minlength="1" maxlength="2" required="required"> &nbsp&nbsp
-		人數上限:<input type="text" name="limit" pattern="^([1-9][0-9]){1,2}$" title="只能輸入1-99" minlength="1" maxlength="2" required="required"><br>
-		價錢:<input type="text" name="price" pattern="^([1-9][0-9]){1,6}$" minlength="1" maxlength="6" required="required">&nbsp&nbsp&nbsp&nbsp
+		開課人數:<input type="number" name="class_num" minlength="1" maxlength="2" required="required"> &nbsp&nbsp
+		人數上限:<input type="number" name="limit" minlength="1" maxlength="2" required="required"><br>
+		價錢:<input type="number" name="price" minlength="1" maxlength="6" required="required">&nbsp&nbsp&nbsp&nbsp
 		<span id="place">
 		場地:<select name="p_no">
 				<option value="null">無
@@ -65,7 +60,7 @@
 $(function(){
 	  $('#end').datepicker();
 	  $('#start').datepicker({
-	    minDate: +3,
+	    minDate: 0,
 	    onSelect: function (dat, inst) {
 	      $('#end').datepicker('option', 'minDate', dat);
 	    }
