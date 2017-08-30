@@ -73,10 +73,10 @@
 			<center><h1 class="center">新增課程</h1></center>
 			<font color='red'><span id="errorMsg"></span></font><br>
 			課程名稱:<br>
-				<input type="text" name="crs_name" id="crs_name" style="width:667px;"><br>
+				<input type="text" name="crs_name" id="crs_name" style="width:550px;"><br>
 				<br>
 			類別:<br>
-			<select name="category" id="category" style="width:667px;">
+			<select name="category" id="category" style="width:550px;">
 				<option name="" value="A" selected>瑜珈</option>
 				<option name="" value="B">飛輪有氧</option>
 				<option name="" value="C">舞動有氧</option>
@@ -89,7 +89,7 @@
 			</select><br>
 			<br>
 			課程內容簡述:<br>
-			<textarea name="details" rows="4" cols="80" class="text" id="details"></textarea>
+			<textarea name="details" rows="4" cols="66" class="text" id="details"></textarea>
 			<br>
 			<img src='' id="img0" width="100px" heigth="100px"
 				style="margin: 1em;"><input type='hidden' name='crs_pic_base0'
@@ -113,11 +113,11 @@
 			<center><button onclick="addPic()" class="btn btn-primary" style="border-radius:0px;">新增</button>
 			<button onclick="clearPic()" class="btn btn-default" style="border-radius:0px;">清除</button></center>
 			<div id="dropDIV" ondragover="dragoverHandler(event)"
-				ondrop="dropHandler(event)" onclick="updateFile()">
+				ondrop="dropHandler(event)" onclick="updateFile()" style="width:540px;height:350px;">
 				課程圖片 拖曳圖片到此處上傳,最多五張
 				<center>(須先加入才能新增，最多五張)</center>
 				<div id="up_progress">
-					<div id="imgDIV" style="margin-bottom: 30px;"></div>
+					<div id="imgDIV" style="margin-bottom:30px;"></div>
 				</div>
 			</div>
 			<form style="display: none;">

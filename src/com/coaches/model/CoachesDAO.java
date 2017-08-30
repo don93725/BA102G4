@@ -611,22 +611,7 @@ public class CoachesDAO implements CoachesDAO_interface{
 				coachesVO.setCoa_into(into);
 				
 			}
-			if(obj[11]!=null){
-				Blob b = (Blob)obj[11];
-				byte[] bytes;
-				try {
-					InputStream is = b.getBinaryStream(); 
-					bytes = new byte[is.available()];
-					is.read(bytes);
-					coachesVO.setCoa_pic(bytes);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+		
 			if(obj[12]!=null){
 				coachesVO.setCoa_pft(Integer.parseInt(String.valueOf(obj[12])));
 			}
