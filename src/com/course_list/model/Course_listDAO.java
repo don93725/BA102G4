@@ -1550,8 +1550,8 @@ public class Course_listDAO implements Course_listDAO_interface{
 			           +"'"+coa_acc+"'"
 			          ;
 			      
-			          
-				
+			
+			
 			System.out.println(finalSQL);
 			
 			
