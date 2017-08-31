@@ -116,7 +116,7 @@
             </div>
             
             <!-- 教練1 -->
-            <div class="col-md-4 col-md-4 col-sm-6">
+            <div class="col-md-3 col-sm-6">
 				<div class="wrap-col">
 					<div class="item-container">
 							<div class="title">
@@ -153,7 +153,7 @@
 			</div>
 			
 			<!-- 教練2 -->
-			<div class="col-md-4 col-md-4 col-sm-6">
+			<div class="col-md-3 col-sm-6">
 				<div class="wrap-col">
 					<div class="item-container ranking_coa">
 							<div class="title">
@@ -190,7 +190,7 @@
 			</div>
 			
 			<!-- 教練3 -->
-			<div class="col-md-4 col-md-4 col-sm-6">
+			<div class="col-md-3 col-sm-6">
 				<div class="wrap-col">
 					<div class="item-container ranking_coa">
 							<div class="title">
@@ -226,6 +226,45 @@
 					</div>
 				</div>
 			</div>
+			
+			<!-- 教練3 -->
+			<div class="col-md-3 col-sm-6">
+				<div class="wrap-col">
+					<div class="item-container ranking_coa">
+							<div class="title">
+								<h2>本周第三名教練</h2>
+							</div>
+						<div class="item-caption yellow">
+							<c:if test="${ fn:length(coachRank)>2 }">
+								<a href="<%= request.getContextPath() %>/MembersServlet?mem_rank=1&mem_no=${coachRank[2].coa_no}&action=lookPersonal">
+							</c:if>
+         					<c:if test="${ fn:length(coachRank)<3 }">
+								<a href="#">
+							</c:if>
+								<div class="item-caption-inner">
+									<div class="item-caption-inner1">
+            							<c:if test="${ fn:length(coachRank)>2 }">
+											<h4>${coachRank[2].coa_name }</h4></br>
+											<span>${coachRank[2].coa_into }</span>
+										</c:if>
+            							<c:if test="${ fn:length(coachRank)<3 }">
+											<h4>目前從缺</h4></br>										
+										</c:if>
+									</div>
+								</div>
+							</a>
+						</div>
+							
+							<c:if test="${ fn:length(coachRank)>2 }">
+								<img  src="<%= request.getContextPath() %>/XiangZhiPic?mem_rank=1&mem_no=${coachRank[2].coa_no}" alt=""/>
+							</c:if>
+         					<c:if test="${ fn:length(coachRank)<3 }">
+								<img  src="http://down.epchina.com/portal/201509/08/154457pee2rumj27f145bu.jpg" alt=""/>
+							</c:if>
+					</div>
+				</div>
+			</div>
+			
 	</div>
 </div>
 <!-- container2結束 -->
